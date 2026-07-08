@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Academy — Learn AI, Marketing &amp; more</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app"><div style="padding:60px 20px;text-align:center;font-family:Nunito,sans-serif;font-weight:800;color:#afafaf">Opening the Academy… 🎓</div></div>
+
+  <!--
+    LOADER
+    ------
+    1. Loads tracks.js, which defines each course (track) and its unit count.
+    2. For each track, loads <prefix>-unit1.js … <prefix>-unitN.js (N = track.count).
+    3. Starts the app.
+
+    >>> TO ADD A UNIT: drop in <prefix>-unitN.js and bump that track's `count` in tracks.js.
+        TO ADD A TRACK: add a defineTrack({...}) in tracks.js with a new prefix + files.
+    (See unit-template.txt for the shape of a unit file.)
+  -->
+  <script>
+  (function () {
+    function boot() {
+      var a = document.createElement("script");
+      a.src = "app.js";
+      document.head.appendChild(a);
+    }
+
+    // Load a list of scripts in order, skipping any that 404, then run done().
+    function loadList(list, i, done) {
+      if (i >= list.length) return done();
+      var s = document.createElement("script");
+      s.src = list[i];
+      s.onload = function () { loadList(list, i + 1, done); };
+      s.onerror = function () { loadList(list, i + 1, done); };  // skip a missing file, keep going
+      document.head.appendChild(s);
+    }
+
+    var t = document.createElement("script");
+    t.src = "tracks.js";
+    t.onload = function () {
+      var tracks = (window.ACADEMY && window.ACADEMY.tracks) || [];
+      var files = [];
+      tracks.forEach(function (tr) {
+        var n = tr.count || 0;
+        for (var i = 1; i <= n; i++) files.push((tr.prefix || tr.id) + "-unit" + i + ".js");
+      });
+      loadList(files, 0, boot);
+    };
+    t.onerror = boot;   // no tracks.js -> app will show a friendly "no tracks" message
+    document.head.appendChild(t);
+  })();
+  </script>
+</body>
+</html>

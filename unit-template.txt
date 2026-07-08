@@ -1,0 +1,57 @@
+HOW TO ADD CONTENT TO THE ACADEMY
+=================================
+
+The app loads tracks.js first (which lists each track and how many unit files it
+has), then loads every track's <prefix>-unit1.js … <prefix>-unitN.js, then starts.
+
+-------------------------------------------------------------------
+ADD A UNIT TO AN EXISTING TRACK
+-------------------------------------------------------------------
+1. Copy the block below into a NEW file named <prefix>-unit<N>.js
+   (e.g. the AI track's prefix is "ai", so the 17th unit is ai-unit17.js).
+2. Change "TRACK_ID" in the addUnit call to that track's id (ai / marketing / construction).
+3. Give every lesson a UNIQUE id within that track (l1, l2, l3 …).
+4. In tracks.js, bump that track's `count` by 1.
+5. Save and reopen index.html.
+
+-------------------------------------------------------------------
+ADD A WHOLE NEW TRACK
+-------------------------------------------------------------------
+1. In tracks.js add a line like:
+     window.ACADEMY.defineTrack({ id:"finance", prefix:"finance", count:8,
+       title:"Personal Finance", icon:"💰", color:"#58cc02",
+       blurb:"Budget, save and invest." });
+2. Add its unit files: finance-unit1.js … finance-unit8.js (using the block below,
+   with "finance" as the track id).
+3. The new track appears on the picker automatically.
+
+Question types (documented at the top of app.js):
+  mcq:        { type:"mcq", q:"...", choices:["a","b","c","d"], answer:0, explain:"..." }
+  truefalse:  { type:"truefalse", q:"...", answer:true, explain:"..." }
+  fill:       { type:"fill", q:"... ____ ...", answer:"word", accept:["word","variant"], explain:"..." }
+  order:      { type:"order", q:"...", items:["first","second","third"], explain:"..." }   // items in CORRECT order
+  match:      { type:"match", q:"...", pairs:[["Term","Def"],["Term2","Def2"]], explain:"..." }
+
+------------------------------ copy from here ------------------------------
+window.ACADEMY.addUnit("TRACK_ID", {
+  id: "unit-1",
+  title: "My New Unit",
+  color: "#a560e8",
+  icon: "🧰",
+  description: "One sentence describing what this unit teaches.",
+  lessons: [
+    {
+      id: "l1",
+      title: "My First Lesson",
+      intro: "One short sentence on what this lesson covers.",
+      questions: [
+        { type: "mcq", q: "Example question?", choices: ["Right", "Wrong", "Wrong", "Wrong"], answer: 0, explain: "Why the answer is right." },
+        { type: "truefalse", q: "This is a true statement.", answer: true, explain: "Why it is true." },
+        { type: "fill", q: "The missing word goes ____.", answer: "here", accept: ["here"], explain: "Why." },
+        { type: "order", q: "Put these in order.", items: ["First", "Second", "Third"], explain: "Why this order." },
+        { type: "match", q: "Match the pairs.", pairs: [["A", "First letter"], ["B", "Second letter"]], explain: "Why." }
+      ]
+    }
+  ]
+});
+------------------------------- to here ------------------------------------
