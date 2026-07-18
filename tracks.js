@@ -21,3 +21,10 @@ window.ACADEMY.defineTrack({ id: "bim", prefix: "bim", count: 8, title: "BIM Fun
 window.ACADEMY.defineTrack({ id: "revit", prefix: "revit", count: 16, title: "Revit", icon: "📐", color: "#ce82ff", blurb: "Autodesk Revit — families, views, schedules, worksharing, and Dynamo." });
 window.ACADEMY.defineTrack({ id: "navisworks", prefix: "navis", count: 8, title: "Navisworks", icon: "🔍", color: "#2bb3a3", blurb: "Autodesk Navisworks — federate models, detect clashes, and 4D coordinate." });
 window.ACADEMY.defineTrack({ id: "acc", prefix: "acc", count: 8, title: "ACC / Forma", icon: "☁️", color: "#a560e8", blurb: "Autodesk Construction Cloud (Forma) — Docs, coordination, and the field." });
+
+/* Psychology & behavioral-science schools of thought (25 deep units each). */
+window.ACADEMY.defineTrack({ id: "evopsych", prefix: "evopsych", count: 25, title: "Evolutionary Psychology", icon: "🧬", color: "#7c5cff", blurb: "Why the mind evolved — selection, kinship, mating, cooperation and the adapted mind." });
+window.ACADEMY.defineTrack({ id: "culture", prefix: "culture", count: 25, title: "Cultural Psychology", icon: "🌍", color: "#e08a1e", blurb: "How culture and mind shape each other — the self, cognition, emotion, and the WEIRD problem." });
+window.ACADEMY.defineTrack({ id: "behaviorism", prefix: "behavior", count: 25, title: "Behaviorism", icon: "🐕", color: "#14a58f", blurb: "The science of learning — Pavlov, Skinner, conditioning, schedules and behavior change." });
+window.ACADEMY.defineTrack({ id: "attachment", prefix: "attachment", count: 25, title: "Attachment Theory", icon: "🧸", color: "#e0518a", blurb: "How early bonds shape us — Bowlby, Ainsworth, the Strange Situation, and adult love." });
+window.ACADEMY.defineTrack({ id: "egt", prefix: "egt", count: 25, title: "Evolutionary Game Theory", icon: "♟️", color: "#3b74e0", blurb: "The math of cooperation and conflict — ESS, Hawk-Dove, and the evolution of strategy." });
