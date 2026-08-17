@@ -14,6 +14,7 @@ window.ACADEMY.addUnit = function (id, unit) { var t = window.ACADEMY._byId[id];
 
 /* Tracks appear on the picker in this order. */
 window.ACADEMY.defineTrack({ id: "ai", prefix: "ai", count: 16, title: "AI & Coding", icon: "🤖", color: "#1cb0f6", blurb: "Get fluent in AI — Claude, prompting, coding and agents." });
+window.ACADEMY.defineTrack({ id: "sysdesign", prefix: "sysdesign", count: 25, title: "System Design", icon: "🏛️", color: "#eab308", blurb: "Architect at AI speed — distributed systems, trade-offs, and running agents at the max level." });
 window.ACADEMY.defineTrack({ id: "marketing", prefix: "marketing", count: 8, title: "Marketing", icon: "📣", color: "#ff9600", blurb: "Reach and grow an audience — brand, content, channels and growth." });
 window.ACADEMY.defineTrack({ id: "cyber", prefix: "cyber", count: 10, title: "Cybersecurity", icon: "🛡️", color: "#ff4b4b", blurb: "Stay safe and build securely — for both websites and apps." });
 window.ACADEMY.defineTrack({ id: "construction", prefix: "construction", count: 13, title: "Construction", icon: "👷", color: "#58cc02", blurb: "Learn to build — the terms and process for homes and commercial." });
