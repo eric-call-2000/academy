@@ -7,6 +7,7 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 ## Tracks
 | Track | Units | Lessons | What it covers |
 |-------|-------|---------|----------------|
+| 🧑‍💻 Full-Stack Coding Lab ↗ | 9 | 65 | **Interactive coding** in [CodeLab](https://github.com/eric-call-2000/codelab) — write real HTML/CSS/JS/APIs in a browser sandbox; shares this app's profiles & XP |
 | 🤖 AI & Coding | 16 | 128 | Using AI well — Claude, prompting, models, capabilities, coding, agents, safety |
 | 📣 Marketing | 8 | 64 | Brand, audience, content, channels, metrics, growth, and marketing with AI |
 | 🛡️ Cybersecurity | 10 | 80 | Staying safe and building securely — for both websites and apps |
@@ -53,6 +54,9 @@ academy/
 └── acc-unit1.js … acc-unit8.js
 ```
 Everything is a flat file at the root — no subfolders — so uploading to a static host (e.g. GitHub Pages) is drag-and-drop simple.
+
+## The Full-Stack Coding Lab card
+The 🧑‍💻 card on the picker is an **external track**: it opens the CodeLab app (a Codecademy-style sandbox course) instead of a quiz path. Host CodeLab on the same GitHub Pages account (`https://<user>.github.io/codelab/`) and the two apps **share profiles automatically** — CodeLab records completed lessons, XP and streaks into this app's store as track `fullstack`, so they count toward each profile's totals here. Defined in `tracks.js` via the `link` property (any track with `link` becomes an open-this-URL card).
 
 ## Adding content
 - **Add a unit to a track:** drop in `<track>-unitN.js` (next number) and bump that track's `count` in `tracks.js`. See `unit-template.txt` for the shape.
