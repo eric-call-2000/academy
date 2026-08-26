@@ -254,11 +254,22 @@
       card.appendChild(el("div", "track-ic", t.icon || "🎓"));
       card.appendChild(el("div", "track-title", esc(t.title)));
       if (t.blurb) card.appendChild(el("div", "track-blurb", esc(t.blurb)));
-      var meta = doneCount > 0
-        ? (doneCount + "/" + lessonTotal + " lessons · " + (prog.xp || 0) + " XP")
-        : (lessonTotal + " lessons · start here");
+      var meta;
+      if (t.link) {
+        // External track (e.g. CodeLab): the card opens another app that
+        // syncs its progress back into this store under the same track id.
+        meta = doneCount > 0
+          ? (doneCount + " done · " + (prog.xp || 0) + " XP · open ↗")
+          : "Write real code · open ↗";
+      } else {
+        meta = doneCount > 0
+          ? (doneCount + "/" + lessonTotal + " lessons · " + (prog.xp || 0) + " XP")
+          : (lessonTotal + " lessons · start here");
+      }
       card.appendChild(el("div", "track-meta", meta));
-      card.onclick = function () { selectTrack(t.id); renderHome(); };
+      card.onclick = t.link
+        ? function () { window.location.href = t.link; }
+        : function () { selectTrack(t.id); renderHome(); };
       grid.appendChild(card);
     });
     scr.appendChild(grid);

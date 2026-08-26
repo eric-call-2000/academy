@@ -14,6 +14,10 @@ window.ACADEMY.addUnit = function (id, unit) { var t = window.ACADEMY._byId[id];
 
 /* Tracks appear on the picker in this order. */
 window.ACADEMY.defineTrack({ id: "ai", prefix: "ai", count: 16, title: "AI & Coding", icon: "🤖", color: "#1cb0f6", blurb: "Get fluent in AI — Claude, prompting, coding and agents." });
+/* External track: CodeLab (its own app, hosted next to this one). `link` makes the
+   card open that URL; CodeLab writes its progress back into this store as track
+   id "fullstack", so the XP/lesson counts below stay in sync automatically. */
+window.ACADEMY.defineTrack({ id: "fullstack", prefix: "fullstack", count: 0, link: "codelab/", title: "Full-Stack Coding Lab", icon: "🧑‍💻", color: "#0ea5e9", blurb: "Write real code in the browser — HTML, CSS, JS, APIs and a capstone app." });
 window.ACADEMY.defineTrack({ id: "sysdesign", prefix: "sysdesign", count: 25, title: "System Design", icon: "🏛️", color: "#eab308", blurb: "Architect at AI speed — distributed systems, trade-offs, and running agents at the max level." });
 window.ACADEMY.defineTrack({ id: "marketing", prefix: "marketing", count: 8, title: "Marketing", icon: "📣", color: "#ff9600", blurb: "Reach and grow an audience — brand, content, channels and growth." });
 window.ACADEMY.defineTrack({ id: "cyber", prefix: "cyber", count: 10, title: "Cybersecurity", icon: "🛡️", color: "#ff4b4b", blurb: "Stay safe and build securely — for both websites and apps." });
