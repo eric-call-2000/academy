@@ -25,9 +25,9 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "resp", prefix: "resp", title: "Responsive Design & Layout",
-  icon: "📐", color: "#2bb3a3", level: "Intermediate", hours: 6, items: 7,
-  blurb: "Flexbox, Grid and media queries — one page that looks right on every screen.",
-  files: ["resp/u1.js"]
+  icon: "📐", color: "#2bb3a3", level: "Intermediate", hours: 6, items: 30,
+  blurb: "Flexbox in depth, Grid areas, auto-fit galleries, media queries, clamp() and fluid type — one page that looks right on every screen.",
+  files: ["resp/u1.js", "resp/u2.js", "resp/u3.js", "resp/u4.js", "resp/u5.js", "resp/u6.js"]
 });
 
 window.CODELAB.defineCourse({
