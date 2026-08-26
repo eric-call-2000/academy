@@ -1,38 +1,39 @@
-/* Unit 3 — Improved Styling: Flexbox, Grid & Responsive Design */
+/* Responsive Design & Layout — Unit 1: Flexbox foundations */
 window.CODELAB.addUnit("resp", {
-  id: "layout",
-  title: "Flexbox, Grid & Responsive",
-  icon: "📐",
-  color: "#2bb3a3",
-  blurb: "Real layouts — line things up, build grids, and make it all work on phones.",
+  id: "resp-u1",
+  title: "Flexbox foundations",
+  icon: "📦",
+  blurb: "Line anything up with flexbox — rows, perfect centering, real navbars, and chip clouds that wrap on their own.",
   cheat: [
-    { h: "Flexbox essentials", lang: "css", code: ".row {\n  display: flex;          /* children line up in a row */\n  gap: 12px;              /* space between children */\n  justify-content: space-between; /* main-axis spread */\n  align-items: center;    /* cross-axis alignment */\n}" },
-    { h: "Perfect centering", lang: "css", code: ".center {\n  display: flex;\n  justify-content: center; /* horizontal */\n  align-items: center;     /* vertical */\n  height: 200px;\n}" },
-    { h: "Grid essentials", lang: "css", code: ".grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */\n  gap: 16px;\n}" },
-    { h: "Mobile-first media query", lang: "css", code: "/* phone styles first (no query) */\n.cols { display: grid; grid-template-columns: 1fr; }\n\n/* then enhance on bigger screens */\n@media (min-width: 700px) {\n  .cols { grid-template-columns: repeat(3, 1fr); }\n}" }
+    { h: "Flexbox essentials", lang: "css", code: ".row {\n  display: flex;          /* children line up in a row */\n  gap: 12px;              /* space between children */\n  justify-content: space-between; /* main-axis spread */\n  align-items: center;    /* cross-axis alignment */\n}", note: "All of it goes on the PARENT — the children just fall in line." },
+    { h: "Perfect centering", lang: "css", code: ".center {\n  display: flex;\n  justify-content: center; /* main axis */\n  align-items: center;     /* cross axis */\n  height: 240px;\n}" },
+    { h: "Column direction (the axes flip!)", lang: "css", code: ".stack {\n  display: flex;\n  flex-direction: column;  /* main axis now points DOWN */\n  align-items: center;     /* cross axis: horizontal */\n  gap: 10px;\n}", note: "justify-content always follows the main axis, wherever it points." },
+    { h: "Navbar pattern", lang: "css", code: "nav {\n  display: flex;\n  justify-content: space-between; /* logo ⟷ links */\n  align-items: center;\n}\nnav ul {\n  display: flex;\n  gap: 16px;\n  list-style: none;\n}" },
+    { h: "Wrapping rows", lang: "css", code: ".tags {\n  display: flex;\n  flex-wrap: wrap;   /* the default is nowrap! */\n  gap: 12px 8px;     /* row gap, then column gap */\n}" }
   ],
   lessons: [
 
     {
-      id: "resp-flex-1",
+      id: "resp-u1-1",
       title: "Meet Flexbox",
-      kind: "web", chip: "CSS", xp: 15,
-      brief: "By default, block elements stack vertically. **Flexbox** turns a container into a layout machine: set `display: flex` on the **parent** and its children line up in a row.\n\n- `gap` — space between children\n- `justify-content` — how children spread along the row (`flex-start`, `center`, `space-between`…)\n\nThe pills below are stacked. Make them a row.",
+      kind: "web", chip: "CSS", xp: 15, mins: 12,
+      brief: "By default, block elements stack vertically — one per line, like a grocery list. **Flexbox** turns any container into a layout machine: set `display: flex` on the **parent** and its children snap into a row.\n\n- `display: flex` — flip the switch (on the parent, never the children!)\n- `gap` — space between children, no margin fiddling\n- `justify-content` — how children spread along the row (`flex-start`, `center`, `space-between`…)\n\nThe crew pills below are stacked. Three declarations turn them into a status bar.",
       steps: [
         { text: "Turn `.row` into a flex container.",
-          test: "T.expect(T.css('.row', 'display') === 'flex', 'Set display: flex on .row (currently ' + T.css('.row', 'display') + ').');" },
+          test: "T.expect(T.css('.row', 'display') === 'flex', 'Set display: flex on .row (currently ' + T.css('.row', 'display') + '). It goes in the .row rule, not on .pill.');" },
         { text: "Add a **12px** `gap` between the pills.",
-          test: "T.expect(T.css('.row', 'gap') === '12px' || T.css('.row', 'column-gap') === '12px', 'Set gap: 12px on .row.');" },
+          test: "T.expect(T.css('.row', 'gap') === '12px' || T.css('.row', 'column-gap') === '12px', 'Add gap: 12px inside the .row rule.');" },
         { text: "Spread them across the full width with `justify-content: space-between`.",
-          test: "T.expect(T.css('.row', 'justify-content') === 'space-between', 'Set justify-content: space-between on .row.');" }
+          test: "T.expect(T.css('.row', 'justify-content') === 'space-between', 'Add justify-content: space-between to .row — first pill flush left, last flush right.');" }
       ],
       files: [
         { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <h1>Crew status</h1>\n  <div class=\"row\">\n    <div class=\"pill\">🟢 Ana</div>\n    <div class=\"pill\">🟢 Bo</div>\n    <div class=\"pill\">🌙 Cal</div>\n  </div>\n</body>\n</html>\n" },
-        { name: "styles.css", content: "body { font-family: Arial, sans-serif; }\n\n.pill {\n  background: #e0f2fe;\n  padding: 8px 14px;\n  border-radius: 999px;\n}\n\n.row {\n  /* your flexbox code here */\n}\n" }
+        { name: "styles.css", content: "body { font-family: Arial, sans-serif; }\n\n.pill {\n  background: #e0f2fe;\n  padding: 8px 14px;\n  border-radius: 999px;\n}\n\n.row {\n  /* 1) display: flex */\n  /* 2) gap: 12px */\n  /* 3) justify-content: space-between */\n}\n" }
       ],
       hints: [
         "Flex properties go on the PARENT (.row), not the children (.pill).",
-        "`display: flex;` then `gap: 12px;` then `justify-content: space-between;` — all in the .row rule."
+        "One property per step: first `display: flex;`, then `gap: 12px;`.",
+        "The finished rule: `.row { display: flex; gap: 12px; justify-content: space-between; }`"
       ],
       solution: {
         "styles.css": "body { font-family: Arial, sans-serif; }\n\n.pill {\n  background: #e0f2fe;\n  padding: 8px 14px;\n  border-radius: 999px;\n}\n\n.row {\n  display: flex;\n  gap: 12px;\n  justify-content: space-between;\n}\n"
@@ -40,163 +41,116 @@ window.CODELAB.addUnit("resp", {
     },
 
     {
-      id: "resp-flex-2",
-      title: "Centering (finally easy)",
-      kind: "web", chip: "CSS", xp: 15,
-      brief: "\"How do I center a div?\" used to be a running joke. Flexbox ended it:\n\n- `justify-content: center` centers along the **main axis** (horizontal, in a row)\n- `align-items: center` centers along the **cross axis** (vertical)\n\nCombine both on a container with a height and its child sits dead-center.",
+      id: "resp-u1-2",
+      title: "Axes & centering",
+      kind: "web", chip: "CSS", xp: 15, mins: 12,
+      brief: "Every flex container has two axes. The **main axis** is the direction items flow (horizontal in a row); the **cross axis** runs perpendicular to it.\n\n- `justify-content` — positions items along the **main** axis\n- `align-items` — positions items along the **cross** axis\n- `flex-direction: column` — flips the flow, and the axes swap jobs!\n\n`justify-content: center` + `align-items: center` = perfect centering — the trick that ended a decade of \"how do I center a div?\" jokes. Center the gem, then flip the card deck into a tidy centered column.",
+      example: { lang: "css", code: "/* row: main axis ↔, cross axis ↕ */\n.stage { display: flex; justify-content: center; align-items: center; }\n\n/* column: main axis ↕, cross axis ↔ */\n.deck { display: flex; flex-direction: column; align-items: center; }" },
       steps: [
-        { text: "Make `.stage` a flex container.",
-          test: "T.expect(T.css('.stage', 'display') === 'flex', 'Set display: flex on .stage.');" },
-        { text: "Center horizontally with `justify-content: center`.",
-          test: "T.expect(T.css('.stage', 'justify-content') === 'center', 'Set justify-content: center on .stage.');" },
-        { text: "Center vertically with `align-items: center` (the stage is 240px tall).",
-          test: "T.expect(T.css('.stage', 'align-items') === 'center', 'Set align-items: center on .stage.');\nT.expect(T.css('.stage', 'height') === '240px', 'Keep the 240px height on .stage.');" }
+        { text: "Make `.stage` a flex container and center the gem **horizontally** with `justify-content: center`.",
+          test: "T.expect(T.css('.stage', 'display') === 'flex', 'Set display: flex on .stage first.');\nT.expect(T.css('.stage', 'justify-content') === 'center', 'Add justify-content: center to .stage — that centers along the main axis (horizontal in a row).');" },
+        { text: "Center it **vertically** too with `align-items: center` (keep the 240px height — that's what gives it room to center in).",
+          test: "T.expect(T.css('.stage', 'align-items') === 'center', 'Add align-items: center to .stage — the cross axis is vertical in a row.');\nT.expect(T.css('.stage', 'height') === '240px', 'Keep height: 240px on .stage.');" },
+        { text: "Now `.deck`: make it a flex **column** (`flex-direction: column`) with `align-items: center` and a **10px** gap. In a column the cross axis is horizontal — watch the cards shrink to their content and line up down the middle.",
+          test: "T.expect(T.css('.deck', 'display') === 'flex', 'Set display: flex on .deck.');\nT.expect(T.css('.deck', 'flex-direction') === 'column', 'Add flex-direction: column to .deck.');\nT.expect(T.css('.deck', 'align-items') === 'center', 'Add align-items: center to .deck — in a column that centers HORIZONTALLY, because the axes flipped.');\nT.expect(T.css('.deck', 'gap') === '10px' || T.css('.deck', 'row-gap') === '10px', 'Add gap: 10px to .deck.');" }
       ],
       files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <div class=\"stage\">\n    <div class=\"gem\">💎 Perfectly centered</div>\n  </div>\n</body>\n</html>\n" },
-        { name: "styles.css", content: "body { font-family: Arial, sans-serif; margin: 0; }\n\n.stage {\n  height: 240px;\n  background: #0f172a;\n  /* center the gem here */\n}\n\n.gem {\n  background: white;\n  padding: 12px 18px;\n  border-radius: 12px;\n}\n" }
+        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <div class=\"stage\">\n    <div class=\"gem\">💎 Perfectly centered</div>\n  </div>\n\n  <h2>Tonight's picks</h2>\n  <div class=\"deck\">\n    <div class=\"card\">🍕 Pizza night</div>\n    <div class=\"card\">🎬 Movie marathon</div>\n    <div class=\"card\">🎲 Board games</div>\n  </div>\n</body>\n</html>\n" },
+        { name: "styles.css", content: "body { font-family: Arial, sans-serif; margin: 0; }\n\n.stage {\n  height: 240px;\n  background: #0f172a;\n  /* 1) flex, then center on BOTH axes */\n}\n\n.gem {\n  background: white;\n  padding: 12px 18px;\n  border-radius: 12px;\n}\n\nh2 { padding: 0 16px; }\n\n.deck {\n  padding: 0 16px 16px;\n  /* 2) flex COLUMN, centered on the cross axis, 10px gap */\n}\n\n.card {\n  background: #e0f2fe;\n  padding: 10px 16px;\n  border-radius: 10px;\n}\n" }
       ],
       hints: [
-        "Both centering properties go on .stage (the parent).",
-        "`justify-content` = main axis (↔ in a row), `align-items` = cross axis (↕)."
+        "Both centering properties go on the PARENT: .stage for the gem, .deck for the cards.",
+        "Row: justify-content = ↔, align-items = ↕. Column: they swap — align-items becomes the horizontal one.",
+        "The deck rule: `.deck { display: flex; flex-direction: column; align-items: center; gap: 10px; }`"
       ],
       solution: {
-        "styles.css": "body { font-family: Arial, sans-serif; margin: 0; }\n\n.stage {\n  height: 240px;\n  background: #0f172a;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.gem {\n  background: white;\n  padding: 12px 18px;\n  border-radius: 12px;\n}\n" }
+        "styles.css": "body { font-family: Arial, sans-serif; margin: 0; }\n\n.stage {\n  height: 240px;\n  background: #0f172a;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.gem {\n  background: white;\n  padding: 12px 18px;\n  border-radius: 12px;\n}\n\nh2 { padding: 0 16px; }\n\n.deck {\n  padding: 0 16px 16px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n}\n\n.card {\n  background: #e0f2fe;\n  padding: 10px 16px;\n  border-radius: 10px;\n}\n"
+      }
     },
 
     {
-      id: "resp-flex-3",
+      id: "resp-u1-3",
       title: "Build a navbar",
-      kind: "web", chip: "CSS", xp: 15,
-      brief: "The classic flexbox interview task: a **navbar** — logo on the left, links on the right, everything vertically centered.\n\nTwo flex containers do it: the `<nav>` itself, and the `<ul>` of links. You'll also want `list-style: none` to drop the bullets.",
+      kind: "web", chip: "CSS", xp: 15, mins: 12,
+      brief: "The classic flexbox interview task: a **navbar** — logo on the left, links on the right, everything vertically centered. Every site you visited today has one.\n\nTwo flex containers do the whole job:\n\n- the `<nav>` itself — `space-between` pushes logo and links to opposite ends\n- the `<ul>` of links — a small flex row of its own, with a `gap`\n\nYou'll also want `list-style: none` on the `ul` to drop the bullets — bullet points in a navbar scream 1998.",
       steps: [
         { text: "Make the `nav` a flex row with `justify-content: space-between` and `align-items: center`.",
-          test: "T.expect(T.css('nav', 'display') === 'flex', 'Set display: flex on nav.');\nT.expect(T.css('nav', 'justify-content') === 'space-between', 'Set justify-content: space-between on nav.');\nT.expect(T.css('nav', 'align-items') === 'center', 'Set align-items: center on nav.');" },
+          test: "T.expect(T.css('nav', 'display') === 'flex', 'Set display: flex on nav.');\nT.expect(T.css('nav', 'justify-content') === 'space-between', 'Add justify-content: space-between to nav — logo left, links right.');\nT.expect(T.css('nav', 'align-items') === 'center', 'Add align-items: center to nav so logo and links sit on the same line.');" },
         { text: "Make the `nav ul` a flex row with a **16px** gap.",
-          test: "T.expect(T.css('nav ul', 'display') === 'flex', 'Set display: flex on nav ul.');\nT.expect(T.css('nav ul', 'gap') === '16px' || T.css('nav ul', 'column-gap') === '16px', 'Set gap: 16px on nav ul.');" },
+          test: "T.expect(T.css('nav ul', 'display') === 'flex', 'Set display: flex on nav ul — the list items become a row of links.');\nT.expect(T.css('nav ul', 'gap') === '16px' || T.css('nav ul', 'column-gap') === '16px', 'Add gap: 16px to nav ul.');" },
         { text: "Remove the bullets: `list-style: none` on the `ul`.",
-          test: "T.expect(T.css('nav ul', 'list-style-type') === 'none', 'Set list-style: none on nav ul.');" }
+          test: "T.expect(T.css('nav ul', 'list-style-type') === 'none', 'Add list-style: none to the nav ul rule.');" }
       ],
       files: [
         { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <nav>\n    <div class=\"logo\">⚡ CodeLab</div>\n    <ul>\n      <li><a href=\"#\">Docs</a></li>\n      <li><a href=\"#\">Blog</a></li>\n      <li><a href=\"#\">About</a></li>\n    </ul>\n  </nav>\n  <h1>Welcome</h1>\n</body>\n</html>\n" },
-        { name: "styles.css", content: "body { font-family: Arial, sans-serif; margin: 0; }\n\nnav {\n  background: #0ea5e9;\n  color: white;\n  padding: 12px 20px;\n  /* flex it */\n}\n\nnav ul {\n  margin: 0;\n  padding: 0;\n  /* flex it too */\n}\n\nnav a { color: white; }\n.logo { font-weight: bold; }\n" }
+        { name: "styles.css", content: "body { font-family: Arial, sans-serif; margin: 0; }\n\nnav {\n  background: #0ea5e9;\n  color: white;\n  padding: 12px 20px;\n  /* 1) flex row: space-between, centered */\n}\n\nnav ul {\n  margin: 0;\n  padding: 0;\n  /* 2) flex row with a 16px gap */\n  /* 3) no bullets */\n}\n\nnav a { color: white; }\n.logo { font-weight: bold; }\n" }
       ],
       hints: [
         "Two separate rules get flexbox: `nav { }` and `nav ul { }`.",
-        "`list-style: none;` goes on the ul; keep its margin/padding at 0 (already set)."
+        "`space-between` on the nav is what shoves the logo and the links to opposite edges.",
+        "The ul rule: `nav ul { margin: 0; padding: 0; display: flex; gap: 16px; list-style: none; }`"
       ],
       solution: {
-        "styles.css": "body { font-family: Arial, sans-serif; margin: 0; }\n\nnav {\n  background: #0ea5e9;\n  color: white;\n  padding: 12px 20px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\nnav ul {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  gap: 16px;\n  list-style: none;\n}\n\nnav a { color: white; }\n.logo { font-weight: bold; }\n" }
+        "styles.css": "body { font-family: Arial, sans-serif; margin: 0; }\n\nnav {\n  background: #0ea5e9;\n  color: white;\n  padding: 12px 20px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\nnav ul {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  gap: 16px;\n  list-style: none;\n}\n\nnav a { color: white; }\n.logo { font-weight: bold; }\n"
+      }
     },
 
     {
-      id: "resp-grid-1",
-      title: "CSS Grid",
-      kind: "web", chip: "CSS", xp: 15,
-      brief: "Flexbox is one-dimensional (a row *or* a column). **CSS Grid** is two-dimensional — perfect for photo galleries, dashboards, card layouts.\n\n- `display: grid` on the parent\n- `grid-template-columns: repeat(3, 1fr)` → three equal columns (`1fr` = one fraction of the free space)\n- `gap` works here too\n\nTurn this pile of tiles into a 3-column gallery.",
+      id: "resp-u1-4",
+      title: "flex-wrap: when rows run out of room",
+      kind: "web", chip: "CSS", xp: 15, mins: 12,
+      brief: "Cram ten chips into one narrow flex row and watch them suffer: the default `flex-wrap: nowrap` refuses to break the line, so items squish and spill off the edge. One property saves them:\n\n- `flex-wrap: wrap` — items keep their size and tumble onto new lines\n- `gap: 12px 8px` — **two** values: row gap first (between lines), then column gap (between items)\n\nThat's a tag cloud in three declarations — no widths, no floats, and it re-flows itself at any screen size. Try it, then drag the preview edge and admire.",
+      example: { lang: "css", code: ".tags {\n  display: flex;\n  flex-wrap: wrap;   /* items tumble onto new lines */\n  gap: 12px 8px;     /* row gap, column gap */\n}" },
       steps: [
-        { text: "Make `.gallery` a grid container.",
-          test: "T.expect(T.css('.gallery', 'display') === 'grid', 'Set display: grid on .gallery.');" },
-        { text: "Give it **3 equal columns** with `repeat(3, 1fr)`.",
-          test: "var v = (T.decl('.gallery', 'grid-template-columns') || '').replace(/\\s+/g, '');\nT.expect(v.indexOf('repeat(3,1fr)') !== -1 || v === '1fr1fr1fr', 'Set grid-template-columns: repeat(3, 1fr) on .gallery.');" },
-        { text: "Space the tiles with a **10px** gap.",
-          test: "T.expect(T.css('.gallery', 'gap') === '10px' || (T.css('.gallery', 'row-gap') === '10px' && T.css('.gallery', 'column-gap') === '10px'), 'Set gap: 10px on .gallery.');" }
+        { text: "Turn `.tags` into a flex container. (Ten chips forced onto ONE line — in this narrow preview they squish. That's `nowrap`, the default, doing its stubborn thing.)",
+          test: "T.expect(T.css('.tags', 'display') === 'flex', 'Set display: flex on .tags (currently ' + T.css('.tags', 'display') + ').');" },
+        { text: "Let them break onto new lines: `flex-wrap: wrap`.",
+          test: "T.expect(T.css('.tags', 'flex-wrap') === 'wrap', 'Add flex-wrap: wrap to .tags — the default nowrap keeps everything on one squished line.');" },
+        { text: "Space the cloud with `gap: 12px 8px` — **12px between rows**, **8px between chips**.",
+          test: "T.expect(T.css('.tags', 'row-gap') === '12px', 'The FIRST gap value is the row gap — write gap: 12px 8px on .tags.');\nT.expect(T.css('.tags', 'column-gap') === '8px', 'The SECOND gap value is the column gap — write gap: 12px 8px on .tags.');" }
       ],
       files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <h1>Trip photos</h1>\n  <div class=\"gallery\">\n    <div class=\"tile\">🌋</div>\n    <div class=\"tile\">🏜️</div>\n    <div class=\"tile\">🏔️</div>\n    <div class=\"tile\">🌊</div>\n    <div class=\"tile\">🌲</div>\n    <div class=\"tile\">🌅</div>\n  </div>\n</body>\n</html>\n" },
-        { name: "styles.css", content: "body { font-family: Arial, sans-serif; }\n\n.tile {\n  background: #ccfbf1;\n  font-size: 40px;\n  text-align: center;\n  padding: 24px 0;\n  border-radius: 10px;\n}\n\n.gallery {\n  /* grid code here */\n}\n" }
+        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <h1>Skills I'm learning</h1>\n  <div class=\"tags\">\n    <div class=\"chip\">HTML</div>\n    <div class=\"chip\">CSS</div>\n    <div class=\"chip\">Flexbox</div>\n    <div class=\"chip\">Grid</div>\n    <div class=\"chip\">Media queries</div>\n    <div class=\"chip\">JavaScript</div>\n    <div class=\"chip\">Responsive design</div>\n    <div class=\"chip\">Accessibility</div>\n    <div class=\"chip\">Git</div>\n    <div class=\"chip\">Debugging</div>\n  </div>\n</body>\n</html>\n" },
+        { name: "styles.css", content: "body { font-family: Arial, sans-serif; }\n\n.chip {\n  background: #ede9fe;\n  padding: 6px 14px;\n  border-radius: 999px;\n  white-space: nowrap;\n}\n\n.tags {\n  /* 1) display: flex — watch the chips squish onto one line */\n  /* 2) flex-wrap: wrap */\n  /* 3) gap: 12px 8px  (row gap, then column gap) */\n}\n" }
       ],
       hints: [
-        "Grid properties go on the container (.gallery), the tiles just flow in.",
-        "`grid-template-columns: repeat(3, 1fr);` is shorthand for `1fr 1fr 1fr`."
+        "All three declarations go on the container (.tags) — the chips need no changes.",
+        "gap with TWO values: the first number is vertical (between wrapped lines), the second is horizontal (between chips).",
+        "The finished rule: `.tags { display: flex; flex-wrap: wrap; gap: 12px 8px; }`"
       ],
       solution: {
-        "styles.css": "body { font-family: Arial, sans-serif; }\n\n.tile {\n  background: #ccfbf1;\n  font-size: 40px;\n  text-align: center;\n  padding: 24px 0;\n  border-radius: 10px;\n}\n\n.gallery {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px;\n}\n" }
+        "styles.css": "body { font-family: Arial, sans-serif; }\n\n.chip {\n  background: #ede9fe;\n  padding: 6px 14px;\n  border-radius: 999px;\n  white-space: nowrap;\n}\n\n.tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px 8px;\n}\n"
+      }
     },
 
     {
-      id: "resp-media-1",
-      title: "Media queries: mobile-first",
-      kind: "web", chip: "CSS", xp: 15,
-      brief: "Half the web's traffic is phones — including you, right now! **Responsive design** means one page that adapts to any screen.\n\nThe **mobile-first** recipe:\n\n- Write your default styles for small screens (single column)\n- Then add `@media (min-width: 700px) { … }` blocks that *enhance* the layout when there's room\n\nHere the `.features` list should be one column on phones and three columns on wide screens.",
-      example: { lang: "css", code: "@media (min-width: 700px) {\n  .features {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}" },
-      steps: [
-        { text: "Base (mobile) styles: make `.features` a grid with **one** column (`grid-template-columns: 1fr`).",
-          test: "T.expect(T.css('.features', 'display') === 'grid', 'Set display: grid on .features.');\nvar v = (T.decl('.features', 'grid-template-columns') || '').replace(/\\s+/g, '');\nT.expect(v === '1fr', 'Outside any media query, .features should have grid-template-columns: 1fr.');" },
-        { text: "Add a media query for `(min-width: 700px)`.",
-          test: "T.expect(T.hasMedia('(min-width:700px)'), 'Add an @media (min-width: 700px) { … } block.');" },
-        { text: "Inside it, switch `.features` to **3 columns**.",
-          test: "var v = (T.mediaDecl('(min-width:700px)', '.features', 'grid-template-columns') || '').replace(/\\s+/g, '');\nT.expect(v.indexOf('repeat(3,1fr)') !== -1 || v === '1fr1fr1fr', 'Inside the media query, set .features { grid-template-columns: repeat(3, 1fr); }');" }
-      ],
-      files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <h1>Why CodeLab?</h1>\n  <div class=\"features\">\n    <div class=\"feature\">📱 Works on your phone</div>\n    <div class=\"feature\">✅ Checks your code</div>\n    <div class=\"feature\">🚀 Real projects</div>\n  </div>\n</body>\n</html>\n" },
-        { name: "styles.css", content: "body { font-family: Arial, sans-serif; }\n\n.feature {\n  background: #ccfbf1;\n  padding: 18px;\n  border-radius: 12px;\n}\n\n.features {\n  gap: 12px;\n  /* 1) mobile-first grid here */\n}\n\n/* 2) media query here */\n" }
-      ],
-      hints: [
-        "Base rule first: `.features { display: grid; grid-template-columns: 1fr; }`",
-        "Then below it: `@media (min-width: 700px) { .features { grid-template-columns: repeat(3, 1fr); } }`",
-        "Drag the preview wider/narrower (or run on desktop) to watch it snap between layouts."
-      ],
-      solution: {
-        "styles.css": "body { font-family: Arial, sans-serif; }\n\n.feature {\n  background: #ccfbf1;\n  padding: 18px;\n  border-radius: 12px;\n}\n\n.features {\n  gap: 12px;\n  display: grid;\n  grid-template-columns: 1fr;\n}\n\n@media (min-width: 700px) {\n  .features {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n" }
-    },
-
-    {
-      id: "resp-quiz",
-      title: "Layout checkpoint quiz",
+      id: "resp-quiz-1",
+      title: "Unit 1 quiz: Flexbox basics",
       kind: "quiz", xp: 10,
       questions: [
-        { q: "Where do `display: flex` and `justify-content` go?",
-          choices: ["On the parent container", "On each child", "On the <body> only", "On the first child only"],
-          answer: 0, explain: "Flexbox works by styling the CONTAINER; the children fall in line." },
-        { q: "Which pair centers a child both ways in a flex container?",
-          choices: ["`justify-content: center` + `align-items: center`", "`text-align: center` + `vertical-align: middle`", "`margin: center` + `padding: center`", "`center: both`"],
-          answer: 0, explain: "justify-content handles the main axis, align-items the cross axis." },
-        { q: "What does `1fr` mean in `grid-template-columns: repeat(3, 1fr)`?",
-          choices: ["One fraction of the available space — so 3 equal columns", "One pixel", "The first row", "1% of the screen"],
-          answer: 0, explain: "fr units split the free space proportionally; three 1fr columns are equal thirds." },
-        { q: "Flexbox vs Grid — the classic rule of thumb?",
-          choices: ["Flexbox for one dimension (a row OR column), Grid for two", "Grid is old, Flexbox replaces it", "Flexbox is only for text", "They can't be used on the same page"],
-          answer: 0, explain: "Both are great; Grid shines when you're controlling rows AND columns at once." },
-        { q: "What does this media query do?",
-          code: "@media (min-width: 700px) {\n  .cols { grid-template-columns: repeat(3, 1fr); }\n}",
+        { q: "Flexbox starts with `display: flex` — on which element does it go?",
+          choices: ["On every child you want in the row", "On the <body>, always", "On the parent container — the children become flex items automatically", "On the first child only"],
+          answer: 2, explain: "Flexbox is a container system: the parent gets display: flex (plus gap, justify-content…) and its direct children fall in line." },
+        { q: "In a flex ROW, which property moves children up and down (the cross axis)?",
+          choices: ["justify-content", "align-items", "text-align", "flex-direction"],
+          answer: 1, explain: "In a row the main axis is horizontal (justify-content's job) and the cross axis is vertical — that's align-items." },
+        { q: "What does `justify-content: center` do in this rule?",
+          code: ".stack {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}",
           lang: "css",
-          choices: ["Applies 3 columns only when the screen is 700px or wider", "Applies 3 columns only on phones", "Limits the page width to 700px", "Loads a different stylesheet"],
-          answer: 0, explain: "min-width: 700px = \"from 700px and up\". That's the mobile-first pattern: small screens get the default styles." },
-        { q: "\"Mobile-first\" means…",
-          choices: ["Default styles target small screens; media queries enhance larger ones", "You must build a separate mobile site", "Testing on a phone before launch", "Using only flexbox"],
-          answer: 0, explain: "Write the phone layout as the baseline, then layer on desktop upgrades with min-width queries." }
+          choices: ["Centers the items horizontally", "Nothing — justify-content only works in rows", "Centers the text inside each item", "Centers the items VERTICALLY — in a column the main axis points down"],
+          answer: 3, explain: "flex-direction: column rotates the main axis to vertical, and justify-content always follows the main axis wherever it points." },
+        { q: "A flex row holds more chips than fit. With default settings, what happens?",
+          choices: ["They stay on one line, squishing or overflowing — the default is flex-wrap: nowrap", "They wrap onto new lines automatically", "The extra chips are hidden", "The container grows taller to fit them"],
+          answer: 0, explain: "nowrap is the default: flex fights to keep a single line, shrinking items and overflowing if it must. Wrapping is opt-in with flex-wrap: wrap." },
+        { q: "What does this declaration mean?",
+          code: ".tags { gap: 24px 12px; }",
+          lang: "css",
+          choices: ["24px on the left side, 12px on the right", "A 24px gap on wide screens, 12px on phones", "24px between rows, 12px between items in a row", "It's invalid — gap takes exactly one value"],
+          answer: 2, explain: "Two-value gap is row-gap then column-gap — especially handy once a flex row wraps onto multiple lines." },
+        { q: "Which value spreads flex children so the first touches the left edge, the last touches the right, with equal space between them?",
+          choices: ["justify-content: center", "justify-content: space-between", "align-items: stretch", "gap: auto"],
+          answer: 1, explain: "space-between pushes the outer items flush to the edges and distributes the leftover space evenly between neighbors — the navbar special." }
       ]
-    },
-
-    {
-      id: "resp-project",
-      title: "Project: Responsive landing page",
-      kind: "web", chip: "CSS", xp: 40, project: true,
-      brief: "Build the layout for a **product landing page**: a centered hero and a responsive feature grid. This is the exact skeleton of a thousand real startup sites.\n\nMobile-first: single column by default, three columns from 700px up.",
-      steps: [
-        { text: "Make `.hero` a flex **column**, centered: `flex-direction: column`, `align-items: center`, `justify-content: center`, and keep its height.",
-          test: "T.expect(T.css('.hero', 'display') === 'flex', 'Set display: flex on .hero.');\nT.expect(T.css('.hero', 'flex-direction') === 'column', 'Set flex-direction: column on .hero.');\nT.expect(T.css('.hero', 'align-items') === 'center', 'Set align-items: center on .hero.');\nT.expect(T.css('.hero', 'justify-content') === 'center', 'Set justify-content: center on .hero.');" },
-        { text: "Style `.cta` as a pill button: background `#0ea5e9`, white text, `border-radius: 999px`.",
-          test: "T.expect(T.css('.cta', 'background-color') === 'rgb(14, 165, 233)', 'Give .cta background #0ea5e9.');\nT.expect(T.css('.cta', 'color') === 'rgb(255, 255, 255)', 'Give .cta white text.');\nT.expect(T.css('.cta', 'border-top-left-radius') === '999px', 'Round .cta with border-radius: 999px.');" },
-        { text: "Make `.features` a single-column grid with a **14px** gap (mobile default).",
-          test: "T.expect(T.css('.features', 'display') === 'grid', 'Set display: grid on .features.');\nvar v = (T.decl('.features', 'grid-template-columns') || '').replace(/\\s+/g, '');\nT.expect(v === '1fr', 'Base .features should be one column (grid-template-columns: 1fr).');\nT.expect(T.css('.features', 'gap') === '14px' || T.css('.features', 'row-gap') === '14px', 'Set gap: 14px on .features.');" },
-        { text: "From **700px** wide, switch `.features` to 3 columns with a media query.",
-          test: "T.expect(T.hasMedia('(min-width:700px)'), 'Add @media (min-width: 700px) { … }.');\nvar v = (T.mediaDecl('(min-width:700px)', '.features', 'grid-template-columns') || '').replace(/\\s+/g, '');\nT.expect(v.indexOf('repeat(3,1fr)') !== -1 || v === '1fr1fr1fr', 'Inside it, give .features three 1fr columns.');" },
-        { text: "Give each `.feature` card a white background and rounded corners (≥ 10px).",
-          test: "var cards = T.$$('.feature');\nT.expect(cards.length >= 3, 'Keep the three .feature cards.');\nvar ok = cards.every(function (c) { var cs = getComputedStyle(c); return cs.backgroundColor === 'rgb(255, 255, 255)' && parseInt(cs.borderTopLeftRadius) >= 10; });\nT.expect(ok, 'Every .feature needs a white background and border-radius of at least 10px.');" }
-      ],
-      files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <section class=\"hero\">\n    <h1>Ship your ideas</h1>\n    <p>The fastest way to go from sketch to site.</p>\n    <a class=\"cta\" href=\"#\">Start free</a>\n  </section>\n\n  <section class=\"features\">\n    <div class=\"feature\">\n      <h2>⚡ Fast</h2>\n      <p>Loads before you blink.</p>\n    </div>\n    <div class=\"feature\">\n      <h2>📱 Responsive</h2>\n      <p>Gorgeous on any screen.</p>\n    </div>\n    <div class=\"feature\">\n      <h2>🔒 Secure</h2>\n      <p>Locked down by default.</p>\n    </div>\n  </section>\n</body>\n</html>\n" },
-        { name: "styles.css", content: "body {\n  font-family: Arial, sans-serif;\n  margin: 0;\n  background: #f1f5f9;\n}\n\n.hero {\n  height: 260px;\n  background: #0f172a;\n  color: white;\n  text-align: center;\n  /* 1) flex column, centered */\n}\n\n.cta {\n  text-decoration: none;\n  padding: 12px 24px;\n  /* 2) pill button */\n}\n\n.features {\n  padding: 16px;\n  /* 3) mobile-first grid */\n}\n\n.feature {\n  padding: 16px;\n  /* 5) card look */\n}\n\n/* 4) media query for wide screens */\n" }
-      ],
-      hints: [
-        "The hero needs FOUR declarations: display, flex-direction, align-items, justify-content.",
-        "Media query goes at the bottom: `@media (min-width: 700px) { .features { grid-template-columns: repeat(3, 1fr); } }`",
-        "If a color check fails, copy the exact hex from the checkpoint text."
-      ],
-      solution: {
-        "styles.css": "body {\n  font-family: Arial, sans-serif;\n  margin: 0;\n  background: #f1f5f9;\n}\n\n.hero {\n  height: 260px;\n  background: #0f172a;\n  color: white;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\n.cta {\n  text-decoration: none;\n  padding: 12px 24px;\n  background-color: #0ea5e9;\n  color: white;\n  border-radius: 999px;\n}\n\n.features {\n  padding: 16px;\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 14px;\n}\n\n.feature {\n  padding: 16px;\n  background-color: white;\n  border-radius: 12px;\n}\n\n@media (min-width: 700px) {\n  .features {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n" }
     }
   ]
 });
