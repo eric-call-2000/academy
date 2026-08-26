@@ -2,19 +2,21 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**8 courses · ~55 hours · 228 items and growing** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). Courses lazy-load, so the app opens instantly even as the catalog grows.
+**8 courses · ~69 hours · 304 items — the full path, complete** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). 251 coding lessons including 30 guided projects, 53 quizzes, 827 auto-graded checkpoints. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 ## The catalog
 
 **Hours describe the material that is actually in the files.** The validator models each
 item at 10 min (30 for a project, 5 for a quiz) and **fails the build if a course
 advertises more than 2× what it holds** — so these numbers cannot drift back into fiction.
+The model puts the catalog at **~65h**; the advertised ~69h is the same material at a
+learner's pace rather than an author's.
 
-The three remaining seed courses also carry a **target**: the Codecademy-length they are aimed at
-(Learn HTML ≈ 9h, Learn CSS 14h, Learn JavaScript 17h, Intermediate JS 15h, Node 5h per
-their catalog listings). Ambition lives in `targetHours`, which is never advertised as
-material. When a seed course is filled out, raise its `hours` to meet the target and drop
-`targetHours` from `courses.js`.
+Course sizes are aimed at real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS 14h,
+Learn JavaScript 17h, Intermediate JS 15h, Node 5h per their catalog listings). No course
+carries a `targetHours` any more: **every one of them is full-depth**, so the ambition and
+the content are the same number. A new course starts with `targetHours` for its goal and an
+honest `hours` for what it holds, then trades one for the other as it fills out.
 
 | # | Course | Hours | Status |
 |---|--------|-------|--------|
@@ -23,11 +25,11 @@ material. When a seed course is filled out, raise its `hours` to meet the target
 | 3 | 📐 **Responsive Design & Layout** | ~6h | ✅ Full — 6 units, 30 items: flexbox foundations & deep dive (grow/shrink/basis), CSS Grid (areas, auto-fit + minmax), media queries & mobile-first, fluid units (clamp!), flexible media, 2 final projects incl. a responsive dashboard |
 | 4 | ⚡ **Learn JavaScript** | ~14h | ✅ Full — 8 units, 50 items: basics, arrays & objects, conditionals & logic, functions deep dive (closures!), loops, strings & numbers toolbox, objects & sorting, 3 final projects incl. a text-adventure engine and a quiz engine |
 | 5 | 🖱️ **Building Interactive Websites** | ~8h | ✅ Full — 8 units, 40 items: DOM selection & creation, traversal & dataset, events in depth (delegation!), forms & live validation, hand-built components (tabs, modal, accordion), the state→render loop, timers & rAF, 3 projects incl. a carousel and a memory game |
-| 6 | 📡 Async JavaScript & APIs | ~2h *(target 6h)* | 🌱 Seed unit live — 7 items; expanding |
-| 7 | 🖥️ Back-End Foundations | ~2h *(target 8h)* | 🌱 Seed unit live — 7 items; expanding |
-| 8 | 🚀 Full-Stack Capstone | ~2h *(target 6h)* | 🌱 Seed unit live — 6 items; expanding |
+| 6 | 📡 **Async JavaScript & APIs** | ~6h | ✅ Full — 6 units, 30 items: callbacks → promises → async/await, fetch & JSON, error handling (`res.ok`, try/catch, loading & error UI), POST/PUT/DELETE, async patterns (Promise.all, debounce, timeout & retry), 2 projects incl. a CRUD client |
+| 7 | 🖥️ **Back-End Foundations** | ~8h | ✅ Full — 8 units, 38 items: request→response, routing & status codes, the data layer & full REST resource, query params & headers, middleware chains, token auth, validation/error envelopes/pagination, 2 API projects incl. a blog API with auth |
+| 8 | 🚀 **Full-Stack Capstone** | ~6h | ✅ Full — 6 units, 28 items: TaskMaster (state-driven + localStorage), client ↔ server in one page, optimistic UI with rollback, JSON export/import & autosave, accessibility polish, and **NoteStream** — the full-stack finale |
 
-**208 of the 228 items sit in the five full courses.** The three seed courses — Async, Back-End and the Capstone — hold 20 between them: real, complete lessons, just one unit deep so far. Responsive Design was the fourth until wave 5 filled it out to six units.
+**No seed courses remain.** Async, Back-End and the Capstone were the last three — one unit deep each until waves 6–8 filled them out, the same way wave 5 finished Responsive Design. Every hours figure above is backed by the items beside it.
 
 Every course has its own units, per-unit **cheatsheets**, **quizzes** (80% to pass), **guided projects**, and a **certificate** on completion — plus a whole-path certificate when everything's done.
 
@@ -61,9 +63,14 @@ codelab/
 ├── runner.js             # sandbox runner + checkpoint grader (worker/iframe)
 ├── app.js                # screens: profiles → catalog → course → lesson
 ├── styles.css            # mobile-first UI
-├── html/u1.js … u7.js    # Learn HTML units
-├── css/u1.js … u7.js     # Learn CSS units
-├── resp/ js/ dom/ async/ srv/ cap/   # the other courses' units
+├── html/u1.js … u7.js    # Learn HTML units          (44 items)
+├── css/u1.js … u7.js     # Learn CSS units           (44 items)
+├── resp/u1.js … u6.js    # Responsive Design         (30 items)
+├── js/u1.js … u8.js      # Learn JavaScript          (50 items)
+├── dom/u1.js … u8.js     # Interactive Websites      (40 items)
+├── async/u1.js … u6.js   # Async JavaScript & APIs   (30 items)
+├── srv/u1.js … u8.js     # Back-End Foundations      (38 items)
+├── cap/u1.js … u6.js     # Full-Stack Capstone       (28 items)
 ├── server.js, manifest.webmanifest, icons/, .nojekyll
 └── tools/validate.js     # runs EVERY lesson's solution in real Chromium
 ```
