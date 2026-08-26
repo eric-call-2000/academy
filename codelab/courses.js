@@ -32,9 +32,9 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "js", prefix: "js", title: "Learn JavaScript",
-  icon: "⚡", color: "#1cb0f6", level: "Beginner", hours: 15, items: 15,
-  blurb: "The language of the web — variables, logic, functions, loops, arrays, objects and iterators.",
-  files: ["js/u1.js", "js/u2.js"]
+  icon: "⚡", color: "#1cb0f6", level: "Beginner", hours: 14, items: 50,
+  blurb: "The language of the web — variables, logic, functions, closures, loops, data and eight units of real programs.",
+  files: ["js/u1.js", "js/u2.js", "js/u3.js", "js/u4.js", "js/u5.js", "js/u6.js", "js/u7.js", "js/u8.js"]
 });
 
 window.CODELAB.defineCourse({

@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**8 courses · ~70 hours · 138 items and growing** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). Courses lazy-load, so the app opens instantly even as the catalog grows.
+**8 courses · ~70 hours · 173 items and growing** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). Courses lazy-load, so the app opens instantly even as the catalog grows.
 
 ## The catalog
 
@@ -13,7 +13,7 @@ Course sizes mirror real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS
 | 1 | 🧱 **Learn HTML** | ~10h | ✅ Full — 7 units, 44 items: structure, text/links/images, tables, forms, semantics & accessibility, media, 3 final projects |
 | 2 | 🎨 **Learn CSS** | ~11h | ✅ Full — 7 units, 44 items: selectors & cascade, typography, box model, positioning, colors, motion/animations, 2 final projects |
 | 3 | 📐 Responsive Design & Layout | ~6h | 🌱 Seed unit live; expanding |
-| 4 | ⚡ Learn JavaScript | ~15h | 🌱 2 seed units live; expanding |
+| 4 | ⚡ **Learn JavaScript** | ~14h | ✅ Full — 8 units, 50 items: basics, arrays & objects, conditionals & logic, functions deep dive (closures!), loops, strings & numbers toolbox, objects & sorting, 3 final projects incl. a text-adventure engine and a quiz engine |
 | 5 | 🖱️ Building Interactive Websites | ~8h | 🌱 Seed unit live; expanding |
 | 6 | 📡 Async JavaScript & APIs | ~6h | 🌱 Seed unit live; expanding |
 | 7 | 🖥️ Back-End Foundations | ~8h | 🌱 Seed unit live; expanding |
