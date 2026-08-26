@@ -2,11 +2,21 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**8 courses · ~65 hours · 304 items — the full path, complete** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). 251 coding lessons including 30 guided projects, 53 quizzes, 827 auto-graded checkpoints. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**8 courses · ~69 hours · 304 items — the full path, complete** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). 251 coding lessons including 30 guided projects, 53 quizzes, 827 auto-graded checkpoints. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 ## The catalog
 
-Course sizes mirror real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS 14h, Learn JavaScript 17h, Intermediate JS 15h, Node 5h per their catalog listings). **Every course is now full-depth** — front end to back end to capstone:
+**Hours describe the material that is actually in the files.** The validator models each
+item at 10 min (30 for a project, 5 for a quiz) and **fails the build if a course
+advertises more than 2× what it holds** — so these numbers cannot drift back into fiction.
+The model puts the catalog at **~65h**; the advertised ~69h is the same material at a
+learner's pace rather than an author's.
+
+Course sizes are aimed at real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS 14h,
+Learn JavaScript 17h, Intermediate JS 15h, Node 5h per their catalog listings). No course
+carries a `targetHours` any more: **every one of them is full-depth**, so the ambition and
+the content are the same number. A new course starts with `targetHours` for its goal and an
+honest `hours` for what it holds, then trades one for the other as it fills out.
 
 | # | Course | Hours | Status |
 |---|--------|-------|--------|
@@ -18,6 +28,8 @@ Course sizes mirror real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS
 | 6 | 📡 **Async JavaScript & APIs** | ~6h | ✅ Full — 6 units, 30 items: callbacks → promises → async/await, fetch & JSON, error handling (`res.ok`, try/catch, loading & error UI), POST/PUT/DELETE, async patterns (Promise.all, debounce, timeout & retry), 2 projects incl. a CRUD client |
 | 7 | 🖥️ **Back-End Foundations** | ~8h | ✅ Full — 8 units, 38 items: request→response, routing & status codes, the data layer & full REST resource, query params & headers, middleware chains, token auth, validation/error envelopes/pagination, 2 API projects incl. a blog API with auth |
 | 8 | 🚀 **Full-Stack Capstone** | ~6h | ✅ Full — 6 units, 28 items: TaskMaster (state-driven + localStorage), client ↔ server in one page, optimistic UI with rollback, JSON export/import & autosave, accessibility polish, and **NoteStream** — the full-stack finale |
+
+**No seed courses remain.** Async, Back-End and the Capstone were the last three — one unit deep each until waves 6–8 filled them out, the same way wave 5 finished Responsive Design. Every hours figure above is backed by the items beside it.
 
 Every course has its own units, per-unit **cheatsheets**, **quizzes** (80% to pass), **guided projects**, and a **certificate** on completion — plus a whole-path certificate when everything's done.
 
@@ -82,4 +94,17 @@ codelab/
 
 **A course** — `defineCourse({...})` in `courses.js` + a folder of unit files.
 
-**Always validate**: `node tools/validate.js` (needs `playwright-core` + Chromium) — it boots the app, checks manifest counts and id prefixes, runs every solution (must pass) and starter (must not), and smoke-tests the phone UI.
+**Always validate**:
+
+```bash
+npm install     # once — pulls playwright-core, downloads no browsers
+npm run validate
+```
+
+It boots the app, checks manifest counts, id prefixes and advertised hours, runs every
+solution (must pass) and every starter (must not), and smoke-tests the phone UI including
+the Academy store sync. Exit code is non-zero on any failure.
+
+It drives a browser you already have — Chrome, then Edge — rather than downloading one,
+since Smart App Control blocks unsigned binaries here. Set `CHROMIUM_PATH` to point it
+somewhere else.

@@ -15,6 +15,29 @@ let failures = [];
 function fail(msg) { failures.push(msg); console.log("  ✗ " + msg); }
 function ok(msg) { console.log("  ✓ " + msg); }
 
+/* Find a Chromium to drive. playwright-core ships no browser of its own — that is the
+   point of it here, since Smart App Control blocks the binaries the full `playwright`
+   package would download. Order: explicit override, then Chrome, then Edge (always on
+   Windows 11), then the Linux CI path this originally hardcoded. */
+function findBrowser() {
+  const fs = require("fs");
+  const candidates = [
+    process.env.CHROMIUM_PATH,
+    process.env.ProgramFiles && path.join(process.env.ProgramFiles, "Google/Chrome/Application/chrome.exe"),
+    process.env["ProgramFiles(x86)"] && path.join(process.env["ProgramFiles(x86)"], "Google/Chrome/Application/chrome.exe"),
+    process.env.LOCALAPPDATA && path.join(process.env.LOCALAPPDATA, "Google/Chrome/Application/chrome.exe"),
+    process.env["ProgramFiles(x86)"] && path.join(process.env["ProgramFiles(x86)"], "Microsoft/Edge/Application/msedge.exe"),
+    process.env.ProgramFiles && path.join(process.env.ProgramFiles, "Microsoft/Edge/Application/msedge.exe"),
+    "/opt/pw-browsers/chromium",
+  ].filter(Boolean);
+
+  for (const c of candidates) {
+    try { if (fs.existsSync(c)) { console.log("  browser: " + c); return c; } } catch (e) {}
+  }
+  console.error("\nNo Chromium found. Install Chrome or Edge, or set CHROMIUM_PATH.\nLooked in:\n  " + candidates.join("\n  "));
+  process.exit(1);
+}
+
 /* ---------------- phase 0: static checks ---------------- */
 function phase0() {
   console.log("\n== Phase 0: static curriculum checks ==");
@@ -32,6 +55,7 @@ function phase0() {
   let totals = { lessons: 0, quizzes: 0, projects: 0, steps: 0, questions: 0, mins: 0 };
   for (const course of window.CODELAB.courses) {
     let count = 0;
+    let courseMins = 0;
     for (const unit of course.units) {
       if (!unit.cheat || !unit.cheat.length) fail(`unit ${unit.id || unit.title} (${course.id}): missing cheatsheet`);
       for (const l of unit.lessons) {
@@ -39,7 +63,9 @@ function phase0() {
         if (ids.has(l.id)) fail(`duplicate lesson id: ${l.id}`);
         ids.add(l.id);
         if (l.id.indexOf(course.prefix + "-") !== 0) fail(`${l.id}: id must start with "${course.prefix}-"`);
-        totals.mins += l.mins || (l.kind === "quiz" ? 5 : l.project ? 30 : 10);
+        const lessonMins = l.mins || (l.kind === "quiz" ? 5 : l.project ? 30 : 10);
+        totals.mins += lessonMins;
+        courseMins += lessonMins;
         if (l.kind === "quiz") {
           totals.quizzes++;
           totals.questions += (l.questions || []).length;
@@ -64,7 +90,18 @@ function phase0() {
       }
     }
     if (count !== course.items) fail(`course ${course.id}: manifest items=${course.items} but files register ${count}`);
-    console.log(`  ${course.id}: ${count} items (manifest ${course.items}) ~${course.hours}h`);
+
+    /* Guard against the failure this repo already had once: a course advertising
+       8 hours while holding 7 items. `hours` is a learner-pace estimate so it sits
+       above the raw model (10 min/lesson, 30/project, 5/quiz) — but more than 2x
+       above it means the number is aspiration, not content. Put that in
+       `targetHours` instead, which is not advertised as material. */
+    const modelHours = courseMins / 60;
+    if (course.hours > modelHours * 2)
+      fail(`course ${course.id}: advertises ${course.hours}h but only holds ~${modelHours.toFixed(1)}h of material (${count} items) — move the ambition to targetHours`);
+
+    const target = course.targetHours ? `, target ${course.targetHours}h` : "";
+    console.log(`  ${course.id}: ${count} items (manifest ${course.items}) ~${course.hours}h (model ~${modelHours.toFixed(1)}h${target})`);
   }
   console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ~${Math.round(totals.mins / 60)}h of material`);
   delete global.window;
@@ -77,7 +114,7 @@ async function main() {
   const server = spawn("node", ["server.js"], { cwd: ROOT, stdio: "ignore" });
   await new Promise(r => setTimeout(r, 700));
 
-  const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || "/opt/pw-browsers/chromium", headless: true });
+  const browser = await chromium.launch({ executablePath: findBrowser(), headless: true });
 
   /* ---- phase 1: run every lesson through the real sandbox ---- */
   console.log("\n== Phase 1: solution/starter runs in Chromium ==");

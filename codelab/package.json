@@ -1,0 +1,21 @@
+{
+  "name": "codelab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CodeLab — the Full-Stack Engineer Path sandbox course inside Academy.",
+  "scripts": {
+    "start": "node server.js",
+    "validate": "node tools/validate.js"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.62.1"
+  },
+  "comment": [
+    "playwright-core is deliberate: it drives an EXISTING browser and downloads no",
+    "binaries. The full 'playwright' package fetches its own Chromium, which Smart",
+    "App Control blocks on this machine.",
+    "",
+    "tools/validate.js finds a browser in this order: CHROMIUM_PATH, then installed",
+    "Chrome, then Edge, then the Linux CI path. Set CHROMIUM_PATH to override."
+  ]
+}

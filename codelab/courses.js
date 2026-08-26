@@ -6,7 +6,10 @@
    those files (validated by tools/validate.js). `prefix` = the
    required prefix of every lesson id in the course ("html" →
    ids like "html-…"), used to count progress before loading.
-   `hours` mirrors real Codecademy course lengths.
+   `hours` = the material actually in the files, at the ~15 min/item rate the
+   built-out courses run at. `targetHours` (optional) = the Codecademy-length
+   goal for courses still sitting at one unit; when a course is filled out,
+   raise `hours` to meet it and drop `targetHours`.
    ============================================================ */
 
 window.CODELAB.defineCourse({
