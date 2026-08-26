@@ -1,17 +1,22 @@
 /* ============================================================
-   CodeLab — app logic
+   CodeLab — app logic (course catalog edition)
    ------------------------------------------------------------
-   Screens: profiles → path (units/lessons) → lesson workspace
-   (Learn | Code | Result) or quiz. Progress, XP and streaks are
-   stored per profile in localStorage AND mirrored into the
-   Academy app's store (academy_users_v1) as track "fullstack",
-   so on the same origin (username.github.io) both apps share
-   profiles, XP and streaks.
+   Screens: profiles → course catalog → course (units/lessons)
+   → lesson workspace (Learn | Code | Result) or quiz.
+
+   Courses are declared in courses.js; their unit files are
+   lazy-loaded the first time a course is opened, so the app
+   boots fast even with thousands of lessons.
+
+   Progress, XP and streaks are stored per profile in
+   localStorage AND mirrored into the Academy app's store
+   (academy_users_v1) as track "fullstack", so on the same
+   origin both apps share profiles.
    ============================================================ */
 (function () {
   "use strict";
 
-  var UNITS = (window.CODELAB && window.CODELAB.units) || [];
+  var COURSES = (window.CODELAB && window.CODELAB.courses) || [];
   var runner = window.CODELAB.runner;
 
   var PATH_TITLE = "Full-Stack Engineer Path";
@@ -19,21 +24,52 @@
   var ACADEMY_KEY = "academy_users_v1";
   var ACADEMY_TRACK = "fullstack";
 
-  /* ---------- flatten lessons ---------- */
-  var LSN = [];   // [{gi, unitIndex, unit, lesson}]
-  UNITS.forEach(function (u, ui) {
-    (u.lessons || []).forEach(function (l) {
-      LSN.push({ gi: LSN.length, unitIndex: ui, unit: u, lesson: l });
+  /* ---------- lazy course loading ---------- */
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = function () { reject(new Error("Could not load " + src)); };
+      document.head.appendChild(s);
     });
-  });
-  var BY_ID = {};
-  LSN.forEach(function (e) { BY_ID[e.lesson.id] = e; });
+  }
+  function loadCourse(course) {
+    if (course._loaded) return Promise.resolve(course);
+    return (course.files || []).reduce(function (p, f) {
+      return p.then(function () { return loadScript(f); });
+    }, Promise.resolve()).then(function () {
+      course._loaded = true;
+      return course;
+    });
+  }
 
+  /* ---------- course data helpers ---------- */
+  function courseLessons(course) {
+    var out = [];
+    (course.units || []).forEach(function (u, ui) {
+      (u.lessons || []).forEach(function (l) {
+        out.push({ gi: out.length, unitIndex: ui, unit: u, lesson: l, course: course });
+      });
+    });
+    return out;
+  }
+  function lessonById(course, id) {
+    var list = courseLessons(course);
+    for (var i = 0; i < list.length; i++) if (list[i].lesson.id === id) return list[i];
+    return null;
+  }
   function xpOf(lesson) {
     if (lesson.xp) return lesson.xp;
     if (lesson.kind === "quiz") return 10;
     if (lesson.project) return 40;
     return 15;
+  }
+  function minsOf(lesson) {
+    if (lesson.mins) return lesson.mins;
+    if (lesson.kind === "quiz") return 5;
+    if (lesson.project) return 30;
+    return 10;
   }
   function chipOf(lesson) {
     if (lesson.project) return "PROJECT";
@@ -42,7 +78,7 @@
   }
 
   /* ---------- persistent state ---------- */
-  function freshUser() { return { done: {}, xp: 0, streak: 0, lastDay: null, code: {}, quiz: {} }; }
+  function freshUser() { return { done: {}, xp: 0, streak: 0, lastDay: null, code: {}, quiz: {}, lastCourse: null }; }
   function loadStore() {
     try {
       var raw = JSON.parse(localStorage.getItem(LS_KEY));
@@ -52,6 +88,7 @@
           u.done = u.done || {}; u.code = u.code || {}; u.quiz = u.quiz || {};
           u.xp = u.xp || 0; u.streak = u.streak || 0;
           if (!("lastDay" in u)) u.lastDay = null;
+          if (!("lastCourse" in u)) u.lastCourse = null;
           raw.users[n] = u;
         });
         return { currentUser: raw.currentUser || null, users: raw.users };
@@ -63,7 +100,7 @@
   function saveStore() { try { localStorage.setItem(LS_KEY, JSON.stringify(store)); } catch (e) {} }
   function me() { return store.users[store.currentUser]; }
 
-  /* ---------- Academy app bridge (shared profiles + progress) ---------- */
+  /* ---------- Academy app bridge ---------- */
   function academyRaw() {
     try {
       var raw = JSON.parse(localStorage.getItem(ACADEMY_KEY));
@@ -76,8 +113,6 @@
     var raw = academyRaw();
     return raw ? Object.keys(raw.users) : [];
   }
-  // Mutate (or create) the Academy store: gives CodeLab progress a home as
-  // Academy track "fullstack", so total XP/lessons show on Academy profiles.
   function syncAcademy(fn) {
     var raw;
     try { raw = JSON.parse(localStorage.getItem(ACADEMY_KEY)); } catch (e) { raw = null; }
@@ -113,13 +148,33 @@
 
   /* ---------- progress helpers ---------- */
   function isDone(lessonId) { var u = me(); return !!(u && u.done[lessonId]); }
-  function doneCount() { var u = me(); return u ? Object.keys(u.done).filter(function (id) { return BY_ID[id]; }).length : 0; }
-  function firstIncomplete() {
-    for (var i = 0; i < LSN.length; i++) if (!isDone(LSN[i].lesson.id)) return i;
-    return LSN.length;
+  function courseDoneCount(course) {
+    var u = me();
+    if (!u) return 0;
+    var pre = course.prefix + "-";
+    return Object.keys(u.done).filter(function (id) { return id.indexOf(pre) === 0; }).length;
   }
-  function isUnlocked(gi) { return gi <= firstIncomplete(); }
-  function pathDone() { return LSN.length > 0 && doneCount() >= LSN.length; }
+  function courseTotal(course) {
+    return course._loaded ? courseLessons(course).length : (course.items || 0);
+  }
+  function courseComplete(course) {
+    var t = courseTotal(course);
+    return t > 0 && courseDoneCount(course) >= t;
+  }
+  function pathTotals() {
+    var done = 0, total = 0;
+    COURSES.forEach(function (c) { done += courseDoneCount(c); total += courseTotal(c); });
+    return { done: done, total: total };
+  }
+  function pathComplete() {
+    return COURSES.length > 0 && COURSES.every(courseComplete);
+  }
+  function firstIncomplete(course) {
+    var list = courseLessons(course);
+    for (var i = 0; i < list.length; i++) if (!isDone(list[i].lesson.id)) return i;
+    return list.length;
+  }
+  function isUnlocked(course, gi) { return gi <= firstIncomplete(course); }
 
   /* ---------- tiny DOM helpers ---------- */
   var app = document.getElementById("app");
@@ -168,6 +223,24 @@
     app.innerHTML = "";
     window.scrollTo(0, 0);
   }
+  function topbar() {
+    var u = me();
+    var bar = el("div", "topbar");
+    var brand = el("button", "brand", '<span class="logo-ic">⚡</span> CodeLab');
+    brand.onclick = renderCatalog;
+    bar.appendChild(brand);
+    var stats = el("div", "stats");
+    stats.appendChild(el("div", "stat streak", '<span class="ico">🔥</span>' + u.streak));
+    stats.appendChild(el("div", "stat xp", '<span class="ico">⭐</span>' + u.xp));
+    var chip = el("button", "user-chip");
+    chip.innerHTML = '<span class="user-av" style="background:' + avatarColor(store.currentUser) + '">' + initial(store.currentUser) + "</span>" +
+      '<span class="user-name">' + esc(store.currentUser) + "</span>";
+    chip.title = "Switch profile";
+    chip.onclick = renderProfiles;
+    stats.appendChild(chip);
+    bar.appendChild(stats);
+    return bar;
+  }
 
   /* ============================================================
      PROFILES  ("Who's coding?")
@@ -181,8 +254,6 @@
     if (!store.users[name]) store.users[name] = freshUser();
     store.currentUser = name;
     saveStore();
-    // keep the Academy app pointed at the same person (create its store if
-    // it doesn't exist yet — then Academy boots straight into this profile)
     var raw = academyRaw() || { currentUser: null, users: {} };
     if (!raw.users[name]) raw.users[name] = { tracks: {} };
     raw.currentUser = name;
@@ -223,7 +294,7 @@
         };
         card.appendChild(del);
       }
-      card.onclick = function () { selectUser(name); renderPath(); };
+      card.onclick = function () { selectUser(name); renderCatalog(); };
       grid.appendChild(card);
     });
 
@@ -244,7 +315,7 @@
         var base = name, n = 2;
         while (store.users[name]) { name = base + " " + n; n++; }
         selectUser(name);
-        renderPath();
+        renderCatalog();
       }
       go.onclick = create;
       input.onkeydown = function (e) { if (e.key === "Enter") create(); };
@@ -259,57 +330,51 @@
     if (academyConnected()) {
       scr.appendChild(el("div", "profiles-hint", "🔗 Connected to your Academy app — profiles, XP and streaks are shared on this device."));
     } else {
-      scr.appendChild(el("div", "profiles-hint", "Progress saves automatically on this device. Host CodeLab next to your Academy app and they share profiles."));
+      scr.appendChild(el("div", "profiles-hint", "Progress saves automatically on this device."));
     }
     app.appendChild(scr);
   }
 
   /* ============================================================
-     PATH  (units → lessons)
+     COURSE CATALOG
      ============================================================ */
-  function renderPath() {
+  function renderCatalog() {
     if (!store.currentUser || !me()) { renderProfiles(); return; }
     clear();
     var u = me();
-
-    var bar = el("div", "topbar");
-    bar.appendChild(el("div", "brand", '<span class="logo-ic">⚡</span> CodeLab'));
-    var stats = el("div", "stats");
-    stats.appendChild(el("div", "stat streak", '<span class="ico">🔥</span>' + u.streak));
-    stats.appendChild(el("div", "stat xp", '<span class="ico">⭐</span>' + u.xp));
-    var chip = el("button", "user-chip");
-    chip.innerHTML = '<span class="user-av" style="background:' + avatarColor(store.currentUser) + '">' + initial(store.currentUser) + "</span>" +
-      '<span class="user-name">' + esc(store.currentUser) + "</span>";
-    chip.title = "Switch profile";
-    chip.onclick = renderProfiles;
-    stats.appendChild(chip);
-    bar.appendChild(stats);
-    app.appendChild(bar);
+    app.appendChild(topbar());
 
     var wrap = el("div", "wrap");
 
-    // hero
-    var done = doneCount(), total = LSN.length;
-    var pct = total ? Math.round(done / total * 100) : 0;
+    var totals = pathTotals();
+    var pct = totals.total ? Math.round(totals.done / totals.total * 100) : 0;
+    var totalHours = COURSES.reduce(function (s, c) { return s + (c.hours || 0); }, 0);
     var hero = el("div", "hero");
-    hero.appendChild(el("div", "hero-kicker", "CAREER PATH"));
+    hero.appendChild(el("div", "hero-kicker", "CAREER PATH · " + COURSES.length + " COURSES · ~" + totalHours + " HOURS"));
     hero.appendChild(el("h1", "hero-title", PATH_TITLE));
-    hero.appendChild(el("p", "hero-sub", "Learn by building — real code, checked step by step, right in your browser."));
+    hero.appendChild(el("p", "hero-sub", "Every course below is a full, Codecademy-scale course — lessons, quizzes, projects and a certificate. Take them in order, or jump to what you need."));
     var pr = el("div", "hero-progress");
     pr.appendChild(el("div", "hero-bar", '<i style="width:' + pct + '%"></i>'));
     pr.appendChild(el("div", "hero-pct", pct + "%"));
     hero.appendChild(pr);
 
     var heroBtns = el("div", "hero-btns");
-    if (done < total) {
-      var next = LSN[firstIncomplete()];
-      var cont = el("button", "btn btn-green", done ? "Continue: " + esc(next.lesson.title) : "Start learning");
-      cont.onclick = function () { openLesson(next.gi); };
-      heroBtns.appendChild(cont);
-    } else if (total) {
-      var cert = el("button", "btn btn-gold", "🎓 View your certificate");
-      cert.onclick = showCertificate;
+    var last = u.lastCourse && window.CODELAB._byId[u.lastCourse];
+    if (pathComplete()) {
+      var cert = el("button", "btn btn-gold", "🎓 Path certificate");
+      cert.onclick = function () { showCertificate(null); };
       heroBtns.appendChild(cert);
+    } else if (last && !courseComplete(last)) {
+      var cont = el("button", "btn btn-green", "Continue: " + esc(last.title));
+      cont.onclick = function () { openCourse(last); };
+      heroBtns.appendChild(cont);
+    } else {
+      var next = COURSES.filter(function (c) { return !courseComplete(c); })[0];
+      if (next) {
+        var start = el("button", "btn btn-green", (courseDoneCount(next) ? "Continue: " : "Start: ") + esc(next.title));
+        start.onclick = function () { openCourse(next); };
+        heroBtns.appendChild(start);
+      }
     }
     var play = el("button", "btn btn-ghost", "🧪 Free sandbox");
     play.onclick = openPlayground;
@@ -318,11 +383,121 @@
     if (academyConnected()) hero.appendChild(el("div", "conn-pill", "🔗 Sharing profiles &amp; XP with your Academy app"));
     wrap.appendChild(hero);
 
-    // units
-    UNITS.forEach(function (unit, ui) {
+    var grid = el("div", "catalog");
+    COURSES.forEach(function (c, i) {
+      var done = courseDoneCount(c);
+      var total = courseTotal(c);
+      var cpct = total ? Math.round(done / total * 100) : 0;
+      var complete = courseComplete(c);
+      var card = el("button", "course-card");
+      var head = el("div", "cc-head");
+      head.style.background = c.color || "#1cb0f6";
+      head.appendChild(el("div", "cc-ic", c.icon || "📦"));
+      var meta = el("div", "cc-chips");
+      meta.appendChild(el("span", "cc-chip", "~" + c.hours + "h"));
+      meta.appendChild(el("span", "cc-chip", esc(c.level || "Beginner")));
+      head.appendChild(meta);
+      card.appendChild(head);
+      var body = el("div", "cc-body");
+      body.appendChild(el("div", "cc-kicker", "Course " + (i + 1)));
+      body.appendChild(el("div", "cc-title", esc(c.title)));
+      body.appendChild(el("div", "cc-blurb", esc(c.blurb || "")));
+      var prog = el("div", "cc-progress");
+      prog.appendChild(el("div", "cc-bar", '<i style="width:' + cpct + '%;background:' + (c.color || "#1cb0f6") + '"></i>'));
+      prog.appendChild(el("div", "cc-count", complete ? "🏅 Complete" : (done ? done + "/" + total : total + " items")));
+      body.appendChild(prog);
+      body.appendChild(el("div", "cc-cta " + (complete ? "done" : done ? "cont" : ""),
+        complete ? "🎓 Review · certificate" : (done ? "Continue →" : "Start course →")));
+      card.appendChild(body);
+      card.onclick = function () { openCourse(c); };
+      grid.appendChild(card);
+    });
+    wrap.appendChild(grid);
+
+    var foot = el("div", "footer-note");
+    foot.innerHTML = COURSES.length + " courses · ~" + totalHours + " hours of hands-on material · progress saves automatically<br>";
+    var reset = el("button", "reset-link", "Reset my CodeLab progress");
+    reset.onclick = function () {
+      if (confirm("Reset " + store.currentUser + "'s CodeLab progress, XP and streak? (Academy app tracks are untouched.)")) {
+        store.users[store.currentUser] = freshUser();
+        saveStore();
+        renderCatalog();
+      }
+    };
+    foot.appendChild(reset);
+    wrap.appendChild(foot);
+    app.appendChild(wrap);
+  }
+
+  /* ============================================================
+     COURSE SCREEN (units → lessons)
+     ============================================================ */
+  function openCourse(course) {
+    var u = me();
+    u.lastCourse = course.id;
+    saveStore();
+    if (!course._loaded) {
+      clear();
+      var load = el("div", "loading-screen",
+        '<div class="loading-ic">' + (course.icon || "📦") + '</div><div class="loading-tx">Loading ' + esc(course.title) + "…</div>");
+      app.appendChild(load);
+    }
+    loadCourse(course).then(function () { renderCourse(course); })
+      .catch(function (e) {
+        toast("⚠️ " + e.message + " — check your connection and try again");
+        renderCatalog();
+      });
+  }
+
+  function renderCourse(course) {
+    if (!store.currentUser || !me()) { renderProfiles(); return; }
+    clear();
+    app.appendChild(topbar());
+    var wrap = el("div", "wrap");
+
+    var list = courseLessons(course);
+    var done = courseDoneCount(course);
+    var total = list.length;
+    var pct = total ? Math.round(done / total * 100) : 0;
+    var complete = courseComplete(course);
+
+    var head = el("div", "course-head");
+    head.style.background = course.color || "#1cb0f6";
+    var back = el("button", "course-back", "← All courses");
+    back.onclick = renderCatalog;
+    head.appendChild(back);
+    var hrow = el("div", "course-hrow");
+    hrow.appendChild(el("div", "course-ic", course.icon || "📦"));
+    var hc = el("div", "course-hc");
+    hc.appendChild(el("div", "course-kicker", "COURSE · ~" + course.hours + " HOURS · " + esc(course.level || "")));
+    hc.appendChild(el("h1", "course-title", esc(course.title)));
+    hc.appendChild(el("p", "course-blurb", esc(course.blurb || "")));
+    hrow.appendChild(hc);
+    head.appendChild(hrow);
+    var pr = el("div", "hero-progress");
+    pr.appendChild(el("div", "hero-bar", '<i style="width:' + pct + '%"></i>'));
+    pr.appendChild(el("div", "hero-pct", pct + "%"));
+    head.appendChild(pr);
+    var hb = el("div", "hero-btns");
+    if (complete) {
+      var cert = el("button", "btn btn-gold", "🎓 View certificate");
+      cert.onclick = function () { showCertificate(course); };
+      hb.appendChild(cert);
+    } else if (total) {
+      var next = list[firstIncomplete(course)];
+      if (next) {
+        var cont = el("button", "btn btn-green", (done ? "Continue: " : "Start: ") + esc(next.lesson.title));
+        cont.onclick = function () { openLesson(course, next.gi); };
+        hb.appendChild(cont);
+      }
+    }
+    head.appendChild(hb);
+    wrap.appendChild(head);
+
+    (course.units || []).forEach(function (unit, ui) {
       var card = el("section", "unit");
-      var head = el("div", "unit-head");
-      head.style.background = unit.color || "#1cb0f6";
+      var uh = el("div", "unit-head");
+      uh.style.background = unit.color || course.color || "#1cb0f6";
       var left = el("div", "unit-head-left");
       left.appendChild(el("div", "unit-kicker", "Unit " + (ui + 1)));
       left.appendChild(el("div", "unit-title", esc(unit.title)));
@@ -332,18 +507,17 @@
         cs.onclick = function () { showCheatsheet(unit); };
         left.appendChild(cs);
       }
-      head.appendChild(left);
-
+      uh.appendChild(left);
       var uDone = 0;
       (unit.lessons || []).forEach(function (l) { if (isDone(l.id)) uDone++; });
-      head.appendChild(ringBadge(unit.icon || "📦", uDone, (unit.lessons || []).length));
-      card.appendChild(head);
+      uh.appendChild(ringBadge(unit.icon || course.icon || "📦", uDone, (unit.lessons || []).length));
+      card.appendChild(uh);
 
-      var list = el("div", "lessons");
+      var rows = el("div", "lessons");
       (unit.lessons || []).forEach(function (l) {
-        var entry = BY_ID[l.id];
+        var entry = lessonById(course, l.id);
         var gi = entry.gi;
-        var unlocked = isUnlocked(gi);
+        var unlocked = isUnlocked(course, gi);
         var doneL = isDone(l.id);
         var row = el("button", "lrow" + (doneL ? " done" : "") + (unlocked ? "" : " locked") + (l.project ? " project" : ""));
         var st = el("div", "lrow-status", doneL ? "✓" : (unlocked ? (gi + 1) : "🔒"));
@@ -351,32 +525,20 @@
         row.appendChild(st);
         var mid = el("div", "lrow-mid");
         mid.appendChild(el("div", "lrow-title", esc(l.title)));
-        mid.appendChild(el("div", "lrow-meta", "+" + xpOf(l) + " XP"));
+        mid.appendChild(el("div", "lrow-meta", "+" + xpOf(l) + " XP · ~" + minsOf(l) + " min"));
         row.appendChild(mid);
         row.appendChild(el("div", "lrow-chip chip-" + chipOf(l).toLowerCase().replace(/[^a-z]/g, ""), chipOf(l)));
         row.onclick = function () {
           if (!unlocked) { toast("🔒 Finish the previous lesson first"); return; }
-          openLesson(gi);
+          openLesson(course, gi);
         };
-        list.appendChild(row);
+        rows.appendChild(row);
       });
-      card.appendChild(list);
+      card.appendChild(rows);
       wrap.appendChild(card);
     });
 
-    var foot = el("div", "footer-note");
-    foot.innerHTML = total + " lessons, quizzes &amp; projects across " + UNITS.length + " units · progress saves automatically<br>";
-    var reset = el("button", "reset-link", "Reset my CodeLab progress");
-    reset.onclick = function () {
-      if (confirm("Reset " + store.currentUser + "'s CodeLab progress, XP and streak? (Academy app tracks are untouched.)")) {
-        store.users[store.currentUser] = freshUser();
-        saveStore();
-        renderPath();
-      }
-    };
-    foot.appendChild(reset);
-    wrap.appendChild(foot);
-
+    wrap.appendChild(el("div", "footer-note", total + " items in this course · ~" + course.hours + " hours"));
     app.appendChild(wrap);
   }
 
@@ -431,21 +593,32 @@
     o.sheet.appendChild(body);
   }
 
-  function showCertificate() {
+  // course = a course object for a course certificate, or null for the
+  // whole-path certificate once every course is complete.
+  function showCertificate(course) {
     var u = me();
     var o = overlay("sheet-cert");
-    var projects = LSN.filter(function (e) { return e.lesson.project && isDone(e.lesson.id); }).length;
     var d = new Date();
     var date = d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+    var title = course ? course.title : PATH_TITLE;
+    var stats;
+    if (course) {
+      var list = courseLessons(course);
+      var projects = list.filter(function (e) { return e.lesson.project && isDone(e.lesson.id); }).length;
+      stats = list.length + " items · " + projects + " projects · ~" + course.hours + " hours";
+    } else {
+      var totals = pathTotals();
+      stats = COURSES.length + " courses · " + totals.total + " items · " + u.xp + " XP";
+    }
     var cert = el("div", "cert");
     cert.innerHTML =
       '<div class="cert-inner">' +
       '<div class="cert-logo">⚡ CodeLab</div>' +
       '<div class="cert-cap">Certificate of Completion</div>' +
-      '<div class="cert-path">' + esc(PATH_TITLE) + "</div>" +
+      '<div class="cert-path">' + esc(title) + "</div>" +
       '<div class="cert-award">awarded to</div>' +
       '<div class="cert-name">' + esc(store.currentUser) + "</div>" +
-      '<div class="cert-stats">' + LSN.length + " lessons · " + projects + " projects · " + u.xp + " XP</div>" +
+      '<div class="cert-stats">' + esc(stats) + "</div>" +
       '<div class="cert-date">' + esc(date) + "</div>" +
       "</div>";
     o.sheet.appendChild(cert);
@@ -461,22 +634,22 @@
   /* ============================================================
      LESSON WORKSPACE  (Learn | Code | Result)
      ============================================================ */
-  var current = null;   // live lesson session
+  var current = null;
 
   function starterFiles(lesson) {
     var files = {};
     (lesson.files || []).forEach(function (f) { files[f.name] = f.content; });
     return files;
   }
-  function openLesson(gi) {
-    var entry = LSN[gi];
-    if (!entry) { renderPath(); return; }
+  function openLesson(course, gi) {
+    var entry = courseLessons(course)[gi];
+    if (!entry) { renderCourse(course); return; }
     if (entry.lesson.kind === "quiz") { renderQuiz(entry); return; }
     renderWorkspace(entry, false);
   }
   function openPlayground() {
     renderWorkspace({
-      gi: -1, unitIndex: -1, unit: { title: "Sandbox", color: "#0ea5e9" },
+      gi: -1, unitIndex: -1, course: null, unit: { title: "Sandbox" },
       lesson: {
         id: "playground", kind: "web", title: "Free sandbox", chip: "WEB",
         brief: "Your own scratchpad — build anything. **Run** shows your page in Result. Code autosaves per profile.\n\nNothing is graded here; it's just you and the browser.",
@@ -494,33 +667,32 @@
   function renderWorkspace(entry, freeplay) {
     clear();
     var lesson = entry.lesson;
+    var course = entry.course;
     var u = me();
     var saved = (u && u.code && u.code[lesson.id]) || null;
     var files = starterFiles(lesson);
     if (saved) Object.keys(files).forEach(function (n) { if (saved[n] != null) files[n] = saved[n]; });
 
     current = {
-      entry: entry, lesson: lesson, freeplay: !!freeplay,
+      entry: entry, lesson: lesson, course: course, freeplay: !!freeplay,
       stepState: (lesson.steps || []).map(function () { return { state: "idle", msg: "" }; }),
       hasRun: false, running: false, hintsShown: 0, allPass: false
     };
 
     var scr = el("div", "lesson");
 
-    /* top bar */
     var top = el("div", "l-top");
     var back = el("button", "l-x", "✕");
-    back.onclick = function () { current = null; renderPath(); };
+    back.onclick = function () { current = null; freeplay || !course ? renderCatalog() : renderCourse(course); };
     top.appendChild(back);
     var tt = el("div", "l-tt");
-    tt.appendChild(el("div", "l-kicker", freeplay ? "PLAYGROUND" : ("UNIT " + (entry.unitIndex + 1) + " · " + esc(entry.unit.title))));
+    tt.appendChild(el("div", "l-kicker", freeplay ? "PLAYGROUND" : (esc(course.title).toUpperCase() + " · UNIT " + (entry.unitIndex + 1))));
     tt.appendChild(el("div", "l-title", esc(lesson.title)));
     top.appendChild(tt);
     var badge = el("div", "l-badge", stepBadgeText());
     top.appendChild(badge);
     scr.appendChild(top);
 
-    /* mobile tabs */
     var tabs = el("div", "l-tabs");
     var tabDefs = [["learn", "📖 Learn"], ["code", "✏️ Code"], ["result", lesson.kind === "js" ? "▶ Output" : "▶ Result"]];
     var tabBtns = {};
@@ -532,7 +704,6 @@
     });
     scr.appendChild(tabs);
 
-    /* main panes */
     var main = el("div", "l-main");
 
     // — Learn
@@ -550,6 +721,7 @@
     }
     learnIn.appendChild(checksBox);
 
+    var editor;
     if (!freeplay) {
       var helpRow = el("div", "help-row");
       if (lesson.hints && lesson.hints.length) {
@@ -605,9 +777,9 @@
     // — Result
     var result = el("div", "pane pane-result");
     var resultIn = el("div", "pane-in");
-    var previewWrap = null, previewHost = null;
+    var previewHost = null;
     if (lesson.kind !== "js") {
-      previewWrap = el("div", "res-block");
+      var previewWrap = el("div", "res-block");
       previewWrap.appendChild(el("div", "pane-label", "Preview"));
       previewHost = el("div", "preview-host");
       previewWrap.appendChild(previewHost);
@@ -628,7 +800,6 @@
 
     scr.appendChild(main);
 
-    /* footer: Run / Continue */
     var foot = el("div", "l-foot");
     var runBtn = el("button", "btn btn-run", "▶ Run");
     runBtn.onclick = doRun;
@@ -637,8 +808,7 @@
 
     app.appendChild(scr);
 
-    /* editor */
-    var editor = window.CODELAB.createEditor(edRoot, {
+    editor = window.CODELAB.createEditor(edRoot, {
       files: (lesson.files || []).map(function (f) { return { name: f.name, content: files[f.name] }; }),
       onChange: function () { scheduleSave(); }
     });
@@ -658,7 +828,6 @@
       setTimeout(function () { savedDot.classList.remove("show"); }, 900);
     }
 
-    /* tabs (mobile) */
     var activeTab = "learn";
     function setTab(name) {
       activeTab = name;
@@ -667,7 +836,6 @@
     }
     setTab("learn");
 
-    /* checkpoint painting */
     function stepBadgeText() {
       var total = (lesson.steps || []).length;
       if (!total) return "🧪";
@@ -679,8 +847,6 @@
       badge.classList.toggle("all", current.allPass);
       [checksBox, checksOutList].forEach(function (box) {
         if (!box) return;
-        var isLearn = box === checksBox;
-        // keep the label node in checksBox
         Array.prototype.slice.call(box.querySelectorAll(".chk")).forEach(function (n) { n.remove(); });
         (lesson.steps || []).forEach(function (s, i) {
           var st = current.stepState[i];
@@ -697,7 +863,6 @@
     }
     paintChecks();
 
-    /* console painting */
     function pushConsole(m) {
       var ic = m.level === "error" ? "✕" : (m.level === "warn" ? "⚠" : "▸");
       var line = el("div", "cline cline-" + m.level);
@@ -705,10 +870,8 @@
       line.appendChild(el("span", "cline-tx", esc(m.text)));
       consoleList.appendChild(line);
       consoleList.scrollTop = consoleList.scrollHeight;
-      consoleBlock.classList.add("has");
     }
 
-    /* run */
     function doRun() {
       if (current.running) return;
       current.running = true;
@@ -720,7 +883,7 @@
         previewEl: previewHost,
         onConsole: pushConsole
       }).then(function (res) {
-        if (!current || current.lesson !== lesson) return;  // navigated away
+        if (!current || current.lesson !== lesson) return;
         current.running = false;
         current.hasRun = true;
         runBtn.disabled = false;
@@ -760,27 +923,29 @@
     }
 
     function showContinueFoot() {
-      var nxt = nextAfter(entry.gi);
+      var nxt = nextAfter(course, entry.gi);
       if (foot.querySelector(".btn-continue")) return;
-      var c = el("button", "btn btn-green btn-continue", nxt ? "Continue →" : "Back to path");
-      c.onclick = function () { nxt ? openLesson(nxt.gi) : renderPath(); };
+      var c = el("button", "btn btn-green btn-continue", nxt ? "Continue →" : "Back to course");
+      c.onclick = function () { nxt ? openLesson(course, nxt.gi) : renderCourse(course); };
       foot.appendChild(c);
     }
     current.showContinueFoot = showContinueFoot;
 
-    // web lessons: show the starter preview immediately (ungraded)
     if (lesson.kind !== "js") {
       runner.run(lesson, editor.getFiles(), { previewEl: previewHost, onConsole: pushConsole }).then(function () {});
     }
   }
 
-  function nextAfter(gi) {
-    return (gi + 1 < LSN.length) ? LSN[gi + 1] : null;
+  function nextAfter(course, gi) {
+    if (!course) return null;
+    var list = courseLessons(course);
+    return (gi + 1 < list.length) ? list[gi + 1] : null;
   }
 
   /* ---------- completion ---------- */
   function completeLesson(entry) {
     var lesson = entry.lesson;
+    var course = entry.course;
     var u = me();
     var first = !u.done[lesson.id];
     if (!first) return;
@@ -797,10 +962,12 @@
 
     var o = overlay("sheet-done");
     var isProject = !!lesson.project;
-    var finishedAll = pathDone();
-    o.sheet.appendChild(el("div", "done-emoji", finishedAll ? "🎓" : (isProject ? "🏆" : "🎉")));
-    o.sheet.appendChild(el("h2", "done-title", finishedAll ? "PATH COMPLETE!" : (isProject ? "Project complete!" : "Lesson complete!")));
-    o.sheet.appendChild(el("div", "done-sub", esc(lesson.title)));
+    var finishedCourse = course && courseComplete(course);
+    var finishedPath = pathComplete();
+    o.sheet.appendChild(el("div", "done-emoji", finishedPath ? "🏆" : (finishedCourse ? "🎓" : (isProject ? "🏆" : "🎉"))));
+    o.sheet.appendChild(el("h2", "done-title",
+      finishedPath ? "PATH COMPLETE!" : (finishedCourse ? "Course complete!" : (isProject ? "Project complete!" : "Lesson complete!"))));
+    o.sheet.appendChild(el("div", "done-sub", esc(finishedCourse ? course.title : lesson.title)));
     var rr = el("div", "reward-row");
     rr.appendChild(reward("XP earned", "+" + gained));
     rr.appendChild(reward("Streak", "🔥 " + u.streak));
@@ -808,26 +975,27 @@
     if (academyConnected()) o.sheet.appendChild(el("div", "done-conn", "🔗 Synced to your Academy profile"));
 
     var acts = el("div", "done-actions");
-    if (finishedAll) {
-      var cert = el("button", "btn btn-gold", "🎓 View certificate");
-      cert.onclick = function () { o.back.remove(); showCertificate(); };
+    if (finishedCourse) {
+      var cert = el("button", "btn btn-gold", "🎓 View your certificate");
+      cert.onclick = function () { o.back.remove(); showCertificate(finishedPath ? null : course); };
       acts.appendChild(cert);
+      var toCat = el("button", "btn btn-ghost", "Back to all courses");
+      toCat.onclick = function () { o.back.remove(); renderCatalog(); };
+      acts.appendChild(toCat);
     } else {
-      var nxt = nextAfter(entry.gi);
+      var nxt = nextAfter(course, entry.gi);
       if (nxt) {
         var go = el("button", "btn btn-green", "Next: " + esc(nxt.lesson.title));
-        go.onclick = function () { o.back.remove(); openLesson(nxt.gi); };
+        go.onclick = function () { o.back.remove(); openLesson(course, nxt.gi); };
         acts.appendChild(go);
       }
+      var stay = el("button", "btn btn-ghost", "Stay & tinker");
+      stay.onclick = function () {
+        o.back.remove();
+        if (current && current.showContinueFoot) current.showContinueFoot();
+      };
+      acts.appendChild(stay);
     }
-    var stay = el("button", "btn btn-ghost", entry.gi >= 0 && !finishedAll ? "Stay &amp; tinker" : "Back to path");
-    stay.innerHTML = (entry.gi >= 0 && !finishedAll) ? "Stay & tinker" : "Back to path";
-    stay.onclick = function () {
-      o.back.remove();
-      if (!(entry.gi >= 0 && !finishedAll)) renderPath();
-      else if (current && current.showContinueFoot) current.showContinueFoot();
-    };
-    acts.appendChild(stay);
     o.sheet.appendChild(acts);
   }
 
@@ -845,16 +1013,17 @@
   function renderQuiz(entry) {
     clear();
     var lesson = entry.lesson;
+    var course = entry.course;
     var qs = lesson.questions || [];
     var idx = 0, correct = 0;
 
     var scr = el("div", "lesson quiz");
     var top = el("div", "l-top");
     var back = el("button", "l-x", "✕");
-    back.onclick = renderPath;
+    back.onclick = function () { renderCourse(course); };
     top.appendChild(back);
     var tt = el("div", "l-tt");
-    tt.appendChild(el("div", "l-kicker", "UNIT " + (entry.unitIndex + 1) + " · QUIZ"));
+    tt.appendChild(el("div", "l-kicker", esc(course.title).toUpperCase() + " · QUIZ"));
     tt.appendChild(el("div", "l-title", esc(lesson.title)));
     top.appendChild(tt);
     var prog = el("div", "l-badge", "1/" + qs.length);
@@ -871,6 +1040,7 @@
       if (idx >= qs.length) { finish(); return; }
       var q = qs[idx];
       var inner = el("div", "quiz-in");
+      if (idx === 0 && lesson.brief) inner.appendChild(el("div", "quiz-brief", mdBlock(lesson.brief)));
       inner.appendChild(el("div", "q-kicker", "Question " + (idx + 1)));
       inner.appendChild(el("div", "q-prompt", mdInline(q.q)));
       if (q.code) {
@@ -928,16 +1098,16 @@
           btn.onclick = function () { completeLesson(entry); };
           acts.appendChild(btn);
         } else {
-          var b2 = el("button", "btn btn-green", "Back to path");
-          b2.onclick = renderPath;
+          var b2 = el("button", "btn btn-green", "Back to course");
+          b2.onclick = function () { renderCourse(course); };
           acts.appendChild(b2);
         }
       } else {
         var retry = el("button", "btn btn-green", "Try again");
         retry.onclick = function () { renderQuiz(entry); };
         acts.appendChild(retry);
-        var home = el("button", "btn btn-ghost", "Back to path");
-        home.onclick = renderPath;
+        var home = el("button", "btn btn-ghost", "Back to course");
+        home.onclick = function () { renderCourse(course); };
         acts.appendChild(home);
       }
       inner.appendChild(acts);
@@ -947,19 +1117,39 @@
   }
 
   /* ============================================================
-     DEV HOOK — lets automated tests run any lesson's solution
-     through the real sandbox. Harmless in production.
+     DEV HOOK — automated validation drives the real sandbox
      ============================================================ */
   window.CODELAB.dev = {
-    ids: function () { return LSN.map(function (e) { return e.lesson.id; }); },
-    lesson: function (id) { return BY_ID[id] ? BY_ID[id].lesson : null; },
+    loadAll: function () {
+      return COURSES.reduce(function (p, c) { return p.then(function () { return loadCourse(c); }); }, Promise.resolve());
+    },
+    courses: function () {
+      return COURSES.map(function (c) {
+        var list = courseLessons(c);
+        return {
+          id: c.id, prefix: c.prefix, manifestItems: c.items, actualItems: list.length,
+          badPrefix: list.filter(function (e) { return e.lesson.id.indexOf(c.prefix + "-") !== 0; }).map(function (e) { return e.lesson.id; })
+        };
+      });
+    },
+    ids: function () {
+      var out = [];
+      COURSES.forEach(function (c) { courseLessons(c).forEach(function (e) { out.push(e.lesson.id); }); });
+      return out;
+    },
+    lesson: function (id) {
+      for (var i = 0; i < COURSES.length; i++) {
+        var hit = lessonById(COURSES[i], id);
+        if (hit) return hit.lesson;
+      }
+      return null;
+    },
     run: function (id, useSolution) {
-      var entry = BY_ID[id];
-      if (!entry) return Promise.reject(new Error("No lesson " + id));
-      var lesson = entry.lesson;
+      var lesson = window.CODELAB.dev.lesson(id);
+      if (!lesson) return Promise.reject(new Error("No lesson " + id));
       if (lesson.kind === "quiz") {
         var bad = (lesson.questions || []).filter(function (q) {
-          return !q.q || !q.choices || q.answer == null || !q.choices[q.answer];
+          return !q.q || !q.choices || q.answer == null || !q.choices[q.answer] || !q.explain;
         }).length;
         return Promise.resolve({ quiz: true, questions: (lesson.questions || []).length, invalid: bad });
       }
@@ -973,15 +1163,14 @@
       var logs = [];
       return runner.run(lesson, files, { previewEl: host, onConsole: function (m) { logs.push(m); } })
         .then(function (res) { host.remove(); res.logs = logs; return res; });
-    },
-    goto: function (screen) { if (screen === "path") renderPath(); else renderProfiles(); }
+    }
   };
 
   /* ---------- boot ---------- */
-  if (!UNITS.length) {
-    app.innerHTML = '<div style="padding:40px;text-align:center;font-weight:800;color:#777">No curriculum loaded. Make sure the unit files are present.</div>';
+  if (!COURSES.length) {
+    app.innerHTML = '<div style="padding:40px;text-align:center;font-weight:800;color:#777">No courses found. Make sure courses.js is present.</div>';
   } else if (store.currentUser && store.users[store.currentUser]) {
-    renderPath();
+    renderCatalog();
   } else {
     renderProfiles();
   }

@@ -1,5 +1,5 @@
 /* Unit 3 — Improved Styling: Flexbox, Grid & Responsive Design */
-window.CODELAB.addUnit({
+window.CODELAB.addUnit("resp", {
   id: "layout",
   title: "Flexbox, Grid & Responsive",
   icon: "📐",
@@ -14,7 +14,7 @@ window.CODELAB.addUnit({
   lessons: [
 
     {
-      id: "flex-1",
+      id: "resp-flex-1",
       title: "Meet Flexbox",
       kind: "web", chip: "CSS", xp: 15,
       brief: "By default, block elements stack vertically. **Flexbox** turns a container into a layout machine: set `display: flex` on the **parent** and its children line up in a row.\n\n- `gap` — space between children\n- `justify-content` — how children spread along the row (`flex-start`, `center`, `space-between`…)\n\nThe pills below are stacked. Make them a row.",
@@ -40,7 +40,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "flex-2",
+      id: "resp-flex-2",
       title: "Centering (finally easy)",
       kind: "web", chip: "CSS", xp: 15,
       brief: "\"How do I center a div?\" used to be a running joke. Flexbox ended it:\n\n- `justify-content: center` centers along the **main axis** (horizontal, in a row)\n- `align-items: center` centers along the **cross axis** (vertical)\n\nCombine both on a container with a height and its child sits dead-center.",
@@ -65,7 +65,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "flex-3",
+      id: "resp-flex-3",
       title: "Build a navbar",
       kind: "web", chip: "CSS", xp: 15,
       brief: "The classic flexbox interview task: a **navbar** — logo on the left, links on the right, everything vertically centered.\n\nTwo flex containers do it: the `<nav>` itself, and the `<ul>` of links. You'll also want `list-style: none` to drop the bullets.",
@@ -90,7 +90,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "grid-1",
+      id: "resp-grid-1",
       title: "CSS Grid",
       kind: "web", chip: "CSS", xp: 15,
       brief: "Flexbox is one-dimensional (a row *or* a column). **CSS Grid** is two-dimensional — perfect for photo galleries, dashboards, card layouts.\n\n- `display: grid` on the parent\n- `grid-template-columns: repeat(3, 1fr)` → three equal columns (`1fr` = one fraction of the free space)\n- `gap` works here too\n\nTurn this pile of tiles into a 3-column gallery.",
@@ -115,7 +115,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "media-1",
+      id: "resp-media-1",
       title: "Media queries: mobile-first",
       kind: "web", chip: "CSS", xp: 15,
       brief: "Half the web's traffic is phones — including you, right now! **Responsive design** means one page that adapts to any screen.\n\nThe **mobile-first** recipe:\n\n- Write your default styles for small screens (single column)\n- Then add `@media (min-width: 700px) { … }` blocks that *enhance* the layout when there's room\n\nHere the `.features` list should be one column on phones and three columns on wide screens.",
@@ -142,7 +142,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "layout-quiz",
+      id: "resp-quiz",
       title: "Layout checkpoint quiz",
       kind: "quiz", xp: 10,
       questions: [
@@ -170,7 +170,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "layout-project",
+      id: "resp-project",
       title: "Project: Responsive landing page",
       kind: "web", chip: "CSS", xp: 40, project: true,
       brief: "Build the layout for a **product landing page**: a centered hero and a responsive feature grid. This is the exact skeleton of a thousand real startup sites.\n\nMobile-first: single column by default, three columns from 700px up.",

@@ -445,6 +445,77 @@ input { font-family: var(--font); }
 }
 
 /* ============================================================
+   COURSE CATALOG
+   ============================================================ */
+.catalog {
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+}
+@media (min-width: 700px) { .catalog { grid-template-columns: 1fr 1fr; } }
+.course-card {
+  text-align: left; background: var(--card); border: 2px solid var(--line);
+  border-radius: 20px; overflow: hidden; box-shadow: 0 3px 0 var(--line);
+  transition: transform .08s; display: flex; flex-direction: column;
+}
+.course-card:hover { transform: translateY(-2px); }
+.cc-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px;
+}
+.cc-ic { font-size: 34px; filter: drop-shadow(0 2px 2px rgba(2,8,23,.25)); }
+.cc-chips { display: flex; gap: 6px; }
+.cc-chip {
+  font-size: 11px; font-weight: 900; letter-spacing: .5px; color: #fff;
+  background: rgba(255,255,255,.22); border: 1px solid rgba(255,255,255,.4);
+  padding: 3px 10px; border-radius: 999px;
+}
+.cc-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
+.cc-kicker { font-size: 10px; font-weight: 900; letter-spacing: 2px; color: var(--muted); }
+.cc-title { font-size: 19px; font-weight: 900; letter-spacing: -0.3px; margin: 2px 0 6px; }
+.cc-blurb { font-size: 13px; font-weight: 600; color: var(--ink-soft); line-height: 1.5; flex: 1; }
+.cc-progress { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.cc-bar { flex: 1; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.cc-bar i { display: block; height: 100%; border-radius: 999px; }
+.cc-count { font-size: 12px; font-weight: 800; color: var(--muted); white-space: nowrap; }
+.cc-cta { margin-top: 10px; font-size: 14px; font-weight: 900; color: var(--sky-dark); }
+.cc-cta.cont { color: var(--green-dark); }
+.cc-cta.done { color: var(--gold-dark); }
+
+/* ---------- course screen ---------- */
+.course-head {
+  border-radius: 22px; padding: 18px 20px 20px; color: #fff;
+  box-shadow: 0 12px 30px rgba(2, 8, 23, .25); margin-bottom: 22px;
+}
+.course-back {
+  color: #fff; font-weight: 800; font-size: 13px; opacity: .9;
+  background: rgba(255,255,255,.16); padding: 6px 12px; border-radius: 999px;
+}
+.course-hrow { display: flex; gap: 14px; align-items: flex-start; margin-top: 14px; }
+.course-ic { font-size: 44px; line-height: 1; filter: drop-shadow(0 2px 2px rgba(2,8,23,.25)); }
+.course-hc { min-width: 0; }
+.course-kicker { font-size: 10px; font-weight: 900; letter-spacing: 2px; opacity: .85; }
+.course-title { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; margin: 2px 0 4px; }
+.course-blurb { font-weight: 700; opacity: .92; font-size: 13.5px; }
+.course-head .hero-progress { margin-top: 14px; }
+.course-head .hero-btns { margin-top: 14px; }
+
+/* ---------- loading screen ---------- */
+.loading-screen { padding: 120px 20px; text-align: center; }
+.loading-ic { font-size: 56px; animation: load-bounce 0.9s ease infinite alternate; }
+@keyframes load-bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+.loading-tx { margin-top: 14px; font-weight: 800; color: var(--muted); }
+
+.quiz-brief {
+  background: #fff; border: 2px solid var(--line); border-radius: 14px;
+  padding: 14px 16px; margin-bottom: 18px; font-size: 14px; line-height: 1.6; font-weight: 600;
+}
+.quiz-brief p { margin-bottom: 8px; }
+.quiz-brief p:last-child { margin-bottom: 0; }
+.quiz-brief code, .lrow-meta code {
+  font-family: var(--mono); font-size: .88em; background: #eef2ff; color: #4338ca;
+  padding: 1px 5px; border-radius: 5px;
+}
+
+/* ============================================================
    QUIZ
    ============================================================ */
 .quiz-body { flex: 1; overflow: auto; }

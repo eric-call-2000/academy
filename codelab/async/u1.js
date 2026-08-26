@@ -1,5 +1,5 @@
 /* Unit 7 — Async JavaScript & HTTP requests */
-window.CODELAB.addUnit({
+window.CODELAB.addUnit("async", {
   id: "async",
   title: "Async JS & APIs",
   icon: "📡",

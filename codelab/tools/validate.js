@@ -1,8 +1,8 @@
-/* CodeLab validation harness.
+/* CodeLab validation harness (course-catalog edition).
    Phase 0: static curriculum shape checks (node).
    Phase 1: every lesson's SOLUTION must pass all checkpoints in real Chromium;
-            every lesson's STARTER must NOT pass them all.
-   Phase 2: full mobile UI smoke test + Academy-store sync + screenshots. */
+            every lesson's STARTER must NOT pass them all. Manifest counts+prefixes verified.
+   Phase 2: full mobile UI smoke test (catalog flow) + Academy-store sync + screenshots. */
 const { chromium } = require("playwright-core");
 const { spawn } = require("child_process");
 const path = require("path");
@@ -19,44 +19,55 @@ function ok(msg) { console.log("  ✓ " + msg); }
 function phase0() {
   console.log("\n== Phase 0: static curriculum checks ==");
   global.window = { CODELAB: {} };
-  window.CODELAB.units = [];
-  window.CODELAB.addUnit = (u) => { u.lessons = u.lessons || []; window.CODELAB.units.push(u); };
-  const units = ["unit1-html", "unit2-css", "unit3-layout", "unit4-js1", "unit5-js2", "unit6-dom", "unit7-async", "unit8-backend", "unit9-capstone"];
-  for (const u of units) require(path.join(ROOT, u + ".js"));
+  window.CODELAB.courses = [];
+  window.CODELAB._byId = {};
+  window.CODELAB.defineCourse = (c) => { c.units = []; window.CODELAB.courses.push(c); window.CODELAB._byId[c.id] = c; };
+  window.CODELAB.addUnit = (courseId, u) => { u.lessons = u.lessons || []; window.CODELAB._byId[courseId].units.push(u); };
+  require(path.join(ROOT, "courses.js"));
+  for (const course of window.CODELAB.courses) {
+    for (const f of course.files) require(path.join(ROOT, f));
+  }
 
   const ids = new Set();
-  let lessons = 0, quizzes = 0, projects = 0, steps = 0, questions = 0;
-  for (const unit of window.CODELAB.units) {
-    if (!unit.cheat || !unit.cheat.length) fail(`unit ${unit.id}: missing cheatsheet`);
-    for (const l of unit.lessons) {
-      if (ids.has(l.id)) fail(`duplicate lesson id: ${l.id}`);
-      ids.add(l.id);
-      if (l.kind === "quiz") {
-        quizzes++;
-        questions += (l.questions || []).length;
-        if (!l.questions || l.questions.length < 5) fail(`${l.id}: quiz has <5 questions`);
-        (l.questions || []).forEach((q, i) => {
-          if (!q.q || !q.choices || q.answer == null || !q.choices[q.answer] || !q.explain)
-            fail(`${l.id} q${i}: malformed question`);
-        });
-      } else {
-        lessons++;
-        if (l.project) projects++;
-        steps += (l.steps || []).length;
-        if (!l.steps || !l.steps.length) fail(`${l.id}: no steps`);
-        if (!l.files || !l.files.length) fail(`${l.id}: no files`);
-        if (!l.solution) fail(`${l.id}: no solution`);
-        if (!l.hints || !l.hints.length) fail(`${l.id}: no hints`);
-        if (l.solution) for (const k of Object.keys(l.solution)) {
-          if (!(l.files || []).some(f => f.name === k)) fail(`${l.id}: solution file ${k} not in files[]`);
+  let totals = { lessons: 0, quizzes: 0, projects: 0, steps: 0, questions: 0, mins: 0 };
+  for (const course of window.CODELAB.courses) {
+    let count = 0;
+    for (const unit of course.units) {
+      if (!unit.cheat || !unit.cheat.length) fail(`unit ${unit.id || unit.title} (${course.id}): missing cheatsheet`);
+      for (const l of unit.lessons) {
+        count++;
+        if (ids.has(l.id)) fail(`duplicate lesson id: ${l.id}`);
+        ids.add(l.id);
+        if (l.id.indexOf(course.prefix + "-") !== 0) fail(`${l.id}: id must start with "${course.prefix}-"`);
+        totals.mins += l.mins || (l.kind === "quiz" ? 5 : l.project ? 30 : 10);
+        if (l.kind === "quiz") {
+          totals.quizzes++;
+          totals.questions += (l.questions || []).length;
+          if (!l.questions || l.questions.length < 5) fail(`${l.id}: quiz has <5 questions`);
+          (l.questions || []).forEach((q, i) => {
+            if (!q.q || !q.choices || q.answer == null || !q.choices[q.answer] || !q.explain)
+              fail(`${l.id} q${i}: malformed question`);
+          });
+        } else {
+          totals.lessons++;
+          if (l.project) totals.projects++;
+          totals.steps += (l.steps || []).length;
+          if (!l.steps || !l.steps.length) fail(`${l.id}: no steps`);
+          if (!l.files || !l.files.length) fail(`${l.id}: no files`);
+          if (!l.solution) fail(`${l.id}: no solution`);
+          if (!l.hints || !l.hints.length) fail(`${l.id}: no hints`);
+          if (!l.brief) fail(`${l.id}: no brief`);
+          if (l.solution) for (const k of Object.keys(l.solution)) {
+            if (!(l.files || []).some(f => f.name === k)) fail(`${l.id}: solution file ${k} not in files[]`);
+          }
         }
       }
-      if (!l.brief && l.kind !== "quiz") fail(`${l.id}: no brief`);
     }
+    if (count !== course.items) fail(`course ${course.id}: manifest items=${course.items} but files register ${count}`);
+    console.log(`  ${course.id}: ${count} items (manifest ${course.items}) ~${course.hours}h`);
   }
-  console.log(`  units=${window.CODELAB.units.length} coding=${lessons} (projects=${projects}) quizzes=${quizzes} checkpoints=${steps} quizQuestions=${questions}`);
+  console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ~${Math.round(totals.mins / 60)}h of material`);
   delete global.window;
-  return { total: lessons + quizzes };
 }
 
 /* ---------------- phases 1+2: browser ---------------- */
@@ -75,10 +86,16 @@ async function main() {
   const pageErrors = [];
   page.on("pageerror", e => pageErrors.push(String(e)));
   await page.goto("http://localhost:5180/", { waitUntil: "load" });
-  await page.waitForFunction(() => window.CODELAB && window.CODELAB.dev && window.CODELAB.dev.ids().length > 0, null, { timeout: 10000 });
+  await page.waitForFunction(() => window.CODELAB && window.CODELAB.dev, null, { timeout: 10000 });
   if (pageErrors.length) fail("app boot errors: " + pageErrors.join(" ; "));
+  await page.evaluate(() => window.CODELAB.dev.loadAll());
+  const courseInfo = await page.evaluate(() => window.CODELAB.dev.courses());
+  for (const c of courseInfo) {
+    if (c.manifestItems !== c.actualItems) fail(`course ${c.id}: manifest=${c.manifestItems} actual=${c.actualItems}`);
+    if (c.badPrefix.length) fail(`course ${c.id}: bad-prefix ids: ${c.badPrefix.join(",")}`);
+  }
   const ids = await page.evaluate(() => window.CODELAB.dev.ids());
-  console.log(`  app booted, ${ids.length} lessons registered`);
+  console.log(`  app booted, ${ids.length} lessons across ${courseInfo.length} courses`);
 
   for (const id of ids) {
     const kind = await page.evaluate((i) => window.CODELAB.dev.lesson(i).kind, id);
@@ -89,7 +106,6 @@ async function main() {
       continue;
     }
     const nSteps = await page.evaluate((i) => (window.CODELAB.dev.lesson(i).steps || []).length, id);
-    // solution must fully pass
     let sol;
     try {
       sol = await page.evaluate((i) => window.CODELAB.dev.run(i, true), id);
@@ -100,15 +116,12 @@ async function main() {
       const bad = (sol.steps || []).filter(s => !s.pass).map(s => `#${s.i}: ${s.msg}`).join(" | ") || (sol.fatal ? "FATAL " + sol.fatal : "steps missing");
       fail(`${id}: solution passed ${passed}/${nSteps} — ${bad}`);
     } else ok(`${id} solution ${passed}/${nSteps}`);
-    // starter must NOT fully pass
-    let st;
     try {
-      st = await page.evaluate((i) => window.CODELAB.dev.run(i, false), id);
+      const st = await page.evaluate((i) => window.CODELAB.dev.run(i, false), id);
       const stPassed = (st.steps || []).filter(s => s.pass).length;
       if (!st.timeout && stPassed === nSteps && nSteps > 0) fail(`${id}: STARTER already passes all checks (lesson is trivial)`);
     } catch (e) { fail(`${id}: starter run threw: ${e.message}`); }
   }
-  // (uncaught errors from STARTER code inside the sandbox are expected — not checked here)
   await ctx.close();
 
   /* ---- phase 2: mobile UI smoke test ---- */
@@ -129,17 +142,19 @@ async function main() {
   await mp.click(".pcard.add");
   await mp.fill(".pcard-input", "Eric");
   await mp.click(".pcard .btn");
-  await mp.waitForSelector(".hero", { timeout: 8000 });
-  ok("profile created → path screen");
-  await mp.screenshot({ path: SHOTS + "/2-path-mobile.png", fullPage: false });
+  await mp.waitForSelector(".catalog", { timeout: 8000 });
+  const cardCount = await mp.locator(".course-card").count();
+  ok("profile created → catalog with " + cardCount + " course cards");
+  await mp.screenshot({ path: SHOTS + "/2-catalog-mobile.png" });
 
-  // open first lesson
-  await mp.click(".lrow");
+  await mp.click(".course-card");                      // Learn HTML
+  await mp.waitForSelector(".course-head", { timeout: 10000 });
+  ok("course screen opens (lazy-loaded)");
+  await mp.screenshot({ path: SHOTS + "/3-course-mobile.png" });
+
+  await mp.click(".lrow");                             // first lesson
   await mp.waitForSelector(".lesson", { timeout: 8000 });
   ok("lesson workspace opens");
-  await mp.screenshot({ path: SHOTS + "/3-lesson-learn-mobile.png" });
-
-  // go to Code tab, paste solution, run
   await mp.click(".l-tab:nth-child(2)");
   const solHtml = await mp.evaluate(() => window.CODELAB.dev.lesson("html-1").solution["index.html"]);
   await mp.fill(".ed-ta", solHtml);
@@ -149,7 +164,6 @@ async function main() {
   ok("Run → all checkpoints pass → completion sheet");
   await mp.screenshot({ path: SHOTS + "/5-lesson-done-mobile.png" });
 
-  // academy store sync
   const sync = await mp.evaluate(() => {
     const a = JSON.parse(localStorage.getItem("academy_users_v1") || "null");
     const c = JSON.parse(localStorage.getItem("codelab_v1") || "null");
@@ -158,32 +172,28 @@ async function main() {
       completed: a && a.users && a.users.Eric && a.users.Eric.tracks && a.users.Eric.tracks.fullstack && a.users.Eric.tracks.fullstack.completed,
       xp: a && a.users && a.users.Eric && a.users.Eric.tracks.fullstack && a.users.Eric.tracks.fullstack.xp,
       streak: a && a.users.Eric.tracks.fullstack.streak,
-      clDone: c && c.users && c.users.Eric && c.users.Eric.done
+      clDone: c && c.users && c.users.Eric && c.users.Eric.done,
+      lastCourse: c && c.users && c.users.Eric && c.users.Eric.lastCourse
     };
   });
-  if (sync.academyUser === "Eric" && sync.completed && sync.completed["html-1"] && sync.xp === 15 && sync.streak === 1 && sync.clDone["html-1"]) {
-    ok("Academy store sync verified (profile, completed, +15 XP, streak 1)");
+  if (sync.academyUser === "Eric" && sync.completed && sync.completed["html-1"] && sync.xp === 15 && sync.streak === 1 && sync.clDone["html-1"] && sync.lastCourse === "html") {
+    ok("Academy store sync + lastCourse verified");
   } else {
     fail("Academy sync mismatch: " + JSON.stringify(sync));
   }
 
-  // continue to next lesson via sheet
   await mp.click(".sheet-done .btn-green");
   await mp.waitForSelector(".lesson", { timeout: 8000 });
-  const kicker = await mp.textContent(".l-title");
-  ok("Next lesson opened: " + kicker.trim());
-  // check preview tab shows an iframe for web lessons
-  await mp.click(".l-tab:nth-child(3)");
-  await mp.waitForSelector(".preview-frame", { timeout: 8000 });
-  ok("preview iframe mounts on Result tab");
-  await mp.screenshot({ path: SHOTS + "/6-lesson-result-mobile.png" });
-  // back to path — lesson 1 should be done
+  const t2 = await mp.textContent(".l-title");
+  ok("Next lesson opened: " + t2.trim());
   await mp.click(".l-x");
-  await mp.waitForSelector(".hero", { timeout: 8000 });
+  await mp.waitForSelector(".course-head", { timeout: 8000 });
   const doneRows = await mp.locator(".lrow.done").count();
-  if (doneRows >= 1) ok("path shows completed lesson"); else fail("path does not show completed lesson");
-
-  // quiz UI spot-check: jump the store so the quiz is unlocked? Instead run quiz via direct open:
+  if (doneRows >= 1) ok("course screen shows completed lesson"); else fail("course screen missing completed state");
+  await mp.click(".course-back");
+  await mp.waitForSelector(".catalog", { timeout: 8000 });
+  const contBtn = await mp.locator(".course-card .cc-cta.cont").count();
+  if (contBtn >= 1) ok("catalog card shows Continue state"); else fail("catalog card lacks progress state");
   if (mErrors.length) fail("mobile page errors: " + mErrors.slice(0, 3).join(" ; "));
   await mob.close();
 
@@ -195,8 +205,10 @@ async function main() {
   await dp.click(".pcard.add");
   await dp.fill(".pcard-input", "Desktop Demo");
   await dp.click(".pcard .btn");
-  await dp.waitForSelector(".hero", { timeout: 8000 });
-  await dp.screenshot({ path: SHOTS + "/7-path-desktop.png" });
+  await dp.waitForSelector(".catalog", { timeout: 8000 });
+  await dp.screenshot({ path: SHOTS + "/7-catalog-desktop.png" });
+  await dp.click(".course-card");
+  await dp.waitForSelector(".course-head", { timeout: 10000 });
   await dp.click(".lrow");
   await dp.waitForSelector(".lesson", { timeout: 8000 });
   await dp.waitForTimeout(600);

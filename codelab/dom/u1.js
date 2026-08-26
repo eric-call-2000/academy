@@ -1,5 +1,5 @@
 /* Unit 6 — Building Interactive Websites: the DOM & events */
-window.CODELAB.addUnit({
+window.CODELAB.addUnit("dom", {
   id: "dom",
   title: "The DOM & Events",
   icon: "🖱️",

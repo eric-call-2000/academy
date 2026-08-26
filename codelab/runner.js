@@ -104,19 +104,40 @@
         return out;
       },
       ruleFor: function (sel) {
+        // LAST matching rule wins — starters often pre-define the selector.
         sel = String(sel).replace(/\s+/g, " ").trim().toLowerCase();
         var rules = g.T.rules();
+        var hit = null;
         for (var i = 0; i < rules.length; i++) {
+          if (rules[i].parentRule && rules[i].parentRule.media) continue; // media-scoped → mediaDecl's turf
           var st = rules[i].selectorText;
           if (!st) continue;
           var parts = st.split(",").map(function (p) { return p.replace(/\s+/g, " ").trim().toLowerCase(); });
-          if (parts.indexOf(sel) !== -1) return rules[i].style;
+          if (parts.indexOf(sel) !== -1) hit = rules[i].style;
         }
-        return null;
+        return hit;
       },
       decl: function (sel, prop) {
-        var st = g.T.ruleFor(sel);
-        return st ? String(st.getPropertyValue(prop) || "").trim() : null;
+        // Scan ALL rules matching the selector; the last one that sets the
+        // property wins (mirrors the cascade for equal specificity).
+        sel = String(sel).replace(/\s+/g, " ").trim().toLowerCase();
+        var rules = g.T.rules();
+        var out = null;
+        for (var i = 0; i < rules.length; i++) {
+          if (rules[i].parentRule && rules[i].parentRule.media) continue; // media-scoped → mediaDecl's turf
+          var st = rules[i].selectorText;
+          if (!st) continue;
+          var parts = st.split(",").map(function (p) { return p.replace(/\s+/g, " ").trim().toLowerCase(); });
+          if (parts.indexOf(sel) === -1) continue;
+          var v = String(rules[i].style.getPropertyValue(prop) || "").trim();
+          if (v) out = v;
+        }
+        return out;
+      },
+      sheet: function () {
+        // The learner's stylesheet(s) exactly as WRITTEN (hex stays hex,
+        // hsl stays hsl) — for checks that grade notation, not effect.
+        return g.T.$$("style").map(function (s) { return s.textContent || ""; }).join("\n");
       },
       hasMedia: function (needle) {
         needle = String(needle).replace(/\s+/g, "");
@@ -343,6 +364,15 @@
       else html = html.replace(head, function () { return head + "\n" + styleTag; });
     }
 
+    // 2b) external stylesheets (web fonts etc.) load ASYNC so a slow network
+    //     can never block the page's scripts or the grader (media-print swap).
+    html = html.replace(/<link\b[^>]*>/gi, function (tag) {
+      if (!/rel\s*=\s*["']?stylesheet/i.test(tag)) return tag;
+      if (!/href\s*=\s*["']?https?:/i.test(tag)) return tag;
+      if (/\bmedia\s*=/i.test(tag)) return tag;
+      return tag.replace(/\/?>$/, " media=\"print\" onload=\"this.media='all'\">");
+    });
+
     // 3) learner JS replaces its <script src>, or is appended before </body>
     if (js != null) {
       var scriptTag = "<script>\n" + safeInline(guardLoops(js)) + "\n<\/script>";
@@ -352,13 +382,18 @@
       else html += "\n" + scriptTag;
     }
 
-    // 4) grader runs last, after everything has loaded
+    // 4) grader runs last, after everything has loaded. Fallback: if a slow
+    //    external resource (e.g. a web-font link while offline) stalls the
+    //    load event, grade anyway 2.5s after DOMContentLoaded.
     var grader =
       "<script>" +
-      "window.addEventListener('load', function () { setTimeout(function () {" +
+      "var __GRADED = false;" +
+      "function __grade() { if (__GRADED) return; __GRADED = true; setTimeout(function () {" +
       "try {\n" + safeInline(stepsSource(lesson)) + "\n} catch (e) { __send({ type: 'fatal', text: (e && e.message) || String(e) }); }" +
       "__T_RUN(function (steps) { __send({ type: 'results', steps: steps }); });" +
-      "}, 60); });" +
+      "}, 60); }" +
+      "window.addEventListener('load', __grade);" +
+      "document.addEventListener('DOMContentLoaded', function () { setTimeout(__grade, 2500); });" +
       "<\/script>";
     if (/<\/body>/i.test(html)) html = html.replace(/<\/body>/i, function () { return grader + "\n</body>"; });
     else html += "\n" + grader;
