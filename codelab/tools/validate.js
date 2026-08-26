@@ -453,6 +453,111 @@ async function main() {
   else fail("no skip affordance — the tombstone is how eligibility gets measured");
   await mp.screenshot({ path: SHOTS + "/6b-recall-card-mobile.png" });
 
+  /* ---- Tier B: checkpoint-prefix drills ----
+     The regression that must never rot: a drill opens from the STARTER, and
+     the learner's saved solution comes back untouched. */
+  const drill = await mp.evaluate(async () => {
+    const d = window.CODELAB.dev, R = window.CODELAB.review;
+    await d.loadAll();
+    // Give the profile a finished coding lesson WITH saved code, so there is
+    // something to accidentally clobber.
+    const raw = JSON.parse(localStorage.getItem("codelab_v1"));
+    const lessonId = "html-1";
+    const lesson = d.lesson(lessonId);
+    const fingerprint = "/* MY SAVED SOLUTION — must survive */";
+    const savedFiles = {};
+    (lesson.files || []).forEach(f => { savedFiles[f.name] = f.content + "\n" + fingerprint; });
+    d.rev.seed({});
+    const u = raw.users.Eric;
+    return { lessonId, fingerprint, savedFiles, steps: (lesson.steps || []).length };
+  });
+
+  const drillProbe = await mp.evaluate(async (fx) => {
+    const d = window.CODELAB.dev, R = window.CODELAB.review;
+    // Plant saved code through the live store, then open a drill on it.
+    const before = d.rev.drillState(fx.lessonId);
+    d.setCodeForTest(fx.lessonId, fx.savedFiles);
+    const pick = {
+      key: R.drillKey(fx.lessonId), lessonId: fx.lessonId, courseId: "html",
+      unitId: null, title: "test", steps: fx.steps, k: 0
+    };
+    d.rev.startDrill(pick);
+    await new Promise(r => setTimeout(r, 900));
+    const shown = d.editorFiles();
+    const after = d.rev.drillState(fx.lessonId);
+    return {
+      shown, savedAfter: after.savedCode,
+      kicker: (document.querySelector(".l-kicker") || {}).textContent || "",
+      badge: (document.querySelector(".l-badge") || {}).textContent || "",
+      checkpoints: document.querySelectorAll(".pane-learn .chk").length,
+      solutionLocked: [...document.querySelectorAll(".help-row .btn")].some(b => /🔒/.test(b.textContent))
+    };
+  }, drill);
+
+  const leaked = JSON.stringify(drillProbe.shown || {}).indexOf(drill.fingerprint) !== -1;
+  if (!leaked) ok("drill opened from the STARTER — no saved solution in the editor");
+  else fail("DRILL LEAKED THE SAVED SOLUTION into the editor — the whole tier is pointless");
+  const preserved = JSON.stringify(drillProbe.savedAfter || {}).indexOf(drill.fingerprint) !== -1;
+  if (preserved) ok("the saved solution survived the drill byte-for-byte");
+  else fail("the drill OVERWROTE u.code — saved solution lost");
+  if (/DRILL/.test(drillProbe.kicker)) ok("drill kicker shown: " + drillProbe.kicker.trim());
+  else fail(`drill kicker missing, got "${drillProbe.kicker}"`);
+  // k=0 means exactly one checkpoint is in play, however long the lesson is.
+  if (drillProbe.checkpoints === 1) ok(`prefix grading: 1 of ${drill.steps} checkpoints shown at box 0`);
+  else fail(`drill showed ${drillProbe.checkpoints} checkpoints at k=0, expected 1`);
+  if (drillProbe.solutionLocked) ok("solution locked until the first graded run");
+  else fail("solution was available before any attempt");
+  await mp.screenshot({ path: SHOTS + "/6c-recall-drill-mobile.png" });
+
+  // A failing run first: it must persist the scratch buffer and settle nothing.
+  const failedRun = await mp.evaluate(async (fx) => {
+    const d = window.CODELAB.dev;
+    const idle = async () => {
+      // A run is in flight until the button re-enables. Clicking again before
+      // then is silently dropped by doRun's `current.running` guard.
+      for (let i = 0; i < 90; i++) {
+        const b = document.querySelector(".btn-run");
+        if (b && !b.disabled) return true;
+        await new Promise(r => setTimeout(r, 200));
+      }
+      return false;
+    };
+    const wipe = {};
+    Object.keys(d.editorFiles() || {}).forEach(n => { wipe[n] = ""; });
+    d.setEditorFiles(wipe);
+    document.querySelector(".btn-run").click();
+    const settled = await idle();
+    const st = d.rev.drillState(fx.lessonId);
+    return { rec: st.rec, scratch: !!st.scratch, settled, stillInDrill: !!document.querySelector(".l-kicker.drill") };
+  }, drill);
+  if (failedRun.settled) ok("failing run completed and the Run button re-armed");
+  else fail("the drill run never finished — Run stayed disabled");
+  if (failedRun.scratch) ok("a failing run persists the scratch buffer (drillCode, not code)");
+  else fail("scratch buffer was never written — the drill has no crash recovery");
+  if (failedRun.rec === null) ok("a failing run settles nothing — the drill stays open");
+  else fail(`a failing run wrote a schedule record ${JSON.stringify(failedRun.rec)}`);
+
+  // Now solve it and confirm the ladder moves and the scratch is reclaimed.
+  const solved = await mp.evaluate(async (fx) => {
+    const d = window.CODELAB.dev;
+    const lesson = d.lesson(fx.lessonId);
+    d.setEditorFiles(lesson.solution);
+    document.querySelector(".btn-run").click();
+    for (let i = 0; i < 90 && !d.rev.drillState(fx.lessonId).rec; i++) await new Promise(r => setTimeout(r, 200));
+    const st = d.rev.drillState(fx.lessonId);
+    return { rec: st.rec, scratch: st.scratch, savedCode: st.savedCode, today: d.rev.today() };
+  }, drill);
+  // Clean pass at box 0 → box 1, and D_IV[1] is 3 days. It lands on "close"
+  // rather than "got" here because the failing run above is part of the record.
+  if (solved.rec && solved.rec[0] >= 0 && solved.rec[1] > solved.today)
+    ok(`drill settled → box ${solved.rec[0]}, due in ${solved.rec[1] - solved.today} day(s), ${solved.rec[3]} review(s)`);
+  else fail(`drill schedule after a pass was ${JSON.stringify(solved.rec)}, expected a real record`);
+  if (!solved.scratch) ok("scratch buffer reclaimed on pass — never becomes a second answer key");
+  else fail("drillCode survived a passing drill");
+  if (JSON.stringify(solved.savedCode || {}).indexOf(drill.fingerprint) !== -1)
+    ok("saved solution STILL intact after a full drill cycle");
+  else fail("the saved solution was lost somewhere in the drill cycle");
+
   /* Concurrency: background prefetch makes two loadCourse calls for the same
      course near-certain, and a double registration halves every percentage. */
   const conc = await mp.evaluate(async () => {

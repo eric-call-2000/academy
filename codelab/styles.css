@@ -604,3 +604,14 @@ input { font-family: var(--font); }
   text-decoration: underline;
   cursor: pointer;
 }
+
+/* ---------- Recall: code drills (tier B) ---------- */
+.rv-drill {
+  background: #f5f3ff;
+  border: 2px solid #ddd6fe;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.rv-drill .btn { margin-top: 10px; }
+.l-kicker.drill { color: #7c3aed; }
