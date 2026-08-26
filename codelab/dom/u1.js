@@ -1,227 +1,155 @@
-/* Unit 6 — Building Interactive Websites: the DOM & events */
+/* Building Interactive Websites — Unit 1: Select, change, create */
 window.CODELAB.addUnit("dom", {
-  id: "dom",
-  title: "The DOM & Events",
-  icon: "🖱️",
-  color: "#58cc02",
-  blurb: "Connect JavaScript to the page — select, change, create, and react to clicks.",
+  id: "dom-u1",
+  title: "Select, change, create",
+  icon: "🔍",
+  blurb: "Grab any element on the page — then change it, restyle it, build new ones, and delete the rest.",
   cheat: [
-    { h: "Selecting elements", lang: "js", code: "const title = document.querySelector(\"#title\"); // first match (CSS selector!)\nconst items = document.querySelectorAll(\".item\"); // all matches" },
-    { h: "Changing elements", lang: "js", code: "el.textContent = \"New text\";\nel.style.color = \"royalblue\";\nel.classList.add(\"active\");\nel.classList.toggle(\"dark\");" },
-    { h: "Creating elements", lang: "js", code: "const li = document.createElement(\"li\");\nli.textContent = \"New item\";\nlist.appendChild(li);" },
-    { h: "Events", lang: "js", code: "btn.addEventListener(\"click\", () => {\n  count++;\n});\n\ninput.addEventListener(\"input\", (e) => {\n  console.log(e.target.value);\n});" },
-    { h: "Forms", lang: "js", code: "form.addEventListener(\"submit\", (e) => {\n  e.preventDefault();   // stop the page reload!\n  // read input.value, do things…\n  input.value = \"\";     // clear the field\n});" }
+    { h: "Selecting elements", lang: "js", code: "const title = document.querySelector(\"#title\"); // FIRST match (CSS selector!)\nconst cards = document.querySelectorAll(\".card\"); // ALL matches" },
+    { h: "Changing text & styles", lang: "js", code: "el.textContent = \"New text\";\nel.style.color = \"royalblue\";" },
+    { h: "classList — styles the right way", lang: "js", code: "el.classList.add(\"active\", \"rounded\");\nel.classList.remove(\"dusty\");\nel.classList.toggle(\"dark\");", note: "Define the looks in CSS once; JS just flips the switch." },
+    { h: "textContent vs innerHTML", lang: "js", code: "el.textContent = \"<b>hi</b>\"; // tags show literally — always safe\nel.innerHTML = \"<b>hi</b>\";    // tags parsed into real elements", note: "NEVER innerHTML untrusted input (comments, usernames…) — that's an XSS attack." },
+    { h: "Creating & removing", lang: "js", code: "const li = document.createElement(\"li\");\nli.textContent = \"New item\";\nlist.appendChild(li);\n\noldEl.remove(); // gone from the page" }
   ],
   lessons: [
 
     {
-      id: "dom-1",
+      id: "dom-u1-1",
       title: "Select & change",
-      kind: "web", chip: "DOM", xp: 15,
-      brief: "The browser turns your HTML into a live object tree — the **DOM** (Document Object Model). JavaScript can grab any node and change it:\n\n- `document.querySelector(\"#title\")` — find by any **CSS selector**\n- `.textContent` — read/replace its text\n- `.style.color` — set inline styles\n\nYour script runs in `script.js` (see the file tabs). It's already linked at the bottom of the HTML — scripts load *after* the elements they touch.",
+      kind: "web", chip: "DOM", xp: 15, mins: 12,
+      brief: "The browser turns your HTML into a live object tree — the **DOM** (Document Object Model). JavaScript can grab any node and change it, and the page updates instantly:\n\n- `document.querySelector(\"#title\")` — find by any **CSS selector** (`#id`, `.class`, `tag`)\n- `.textContent` — read/replace its text\n- `.style.color` — set inline styles\n\nYour code lives in `script.js` (see the file tabs). It's already linked at the bottom of the HTML — scripts load *after* the elements they touch, so everything is grabbable.",
       steps: [
         { text: "Change the `#title` text to **\"Hello, DOM!\"** using `querySelector` + `textContent`.",
           test: "var t = (T.text('#title') || '').toLowerCase();\nT.expect(t.indexOf('dom') !== -1, 'Set document.querySelector(\"#title\").textContent = \"Hello, DOM!\" — the heading still says: ' + T.text('#title'));" },
         { text: "Turn the `#intro` paragraph **royalblue** via `.style.color`.",
-          test: "T.expect(T.css('#intro', 'color') === 'rgb(65, 105, 225)', 'Set .style.color = \"royalblue\" on the #intro element.');" }
+          test: "T.expect(T.css('#intro', 'color') === 'rgb(65, 105, 225)', 'Set .style.color = \"royalblue\" on the #intro element.');" },
+        { text: "Selectors are CSS: grab the element with **class** `tagline` (selector `\".tagline\"`) and set its text to **\"This page is live.\"**",
+          test: "var tag = (T.text('.tagline') || '').toLowerCase();\nT.expect(tag.indexOf('live') !== -1, 'querySelector(\".tagline\") — class selectors need the leading dot. Then set its textContent to \"This page is live.\"');" }
       ],
       files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n  <h1 id=\"title\">Just a static page…</h1>\n  <p id=\"intro\">Nothing ever changes around here.</p>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
-        { name: "script.js", content: "// 1) grab #title, change its textContent\n\n// 2) grab #intro, set style.color = \"royalblue\"\n" }
+        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n  <h1 id=\"title\">Just a static page…</h1>\n  <p id=\"intro\">Nothing ever changes around here.</p>\n  <p class=\"tagline\">Same old text since 1996.</p>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
+        { name: "script.js", content: "// 1) grab #title, set its textContent to \"Hello, DOM!\"\n\n// 2) grab #intro, set style.color = \"royalblue\"\n\n// 3) grab the element with class \"tagline\" (selector: \".tagline\")\n//    and set its textContent to \"This page is live.\"\n" }
       ],
       hints: [
         "`const title = document.querySelector(\"#title\");` then `title.textContent = \"Hello, DOM!\";`",
-        "Styles from JS: `document.querySelector(\"#intro\").style.color = \"royalblue\";`"
+        "Styles from JS: `document.querySelector(\"#intro\").style.color = \"royalblue\";`",
+        "Classes select with a dot: `document.querySelector(\".tagline\").textContent = \"This page is live.\";`"
       ],
       solution: {
-        "script.js": "const title = document.querySelector(\"#title\");\ntitle.textContent = \"Hello, DOM!\";\n\nconst intro = document.querySelector(\"#intro\");\nintro.style.color = \"royalblue\";\n"
+        "script.js": "const title = document.querySelector(\"#title\");\ntitle.textContent = \"Hello, DOM!\";\n\nconst intro = document.querySelector(\"#intro\");\nintro.style.color = \"royalblue\";\n\nconst tagline = document.querySelector(\".tagline\");\ntagline.textContent = \"This page is live.\";\n"
       }
     },
 
     {
-      id: "dom-2",
+      id: "dom-u1-2",
       title: "classList: styles the right way",
-      kind: "web", chip: "DOM", xp: 15,
-      brief: "Inline styles get messy fast. The pro move: define looks in **CSS classes**, then let JavaScript switch classes on and off:\n\n- `el.classList.add(\"active\")`\n- `el.classList.remove(\"active\")`\n- `el.classList.toggle(\"active\")`\n\n`styles.css` already defines what `.active` looks like — your job is one line of JS.",
+      kind: "web", chip: "DOM", xp: 15, mins: 12,
+      brief: "Inline styles get messy fast. The pro move: define looks in **CSS classes**, then let JavaScript switch classes on and off:\n\n- `el.classList.add(\"active\")` — put a class on (several at once works too)\n- `el.classList.remove(\"dusty\")` — take one off\n- `el.classList.toggle(\"dark\")` — flip it each call\n\nOne class can change ten styles at once — that's the power. `styles.css` already defines everything; your whole job is three small lines of JS.",
       steps: [
-        { text: "Add the class `active` to the `#box` element from JavaScript.",
-          test: "var box = T.$('#box');\nT.expect(box && box.classList.contains('active'), 'Use box.classList.add(\"active\").');\nT.expect(T.css('#box', 'background-color') === 'rgb(34, 197, 94)', 'Once the class is on, the CSS should turn the box green automatically.');" },
+        { text: "The box starts with a class `dusty` that grays it out. **Remove** it with `classList.remove`.",
+          test: "var box = T.$('#box');\nT.expect(box && !box.classList.contains('dusty'), 'Use box.classList.remove(\"dusty\") to wake the box up.');" },
+        { text: "Add the class `active` — the CSS turns the box green on its own.",
+          test: "var box = T.$('#box');\nT.expect(box && box.classList.contains('active'), 'Use box.classList.add(\"active\").');\nT.expect(T.css('#box', 'background-color') === 'rgb(34, 197, 94)', 'Once the class is on, the CSS should turn the box green automatically — no .style needed.');" },
         { text: "Also add the class `rounded` (elements can wear many classes).",
-          test: "T.expect(T.$('#box').classList.contains('rounded'), 'Add a second class: classList.add(\"rounded\") — or add(\"active\", \"rounded\") in one call.');" }
+          test: "T.expect(T.$('#box').classList.contains('rounded'), 'Add a second class: classList.add(\"rounded\") — or add(\"active\", \"rounded\") in one call.');\nT.expect(T.css('#box', 'border-radius') === '16px', 'The .rounded class in styles.css should round the corners once the class is on.');" }
       ],
       files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <div id=\"box\">status: pending…</div>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
-        { name: "styles.css", content: "/* Already styled for you — just switch the classes on */\n#box {\n  padding: 24px;\n  background: #e2e8f0;\n  font-family: Arial, sans-serif;\n}\n\n.active {\n  background: #22c55e !important;\n  color: white;\n}\n\n.rounded {\n  border-radius: 16px;\n}\n" },
-        { name: "script.js", content: "const box = document.querySelector(\"#box\");\n\n// add the classes here\n" }
+        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <div id=\"box\" class=\"dusty\">deploy: pending…</div>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
+        { name: "styles.css", content: "/* Already styled for you — your JS just flips the switches */\n#box {\n  padding: 24px;\n  background: #e2e8f0;\n  font-family: Arial, sans-serif;\n}\n\n#box.dusty {\n  opacity: 0.4;\n  filter: grayscale(1);\n}\n\n.active {\n  background: #22c55e !important;\n  color: white;\n}\n\n.rounded {\n  border-radius: 16px;\n}\n" },
+        { name: "script.js", content: "const box = document.querySelector(\"#box\");\n\n// 1) remove the \"dusty\" class\n\n// 2) add the \"active\" class\n\n// 3) add the \"rounded\" class too\n" }
       ],
       hints: [
+        "`box.classList.remove(\"dusty\");` — the gray filter disappears with the class.",
         "`box.classList.add(\"active\");` — the CSS does the rest.",
         "classList.add accepts several at once: `box.classList.add(\"active\", \"rounded\");`"
       ],
       solution: {
-        "script.js": "const box = document.querySelector(\"#box\");\n\nbox.classList.add(\"active\", \"rounded\");\n"
+        "script.js": "const box = document.querySelector(\"#box\");\n\nbox.classList.remove(\"dusty\");\nbox.classList.add(\"active\", \"rounded\");\n"
       }
     },
 
     {
-      id: "dom-3",
-      title: "Creating elements",
-      kind: "web", chip: "DOM", xp: 15,
-      brief: "Real apps *build* their UI from data (think: your inbox, a feed, search results). The loop:\n\n- `document.createElement(\"li\")` — make a node\n- set its `textContent`\n- `parent.appendChild(node)` — mount it\n\nRender the `crew` array into the empty `#list`.",
+      id: "dom-u1-3",
+      title: "textContent vs innerHTML",
+      kind: "web", chip: "DOM", xp: 15, mins: 12,
+      brief: "Two ways to put content inside an element — and they behave *very* differently:\n\n- `el.textContent = str` — the string shows **as-is**. Tags like `<b>` appear literally on screen.\n- `el.innerHTML = str` — the string is **parsed as HTML**. Tags become real elements.\n\ninnerHTML is great for markup *you* wrote. But feed it something a stranger typed — a comment, a username, a URL parameter — and you've handed them paste-HTML-into-your-page superpowers. That's an **XSS attack**, one of the most common web vulnerabilities. Rule of the pros: **untrusted input goes through textContent, always.**",
       steps: [
-        { text: "Create one `<li>` per crew member and append it to `#list`.",
-          test: "T.expect(T.count('#list li') >= 3, 'Loop over crew and append an <li> per member — the list has ' + T.count('#list li') + ' items.');" },
-        { text: "Each `<li>` should show that member's name.",
-          test: "var txt = (T.text('#list') || '').toLowerCase();\nT.expect(txt.indexOf('rosa') !== -1 && txt.indexOf('kim') !== -1 && txt.indexOf('dev') !== -1, 'Set li.textContent to the member name inside the loop.');" }
+        { text: "Set `#plain`'s **textContent** to the string `\"<b>bold?</b>\"` — the tags should appear as literal text.",
+          test: "var t = T.text('#plain') || '';\nT.expect(t.indexOf('<b>') !== -1, 'Set plain.textContent = \"<b>bold?</b>\" — with textContent, the tags show up as plain text.');\nT.eq(T.count('#plain b'), 0, 'textContent never builds elements — if a real <b> appeared in #plain, that line used innerHTML.');" },
+        { text: "Set `#rich`'s **innerHTML** to `\"Breaking: <strong>DOM mastered</strong>\"` — this time the tag becomes a real element.",
+          test: "T.eq(T.count('#rich strong'), 1, 'Set rich.innerHTML to the string with <strong> in it — innerHTML parses tags into real elements.');\nT.expect((T.text('#rich strong') || '').toLowerCase().indexOf('mastered') !== -1, 'The <strong> element should wrap the words \"DOM mastered\".');\nT.expect((T.text('#rich') || '').indexOf('<strong>') === -1, 'No literal tags should be visible in #rich — if you can read <strong> on the page, that line used textContent.');" },
+        { text: "`sketchyComment` is attacker-controlled input. Display it inside `#comment` the **safe** way.",
+          test: "var c = T.text('#comment') || '';\nT.expect(c.indexOf('<img') !== -1, 'Show sketchyComment in #comment with textContent — the attack should appear as harmless literal text.');\nT.eq(T.count('#comment img'), 0, 'An <img> element exists — the attack went through the HTML parser! Switch that line from innerHTML to textContent.');" }
       ],
       files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n  <h1>Crew roster</h1>\n  <ul id=\"list\"></ul>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
-        { name: "script.js", content: "const crew = [\"Rosa\", \"Kim\", \"Dev\"];\nconst list = document.querySelector(\"#list\");\n\n// loop over crew:\n//   create an li, set its textContent, append it to list\n" }
+        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n  <h1>Tag or text?</h1>\n  <p id=\"plain\"></p>\n  <p id=\"rich\"></p>\n  <h2>Latest comment</h2>\n  <p id=\"comment\"></p>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
+        { name: "script.js", content: "const plain = document.querySelector(\"#plain\");\nconst rich = document.querySelector(\"#rich\");\nconst comment = document.querySelector(\"#comment\");\n\n// A \"user comment\" straight from the internet — do NOT trust it:\nconst sketchyComment = \"<img src=nope onerror=stealPasswords()> Nice post!\";\n\n// 1) plain.textContent = \"<b>bold?</b>\"   → tags show as text\n\n// 2) rich.innerHTML = \"Breaking: <strong>DOM mastered</strong>\"   → real markup\n\n// 3) show sketchyComment inside #comment the SAFE way\n" }
       ],
       hints: [
+        "Both are plain assignments: `el.textContent = \"...\"` vs `el.innerHTML = \"...\"` — the property name decides whether the string gets parsed.",
+        "Step 2 wants real markup: `rich.innerHTML = \"Breaking: <strong>DOM mastered</strong>\";`",
+        "The safe display line is `comment.textContent = sketchyComment;` — same string, zero parsing, zero danger."
+      ],
+      solution: {
+        "script.js": "const plain = document.querySelector(\"#plain\");\nconst rich = document.querySelector(\"#rich\");\nconst comment = document.querySelector(\"#comment\");\n\n// A \"user comment\" straight from the internet — do NOT trust it:\nconst sketchyComment = \"<img src=nope onerror=stealPasswords()> Nice post!\";\n\nplain.textContent = \"<b>bold?</b>\";\n\nrich.innerHTML = \"Breaking: <strong>DOM mastered</strong>\";\n\ncomment.textContent = sketchyComment;\n"
+      }
+    },
+
+    {
+      id: "dom-u1-4",
+      title: "Creating & removing elements",
+      kind: "web", chip: "DOM", xp: 15, mins: 14,
+      brief: "Real apps *build* their UI from data — your inbox, a feed, search results. The production loop:\n\n- `document.createElement(\"li\")` — make a node in memory\n- `li.textContent = ...` — fill it in\n- `list.appendChild(li)` — mount it on the page\n\nAnd the reverse move: `el.remove()` deletes a node. Every \"loading…\" spinner and \"no results yet\" placeholder dies by that method.\n\nClear out the placeholder, then render the whole `crew` array into the list.",
+      steps: [
+        { text: "Delete the `#placeholder` item with `.remove()`.",
+          test: "T.eq(T.count('#placeholder'), 0, 'Grab #placeholder with querySelector and call .remove() on it.');\nT.expect((T.text('#list') || '').toLowerCase().indexOf('no crew') === -1, 'The no-crew placeholder text should be gone from the list.');" },
+        { text: "Create one `<li>` per crew member and append it to `#list` — four in total.",
+          test: "T.eq(T.count('#list li'), 4, 'Loop over crew and append one <li> per member — the list currently has ' + T.count('#list li') + '.');" },
+        { text: "Each `<li>` shows that member's name, in array order.",
+          test: "var lis = T.$$('#list li');\nvar txt = (T.text('#list') || '').toLowerCase();\nT.expect(txt.indexOf('rosa') !== -1 && txt.indexOf('kim') !== -1 && txt.indexOf('dev') !== -1 && txt.indexOf('ana') !== -1, 'Set li.textContent to the member name inside the loop.');\nT.expect(lis.length === 4 && (lis[0].textContent || '').indexOf('Rosa') !== -1 && (lis[3].textContent || '').indexOf('Ana') !== -1, 'Append inside the loop so names keep the array order: Rosa first, Ana last.');" }
+      ],
+      files: [
+        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n  <h1>Crew roster</h1>\n  <ul id=\"list\">\n    <li id=\"placeholder\">No crew yet…</li>\n  </ul>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
+        { name: "script.js", content: "const crew = [\"Rosa\", \"Kim\", \"Dev\", \"Ana\"];\nconst list = document.querySelector(\"#list\");\n\n// 1) remove the #placeholder li with .remove()\n\n// 2) loop over crew:\n//    create an li, set its textContent to the name, append it to list\n" }
+      ],
+      hints: [
+        "One line kills the placeholder: `document.querySelector(\"#placeholder\").remove();`",
         "A for…of loop reads nicely: `for (const member of crew) { … }`",
-        "Inside: `const li = document.createElement(\"li\"); li.textContent = member; list.appendChild(li);`"
+        "Inside the loop: `const li = document.createElement(\"li\"); li.textContent = member; list.appendChild(li);`"
       ],
       solution: {
-        "script.js": "const crew = [\"Rosa\", \"Kim\", \"Dev\"];\nconst list = document.querySelector(\"#list\");\n\nfor (const member of crew) {\n  const li = document.createElement(\"li\");\n  li.textContent = member;\n  list.appendChild(li);\n}\n"
+        "script.js": "const crew = [\"Rosa\", \"Kim\", \"Dev\", \"Ana\"];\nconst list = document.querySelector(\"#list\");\n\ndocument.querySelector(\"#placeholder\").remove();\n\nfor (const member of crew) {\n  const li = document.createElement(\"li\");\n  li.textContent = member;\n  list.appendChild(li);\n}\n"
       }
     },
 
     {
-      id: "dom-4",
-      title: "Click events",
-      kind: "web", chip: "DOM", xp: 15,
-      brief: "Now the fun part: **reacting to the user**. `addEventListener(\"click\", fn)` runs your function on every click.\n\nBuild the classic first interactive app: a click counter. Keep the count in a `let` variable — the variable is the *source of truth*; the DOM just displays it.\n\nTry your buttons in the preview after you run!",
-      steps: [
-        { text: "The `#count` display starts at **0**.",
-          test: "T.eq(T.text('#count'), '0', 'Leave the starting count at 0.');" },
-        { text: "Clicking `#btn` increases the number shown — every click.",
-          test: "T.click('#btn');\nT.click('#btn');\nT.eq(T.text('#count'), '2', 'After two clicks the display should read 2 — add a click listener that increments a counter variable and updates #count.');" }
-      ],
-      files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n  <h1>Cookie clicker 🍪</h1>\n  <p>Cookies: <span id=\"count\">0</span></p>\n  <button id=\"btn\">Click me</button>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
-        { name: "script.js", content: "const btn = document.querySelector(\"#btn\");\nconst countEl = document.querySelector(\"#count\");\n\nlet cookies = 0;\n\n// add a \"click\" listener on btn:\n//   increment cookies, then show it in countEl\n" }
-      ],
-      hints: [
-        "`btn.addEventListener(\"click\", () => { … });`",
-        "Inside the listener: `cookies++; countEl.textContent = cookies;`"
-      ],
-      solution: {
-        "script.js": "const btn = document.querySelector(\"#btn\");\nconst countEl = document.querySelector(\"#count\");\n\nlet cookies = 0;\n\nbtn.addEventListener(\"click\", () => {\n  cookies++;\n  countEl.textContent = cookies;\n});\n"
-      }
-    },
-
-    {
-      id: "dom-5",
-      title: "Reacting to typing",
-      kind: "web", chip: "DOM", xp: 15,
-      brief: "The `input` event fires on **every keystroke** — that's how live searches and previews work.\n\nInside the listener, `e.target.value` (or `inputEl.value`) is what's typed *right now*. Build a live greeting that updates as you type.",
-      steps: [
-        { text: "Listening for `input` on `#nameInput`, show `` `Hello, ${value}!` `` in `#preview`.",
-          test: "T.type('#nameInput', 'Zoe');\nvar t = (T.text('#preview') || '');\nT.expect(t.indexOf('Zoe') !== -1, 'Typing Zoe should make #preview say Hello, Zoe! — listen for the \"input\" event and use the value.');\nT.expect(t.toLowerCase().indexOf('hello') !== -1, 'Format the preview as Hello, <value>!');" },
-        { text: "It updates continuously — new keystrokes replace the old greeting.",
-          test: "T.type('#nameInput', 'Marcus');\nT.expect((T.text('#preview') || '').indexOf('Marcus') !== -1 && (T.text('#preview') || '').indexOf('Zoe') === -1, 'Each input event should REPLACE the preview text (assign, don\\'t append).');" }
-      ],
-      files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n  <h1>Name badge printer</h1>\n  <input id=\"nameInput\" placeholder=\"Type your name…\">\n  <p id=\"preview\"></p>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
-        { name: "script.js", content: "const nameInput = document.querySelector(\"#nameInput\");\nconst preview = document.querySelector(\"#preview\");\n\n// listen for the \"input\" event:\n//   set preview's text to `Hello, ${nameInput.value}!`\n" }
-      ],
-      hints: [
-        "`nameInput.addEventListener(\"input\", () => { … });`",
-        "Inside: `preview.textContent = `Hello, ${nameInput.value}!`;`"
-      ],
-      solution: {
-        "script.js": "const nameInput = document.querySelector(\"#nameInput\");\nconst preview = document.querySelector(\"#preview\");\n\nnameInput.addEventListener(\"input\", () => {\n  preview.textContent = `Hello, ${nameInput.value}!`;\n});\n"
-      }
-    },
-
-    {
-      id: "dom-6",
-      title: "Handling forms",
-      kind: "web", chip: "DOM", xp: 15,
-      brief: "Forms fire a **submit** event (pressing Enter counts too!). Two golden rules:\n\n- `e.preventDefault()` — stop the browser's old-school page reload\n- clear the input afterwards so the user can keep going\n\nThis is the heart of every todo app, chat box, and comment section ever built.",
-      steps: [
-        { text: "On submit, add the typed text as a new `<li>` in `#items` (and don't reload — `preventDefault`!).",
-          test: "T.type('#itemInput', 'Buy milk');\nT.submit('#addForm');\nT.eq(T.count('#items li'), 1, 'Submitting should append exactly one <li> — remember e.preventDefault().');\nT.expect((T.text('#items') || '').toLowerCase().indexOf('buy milk') !== -1, 'The <li> should contain the typed text.');" },
-        { text: "Clear the input after each submit.",
-          test: "T.eq(T.val('#itemInput'), '', 'After submitting, set the input\\'s .value = \"\".');" },
-        { text: "It keeps working — a second submit adds a second item.",
-          test: "T.type('#itemInput', 'Walk dog');\nT.submit('#addForm');\nT.eq(T.count('#items li'), 2, 'Two submits → two list items.');" }
-      ],
-      files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n  <h1>Shopping list</h1>\n  <form id=\"addForm\">\n    <input id=\"itemInput\" placeholder=\"Add an item…\">\n    <button>Add</button>\n  </form>\n  <ul id=\"items\"></ul>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
-        { name: "script.js", content: "const addForm = document.querySelector(\"#addForm\");\nconst itemInput = document.querySelector(\"#itemInput\");\nconst items = document.querySelector(\"#items\");\n\naddForm.addEventListener(\"submit\", (e) => {\n  // 1) stop the reload\n  // 2) create an li with itemInput.value, append to items\n  // 3) clear the input\n});\n" }
-      ],
-      hints: [
-        "First line inside the handler: `e.preventDefault();`",
-        "Then it's dom-3 again: createElement, textContent = itemInput.value, appendChild.",
-        "Finally: `itemInput.value = \"\";`"
-      ],
-      solution: {
-        "script.js": "const addForm = document.querySelector(\"#addForm\");\nconst itemInput = document.querySelector(\"#itemInput\");\nconst items = document.querySelector(\"#items\");\n\naddForm.addEventListener(\"submit\", (e) => {\n  e.preventDefault();\n  const li = document.createElement(\"li\");\n  li.textContent = itemInput.value;\n  items.appendChild(li);\n  itemInput.value = \"\";\n});\n"
-      }
-    },
-
-    {
-      id: "dom-quiz",
-      title: "DOM checkpoint quiz",
+      id: "dom-quiz-1",
+      title: "Unit 1 quiz: DOM basics",
       kind: "quiz", xp: 10,
       questions: [
-        { q: "What does DOM stand for?",
-          choices: ["Document Object Model", "Data Object Management", "Digital Ordering Machine", "Document Orientation Mode"],
-          answer: 0, explain: "The live object tree the browser builds from your HTML — JavaScript's handle on the page." },
-        { q: "`document.querySelector(\".card\")` returns…",
-          choices: ["The FIRST element matching the CSS selector .card", "Every .card element", "The text inside .card", "A CSS rule"],
-          answer: 0, explain: "querySelector = first match (querySelectorAll = all of them). And yes — it takes CSS selectors." },
-        { q: "The cleanest way to restyle an element from JS?",
-          choices: ["Toggle a CSS class with classList", "Write every style inline with .style", "Rewrite the HTML string", "Use alert()"],
-          answer: 0, explain: "Keep looks in CSS, switch classes in JS. Inline styles are fine for one-offs, but classes scale." },
-        { q: "What's wrong here?",
-          code: "form.addEventListener(\"submit\", (e) => {\n  addTodoFromInput();\n});",
+        { q: "What is the DOM?",
+          choices: ["A copy of your CSS file the browser keeps", "A programming language built into browsers", "The live object tree the browser builds from your HTML — JavaScript reads and changes it", "A database where the browser stores cookies"],
+          answer: 2, explain: "Document Object Model: the browser parses your HTML into a tree of objects, and the page updates the moment you change them." },
+        { q: "`document.querySelectorAll(\".card\")` returns…",
+          choices: ["Only the first .card element", "ALL matching elements, as a list you can loop over", "The combined text of every .card", "An error if there is more than one match"],
+          answer: 1, explain: "querySelector = FIRST match; querySelectorAll = every match. Both take CSS selectors, exactly like your stylesheet." },
+        { q: "Why do pros prefer `el.classList.add(\"active\")` over `el.style.background = \"green\"`?",
+          choices: ["classList is shorter to type", ".style doesn't work on divs", "Inline styles are deprecated in HTML5", "The looks stay in CSS; JS only flips a switch — one class can change many styles at once"],
+          answer: 3, explain: "Define what .active looks like once in the stylesheet; JS just toggles the class. Cleaner, reusable, and designers can restyle without touching your JS." },
+        { q: "`userComment` was typed by a visitor. What's wrong here?",
+          code: "msgEl.innerHTML = userComment;",
           lang: "js",
-          choices: ["Missing e.preventDefault() — the page will reload and wipe everything", "submit isn't a real event", "Arrow functions can't be listeners", "Nothing"],
-          answer: 0, explain: "Default form submission navigates/reloads. preventDefault() keeps your app alive." },
-        { q: "Which event fires on **every keystroke** in a text field?",
-          choices: ["input", "click", "submit", "keypressed"],
-          answer: 0, explain: "\"input\" fires as the value changes. (\"change\" only fires when the field loses focus.)" },
-        { q: "What appears in the list?",
-          code: "const li = document.createElement(\"li\");\nli.textContent = \"Hi\";\n// …and then nothing else",
+          choices: ["Untrusted input parsed as HTML can inject scripts (XSS) — use textContent instead", "innerHTML is a read-only property", "Nothing — innerHTML escapes tags automatically", "It should be spelled innerHtml"],
+          answer: 0, explain: "innerHTML runs whatever the string contains through the HTML parser — including attack markup. User input goes through textContent, always." },
+        { q: "What shows on the page?",
+          code: "const li = document.createElement(\"li\");\nli.textContent = \"Hi\";\n// …and that's the whole script",
           lang: "js",
-          choices: ["Nothing — the li was never appended to the page", "An empty li", "\"Hi\" at the end of the list", "An error"],
-          answer: 0, explain: "createElement makes a node in memory. Until appendChild (or append) mounts it, it's invisible." }
+          choices: ["\"Hi\" at the end of every list", "An empty <li>", "Nothing — the node exists in memory but was never appended", "A syntax error"],
+          answer: 2, explain: "createElement builds a node in memory. Until appendChild (or append) mounts it, the page never sees it." },
+        { q: "The element stored in `banner` must go. Which line deletes it from the page?",
+          choices: ["banner.delete()", "banner.remove()", "banner.classList.remove()", "document.removeElement(banner)"],
+          answer: 1, explain: "el.remove() detaches the element from the DOM. (The old-school way was parent.removeChild(el) — remove() replaced it.)" }
       ]
-    },
-
-    {
-      id: "dom-project",
-      title: "Project: Mood board & counter",
-      kind: "web", chip: "DOM", xp: 40, project: true,
-      brief: "Combine everything: a **mood switcher** (buttons that retheme the page) and a **score counter** with +, −, and reset. Two little widgets, every DOM skill in one page.\n\nAfter the checks pass, play with it in the preview — you built a real interactive UI.",
-      steps: [
-        { text: "The `#score` display starts at **0**, and `#plus` adds 1 per click.",
-          test: "T.eq(T.text('#score'), '0', 'Score should start at 0.');\nT.click('#plus');\nT.click('#plus');\nT.eq(T.text('#score'), '2', 'Two + clicks should show 2.');" },
-        { text: "`#minus` subtracts 1.",
-          test: "T.click('#minus');\nT.eq(T.text('#score'), '1', 'After +2 then −1, the score should be 1.');" },
-        { text: "`#reset` puts it back to 0.",
-          test: "T.click('#reset');\nT.eq(T.text('#score'), '0', 'Reset should show 0 (and really reset your variable, not just the text).');\nT.click('#plus');\nT.eq(T.text('#score'), '1', 'Counting must still work after a reset.');" },
-        { text: "Clicking `#sunnyBtn` sets the page background to `#fef3c7` and `#mood` to \"sunny\".",
-          test: "T.click('#sunnyBtn');\nawait T.sleep(500); // let the CSS transition finish\nT.expect(T.css('body', 'background-color') === 'rgb(254, 243, 199)', 'Set document.body.style.backgroundColor = \"#fef3c7\" in the sunny handler.');\nT.expect((T.text('#mood') || '').toLowerCase().indexOf('sunny') !== -1, 'Update #mood to say sunny.');" },
-        { text: "Clicking `#oceanBtn` sets the background to `#e0f2fe` and `#mood` to \"ocean\".",
-          test: "T.click('#oceanBtn');\nawait T.sleep(500); // let the CSS transition finish\nT.expect(T.css('body', 'background-color') === 'rgb(224, 242, 254)', 'Set the ocean background to #e0f2fe.');\nT.expect((T.text('#mood') || '').toLowerCase().indexOf('ocean') !== -1, 'Update #mood to say ocean.');" }
-      ],
-      files: [
-        { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <h1>Control room</h1>\n\n  <section>\n    <h2>Mood: <span id=\"mood\">none</span></h2>\n    <button id=\"sunnyBtn\">☀️ Sunny</button>\n    <button id=\"oceanBtn\">🌊 Ocean</button>\n  </section>\n\n  <section>\n    <h2>Score: <span id=\"score\">0</span></h2>\n    <button id=\"plus\">+1</button>\n    <button id=\"minus\">−1</button>\n    <button id=\"reset\">Reset</button>\n  </section>\n\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
-        { name: "styles.css", content: "body {\n  font-family: Arial, sans-serif;\n  padding: 20px;\n}\nbutton {\n  font-size: 15px;\n  padding: 8px 14px;\n  border-radius: 10px;\n  border: 2px solid #cbd5e1;\n  background: white;\n  cursor: pointer;\n}\nsection { margin-bottom: 24px; }\n" },
-        { name: "script.js", content: "// --- counter ---\nlet score = 0;\nconst scoreEl = document.querySelector(\"#score\");\n\n// wire up #plus, #minus, #reset\n\n\n// --- mood switcher ---\nconst moodEl = document.querySelector(\"#mood\");\n\n// wire up #sunnyBtn (background #fef3c7, mood \"sunny\")\n// and #oceanBtn (background #e0f2fe, mood \"ocean\")\n" }
-      ],
-      hints: [
-        "Write a tiny helper so you never forget the display: `function show() { scoreEl.textContent = score; }` — call it in every handler.",
-        "Background from JS: `document.body.style.backgroundColor = \"#fef3c7\";`",
-        "Three counter listeners look almost identical — change score, then show()."
-      ],
-      solution: {
-        "script.js": "// --- counter ---\nlet score = 0;\nconst scoreEl = document.querySelector(\"#score\");\n\nfunction show() {\n  scoreEl.textContent = score;\n}\n\ndocument.querySelector(\"#plus\").addEventListener(\"click\", () => {\n  score++;\n  show();\n});\n\ndocument.querySelector(\"#minus\").addEventListener(\"click\", () => {\n  score--;\n  show();\n});\n\ndocument.querySelector(\"#reset\").addEventListener(\"click\", () => {\n  score = 0;\n  show();\n});\n\n// --- mood switcher ---\nconst moodEl = document.querySelector(\"#mood\");\n\ndocument.querySelector(\"#sunnyBtn\").addEventListener(\"click\", () => {\n  document.body.style.backgroundColor = \"#fef3c7\";\n  moodEl.textContent = \"sunny\";\n});\n\ndocument.querySelector(\"#oceanBtn\").addEventListener(\"click\", () => {\n  document.body.style.backgroundColor = \"#e0f2fe\";\n  moodEl.textContent = \"ocean\";\n});\n"
-      }
     }
   ]
 });

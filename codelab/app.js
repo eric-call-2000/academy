@@ -1050,18 +1050,23 @@
       }
       var box = el("div", "q-choices");
       var answered = false;
-      q.choices.forEach(function (c, i) {
+      var order = q.choices.map(function (_, i) { return i; });
+      for (var s = order.length - 1; s > 0; s--) {
+        var r = Math.floor(Math.random() * (s + 1));
+        var tmp = order[s]; order[s] = order[r]; order[r] = tmp;
+      }
+      order.forEach(function (orig) {
         var b = el("button", "q-choice");
-        b.innerHTML = mdInline(c);
+        b.innerHTML = mdInline(q.choices[orig]);
         b.onclick = function () {
           if (answered) return;
           answered = true;
-          var right = i === q.answer;
+          var right = orig === q.answer;
           if (right) correct++;
           Array.prototype.slice.call(box.children).forEach(function (n, j) {
             n.disabled = true;
-            if (j === q.answer) n.classList.add("correct");
-            else if (j === i) n.classList.add("wrong");
+            if (order[j] === q.answer) n.classList.add("correct");
+            else if (order[j] === orig) n.classList.add("wrong");
           });
           var fb = el("div", "q-fb " + (right ? "ok" : "no"),
             "<b>" + (right ? "Correct!" : "Not quite.") + "</b> " + mdInline(q.explain || ""));
