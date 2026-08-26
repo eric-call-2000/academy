@@ -104,7 +104,131 @@ function phase0() {
     console.log(`  ${course.id}: ${count} items (manifest ${course.items}) ~${course.hours}h (model ~${modelHours.toFixed(1)}h${target})`);
   }
   console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ~${Math.round(totals.mins / 60)}h of material`);
+
+  /* Recall gates run here, while the catalog is still loaded: node caches
+     modules by path and the unit files are bare scripts, so a second
+     in-process load would register nothing. */
+  reviewGates();
+
   delete global.window;
+}
+
+/* ---------------- Recall: the review pool is content, so it gets gated ----------------
+   Same spirit as the 2x hours guard — stop the review deck from silently
+   rotting as questions are edited. */
+function reviewGates() {
+  console.log("\n== Phase 0b: Recall pool ==");
+  const REV = require(path.join(ROOT, "review.js"));
+  const courses = window.CODELAB.courses;
+
+  // 1. The "-quiz" id invariant. The topbar badge finds finished quizzes by
+  //    substring with zero content loaded; a coding lesson carrying "-quiz"
+  //    in its id would light it up for a deck that does not exist.
+  let bad = [];
+  for (const c of courses) for (const u of c.units) for (const l of u.lessons) {
+    if (l.kind !== "quiz" && l.id.indexOf("-quiz") !== -1) bad.push(l.id);
+    if (l.kind === "quiz" && l.id.indexOf("-quiz") === -1) bad.push(l.id + " (quiz without -quiz)");
+  }
+  if (bad.length) fail(`"-quiz" id invariant broken: ${bad.join(", ")}`);
+  else ok(`"-quiz" id invariant holds (${courses.reduce((n, c) => n + c.units.reduce((m, u) => m + u.lessons.filter(l => l.kind === "quiz").length, 0), 0)} quizzes)`);
+
+  // 2/3/4. Per-course eligibility, key collisions, typed coverage.
+  let total = 0, usable = 0, typed = 0, longest = 0, reasons = {};
+  const perCourse = [];
+  for (const c of courses) {
+    let t = 0, o = 0, ty = 0, lg = 0;
+    const seen = new Map();
+    for (const u of c.units) for (const l of u.lessons) {
+      if (l.kind !== "quiz") continue;
+      for (const q of (l.questions || [])) {
+        t++;
+        const why = REV.illPosed(q);
+        if (why) { reasons[why] = (reasons[why] || 0) + 1; continue; }
+        o++;
+        if (REV.isTyped(q)) ty++;
+        const ans = q.choices[q.answer] || "";
+        const maxOther = Math.max(...q.choices.filter((_, i) => i !== q.answer).map(s => s.length));
+        if (ans.length > maxOther) lg++;
+        const k = REV.keyOf(l.id, q);
+        if (seen.has(k)) fail(`Recall key collision in ${l.id}: "${seen.get(k)}" vs "${q.q}"`);
+        seen.set(k, q.q);
+      }
+    }
+    total += t; usable += o; typed += ty; longest += lg;
+    perCourse.push({ id: c.id, t, o, ty, lg });
+    // A course whose deck has rotted below 80% usable is a content bug.
+    if (t && o / t < 0.8) fail(`course ${c.id}: only ${o}/${t} questions usable for free recall (<80%)`);
+  }
+  perCourse.forEach(p => console.log(`  ${p.id}: ${p.o}/${p.t} usable · ${p.ty} typed · ${p.lg}/${p.o} answer-is-longest`));
+  console.log(`  POOL: ${usable}/${total} usable (${Math.round(usable / total * 100)}%), ${typed} objectively graded, excluded: ${JSON.stringify(reasons)}`);
+
+  // 5. The length tell. Reported, not gated — hiding the distractors already
+  //    routes around it, and it is only actionable during an authoring pass.
+  const tell = Math.round(longest / usable * 100);
+  console.log(`  length tell: correct answer is longest in ${tell}% of usable questions` +
+    (tell >= 60 ? "  ⚠ the QUIZZES remain partly a length-spotting exercise (Recall itself is immune — it hides the choices)" : ""));
+
+  // 6. explain is the entire remediation payload once choices are hidden.
+  let noExplain = 0;
+  for (const c of courses) for (const u of c.units) for (const l of u.lessons) {
+    if (l.kind !== "quiz") continue;
+    for (const q of (l.questions || [])) if (!q.explain || !String(q.explain).trim()) noExplain++;
+  }
+  if (noExplain) fail(`${noExplain} quiz questions have no explain — that is the whole answer card in Recall`);
+  else ok("every question carries an explain");
+
+  schedulerSim(REV, usable);
+}
+
+/* Pure-Node simulation: no browser, ~1s. This is the test that catches
+   load-math errors — a scheduler that quietly stops introducing new items,
+   or lets a session blow past its cap, looks fine until month two. */
+function schedulerSim(REV, poolSize) {
+  console.log("\n== Phase 0c: scheduler simulation ==");
+  const pool = [];
+  for (let i = 0; i < poolSize; i++) {
+    pool.push({ key: "k" + i, unitId: "u" + (i % 56), typed: false });
+  }
+  let seed = 12345;
+  const rnd = () => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; };
+
+  for (const p of [0.6, 0.75, 0.85, 0.95]) {
+    const u = { rev: {}, revSkip: {}, revAlt: {}, revQueue: null, revStats: { s: 0, a: 0, c: 0, ta: 0, tc: 0 } };
+    let maxSession = 0, maxNew = 0, introduced = 0, day0 = 0, fullyIntroducedOn = null, reviews = 0;
+    for (let day = 0; day < 400; day++) {
+      u.revQueue = null;
+      const before = Object.keys(u.rev).length;
+      const q = REV.buildQueue(u, pool, day, rnd);
+      maxSession = Math.max(maxSession, q.keys.length);
+      let newToday = 0;
+      for (const k of q.keys) {
+        if (!u.rev[k]) newToday++;
+        const outcome = rnd() < p ? "got" : "missed";
+        REV.grade(u, k, outcome, 9999, day);
+        reviews++;
+        const rec = u.rev[k];
+        if (rec[0] < 0 || rec[0] >= REV.Q_IV.length) fail(`sim p=${p}: box out of range (${rec[0]})`);
+        if (outcome === "missed" && rec[1] > day + 1) fail(`sim p=${p}: failed item scheduled ${rec[1] - day} days out, must be 1`);
+      }
+      maxNew = Math.max(maxNew, newToday);
+      if (day === 0) day0 = q.keys.length;
+      introduced = Object.keys(u.rev).length;
+      if (fullyIntroducedOn === null && introduced >= poolSize) fullyIntroducedOn = day + 1;
+      if (before === introduced && newToday > 0) { /* re-review only */ }
+    }
+    if (maxSession > REV.MAX_SESSION) fail(`sim p=${p}: session reached ${maxSession}, cap is ${REV.MAX_SESSION}`);
+    if (maxNew > REV.NEW_PER_DAY) fail(`sim p=${p}: introduced ${maxNew} in one day, cap is ${REV.NEW_PER_DAY}`);
+    if (day0 !== REV.NEW_PER_DAY) fail(`sim p=${p}: day one offered ${day0}, expected exactly ${REV.NEW_PER_DAY} introductions`);
+    // Two-sided: a lower bound alone passes happily when the real ramp is
+    // twice as long as claimed.
+    if (p >= 0.85 && fullyIntroducedOn !== null && (fullyIntroducedOn < 25 || fullyIntroducedOn > 80))
+      fail(`sim p=${p}: full introduction took ${fullyIntroducedOn} days, expected 25-80`);
+
+    const boxes = REV.Q_IV.map((_, b) => Object.values(u.rev).filter(r => r[0] === b).length);
+    const mature = Object.values(u.rev).filter(r => REV.Q_IV[r[0]] >= REV.HOLDING_DAYS).length;
+    console.log(`  p=${p}: ramp ${fullyIntroducedOn || ">400"}d · ~${(reviews / 400).toFixed(1)} cards/day · holding ${mature}/${poolSize} · boxes [${boxes.join(",")}]`);
+  }
+  if (!failures.length) ok("scheduler invariants hold at every accuracy level");
 }
 
 /* ---------------- phases 1+2: browser ---------------- */
@@ -231,6 +355,116 @@ async function main() {
   await mp.waitForSelector(".catalog", { timeout: 8000 });
   const contBtn = await mp.locator(".course-card .cc-cta.cont").count();
   if (contBtn >= 1) ok("catalog card shows Continue state"); else fail("catalog card lacks progress state");
+
+  /* ---- Recall smoke test ----
+     Content-independent: the profile is seeded through a dev hook rather than
+     by hoping the html course happens to hold a typed question today. */
+  const rv = await mp.evaluate(async () => {
+    const d = window.CODELAB.dev;
+    await d.loadAll();
+    const u = JSON.parse(localStorage.getItem("codelab_v1")).users.Eric;
+    return { hasQuizHeuristic: window.CODELAB.review.hasEngagedQuiz(u) };
+  });
+  // "Eric" has completed html-1 only, so there is no finished quiz and the
+  // entry point must stay hidden. A false positive here means an empty deck.
+  if (rv.hasQuizHeuristic === false) ok("Recall entry point correctly hidden with no finished quiz");
+  else fail("Recall offered itself with no completed quiz — the -quiz heuristic is wrong");
+
+  const probe = await mp.evaluate(async () => {
+    const d = window.CODELAB.dev, R = window.CODELAB.review;
+    await d.loadAll();
+    d.rev.markQuiz("html-quiz", 100);
+    const pool = d.rev.pool();
+    const typed = pool.filter(p => p.typed)[0];
+    if (!typed) return { err: `no typed item in a ${pool.length}-item pool` };
+    const today = d.rev.today();
+    const before = d.rev.state();
+    // Seed it as due today, then answer it correctly through the real grader.
+    d.rev.seed({ [typed.key]: [0, today, 0, 0] });
+    const dueBefore = R.dueCount(JSON.parse(localStorage.getItem("codelab_v1")).users.Eric, today);
+    const res = d.rev.answer(typed.key, typed.answer);
+    const after = d.rev.state();
+    return {
+      key: typed.key, answer: typed.answer, dueBefore, poolSize: pool.length,
+      right: res && res.right, rec: res && res.rec, today,
+      xpBefore: before.xp, xpAfter: after.xp,
+      typedStats: after.stats
+    };
+  });
+  if (probe.err) fail("Recall smoke: " + probe.err);
+  else {
+    if (probe.dueBefore === 1) ok("due count reads 1 from storage with no content loaded");
+    else fail(`due count was ${probe.dueBefore}, expected 1`);
+    if (probe.right === true) ok(`typed grading accepted the authored answer (${JSON.stringify(probe.answer)})`);
+    else fail(`typed grading REJECTED its own authored answer ${JSON.stringify(probe.answer)} — normalize() is wrong`);
+    if (probe.rec && probe.rec[0] === 1 && probe.rec[1] === probe.today + 1)
+      ok("correct answer promoted box 0 → 1 and scheduled +1 day");
+    else fail(`schedule after a correct answer was ${JSON.stringify(probe.rec)}, expected [1, ${probe.today + 1}, 0, 1]`);
+    // The whole XP economy is bolted to the 304 catalog items; phase 2 also
+    // asserts sync.xp === 15 exactly, so review must never touch it.
+    if (probe.xpAfter === probe.xpBefore) ok("Recall awarded no XP (xp unchanged at " + probe.xpAfter + ")");
+    else fail(`Recall changed XP from ${probe.xpBefore} to ${probe.xpAfter} — review must not pay XP`);
+    if (probe.typedStats && probe.typedStats.ta === 1 && probe.typedStats.tc === 1)
+      ok("typed accuracy tracked separately from self-reported");
+    else fail("typed stats not recorded: " + JSON.stringify(probe.typedStats));
+  }
+
+  // The review screen renders, offers exactly the seeded card, and drills it.
+  const seeded = await mp.evaluate(() => {
+    const d = window.CODELAB.dev, R = window.CODELAB.review;
+    const pool = d.rev.pool();
+    const item = pool.filter(p => p.typed)[0];
+    d.rev.seed({ [item.key]: [0, d.rev.today(), 0, 0] });
+    d.rev.open();
+    // 1 due card, plus introductions in their RESERVED slots — capped by the
+    // per-day cap, the session cap, and how many questions exist at all.
+    const intros = Math.min(R.NEW_PER_DAY, pool.length - 1, R.MAX_SESSION - 1);
+    return { key: item.key, poolSize: pool.length, expected: 1 + intros };
+  });
+  await mp.waitForSelector(".rv-head", { timeout: 8000 });
+  const rvTitle = (await mp.textContent(".rv-head .hero-title") || "").trim();
+  if (rvTitle === seeded.expected + " cards today")
+    ok(`Recall home offers ${seeded.expected} = 1 due + ${seeded.expected - 1} new, from a ${seeded.poolSize}-question pool`);
+  else fail(`Recall home said "${rvTitle}", expected "${seeded.expected} cards today" (pool ${seeded.poolSize})`);
+  await mp.screenshot({ path: SHOTS + "/6-recall-mobile.png" });
+
+  await mp.click(".rv-head .btn-green");
+  await mp.waitForSelector(".quiz-in .q-prompt", { timeout: 8000 });
+  const card = await mp.evaluate(() => ({
+    prompt: (document.querySelector(".q-prompt") || {}).textContent || "",
+    hasInput: !!document.querySelector(".rv-input"),
+    // A self-graded card reveals first; the grade buttons only exist after.
+    hasReveal: [...document.querySelectorAll(".quiz-in .btn")].some(b => /show answer/i.test(b.textContent)),
+    // The whole point: the four authored choices must NOT be on screen.
+    choices: document.querySelectorAll(".q-choice").length,
+    canSkip: !!document.querySelector(".rv-cant"),
+    src: (document.querySelector(".rv-src") || {}).textContent || ""
+  }));
+  if (card.prompt.trim().length > 0) ok("card renders its prompt: " + card.prompt.slice(0, 44).trim() + "…");
+  else fail("card rendered with an empty prompt");
+  if (card.choices === 0) ok("free recall confirmed — zero choice buttons on screen");
+  else fail(`${card.choices} multiple-choice buttons rendered — Recall must hide the distractors`);
+  // The queue is interleaved, so which card lands first is not fixed — but it
+  // must be exactly one of the two answer modes, never both and never neither.
+  if (card.hasInput !== card.hasReveal)
+    ok(`card offers ${card.hasInput ? "a typed input" : "reveal-then-self-grade"}, source chip: ${card.src.trim()}`);
+  else fail(`card had input=${card.hasInput} and reveal=${card.hasReveal} — exactly one must render`);
+  if (card.canSkip) ok("\"can't answer this one\" is offered");
+  else fail("no skip affordance — the tombstone is how eligibility gets measured");
+  await mp.screenshot({ path: SHOTS + "/6b-recall-card-mobile.png" });
+
+  /* Concurrency: background prefetch makes two loadCourse calls for the same
+     course near-certain, and a double registration halves every percentage. */
+  const conc = await mp.evaluate(async () => {
+    const c = window.CODELAB._byId.dom;
+    const before = c.units.length;
+    c._loaded = false; c._loading = null;
+    await Promise.all([window.CODELAB.dev.loadCourse(c), window.CODELAB.dev.loadCourse(c)]);
+    return { before, after: c.units.length };
+  });
+  if (conc.before === conc.after) ok(`concurrent loadCourse is safe (${conc.after} units, unchanged)`);
+  else fail(`concurrent loadCourse duplicated units: ${conc.before} → ${conc.after}`);
+
   if (mErrors.length) fail("mobile page errors: " + mErrors.slice(0, 3).join(" ; "));
   await mob.close();
 

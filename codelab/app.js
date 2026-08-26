@@ -22,6 +22,11 @@
   var PATH_TITLE = "Full-Stack Engineer Path";
   var LS_KEY = "codelab_v1";
   var ACADEMY_KEY = "academy_users_v1";
+  var REV = window.CODELAB.review;
+  /* One line to reverse if the flame should go back to meaning "I completed
+     a lesson" rather than "I studied today". See the README note. */
+  var REVIEW_BUMPS_STREAK = true;
+  var REVIEW_MIN_SESSION = 5;   // graded cards that count as a real session
   var ACADEMY_TRACK = "fullstack";
 
   /* ---------- lazy course loading ---------- */
@@ -36,12 +41,21 @@
   }
   function loadCourse(course) {
     if (course._loaded) return Promise.resolve(course);
-    return (course.files || []).reduce(function (p, f) {
+    /* Two callers can race once the catalog prefetches in the background.
+       Without this, both run the whole file list and addUnit registers every
+       unit twice — which halves every progress percentage until reload. */
+    if (course._loading) return course._loading;
+    course._loading = (course.files || []).reduce(function (p, f) {
       return p.then(function () { return loadScript(f); });
     }, Promise.resolve()).then(function () {
       course._loaded = true;
+      course._loading = null;
       return course;
+    }, function (err) {
+      course._loading = null;
+      throw err;
     });
+    return course._loading;
   }
 
   /* ---------- course data helpers ---------- */
@@ -78,7 +92,20 @@
   }
 
   /* ---------- persistent state ---------- */
-  function freshUser() { return { done: {}, xp: 0, streak: 0, lastDay: null, code: {}, quiz: {}, lastCourse: null }; }
+  function freshUser() {
+    return {
+      done: {}, xp: 0, streak: 0, lastDay: null, code: {}, quiz: {}, lastCourse: null,
+      /* Recall. A missing rev record IS the "never introduced" marker, which
+         is why there is no seeding pass and no seeded flag: new questions
+         shipped in a later wave become eligible on their own. */
+      rev: {},          // key -> [box, dueDay, lapses, reviews]
+      revDay: null,     // day integer the queue was frozen on
+      revQueue: null,   // { day, keys, i, ok, n, redo } — resumable
+      revSkip: {},      // key -> 1, "can't answer this one"
+      revAlt: {},       // key -> [answers that should have counted]
+      revStats: { s: 0, a: 0, c: 0, ta: 0, tc: 0 }
+    };
+  }
   function loadStore() {
     try {
       var raw = JSON.parse(localStorage.getItem(LS_KEY));
@@ -89,6 +116,13 @@
           u.xp = u.xp || 0; u.streak = u.streak || 0;
           if (!("lastDay" in u)) u.lastDay = null;
           if (!("lastCourse" in u)) u.lastCourse = null;
+          /* Recall migration: defaults only, no backfill. There is no honest
+             completion date to recover — done[id] is a bare boolean — so the
+             schedule re-measures from first review instead of inventing one. */
+          u.rev = u.rev || {}; u.revSkip = u.revSkip || {}; u.revAlt = u.revAlt || {};
+          u.revStats = u.revStats || { s: 0, a: 0, c: 0, ta: 0, tc: 0 };
+          if (!("revDay" in u)) u.revDay = null;
+          if (!("revQueue" in u)) u.revQueue = null;
           raw.users[n] = u;
         });
         return { currentUser: raw.currentUser || null, users: raw.users };
@@ -97,7 +131,25 @@
     return { currentUser: null, users: {} };
   }
   var store = loadStore();
-  function saveStore() { try { localStorage.setItem(LS_KEY, JSON.stringify(store)); } catch (e) {} }
+  function saveStore() {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(store)); return true; }
+    catch (e) { return false; }
+  }
+  /* saveStore() serializes EVERY profile, and a finished one carries a full
+     file set per lesson in u.code — a few hundred KB. That is fine once per
+     lesson, and wrong twenty times per review session, so review writes
+     coalesce and flush on the way out. */
+  var softTimer = null;
+  function saveStoreSoon() {
+    if (softTimer) clearTimeout(softTimer);
+    softTimer = setTimeout(function () { softTimer = null; saveStore(); }, 2000);
+  }
+  function flushStore() {
+    if (softTimer) { clearTimeout(softTimer); softTimer = null; }
+    return saveStore();
+  }
+  window.addEventListener("visibilitychange", function () { if (document.hidden) flushStore(); });
+  window.addEventListener("pagehide", flushStore);
   function me() { return store.users[store.currentUser]; }
 
   /* ---------- Academy app bridge ---------- */
@@ -230,6 +282,15 @@
     brand.onclick = renderCatalog;
     bar.appendChild(brand);
     var stats = el("div", "stats");
+    /* Content-free: counts due records straight from localStorage, so the
+       pill can render before a single course file has loaded. */
+    var due = REV.dueCount(u, REV.revToday());
+    if (due > 0) {
+      var pill = el("button", "stat rv-pill", '<span class="ico">🧠</span>' + due);
+      pill.title = due + " to recall";
+      pill.onclick = renderReview;
+      stats.appendChild(pill);
+    }
     stats.appendChild(el("div", "stat streak", '<span class="ico">🔥</span>' + u.streak));
     stats.appendChild(el("div", "stat xp", '<span class="ico">⭐</span>' + u.xp));
     var chip = el("button", "user-chip");
@@ -359,6 +420,16 @@
     hero.appendChild(pr);
 
     var heroBtns = el("div", "hero-btns");
+    /* Review comes before Continue on purpose: memory decays on a clock,
+       lessons wait patiently. */
+    if (REV.hasEngagedQuiz(u)) {
+      var dueNow = REV.dueCount(u, REV.revToday());
+      var rvBtn = el("button", "btn " + (dueNow ? "btn-green" : "btn-ghost"),
+        "🧠 Recall" + (dueNow ? " · " + dueNow + " card" + (dueNow === 1 ? "" : "s") : ""));
+      rvBtn.onclick = renderReview;
+      heroBtns.appendChild(rvBtn);
+      prefetchReviewCourses(u);
+    }
     var last = u.lastCourse && window.CODELAB._byId[u.lastCourse];
     if (pathComplete()) {
       var cert = el("button", "btn btn-gold", "🎓 Path certificate");
@@ -678,12 +749,21 @@
       stepState: (lesson.steps || []).map(function () { return { state: "idle", msg: "" }; }),
       hasRun: false, running: false, hintsShown: 0, allPass: false
     };
+    /* Deliberately a closure variable, not a field on `current` — see the
+       practice button below. */
+    var practice = false;
 
     var scr = el("div", "lesson");
 
     var top = el("div", "l-top");
     var back = el("button", "l-x", "✕");
-    back.onclick = function () { current = null; freeplay || !course ? renderCatalog() : renderCourse(course); };
+    back.onclick = function () {
+      /* A pending debounced save would otherwise fire after unmount, with
+         current already null. */
+      if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
+      current = null;
+      freeplay || !course ? renderCatalog() : renderCourse(course);
+    };
     top.appendChild(back);
     var tt = el("div", "l-tt");
     tt.appendChild(el("div", "l-kicker", freeplay ? "PLAYGROUND" : (esc(course.title).toUpperCase() + " · UNIT " + (entry.unitIndex + 1))));
@@ -762,6 +842,27 @@
         toast("Starter code restored");
       };
       helpRow.appendChild(resetBtn);
+
+      /* Re-opening a finished lesson hands back your own passing code, so
+         "solve it again" is really "read it again". Practice mode loads the
+         starter and stops saving, leaving the solution on disk untouched.
+         The flag is closure-scoped rather than on `current` because
+         back.onclick sets current to null while a 500ms save may still be
+         pending — that ordering is exactly how you overwrite the answer
+         you were protecting. */
+      if (isDone(lesson.id)) {
+        var practiceBtn = el("button", "btn btn-ghost btn-small", "🎯 Practice from scratch");
+        practiceBtn.onclick = function () {
+          practice = true;
+          var blank = starterFiles(lesson);
+          Object.keys(blank).forEach(function (n) { editor.setFile(n, blank[n]); });
+          practiceBtn.disabled = true;
+          savedDot.textContent = "Practice — not saving";
+          savedDot.classList.add("show");
+          toast("Practice mode — your saved solution is safe 🔒");
+        };
+        helpRow.appendChild(practiceBtn);
+      }
     }
     learn.appendChild(learnIn);
     main.appendChild(learn);
@@ -822,6 +923,7 @@
     function persistCode() {
       var u2 = me();
       if (!u2) return;
+      if (practice) return;   // never overwrite the saved solution
       u2.code[lesson.id] = editor.getFiles();
       saveStore();
       savedDot.classList.add("show");
@@ -913,6 +1015,12 @@
           runBtn.textContent = "▶ Run again";
           if (!isDone(lesson.id)) completeLesson(entry);
           else {
+            /* Re-solving a finished lesson is real work, so it holds the
+               flame. Without this the only streak-worthy act in the app is
+               the one you have never done before. bumpStreak is idempotent
+               per day, so this cannot be farmed. */
+            var ru = me();
+            if (ru) { bumpStreak(ru); saveStore(); syncAcademy(function (t) { bumpStreak(t); }); }
             toast("Still passing ✓ nice");
             showContinueFoot();
           }
@@ -1122,12 +1230,355 @@
   }
 
   /* ============================================================
+     RECALL — spaced repetition over the quiz bank
+     ------------------------------------------------------------
+     One card is one quiz question shown WITHOUT its four choices,
+     so the answer has to be produced rather than spotted. Short
+     answers are typed and graded by string comparison; longer
+     ones are revealed and self-graded, and the two accuracies are
+     reported separately forever, because only the typed ones are
+     evidence. Scheduling lives in review.js.
+     ============================================================ */
+  function reviewCourses(u) {
+    var want = REV.coursePrefixes(u);
+    return COURSES.filter(function (c) { return want.indexOf(c.prefix) !== -1; });
+  }
+  /* Warm the courses today's cards come from while he reads the catalog, so
+     tapping Recall does not stall on a cellular connection. */
+  function prefetchReviewCourses(u) {
+    reviewCourses(u).forEach(function (c) { if (!c._loaded) loadCourse(c)["catch"](function () {}); });
+  }
+  function reviewPool(u) {
+    var pool = REV.collectItems(reviewCourses(u).filter(function (c) { return c._loaded; }), u);
+    REV.pruneOrphans(u, pool);
+    return pool;
+  }
+
+  function renderReview() {
+    if (!store.currentUser || !me()) { renderProfiles(); return; }
+    clear();
+    var u = me();
+    app.appendChild(topbar());
+    var wrap = el("div", "wrap");
+    app.appendChild(wrap);
+
+    var pending = reviewCourses(u).filter(function (c) { return !c._loaded; });
+    if (pending.length) {
+      wrap.appendChild(el("div", "rv-loading", "Loading your cards…"));
+      Promise.all(pending.map(function (c) { return loadCourse(c)["catch"](function () { return c; }); }))
+        .then(function () { renderReview(); });
+      return;
+    }
+
+    var today = REV.revToday();
+    var pool = reviewPool(u);
+    var queue = REV.buildQueue(u, pool, today);
+    var offered = queue.keys.length;
+    var introduced = Object.keys(u.rev || {}).length;
+    var skipped = Object.keys(u.revSkip || {}).length;
+
+    var head = el("div", "rv-head");
+    head.appendChild(el("div", "hero-kicker", "RECALL"));
+    head.appendChild(el("h1", "hero-title", offered ? offered + " card" + (offered === 1 ? "" : "s") + " today" : "Nothing due"));
+
+    if (offered) {
+      var mins = Math.max(1, Math.round(offered * 12 / 60));
+      head.appendChild(el("p", "hero-sub", "About " + mins + " minute" + (mins === 1 ? "" : "s") + ". Answers are hidden — say it before you look."));
+      var go = el("button", "btn btn-green", "Start recall");
+      go.onclick = function () { renderReviewSession(queue, pool); };
+      head.appendChild(go);
+    } else {
+      var next = REV.nextDueDay(u, today);
+      /* A caught-up SRS looks broken when it shows an empty screen, so say
+         when the next one lands. */
+      head.appendChild(el("p", "hero-sub", next === null
+        ? "Finish a quiz to start building your recall deck."
+        : "Next review in " + (next - today) + " day" + (next - today === 1 ? "" : "s") + "."));
+      if (pool.length) {
+        var practice = el("button", "btn btn-ghost", "Practice 5 anyway");
+        practice.onclick = function () {
+          var soon = pool.filter(function (it) { return REV.recOf(u, it.key); })
+            .sort(function (a, b) { return REV.recOf(u, a.key)[1] - REV.recOf(u, b.key)[1]; })
+            .slice(0, 5);
+          if (!soon.length) { toast("Nothing to practice yet"); return; }
+          /* Off-schedule study records misses but never promotions: forgetting
+             early is evidence, remembering early is not. */
+          renderReviewSession({ day: today, keys: soon.map(function (i) { return i.key; }), i: 0, ok: 0, n: soon.length, redo: [], noPromote: true }, pool);
+        };
+        head.appendChild(practice);
+      }
+    }
+    wrap.appendChild(head);
+
+    var stats = el("div", "rv-stats");
+    stats.appendChild(el("div", "rv-line", introduced + " of " + pool.length + " questions introduced"
+      + (skipped ? " · " + skipped + " set aside" : "")));
+    /* The only number here that can go DOWN when he is actually forgetting. */
+    stats.appendChild(el("div", "rv-line strong", "🛡️ Holding at " + REV.HOLDING_DAYS + "+ days: " + REV.holdingCount(u)));
+    var st = u.revStats || {};
+    if (st.a) {
+      stats.appendChild(el("div", "rv-line dim", "Lifetime — typed " + (st.tc || 0) + "/" + (st.ta || 0)
+        + " · self-reported " + (st.c || 0) + "/" + (st.a || 0)));
+    }
+    wrap.appendChild(stats);
+
+    var back = el("button", "btn btn-ghost", "← All courses");
+    back.onclick = renderCatalog;
+    wrap.appendChild(back);
+  }
+
+  function renderReviewSession(queue, pool) {
+    var u = me();
+    var byKey = {};
+    pool.forEach(function (it) { byKey[it.key] = it; });
+    var denom = queue.n || queue.keys.length;
+
+    var scr = el("div", "lesson quiz");
+    var top = el("div", "l-top");
+    var x = el("button", "l-x", "✕");
+    x.onclick = function () { flushStore(); renderReview(); };
+    top.appendChild(x);
+    var tt = el("div", "l-tt");
+    tt.appendChild(el("div", "l-kicker", "RECALL"));
+    var ttl = el("div", "l-title", "Say it before you look");
+    tt.appendChild(ttl);
+    top.appendChild(tt);
+    var badge = el("div", "l-badge", "1/" + denom);
+    top.appendChild(badge);
+    scr.appendChild(top);
+    var body = el("div", "quiz-body");
+    scr.appendChild(body);
+    app.appendChild(scr);
+
+    function nextKey() {
+      if (queue.i < queue.keys.length) return queue.keys[queue.i];
+      if (queue.redo && queue.redo.length) return queue.redo.shift();
+      return null;
+    }
+
+    function show() {
+      var key = nextKey();
+      if (!key) return finish();
+      var item = byKey[key];
+      /* A question edited or deleted since the queue froze leaves a hole;
+         skip past it so "12 cards" still means twelve. */
+      if (!item) { queue.i++; return show(); }
+
+      var doneCount = Math.min(queue.i + 1, denom);
+      badge.textContent = doneCount + "/" + denom
+        + (queue.redo && queue.redo.length ? " · " + queue.redo.length + " to redo" : "");
+      body.innerHTML = "";
+      var inner = el("div", "quiz-in");
+
+      var src = el("button", "rv-src", esc(item.courseTitle) + " · " + esc(item.unitTitle));
+      src.title = "Open the cheatsheet";
+      src.onclick = function () {
+        var course = window.CODELAB._byId[item.courseId];
+        var unit = (course.units || []).filter(function (un) { return un.id === item.unitId; })[0];
+        if (unit) showCheatsheet(unit);
+      };
+      inner.appendChild(src);
+
+      inner.appendChild(el("div", "q-prompt", mdInline(item.q)));
+      if (item.code) {
+        var pre = el("pre", "q-code");
+        pre.innerHTML = "<code>" + window.CODELAB.hl(item.code, item.lang || "js") + "</code>";
+        inner.appendChild(pre);
+      }
+
+      var started = Date.now();
+      var typedWrong = null;
+
+      function reveal(graded) {
+        var fb = el("div", "q-fb " + (graded === true ? "ok" : graded === false ? "no" : ""));
+        fb.innerHTML = "<b>" + (graded === true ? "Correct!" : graded === false ? "Not quite." : "Answer") + "</b> "
+          + mdInline(item.answer) + (item.explain ? "<br><span class=\"rv-why\">" + mdInline(item.explain) + "</span>" : "");
+        inner.appendChild(fb);
+        fb.scrollIntoView({ block: "nearest" });
+      }
+
+      function settle(outcome) {
+        var elapsed = Date.now() - started;
+        if (queue.noPromote && outcome !== "missed") outcome = "close";
+        REV.grade(u, key, outcome, elapsed, queue.day);
+        if (outcome === "got") queue.ok++;
+        if (outcome === "missed") {
+          queue.redo = queue.redo || [];
+          if (queue.redo.indexOf(key) === -1 && queue.keys.indexOf(key) < queue.i + 1) queue.redo.push(key);
+        }
+        if (queue.i < queue.keys.length) queue.i++;
+        saveStoreSoon();
+        show();
+      }
+
+      if (item.typed) {
+        var row = el("div", "rv-input-row");
+        var input = el("input", "rv-input");
+        input.setAttribute("placeholder", "Type your answer…");
+        /* Without these iOS ships "Const" and autocorrects identifiers, and
+           every code card becomes a false negative. */
+        input.setAttribute("autocapitalize", "off");
+        input.setAttribute("autocorrect", "off");
+        input.setAttribute("autocomplete", "off");
+        input.setAttribute("spellcheck", "false");
+        row.appendChild(input);
+        var check = el("button", "btn btn-green btn-small", "Check");
+        row.appendChild(check);
+        inner.appendChild(row);
+
+        check.onclick = function () {
+          var raw = input.value;
+          if (!raw.trim()) { input.focus(); return; }
+          var right = REV.answerMatches({ choices: [item.answer], answer: 0 }, raw, (u.revAlt || {})[key]);
+          REV.recordTyped(u, right);
+          input.disabled = true; check.disabled = true;
+          reveal(right);
+          if (right) { settle("got"); return; }
+          typedWrong = raw;
+          /* Offered, but it does NOT regrade this attempt. A learner who can
+             re-mark their own miss on a phone at 11pm has a ladder that
+             tracks mood rather than memory. */
+          var alt = el("button", "btn btn-ghost btn-small", "That should have counted");
+          alt.onclick = function () {
+            REV.noteAlt(u, key, typedWrong);
+            alt.disabled = true;
+            alt.textContent = "Noted — it'll count next time";
+            saveStoreSoon();
+          };
+          inner.appendChild(alt);
+          var cont = el("button", "btn btn-red", "Continue");
+          cont.onclick = function () { settle("missed"); };
+          inner.appendChild(cont);
+        };
+        input.onkeydown = function (e) { if (e.key === "Enter") check.onclick(); };
+        setTimeout(function () { input.focus(); }, 50);
+      } else {
+        var showBtn = el("button", "btn btn-green", "Show answer");
+        showBtn.onclick = function () {
+          showBtn.remove();
+          reveal(null);
+          var grades = el("div", "rv-grade");
+          [["Missed", "missed", "btn-red"], ["Close", "close", "btn-ghost"], ["Got it", "got", "btn-green"]]
+            .forEach(function (g) {
+              var b = el("button", "btn btn-small " + g[2], g[0]);
+              b.onclick = function () { settle(g[1]); };
+              grades.appendChild(b);
+            });
+          inner.appendChild(grades);
+        };
+        inner.appendChild(showBtn);
+      }
+
+      var cant = el("button", "rv-cant", "Can't answer this one");
+      cant.title = "Set this card aside for good";
+      cant.onclick = function () {
+        REV.skipItem(u, key);
+        if (queue.i < queue.keys.length) queue.i++;
+        saveStoreSoon();
+        toast("Set aside 🗂");
+        show();
+      };
+      inner.appendChild(cant);
+
+      body.appendChild(inner);
+      window.scrollTo(0, 0);
+    }
+
+    function finish() {
+      var st = u.revStats || {};
+      st.s = (st.s || 0) + 1;
+      var graded = queue.n || queue.keys.length;
+      var bumped = false;
+      if (REVIEW_BUMPS_STREAK && !queue.noPromote && graded >= Math.min(REVIEW_MIN_SESSION, denom)) {
+        bumpStreak(u);
+        /* Only the streak crosses to Academy. Review is not completion, so
+           t.completed is left alone. */
+        syncAcademy(function (t) { bumpStreak(t); });
+        bumped = true;
+      }
+      u.revQueue = null;
+      if (!flushStore()) toast("⚠ Couldn't save — storage may be full");
+
+      body.innerHTML = "";
+      var inner = el("div", "quiz-in center");
+      inner.appendChild(el("div", "done-emoji", "🧠"));
+      inner.appendChild(el("h2", "done-title", "Recall done"));
+      inner.appendChild(el("div", "done-sub", queue.ok + " of " + graded + " remembered"));
+
+      var rr = el("div", "reward-row");
+      rr.appendChild(reward("Holding 35+ days", "🛡️ " + REV.holdingCount(u)));
+      if (bumped) rr.appendChild(reward("Streak", "🔥 " + u.streak));
+      inner.appendChild(rr);
+
+      /* Two numbers, never merged — the gap between them is the only estimate
+         this system has of its own self-grading inflation. */
+      if (st.a) {
+        inner.appendChild(el("div", "rv-line dim", "Lifetime — typed " + (st.tc || 0) + "/" + (st.ta || 0)
+          + " · self-reported " + (st.c || 0) + "/" + (st.a || 0)));
+      }
+      var alts = Object.keys(u.revAlt || {});
+      if (alts.length) {
+        inner.appendChild(el("div", "rv-line dim", alts.length + " answer" + (alts.length === 1 ? "" : "s")
+          + " you flagged as should-have-counted — see CODELAB.dev.rev.alts()"));
+      }
+      var next = REV.nextDueDay(u, queue.day);
+      if (next != null) inner.appendChild(el("div", "rv-line", "Next review in " + (next - queue.day) + " day" + (next - queue.day === 1 ? "" : "s")));
+
+      var acts = el("div", "done-actions");
+      var toCat = el("button", "btn btn-green", "Back to courses");
+      toCat.onclick = renderCatalog;
+      acts.appendChild(toCat);
+      inner.appendChild(acts);
+      body.appendChild(inner);
+      window.scrollTo(0, 0);
+    }
+
+    show();
+  }
+
+  /* ============================================================
      DEV HOOK — automated validation drives the real sandbox
      ============================================================ */
   window.CODELAB.dev = {
+    /* Content-independent hooks so the smoke test never depends on a
+       particular course happening to hold eligible questions. */
+    rev: {
+      today: function () { return REV.revToday(); },
+      state: function () { var u = me(); return u ? { rev: u.rev, skip: u.revSkip, stats: u.revStats, xp: u.xp, streak: u.streak } : null; },
+      pool: function () { var u = me(); return u ? reviewPool(u).map(function (i) { return { key: i.key, typed: i.typed, answer: i.answer }; }) : []; },
+      alts: function () { var u = me(); return u ? u.revAlt : {}; },
+      seed: function (spec) {
+        var u = me(); if (!u) return null;
+        u.rev = {}; u.revSkip = {}; u.revQueue = null;
+        Object.keys(spec || {}).forEach(function (k) { u.rev[k] = spec[k]; });
+        saveStore();
+        return u.rev;
+      },
+      /* Mark a quiz engaged on the LIVE store. Writing to localStorage and
+         reloading does not work: `store` is read into memory once at boot. */
+      markQuiz: function (id, pct) {
+        var u = me(); if (!u) return null;
+        u.done[id] = true;
+        u.quiz[id] = pct == null ? 100 : pct;
+        saveStore();
+        return { done: !!u.done[id], quiz: u.quiz[id] };
+      },
+      open: function () { renderReview(); },
+      answer: function (key, text) {
+        var u = me(); if (!u) return null;
+        var item = reviewPool(u).filter(function (i) { return i.key === key; })[0];
+        if (!item) return null;
+        var right = REV.answerMatches({ choices: [item.answer], answer: 0 }, text, (u.revAlt || {})[key]);
+        REV.recordTyped(u, right);
+        REV.grade(u, key, right ? "got" : "missed", 9999, REV.revToday());
+        saveStore();
+        return { right: right, rec: u.rev[key] };
+      }
+    },
     loadAll: function () {
       return COURSES.reduce(function (p, c) { return p.then(function () { return loadCourse(c); }); }, Promise.resolve());
     },
+    loadCourse: loadCourse,
     courses: function () {
       return COURSES.map(function (c) {
         var list = courseLessons(c);

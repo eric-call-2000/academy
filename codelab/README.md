@@ -42,6 +42,25 @@ Each coding lesson is a 3-pane workspace — **Learn** (narrative + numbered che
 - Checkpoints can grade computed styles, the stylesheet **as written** (`T.decl`/`T.sheet`), `@media`/`@keyframes` rules, DOM structure, simulated clicks/typing/submits, console output, and function behavior.
 - Code **autosaves** per lesson per profile; XP and 🔥 streaks track daily work.
 
+## 🧠 Recall — spaced repetition
+
+Finishing a course is not the same as still knowing it in June. **Recall** turns the quiz bank into a review deck: a few cards a day, scheduled so each one comes back just before you'd forget it.
+
+**A card is a quiz question with its four choices hidden.** That is the whole design decision. In this bank the correct answer is also the longest choice **77% of the time**, so answering multiple-choice here partly measures string length — hide the choices and you have to actually produce the answer. Of 334 questions, **328 work as free recall** (6 are excluded automatically: 3 ask "which of the following", 3 hide their options in a code block and answer "B"). **84 have short enough answers to be typed and graded objectively**; the rest are revealed and self-graded.
+
+Those two accuracies are **reported separately and never merged** — typed answers are evidence, self-grading is a claim, and the gap between them is the only read you get on how generous you're being with yourself.
+
+- **The ladder** is Leitner: `1 · 1 · 3 · 7 · 16 · 35 · 90` days. Right → up one box. Close → same box, re-spaced. Wrong → down two boxes and back tomorrow. Promote +1 / fail −2 puts break-even at about two right in three.
+- **No XP.** All 5,255 XP in the app stays bolted to the 304 catalog items, so the star keeps meaning "material completed." Recall's reward is **🛡️ holding at 35+ days** — the one number here that goes *down* when you're genuinely forgetting.
+- **It does bump the 🔥 streak** on a real session (5+ cards), so a 3-minute queue holds the flame on a day with no time to build. This changes what the flame means, from "I completed a lesson" to "I studied today" — flip `REVIEW_BUMPS_STREAK` in `app.js` to undo it.
+- **No seeding, no invented dates.** `done[id]` is a bare boolean with no timestamp, so nothing is backfilled: an item with no schedule record simply hasn't been introduced yet. 10 new cards a day get **reserved** slots (not leftovers), which introduces the whole deck in ~33 days. Questions added in a future wave join on their own.
+- **"Can't answer this one"** sets a card aside for good. Passing four regexes isn't proof a human can answer a question cold, and this converts that guess into measured data.
+- **🎯 Practice from scratch** on any finished lesson reloads the *starter* files and stops saving, so re-solving is real work instead of re-reading your own saved answer.
+
+`review.js` holds the scheduler, is DOM-free, and takes the profile as a parameter — so `tools/validate.js` requires it directly and simulates 400 days at four accuracy levels with no browser, gating the invariants (session cap, introduction cap, box range, a failed card never scheduled beyond tomorrow).
+
+*Recall reviews **concepts**, not code you write. Drilling actual code — reopening a finished lesson from its starter and grading the first k checkpoints — is the planned next phase.*
+
 ## 🔗 Connected to the Academy app
 
 Hosted on the same origin as [Academy](https://github.com/eric-call-2000/academy) (e.g. `…github.io/academy/` + `…github.io/academy/codelab/`), the two apps **share profiles automatically**: CodeLab records completed items, XP and streaks into Academy's store (`academy_users_v1`) as track `fullstack`, and Academy's picker card shows live progress. No backend, no accounts — same-origin localStorage.
@@ -59,6 +78,7 @@ codelab/
 ├── index.html            # boots the engine (unit files lazy-load)
 ├── courses.js            # the catalog: metadata + which files each course loads
 ├── core.js               # course registry (defineCourse / addUnit)
+├── review.js             # Recall: the spaced-repetition scheduler (pure, Node-testable)
 ├── editor.js             # mobile code editor + syntax highlighting
 ├── runner.js             # sandbox runner + checkpoint grader (worker/iframe)
 ├── app.js                # screens: profiles → catalog → course → lesson

@@ -24,5 +24,10 @@ window.CODELAB.defineCourse = function (c) {
 window.CODELAB.addUnit = function (courseId, u) {
   u.lessons = u.lessons || [];
   var c = window.CODELAB._byId[courseId];
-  if (c) c.units.push(u);
+  if (!c) return;
+  /* Registering the same unit twice doubles courseLessons(), halves every
+     progress percentage and makes courseComplete() unreachable — and it
+     vanishes on reload, so it looks like progress randomly resetting. */
+  for (var i = 0; i < c.units.length; i++) if (c.units[i].id === u.id) return;
+  c.units.push(u);
 };
