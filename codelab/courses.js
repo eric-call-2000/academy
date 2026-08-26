@@ -46,21 +46,21 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "async", prefix: "async", title: "Async JavaScript & APIs",
-  icon: "📡", color: "#f25f9c", level: "Intermediate", hours: 6, items: 7,
-  blurb: "Promises, async/await and fetch — talk to servers like every real web app.",
-  files: ["async/u1.js"]
+  icon: "📡", color: "#f25f9c", level: "Intermediate", hours: 6, items: 30,
+  blurb: "Promises, async/await, fetch, error handling, POST/PUT/DELETE, debounce and optimistic UI — talk to servers like every real web app.",
+  files: ["async/u1.js", "async/u2.js", "async/u3.js", "async/u4.js", "async/u5.js", "async/u6.js"]
 });
 
 window.CODELAB.defineCourse({
   id: "srv", prefix: "srv", title: "Back-End Foundations",
-  icon: "🖥️", color: "#6c5ce7", level: "Intermediate", hours: 8, items: 7,
-  blurb: "Servers, routing, REST APIs, status codes and CRUD — the other half of full-stack.",
-  files: ["srv/u1.js"]
+  icon: "🖥️", color: "#6c5ce7", level: "Intermediate", hours: 8, items: 38,
+  blurb: "Servers, routing, REST, queries, middleware, auth, validation and pagination — the other half of full-stack, one honest function at a time.",
+  files: ["srv/u1.js", "srv/u2.js", "srv/u3.js", "srv/u4.js", "srv/u5.js", "srv/u6.js", "srv/u7.js", "srv/u8.js"]
 });
 
 window.CODELAB.defineCourse({
   id: "cap", prefix: "cap", title: "Full-Stack Capstone",
-  icon: "🚀", color: "#f59e0b", level: "Advanced", hours: 6, items: 6,
-  blurb: "Put it all together — build, persist and ship TaskMaster Pro, your portfolio app.",
-  files: ["cap/u1.js"]
+  icon: "🚀", color: "#f59e0b", level: "Advanced", hours: 6, items: 28,
+  blurb: "Put it all together — client and server in one page, optimistic UI, import/export, accessibility, and NoteStream: your portfolio app.",
+  files: ["cap/u1.js", "cap/u2.js", "cap/u3.js", "cap/u4.js", "cap/u5.js", "cap/u6.js"]
 });

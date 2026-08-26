@@ -2,11 +2,11 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**8 courses · ~70 hours · 228 items and growing** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). Courses lazy-load, so the app opens instantly even as the catalog grows.
+**8 courses · ~65 hours · 304 items — the full path, complete** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). 251 coding lessons including 30 guided projects, 53 quizzes, 827 auto-graded checkpoints. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 ## The catalog
 
-Course sizes mirror real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS 14h, Learn JavaScript 17h, Intermediate JS 15h, Node 5h per their catalog listings):
+Course sizes mirror real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS 14h, Learn JavaScript 17h, Intermediate JS 15h, Node 5h per their catalog listings). **Every course is now full-depth** — front end to back end to capstone:
 
 | # | Course | Hours | Status |
 |---|--------|-------|--------|
@@ -15,9 +15,9 @@ Course sizes mirror real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS
 | 3 | 📐 **Responsive Design & Layout** | ~6h | ✅ Full — 6 units, 30 items: flexbox foundations & deep dive (grow/shrink/basis), CSS Grid (areas, auto-fit + minmax), media queries & mobile-first, fluid units (clamp!), flexible media, 2 final projects incl. a responsive dashboard |
 | 4 | ⚡ **Learn JavaScript** | ~14h | ✅ Full — 8 units, 50 items: basics, arrays & objects, conditionals & logic, functions deep dive (closures!), loops, strings & numbers toolbox, objects & sorting, 3 final projects incl. a text-adventure engine and a quiz engine |
 | 5 | 🖱️ **Building Interactive Websites** | ~8h | ✅ Full — 8 units, 40 items: DOM selection & creation, traversal & dataset, events in depth (delegation!), forms & live validation, hand-built components (tabs, modal, accordion), the state→render loop, timers & rAF, 3 projects incl. a carousel and a memory game |
-| 6 | 📡 Async JavaScript & APIs | ~6h | 🌱 Seed unit live; expanding |
-| 7 | 🖥️ Back-End Foundations | ~8h | 🌱 Seed unit live; expanding |
-| 8 | 🚀 Full-Stack Capstone | ~6h | 🌱 Seed unit live; expanding |
+| 6 | 📡 **Async JavaScript & APIs** | ~6h | ✅ Full — 6 units, 30 items: callbacks → promises → async/await, fetch & JSON, error handling (`res.ok`, try/catch, loading & error UI), POST/PUT/DELETE, async patterns (Promise.all, debounce, timeout & retry), 2 projects incl. a CRUD client |
+| 7 | 🖥️ **Back-End Foundations** | ~8h | ✅ Full — 8 units, 38 items: request→response, routing & status codes, the data layer & full REST resource, query params & headers, middleware chains, token auth, validation/error envelopes/pagination, 2 API projects incl. a blog API with auth |
+| 8 | 🚀 **Full-Stack Capstone** | ~6h | ✅ Full — 6 units, 28 items: TaskMaster (state-driven + localStorage), client ↔ server in one page, optimistic UI with rollback, JSON export/import & autosave, accessibility polish, and **NoteStream** — the full-stack finale |
 
 Every course has its own units, per-unit **cheatsheets**, **quizzes** (80% to pass), **guided projects**, and a **certificate** on completion — plus a whole-path certificate when everything's done.
 
@@ -51,9 +51,14 @@ codelab/
 ├── runner.js             # sandbox runner + checkpoint grader (worker/iframe)
 ├── app.js                # screens: profiles → catalog → course → lesson
 ├── styles.css            # mobile-first UI
-├── html/u1.js … u7.js    # Learn HTML units
-├── css/u1.js … u7.js     # Learn CSS units
-├── resp/ js/ dom/ async/ srv/ cap/   # the other courses' units
+├── html/u1.js … u7.js    # Learn HTML units          (44 items)
+├── css/u1.js … u7.js     # Learn CSS units           (44 items)
+├── resp/u1.js … u6.js    # Responsive Design         (30 items)
+├── js/u1.js … u8.js      # Learn JavaScript          (50 items)
+├── dom/u1.js … u8.js     # Interactive Websites      (40 items)
+├── async/u1.js … u6.js   # Async JavaScript & APIs   (30 items)
+├── srv/u1.js … u8.js     # Back-End Foundations      (38 items)
+├── cap/u1.js … u6.js     # Full-Stack Capstone       (28 items)
 ├── server.js, manifest.webmanifest, icons/, .nojekyll
 └── tools/validate.js     # runs EVERY lesson's solution in real Chromium
 ```
