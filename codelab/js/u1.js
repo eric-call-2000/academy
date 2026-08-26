@@ -1,5 +1,5 @@
 /* Unit 4 — Fundamentals of JavaScript */
-window.CODELAB.addUnit({
+window.CODELAB.addUnit("js", {
   id: "js1",
   title: "Fundamentals of JavaScript",
   icon: "⚡",
@@ -166,7 +166,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "js1-quiz",
+      id: "js-quiz-1",
       title: "JavaScript I checkpoint quiz",
       kind: "quiz", xp: 10,
       questions: [
@@ -200,7 +200,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "js1-project",
+      id: "js-project-1",
       title: "Project: FizzBuzz",
       kind: "js", chip: "JS", xp: 40, project: true,
       brief: "The most famous interview question in programming: **FizzBuzz**. Write `fizzbuzz(n)`:\n\n- divisible by 3 **and** 5 → return `\"FizzBuzz\"`\n- divisible by 3 → return `\"Fizz\"`\n- divisible by 5 → return `\"Buzz\"`\n- otherwise → return the number itself\n\n`%` is your tool: `n % 3 === 0` means \"divisible by 3\". Watch the order of your checks — test the *and* case first!",

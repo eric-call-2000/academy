@@ -1,5 +1,5 @@
 /* Unit 5 — JavaScript II: Arrays, Objects & Iterators */
-window.CODELAB.addUnit({
+window.CODELAB.addUnit("js", {
   id: "js2",
   title: "Arrays, Objects & Iterators",
   icon: "🧩",
@@ -15,7 +15,7 @@ window.CODELAB.addUnit({
   lessons: [
 
     {
-      id: "arr-1",
+      id: "js-arr-1",
       title: "Arrays",
       kind: "js", chip: "JS", xp: 15,
       brief: "An **array** is an ordered list: `[\"red\", \"green\", \"blue\"]`.\n\n- `colors[0]` — items are numbered from **zero**\n- `colors.length` — how many\n- `colors.push(x)` — add to the end\n\nBuild a color collection.",
@@ -40,7 +40,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "arr-2",
+      id: "js-arr-2",
       title: "map & filter",
       kind: "js", chip: "JS", xp: 15,
       brief: "Loops work, but pros reach for **array methods**:\n\n- `.map(fn)` — transform every item → new array, same length\n- `.filter(fn)` — keep items where `fn` returns true → new (possibly shorter) array\n\nBoth take a function — usually a tiny arrow — and **don't touch the original**.",
@@ -65,7 +65,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "arr-3",
+      id: "js-arr-3",
       title: "Objects",
       kind: "js", chip: "JS", xp: 15,
       brief: "Arrays are lists; **objects** are labeled boxes — `key: value` pairs describing one thing:\n\nAccess with dots (`profile.username`), update the same way, and add brand-new keys just by assigning them.",
@@ -91,7 +91,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "arr-4",
+      id: "js-arr-4",
       title: "Arrays of objects",
       kind: "js", chip: "JS", xp: 15,
       brief: "Here's the data shape you'll meet in every real app, API and database: an **array of objects**.\n\nEverything you know composes: `.filter` objects by a property, `.map` out a single field, chain them together.",
@@ -117,7 +117,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "arr-5",
+      id: "js-arr-5",
       title: "reduce & find",
       kind: "js", chip: "JS", xp: 15,
       brief: "Two more power tools:\n\n- `.reduce((acc, item) => …, start)` — boil a whole array down to **one value** (a total, a max, anything)\n- `.find(fn)` — the **first item** that passes the test (or `undefined`)\n\nYou're summing a shopping cart and looking up a product.",
@@ -142,7 +142,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "js2-quiz",
+      id: "js-quiz-2",
       title: "JavaScript II checkpoint quiz",
       kind: "quiz", xp: 10,
       questions: [
@@ -176,7 +176,7 @@ window.CODELAB.addUnit({
     },
 
     {
-      id: "js2-project",
+      id: "js-project-2",
       title: "Project: Inventory manager",
       kind: "js", chip: "JS", xp: 40, project: true,
       brief: "You're building the stock system for a tiny game shop. 🎮 The inventory is an array of objects; you'll write the four functions every inventory (and honestly, every API) needs.\n\nEach function takes the inventory as its **first parameter** so it works on any list — that habit will pay off in the back-end unit.",

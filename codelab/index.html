@@ -18,21 +18,9 @@
 <body>
   <div id="app"><div style="padding:60px 20px;text-align:center;font-family:Nunito,sans-serif;font-weight:800;color:#94a3b8">Booting CodeLab… ⚡</div></div>
 
-  <!-- engine -->
+  <!-- engine + catalog. Unit files lazy-load per course (see courses.js). -->
   <script src="core.js"></script>
-
-  <!-- curriculum (order = path order). TO ADD A UNIT: create the file and add a tag here. -->
-  <script src="unit1-html.js"></script>
-  <script src="unit2-css.js"></script>
-  <script src="unit3-layout.js"></script>
-  <script src="unit4-js1.js"></script>
-  <script src="unit5-js2.js"></script>
-  <script src="unit6-dom.js"></script>
-  <script src="unit7-async.js"></script>
-  <script src="unit8-backend.js"></script>
-  <script src="unit9-capstone.js"></script>
-
-  <!-- app -->
+  <script src="courses.js"></script>
   <script src="editor.js"></script>
   <script src="runner.js"></script>
   <script src="app.js"></script>

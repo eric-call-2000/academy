@@ -1,5 +1,5 @@
 /* Unit 9 — Full-Stack Capstone */
-window.CODELAB.addUnit({
+window.CODELAB.addUnit("cap", {
   id: "capstone",
   title: "Full-Stack Capstone",
   icon: "🚀",
