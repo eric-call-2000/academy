@@ -1,1 +1,4 @@
 codelab/tools/shots/
+
+# CodeLab validator deps
+node_modules/

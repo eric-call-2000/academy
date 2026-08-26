@@ -2,11 +2,19 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**8 courses · ~70 hours · 228 items and growing** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). Courses lazy-load, so the app opens instantly even as the catalog grows.
+**8 courses · ~55 hours · 228 items and growing** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). Courses lazy-load, so the app opens instantly even as the catalog grows.
 
 ## The catalog
 
-Course sizes mirror real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS 14h, Learn JavaScript 17h, Intermediate JS 15h, Node 5h per their catalog listings):
+**Hours describe the material that is actually in the files.** The validator models each
+item at 10 min (30 for a project, 5 for a quiz) and **fails the build if a course
+advertises more than 2× what it holds** — so these numbers cannot drift back into fiction.
+
+The three remaining seed courses also carry a **target**: the Codecademy-length they are aimed at
+(Learn HTML ≈ 9h, Learn CSS 14h, Learn JavaScript 17h, Intermediate JS 15h, Node 5h per
+their catalog listings). Ambition lives in `targetHours`, which is never advertised as
+material. When a seed course is filled out, raise its `hours` to meet the target and drop
+`targetHours` from `courses.js`.
 
 | # | Course | Hours | Status |
 |---|--------|-------|--------|
@@ -15,9 +23,11 @@ Course sizes mirror real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS
 | 3 | 📐 **Responsive Design & Layout** | ~6h | ✅ Full — 6 units, 30 items: flexbox foundations & deep dive (grow/shrink/basis), CSS Grid (areas, auto-fit + minmax), media queries & mobile-first, fluid units (clamp!), flexible media, 2 final projects incl. a responsive dashboard |
 | 4 | ⚡ **Learn JavaScript** | ~14h | ✅ Full — 8 units, 50 items: basics, arrays & objects, conditionals & logic, functions deep dive (closures!), loops, strings & numbers toolbox, objects & sorting, 3 final projects incl. a text-adventure engine and a quiz engine |
 | 5 | 🖱️ **Building Interactive Websites** | ~8h | ✅ Full — 8 units, 40 items: DOM selection & creation, traversal & dataset, events in depth (delegation!), forms & live validation, hand-built components (tabs, modal, accordion), the state→render loop, timers & rAF, 3 projects incl. a carousel and a memory game |
-| 6 | 📡 Async JavaScript & APIs | ~6h | 🌱 Seed unit live; expanding |
-| 7 | 🖥️ Back-End Foundations | ~8h | 🌱 Seed unit live; expanding |
-| 8 | 🚀 Full-Stack Capstone | ~6h | 🌱 Seed unit live; expanding |
+| 6 | 📡 Async JavaScript & APIs | ~2h *(target 6h)* | 🌱 Seed unit live — 7 items; expanding |
+| 7 | 🖥️ Back-End Foundations | ~2h *(target 8h)* | 🌱 Seed unit live — 7 items; expanding |
+| 8 | 🚀 Full-Stack Capstone | ~2h *(target 6h)* | 🌱 Seed unit live — 6 items; expanding |
+
+**208 of the 228 items sit in the five full courses.** The three seed courses — Async, Back-End and the Capstone — hold 20 between them: real, complete lessons, just one unit deep so far. Responsive Design was the fourth until wave 5 filled it out to six units.
 
 Every course has its own units, per-unit **cheatsheets**, **quizzes** (80% to pass), **guided projects**, and a **certificate** on completion — plus a whole-path certificate when everything's done.
 
@@ -77,4 +87,17 @@ codelab/
 
 **A course** — `defineCourse({...})` in `courses.js` + a folder of unit files.
 
-**Always validate**: `node tools/validate.js` (needs `playwright-core` + Chromium) — it boots the app, checks manifest counts and id prefixes, runs every solution (must pass) and starter (must not), and smoke-tests the phone UI.
+**Always validate**:
+
+```bash
+npm install     # once — pulls playwright-core, downloads no browsers
+npm run validate
+```
+
+It boots the app, checks manifest counts, id prefixes and advertised hours, runs every
+solution (must pass) and every starter (must not), and smoke-tests the phone UI including
+the Academy store sync. Exit code is non-zero on any failure.
+
+It drives a browser you already have — Chrome, then Edge — rather than downloading one,
+since Smart App Control blocks unsigned binaries here. Set `CHROMIUM_PATH` to point it
+somewhere else.

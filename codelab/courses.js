@@ -6,7 +6,10 @@
    those files (validated by tools/validate.js). `prefix` = the
    required prefix of every lesson id in the course ("html" →
    ids like "html-…"), used to count progress before loading.
-   `hours` mirrors real Codecademy course lengths.
+   `hours` = the material actually in the files, at the ~15 min/item rate the
+   built-out courses run at. `targetHours` (optional) = the Codecademy-length
+   goal for courses still sitting at one unit; when a course is filled out,
+   raise `hours` to meet it and drop `targetHours`.
    ============================================================ */
 
 window.CODELAB.defineCourse({
@@ -46,21 +49,21 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "async", prefix: "async", title: "Async JavaScript & APIs",
-  icon: "📡", color: "#f25f9c", level: "Intermediate", hours: 6, items: 7,
+  icon: "📡", color: "#f25f9c", level: "Intermediate", hours: 2, targetHours: 6, items: 7,
   blurb: "Promises, async/await and fetch — talk to servers like every real web app.",
   files: ["async/u1.js"]
 });
 
 window.CODELAB.defineCourse({
   id: "srv", prefix: "srv", title: "Back-End Foundations",
-  icon: "🖥️", color: "#6c5ce7", level: "Intermediate", hours: 8, items: 7,
+  icon: "🖥️", color: "#6c5ce7", level: "Intermediate", hours: 2, targetHours: 8, items: 7,
   blurb: "Servers, routing, REST APIs, status codes and CRUD — the other half of full-stack.",
   files: ["srv/u1.js"]
 });
 
 window.CODELAB.defineCourse({
   id: "cap", prefix: "cap", title: "Full-Stack Capstone",
-  icon: "🚀", color: "#f59e0b", level: "Advanced", hours: 6, items: 6,
+  icon: "🚀", color: "#f59e0b", level: "Advanced", hours: 2, targetHours: 6, items: 6,
   blurb: "Put it all together — build, persist and ship TaskMaster Pro, your portfolio app.",
   files: ["cap/u1.js"]
 });
