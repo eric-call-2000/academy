@@ -542,3 +542,65 @@ input { font-family: var(--font); }
 .quiz .btn { width: 100%; margin-top: 4px; }
 .quiz-in.center .btn { width: auto; min-width: 220px; }
 .quiz-in.center .done-actions { align-items: center; }
+
+/* ---------- Recall (spaced repetition) ---------- */
+.stat.rv-pill {
+  background: #ede9fe;
+  color: #5b21b6;
+  border: none;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.rv-loading { padding: 32px 4px; color: #64748b; }
+.rv-head { margin-bottom: 18px; }
+.rv-head .btn { margin-top: 12px; }
+.rv-stats {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.rv-line { font-size: 14px; color: #475569; margin: 3px 0; }
+.rv-line.strong { font-weight: 800; color: #0f172a; font-size: 15px; }
+.rv-line.dim { color: #94a3b8; font-size: 13px; }
+.rv-src {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #475569;
+  border: none;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.rv-src:hover { background: #e2e8f0; }
+.rv-input-row { display: flex; gap: 8px; margin-top: 14px; }
+.rv-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 16px; /* under 16px iOS zooms the whole page on focus */
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+.rv-input:focus { outline: none; border-color: #8b5cf6; }
+.rv-input:disabled { background: #f8fafc; color: #64748b; }
+.quiz .rv-input-row .btn { width: auto; margin-top: 0; flex: 0 0 auto; }
+.rv-grade { display: flex; gap: 8px; margin-top: 14px; }
+.quiz .rv-grade .btn { width: auto; flex: 1; margin-top: 0; }
+.rv-why { display: inline-block; margin-top: 6px; color: #475569; }
+.rv-cant {
+  display: block;
+  margin: 18px auto 0;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
