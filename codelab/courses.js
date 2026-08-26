@@ -39,9 +39,9 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "dom", prefix: "dom", title: "Building Interactive Websites",
-  icon: "🖱️", color: "#58cc02", level: "Intermediate", hours: 8, items: 8,
-  blurb: "The DOM and events — select, change, create, and react to every click and keystroke.",
-  files: ["dom/u1.js"]
+  icon: "🖱️", color: "#58cc02", level: "Intermediate", hours: 8, items: 40,
+  blurb: "The DOM, events, forms, hand-built components, data-driven rendering and timers — eight units of truly interactive pages.",
+  files: ["dom/u1.js", "dom/u2.js", "dom/u3.js", "dom/u4.js", "dom/u5.js", "dom/u6.js", "dom/u7.js", "dom/u8.js"]
 });
 
 window.CODELAB.defineCourse({
