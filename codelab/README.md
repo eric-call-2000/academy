@@ -59,7 +59,24 @@ Those two accuracies are **reported separately and never merged** — typed answ
 
 `review.js` holds the scheduler, is DOM-free, and takes the profile as a parameter — so `tools/validate.js` requires it directly and simulates 400 days at four accuracy levels with no browser, gating the invariants (session cap, introduction cap, box range, a failed card never scheduled beyond tomorrow).
 
-*Recall reviews **concepts**, not code you write. Drilling actual code — reopening a finished lesson from its starter and grading the first k checkpoints — is the planned next phase.*
+### 🎯 Code drills — reviewing what you can *write*
+
+Cards review concepts. **Drills review production.** A drill reopens a finished lesson **from its starter files** and grades only the **first k+1 checkpoints**, where k rises as the item climbs its ladder:
+
+- **box 0** — "make the first checkpoint pass." A minute of work.
+- **box b** — the first b+1 checkpoints.
+- **top box** — the whole lesson, rebuilt from nothing.
+
+Grading a *single* checkpoint in isolation is impossible: the runner executes steps in order in one sandbox with state accumulating between them, and later steps click and type into what earlier steps built. A **prefix** is the largest unit that is both gradeable and adjustable — and it needs no new content, since all 827 checkpoints are already written and already validated.
+
+- **Ladder** `1 · 3 · 10 · 30 · 75 · 180` days — heavier item, longer gaps.
+- **One drill is offered per session, never queued.** A queue of 15-minute items is a chore, and chores get abandoned.
+- **Chosen by unit heat**: the unit whose *cards* keep lapsing is the unit you get drilled on. That's the answer to "there's no per-checkpoint history" — the card tier generates unit-level failure data for free.
+- **Walking away counts as a miss.** Otherwise the ladder only ever hears about your successes.
+- **Hints cap the result at "close."** So does needing more than three runs.
+- A failing Run only counts against you on `js` lessons. On `web` lessons Run **is** the preview button — counting it would pin two thirds of the pool at box 0 forever.
+- Scratch work lives in `drillCode`, never `code`, so an interrupted drill resumes next time and **your saved solution is never touched**. The validator asserts exactly that, byte for byte.
+- If a prefix turns out to be one the starter already satisfies, the drill **goes one deeper** instead of handing out a free pass.
 
 ## 🔗 Connected to the Academy app
 

@@ -98,12 +98,13 @@
       /* Recall. A missing rev record IS the "never introduced" marker, which
          is why there is no seeding pass and no seeded flag: new questions
          shipped in a later wave become eligible on their own. */
-      rev: {},          // key -> [box, dueDay, lapses, reviews]
+      rev: {},          // key -> [box, dueDay, lapses, reviews]  (cards AND drills)
       revDay: null,     // day integer the queue was frozen on
       revQueue: null,   // { day, keys, i, ok, n, redo } — resumable
       revSkip: {},      // key -> 1, "can't answer this one"
       revAlt: {},       // key -> [answers that should have counted]
-      revStats: { s: 0, a: 0, c: 0, ta: 0, tc: 0 }
+      revStats: { s: 0, a: 0, c: 0, ta: 0, tc: 0 },
+      drillCode: {}     // lessonId -> scratch files, kept OUT of code{}
     };
   }
   function loadStore() {
@@ -121,6 +122,7 @@
              schedule re-measures from first review instead of inventing one. */
           u.rev = u.rev || {}; u.revSkip = u.revSkip || {}; u.revAlt = u.revAlt || {};
           u.revStats = u.revStats || { s: 0, a: 0, c: 0, ta: 0, tc: 0 };
+          u.drillCode = u.drillCode || {};
           if (!("revDay" in u)) u.revDay = null;
           if (!("revQueue" in u)) u.revQueue = null;
           raw.users[n] = u;
@@ -422,7 +424,10 @@
     var heroBtns = el("div", "hero-btns");
     /* Review comes before Continue on purpose: memory decays on a clock,
        lessons wait patiently. */
-    if (REV.hasEngagedQuiz(u)) {
+    /* Cards need a finished quiz; drills only need finished lessons. The
+       5-lesson floor keeps day one from offering to drill something learned
+       ten minutes ago. */
+    if (REV.hasEngagedQuiz(u) || REV.doneLessonCount(u) >= 5) {
       var dueNow = REV.dueCount(u, REV.revToday());
       var rvBtn = el("button", "btn " + (dueNow ? "btn-green" : "btn-ghost"),
         "🧠 Recall" + (dueNow ? " · " + dueNow + " card" + (dueNow === 1 ? "" : "s") : ""));
@@ -712,11 +717,11 @@
     (lesson.files || []).forEach(function (f) { files[f.name] = f.content; });
     return files;
   }
-  function openLesson(course, gi) {
+  function openLesson(course, gi, drill) {
     var entry = courseLessons(course)[gi];
     if (!entry) { renderCourse(course); return; }
     if (entry.lesson.kind === "quiz") { renderQuiz(entry); return; }
-    renderWorkspace(entry, false);
+    renderWorkspace(entry, false, drill);
   }
   function openPlayground() {
     renderWorkspace({
@@ -735,23 +740,38 @@
     }, true);
   }
 
-  function renderWorkspace(entry, freeplay) {
+  function renderWorkspace(entry, freeplay, drill) {
     clear();
     var lesson = entry.lesson;
     var course = entry.course;
     var u = me();
-    var saved = (u && u.code && u.code[lesson.id]) || null;
+    /* A drill NEVER loads u.code — that is the whole point of it. The scratch
+       buffer lives in drillCode so an abandoned attempt survives a phone
+       interruption without ever becoming a second answer key. */
+    var saved = drill
+      ? ((u && u.drillCode && u.drillCode[lesson.id]) || null)
+      : ((u && u.code && u.code[lesson.id]) || null);
     var files = starterFiles(lesson);
     if (saved) Object.keys(files).forEach(function (n) { if (saved[n] != null) files[n] = saved[n]; });
 
+    /* Grade only the first k+1 checkpoints. Slicing the lesson handed to the
+       runner is all it takes — the grader is built from lesson.steps. */
+    var drillK = drill ? Math.min(drill.k, (lesson.steps || []).length - 1) : -1;
+    var gradedLesson = drill
+      ? Object.keys(lesson).reduce(function (o, key) { o[key] = lesson[key]; return o; }, {})
+      : lesson;
+    if (drill) gradedLesson.steps = (lesson.steps || []).slice(0, drillK + 1);
+    var shownSteps = drill ? gradedLesson.steps : (lesson.steps || []);
+
     current = {
       entry: entry, lesson: lesson, course: course, freeplay: !!freeplay,
-      stepState: (lesson.steps || []).map(function () { return { state: "idle", msg: "" }; }),
-      hasRun: false, running: false, hintsShown: 0, allPass: false
+      stepState: shownSteps.map(function () { return { state: "idle", msg: "" }; }),
+      hasRun: false, running: false, hintsShown: 0, allPass: false, drill: drill || null
     };
     /* Deliberately a closure variable, not a field on `current` — see the
        practice button below. */
     var practice = false;
+    var drillRuns = 0, drillFailedRuns = 0, drillSettled = false;
 
     var scr = el("div", "lesson");
 
@@ -761,12 +781,25 @@
       /* A pending debounced save would otherwise fire after unmount, with
          current already null. */
       if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
+      /* Walking away from an unfinished drill IS the answer: it counts as a
+         miss, or the ladder only ever hears about successes. */
+      if (drill && !drillSettled) {
+        if (!confirm("Leave this drill? It counts as a miss and comes back tomorrow.")) return;
+        settleDrill(false);
+      }
       current = null;
+      if (drill) { renderReview(); return; }
       freeplay || !course ? renderCatalog() : renderCourse(course);
     };
     top.appendChild(back);
     var tt = el("div", "l-tt");
-    tt.appendChild(el("div", "l-kicker", freeplay ? "PLAYGROUND" : (esc(course.title).toUpperCase() + " · UNIT " + (entry.unitIndex + 1))));
+    function drillKicker() {
+      return "🎯 RECALL · DRILL " + (drillK + 1) + "/" + (lesson.steps || []).length;
+    }
+    var kicker = el("div", "l-kicker" + (drill ? " drill" : ""), drill
+      ? drillKicker()
+      : (freeplay ? "PLAYGROUND" : (esc(course.title).toUpperCase() + " · UNIT " + (entry.unitIndex + 1))));
+    tt.appendChild(kicker);
     tt.appendChild(el("div", "l-title", esc(lesson.title)));
     top.appendChild(tt);
     var badge = el("div", "l-badge", stepBadgeText());
@@ -825,6 +858,10 @@
       }
       if (lesson.solution) {
         var solBtn = el("button", "btn btn-ghost btn-small", "🔓 View solution");
+        /* In a drill the solution is the answer to the question being asked,
+           so it stays locked until at least one real attempt has been graded.
+           Retrieval you abandon before trying is not retrieval. */
+        if (drill) { solBtn.disabled = true; solBtn.textContent = "🔒 Solution (after a run)"; }
         solBtn.onclick = function () {
           if (!confirm("Load the solution into the editor? Your current code for this lesson will be replaced (try the hints first!).")) return;
           Object.keys(lesson.solution).forEach(function (n) { editor.setFile(n, lesson.solution[n]); });
@@ -832,6 +869,9 @@
           toast("Solution loaded — read it, run it, tweak it 🧠");
         };
         helpRow.appendChild(solBtn);
+        if (drill) current.unlockSolution = function () {
+          solBtn.disabled = false; solBtn.textContent = "🔓 View solution";
+        };
       }
       var resetBtn = el("button", "btn btn-ghost btn-small", "↺ Reset code");
       resetBtn.onclick = function () {
@@ -920,10 +960,52 @@
       if (saveTimer) clearTimeout(saveTimer);
       saveTimer = setTimeout(persistCode, 500);
     }
+    function sameAsStarter() {
+      var blank = starterFiles(lesson), now = editor.getFiles();
+      var names = Object.keys(blank);
+      for (var i = 0; i < names.length; i++) {
+        if (String(now[names[i]] || "").trim() !== String(blank[names[i]] || "").trim()) return false;
+      }
+      return true;
+    }
+
+    /* Called exactly once per drill: on a pass, or on the way out without
+       one. drillSettled guards the double-fire when a pass is followed by
+       tapping ✕. */
+    current.settleDrill = function (p) { settleDrill(p); };
+    function settleDrill(passed) {
+      if (!drill || drillSettled) return;
+      drillSettled = true;
+      var u2 = me();
+      if (!u2) return;
+      var outcome = REV.drillOutcome({
+        passed: passed, abandoned: !passed,
+        kind: lesson.kind, runs: drillRuns, failedRuns: drillFailedRuns,
+        hintsShown: current ? current.hintsShown : 0
+      });
+      REV.gradeDrill(u2, drill.key, outcome, REV.revToday());
+      /* Only wipe the scratch buffer on a pass — an abandoned attempt is
+         worth keeping so the next sitting resumes rather than restarts. */
+      if (passed && u2.drillCode) delete u2.drillCode[lesson.id];
+      flushStore();
+      if (passed) {
+        toast(outcome === "got" ? "Drill cleared 🎯" : "Cleared — logged as close");
+      }
+      if (drill.onDone) drill.onDone(outcome);
+    }
+
     function persistCode() {
       var u2 = me();
       if (!u2) return;
       if (practice) return;   // never overwrite the saved solution
+      if (drill) {
+        u2.drillCode = u2.drillCode || {};
+        u2.drillCode[lesson.id] = editor.getFiles();
+        saveStoreSoon();
+        savedDot.classList.add("show");
+        setTimeout(function () { savedDot.classList.remove("show"); }, 900);
+        return;
+      }
       u2.code[lesson.id] = editor.getFiles();
       saveStore();
       savedDot.classList.add("show");
@@ -939,7 +1021,7 @@
     setTab("learn");
 
     function stepBadgeText() {
-      var total = (lesson.steps || []).length;
+      var total = shownSteps.length;
       if (!total) return "🧪";
       var pass = current ? current.stepState.filter(function (s) { return s.state === "pass"; }).length : 0;
       return pass + "/" + total;
@@ -950,7 +1032,7 @@
       [checksBox, checksOutList].forEach(function (box) {
         if (!box) return;
         Array.prototype.slice.call(box.querySelectorAll(".chk")).forEach(function (n) { n.remove(); });
-        (lesson.steps || []).forEach(function (s, i) {
+        shownSteps.forEach(function (s, i) {
           var st = current.stepState[i];
           var d = el("div", "chk chk-" + st.state);
           var ic = st.state === "pass" ? "✓" : (st.state === "fail" ? "✕" : (i + 1));
@@ -981,7 +1063,8 @@
       runBtn.textContent = "⏳ Running…";
       consoleList.innerHTML = "";
       persistCode();
-      runner.run(lesson, editor.getFiles(), {
+      if (drill) drillRuns++;
+      runner.run(gradedLesson, editor.getFiles(), {
         previewEl: previewHost,
         onConsole: pushConsole
       }).then(function (res) {
@@ -990,7 +1073,7 @@
         current.hasRun = true;
         runBtn.disabled = false;
 
-        var steps = lesson.steps || [];
+        var steps = shownSteps;
         var byIndex = {};
         (res.steps || []).forEach(function (s) { byIndex[s.i] = s; });
         var allPass = steps.length > 0;
@@ -1009,6 +1092,29 @@
 
         if (freeplay || !steps.length) {
           runBtn.textContent = "▶ Run";
+          return;
+        }
+        if (drill) {
+          if (current.unlockSolution) { current.unlockSolution(); current.unlockSolution = null; }
+          if (!allPass) { drillFailedRuns++; runBtn.textContent = "▶ Run"; return; }
+          /* A prefix the STARTER already satisfies would hand out a free pass.
+             validate.js proves a starter fails some checkpoint, not the first,
+             so detect it exactly: untouched files plus a clean pass means this
+             depth asks nothing. Go deeper instead of paying out. */
+          if (sameAsStarter() && drillK < (lesson.steps || []).length - 1) {
+            drillK++;
+            gradedLesson.steps = (lesson.steps || []).slice(0, drillK + 1);
+            shownSteps = gradedLesson.steps;
+            current.stepState = shownSteps.map(function () { return { state: "idle", msg: "" }; });
+            current.allPass = false;
+            kicker.textContent = drillKicker();
+            paintChecks();
+            runBtn.textContent = "▶ Run";
+            toast("The starter already passed that far — going one deeper 🎯");
+            return;
+          }
+          runBtn.textContent = "▶ Run again";
+          settleDrill(true);
           return;
         }
         if (allPass) {
@@ -1254,6 +1360,22 @@
     return pool;
   }
 
+  /* Open a drill: find the lesson, load its course if needed, hand
+     renderWorkspace the key and the depth. */
+  function startDrill(drill) {
+    var course = window.CODELAB._byId[drill.courseId];
+    if (!course) { toast("Couldn't find that lesson"); return; }
+    loadCourse(course).then(function () {
+      var hit = lessonById(course, drill.lessonId);
+      if (!hit) { toast("Couldn't find that lesson"); return; }
+      openLesson(course, hit.gi, {
+        key: drill.key,
+        k: drill.k,
+        onDone: function () { renderReview(); }
+      });
+    })["catch"](function () { toast("Couldn't load that course"); });
+  }
+
   function renderReview() {
     if (!store.currentUser || !me()) { renderProfiles(); return; }
     clear();
@@ -1309,6 +1431,21 @@
       }
     }
     wrap.appendChild(head);
+
+    /* Reachable from the home too — otherwise the code tier is invisible on
+       every day the card queue is already clear. */
+    var homeDrill = REV.pickDrill(u, reviewCourses(u).filter(function (c) { return c._loaded; }), pool, today);
+    if (homeDrill) {
+      var dRow = el("div", "rv-drill");
+      dRow.appendChild(el("div", "rv-line strong", "🎯 Code drill ready"));
+      dRow.appendChild(el("div", "rv-line dim", esc(homeDrill.title) + " · rebuild "
+        + (homeDrill.k + 1) + " of " + homeDrill.steps + " checkpoint" + (homeDrill.steps === 1 ? "" : "s")
+        + " from the starter files"));
+      var dGo = el("button", "btn " + (offered ? "btn-ghost" : "btn-green"), "Start drill");
+      dGo.onclick = function () { startDrill(homeDrill); };
+      dRow.appendChild(dGo);
+      wrap.appendChild(dRow);
+    }
 
     var stats = el("div", "rv-stats");
     stats.appendChild(el("div", "rv-line", introduced + " of " + pool.length + " questions introduced"
@@ -1525,7 +1662,19 @@
       if (next != null) inner.appendChild(el("div", "rv-line", "Next review in " + (next - queue.day) + " day" + (next - queue.day === 1 ? "" : "s")));
 
       var acts = el("div", "done-actions");
-      var toCat = el("button", "btn btn-green", "Back to courses");
+      /* Offered, never queued. Cards are the daily habit; a 10-minute coding
+         drill has to be something you opt into or it turns the whole thing
+         into a chore. */
+      var drill = REV.pickDrill(u, COURSES.filter(function (c) { return c._loaded; }), pool, queue.day);
+      if (drill) {
+        var dBtn = el("button", "btn btn-green", "🎯 Drill: " + esc(drill.title));
+        dBtn.onclick = function () { startDrill(drill); };
+        acts.appendChild(dBtn);
+        inner.appendChild(el("div", "rv-line dim",
+          "Rebuild " + (drill.k + 1) + " of " + drill.steps + " checkpoint" + (drill.steps === 1 ? "" : "s")
+          + " from the starter files · " + esc(drill.unitTitle)));
+      }
+      var toCat = el("button", "btn " + (drill ? "btn-ghost" : "btn-green"), "Back to courses");
       toCat.onclick = renderCatalog;
       acts.appendChild(toCat);
       inner.appendChild(acts);
@@ -1564,6 +1713,22 @@
         return { done: !!u.done[id], quiz: u.quiz[id] };
       },
       open: function () { renderReview(); },
+      /* Drill hooks. pickDrill needs loaded courses, so the caller does
+         loadAll() first — same contract as pool(). */
+      pickDrill: function () {
+        var u = me(); if (!u) return null;
+        return REV.pickDrill(u, COURSES.filter(function (c) { return c._loaded; }), reviewPool(u), REV.revToday());
+      },
+      startDrill: function (d) { startDrill(d || window.CODELAB.dev.rev.pickDrill()); },
+      settle: function (passed) { if (current && current.settleDrill) current.settleDrill(!!passed); },
+      drillState: function (lessonId) {
+        var u = me(); if (!u) return null;
+        return {
+          rec: u.rev[REV.drillKey(lessonId)] || null,
+          scratch: (u.drillCode || {})[lessonId] || null,
+          savedCode: (u.code || {})[lessonId] || null
+        };
+      },
       answer: function (key, text) {
         var u = me(); if (!u) return null;
         var item = reviewPool(u).filter(function (i) { return i.key === key; })[0];
@@ -1579,6 +1744,18 @@
       return COURSES.reduce(function (p, c) { return p.then(function () { return loadCourse(c); }); }, Promise.resolve());
     },
     loadCourse: loadCourse,
+    setCodeForTest: function (lessonId, files) {
+      var u = me(); if (!u) return null;
+      u.code[lessonId] = files;
+      saveStore();
+      return u.code[lessonId];
+    },
+    editorFiles: function () { return current && current.editor ? current.editor.getFiles() : null; },
+    setEditorFiles: function (files) {
+      if (!current || !current.editor) return null;
+      Object.keys(files || {}).forEach(function (n) { current.editor.setFile(n, files[n]); });
+      return current.editor.getFiles();
+    },
     courses: function () {
       return COURSES.map(function (c) {
         var list = courseLessons(c);

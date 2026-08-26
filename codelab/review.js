@@ -28,10 +28,12 @@
 
   /* ---------- tuning ---------- */
   var Q_IV = [1, 1, 3, 7, 16, 35, 90];  // interval per box, in days
+  var D_IV = [1, 3, 10, 30, 75, 180];   // drill intervals — heavier item, longer gaps
   var MAX_SESSION = 20;                 // hard cap on one day's offer
   var NEW_PER_DAY = 10;                 // RESERVED slots, not leftovers
   var SKIM_MS = 1200;                   // faster than this cannot promote
   var HOLDING_DAYS = 35;                // the "still holding" trophy line
+  var DRILL_MAX_RUNS = 3;               // a pass needing more runs is not a clean pass
 
   /* ---------- the one clock ----------
      Local calendar components pushed through Date.UTC land on an exact
@@ -186,24 +188,35 @@
     }
     return scan(u.done || {}) || scan(u.quiz || {});
   }
+  /* Every lesson id is "<coursePrefix>-…", so the courses worth loading can be
+     derived from progress alone, with no content in memory. This covers ALL
+     finished lessons, not just quizzes, because drills come from coding
+     lessons in courses whose quiz may not be done yet. */
   function coursePrefixes(u) {
     var seen = {};
     function scan(o) {
       for (var k in o) {
         if (!Object.prototype.hasOwnProperty.call(o, k)) continue;
-        if (k.indexOf("-quiz") === -1) continue;
-        seen[k.split("-")[0]] = 1;
+        var p = String(k).split("-")[0];
+        if (p) seen[p] = 1;
       }
     }
     scan((u && u.done) || {}); scan((u && u.quiz) || {});
     return Object.keys(seen);
   }
+  function doneLessonCount(u) {
+    return u && u.done ? Object.keys(u.done).length : 0;
+  }
+  /* Cards and drills share the map but not the interval table, so each record
+     is measured against its own ladder. */
   function holdingCount(u, days) {
     if (!u || !u.rev) return 0;
     var floor = days == null ? HOLDING_DAYS : days, n = 0;
     for (var k in u.rev) {
       if (!Object.prototype.hasOwnProperty.call(u.rev, k)) continue;
-      if (Q_IV[u.rev[k][0]] >= floor) n++;
+      var table = isDrillKey(k) ? D_IV : Q_IV;
+      var iv = table[u.rev[k][0]];
+      if (iv != null && iv >= floor) n++;
     }
     return n;
   }
@@ -334,13 +347,19 @@
     u.revAlt[key] = (u.revAlt[key] || []).concat([String(typed).trim()]);
   }
   /* An edited question hashes to a new key, so its old record is orphaned.
-     Dropping them on load keeps the store from silently accreting. */
+     Dropping them on load keeps the store from silently accreting.
+
+     ONLY question keys are considered. Drill records live in the same map but
+     are keyed by lesson id, and the pool passed here is questions only — so
+     pruning them here would delete every drill schedule the moment the review
+     home rendered. (It did, until a test caught it.) */
   function pruneOrphans(u, pool) {
     if (!u.rev) return 0;
     var live = {}, dropped = 0;
     pool.forEach(function (it) { live[it.key] = 1; });
     for (var k in u.rev) {
       if (!Object.prototype.hasOwnProperty.call(u.rev, k)) continue;
+      if (isDrillKey(k)) continue;
       if (!live[k]) { delete u.rev[k]; dropped++; }
     }
     return dropped;
@@ -357,14 +376,142 @@
     return best;
   }
 
+  /* ============================================================
+     TIER B — checkpoint-prefix drills
+     ------------------------------------------------------------
+     Tier A reviews concepts. This reviews PRODUCTION: reopen a
+     finished coding lesson from its starter files and grade only
+     the first k+1 checkpoints, with k rising as the item climbs
+     its ladder. Box 0 is "make the first check pass" — a minute.
+     The top box is the whole lesson rebuilt from nothing.
+
+     Grading a single checkpoint in isolation is impossible: the
+     runner executes steps in order in one sandbox with state
+     accumulating between them, and plenty of later steps click
+     and type into what earlier steps built. A PREFIX is the
+     largest unit that is both gradeable and adjustable, and it
+     needs no new content — the 827 checkpoints are already
+     written and already validated.
+     ============================================================ */
+  function drillKey(lessonId) { return "k:" + lessonId; }
+  function isDrillKey(key) { return String(key).indexOf("k:") === 0; }
+  function lessonIdOfDrill(key) { return String(key).slice(2); }
+
+  /* Depth from box, floored by where the starter actually breaks. The floor
+     matters: validate.js proves a starter fails SOME checkpoint, not the
+     first one, so a shallow prefix can be one the starter already passes —
+     which would open a drill that is complete before it begins. */
+  function drillDepth(box, stepCount, firstFailing) {
+    var k = Math.min(box, stepCount - 1);
+    if (firstFailing != null) k = Math.max(k, firstFailing);
+    return Math.max(0, Math.min(k, stepCount - 1));
+  }
+
+  /* Tier A generates unit-level failure data for free, which is the answer to
+     "there is no per-checkpoint history": drill the unit whose CARDS keep
+     lapsing. */
+  function unitHeat(u, unitId, pool) {
+    var heat = 0;
+    (pool || []).forEach(function (it) {
+      if (it.unitId !== unitId) return;
+      var r = recOf(u, it.key);
+      if (r) heat += (r[2] || 0);
+    });
+    return heat;
+  }
+
+  function drillCandidates(u, courses) {
+    var out = [];
+    (courses || []).forEach(function (c) {
+      (c.units || []).forEach(function (unit) {
+        (unit.lessons || []).forEach(function (l) {
+          if (l.kind === "quiz") return;
+          if (!(l.steps || []).length) return;
+          if (!(u.done && u.done[l.id])) return;          // only finished lessons
+          if (isSkipped(u, drillKey(l.id))) return;
+          out.push({
+            key: drillKey(l.id), lessonId: l.id, courseId: c.id, courseTitle: c.title,
+            unitId: unit.id, unitTitle: unit.title, title: l.title,
+            steps: (l.steps || []).length, project: !!l.project
+          });
+        });
+      });
+    });
+    return out;
+  }
+
+  /* One drill is OFFERED per session, never queued — a queue of 15-minute
+     items becomes a chore, and a chore gets abandoned. */
+  function pickDrill(u, courses, pool, today) {
+    var cands = drillCandidates(u, courses);
+    if (!cands.length) return null;
+    var due = [], fresh = [];
+    cands.forEach(function (c) {
+      var r = recOf(u, c.key);
+      if (!r) fresh.push(c);
+      else if (r[1] <= today) due.push(c);
+    });
+    var pick = null;
+    if (due.length) {
+      due.sort(function (a, b) { return recOf(u, a.key)[1] - recOf(u, b.key)[1]; });
+      pick = due[0];
+    } else if (fresh.length) {
+      fresh.sort(function (a, b) {
+        var h = unitHeat(u, b.unitId, pool) - unitHeat(u, a.unitId, pool);
+        if (h) return h;
+        return a.steps - b.steps;   // gentler first when nothing is hot yet
+      });
+      pick = fresh[0];
+    }
+    if (!pick) return null;
+    var rec = recOf(u, pick.key);
+    pick.box = rec ? rec[0] : 0;
+    pick.heat = unitHeat(u, pick.unitId, pool);
+    pick.k = drillDepth(pick.box, pick.steps, null);
+    return pick;
+  }
+
+  /* Same three outcomes as a card, its own interval table. */
+  function gradeDrill(u, key, outcome, today) {
+    u.rev = u.rev || {};
+    var t = today == null ? revToday() : today;
+    var r = u.rev[key] || [0, t, 0, 0];
+    var max = D_IV.length - 1;
+    if (outcome === "got") { r[0] = Math.min(r[0] + 1, max); r[1] = t + D_IV[r[0]]; }
+    else if (outcome === "close") { r[1] = t + D_IV[r[0]]; }
+    else { r[0] = Math.max(0, r[0] - 2); r[2] = (r[2] || 0) + 1; r[1] = t + 1; }
+    r[3] = (r[3] || 0) + 1;
+    u.rev[key] = r;
+    return r;
+  }
+
+  /* The judgement call of this tier, isolated in one function so it can be
+     changed once. 162 of 251 lessons are kind:"web", where Run IS the preview
+     button — counting a failing Run as a miss there would pin most of the pool
+     at box 0 forever. So a failing run only counts against you on "js"
+     lessons, where Run is unambiguously "check my work". */
+  function drillOutcome(opts) {
+    if (!opts.passed) return "missed";
+    if (opts.abandoned) return "missed";
+    if (opts.kind === "js" && opts.failedRuns > 0) return "close";
+    if (opts.runs > DRILL_MAX_RUNS) return "close";
+    if (opts.hintsShown > 0) return "close";
+    return "got";
+  }
+
   var API = {
-    Q_IV: Q_IV, MAX_SESSION: MAX_SESSION, NEW_PER_DAY: NEW_PER_DAY,
+    Q_IV: Q_IV, D_IV: D_IV, DRILL_MAX_RUNS: DRILL_MAX_RUNS,
+    drillKey: drillKey, isDrillKey: isDrillKey, lessonIdOfDrill: lessonIdOfDrill,
+    drillDepth: drillDepth, unitHeat: unitHeat, drillCandidates: drillCandidates,
+    pickDrill: pickDrill, gradeDrill: gradeDrill, drillOutcome: drillOutcome,
+    MAX_SESSION: MAX_SESSION, NEW_PER_DAY: NEW_PER_DAY,
     SKIM_MS: SKIM_MS, HOLDING_DAYS: HOLDING_DAYS,
     revToday: revToday, hash6: hash6, keyOf: keyOf,
     illPosed: illPosed, isTyped: isTyped, isCodeAnswer: isCodeAnswer,
     normalize: normalize, answerMatches: answerMatches,
     quizEngaged: quizEngaged, collectItems: collectItems,
     dueCount: dueCount, hasEngagedQuiz: hasEngagedQuiz, coursePrefixes: coursePrefixes,
+    doneLessonCount: doneLessonCount,
     holdingCount: holdingCount, nextDueDay: nextDueDay,
     buildQueue: buildQueue, grade: grade, recordTyped: recordTyped,
     skipItem: skipItem, noteAlt: noteAlt, pruneOrphans: pruneOrphans,
