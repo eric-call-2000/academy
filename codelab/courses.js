@@ -62,6 +62,13 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
+  id: "test", prefix: "test", title: "Testing Fundamentals",
+  icon: "🧪", color: "#e11d48", level: "Intermediate", hours: 9, items: 40,
+  blurb: "How do you know it works? Assertions, a test runner you build yourself, TDD, test doubles, async and DOM testing, coverage — and suites graded on whether they catch real bugs.",
+  files: ["test/u1.js", "test/u2.js", "test/u3.js", "test/u4.js", "test/u5.js", "test/u6.js", "test/u7.js", "test/u8.js"]
+});
+
+window.CODELAB.defineCourse({
   id: "cap", prefix: "cap", title: "Full-Stack Capstone",
   icon: "🚀", color: "#f59e0b", level: "Advanced", hours: 6, items: 28,
   blurb: "Put it all together — client and server in one page, optimistic UI, import/export, accessibility, and NoteStream: your portfolio app.",

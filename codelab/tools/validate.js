@@ -86,6 +86,24 @@ function phase0() {
           if (l.solution) for (const k of Object.keys(l.solution)) {
             if (!(l.files || []).some(f => f.name === k)) fail(`${l.id}: solution file ${k} not in files[]`);
           }
+          /* T.mutate swaps the GLOBAL binding, which only `function`/`var`
+             declarations create. A `const foo = …` in the starter or the
+             solution makes every swap fail with a runtime error mid-lesson,
+             so catch it statically here. */
+          const mutated = new Set();
+          for (const s of (l.steps || [])) {
+            const re = /T\.mutate\(\s*['"]([A-Za-z_$][\w$]*)['"]/g;
+            let m;
+            while ((m = re.exec(s.test || ""))) mutated.add(m[1]);
+          }
+          if (mutated.size) {
+            const sources = (l.files || []).map(f => f.content).concat(Object.values(l.solution || {}));
+            for (const name of mutated) {
+              const badDecl = new RegExp("\\b(const|let)\\s+" + name + "\\b");
+              if (sources.some(src => badDecl.test(String(src))))
+                fail(`${l.id}: "${name}" is mutated by a checkpoint but declared with const/let — mutated bindings must be \`function ${name}(...)\``);
+            }
+          }
         }
       }
     }
