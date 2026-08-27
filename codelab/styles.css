@@ -615,3 +615,44 @@ input { font-family: var(--font); }
 }
 .rv-drill .btn { margin-top: 10px; }
 .l-kicker.drill { color: #7c3aed; }
+
+/* ---------- Handoff (device to device) ---------- */
+.sync-code {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 92px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  resize: vertical;
+  background: #f8fafc;
+  color: #334155;
+}
+.sync-code:focus { outline: none; border-color: #0ea5e9; background: white; }
+.sync-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.sync-row .btn { width: auto; }
+.sync-preview:empty { display: none; }
+.sync-card {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 2px solid #bae6fd;
+  background: #f0f9ff;
+  border-radius: 12px;
+}
+.sync-card .btn { width: auto; margin-right: 8px; margin-top: 10px; }
+.sync-list { margin: 10px 0 4px; padding-left: 20px; color: #334155; font-size: 14px; }
+.sync-list li { margin: 3px 0; }
+.sync-warn {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fef3c7;
+  border: 2px solid #fde68a;
+  color: #78350f;
+  font-size: 13px;
+}

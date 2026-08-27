@@ -187,6 +187,86 @@ function reviewGates() {
   else ok("every question carries an explain");
 
   schedulerSim(REV, usable);
+  syncAlgebra(REV);
+}
+
+/* Pure-Node property tests over the Handoff merge. These are the gates that
+   matter most: a merge that is not idempotent silently doubles XP, and one
+   that is not commutative means the answer depends on which device you
+   imported into first. */
+function syncAlgebra(REV) {
+  console.log("\n== Phase 0d: Handoff merge algebra ==");
+  const S = require(path.join(ROOT, "sync.js"));
+  let seed = 20260827;
+  const rnd = () => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; };
+  const ctx = { today: 20700, xpOf: (id) => (id.indexOf("quiz") !== -1 ? 10 : 15) };
+  const eq = (a, b) => S.stable(a) === S.stable(b);
+
+  const LESSONS = [], CARDS = [];
+  for (let i = 1; i <= 40; i++) LESSONS.push("js-u1-" + i);
+  for (let i = 0; i < 40; i++) CARDS.push("q:js-quiz-1#c" + i);
+  for (let i = 0; i < 10; i++) CARDS.push("k:js-u1-" + i);
+
+  function randProfile(dev) {
+    const u = { done: {}, quiz: {}, days: [], rev: {}, revPark: {}, revSkip: {}, revAlt: {},
+                revStatsSrc: {}, xp: 0, lastCourse: rnd() < 0.5 ? "js" : null };
+    LESSONS.forEach(l => { if (rnd() < 0.4) { u.done[l] = true; u.xp += ctx.xpOf(l); } });
+    CARDS.forEach(k => {
+      if (rnd() > 0.5) return;
+      const IV = k.indexOf("k:") === 0 ? REV.D_IV : REV.Q_IV;
+      const box = Math.floor(rnd() * IV.length);
+      u.rev[k] = [box, ctx.today - Math.floor(rnd() * 20) + IV[box], Math.floor(rnd() * 3), Math.floor(rnd() * 9) + 1];
+    });
+    for (let i = 0; i < 12; i++) if (rnd() < 0.6) u.days.push(ctx.today - Math.floor(rnd() * 40));
+    u.days = S.uniqSortedDays(u.days, ctx.today);
+    u.revStatsSrc[dev] = { s: 5, a: 50 + Math.floor(rnd() * 200), c: 40, ta: 10, tc: 8 };
+    return u;
+  }
+  const M = (a, b) => S.mergeProfile(a, b, ctx).user;
+
+  let idem = 0, comm = 0, mono = 0;
+  for (let i = 0; i < 400; i++) {
+    const L = randProfile("phone"), I = randProfile("desk");
+    const once = M(L, I);
+    if (!eq(M(once, I), once)) idem++;
+    if (!eq(once, M(I, L))) comm++;
+    if (Object.keys(once.done).length < Object.keys(L.done).length || once.xp < L.xp || once.days.length < L.days.length) mono++;
+  }
+  if (idem) fail(`merge is NOT idempotent (${idem}/400 pairs) — a repeat import would change the profile`);
+  else ok("merge is idempotent over 400 random pairs");
+  if (comm) fail(`merge is NOT commutative (${comm}/400 pairs) — the result would depend on import order`);
+  else ok("merge is commutative over 400 random pairs");
+  if (mono) fail(`merge LOSES data (${mono}/400 pairs) — done/xp/days shrank`);
+  else ok("merge is monotone — completions, XP and study days never shrink");
+
+  // The date format that silently resets the streak to 1 every day if padded.
+  const d = new Date();
+  const todayKey = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+  if (S.dayStr(REV.revToday()) === todayKey) ok(`dayStr matches todayKey() exactly (${todayKey})`);
+  else fail(`dayStr emits "${S.dayStr(REV.revToday())}" but todayKey() emits "${todayKey}"`);
+
+  // Streaks: a union of day-sets, never a max of counts.
+  const desk = []; for (let i = 0; i < 30; i++) desk.push(20670 + i);
+  if (S.streakFromDays(S.uniqSortedDays(desk.concat([20700]), 20700)) === 31)
+    ok("a 30-day run plus one day on the other device merges to 31");
+  else fail("streak union is wrong");
+  if (S.streakFromDays(S.uniqSortedDays([20600, 20601, 20690], 20700)) === 1)
+    ok("a run that already ended collapses to 1 rather than being revived");
+  else fail("a dead streak was revived by the merge");
+  if (S.uniqSortedDays([20900], 20700).length === 0) ok("study days from a wrong/foreign clock are dropped");
+  else fail("a future-dated day was accepted");
+
+  // Transport integrity.
+  const u = randProfile("phone");
+  const text = JSON.stringify(S.buildEnvelope("T", u, { today: 20700, deviceId: "d-1" }));
+  if (!S.parseEnvelope(text.slice(0, text.length - 30)).ok) ok("a truncated code is rejected");
+  else fail("a truncated code parsed as valid");
+  if (S.parseEnvelope(text.slice(0, 300) + "\r\n" + text.slice(300)).ok)
+    ok("soft line breaks inserted by mail and chat clients are repaired");
+  else fail("line breaks broke a valid code");
+  const tampered = JSON.parse(text); tampered.p.xp += 5000;
+  if (!S.parseEnvelope(JSON.stringify(tampered)).ok) ok("the checksum catches an edited payload");
+  else fail("an edited payload passed the checksum");
 }
 
 /* Pure-Node simulation: no browser, ~1s. This is the test that catches
@@ -603,6 +683,77 @@ async function main() {
   if (codeLifecycle.after === 0 && codeLifecycle.removed >= 1)
     ok(`clearing a profile removed all ${codeLifecycle.removed} of its code keys`);
   else fail(`profile clear left ${codeLifecycle.after} code keys behind (removed ${codeLifecycle.removed} of ${codeLifecycle.before})`);
+
+  /* ---- Handoff: a real two-device round trip ----
+     The merge algebra is property-tested in Node (phase 0d). This gates the
+     wiring: that an export of THIS profile merges back as a no-op, that a
+     second device's work actually lands, and that a repeat import is inert. */
+  const handoff = await mp.evaluate(async () => {
+    const d = window.CODELAB.dev, S = window.CODELAB.sync, R = window.CODELAB.review;
+    await d.loadAll();
+    const mine = d.handoff.exportText();
+
+    // 1. importing my own export must change nothing
+    const self = d.handoff.preview(mine);
+
+    // 2. forge a second device that finished two lessons and drilled a card
+    const env = JSON.parse(mine);
+    env.from = "Other device";
+    env.src = "d-other";
+    env.p.done = env.p.done.concat(["html-4", "html-5"]);
+    env.p.days = env.p.days.concat([R.revToday() - 1]);
+    env.p.rev["q:html-quiz#zzzzzz"] = [3, R.revToday() + 7, 1, 6];
+    env.p.revStatsSrc["d-other"] = { s: 4, a: 40, c: 30, ta: 12, tc: 9 };
+    env.sum = S.checksum(env.p);
+    const forged = JSON.stringify(env);
+
+    const before = d.handoff.profile();
+    const pv = d.handoff.preview(forged);
+    const merged = d.handoff.merge(forged);
+    const after = d.handoff.profile();
+    const again = d.handoff.merge(forged);   // repeat import
+    const after2 = d.handoff.profile();
+
+    return {
+      selfEmpty: self.ok && self.diff.empty,
+      previewLessons: pv.ok && pv.diff.lessons,
+      mergedLessons: merged.ok && merged.diff.lessons,
+      xpBefore: before.xp, xpAfter: after.xp, xpAfter2: after2.xp,
+      doneBefore: Object.keys(before.done).length, doneAfter: Object.keys(after.done).length,
+      cardBefore: !!before.rev["q:html-quiz#zzzzzz"], cardAfter: !!after.rev["q:html-quiz#zzzzzz"],
+      statsAfter: after.revStats, statsAfter2: after2.revStats,
+      repeatEmpty: again.ok && again.diff.empty,
+      identical: S.stable(after) === S.stable(after2),
+      lastDay: after.lastDay, streak: after.streak,
+      academy: d.handoff.academy()
+    };
+  });
+  if (handoff.selfEmpty) ok("importing this device's own export is a no-op");
+  else fail("a self-import reported changes — the merge is not a fixed point");
+  if (handoff.previewLessons === 2 && handoff.mergedLessons === 2)
+    ok("preview and commit agree: 2 lessons from the other device");
+  else fail(`preview said ${handoff.previewLessons} lessons, commit said ${handoff.mergedLessons}`);
+  if (handoff.doneAfter === handoff.doneBefore + 2) ok(`the other device's work landed (${handoff.doneBefore} → ${handoff.doneAfter} lessons)`);
+  else fail(`done went ${handoff.doneBefore} → ${handoff.doneAfter}, expected +2`);
+  if (handoff.cardAfter && !handoff.cardBefore) ok("a card only the other device had is now scheduled here");
+  else fail("the foreign review card did not arrive");
+  if (handoff.repeatEmpty && handoff.identical && handoff.xpAfter === handoff.xpAfter2)
+    ok("a repeat import changes nothing at all (byte-identical profile)");
+  else fail(`repeat import mutated the profile: xp ${handoff.xpAfter} → ${handoff.xpAfter2}`);
+  if (handoff.statsAfter.a === handoff.statsAfter2.a && handoff.statsAfter.a > 0)
+    ok(`lifetime counters summed across devices without double-counting (${handoff.statsAfter.a} answers)`);
+  else fail(`revStats double-counted: ${handoff.statsAfter.a} → ${handoff.statsAfter2.a}`);
+  // The date format that would otherwise reset the streak to 1 every day.
+  const todayKeyStr = await mp.evaluate(() => {
+    const d = new Date();
+    return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+  });
+  if (handoff.lastDay === todayKeyStr || handoff.lastDay === null)
+    ok(`merged lastDay uses the app's unpadded date format (${handoff.lastDay})`);
+  else fail(`merged lastDay is "${handoff.lastDay}" but todayKey() emits "${todayKeyStr}" — the streak would reset daily`);
+  if (handoff.academy && handoff.academy.clXp === handoff.xpAfter2)
+    ok(`the Academy mirror was re-derived through the XP ledger (clXp ${handoff.academy.clXp})`);
+  else fail(`Academy ledger is ${handoff.academy && handoff.academy.clXp}, profile xp is ${handoff.xpAfter2}`);
 
   /* Concurrency: background prefetch makes two loadCourse calls for the same
      course near-certain, and a double registration halves every percentage. */

@@ -334,6 +334,29 @@
      Deliberately absent: forgiveness for a late fail (it just lowers the
      bar) and a speed bonus (it pays for not reading the prompt). Latency
      is used in one direction only — as a brake. */
+  /* ---------- lifetime counters ----------
+     Kept per DEVICE, not as one scalar. A scalar cannot survive a handoff:
+     summing two devices double-counts on a repeat import, and maxing them
+     throws away whichever device did less. Per-device buckets are exact,
+     and the number shown is just their sum. */
+  var deviceId = "legacy";
+  function setDeviceId(id) { if (id) deviceId = id; }
+  function bump(u, field, by) {
+    u.revStatsSrc = u.revStatsSrc || {};
+    var b = u.revStatsSrc[deviceId] || (u.revStatsSrc[deviceId] = { s: 0, a: 0, c: 0, ta: 0, tc: 0 });
+    b[field] = (b[field] || 0) + (by == null ? 1 : by);
+    u.revStats = totalStats(u);
+  }
+  function totalStats(u) {
+    var t = { s: 0, a: 0, c: 0, ta: 0, tc: 0 };
+    var src = u.revStatsSrc || {};
+    for (var d in src) {
+      if (!Object.prototype.hasOwnProperty.call(src, d)) continue;
+      var v = src[d] || {};
+      t.s += v.s || 0; t.a += v.a || 0; t.c += v.c || 0; t.ta += v.ta || 0; t.tc += v.tc || 0;
+    }
+    return t;
+  }
   function grade(u, key, outcome, elapsedMs) {
     u.rev = u.rev || {};
     u.revStats = u.revStats || { s: 0, a: 0, c: 0, ta: 0, tc: 0 };
@@ -355,19 +378,22 @@
     }
     r[3] = (r[3] || 0) + 1;
     u.rev[key] = r;
-    u.revStats.a++;
-    if (outcome === "got") u.revStats.c++;
+    bump(u, "a");
+    if (outcome === "got") bump(u, "c");
     return r;
   }
   function recordTyped(u, correct) {
-    u.revStats = u.revStats || { s: 0, a: 0, c: 0, ta: 0, tc: 0 };
-    u.revStats.ta++;
-    if (correct) u.revStats.tc++;
+    bump(u, "ta");
+    if (correct) bump(u, "tc");
   }
   function skipItem(u, key) {
     u.revSkip = u.revSkip || {};
     u.revSkip[key] = 1;
-    if (u.rev) delete u.rev[key];
+    if (u.rev && u.rev[key]) {
+      u.revPark = u.revPark || {};
+      u.revPark[key] = u.rev[key];   // parked, so this is reversible
+      delete u.rev[key];
+    }
   }
   function noteAlt(u, key, typed) {
     u.revAlt = u.revAlt || {};
@@ -382,14 +408,31 @@
      home rendered. (It did, until a test caught it.) */
   function pruneOrphans(u, pool) {
     if (!u.rev) return 0;
-    var live = {}, dropped = 0;
+    u.revPark = u.revPark || {};
+    var live = {}, parked = 0;
     pool.forEach(function (it) { live[it.key] = 1; });
     for (var k in u.rev) {
       if (!Object.prototype.hasOwnProperty.call(u.rev, k)) continue;
       if (isDrillKey(k)) continue;
-      if (!live[k]) { delete u.rev[k]; dropped++; }
+      /* PARKED, never deleted. A key can be missing from the pool for
+         reasons that have nothing to do with the learner — a course whose
+         file failed to load, or a device running older content after a
+         handoff — and deleting on that basis silently destroys a schedule
+         that took weeks to build. Parking is reversible; delete is not. */
+      if (!live[k]) { u.revPark[k] = u.rev[k]; delete u.rev[k]; parked++; }
     }
-    return dropped;
+    /* Anything parked earlier that the pool can see again comes back. */
+    for (var pk in u.revPark) {
+      if (!Object.prototype.hasOwnProperty.call(u.revPark, pk)) continue;
+      if (live[pk] && !isSkipped(u, pk)) { u.rev[pk] = u.revPark[pk]; delete u.revPark[pk]; }
+    }
+    return parked;
+  }
+  /* A tombstone should not destroy a dozen gradings, so skipItem parks the
+     record and unskip puts it back exactly as it was. */
+  function unskip(u, key) {
+    if (u.revSkip) delete u.revSkip[key];
+    if (u.revPark && u.revPark[key]) { u.rev = u.rev || {}; u.rev[key] = u.revPark[key]; delete u.revPark[key]; }
   }
   function nextDueDay(u, today) {
     if (!u || !u.rev) return null;
@@ -541,7 +584,8 @@
     doneLessonCount: doneLessonCount,
     holdingCount: holdingCount, nextDueDay: nextDueDay,
     buildQueue: buildQueue, grade: grade, recordTyped: recordTyped,
-    skipItem: skipItem, noteAlt: noteAlt, pruneOrphans: pruneOrphans,
+    skipItem: skipItem, unskip: unskip, noteAlt: noteAlt, pruneOrphans: pruneOrphans,
+    setDeviceId: setDeviceId, totalStats: totalStats, bumpStat: bump,
     recOf: recOf, shuffle: shuffle
   };
 

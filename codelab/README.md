@@ -58,6 +58,32 @@ Each coding lesson is a 3-pane workspace — **Learn** (narrative + numbered che
 - Checkpoints can grade computed styles, the stylesheet **as written** (`T.decl`/`T.sheet`), `@media`/`@keyframes` rules, DOM structure, simulated clicks/typing/submits, console output, and function behavior.
 - Code **autosaves** per lesson per profile; XP and 🔥 streaks track daily work.
 
+## 📲 Handoff — phone ↔ desktop
+
+`localStorage` is per-origin **and per-device**, so your phone and your desktop are two stores that never see each other. There's no server, so nothing crosses on its own. **Handoff** makes the crossing manual but safe: copy a code from one device, paste it on the other.
+
+- **What travels**: completions, XP, quiz scores, study days, and the whole Recall schedule — about **14 KB** for a full profile, small enough to paste into a note or message to yourself.
+- **What doesn't**: saved lesson code. It's ~95% of the bytes and none of what gets stranded, and including it is what would make the whole flow impossible on a phone.
+
+**Importing the same code twice does nothing.** That isn't a promise, it's a property the build tests: the merge is **idempotent** (re-import changes nothing), **commutative** (it doesn't matter which device you import into first), and **monotone** (completions, XP and study days can only go up). 400 random profile pairs are checked on every validation run.
+
+How the tricky fields are handled:
+
+| Field | Rule |
+|---|---|
+| Completions, skips, accepted answers | Set union — a lesson done anywhere is done |
+| XP | Extended by the *delta*, never by the incoming total, so a repeat import adds zero |
+| Quiz scores | Per-quiz max, exactly like a retake |
+| **Streak** | Derived from a **set of study days**, not merged as a number |
+| **Lifetime counters** | Kept **per device** and summed, so parallel work is neither lost nor double-counted |
+| **Card schedules** | Ordered by evidence — see below |
+
+**The streak is a day-set, not a count.** A count paired with an end-date can't be merged without inventing runs — max them and a run that died six days ago comes back as a live 30-day flame. Storing the days themselves means a 30-day desktop run plus one phone day is simply 31, and a run that already ended honestly collapses to 1.
+
+**Card conflicts are resolved by evidence, not a coin flip.** It looks like there are no timestamps, but there are: `grade()` writes `dueDay = today + interval[box]`, so every record bounds its own last-graded day (`dueDay − interval[box]` … `dueDay − 1`). If one record's window is entirely later than the other's, it was *provably* graded more recently and wins outright. Only when the windows overlap is there no answer — and there the merge takes the **lower** box and **earlier** due date, because scheduling a card too early costs one extra review while scheduling it too late buries something you've genuinely forgotten for up to 90 days.
+
+Nothing is written until a **preview** built by running the real merge, so what you're shown can't disagree with what happens — and the last merge is undoable.
+
 ### Where your work is stored
 
 Two localStorage areas, deliberately separate:
