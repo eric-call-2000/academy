@@ -433,12 +433,147 @@
     });
   }
 
+  /* ============================================================
+     SHELL lessons → the simulated terminal (shell.js)
+     ------------------------------------------------------------
+     Runs on the MAIN THREAD, unlike js and web lessons, and that
+     is safe for a reason worth stating: the learner writes shell
+     COMMANDS, which are data. Nothing they type is evaluated as
+     JavaScript, so there is no sandbox to escape. The shell has
+     no loops and caps a script at 500 commands, so it cannot
+     hang the page either — which is the only thing the Worker
+     was buying us.
+     ============================================================ */
+  function runShell(lesson, files, hooks) {
+    var SH = window.CODELAB.shell;
+    return new Promise(function (resolve) {
+      if (!SH) { resolve({ steps: [], fatal: "The shell engine did not load." }); return; }
+      var name = (lesson.files && lesson.files[0] && lesson.files[0].name) || "commands.sh";
+      var script = (files[name] != null) ? files[name] : files[Object.keys(files)[0]] || "";
+
+      var fsTree, result;
+      try {
+        fsTree = SH.createFS(lesson.fs || {});
+        result = SH.run(fsTree, script, { cwd: lesson.cwd || "/home/you", home: lesson.home || "/home/you" });
+      } catch (e) {
+        resolve({ steps: [], fatal: (e && e.message) || String(e) });
+        return;
+      }
+
+      /* The Result pane becomes a terminal transcript, so the feedback loop
+         is the same one a real shell gives: prompt, command, output. */
+      if (hooks.previewEl) {
+        var pre = document.createElement("pre");
+        pre.className = "sh-term";
+        pre.textContent = SH.renderTranscript(result, lesson.user || "you");
+        hooks.previewEl.innerHTML = "";
+        hooks.previewEl.appendChild(pre);
+      }
+      /* Anything a command printed also reaches the console pane, so a
+         failing checkpoint and the output that explains it sit together. */
+      if (hooks.onConsole) {
+        result.transcript.forEach(function (t) {
+          if (t.out) hooks.onConsole({ level: "log", text: t.out.replace(/\n$/, "") });
+          if (t.err) hooks.onConsole({ level: "error", text: t.err.replace(/\n$/, "") });
+        });
+      }
+
+      var T = shellT(SH, fsTree, result, script);
+      var steps = lesson.steps || [], out = [];
+      for (var i = 0; i < steps.length; i++) {
+        try {
+          /* Tests are authored content, never learner input. */
+          var fn = new Function("T", '"use strict";' + steps[i].test);
+          fn(T);
+          out.push({ i: i, pass: true, msg: "" });
+        } catch (e) {
+          out.push({ i: i, pass: false, msg: (e && e.message) || String(e) });
+        }
+      }
+      resolve({ steps: out, fatal: null });
+    });
+  }
+
+  function shellT(SH, fsTree, result, script) {
+    function fail(msg) { throw new Error(msg || "Check failed"); }
+    var stdout = result.transcript.map(function (t) { return t.out; }).join("");
+    var stderr = result.transcript.map(function (t) { return t.err; }).join("");
+    var T = {
+      transcript: result.transcript,
+      out: function () { return stdout; },
+      err: function () { return stderr; },
+      cwd: function () { return result.cwd; },
+      exit: function () { return result.transcript.length ? result.transcript[result.transcript.length - 1].code : 0; },
+      /* The raw commands the learner wrote. Grading the SOURCE as well as the
+         result is what lets a lesson teach the tool rather than the outcome:
+         "get there without a leading slash" is a lesson about relative paths,
+         and only T.typed can tell the difference. */
+      script: function () { return script; },
+      typed: function (re, msg) {
+        var rx = (typeof re === "string") ? new RegExp(re) : re;
+        if (!rx.test(script)) fail(msg || "Expected a command matching " + rx);
+        return true;
+      },
+      notTyped: function (re, msg) {
+        var rx = (typeof re === "string") ? new RegExp(re) : re;
+        if (rx.test(script)) fail(msg || "This lesson asks you not to use " + rx);
+        return true;
+      },
+      /* Counting invocations is what makes `mkdir -p` a lesson about -p
+         rather than about ending up with a folder. */
+      cmdCount: function (name) {
+        return result.transcript.filter(function (t) {
+          return new RegExp("(^|\\||&&|;)\\s*" + name + "(\\s|$)").test(t.cmd);
+        }).length;
+      },
+      /* One helper answering "does it exist", "is it a dir", "what is in it". */
+      fs: function (p) {
+        var n = SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p));
+        if (!n) return null;
+        return n.d ? { type: "dir", names: Object.keys(n.d).sort() } : { type: "file", content: n.f };
+      },
+      /* File contents, or null when it does not exist — one helper covers
+         "did you create it" and "what is in it". */
+      file: function (p) {
+        var n = SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p));
+        return n && n.f !== undefined ? n.f : null;
+      },
+      exists: function (p) { return !!SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p)); },
+      isDir: function (p) {
+        var n = SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p));
+        return !!(n && n.d);
+      },
+      ls: function (p) {
+        var n = SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p || "."));
+        return n && n.d ? Object.keys(n.d).sort() : [];
+      },
+      /* Did the learner actually run a command matching this? Lets a
+         checkpoint insist on the tool, not just the end state — "copy it
+         with cp" rather than "have two files". */
+      ran: function (re) {
+        var rx = (typeof re === "string") ? new RegExp(re) : re;
+        return result.transcript.some(function (t) { return rx.test(t.cmd); });
+      },
+      commands: result.transcript.map(function (t) { return t.cmd; }),
+      lastCode: result.transcript.length ? result.transcript[result.transcript.length - 1].code : 0,
+      printed: function (s) { return stdout.indexOf(s) !== -1; },
+      expect: function (cond, msg) { if (!cond) fail(msg); },
+      eq: function (a, b, msg) {
+        if (JSON.stringify(a) !== JSON.stringify(b)) {
+          fail((msg || "Not equal") + "  (got " + JSON.stringify(a) + ")");
+        }
+      }
+    };
+    return T;
+  }
+
   /* ---------- public API ---------- */
   window.CODELAB = window.CODELAB || {};
   window.CODELAB.runner = {
     RUN_TIMEOUT: RUN_TIMEOUT,
     run: function (lesson, files, hooks) {
       hooks = hooks || {};
+      if (lesson.kind === "shell") return runShell(lesson, files, hooks);
       return (lesson.kind === "js") ? runJS(lesson, files, hooks) : runWeb(lesson, files, hooks);
     }
   };

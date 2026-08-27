@@ -656,3 +656,18 @@ input { font-family: var(--font); }
   color: #78350f;
   font-size: 13px;
 }
+
+/* ---------- simulated terminal (shell lessons) ---------- */
+.sh-term {
+  margin: 0;
+  padding: 14px 16px;
+  min-height: 100%;
+  box-sizing: border-box;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

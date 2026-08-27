@@ -110,6 +110,7 @@
   function chipOf(lesson) {
     if (lesson.project) return "PROJECT";
     if (lesson.kind === "quiz") return "QUIZ";
+    if (lesson.kind === "shell") return lesson.chip || "SHELL";
     return lesson.chip || (lesson.kind === "js" ? "JS" : "WEB");
   }
 
@@ -951,7 +952,9 @@
     scr.appendChild(top);
 
     var tabs = el("div", "l-tabs");
-    var tabDefs = [["learn", "📖 Learn"], ["code", "✏️ Code"], ["result", lesson.kind === "js" ? "▶ Output" : "▶ Result"]];
+    var resultLabel = lesson.kind === "shell" ? "▶ Terminal" : (lesson.kind === "js" ? "▶ Output" : "▶ Result");
+    var codeLabel = lesson.kind === "shell" ? "⌨️ Commands" : "✏️ Code";
+    var tabDefs = [["learn", "📖 Learn"], ["code", codeLabel], ["result", resultLabel]];
     var tabBtns = {};
     tabDefs.forEach(function (t) {
       var b = el("button", "l-tab", t[1]);
