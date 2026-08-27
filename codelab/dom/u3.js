@@ -135,20 +135,20 @@ window.CODELAB.addUnit("dom", {
         { q: "You click an <li> inside #list. What is `e.currentTarget` in this handler?",
           code: "list.addEventListener(\"click\", (e) => {\n  // …\n});",
           lang: "js",
-          choices: ["The #list element the listener is attached to", "The <li> that was clicked", "document", "The string \"click\""],
-          answer: 0, explain: "currentTarget = where the listener LIVES (here, the list); target = where the event STARTED (the li). They differ whenever the click bubbles up." },
+          choices: ["The #list element holding the listener", "The <li> that was actually clicked", "document, where every event eventually ends up", "The string \"click\", naming the event"],
+          answer: 0, explain: "currentTarget = where the listener LIVES (here, the list); target = where the event STARTED (the clicked li). They differ the moment a click bubbles up from a child, and currentTarget is the node you attached the listener to — never the event's type string." },
         { q: "Why put ONE click listener on a list's parent instead of one on every <li>?",
-          choices: ["Lists cannot receive clicks any other way", "It keeps working for items added later — and uses one listener instead of dozens", "It makes each click fire twice", "preventDefault only works on parents"],
-          answer: 1, explain: "Delegation rides on bubbling: new children are covered automatically because the parent hears everything inside it." },
+          choices: ["An <li> cannot receive its own click listener", "It keeps working for items added later", "One listener per item makes each click fire twice", "preventDefault only works on a parent element"],
+          answer: 1, explain: "Delegation rides on bubbling: the parent hears everything inside it, so a single listener covers dozens of items — including ones you create long after the listener was attached. Fewer listeners, less bookkeeping, nothing to re-wire on every render." },
         { q: "You click a <button> inside a <form> inside <body>, each with its own click handler. In the bubbling phase, which order do they fire?",
           choices: ["body → form → button", "Only the form's handler fires", "The order is random", "button → form → body"],
           answer: 3, explain: "Bubbling travels UP from the target through its ancestors. e.stopPropagation() would halt the climb partway." },
         { q: "You want to react when the user presses **Escape** in a text field. Which event?",
-          choices: ["input", "keydown — it gives you e.key", "change", "submit"],
-          answer: 1, explain: "input only fires when the VALUE changes, and Escape changes nothing. keydown fires for every key and names it in e.key." },
+          choices: ["input", "keydown", "change", "keypress"],
+          answer: 1, explain: "input only fires when the VALUE changes, and Escape changes nothing. keydown fires for every key — printable or not — and names it in e.key, so your check is `if (e.key === \"Escape\")`. The old keypress event skips non-printing keys entirely, which is why it's deprecated." },
         { q: "On a text field, when does the `change` event fire?",
-          choices: ["On every keystroke", "Only when Enter is pressed", "After the value changed AND the field loses focus (selects fire it as soon as you pick)", "Never on text fields"],
-          answer: 2, explain: "change is the \"done editing\" event. For keystroke-by-keystroke updates use input instead." }
+          choices: ["On every keystroke, as the user types", "Only when the Enter key is pressed", "After the value changed and the field loses focus", "Never on text fields, only on selects and checkboxes"],
+          answer: 2, explain: "change is the \"done editing\" event: the value must actually have changed AND the field must lose focus. A select or a checkbox fires it the instant you pick, because picking IS the whole edit. For keystroke-by-keystroke updates use input instead." }
       ]
     }
   ]

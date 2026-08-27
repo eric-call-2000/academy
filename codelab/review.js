@@ -10,12 +10,17 @@
 
    THE ITEM. One card is one quiz question rendered as FREE
    RECALL: the prompt and its code block, then the answer. The
-   four authored choices are never shown. In this bank the
-   correct choice is usually also the longest one, so a
-   multiple-choice review mode would measure string length
-   rather than knowledge — and an SRS would then promote the
-   gamed items out of sight. Hiding the distractors is what
-   makes the instrument work.
+   four authored choices are never shown.
+
+   Recognising an answer among four options is a much weaker
+   test than producing it, and it is gameable in ways an SRS
+   makes worse — a card you can guess gets promoted to a long
+   interval and disappears. This bank shipped with the correct
+   choice ALSO being the longest one 76% of the time; a later
+   authoring pass brought that to ~27% (chance is 25%, and a
+   validator gate now holds it under 40%). Hiding the
+   distractors sidesteps that class of tell entirely and asks
+   the only question worth asking: can you still produce it?
 
    THE LADDER. Leitner, not SM-2: SM-2 wants a 0-5 quality
    rating, and the only honest signals here are a three-way
@@ -46,11 +51,12 @@
   }
 
   /* ---------- keys ----------
-     Hash the whole item, not the stem: generic stems like "What does this
+     Hash the content, not a position: generic stems like "What does this
      log?" recur across quizzes, and the discriminating content lives in the
-     code block. Content-hashing also means inserting or reordering
-     questions is free, and editing one resets its schedule, which is what
-     you want — the item is no longer the item that was learned. */
+     code block, so the hash covers prompt + code + answer. Content-hashing
+     means inserting or reordering questions is free, and rewriting what a
+     card actually asks resets its schedule — correct, since it is no longer
+     the item that was learned. */
   function hash6(s) {
     var h = 2166136261;
     for (var i = 0; i < s.length; i++) {
@@ -60,7 +66,12 @@
     return ("00000" + h.toString(36)).slice(-6);
   }
   function keyOf(quizId, q) {
-    var sig = (q.q || "") + "\u001f" + (q.code || "") + "\u001f" + (q.choices || []).join("\u001f");
+    /* The card IS the prompt, its code, and the answer. The distractors are
+       never rendered in free recall, so they are not part of the item and
+       rewording one must not cost the card its history. \u001f (unit separator)
+       cannot occur in authored content, so no arrangement of the three parts
+       can collide with another. */
+    var sig = (q.q || "") + "\u001f" + (q.code || "") + "\u001f" + ((q.choices || [])[q.answer] || "");
     return "q:" + quizId + "#" + hash6(sig);
   }
 
@@ -75,7 +86,7 @@
      answer the survivors cold — only use proves that, which is what the
      "can't answer this" tombstone is for. */
   var Q_REFERS_TO_LIST = /\b(of the following|of these|of the above|which pair|which two|which combination)\b/i;
-  var A_REFERS_TO_LIST = /\b(they'?re interchangeable|behave identically|it isn'?t|the others?|both of them|neither|either one|all of them|none of them)\b/i;
+  var A_REFERS_TO_LIST = /\b(they'?re interchangeable|behave identically|^it isn'?t\b|the other (option|choice|answer)s?|the others\b|both of them|neither of them|either one|all of them|none of them)/i;
   var CHOICE_META = /^\s*(all|none|both|any)\s+of\s+the\s+above\s*$/i;
   var A_TOO_THIN = /^\s*(nothing|nothing[.!]?|no|yes|true|false|it depends)\s*$/i;
   /* A handful of questions put their alternatives inside the code block and
@@ -95,13 +106,27 @@
   }
 
   /* ---------- typed vs self-graded ----------
-     A short answer can be typed and compared objectively. A long one is
-     a sentence, and demanding it verbatim would fail correct answers, so
-     it is revealed and self-graded. The two are counted separately
-     forever: only the typed ones are evidence. */
+     A short, canonical answer can be typed and compared objectively. Anything
+     with more than one reasonable spelling is revealed and self-graded
+     instead. The two are counted separately forever: only the typed ones are
+     evidence.
+
+     A gloss means there is no single right spelling. `alt="" \u2014 deliberately
+     empty` is a value plus an explanation, and demanding it verbatim fails a
+     learner who typed the value perfectly. Prose commas are the same tell.
+     This is expensive in one direction only: a false MISS on something you
+     knew is exactly what makes a review tool feel rigged, so the bar for
+     "objectively gradeable" is deliberately high. */
+  var GLOSS = /[\u2014\u2013]|(^| )-( |$)/;
   function isTyped(q) {
     var a = ((q.choices || [])[q.answer] || "").trim();
-    return a.length > 0 && a.length <= 32 && a.split(/\s+/).length <= 5;
+    if (!a || a.length > 32) return false;
+    if (a.split(/\s+/).length > 5) return false;
+    if (GLOSS.test(a)) return false;
+    /* A comma in prose is a list or an aside; inside code it is an argument
+       separator, which is canonical. Backticks are the author saying "code". */
+    if (a.indexOf(",") !== -1 && a.indexOf("`") === -1) return false;
+    return true;
   }
   /* Backticks are the author's own signal that the answer is code, and
      code is case-sensitive where prose is not. */
@@ -111,6 +136,8 @@
     var t = String(s == null ? "" : s)
       .replace(/`/g, "")
       .replace(/\s+/g, " ")
+      .replace(/^[~\u2248]\s*/, "")      // "~0.25s" and "0.25s" are the same answer
+      .replace(/^about\s+/i, "")
       .replace(/[;,.]+$/, "")
       .trim();
     return codeShaped ? t : t.toLowerCase();

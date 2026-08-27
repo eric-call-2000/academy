@@ -125,25 +125,25 @@ window.CODELAB.addUnit("srv", {
       brief: "The one-function model, routing, methods and status codes. 80% to pass.",
       questions: [
         { q: "At its core, a web server is…",
-          choices: ["A special programming language", "A database with a user interface", "A function: request in, response out", "A folder of HTML files"],
-          answer: 2, explain: "Express, Django, Rails — all of them are fancy wrappers around handleRequest(req) → res. You're building the core idea directly." },
+          choices: ["A special programming language", "A database that answers in HTML", "A function: request in, response out", "A folder of HTML files served as-is"],
+          answer: 2, explain: "Not a language, not a database, not a folder of files — a **function**. Express, Django, Rails are all fancy wrappers around `handleRequest(req) → res`, and you're building that core idea directly." },
         { q: "Which part of the request says WHICH resource the client wants?",
-          choices: ["The path (e.g. /api/pets)", "The status code", "The response body", "The port number"],
-          answer: 0, explain: "Method = the verb, path = the noun. Status codes belong to the RESPONSE — the server's side of the conversation." },
+          choices: ["The path (e.g. /api/pets)", "The status code, like 404", "The body of the response", "The port number in the URL"],
+          answer: 0, explain: "Method = the verb, path = the noun — `/api/pets` names WHICH resource is wanted. Status codes and bodies belong to the RESPONSE, the server's side of the conversation, and the port only says which process to knock on." },
         { q: "A successful POST that creates a resource should answer…",
           choices: ["200", "201", "204", "404"],
           answer: 1, explain: "200 is generic success; 201 Created specifically celebrates a new record — usually echoing it back in the body." },
         { q: "What does this call return?",
           code: "function handleRequest(req) {\n  if (req.path === \"/\") return { status: 200, body: \"Home\" };\n  if (req.path === \"/about\") return { status: 200, body: \"About us\" };\n  return { status: 404, body: \"Not found\" };\n}\n\nhandleRequest({ method: \"GET\", path: \"/pizza\", body: null });",
           lang: "js",
-          choices: ["{ status: 200, body: \"Home\" }", "undefined", "It throws an error", "{ status: 404, body: \"Not found\" }"],
-          answer: 3, explain: "No branch matches /pizza, so it falls through to the catch-all. A good router ALWAYS answers — the last line guarantees it." },
+          choices: ["{ status: 200, body: \"Home\" }", "{ status: 200, body: \"About us\" }", "undefined — nothing matched", "{ status: 404, body: \"Not found\" }"],
+          answer: 3, explain: "No branch matches /pizza, so it falls through to the catch-all. It does NOT return `undefined` and it does NOT throw — the final `return` is the safety net. A good router ALWAYS answers, and that last line is what guarantees it." },
         { q: "`GET /api/pets` and `POST /api/pets` are…",
-          choices: ["The same route written twice", "Two different routes: same noun, different verb", "Invalid — a path can only have one method", "Both ways to create a pet"],
-          answer: 1, explain: "Routing keys on method AND path together. GET reads the list, POST creates a pet — one && per branch." },
+          choices: ["The same route, written out twice", "Two routes: same noun, different verb", "Invalid — a path can only have one method", "Two ways of creating the same pet"],
+          answer: 1, explain: "Routing keys on method AND path together, so the same noun with a different verb is a different route. GET reads the list, POST creates a pet — one `&&` per branch. And a single path can carry as many methods as you care to define." },
         { q: "A client sends `DELETE /api/pets`, but your API only defines GET and POST for that path. The most honest status?",
-          choices: ["500 — the server broke", "404 — pretend the path doesn't exist", "405 — method not allowed on a path that exists", "200 — just ignore it quietly"],
-          answer: 2, explain: "The path exists, so 404 would lie. 405 tells the client exactly what went wrong: right door, wrong verb." }
+          choices: ["500 — the server has no handler for it", "404 — the path may as well not exist", "405 — the method isn't allowed here", "200 — accept it and quietly do nothing"],
+          answer: 2, explain: "405 Method Not Allowed means the path exists but that verb doesn't: right door, wrong verb. 404 would lie about the path, 500 would blame your server for the client's mistake, and answering 200 while deleting nothing is the worst of the four — it tells the client a lie it will act on." }
       ]
     }
   ]

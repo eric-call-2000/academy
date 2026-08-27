@@ -108,25 +108,25 @@ window.CODELAB.addUnit("srv", {
       brief: "Statuses, merges, envelopes and counts — the habits of a working REST API. 80% to pass.",
       questions: [
         { q: "A client POSTs a valid new bookmark. The textbook response?",
-          choices: ["200 with the full list", "204 No Content", "201 with the created record — its new id included", "302 redirect to the list"],
-          answer: 2, explain: "201 Created plus the record (with its server-assigned id) is the REST handshake: the client instantly knows what was made." },
+          choices: ["200 with the full list of bookmarks", "204 No Content, with an empty body", "201 with the created record", "302 redirect back to the list"],
+          answer: 2, explain: "201 Created plus the created record — including its server-assigned `id` — is the REST handshake: the client instantly knows what was made and can link straight to it. 200 with the whole list makes the client hunt for the new row, 204 sends nothing back at all, and a redirect costs an extra round trip." },
         { q: "What should happen to this record's `url`?",
           code: "handleRequest({\n  method: \"PATCH\", path: \"/api/bookmarks/7\",\n  body: { title: \"New\" }\n});",
           lang: "js",
-          choices: ["It's removed — the body replaces the record", "It survives untouched — PATCH merges the partial body in", "It becomes null", "The server must answer 400 because url is missing"],
-          answer: 1, explain: "PATCH = merge: only the fields sent change. PUT is the verb that replaces wholesale (Unit 2)." },
+          choices: ["It's wiped — the body replaces the record", "It survives — PATCH merges the body in", "It becomes null, since url wasn't sent", "The server answers 400 — url is missing"],
+          answer: 1, explain: "PATCH = merge: only the fields actually sent change, so `url` survives untouched and is never nulled out. A missing field isn't a validation error either — partial bodies are the whole point of PATCH. PUT is the verb that replaces wholesale (Unit 2)." },
         { q: "Why give every failure the same `{ error: { code, message } }` envelope?",
-          choices: ["It compresses better over the network", "HTTP requires a code field", "It hides stack traces from attackers", "Client code can handle EVERY failure with one code path"],
-          answer: 3, explain: "One predictable shape means the front-end writes a single error handler — check code, show message, done." },
+          choices: ["It compresses better over the network", "HTTP requires an error code field", "It lets the server skip logging failures", "One client handler covers every failure"],
+          answer: 3, explain: "One predictable shape means the front-end writes a SINGLE error handler for every failure — check `code`, show `message`, done. It isn't about compression, and HTTP mandates no body shape at all. You still log the full failure — stack trace and all — server-side; the envelope only decides what the CLIENT gets to see." },
         { q: "Which belongs in the QUERY STRING rather than the path?",
-          choices: ["Optional knobs like ?q=css&limit=2", "The resource noun (bookmarks)", "The id of one record", "The HTTP method"],
-          answer: 0, explain: "Path = WHICH thing (/api/bookmarks/7 names a record); query = HOW to slice a listing. Filters and limits are optional, so they ride after the ?." },
+          choices: ["Optional knobs like ?q=css&limit=2", "The resource noun, like bookmarks", "The id of one particular record", "The HTTP method the client picked"],
+          answer: 0, explain: "Path = WHICH thing: the noun and the id both live there (`/api/bookmarks/7` names one record). Query = HOW to slice a listing — searches, filters and limits are optional, so they ride after the `?`. The method never appears in the URL at all; it's a separate part of the request." },
         { q: "Your store holds 5 bookmarks; `?q=docs` matches 2 of them; `?limit=1` rides along. With this unit's `{ items, total }` convention, the response holds…",
           choices: ["items: 5 records, total: 5", "items: 1 record, total: 5", "items: 1 record, total: 2", "items: 2 records, total: 1"],
           answer: 2, explain: "Filter first (2 matches), then slice (1 item). total reports matches BEFORE the limit — that's how a UI says \"showing 1 of 2\"." },
         { q: "`POST /api/bookmarks` arrives with `{ title: \"\", url: \"https://x.com\" }`. The right status?",
-          choices: ["404 — nothing was found", "400 with the validation envelope — the client sent junk", "500 — something broke", "201 — be generous and create it"],
-          answer: 1, explain: "4xx = the client's mistake: an empty title fails validation. 404 is for missing resources, 500 is for YOUR bugs." }
+          choices: ["404 — nothing matched that title", "400 with the validation envelope", "500 — something broke server-side", "201 — be generous and create it"],
+          answer: 1, explain: "4xx = the client's mistake: an empty title fails validation, so answer 400 and hand back the `{ error: { code, message } }` envelope so the client can say WHICH field was wrong. 404 is for missing resources, 500 is for YOUR bugs, and creating the junk record anyway just pushes the problem downstream." }
       ]
     }
   ]

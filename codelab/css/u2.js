@@ -174,8 +174,8 @@ window.CODELAB.addUnit("css", {
       brief: "Fonts, weights, spacing, and shipping typefaces to your users. 80% to pass.",
       questions: [
         { q: "`font-family: 'Poppins', Arial, sans-serif;` — why three values?",
-          choices: ["Fallbacks: Poppins if loaded, else Arial, else any sans-serif", "They blend together", "Poppins for headings, Arial for body", "The browser picks randomly"],
-          answer: 0, explain: "A wish list read left to right. The generic family at the end is the guaranteed safety net." },
+          choices: ["A fallback chain: Poppins first, then Arial", "Poppins for headings, Arial for body text", "The browser picks whichever it likes best", "The three blend into a single typeface"],
+          answer: 0, explain: "A wish list read left to right: Poppins if it loaded, else Arial, else whatever sans-serif the device happens to have. The generic family at the end is the guaranteed safety net — never leave it off." },
         { q: "Which weight is standard **bold**?",
           choices: ["700", "400", "100", "1000"],
           answer: 0, explain: "400 = normal, 700 = bold. The keyword bold literally maps to 700." },
@@ -183,17 +183,17 @@ window.CODELAB.addUnit("css", {
           choices: ["line-height", "letter-spacing", "text-transform", "font-style"],
           answer: 0, explain: "Line height is vertical breathing room — 1.5-1.8 for body copy is the readability sweet spot." },
         { q: "The HTML says `about` but the page shows `ABOUT`. Why might that be good design?",
-          choices: ["text-transform: uppercase keeps casing a style choice, editable in one CSS line", "It's a browser bug", "Uppercase HTML is invalid", "It isn't possible"],
-          answer: 0, explain: "Content stays natural in HTML; presentation (SHOUTING) lives in CSS where it belongs." },
+          choices: ["Casing is a style choice, editable in CSS", "The browser auto-capitalizes every nav link", "Lowercase text in HTML is invalid markup", "Only a font with uppercase glyphs can do it"],
+          answer: 0, explain: "Content stays natural in HTML; presentation (the SHOUTING) lives in CSS where it belongs. `text-transform: uppercase` does the shouting, so one line restyles the whole nav — and screen readers still announce the real word." },
         { q: "How do nav menus remove the default link underline?",
-          choices: ["text-decoration: none", "underline: false", "text-style: plain", "href=\"#\""],
-          answer: 0, explain: "…and often restore it with a :hover rule so links still feel clickable." },
+          choices: ["text-decoration: none", "text-decoration: hidden", "text-style: plain", "underline: false"],
+          answer: 0, explain: "`none` is the value that erases the line — there is no `hidden` for text-decoration, and no `underline` or `text-style` property at all. Nav menus often restore it with a `:hover` rule so links still feel clickable." },
         { q: "What loads a Google Font onto your page?",
-          choices: ["A <link> to fonts.googleapis.com in the <head>, then font-family in CSS", "Just writing font-family: 'Poppins'", "Installing it on your computer", "An <img> of the font"],
-          answer: 0, explain: "The link fetches the font files; the CSS opts elements into using them. Both halves are required." },
+          choices: ["A <link> to Google plus a font-family rule", "Just writing font-family: 'Poppins'", "Installing the font file on your own computer", "An <img> tag pointing at the font file"],
+          answer: 0, explain: "Two halves, both required: the `<link>` to fonts.googleapis.com in the `<head>` fetches the font files, then `font-family: 'Poppins'` in your CSS opts elements into using them. Installing it locally only styles YOUR machine — visitors would fall back." },
         { q: "In `text-shadow: 2px 4px 8px red`, the `8px` is…",
-          choices: ["The blur radius", "The horizontal offset", "The vertical offset", "The font size"],
-          answer: 0, explain: "Order: x-offset, y-offset, blur, color. Zero blur = hard retro edge." }
+          choices: ["The blur radius, in pixels", "The horizontal offset, in pixels", "The vertical offset, in pixels", "The font size"],
+          answer: 0, explain: "Order: x-offset, y-offset, blur, color. So `2px` pushes the shadow right, `4px` pushes it down, and `8px` is how far the edge is smeared before it fades out. Zero blur = hard retro edge." }
       ]
     }
   ]

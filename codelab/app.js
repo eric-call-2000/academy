@@ -244,9 +244,20 @@
     });
   }
   function mdInline(s) {
-    var h = esc(s);
-    h = h.replace(/`([^`]+)`/g, "<code>$1</code>");
+    var h = esc(s), spans = [];
+    /* Park code spans before touching emphasis: their contents are literal,
+       so a * inside `a*b*c` must not become italics. */
+    h = h.replace(/`([^`]+)`/g, function (_, inner) {
+      spans.push(inner);
+      return "@@CODE" + (spans.length - 1) + "@@";
+    });
     h = h.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+    /* Single-asterisk italics, after bold so **x** is already consumed.
+       Requiring a non-space, non-asterisk character just inside each marker
+       leaves CSS universal selectors (* { ... }) and block-comment syntax
+       alone — both have a space or slash where an italic word would be. */
+    h = h.replace(/\*([^\s*][^*]*?)\*/g, "<i>$1</i>");
+    h = h.replace(/@@CODE(\d+)@@/g, function (_, i) { return "<code>" + spans[i] + "</code>"; });
     return h;
   }
   function mdBlock(s) {

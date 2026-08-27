@@ -132,24 +132,24 @@ window.CODELAB.addUnit("resp", {
           choices: ["1.5px", "16px", "24px", "150px"],
           answer: 2, explain: "rem multiplies the ROOT font-size: 1.5 × 16px = 24px. Change the root (or let the user change it) and every rem value scales along." },
         { q: "Why do accessibility guides prefer rem over px for text?",
-          choices: ["rem renders faster than px", "rem scales when users raise their browser's default font size — px ignores that setting", "px only works on desktop screens", "rem is required for flexbox to work"],
-          answer: 1, explain: "Many people bump their browser's base font size to read comfortably. rem-sized text respects that choice; px-sized text stays stubbornly small." },
+          choices: ["rem renders faster because the browser caches it", "rem tracks the browser's default font size", "px is ignored on mobile screens entirely", "rem is required for flexbox and grid to work"],
+          answer: 1, explain: "Many people raise their browser's base font size so they can read comfortably. rem-sized text scales right along with that choice; px-sized text ignores the setting completely and stays stubbornly small." },
         { q: "How does this declaration behave?",
           code: "h1 {\n  font-size: clamp(1.2rem, 4vw, 2rem);\n}",
           lang: "css",
-          choices: ["Always exactly 4vw", "Picks whichever of the three values is largest", "Jumps between 1.2rem and 2rem at a 700px breakpoint", "Fluid at 4vw, but never below 1.2rem and never above 2rem"],
-          answer: 3, explain: "clamp(min, preferred, max): the preferred 4vw tracks the viewport, and the two rem values fence it in — no media query involved." },
+          choices: ["Always exactly 4vw, ignoring the rem values", "Picks whichever of the three values is largest", "Jumps between 1.2rem and 2rem at a 700px breakpoint", "Fluid at 4vw, fenced in by 1.2rem and 2rem"],
+          answer: 3, explain: "clamp(min, preferred, max): the preferred 4vw tracks the viewport width, and the two rem values fence it in — the text never renders below 1.2rem or above 2rem, and no media query is involved." },
         { q: "What does this classic pair do?",
           code: "img {\n  max-width: 100%;\n  height: auto;\n}",
           lang: "css",
-          choices: ["Lets images shrink to fit their container — no overflow, no squishing", "Stretches every image to fill the whole page", "Crops every image into a square", "Doubles the image size on retina screens"],
-          answer: 0, explain: "max-width: 100% stops the overflow; height: auto keeps the aspect ratio as it scales down, overriding the fixed HTML height attribute." },
+          choices: ["Lets images shrink to fit their container", "Stretches every image to fill the page", "Crops every image into a perfect square", "Doubles the image size on retina screens"],
+          answer: 0, explain: "max-width: 100% stops the overflow, so the picture is never wider than its box; height: auto keeps the aspect ratio as it scales down — no squishing — by overriding the fixed HTML height attribute." },
         { q: "A square photo sits in a 16/9 frame. Which declaration fills the frame by cropping, without distortion?",
           choices: ["object-fit: fill", "object-fit: contain", "object-fit: cover", "object-fit: stretch"],
           answer: 2, explain: "cover scales the image until the box is completely full and crops the spill-over. contain letterboxes, fill distorts — and stretch doesn't exist." },
         { q: "Your media queries work on desktop, but real phones show a tiny zoomed-out desktop site. Most likely culprit?",
-          choices: ["Phones don't support media queries", "The viewport meta tag is missing, so the phone lays the page out at ~980px and shrinks it", "You used rem units somewhere", "The CSS file is too large for mobile data"],
-          answer: 1, explain: "Without <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">, mobile browsers emulate a ~980px desktop viewport — so your min-width queries judge the wrong number." }
+          choices: ["Phones ignore media queries below 480px wide", "The viewport meta tag is missing from the page", "You sized the layout in rem instead of px", "The CSS file is too large for mobile data"],
+          answer: 1, explain: "Without <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">, mobile browsers lay the page out in an imaginary ~980px desktop viewport and then shrink the whole thing to fit — so your min-width queries end up judging the wrong number." }
       ]
     }
   ]

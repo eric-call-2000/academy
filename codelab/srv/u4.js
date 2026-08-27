@@ -123,25 +123,25 @@ window.CODELAB.addUnit("srv", {
       kind: "quiz", xp: 10,
       questions: [
         { q: "What is middleware, structurally?",
-          choices: ["A database plugin", "A faster kind of route", "A function that takes a handler and returns a new, wrapped handler", "A second server between the client and yours"],
-          answer: 2, explain: "Handler in, handler out. The wrapper does its extra work (log, count, guard…), then delegates — the original handler never changes." },
+          choices: ["A plugin that sits inside the database", "A faster kind of route definition", "A wrapper function: handler in, handler out", "A second server between the client and yours"],
+          answer: 2, explain: "Structurally it is a function that takes a handler and returns a NEW, wrapped handler — handler in, handler out. The wrapper does its extra work (log, count, guard…) then delegates, so the original handler never changes. No second server, no database plugin, and nothing about it is faster." },
         { q: "With `applyMiddleware(handler, [logger, guard])`, which layer touches an incoming request FIRST?",
-          choices: ["logger — list order is run order, because it was wrapped outermost", "guard — the last item always runs first", "handler — middleware runs after the response", "Both middleware run simultaneously"],
-          answer: 0, explain: "Wrapping right-to-left leaves middlewares[0] as the outermost onion skin, so it meets the request first and the response last." },
+          choices: ["logger — it ends up the outermost wrapper", "guard — the last item always runs first", "handler — middleware runs after it", "Both middleware run at the same moment"],
+          answer: 0, explain: "List order IS run order. Wrapping right-to-left leaves `middlewares[0]` as the outermost onion skin, so logger meets the request first and the response last. The handler runs LAST, not first, and nothing runs in parallel — each layer calls the next one by hand." },
         { q: "A guard middleware decides a request is bad. What should it do?",
-          choices: ["Throw an exception and hope someone catches it", "Return an error response itself — the handler never runs", "Call the handler anyway but attach a warning", "Log it and continue"],
-          answer: 1, explain: "Guards refuse by returning early. That's why a handler behind requireBody can safely read req.body.text — bad requests never reach it." },
+          choices: ["Throw an exception for someone to catch", "Return an error response of its own", "Call the handler anyway, with a warning", "Log the problem and delegate onward"],
+          answer: 1, explain: "A guard refuses by returning a response itself and never delegating, so the handler never runs — not by throwing, and not by logging the problem and passing the bad request along anyway. That's exactly why a handler behind requireBody can safely read `req.body.text`: bad requests never reach it." },
         { q: "Why does applyMiddleware wrap the array right-to-left?",
-          choices: ["Arrays iterate faster backwards", "JavaScript closures require it", "To keep the log lines sorted alphabetically", "So the FIRST middleware in the list ends up outermost and runs first"],
-          answer: 3, explain: "Each wrap goes around everything built so far — wrapping middlewares[0] LAST puts it on the outside, matching the order people read the list." },
+          choices: ["Because arrays iterate faster backwards", "JavaScript closures only close backwards", "To keep the log lines alphabetical", "So the FIRST middleware ends up outermost"],
+          answer: 3, explain: "Each wrap goes around everything built so far, so wrapping `middlewares[0]` LAST puts it on the outside — and outermost means it runs first, matching the order people read the list. It has nothing to do with iteration speed, closures, or how the log lines are formatted." },
         { q: "What happens here?",
           code: "const app = withLogging(requireBody(handler));\napp({ method: \"POST\", path: \"/x\", body: null });",
           lang: "js",
-          choices: ["handler runs with a null body", "The request is blocked and NOT logged", "It crashes with a TypeError", "The request is logged, then blocked with a 400 — handler never runs"],
-          answer: 3, explain: "withLogging is outermost, so it records the attempt; requireBody then answers 400 before handler is ever called. Order is a design decision." },
+          choices: ["handler runs, with body left null", "The request is blocked and NOT logged", "It crashes with a TypeError on body", "It is logged, then blocked with a 400"],
+          answer: 3, explain: "withLogging is outermost, so it records the attempt first; requireBody then answers 400 and the handler is never called — no crash, and no null body ever reaching your code. Swap the wrap order and the blocked request would go unlogged, which is why layer order is a real design decision." },
         { q: "In Express, `app.use(fn)` is closest to…",
-          choices: ["Defining one GET route", "Starting the server on a port", "Registering middleware that runs for every request", "Importing a module"],
-          answer: 2, explain: "app.use stacks middleware in registration order — the same onion you built with applyMiddleware, with next() passing the baton inward." }
+          choices: ["Defining a single GET route on the app", "Starting the server and listening on a port", "Registering middleware for every request", "Importing a module for the router"],
+          answer: 2, explain: "`app.use(fn)` registers middleware that runs for EVERY request, stacked in registration order — the same onion you built with applyMiddleware, with `next()` passing the baton inward. `app.get(...)` is the single-route version, and `app.listen(...)` is what actually opens the port." }
       ]
     }
   ]

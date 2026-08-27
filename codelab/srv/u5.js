@@ -133,54 +133,54 @@ window.CODELAB.addUnit("srv", {
       questions: [
         { q: "Why does the server hand out a **token** at login instead of asking for the password on every request?",
           choices: [
-            "Tokens are shorter, so they save bandwidth",
-            "Passwords expire after a single use",
-            "The password travels ONCE; after that a revocable stand-in does the work — and logout just deletes it",
-            "Tokens are encrypted copies of the password"
+            "Tokens are shorter and save bandwidth",
+            "A password expires after a single use",
+            "The password travels only ONCE, at login",
+            "The token is an encrypted password"
           ],
-          answer: 2, explain: "Every request that carries the password is one more chance to leak it. A token limits exposure — and you can kill a stolen token without forcing a password change." },
+          answer: 2, explain: "Every request that carries the password is one more chance to leak it, so the password makes exactly one trip and a revocable stand-in does all the later work. That stand-in is a random string, not an encrypted copy of anything, and passwords do not expire after one use. The point isn't saving bytes — it's being able to kill a stolen token (or log out) without forcing a password change." },
         { q: "Where does the client carry its token on every request after login?",
           choices: [
-            "In the URL path",
-            "In the authorization header — req.headers.authorization",
-            "In the response body",
+            "In the URL path, after the resource",
+            "In the authorization header",
+            "In the body of the response",
             "In a global variable on the server"
           ],
-          answer: 1, explain: "Real APIs write it as `Authorization: Bearer <token>`. Never the URL — URLs end up in logs, history and screenshots." },
+          answer: 1, explain: "The client sends it on every request as `req.headers.authorization` — real APIs write it `Authorization: Bearer <token>`. Never the URL: URLs end up in logs, history and screenshots. The response body is the server talking back, and the server can't just remember you in a variable, because HTTP is stateless." },
         { q: "**401** vs **403** — what's the difference?",
           choices: [
-            "They're interchangeable",
-            "401 is a server bug, 403 is a client bug",
-            "403 means the page moved permanently",
-            "401 = \"who are you?\" (missing/bad token) · 403 = \"I know who you are — and no\" (valid login, missing permission)"
+            "403 is simply the modern name for 401",
+            "401 flags a server bug, 403 a client bug",
+            "403 means the resource moved permanently",
+            "401 = unknown caller; 403 = known but barred"
           ],
-          answer: 3, explain: "This unit is all 401s. The day you add roles — \"only admins may delete\" — the valid-but-forbidden case becomes your first 403." },
+          answer: 3, explain: "401 asks \"who are you?\" — the token is missing or bad. 403 says \"I know exactly who you are, and the answer is still no\" — a valid login without the permission this action needs. Both are 4xx client codes, neither is a redirect, and neither blames the server. This unit is all 401s; the day you add roles — \"only admins may delete\" — that valid-but-forbidden case becomes your first 403." },
         { q: "Why is storing passwords in plain text a crime (conceptually)?",
           choices: [
-            "One database leak exposes every password — including the ones users reuse on their bank",
+            "One database leak exposes every password at once",
             "Plain text takes more disk space than encryption",
             "JavaScript strings can't store passwords safely",
             "It's fine as long as the file is named secrets.js"
           ],
-          answer: 0, explain: "Real servers store slow-to-reverse HASHES (bcrypt and friends) and compare hashes at login. Our users array is a teaching prop — never ship it." },
+          answer: 0, explain: "One leak and every password is out — including the ones your users reuse on their bank and their email. It has nothing to do with disk space, nothing to do with JavaScript, and no filename makes it safe. Real servers store slow-to-reverse HASHES (bcrypt and friends) and compare hashes at login. Our users array is a teaching prop — never ship it." },
         { q: "In our token system, what actually happens at logout?",
           choices: [
-            "The client deletes its password",
-            "The server restarts to clear memory",
-            "The server removes the token from activeTokens — every later request carrying it gets a 401",
-            "The token turns into a 404"
+            "The client deletes its saved password",
+            "The server restarts to clear its memory",
+            "The token is deleted from activeTokens",
+            "The token quietly expires on its own"
           ],
-          answer: 2, explain: "Invalidation is a server-side delete. The client can keep the string forever; it just doesn't open doors anymore. Same one-liner kills a STOLEN token." },
+          answer: 2, explain: "Invalidation is a server-side delete: pull the token out of activeTokens and every later request carrying it gets a 401. Nothing expires by itself, nothing restarts, and the password is never involved. The client can keep the string forever — it just doesn't open doors anymore. That same one-liner is how you kill a STOLEN token." },
         { q: "A request arrives with **no `headers` object at all**. What does this guard do?",
           code: "function isAuthorized(req) {\n  return activeTokens.includes(req.headers.authorization);\n}",
           lang: "js",
           choices: [
-            "Returns false, as intended",
-            "Crashes — reading .authorization of undefined throws; guard with req.headers && … first",
-            "Automatically answers 401",
-            "Logs the user out"
+            "Returns false, exactly as intended",
+            "Crashes — req.headers is undefined",
+            "Answers 401 automatically instead",
+            "Logs the user out and returns false"
           ],
-          answer: 1, explain: "Never trust a request to be well-formed. `!!(req.headers && activeTokens.includes(req.headers.authorization))` fails calm instead of failing loud." }
+          answer: 1, explain: "Reading `.authorization` off `undefined` throws a TypeError, so the guard never gets to return anything — no tidy false, no automatic 401. Never trust a request to be well-formed: `!!(req.headers && activeTokens.includes(req.headers.authorization))` fails calm instead of failing loud." }
       ]
     }
   ]
