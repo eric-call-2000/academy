@@ -103,8 +103,9 @@
       revQueue: null,   // { day, keys, i, ok, n, redo } — resumable
       revSkip: {},      // key -> 1, "can't answer this one"
       revAlt: {},       // key -> [answers that should have counted]
-      revStats: { s: 0, a: 0, c: 0, ta: 0, tc: 0 },
-      drillCode: {}     // lessonId -> scratch files, kept OUT of code{}
+      revStats: { s: 0, a: 0, c: 0, ta: 0, tc: 0 }
+      /* No `code` here on purpose — saved lesson files live in their own
+         localStorage keys. See the code store. */
     };
   }
   function loadStore() {
@@ -113,7 +114,7 @@
       if (raw && raw.users) {
         Object.keys(raw.users).forEach(function (n) {
           var u = raw.users[n] || {};
-          u.done = u.done || {}; u.code = u.code || {}; u.quiz = u.quiz || {};
+          u.done = u.done || {}; u.quiz = u.quiz || {};
           u.xp = u.xp || 0; u.streak = u.streak || 0;
           if (!("lastDay" in u)) u.lastDay = null;
           if (!("lastCourse" in u)) u.lastCourse = null;
@@ -122,7 +123,6 @@
              schedule re-measures from first review instead of inventing one. */
           u.rev = u.rev || {}; u.revSkip = u.revSkip || {}; u.revAlt = u.revAlt || {};
           u.revStats = u.revStats || { s: 0, a: 0, c: 0, ta: 0, tc: 0 };
-          u.drillCode = u.drillCode || {};
           if (!("revDay" in u)) u.revDay = null;
           if (!("revQueue" in u)) u.revQueue = null;
           raw.users[n] = u;
@@ -137,10 +137,10 @@
     try { localStorage.setItem(LS_KEY, JSON.stringify(store)); return true; }
     catch (e) { return false; }
   }
-  /* saveStore() serializes EVERY profile, and a finished one carries a full
-     file set per lesson in u.code — a few hundred KB. That is fine once per
-     lesson, and wrong twenty times per review session, so review writes
-     coalesce and flush on the way out. */
+  /* saveStore() serializes EVERY profile in one go, so it stays small only
+     because saved lesson code lives elsewhere (see the code store below).
+     Review writes still coalesce — twenty answers a session is twenty
+     serializations otherwise — and flush on the way out. */
   var softTimer = null;
   function saveStoreSoon() {
     if (softTimer) clearTimeout(softTimer);
@@ -153,6 +153,79 @@
   window.addEventListener("visibilitychange", function () { if (document.hidden) flushStore(); });
   window.addEventListener("pagehide", flushStore);
   function me() { return store.users[store.currentUser]; }
+
+  /* ============================================================
+     CODE STORE — saved lesson files, one localStorage key each
+     ------------------------------------------------------------
+     Code used to sit inside codelab_v1 as u.code[lessonId]. That
+     made the editor's 500ms autosave rewrite the ENTIRE store —
+     every profile, every lesson's files — to persist a few
+     hundred bytes of typing. A finished profile is ~267KB of
+     which ~261KB is code, so the write got slower the more of
+     the course you finished, which is exactly backwards.
+
+     One key per lesson per profile means a keystroke costs a
+     couple of KB, and progress writes stop carrying code at all.
+     It also isolates the failure: code is the bulk of the 5MB
+     origin budget, so when quota runs out it is code writes that
+     fail while XP, streaks and the review schedule keep saving.
+     ============================================================ */
+  var CODE_PREFIX = "codelab_code_v1|";
+  var DRILL_TAG = "~drill~";   // lesson ids never start with ~, so no collision
+
+  function codeKey(profile, lessonId) {
+    return CODE_PREFIX + encodeURIComponent(profile) + "|" + lessonId;
+  }
+  function codeGet(profile, lessonId) {
+    if (!profile) return null;
+    try { return JSON.parse(localStorage.getItem(codeKey(profile, lessonId))); }
+    catch (e) { return null; }
+  }
+  function codeSet(profile, lessonId, files) {
+    if (!profile) return false;
+    try { localStorage.setItem(codeKey(profile, lessonId), JSON.stringify(files)); return true; }
+    catch (e) { return false; }
+  }
+  function codeDel(profile, lessonId) {
+    if (!profile) return;
+    try { localStorage.removeItem(codeKey(profile, lessonId)); } catch (e) {}
+  }
+  /* Deleting or resetting a profile has to take its code with it, or the
+     bytes stay on the device forever with nothing pointing at them. */
+  function codeClearProfile(profile) {
+    if (!profile) return 0;
+    var pre = CODE_PREFIX + encodeURIComponent(profile) + "|", doomed = [];
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf(pre) === 0) doomed.push(k);
+      }
+      doomed.forEach(function (k) { localStorage.removeItem(k); });
+    } catch (e) {}
+    return doomed.length;
+  }
+
+  /* Move any inline code out to its own keys. Idempotent by construction:
+     an entry is deleted only once its new key is safely written, so a
+     migration interrupted by a full disk resumes instead of losing work. */
+  function migrateInlineCode() {
+    var moved = 0, stuck = 0;
+    Object.keys(store.users).forEach(function (name) {
+      var u = store.users[name];
+      [["code", ""], ["drillCode", DRILL_TAG]].forEach(function (pair) {
+        var bag = u[pair[0]];
+        if (!bag) return;
+        Object.keys(bag).forEach(function (lessonId) {
+          if (codeSet(name, pair[1] + lessonId, bag[lessonId])) { delete bag[lessonId]; moved++; }
+          else stuck++;
+        });
+        if (!Object.keys(bag).length) delete u[pair[0]];
+      });
+    });
+    if (moved || stuck) saveStore();
+    return { moved: moved, stuck: stuck };
+  }
+  migrateInlineCode();
 
   /* ---------- Academy app bridge ---------- */
   function academyRaw() {
@@ -361,6 +434,7 @@
           e.stopPropagation();
           if (confirm('Remove "' + name + '" from CodeLab? (Academy app data is untouched.)')) {
             delete store.users[name];
+            codeClearProfile(name);   // or their saved code outlives them
             if (store.currentUser === name) store.currentUser = null;
             saveStore();
             renderProfiles();
@@ -505,8 +579,9 @@
     foot.innerHTML = COURSES.length + " courses · ~" + totalHours + " hours of hands-on material · progress saves automatically<br>";
     var reset = el("button", "reset-link", "Reset my CodeLab progress");
     reset.onclick = function () {
-      if (confirm("Reset " + store.currentUser + "'s CodeLab progress, XP and streak? (Academy app tracks are untouched.)")) {
+      if (confirm("Reset " + store.currentUser + "'s CodeLab progress, XP, streak and saved code? (Academy app tracks are untouched.)")) {
         store.users[store.currentUser] = freshUser();
+        codeClearProfile(store.currentUser);   // freshUser() no longer carries code
         saveStore();
         renderCatalog();
       }
@@ -756,12 +831,13 @@
     var lesson = entry.lesson;
     var course = entry.course;
     var u = me();
-    /* A drill NEVER loads u.code — that is the whole point of it. The scratch
-       buffer lives in drillCode so an abandoned attempt survives a phone
-       interruption without ever becoming a second answer key. */
+    /* A drill NEVER loads your saved solution — that is the whole point of
+       it. Its scratch buffer sits under a separate key so an abandoned
+       attempt survives a phone interruption without ever becoming a second
+       answer key. */
     var saved = drill
-      ? ((u && u.drillCode && u.drillCode[lesson.id]) || null)
-      : ((u && u.code && u.code[lesson.id]) || null);
+      ? codeGet(store.currentUser, DRILL_TAG + lesson.id)
+      : codeGet(store.currentUser, lesson.id);
     var files = starterFiles(lesson);
     if (saved) Object.keys(files).forEach(function (n) { if (saved[n] != null) files[n] = saved[n]; });
 
@@ -997,7 +1073,7 @@
       REV.gradeDrill(u2, drill.key, outcome, REV.revToday());
       /* Only wipe the scratch buffer on a pass — an abandoned attempt is
          worth keeping so the next sitting resumes rather than restarts. */
-      if (passed && u2.drillCode) delete u2.drillCode[lesson.id];
+      if (passed) codeDel(store.currentUser, DRILL_TAG + lesson.id);
       flushStore();
       if (passed) {
         toast(outcome === "got" ? "Drill cleared 🎯" : "Cleared — logged as close");
@@ -1006,19 +1082,12 @@
     }
 
     function persistCode() {
-      var u2 = me();
-      if (!u2) return;
+      if (!me()) return;
       if (practice) return;   // never overwrite the saved solution
-      if (drill) {
-        u2.drillCode = u2.drillCode || {};
-        u2.drillCode[lesson.id] = editor.getFiles();
-        saveStoreSoon();
-        savedDot.classList.add("show");
-        setTimeout(function () { savedDot.classList.remove("show"); }, 900);
-        return;
-      }
-      u2.code[lesson.id] = editor.getFiles();
-      saveStore();
+      /* Writes one key holding one lesson's files. Nothing in the progress
+         store changes, so typing never triggers a full serialization. */
+      var ok = codeSet(store.currentUser, (drill ? DRILL_TAG : "") + lesson.id, editor.getFiles());
+      if (!ok) { toast("⚠ Couldn't save your code — storage may be full"); return; }
       savedDot.classList.add("show");
       setTimeout(function () { savedDot.classList.remove("show"); }, 900);
     }
@@ -1736,8 +1805,8 @@
         var u = me(); if (!u) return null;
         return {
           rec: u.rev[REV.drillKey(lessonId)] || null,
-          scratch: (u.drillCode || {})[lessonId] || null,
-          savedCode: (u.code || {})[lessonId] || null
+          scratch: codeGet(store.currentUser, DRILL_TAG + lessonId),
+          savedCode: codeGet(store.currentUser, lessonId)
         };
       },
       answer: function (key, text) {
@@ -1756,11 +1825,34 @@
     },
     loadCourse: loadCourse,
     setCodeForTest: function (lessonId, files) {
-      var u = me(); if (!u) return null;
-      u.code[lessonId] = files;
-      saveStore();
-      return u.code[lessonId];
+      if (!me()) return null;
+      codeSet(store.currentUser, lessonId, files);
+      return codeGet(store.currentUser, lessonId);
     },
+    codeStore: function () {
+      var out = {}, pre = CODE_PREFIX;
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf(pre) === 0) out[k] = (localStorage.getItem(k) || "").length;
+      }
+      return out;
+    },
+    /* Exercises the real migration by planting a pre-split profile in the
+       LIVE store. Writing localStorage directly and reloading does not work:
+       the pagehide flush would overwrite the plant on the way out. */
+    migrateCodeForTest: function (lessonId, files) {
+      var u = me(); if (!u) return null;
+      u.code = {}; u.code[lessonId] = files;
+      var before = JSON.stringify(store).length;
+      var res = migrateInlineCode();
+      return {
+        moved: res.moved, stuck: res.stuck,
+        inlineGone: !u.code,
+        movedValue: codeGet(store.currentUser, lessonId),
+        storeShrankBy: before - JSON.stringify(store).length
+      };
+    },
+    clearProfileCode: function (name) { return codeClearProfile(name || store.currentUser); },
     editorFiles: function () { return current && current.editor ? current.editor.getFiles() : null; },
     setEditorFiles: function (files) {
       if (!current || !current.editor) return null;

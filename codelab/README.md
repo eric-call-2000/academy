@@ -58,6 +58,15 @@ Each coding lesson is a 3-pane workspace — **Learn** (narrative + numbered che
 - Checkpoints can grade computed styles, the stylesheet **as written** (`T.decl`/`T.sheet`), `@media`/`@keyframes` rules, DOM structure, simulated clicks/typing/submits, console output, and function behavior.
 - Code **autosaves** per lesson per profile; XP and 🔥 streaks track daily work.
 
+### Where your work is stored
+
+Two localStorage areas, deliberately separate:
+
+- **`codelab_v1`** — progress: completions, XP, streak, quiz scores, review schedule. Small, written often.
+- **`codelab_code_v1|<profile>|<lessonId>`** — your saved files, **one key per lesson**.
+
+Code used to live inside `codelab_v1`, which meant the editor's 500 ms autosave rewrote *every profile and every lesson's files* to persist a few hundred bytes of typing — a write that got slower the more of the course you finished, which is exactly backwards. Splitting it costs a keystroke a couple of KB instead of a couple of hundred, and it isolates the failure: code is the bulk of the 5 MB origin budget, so when quota runs out it's code writes that fail while XP, streaks and the review schedule keep saving. Existing profiles migrate themselves on first load, moving each lesson only once its new key is safely written.
+
 ## 🧠 Recall — spaced repetition
 
 Finishing a course is not the same as still knowing it in June. **Recall** turns the quiz bank into a review deck: a few cards a day, scheduled so each one comes back just before you'd forget it.
