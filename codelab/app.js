@@ -23,6 +23,28 @@
   var LS_KEY = "codelab_v1";
   var ACADEMY_KEY = "academy_users_v1";
   var REV = window.CODELAB.review;
+  var SYNC = window.CODELAB.sync;
+  /* One id per browser, so lifetime counters can be kept per device and
+     summed instead of being double-counted or clobbered on a handoff. */
+  var DEVICE_KEY = "codelab_device_v1";
+  function deviceId() {
+    var id = null;
+    try { id = localStorage.getItem(DEVICE_KEY); } catch (e) {}
+    if (!id) {
+      id = "d-" + Math.random().toString(36).slice(2, 10);
+      try { localStorage.setItem(DEVICE_KEY, id); } catch (e) {}
+    }
+    return id;
+  }
+  function deviceLabel() {
+    var ua = navigator.userAgent || "";
+    var os = /iPhone|iPad/.test(ua) ? "iPhone" : /Android/.test(ua) ? "Android"
+      : /Mac OS X/.test(ua) ? "Mac" : /Windows/.test(ua) ? "Windows" : "This device";
+    var br = /CriOS|Chrome/.test(ua) ? "Chrome" : /Firefox/.test(ua) ? "Firefox"
+      : /Safari/.test(ua) ? "Safari" : "browser";
+    return os + " · " + br;
+  }
+  REV.setDeviceId(deviceId());
   /* One line to reverse if the flame should go back to meaning "I completed
      a lesson" rather than "I studied today". See the README note. */
   var REVIEW_BUMPS_STREAK = true;
@@ -103,7 +125,11 @@
       revQueue: null,   // { day, keys, i, ok, n, redo } — resumable
       revSkip: {},      // key -> 1, "can't answer this one"
       revAlt: {},       // key -> [answers that should have counted]
-      revStats: { s: 0, a: 0, c: 0, ta: 0, tc: 0 }
+      revStats: { s: 0, a: 0, c: 0, ta: 0, tc: 0 },   // derived: the sum of revStatsSrc
+      revStatsSrc: {},  // deviceId -> counters, so two devices can be summed exactly
+      revPark: {},      // key -> record, held rather than deleted (see pruneOrphans)
+      days: [],         // study day-numbers; streak and lastDay are DERIVED from this
+      xpOwed: []        // lessons merged in while their course was unloaded
       /* No `code` here on purpose — saved lesson files live in their own
          localStorage keys. See the code store. */
     };
@@ -123,6 +149,21 @@
              schedule re-measures from first review instead of inventing one. */
           u.rev = u.rev || {}; u.revSkip = u.revSkip || {}; u.revAlt = u.revAlt || {};
           u.revStats = u.revStats || { s: 0, a: 0, c: 0, ta: 0, tc: 0 };
+          u.revPark = u.revPark || {};
+          u.xpOwed = u.xpOwed || [];
+          /* Handoff migration. The streak was a count plus an end-date, which
+             cannot be merged across devices without inventing runs — so the
+             existing pair is expanded back into the set of days it implies,
+             and streak/lastDay become derived values from here on. */
+          if (!u.days) u.days = SYNC.backfillDays(u.streak, u.lastDay);
+          /* The old scalar counters become this-device-unknown history rather
+             than being thrown away or credited to the current device. */
+          if (!u.revStatsSrc) {
+            u.revStatsSrc = {};
+            var sc = u.revStats || {};
+            if (sc.a || sc.s || sc.ta) u.revStatsSrc.legacy = { s: sc.s || 0, a: sc.a || 0, c: sc.c || 0, ta: sc.ta || 0, tc: sc.tc || 0 };
+          }
+          u.revStats = REV.totalStats(u);
           if (!("revDay" in u)) u.revDay = null;
           if (!("revQueue" in u)) u.revQueue = null;
           raw.users[n] = u;
@@ -267,6 +308,18 @@
     return y.getFullYear() + "-" + (y.getMonth() + 1) + "-" + y.getDate();
   }
   function bumpStreak(s) {
+    /* Records the DAY, not just a count. A count paired with an end-date
+       cannot be merged across two devices without fabricating runs — a set
+       of days unions perfectly and needs no clock to arbitrate. The Academy
+       mirror has no day set, so it keeps the original behaviour. */
+    if (s.days) {
+      var n = REV.revToday();
+      if (s.days.length && s.days[s.days.length - 1] === n) return;
+      s.days = SYNC.uniqSortedDays(s.days.concat([n]), n);
+      s.streak = SYNC.streakFromDays(s.days);
+      s.lastDay = SYNC.dayStr(s.days[s.days.length - 1]);
+      return;
+    }
     var t = todayKey();
     if (s.lastDay === t) return;
     s.streak = (s.lastDay === yesterdayKey()) ? (s.streak + 1) : 1;
@@ -540,6 +593,10 @@
     var play = el("button", "btn btn-ghost", "🧪 Free sandbox");
     play.onclick = openPlayground;
     heroBtns.appendChild(play);
+    var handoff = el("button", "btn btn-ghost", "📲 Handoff");
+    handoff.title = "Move this profile between your phone and desktop";
+    handoff.onclick = renderSync;
+    heroBtns.appendChild(handoff);
     hero.appendChild(heroBtns);
     if (academyConnected()) hero.appendChild(el("div", "conn-pill", "🔗 Sharing profiles &amp; XP with your Academy app"));
     wrap.appendChild(hero);
@@ -1766,6 +1823,251 @@
   }
 
   /* ============================================================
+     HANDOFF — moving a profile between two devices
+     ------------------------------------------------------------
+     localStorage is per-device, so phone progress is simply
+     stranded from the desktop. There is no server to fix that,
+     so the transport is a code you carry across yourself — via
+     whatever channel you already have, which is why it is text
+     and why saved lesson code is left out of it (that is 95% of
+     the bytes and 0% of what is stranded).
+
+     Everything risky lives in sync.js and is proven by property
+     tests: the merge is idempotent, commutative and convergent,
+     so importing twice does nothing and it does not matter which
+     device you import into first.
+     ============================================================ */
+  var UNDO_KEY = "codelab_undo_v1";
+
+  function xpOfLessonId(lessonId) {
+    for (var i = 0; i < COURSES.length; i++) {
+      var c = COURSES[i];
+      if (!c._loaded) continue;
+      var hit = lessonById(c, lessonId);
+      if (hit) return xpOf(hit.lesson);
+    }
+    return null;   // course not loaded — caller defers the XP rather than guessing
+  }
+
+  /* Lessons merged in while their course was unloaded get their XP the next
+     time that course loads, so the number is never silently short. */
+  function payXpOwed() {
+    var u = me();
+    if (!u || !u.xpOwed || !u.xpOwed.length) return 0;
+    var still = [], paid = 0;
+    u.xpOwed.forEach(function (id) {
+      var v = xpOfLessonId(id);
+      if (v == null) still.push(id); else paid += v;
+    });
+    if (paid) { u.xp += paid; u.xpOwed = still; saveStore(); syncAcademyXp(u); }
+    else u.xpOwed = still;
+    return paid;
+  }
+
+  /* The mirror is DERIVED, so it is re-derived after a merge rather than
+     merged itself. A ledger of what CodeLab has contributed keeps this
+     idempotent and stops it from stealing XP the Academy app added. */
+  function syncAcademyXp(u) {
+    syncAcademy(function (t) {
+      var owed = (u.xp || 0) - (t.clXp || 0);
+      if (owed > 0) t.xp = (t.xp || 0) + owed;
+      t.clXp = u.xp || 0;
+      Object.keys(u.done).forEach(function (id) { t.completed[id] = true; });
+      t.streak = u.streak; t.lastDay = u.lastDay;
+    });
+  }
+
+  function currentEnvelope() {
+    var u = me();
+    return SYNC.buildEnvelope(store.currentUser, u, {
+      today: REV.revToday(), deviceId: deviceId(), from: deviceLabel(),
+      at: new Date().toISOString()
+    });
+  }
+
+  function renderSync() {
+    if (!store.currentUser || !me()) { renderProfiles(); return; }
+    clear();
+    var u = me();
+    app.appendChild(topbar());
+    var wrap = el("div", "wrap");
+    app.appendChild(wrap);
+
+    var head = el("div", "rv-head");
+    head.appendChild(el("div", "hero-kicker", "HANDOFF"));
+    head.appendChild(el("h1", "hero-title", "Move this profile"));
+    head.appendChild(el("p", "hero-sub",
+      "Your phone and your desktop keep separate storage — nothing crosses on its own. Copy the code below, "
+      + "send it to yourself however you like, and paste it on the other device. Importing the same code twice does nothing."));
+    wrap.appendChild(head);
+
+    /* ---- export ---- */
+    var env = currentEnvelope();
+    var text = JSON.stringify(env);
+    var box = el("div", "rv-stats");
+    box.appendChild(el("div", "rv-line strong", "📤 Copy from this device"));
+    box.appendChild(el("div", "rv-line dim",
+      env.counts.done + " lessons · " + env.counts.rev + " cards · " + env.counts.days + " study days · "
+      + (text.length / 1024).toFixed(1) + "KB"));
+    var ta = el("textarea", "sync-code");
+    ta.value = text;
+    ta.setAttribute("readonly", "readonly");
+    ta.setAttribute("spellcheck", "false");
+    box.appendChild(ta);
+    var row = el("div", "sync-row");
+    var copy = el("button", "btn btn-green btn-small", "Copy code");
+    copy.onclick = function () {
+      ta.select();
+      var done = false;
+      try { done = document.execCommand("copy"); } catch (e) {}
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { toast("Copied ✓ paste it on the other device"); },
+          function () { if (!done) toast("Select the code and copy it manually"); });
+      } else toast(done ? "Copied ✓" : "Select the code and copy it manually");
+    };
+    row.appendChild(copy);
+    var dl = el("button", "btn btn-ghost btn-small", "Save as file");
+    dl.onclick = function () {
+      try {
+        var blob = new Blob([text], { type: "application/json" });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "codelab-" + store.currentUser + "-" + SYNC.dayStr(REV.revToday()) + ".json";
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+      } catch (e) { toast("Couldn't save a file — copy the code instead"); }
+    };
+    row.appendChild(dl);
+    box.appendChild(row);
+    box.appendChild(el("div", "rv-line dim",
+      "Saved lesson code is not included — it is most of the bytes and none of what gets stranded."));
+    wrap.appendChild(box);
+
+    /* ---- import ---- */
+    var inBox = el("div", "rv-stats");
+    inBox.appendChild(el("div", "rv-line strong", "📥 Paste a code from the other device"));
+    var inTa = el("textarea", "sync-code");
+    inTa.setAttribute("placeholder", "Paste the code here…");
+    inTa.setAttribute("spellcheck", "false");
+    inTa.setAttribute("autocapitalize", "off");
+    inBox.appendChild(inTa);
+    var previewHost = el("div", "sync-preview");
+    var check = el("button", "btn btn-green btn-small", "Check this code");
+    check.onclick = function () {
+      previewHost.innerHTML = "";
+      var parsed = SYNC.parseEnvelope(inTa.value);
+      if (!parsed.ok) { previewHost.appendChild(el("div", "sync-warn", esc(parsed.error))); return; }
+      showPreview(parsed.env, previewHost);
+    };
+    inBox.appendChild(check);
+    inBox.appendChild(previewHost);
+    wrap.appendChild(inBox);
+
+    /* ---- undo ---- */
+    var undoRaw = null;
+    try { undoRaw = JSON.parse(localStorage.getItem(UNDO_KEY)); } catch (e) {}
+    if (undoRaw && undoRaw.profile === store.currentUser) {
+      var ub = el("div", "rv-stats");
+      ub.appendChild(el("div", "rv-line strong", "↩ Undo the last merge"));
+      ub.appendChild(el("div", "rv-line dim",
+        "Restores this profile to exactly how it was before you imported on " + esc(undoRaw.when || "?") + "."
+        + " Anything you have studied since then would be rolled back too."));
+      var ub2 = el("button", "btn btn-ghost btn-small", "Undo that merge");
+      ub2.onclick = function () {
+        if (!confirm("Roll this profile back to before the last import? Anything studied since is lost.")) return;
+        store.users[store.currentUser] = undoRaw.user;
+        try { localStorage.removeItem(UNDO_KEY); } catch (e) {}
+        flushStore();
+        syncAcademyXp(me());
+        toast("Rolled back ↩");
+        renderSync();
+      };
+      ub.appendChild(ub2);
+      wrap.appendChild(ub);
+    }
+
+    var back = el("button", "btn btn-ghost", "← All courses");
+    back.onclick = renderCatalog;
+    wrap.appendChild(back);
+  }
+
+  function showPreview(env, host) {
+    var u = me();
+    var incoming = SYNC.envelopeToProfile(env);
+    /* The preview runs the REAL merge into a copy and diffs that, so what is
+       shown can never disagree with what commit writes. */
+    var res = SYNC.mergeProfile(u, incoming, { today: REV.revToday(), xpOf: xpOfLessonId });
+    var d = SYNC.diffProfiles(u, res.user);
+
+    var card = el("div", "sync-card");
+    card.appendChild(el("div", "rv-line strong",
+      "From " + esc(env.from || "another device") + (env.profile !== store.currentUser
+        ? ' — profile "' + esc(env.profile) + '"' : "")));
+
+    if (env.profile !== store.currentUser) {
+      card.appendChild(el("div", "sync-warn",
+        'That code is from the profile "' + esc(env.profile) + '" and you are signed in as "'
+        + esc(store.currentUser) + '". It will merge into ' + esc(store.currentUser) + "."));
+    }
+    if (env.day > REV.revToday() + 1) {
+      card.appendChild(el("div", "sync-warn",
+        "That code is dated in the future — the other device's clock may be wrong. Future-dated study days are ignored."));
+    }
+
+    if (d.empty) {
+      card.appendChild(el("div", "rv-line", "Nothing to change — this profile already has everything in that code."));
+    } else {
+      var list = el("ul", "sync-list");
+      function line(t) { list.appendChild(el("li", "", t)); }
+      if (d.lessons) line("<b>" + d.lessons + "</b> lesson" + (d.lessons === 1 ? "" : "s") + " marked complete");
+      if (d.xp) line("<b>+" + d.xp + "</b> XP");
+      if (d.owed) line(d.owed + " lesson" + (d.owed === 1 ? "" : "s") + " whose course isn't loaded — XP arrives when it is");
+      if (d.cardsAdded) line("<b>" + d.cardsAdded + "</b> new review card" + (d.cardsAdded === 1 ? "" : "s"));
+      if (d.cardsChanged) line("<b>" + d.cardsChanged + "</b> card schedule" + (d.cardsChanged === 1 ? "" : "s") + " updated");
+      if (d.quizzesImproved) line("<b>" + d.quizzesImproved + "</b> quiz score" + (d.quizzesImproved === 1 ? "" : "s") + " improved");
+      if (d.daysAdded) line("<b>" + d.daysAdded + "</b> extra study day" + (d.daysAdded === 1 ? "" : "s"));
+      card.appendChild(list);
+      if (d.streakAfter !== d.streakBefore) {
+        card.appendChild(el("div", d.streakAfter < d.streakBefore ? "sync-warn" : "rv-line",
+          "🔥 Streak " + d.streakBefore + " → " + d.streakAfter
+          + (d.streakAfter < d.streakBefore
+            ? ". The higher number was a run that had already ended — it would have reset on your next study day anyway."
+            : ".")));
+      }
+      var go = el("button", "btn btn-green btn-small", "Merge this in");
+      go.onclick = function () { commitMerge(env, res); };
+      card.appendChild(go);
+    }
+    var cancel = el("button", "btn btn-ghost btn-small", d.empty ? "Close" : "Cancel");
+    cancel.onclick = function () { host.innerHTML = ""; };
+    card.appendChild(cancel);
+    host.innerHTML = "";
+    host.appendChild(card);
+  }
+
+  function commitMerge(env, res) {
+    var name = store.currentUser;
+    /* Snapshot BEFORE anything is written, so undo is a restore rather than
+       an attempt to compute an inverse of a union. */
+    try {
+      localStorage.setItem(UNDO_KEY, JSON.stringify({
+        profile: name, when: SYNC.dayStr(REV.revToday()),
+        user: JSON.parse(JSON.stringify(store.users[name]))
+      }));
+    } catch (e) { /* undo is a nicety; never block the merge on it */ }
+
+    var merged = res.user;
+    /* Carry over the fields the merge does not own. */
+    merged.code = undefined;
+    store.users[name] = merged;
+    if (!flushStore()) { toast("⚠ Couldn't save — storage may be full"); return; }
+    payXpOwed();
+    syncAcademyXp(me());
+    toast("Merged ✓");
+    renderSync();
+  }
+
+  /* ============================================================
      DEV HOOK — automated validation drives the real sandbox
      ============================================================ */
   window.CODELAB.dev = {
@@ -1853,6 +2155,33 @@
       };
     },
     clearProfileCode: function (name) { return codeClearProfile(name || store.currentUser); },
+    /* Handoff hooks: export this profile, and merge an envelope in without
+       touching the DOM, so the validator can drive a full round trip. */
+    handoff: {
+      exportText: function () { return JSON.stringify(currentEnvelope()); },
+      profile: function () { var u = me(); return u ? JSON.parse(JSON.stringify(u)) : null; },
+      preview: function (text) {
+        var u = me(); if (!u) return null;
+        var parsed = SYNC.parseEnvelope(text);
+        if (!parsed.ok) return { ok: false, error: parsed.error };
+        var res = SYNC.mergeProfile(u, SYNC.envelopeToProfile(parsed.env), { today: REV.revToday(), xpOf: xpOfLessonId });
+        return { ok: true, diff: SYNC.diffProfiles(u, res.user) };
+      },
+      merge: function (text) {
+        var u = me(); if (!u) return null;
+        var parsed = SYNC.parseEnvelope(text);
+        if (!parsed.ok) return { ok: false, error: parsed.error };
+        var res = SYNC.mergeProfile(u, SYNC.envelopeToProfile(parsed.env), { today: REV.revToday(), xpOf: xpOfLessonId });
+        var diff = SYNC.diffProfiles(u, res.user);
+        commitMerge(parsed.env, res);
+        return { ok: true, diff: diff };
+      },
+      academy: function () {
+        var raw = academyRaw();
+        var t = raw && raw.users[store.currentUser] && raw.users[store.currentUser].tracks[ACADEMY_TRACK];
+        return t || null;
+      }
+    },
     editorFiles: function () { return current && current.editor ? current.editor.getFiles() : null; },
     setEditorFiles: function (files) {
       if (!current || !current.editor) return null;
