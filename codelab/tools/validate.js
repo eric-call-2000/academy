@@ -567,6 +567,43 @@ async function main() {
     ok("saved solution STILL intact after a full drill cycle");
   else fail("the saved solution was lost somewhere in the drill cycle");
 
+  /* ---- Code store: the split of saved lesson files out of codelab_v1 ----
+     The migration moves real work between keys, so it gets a gate. */
+  const codeSplit = await mp.evaluate(() => {
+    const d = window.CODELAB.dev;
+    const files = { "index.html": "<!-- PRE-SPLIT PROFILE -->\n<h1>hi</h1>" };
+    const res = d.migrateCodeForTest("html-2", files);
+    const raw = JSON.parse(localStorage.getItem("codelab_v1"));
+    return {
+      ...res,
+      original: files,
+      progressStoreHasCode: JSON.stringify(raw).indexOf("PRE-SPLIT PROFILE") !== -1,
+      keyCount: Object.keys(d.codeStore()).length
+    };
+  });
+  if (codeSplit.moved === 1 && codeSplit.stuck === 0) ok("migration moved 1 inline lesson out of the progress store");
+  else fail(`migration moved ${codeSplit.moved}, stuck ${codeSplit.stuck}`);
+  if (JSON.stringify(codeSplit.movedValue) === JSON.stringify(codeSplit.original))
+    ok("migrated code is byte-identical to what was inline");
+  else fail(`migration CORRUPTED the code: ${JSON.stringify(codeSplit.movedValue)}`);
+  if (codeSplit.inlineGone) ok("the inline u.code field is removed once empty");
+  else fail("u.code survived the migration — it will migrate again every boot");
+  // The whole point: progress writes must stop carrying code.
+  if (!codeSplit.progressStoreHasCode) ok("codelab_v1 no longer contains lesson code");
+  else fail("lesson code is STILL inside codelab_v1 — the split did nothing");
+
+  const codeLifecycle = await mp.evaluate(() => {
+    const d = window.CODELAB.dev;
+    d.setCodeForTest("html-3", { "index.html": "<p>keep me</p>" });
+    const before = Object.keys(d.codeStore()).length;
+    const removed = d.clearProfileCode();
+    const after = Object.keys(d.codeStore()).length;
+    return { before, removed, after };
+  });
+  if (codeLifecycle.after === 0 && codeLifecycle.removed >= 1)
+    ok(`clearing a profile removed all ${codeLifecycle.removed} of its code keys`);
+  else fail(`profile clear left ${codeLifecycle.after} code keys behind (removed ${codeLifecycle.removed} of ${codeLifecycle.before})`);
+
   /* Concurrency: background prefetch makes two loadCourse calls for the same
      course near-certain, and a double registration halves every percentage. */
   const conc = await mp.evaluate(async () => {
