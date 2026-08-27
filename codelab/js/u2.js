@@ -152,13 +152,13 @@ window.CODELAB.addUnit("js", {
           choices: ["\"red\"", "\"green\"", "0", "An error"],
           answer: 0, explain: "Arrays count from ZERO — index 0 is the first item." },
         { q: "Which method keeps only items that pass a test?",
-          choices: ["`.filter()`", "`.map()`", "`.push()`", "`.length()`"],
-          answer: 0, explain: "filter keeps passers; map transforms everything; push appends." },
+          choices: ["`.filter()`", "`.map()`", "`.push()`", "`.slice()`"],
+          answer: 0, explain: "`.filter()` keeps every item your test returns true for and hands them back in a NEW array. `.map()` transforms all of them, `.push()` appends one to the end, and `.slice()` cuts out a section by position — none of those three run a test." },
         { q: "What does this evaluate to?",
           code: "[1, 2, 3].map(n => n * 10)",
           lang: "js",
-          choices: ["[10, 20, 30]", "[1, 2, 3, 10]", "60", "[10]"],
-          answer: 0, explain: "map runs the arrow on every item and collects the results in a new array." },
+          choices: ["[10, 20, 30]", "[1, 2, 3]", "60", "[10]"],
+          answer: 0, explain: "`.map()` runs the arrow on EVERY item and collects the results into a brand-new array of the same length. It never sums the items, never drops any, and never edits the original array." },
         { q: "How do you read the username?",
           code: "const profile = { username: \"ada\", level: 3 };",
           lang: "js",
@@ -170,8 +170,8 @@ window.CODELAB.addUnit("js", {
           choices: ["35", "[5, 10, 20]", "0", "20"],
           answer: 0, explain: "reduce folds the array into one value: 0+5 → 5+10 → 15+20 → 35." },
         { q: "`.find(t => t.done)` on an array of todos returns…",
-          choices: ["The first todo object where done is true (or undefined)", "All done todos", "true/false", "The number of done todos"],
-          answer: 0, explain: "find = first match, whole item. filter = all matches. some = true/false." }
+          choices: ["The first todo object whose done is true", "An array of every todo whose done is true", "true if at least one todo is done", "The number of todos whose done is true"],
+          answer: 0, explain: "`.find()` gives you the FIRST match itself — the whole todo object — or `undefined` when nothing matches, so check before you use it. `.filter()` returns an array of every match, `.some()` returns just true/false, and counting is a `.filter().length` job." }
       ]
     },
 

@@ -132,23 +132,23 @@ window.CODELAB.addUnit("resp", {
         { q: "A flex row has 300px of leftover space. How is it divided?",
           code: ".a { flex-grow: 2; }\n.b { flex-grow: 1; }",
           lang: "css",
-          choices: ["150px each — grow values only turn growing on or off", ".a takes all 300px because it has the higher number", ".a gets 200px, .b gets 100px — grow values are ratios of the LEFTOVER space", "Neither grows — you also need width: 100%"],
-          answer: 2, explain: "Grow values split the spare space proportionally: 2 shares vs 1 share means two-thirds vs one-third of the leftovers — on top of each child's natural size." },
+          choices: ["150px each — grow is an on/off switch", ".a takes all 300px, .b gets none", ".a gets 200px and .b gets the other 100px", "Neither grows without an explicit width"],
+          answer: 2, explain: "Grow values are ratios of the LEFTOVER space, not sizes: 2 shares vs 1 share means two-thirds vs one-third of the spare 300px — 200px and 100px, handed out on top of each child's natural size." },
         { q: "What does the shorthand `flex: 1` expand to?",
-          choices: ["flex-grow: 1; flex-shrink: 1; flex-basis: 0%", "flex-grow: 1 and nothing else", "width: 100%", "flex-basis: 1fr"],
-          answer: 0, explain: "flex: 1 sets all three: grow 1, shrink 1, basis 0% — so children start from zero and split the whole row evenly." },
+          choices: ["flex-grow: 1; flex-shrink: 1; flex-basis: 0%", "flex-grow: 1; flex-shrink: 1; flex-basis: auto", "flex-grow: 1; flex-shrink: 0; flex-basis: 100%", "flex-basis: 1fr with grow and shrink off"],
+          answer: 0, explain: "flex: 1 sets all three: grow 1, shrink 1, basis 0% — so children start from zero width and split the whole row evenly. Don't confuse it with flex: auto, which keeps flex-basis: auto and lets each child's own content decide its starting size." },
         { q: "On narrow screens the logo in your navbar gets squished. Which one line protects it?",
           choices: ["order: 0", "justify-content: center", "flex-grow: 1", "flex-shrink: 0"],
           answer: 3, explain: "flex-shrink controls how a child gives up space when the row is tight — a factor of 0 means it never shrinks below its size." },
         { q: "You put `order: -1` on a card. What actually changes?",
-          choices: ["The HTML source order is rewritten", "Only the VISUAL order — keyboard tabbing and screen readers still follow the HTML", "Its z-index, so it stacks on top", "The card sorts alphabetically"],
-          answer: 1, explain: "order is purely visual. Content that must come first for everyone belongs first in the HTML." },
+          choices: ["The DOM order changes, so tab order follows it", "Only the VISUAL order — the HTML stays put", "Its z-index, so the card stacks above its siblings", "The cards re-sort themselves alphabetically"],
+          answer: 1, explain: "order is purely visual: keyboard tabbing and screen readers still walk the HTML source order, so a card you yanked to the front with order: -1 is still announced in its original spot. Content that must come first for everyone belongs first in the HTML." },
         { q: "The container says `align-items: center`, but ONE child should sit at the bottom. What goes on that child?",
           choices: ["align-items: flex-end", "justify-self: flex-end", "align-self: flex-end", "vertical-align: bottom"],
           answer: 2, explain: "align-self is the per-child override of the container's align-items. (justify-self does nothing in flexbox, and vertical-align is for inline/table layout.)" },
         { q: "In a flex row, what does `margin-left: auto` on the last child do?",
-          choices: ["Centers the child horizontally", "Absorbs ALL the leftover space on its left, pushing the child to the far right edge", "Adds a default 16px margin", "Nothing — auto margins only work with position: absolute"],
-          answer: 1, explain: "Auto margins in flexbox eat the free space in that direction — the classic way to shove one item to the edge while the rest stay snug." }
+          choices: ["Centers the child inside the row", "Pushes that child to the far right edge", "Adds the browser's default 16px margin", "Nothing — flexbox ignores auto margins"],
+          answer: 1, explain: "Auto margins in flexbox eat ALL the free space in that direction: margin-left: auto swallows every leftover pixel to the child's left and shoves it against the right edge — the classic way to move one item to the edge while the rest stay snug." }
       ]
     }
   ]

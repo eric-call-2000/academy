@@ -156,17 +156,17 @@ window.CODELAB.addUnit("css", {
         { q: "How wide does this render **without** border-box?",
           code: ".box {\n  width: 200px;\n  padding: 20px;\n  border: 5px solid;\n}",
           lang: "css",
-          choices: ["250px (200 + 20·2 + 5·2)", "200px", "225px", "270px"],
-          answer: 0, explain: "Classic width covers only content; padding and border pile on top. border-box makes 200 mean 200." },
+          choices: ["250px", "200px", "225px", "270px"],
+          answer: 0, explain: "Classic width covers only the CONTENT; padding and border pile on top: 200 + 20·2 padding + 5·2 border = 250px. Switch to `box-sizing: border-box` and 200 finally means 200 on screen." },
         { q: "The one-liner that makes width behave sanely project-wide:",
-          choices: ["`* { box-sizing: border-box; }`", "`* { width: auto; }`", "`body { padding: 0; }`", "`* { margin: 0 auto; }`"],
-          answer: 0, explain: "The universal border-box reset is line one of most modern stylesheets." },
+          choices: ["`* { box-sizing: border-box; }`", "`* { box-sizing: initial; }`", "`body { max-width: 100%; }`", "`* { margin: 0 auto; }`"],
+          answer: 0, explain: "The universal border-box reset is line one of most modern stylesheets: from then on `width` means the visible width, padding and border included. `initial` just restores the confusing content-box default." },
         { q: "How do you center a fixed-width block horizontally?",
-          choices: ["max-width + margin left/right auto", "text-align: center on it", "padding: auto", "float: middle"],
-          answer: 0, explain: "Auto side margins split the leftover space. (text-align centers INLINE content inside, not the block itself.)" },
+          choices: ["Auto side margins plus a set width", "text-align: center on the block itself", "padding: auto on the left and right", "float: middle with a set width"],
+          answer: 0, explain: "`margin: 0 auto` is the everyday spelling of it: auto side margins split the leftover space evenly, so the block lands dead centre — but only if its width is constrained by `width` or `max-width`. `text-align: center` centers the INLINE content inside the box, not the box; `padding: auto` and `float: middle` don't exist." },
         { q: "`display: none` vs `overflow: hidden`?",
-          choices: ["none removes the element entirely; hidden keeps the box but clips spill-over", "They're identical", "hidden also removes the element", "none just makes it transparent"],
-          answer: 0, explain: "display:none = gone from layout. overflow:hidden = box stays, contents get scissored at the edge." }
+          choices: ["none removes the box; hidden clips overflow", "hidden also removes the element entirely", "none keeps the space but hides the content", "hidden scrolls the overflow into view"],
+          answer: 0, explain: "display:none = gone from layout, as if the element had been deleted — no space reserved. overflow:hidden = the box stays exactly where it is and only the content spilling past its edge gets scissored off (use `auto` if you want that content scrollable instead)." }
       ]
     },
 

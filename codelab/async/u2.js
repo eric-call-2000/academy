@@ -146,13 +146,13 @@ window.CODELAB.addUnit("async", {
       kind: "quiz", xp: 10,
       questions: [
         { q: "What does `fetch(\"/api/data\")` hand you back?",
-          choices: ["The parsed data, ready to use", "A JSON string", "A Promise that resolves to a Response object", "Nothing — it fills in a global variable"],
-          answer: 2, explain: "fetch returns a promise for the Response. You await it, then parse the body with res.json()." },
+          choices: ["The parsed data, ready to use right away", "A JSON string of the response body", "A Promise that resolves to a Response object", "Nothing — it fills in a global variable"],
+          answer: 2, explain: "fetch returns a promise for the Response — the status, the headers, and a handle on the body, but no parsed data yet. You await it, then parse the body with res.json()." },
         { q: "Why does `res.json()` need its OWN await?",
           code: "const res = await fetch(url);\nconst data = await res.json();",
           lang: "js",
-          choices: ["Parsing the body is async too — it may still be streaming in", "It doesn't — the second await is decorative", "res.json() re-sends the request", "await converts the object into a string"],
-          answer: 0, explain: "fetch resolves when the headers arrive; the body can still be in flight. res.json() returns a promise for the fully parsed body." },
+          choices: ["Parsing the body is its own async step", "It doesn't — the second await is decorative", "res.json() re-sends the request", "await converts the object into a string"],
+          answer: 0, explain: "fetch resolves the moment the headers arrive — the body may still be streaming in behind them. res.json() reads that stream to the end and parses it, so it hands back a promise of its own and needs its own await." },
         { q: "`const id = \"tokyo\"` — which call actually requests `/api/city/tokyo`?",
           choices: ["fetch(\"/api/city/id\")", "fetch(\"/api/city/$id\")", "fetch('/api/city/#{id}')", "fetch(`/api/city/${id}`)"],
           answer: 3, explain: "Template literals need BACKTICKS plus ${...}. The other three send the literal characters, not the value of id." },
@@ -162,9 +162,9 @@ window.CODELAB.addUnit("async", {
         { q: "The API returned `{ stats: { wins: 87, losses: 13 } }` into `data`. Where are the wins?",
           choices: ["data.wins", "data.stats.wins", "data[\"stats\"->\"wins\"]", "stats.wins"],
           answer: 1, explain: "One dot per level of nesting: data → stats → wins. data.wins is undefined — the wins live one level deeper." },
-        { q: "Which of these is valid JSON?",
+        { q: "How is a `tag` property holding the string `Ada` written in valid JSON?",
           choices: ["{ tag: \"Ada\" }", "{ 'tag': 'Ada' }", "{ \"tag\": \"Ada\" }", "{ \"tag\": Ada }"],
-          answer: 2, explain: "JSON is stricter than JavaScript: keys AND string values must use double quotes. JSON.parse throws on the other three." }
+          answer: 2, explain: "JSON is stricter than JavaScript: keys AND string values must use double quotes, so it has to be { \"tag\": \"Ada\" }. An unquoted key, single quotes, or a bare unquoted value each make JSON.parse throw." }
       ]
     }
   ]

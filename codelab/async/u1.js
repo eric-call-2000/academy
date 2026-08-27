@@ -135,10 +135,10 @@ window.CODELAB.addUnit("async", {
           choices: ["fulfilled", "pending", "rejected", "cancelled"],
           answer: 1, explain: "Every promise starts pending, then settles exactly once: fulfilled with a value, or rejected with an error. (There is no cancelled state.)" },
         { q: "Where is `await` allowed?",
-          choices: ["Anywhere, in any function", "Only inside loops", "Only on the first line of a file", "Inside a function marked async"],
+          choices: ["Anywhere, in any function", "Only inside loops", "Only on line 1 of a file", "Inside a function marked async"],
           answer: 3, explain: "await lives inside async functions — that's exactly why we keep wrapping code in async function main() { … } main();" },
         { q: "`async function f() { return 7; }` — what does calling `f()` give you?",
-          choices: ["A Promise that resolves to 7", "The number 7, immediately", "undefined", "The string \"7\""],
+          choices: ["A Promise that resolves to 7", "The number 7, immediately", "undefined until it resolves", "The string \"7\""],
           answer: 0, explain: "Async functions always wrap their return value in a promise — that's the contract. To get the 7, await f() or chain .then." },
         { q: "What does this log?",
           code: "Promise.resolve(4)\n  .then((n) => n + 1)\n  .then((n) => console.log(n));",
@@ -148,8 +148,8 @@ window.CODELAB.addUnit("async", {
         { q: "What does the console show?",
           code: "const p = wait(50); // resolves with \"done\" after 50 ms\nconsole.log(p);",
           lang: "js",
-          choices: ["The string \"done\"", "A pending Promise object", "undefined", "It throws an error"],
-          answer: 1, explain: "Calling a promise-returning function hands you the promise immediately — still pending. You need await or .then to see \"done\"." }
+          choices: ["\"done\" — the resolved value", "A pending Promise object", "undefined until it settles", "An error — you must await it"],
+          answer: 1, explain: "Calling a promise-returning function hands you the promise object immediately — still pending, with no value inside it yet. Logging it just shows you that box and its state; you need await or .then to see \"done\" 50 ms later." }
       ]
     }
   ]

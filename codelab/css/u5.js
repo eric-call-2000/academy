@@ -145,25 +145,25 @@ window.CODELAB.addUnit("css", {
       brief: "Notations, alpha, gradients and shadows. 80% to pass.",
       questions: [
         { q: "In `hsl(200, 100%, 50%)`, what does the 200 mean?",
-          choices: ["The hue — degrees around the color wheel", "200% saturation", "Lightness", "The blue channel value"],
-          answer: 0, explain: "Hue is the wheel position (0 red → 120 green → 240 blue). Designers love hsl because \"darker\" is just lower lightness." },
+          choices: ["The hue — degrees on the wheel", "Saturation, pushed past 100%", "Lightness, on a 0–255 scale", "The blue channel, out of 255"],
+          answer: 0, explain: "Hue is the wheel position in degrees (0 red → 120 green → 240 blue), so 200 lands on a sky blue. Saturation and lightness are the second and third values, both percentages. Designers love hsl because \"darker\" is just lower lightness." },
         { q: "You want a dark overlay whose TEXT stays fully crisp. Which tool?",
-          choices: ["background-color: rgba(0,0,0,0.6)", "opacity: 0.6 on the overlay", "display: none", "color: transparent"],
-          answer: 0, explain: "rgba makes only the COLOR translucent; opacity would drag the text down with it." },
+          choices: ["background-color: rgba(0,0,0,0.6)", "opacity: 0.6 on the overlay element", "display: none on the text layer", "color: transparent on the panel"],
+          answer: 0, explain: "rgba makes only the COLOR translucent, so text sitting on top stays at full strength. `opacity` fades the element AND everything nested inside it — your headline goes ghostly along with the backdrop." },
         { q: "The 4th value in `rgba(15, 23, 42, 0.6)` is…",
-          choices: ["Alpha — 60% opaque", "Brightness", "Blur", "Hue"],
-          answer: 0, explain: "Alpha runs 0 (invisible) to 1 (solid)." },
+          choices: ["Alpha", "Brightness", "Blur", "Hue"],
+          answer: 0, explain: "Alpha is opacity, running 0 (invisible) to 1 (solid) — so `0.6` here is 60% opaque and the page behind shows through the other 40%." },
         { q: "What kind of thing is `linear-gradient(...)` to the browser?",
-          choices: ["A generated background IMAGE", "A background color", "A filter", "A border style"],
-          answer: 0, explain: "That's why it works with the background/background-image properties and can layer with other images." },
+          choices: ["An image that the browser draws", "A background color", "A CSS filter effect, like `blur()`", "A border style"],
+          answer: 0, explain: "It's an IMAGE the browser draws on the fly. That's why it belongs to `background` / `background-image`, why it can layer with real images, and why `background-color` flatly refuses to accept it." },
         { q: "Which shadow reads as elegant elevation?",
           code: "A) box-shadow: 0 10px 25px rgba(0,0,0,0.15);\nB) box-shadow: 5px 5px 0 #000;",
           lang: "css",
-          choices: ["A — soft blur, low opacity", "B — crisp and bold", "Neither, shadows are dated", "Both identical"],
-          answer: 0, explain: "Generous blur + gentle alpha imitates real light. (B has its place — retro stickers!)" },
+          choices: ["A", "B", "Neither, shadows are dated", "Both shadows read the same"],
+          answer: 0, explain: "A's generous blur plus gentle alpha imitates how real light falls, so the card reads as floating a few millimetres off the page. B's hard zero-blur shadow has its place too — retro stickers, brutalist buttons — but it reads as graphic, not elevated." },
         { q: "What does the `inset` keyword do to a box-shadow?",
-          choices: ["Draws the shadow INSIDE the element, carving a well", "Doubles the blur", "Moves it to the left", "Makes it animated"],
-          answer: 0, explain: "Outset = floating above the page; inset = pressed into it. Same syntax otherwise." }
+          choices: ["Draws the shadow INSIDE the box", "Doubles the blur radius", "Shifts the shadow to the left", "Makes the shadow pulse gently"],
+          answer: 0, explain: "Outset = the box floats above the page; inset = the box is pressed into it, carving a well. Great for search fields and pressed-button states. Everything else about the syntax is identical — `inset` is just one extra keyword in the value." }
       ]
     }
   ]

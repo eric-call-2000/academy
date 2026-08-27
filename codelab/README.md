@@ -33,6 +33,22 @@ honest `hours` for what it holds, then trades one for the other as it fills out.
 
 Every course has its own units, per-unit **cheatsheets**, **quizzes** (80% to pass), **guided projects**, and a **certificate** on completion — plus a whole-path certificate when everything's done.
 
+### A note on the length tell
+
+The 53 quizzes originally had a measurable flaw: **the correct answer was also the longest choice 76% of the time**, because the correct option carried its own justification while the distractors were bare claims. That made "pick the wordiest option" a partly-working strategy, and it means every quiz score recorded before this was somewhat inflated.
+
+A normalization pass fixed it across all 334 questions — the *claim* stays in the choice, the *justification* moved into `explain` (where it's shown after you answer anyway), and thin distractors were rewritten into fuller, specific misconceptions. The result:
+
+| | Before | After |
+|---|---|---|
+| Correct answer is longest | 76% | **26%** (chance ≈ 25%) |
+| Correct − mean distractor length | +27.5 chars | **+0.6 chars** |
+| Answers objectively graded in Recall | 84 | **106** |
+
+`tools/validate.js` now **fails the build** if any course drifts back above 40%, the same way the hours guard keeps the catalog honest.
+
+Every one of the 334 rewritten questions was then re-audited independently for correctness: **zero broken answer keys, zero distractors that had drifted into being true.** The audit did surface a set of smaller defects, all since fixed — a worked example in one explain that computed the wrong result, two pairs of duplicate distractors, several overstatements, and answers that had become impossible to produce cold in review mode (an HTML-comment answer whose "right" text included invented filler, for instance, now asks for the syntax itself).
+
 ## The experience (Codecademy-style)
 
 Each coding lesson is a 3-pane workspace — **Learn** (narrative + numbered checkpoints), **Code** (real editor: file tabs, syntax highlighting, mobile coding-keys bar), **Result** (live preview + console + check results). Press **Run**: your code executes in a sandbox and each checkpoint turns ✓/✕ with a specific error message. Stuck? Sequential **hints**, then **view solution**.
@@ -46,7 +62,13 @@ Each coding lesson is a 3-pane workspace — **Learn** (narrative + numbered che
 
 Finishing a course is not the same as still knowing it in June. **Recall** turns the quiz bank into a review deck: a few cards a day, scheduled so each one comes back just before you'd forget it.
 
-**A card is a quiz question with its four choices hidden.** That is the whole design decision. In this bank the correct answer is also the longest choice **77% of the time**, so answering multiple-choice here partly measures string length — hide the choices and you have to actually produce the answer. Of 334 questions, **328 work as free recall** (6 are excluded automatically: 3 ask "which of the following", 3 hide their options in a code block and answer "B"). **84 have short enough answers to be typed and graded objectively**; the rest are revealed and self-graded.
+**A card is a quiz question with its four choices hidden.** That is the whole design decision: recognising an answer among four options is a far weaker test than producing it, and an SRS makes gameable items *worse* — a card you can guess gets promoted to a long interval and disappears.
+
+This bank made that concrete. It shipped with the correct answer also being the longest choice **76% of the time**, so the quizzes partly measured string length. A [normalization pass](#a-note-on-the-length-tell) brought that down to **27%** (chance is 25%), and a validator gate now fails the build above 40% per course.
+
+Of 334 questions, **328 work as free recall** (6 excluded automatically — questions that only mean something while their options are on screen). **106 have a single canonical answer short enough to type and grade objectively**; the rest are revealed and self-graded.
+
+An answer only qualifies for typed grading if there's one right way to spell it. A choice like `alt="" — deliberately empty` is a value plus a gloss, so demanding it verbatim would fail someone who typed the value perfectly — those stay self-graded. That asymmetry is deliberate: a false *miss* on something you knew is exactly what makes a review tool feel rigged.
 
 Those two accuracies are **reported separately and never merged** — typed answers are evidence, self-grading is a claim, and the gap between them is the only read you get on how generous you're being with yourself.
 

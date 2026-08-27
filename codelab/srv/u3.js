@@ -134,8 +134,8 @@ window.CODELAB.addUnit("srv", {
           choices: ["/api/books", "GET", "q=dune&limit=2", "The request body"],
           answer: 2, explain: "Everything after the `?`: key=value pairs joined by `&`. The server parses it into { q: \"dune\", limit: \"2\" }." },
         { q: "After parsing `limit=2`, what exactly is `req.query.limit`?",
-          choices: ["The string \"2\" — query values are ALWAYS strings", "The number 2", "The boolean true", "An array [2]"],
-          answer: 0, explain: "URLs are text, so every query value arrives as text. Number() it before doing math like slice counts." },
+          choices: ["The string \"2\"", "The number 2", "The boolean true", "An array [2]"],
+          answer: 0, explain: "Query values are ALWAYS strings — a URL is text, so `2` arrives as `\"2\"`, never as a number, a boolean or an array. Run `Number(...)` on it before doing math like slice counts, or your limit silently becomes string concatenation." },
         { q: "A client that wants JSON back says so with…",
           choices: ["content-type: application/json on the request", "a ?json=true query param", "a JSON-shaped body", "accept: application/json"],
           answer: 3, explain: "accept = the format the client WANTS back. content-type describes what a body actually is — on either side of the wire." },
@@ -143,13 +143,13 @@ window.CODELAB.addUnit("srv", {
           choices: ["accept", "content-type", "x-format", "body-type"],
           answer: 1, explain: "content-type: application/json vs text/plain — same bytes, completely different handling by the client." },
         { q: "`GET /api/books?genre=poetry` matches zero books. Best response?",
-          choices: ["404 Not Found", "400 Bad Request", "200 with an empty array", "500 Server Error"],
-          answer: 2, explain: "The route exists and the request was valid — an empty list IS the correct answer. 404 is for unknown routes or records." },
+          choices: ["404 — no book matched", "400 — unknown genre", "200 with an empty array", "500 — search failed"],
+          answer: 2, explain: "The route exists, the request was valid, and zero matches is a perfectly good answer — the empty array IS the result. 404 is for an unknown route or a missing record, 400 is for a malformed request, and nothing actually failed, so 500 would be a lie the client's error handler would act on." },
         { q: "Spot the bug in this route:",
           code: "if (req.query.sort === \"year\") {\n  BOOKS.sort((a, b) => a.year - b.year);\n}",
           lang: "js",
-          choices: ["sort can't take a comparator function", "It sorts the SHARED array in place — every later request sees reordered data. Sort a copy: [...BOOKS].sort(…)", "a.year - b.year sorts newest-first", "Nothing — this is fine"],
-          answer: 1, explain: "State bleeds between requests when you mutate shared data. Spread into a copy before sorting (or slicing)." }
+          choices: ["sort can't take a comparator function", "It sorts the SHARED array in place", "a.year - b.year sorts newest-first", "Nothing — sorting an array is safe"],
+          answer: 1, explain: "`.sort()` mutates in place, so every later request sees the reordered BOOKS — state bleeds between requests whenever you mutate shared data. Spread into a copy first: `[...BOOKS].sort(…)`. The comparator itself is fine, and `a.year - b.year` sorts oldest-first." }
       ]
     }
   ]

@@ -132,25 +132,25 @@ window.CODELAB.addUnit("dom", {
       brief: "Tabs, modals, accordions and remembered themes. 80% to pass.",
       questions: [
         { q: "A tab bar shows exactly one panel at a time. What's the standard pattern on each click?",
-          choices: ["Set panel.style.display on every panel by hand", "Rebuild all the panels with innerHTML", "Remove the active class from ALL tabs and panels, then add it to the clicked pair", "Give each panel its own click listener"],
-          answer: 2, explain: "Deactivate everything, activate one — the exclusive-class pattern behind tabs, accordions, image galleries and more." },
+          choices: ["Set panel.style.display by hand on each panel", "Rebuild all the panels with innerHTML each time", "Deactivate every tab and panel, then activate one", "Give each panel its own click listener"],
+          answer: 2, explain: "Deactivate everything, then activate exactly one — the exclusive-class pattern behind tabs, accordions, image galleries and more. Strip the active class off ALL tabs and ALL panels first, then add it back to the clicked tab and its matching panel, and let CSS do the showing." },
         { q: "This modal closes even when you click inside the dialog. The fix?",
           code: "overlay.addEventListener(\"click\", (e) => {\n  closeModal();\n});",
           lang: "js",
-          choices: ["Only call closeModal() when e.target === overlay", "Use dblclick instead of click", "Move the listener to document", "Take the dialog out of the overlay"],
-          answer: 0, explain: "Clicks inside the dialog bubble up to the overlay, but e.target stays the element actually clicked — guard on it." },
+          choices: ["Only call closeModal() when e.target === overlay", "Listen for dblclick on the overlay instead", "Move the listener onto document instead of the overlay", "Take the dialog element out of the overlay"],
+          answer: 0, explain: "Clicks inside the dialog bubble up to the overlay, so the overlay's handler runs either way — but e.target stays the element you actually pressed. Guard on it and the backdrop still closes, while a click on the dialog is ignored." },
         { q: "What does `el.classList.toggle(\"open\")` do?",
-          choices: ["Always adds the class", "Always removes the class", "Throws an error if the class is missing", "Adds the class if missing, removes it if present — and returns true when it's now on"],
-          answer: 3, explain: "One call, both directions. The boolean return value tells you which way it flipped — handy for saving state." },
+          choices: ["Adds the class every time it is called", "Removes the class every time it is called", "Throws an error when the class is already there", "Adds it if missing, removes it if present"],
+          answer: 3, explain: "One call, both directions — that is the whole point of toggle. It also hands back a boolean: true when the class is now ON, false when it just came off, which is perfect for saving the new state right after the flip." },
         { q: "`localStorage.getItem(\"theme\")` when nothing was ever saved returns…",
           choices: ["An empty string", "null", "undefined", "It throws an error"],
           answer: 1, explain: "Missing keys come back as null — compare against the value you expect (=== \"dark\") instead of trusting it blindly." },
         { q: "Which is true about `localStorage.setItem(\"theme\", \"dark\")`?",
-          choices: ["The value disappears when the tab closes", "It can store objects directly", "It stores strings and survives page reloads — perfect for remembering preferences", "It syncs the value to a server"],
-          answer: 2, explain: "localStorage keeps string values on the user's machine across reloads and visits. Objects need JSON.stringify first." },
+          choices: ["The value disappears when the tab closes", "It can store objects and arrays directly", "It stores a string that survives reloads", "It syncs the value to your server automatically"],
+          answer: 2, explain: "localStorage keeps string values on the user's own machine, across reloads and across visits — perfect for remembering a preference like a theme. Nothing is sent anywhere, and objects have to go through JSON.stringify on the way in. (sessionStorage is the one that dies with the tab.)" },
         { q: "Why name your modal functions `openModal`/`closeModal` instead of `open`/`close`?",
-          choices: ["open and close are reserved keywords and won't parse", "window.open and window.close already exist — global functions with those names shadow browser built-ins and cause confusing bugs", "Shorter names run slower", "No reason — any name works equally well"],
-          answer: 1, explain: "Globals share a namespace with window's built-ins (open, close, name, status…). Specific names dodge the collision." }
+          choices: ["open and close are reserved keywords in JavaScript", "window.open and window.close already exist", "Shorter function names run measurably slower", "No reason at all — any name works equally well"],
+          answer: 1, explain: "Global functions share a namespace with window's built-ins — open, close, name, status, focus, print. Declaring your own open() shadows window.open, so anything expecting the real one breaks in ways that are miserable to debug. Specific names dodge the collision, and none of these words are reserved keywords." }
       ]
     }
   ]

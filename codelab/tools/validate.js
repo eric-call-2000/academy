@@ -162,11 +162,20 @@ function reviewGates() {
   perCourse.forEach(p => console.log(`  ${p.id}: ${p.o}/${p.t} usable · ${p.ty} typed · ${p.lg}/${p.o} answer-is-longest`));
   console.log(`  POOL: ${usable}/${total} usable (${Math.round(usable / total * 100)}%), ${typed} objectively graded, excluded: ${JSON.stringify(reasons)}`);
 
-  // 5. The length tell. Reported, not gated — hiding the distractors already
-  //    routes around it, and it is only actionable during an authoring pass.
+  /* 5. The length tell — now GATED, per course and overall.
+        A quiz whose correct answer is reliably the longest option tests
+        "spot the long one", and every score it produces is inflated. Recall
+        is immune (it hides the choices) but the quizzes themselves are not.
+        The authoring pass brought this down from 76%; the gate keeps it
+        there, the same way the hours guard keeps the catalog honest. */
   const tell = Math.round(longest / usable * 100);
-  console.log(`  length tell: correct answer is longest in ${tell}% of usable questions` +
-    (tell >= 60 ? "  ⚠ the QUIZZES remain partly a length-spotting exercise (Recall itself is immune — it hides the choices)" : ""));
+  const TELL_MAX = 40;
+  perCourse.forEach(p => {
+    const cp = p.o ? Math.round(p.lg / p.o * 100) : 0;
+    if (cp > TELL_MAX) fail(`course ${p.id}: correct answer is the longest choice in ${cp}% of questions (max ${TELL_MAX}%) — the quiz is testing option length`);
+  });
+  if (tell > TELL_MAX) fail(`length tell across the bank is ${tell}% (max ${TELL_MAX}%)`);
+  else ok(`length tell ${tell}% — correct answer is not identifiable by length (max ${TELL_MAX}%)`);
 
   // 6. explain is the entire remediation payload once choices are hidden.
   let noExplain = 0;

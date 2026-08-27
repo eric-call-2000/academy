@@ -131,22 +131,22 @@ window.CODELAB.addUnit("dom", {
       questions: [
         { q: "What does `el.closest(\".card\")` do?",
           choices: [
-            "Finds the nearest .card element anywhere on the page",
-            "Searches el's children for the first .card",
-            "Walks UP from el (starting with el itself) and returns the first ancestor matching .card",
-            "Returns every .card ancestor as a list"
+            "Finds the nearest .card anywhere in the document",
+            "Searches el's children for the first .card inside it",
+            "Starts at el itself and climbs to the first .card",
+            "Returns every .card ancestor of el as a list"
           ],
           answer: 2,
-          explain: "closest only climbs upward — el itself, then parent, then grandparent — and stops at the first match (null if none). Children never count." },
+          explain: "closest only climbs upward — el itself first, then its parent, then its grandparent — and stops at the first match, handing back null if it never finds one. Children never count, and you get one element, not a list." },
         { q: "`document.querySelectorAll(\".item\")` returns…",
           choices: [
-            "A NodeList of every match — loop it with .forEach",
+            "A NodeList containing every match",
             "Only the first matching element",
             "A plain Array with map and filter built in",
-            "A string of HTML"
+            "A string of HTML for the matches"
           ],
           answer: 0,
-          explain: "A NodeList has length and forEach. Want map or filter? Spread it into a real array first: [...items]." },
+          explain: "A NodeList has `length` and `.forEach`, so you can loop it the moment you get it. Want `map` or `filter`? Spread it into a real array first: `[...items]`." },
         { q: "A Buy button sits in `<div class=\"actions\">` inside `<article class=\"card\">`. From the button, which expression reaches the card?",
           choices: [
             "btn.parentElement",
@@ -162,19 +162,19 @@ window.CODELAB.addUnit("dom", {
           choices: ["15", "An error", "undefined", "\"123\""],
           answer: 3,
           explain: "dataset values are ALWAYS strings, and string + number concatenates. Convert first: Number(li.dataset.price) + 3 → 15." },
-        { q: "How do you re-enable `<button disabled>`?",
+        { q: "Which attribute call re-enables `<button disabled>`?",
           choices: [
             "btn.setAttribute(\"disabled\", \"false\")",
-            "btn.disabled = false — or btn.removeAttribute(\"disabled\")",
+            "btn.removeAttribute(\"disabled\")",
             "btn.classList.remove(\"disabled\")",
-            "btn.disabled = \"off\""
+            "btn.setAttribute(\"enabled\", \"true\")"
           ],
           answer: 1,
-          explain: "Boolean attributes are ON just by being present — setAttribute(\"disabled\", \"false\") leaves it present, so the button stays dead. Remove the attribute, or set the property to false." },
+          explain: "Boolean attributes are ON just by being present — `setAttribute(\"disabled\", \"false\")` leaves it sitting there, so the button stays dead. Strip the attribute, or set the property: `btn.disabled = false`. A CSS class disables nothing, and there is no `enabled` attribute." },
         { q: "`el.dataset.userId` reads which HTML attribute?",
-          choices: ["userId", "data-userId", "data-user-id", "user-id"],
+          choices: ["userId", "data-userid", "data-user-id", "user-id"],
           answer: 2,
-          explain: "dataset auto-converts between camelCase in JS and data- prefixed kebab-case in HTML: dataset.userId ↔ data-user-id." }
+          explain: "dataset auto-converts between camelCase in JS and `data-` prefixed kebab-case in HTML: `dataset.userId` ↔ `data-user-id`. Every capital in JS becomes a hyphen plus a lowercase letter in the markup, and the prefix in HTML is always `data-`." }
       ]
     }
   ]

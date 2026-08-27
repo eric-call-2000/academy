@@ -116,22 +116,22 @@ window.CODELAB.addUnit("html", {
           choices: ["table → tr → td", "table → td → tr", "tr → table → td", "td → tr → table"],
           answer: 0, explain: "The table holds rows (tr); rows hold cells (td). Cells never sit directly in a table." },
         { q: "What's the difference between `<td>` and `<th>`?",
-          choices: ["<th> is a header cell — bold by default and announced as a header", "<th> is taller", "<td> can't hold text", "No difference"],
-          answer: 0, explain: "th = table header. It also helps screen readers connect data cells to their column labels." },
+          choices: ["<th> is a header cell; <td> is a data cell", "<th> just makes the cell taller than <td>", "<td> holds numbers; <th> holds text labels", "<th> must appear in <thead> only"],
+          answer: 0, explain: "th = table header: bold and centred by default, and — the part that matters — announced as a header, so screen readers can connect every data cell to its column or row label. Both cell types hold any content you like, and a <th> is perfectly legal inside <tbody> as a row header." },
         { q: "What does this cell do?",
           code: "<td colspan=\"3\">Grand total</td>",
           lang: "html",
           choices: ["Stretches across 3 columns", "Stretches down 3 rows", "Repeats 3 times", "Creates 3 new columns"],
           answer: 0, explain: "colspan = columns to span. rowspan is the vertical cousin." },
         { q: "When a cell uses `rowspan=\"2\"`, the row below it should…",
-          choices: ["Omit the cell that would be covered", "Repeat the same cell", "Use an empty <td>", "Add colspan too"],
-          answer: 0, explain: "Spanned-over cells are simply not written — the span occupies their space." },
+          choices: ["Omit the cell that the span covers", "Repeat the same cell content", "Include an empty <td> placeholder", "Add rowspan=\"2\" to that cell too"],
+          answer: 0, explain: "Spanned-over cells are simply not written — the span already occupies their space. Add an empty <td> \"to keep the count right\" and you shove the whole row one column to the right." },
         { q: "Which sections can a full table have, in order?",
           choices: ["caption, thead, tbody, tfoot", "header, main, footer", "title, body, end", "thead, caption, tfoot, tbody"],
           answer: 0, explain: "Caption first (the title), then head, body and foot — like a labeled spreadsheet." },
         { q: "Should you use tables for page **layout** (columns, sidebars)?",
-          choices: ["No — tables are for data; layout is CSS's job (Flexbox/Grid)", "Yes, that's their main use", "Only on mobile", "Only with tbody"],
-          answer: 0, explain: "1990s websites did layout with tables; modern CSS replaced that completely. Keep tables for actual data." }
+          choices: ["No — tables are for tabular data only", "Yes — that's what tables were built for", "Only for mobile, where CSS Grid fails", "Only if you wrap them in <tbody>"],
+          answer: 0, explain: "1990s websites did layout with tables; modern CSS replaced that completely. Flexbox and Grid build columns and sidebars at every screen size, and they don't lie to assistive tech — a layout table gets announced as a grid of data cells, which is baffling to listen to. Keep <table> for actual data." }
       ]
     },
 

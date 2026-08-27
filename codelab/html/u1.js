@@ -199,23 +199,23 @@ window.CODELAB.addUnit("html", {
         { q: "What's wrong with this nesting?",
           code: "<p>Some <em>emphasized</p></em>",
           lang: "html",
-          choices: ["The inner element must close before the outer one", "You can't put <em> in a <p>", "<em> needs a class", "Nothing"],
-          answer: 0, explain: "Last opened, first closed: <p>Some <em>emphasized</em></p>." },
+          choices: ["The inner tag closes after the outer one", "Inline elements can't be nested inside a <p>", "The <em> is missing a required class", "Nothing — overlapping tags are allowed"],
+          answer: 0, explain: "Last opened, first closed: <p>Some <em>emphasized</em></p>. Here </p> arrives while <em> is still open, so the tags overlap. Browsers silently repair that, but the structure you get is not the one you wrote — and inline elements like <em> are exactly what a <p> is meant to hold." },
         { q: "Which tag makes the **largest, most important** heading?",
           choices: ["`<h1>`", "`<h6>`", "`<heading>`", "`<head>`"],
           answer: 0, explain: "Headings go h1 (biggest) down to h6. <head> is metadata, not a heading!" },
         { q: "What's the difference between `id` and `class`?",
-          choices: ["id is unique to ONE element; class can be shared by many", "class is unique; id is shared", "They're identical", "id is only for headings"],
-          answer: 0, explain: "One id per element per page; classes are reusable labels — and one element can carry several classes." },
+          choices: ["id is unique per page; class is reusable", "class is unique per page; id is reusable", "Both must be unique on the page", "id is for CSS only; class is for JavaScript"],
+          answer: 0, explain: "One id per element per page; classes are reusable labels — and one element can carry several classes. Both are valid hooks for CSS **and** for JavaScript; uniqueness is the difference that decides which one you reach for, and it's what lets an id double as a jump-link target like #contact." },
         { q: "Where does visible page content belong?",
           choices: ["Inside `<body>`", "Inside `<head>`", "Before `<!DOCTYPE html>`", "Inside `<title>`"],
           answer: 0, explain: "<head> is invisible setup (title, metadata, CSS links); everything you SEE lives in <body>." },
-        { q: "Which line is a valid HTML comment?",
-          choices: ["`<!-- fix this later -->`", "`// fix this later`", "`# fix this later`", "`/* fix this later */`"],
-          answer: 0, explain: "HTML comments are <!-- … -->. The others belong to JavaScript, Python and CSS." },
+        { q: "Which is valid HTML comment syntax?",
+          choices: ["`<!-- ... -->`", "`// ...`", "`# ...`", "`/* ... */`"],
+          answer: 0, explain: "An HTML comment opens with <!-- and closes with -->; everything between is ignored by the browser. // belongs to JavaScript, # to Python, and /* */ to CSS." },
         { q: "`<div>` vs `<span>` — the real difference?",
-          choices: ["div is a block container; span is inline (flows within text)", "span is newer than div", "div is for text, span for images", "There is none"],
-          answer: 0, explain: "div stacks like a paragraph; span wraps a few words inside a line. Both are meaningless on their own — pure grouping tools." }
+          choices: ["div is block-level; span is inline", "span is the modern replacement for div", "div is for text; span is for images", "div can nest elements; span cannot"],
+          answer: 0, explain: "div stacks like a paragraph and takes the full line; span wraps a few words **inside** one. Both are meaningless on their own — pure grouping tools — and both can happily contain other elements." }
       ]
     }
   ]

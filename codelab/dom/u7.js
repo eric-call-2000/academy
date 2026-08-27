@@ -137,24 +137,24 @@ window.CODELAB.addUnit("dom", {
         { q: "The toast appears instantly instead of after 2 seconds. Why?",
           code: "setTimeout(showToast(), 2000);",
           lang: "js",
-          choices: ["Nothing is wrong — this is the normal way", "The delay must be under 1000", "showToast() CALLS the function immediately — pass the reference: setTimeout(showToast, 2000)", "setTimeout only accepts arrow functions"],
-          answer: 2, explain: "Parentheses call the function right now and hand its RETURN VALUE to setTimeout. Pass the function itself and let the timer call it later." },
+          choices: ["Nothing is wrong — this is the normal way", "The delay must be at least 1000", "showToast() CALLS the function immediately", "setTimeout only accepts arrow functions"],
+          answer: 2, explain: "Parentheses call the function right now and hand its RETURN VALUE (undefined) to setTimeout — so the toast shows at once and the timer has nothing to fire 2 seconds later. Pass the reference instead: setTimeout(showToast, 2000), and let the timer do the calling." },
         { q: "The ticker is driving everyone crazy. How do you stop it?",
           code: "const id = setInterval(tick, 500);",
           lang: "js",
           choices: ["clearInterval(id)", "id.stop()", "setInterval(tick, 0)", "delete id"],
           answer: 0, explain: "setInterval returns an id — keep it and hand it to clearInterval. (clearTimeout is the setTimeout twin.)" },
         { q: "Why is requestAnimationFrame better than setInterval(move, 16) for animation?",
-          choices: ["It isn't — they behave identically", "rAF runs your function only once, which is faster", "rAF can move elements without any JavaScript", "rAF fires right before each repaint — smooth frames that never pile up, and it pauses in hidden tabs"],
-          answer: 3, explain: "rAF syncs to the browser's actual paint cycle, so every frame lands exactly once per repaint — and background tabs stop burning CPU." },
+          choices: ["It isn't — they behave identically", "rAF runs on a background thread, so it never blocks the page", "rAF can move elements without any JavaScript", "rAF fires right before each repaint, once per frame"],
+          answer: 3, explain: "rAF syncs to the browser's actual paint cycle, so every frame lands exactly once per repaint — callbacks never pile up when the machine is busy, and a hidden tab stops running them instead of burning CPU. setInterval(move, 16) is only guessing at 60fps, and it drifts. What rAF buys you is better scheduling, not extra speed: the callback still runs on the main thread like any other JavaScript." },
         { q: "What does the console show right away?",
           code: "let seconds = 0;\nsetInterval(() => {\n  seconds++;\n}, 1000);\nconsole.log(seconds);",
           lang: "js",
-          choices: ["0 — the log runs immediately; the first tick is a full second away", "1", "It waits a second, then logs 1", "undefined"],
-          answer: 0, explain: "Timers are asynchronous: setInterval only SCHEDULES work for later, and your script keeps running to the log first." },
+          choices: ["0, because the log runs immediately", "1, since the interval runs once first", "Nothing until a second passes, then 1", "undefined, since seconds is not set yet"],
+          answer: 0, explain: "Timers are asynchronous: setInterval only SCHEDULES work for later, it never runs the callback on the spot. Your script races straight on to the log while seconds is still 0, and the first tick lands a full second afterwards." },
         { q: "setTimeout(launch, 5) waits about…",
-          choices: ["5 seconds", "5 milliseconds — delays are in ms, so one second is 1000", "5 minutes", "half a second"],
-          answer: 1, explain: "Milliseconds everywhere in timer-land. Forgetting the ×1000 is a classic (very fast) bug." }
+          choices: ["5 seconds", "5 milliseconds", "5 minutes", "half a second"],
+          answer: 1, explain: "Milliseconds everywhere in timer-land: that second argument is always ms, so one second is 1000 and five of them is barely a blink. Forgetting the ×1000 is a classic (very fast) bug." }
       ]
     }
   ]

@@ -129,27 +129,27 @@ window.CODELAB.addUnit("resp", {
       kind: "quiz", xp: 10,
       questions: [
         { q: "Flexbox starts with `display: flex` — on which element does it go?",
-          choices: ["On every child you want in the row", "On the <body>, always", "On the parent container — the children become flex items automatically", "On the first child only"],
-          answer: 2, explain: "Flexbox is a container system: the parent gets display: flex (plus gap, justify-content…) and its direct children fall in line." },
+          choices: ["On every child you want lined up in the row", "On the <body>, so the whole page becomes flexible", "On the parent container that wraps the items", "On the first child, which lines up its siblings"],
+          answer: 2, explain: "Flexbox is a container system: the parent gets display: flex (plus gap, justify-content…) and its direct children automatically become flex items — you never put display: flex on the children themselves." },
         { q: "In a flex ROW, which property moves children up and down (the cross axis)?",
           choices: ["justify-content", "align-items", "text-align", "flex-direction"],
           answer: 1, explain: "In a row the main axis is horizontal (justify-content's job) and the cross axis is vertical — that's align-items." },
         { q: "What does `justify-content: center` do in this rule?",
           code: ".stack {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}",
           lang: "css",
-          choices: ["Centers the items horizontally", "Nothing — justify-content only works in rows", "Centers the text inside each item", "Centers the items VERTICALLY — in a column the main axis points down"],
-          answer: 3, explain: "flex-direction: column rotates the main axis to vertical, and justify-content always follows the main axis wherever it points." },
+          choices: ["Centers the items horizontally in the row", "Nothing — justify-content only works in rows", "Centers the text inside each item", "Centers the items VERTICALLY in the box"],
+          answer: 3, explain: "flex-direction: column rotates the main axis to vertical, and justify-content always follows the main axis wherever it points — so here it centers the whole stack top-to-bottom, not left-to-right." },
         { q: "A flex row holds more chips than fit. With default settings, what happens?",
-          choices: ["They stay on one line, squishing or overflowing — the default is flex-wrap: nowrap", "They wrap onto new lines automatically", "The extra chips are hidden", "The container grows taller to fit them"],
-          answer: 0, explain: "nowrap is the default: flex fights to keep a single line, shrinking items and overflowing if it must. Wrapping is opt-in with flex-wrap: wrap." },
+          choices: ["They stay on one line and squish or overflow", "Wrapping is automatic — wrap is the default", "The extra chips are clipped and hidden", "The container grows taller to fit them all"],
+          answer: 0, explain: "nowrap is the default: flex fights to keep a single line, shrinking items and overflowing the container if it must. Wrapping is opt-in — you have to write flex-wrap: wrap yourself." },
         { q: "What does this declaration mean?",
           code: ".tags { gap: 24px 12px; }",
           lang: "css",
-          choices: ["24px on the left side, 12px on the right", "A 24px gap on wide screens, 12px on phones", "24px between rows, 12px between items in a row", "It's invalid — gap takes exactly one value"],
-          answer: 2, explain: "Two-value gap is row-gap then column-gap — especially handy once a flex row wraps onto multiple lines." },
+          choices: ["24px on the left side, 12px on the right", "A 24px gap on wide screens, 12px on phones", "24px between rows, 12px between columns", "It's invalid — gap takes exactly one value"],
+          answer: 2, explain: "Two-value gap is row-gap then column-gap: 24px separates the rows, 12px separates the items sitting side by side in a row — especially handy once a flex row wraps onto multiple lines." },
         { q: "Which value spreads flex children so the first touches the left edge, the last touches the right, with equal space between them?",
-          choices: ["justify-content: center", "justify-content: space-between", "align-items: stretch", "gap: auto"],
-          answer: 1, explain: "space-between pushes the outer items flush to the edges and distributes the leftover space evenly between neighbors — the navbar special." }
+          choices: ["justify-content: space-around", "justify-content: space-between", "justify-content: space-evenly", "align-content: space-between"],
+          answer: 1, explain: "space-between pushes the outer items flush to the edges and distributes the leftover space evenly between neighbors — the navbar special. space-around and space-evenly also leave space OUTSIDE the first and last items, so nothing touches the edges, and align-content only moves whole lines on the cross axis." }
       ]
     }
   ]
