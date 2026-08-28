@@ -270,31 +270,213 @@
     };
   }
 
-  /* Fake fetch() for API lessons: lesson.mock maps "METHOD /path" (or just
-     "/path" for GET) to a body, or {status, body}. */
-  function harnessMock(MOCK) {
+  /* Fake fetch() for API lessons. Two modes:
+       lesson.mock   — a data map "METHOD /path" (or "/path" for GET) → body
+                       or {__status, body}. Static; can't read the request.
+       lesson.mockFn — a SOURCE STRING evaluating to (url, opts) => {status, body}
+                       (or a plain body). Lets a test assert what the learner's
+                       fetch actually SENT — every call is recorded on
+                       g.__CALLS as {url, method, headers, body}, which is the
+                       only way to grade "did you send the token / CSRF header /
+                       stop leaking the key". Backwards compatible: a lesson
+                       with only `mock` behaves exactly as before. */
+  function harnessMock(MOCK, MOCKFN_SRC) {
     var g = (typeof self !== "undefined") ? self : window;
+    g.__CALLS = [];
+    var fn = null;
+    if (MOCKFN_SRC) { try { fn = (0, eval)("(" + MOCKFN_SRC + ")"); } catch (e) { fn = null; } }
     function mkRes(status, data) {
       return {
         ok: status >= 200 && status < 300,
         status: status,
+        headers: { get: function () { return null; } },
         json: function () { return Promise.resolve(JSON.parse(JSON.stringify(data))); },
         text: function () { return Promise.resolve(typeof data === "string" ? data : JSON.stringify(data)); }
       };
+    }
+    function headerMap(h) {
+      var out = {};
+      if (!h) return out;
+      if (typeof h.forEach === "function" && !Array.isArray(h)) { h.forEach(function (v, k) { out[String(k).toLowerCase()] = v; }); return out; }
+      Object.keys(h).forEach(function (k) { out[String(k).toLowerCase()] = h[k]; });
+      return out;
     }
     g.fetch = function (url, opts) {
       opts = opts || {};
       var method = String(opts.method || "GET").toUpperCase();
       var path = String(url).split("?")[0];
-      var hit = MOCK[method + " " + path];
-      if (hit === undefined && method === "GET") hit = MOCK[path];
+      g.__CALLS.push({ url: String(url), method: method, headers: headerMap(opts.headers), body: opts.body });
       return new Promise(function (resolve) {
         setTimeout(function () {
+          if (fn) {
+            var r;
+            try { r = fn(String(url), opts); } catch (e) { resolve(mkRes(500, { error: String(e && e.message || e) })); return; }
+            if (r && typeof r === "object" && r.status !== undefined && "body" in r) resolve(mkRes(r.status, r.body));
+            else resolve(mkRes(200, r));
+            return;
+          }
+          var hit = MOCK ? MOCK[method + " " + path] : undefined;
+          if (hit === undefined && method === "GET" && MOCK) hit = MOCK[path];
           if (hit === undefined) resolve(mkRes(404, { error: "No such endpoint: " + method + " " + path }));
           else if (hit && typeof hit === "object" && hit.__status !== undefined) resolve(mkRes(hit.__status, hit.body));
           else resolve(mkRes(200, hit));
         }, 60);
       });
+    };
+  }
+
+  /* Synchronous crypto primitives for the auth/password lessons (Web
+     Security U6): a pure-JS sha256, a random-hex helper, and an iterated
+     slowHash(str, salt, rounds). Pure JS because crypto.subtle is async and
+     absent on file://; injected only when lesson.crypto is set. */
+  function harnessCrypto() {
+    var g = (typeof self !== "undefined") ? self : window;
+    function rrot(n, x) { return (x >>> n) | (x << (32 - n)); }
+    var K = [
+      0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+      0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+      0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+      0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+      0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+      0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+      0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+      0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+    function sha256(ascii) {
+      ascii = unescape(encodeURIComponent(String(ascii)));
+      var h = [0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+      var i, j, bytes = [];
+      for (i = 0; i < ascii.length; i++) bytes.push(ascii.charCodeAt(i) & 0xff);
+      var bitLen = bytes.length * 8;
+      bytes.push(0x80);
+      while (bytes.length % 64 !== 56) bytes.push(0);
+      for (i = 7; i >= 0; i--) bytes.push((bitLen / Math.pow(2, i * 8)) & 0xff);
+      var w = new Array(64);
+      for (i = 0; i < bytes.length; i += 64) {
+        for (j = 0; j < 16; j++)
+          w[j] = (bytes[i + j * 4] << 24) | (bytes[i + j * 4 + 1] << 16) | (bytes[i + j * 4 + 2] << 8) | (bytes[i + j * 4 + 3]);
+        for (j = 16; j < 64; j++) {
+          var s0 = rrot(7, w[j-15]) ^ rrot(18, w[j-15]) ^ (w[j-15] >>> 3);
+          var s1 = rrot(17, w[j-2]) ^ rrot(19, w[j-2]) ^ (w[j-2] >>> 10);
+          w[j] = (w[j-16] + s0 + w[j-7] + s1) | 0;
+        }
+        var a=h[0],b=h[1],c=h[2],d=h[3],e=h[4],f=h[5],gg=h[6],hh=h[7];
+        for (j = 0; j < 64; j++) {
+          var S1 = rrot(6,e) ^ rrot(11,e) ^ rrot(25,e);
+          var ch = (e & f) ^ (~e & gg);
+          var t1 = (hh + S1 + ch + K[j] + w[j]) | 0;
+          var S0 = rrot(2,a) ^ rrot(13,a) ^ rrot(22,a);
+          var maj = (a & b) ^ (a & c) ^ (b & c);
+          var t2 = (S0 + maj) | 0;
+          hh=gg; gg=f; f=e; e=(d+t1)|0; d=c; c=b; b=a; a=(t1+t2)|0;
+        }
+        h[0]=(h[0]+a)|0; h[1]=(h[1]+b)|0; h[2]=(h[2]+c)|0; h[3]=(h[3]+d)|0;
+        h[4]=(h[4]+e)|0; h[5]=(h[5]+f)|0; h[6]=(h[6]+gg)|0; h[7]=(h[7]+hh)|0;
+      }
+      var hex = "";
+      for (i = 0; i < 8; i++) hex += ("00000000" + (h[i] >>> 0).toString(16)).slice(-8);
+      return hex;
+    }
+    g.sha256 = sha256;
+    g.randHex = function (n) {
+      n = n || 16;
+      var out = "";
+      try {
+        var arr = new Uint8Array(n);
+        (g.crypto || {}).getRandomValues.call(g.crypto, arr);
+        for (var i = 0; i < n; i++) out += ("0" + arr[i].toString(16)).slice(-2);
+        return out;
+      } catch (e) {
+        // Deterministic fallback via a counter — sandbox forbids Math.random
+        // in graded paths, and a salt only needs to be unique, not secret here.
+        g.__RAND_CTR = (g.__RAND_CTR || 0) + 1;
+        return sha256("salt" + g.__RAND_CTR).slice(0, n * 2);
+      }
+    };
+    g.slowHash = function (str, salt, rounds) {
+      var h = sha256(String(salt) + ":" + String(str));
+      rounds = rounds || 1;
+      for (var i = 0; i < rounds; i++) h = sha256(h + ":" + salt);
+      return h;
+    };
+  }
+
+  /* CSP enforcement lab (Web Security U7 L2). The preview iframe's own
+     sandbox is fixed and a learner CSP in index.html would also gag the
+     grader — so enforcement happens one level DOWN: __runCspLab(policy)
+     mounts a nested sandboxed srcdoc iframe whose <head> carries the
+     learner's policy as a real <meta http-equiv>, followed by a fixed
+     battery of five payloads. Each payload writes its own outcome; a
+     reporter posts the results object up, and the preview stashes it on
+     window.__CSP_RESULTS for the grader to read after a sleep. This is
+     REAL browser CSP enforcement, not a simulation. Injected only when
+     lesson.cspLab is set. */
+  function harnessCspLab() {
+    var g = window;
+    g.__CSP_RESULTS = null;
+    var pending = false;
+    window.addEventListener("message", function (ev) {
+      var m = ev.data;
+      if (m && m.__csplab === true) { pending = false; g.__CSP_RESULTS = m.results; }
+    });
+    /* The reporter carries nonce-RPT: it stands in for the PAGE'S OWN
+       trusted inline script. A functional policy must let it run (via
+       'nonce-RPT' or 'unsafe-inline'); the injected payloads never carry
+       the nonce. If the policy is so strict it blocks even the reporter,
+       nothing posts back — so the parent falls back to all-blocked after
+       a timeout, which is the honest outcome for a policy that also
+       breaks the page. Probe flags start false (= blocked); a payload
+       that survives the policy sets its own flag true. */
+    g.__runCspLab = function (policy) {
+      g.__CSP_RESULTS = null;
+      pending = true;
+      var meta = policy ? '<meta http-equiv="Content-Security-Policy" content="' + String(policy).replace(/"/g, "&quot;") + '">' : "";
+      // This whole function is stringified INTO the preview's own script
+      // block, and buildSrcdoc then regex-scans the entire document for the
+      // head-open, head-close and body-close tags (to inject its own harness
+      // and grader) plus the string "script.js"; a literal opening-script
+      // run would also flip the HTML parser into its double-escaped state.
+      // So EVERY tag in the child battery is assembled from split pieces via
+      // t(), and NO literal HTML tag (in angle brackets) appears anywhere in
+      // this function — in code OR in comments. Keep it that way.
+      function t(s) { return "<" + s + ">"; }
+      var child =
+        "<!DOCTYPE html>" + t("html") + t("head") + meta + t("/head") + t("body") +
+        t("style") + "#m{color:rgb(1,2,3)}" + t("/style") +
+        t('link rel="stylesheet" href="data:text/css,%23n%7Bcolor%3Argb(4%2C5%2C6)%7D"') +
+        t('div id="m"') + "x" + t("/div") + t('div id="n"') + "y" + t("/div") +
+        // init (nonce'd = the page's own trusted script): define the results
+        // object BEFORE the payloads run, so a payload that survives the
+        // policy can record itself. If the policy is too strict to run even
+        // this nonce'd script, nothing records and the parent's timeout
+        // reports all-blocked — the honest outcome for a page-breaking policy.
+        t('script nonce="RPT"') +
+        "window.__r={inlineScript:false,imgOnerror:false,evalCall:false,inlineStyle:false,ownStylesheet:false};" +
+        t("/script") +
+        // payload 1: injected inline script (NO nonce)
+        t("script") + "window.__r&&(window.__r.inlineScript=true);" + t("/script") +
+        // payload 2: injected inline event handler (NO nonce)
+        t('img src="x" onerror="window.__r&&(window.__r.imgOnerror=true)"') +
+        // reporter (nonce'd): probe eval, measure styles, post results up
+        t('script nonce="RPT"') +
+        "if(window.__r){try{(0,eval)('window.__r.evalCall=true');}catch(e){}" +
+        "setTimeout(function(){" +
+        "try{window.__r.inlineStyle=(getComputedStyle(document.getElementById('m')).color==='rgb(1, 2, 3)');}catch(e){}" +
+        "try{window.__r.ownStylesheet=(getComputedStyle(document.getElementById('n')).color==='rgb(4, 5, 6)');}catch(e){}" +
+        "parent.postMessage({__csplab:true,results:window.__r},'*');" +
+        "},200);}" +
+        t("/script") +
+        t("/body") + t("/html");
+      var f = document.createElement("iframe");
+      f.setAttribute("sandbox", "allow-scripts");
+      f.style.display = "none";
+      f.srcdoc = child;
+      document.body.appendChild(f);
+      // Reporter blocked (policy too strict to run the page's own script) →
+      // report all-blocked so the grader still resolves instead of hanging.
+      setTimeout(function () {
+        if (pending) { pending = false; g.__CSP_RESULTS = { inlineScript: false, imgOnerror: false, evalCall: false, inlineStyle: false, ownStylesheet: false, reporterBlocked: true }; }
+      }, 900);
+      return true;
     };
   }
 
@@ -444,7 +626,8 @@
       'var __send = function (m) { try { postMessage(m); } catch (e) { try { postMessage({ type: "console", level: "warn", text: "(unprintable value)" }); } catch (e2) {} } };',
       "(" + harnessCommon.toString() + ")();",
       lesson.spec ? "(" + harnessSpec.toString() + ")();" : "",
-      lesson.mock ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock) + ");" : "",
+      lesson.crypto ? "(" + harnessCrypto.toString() + ")();" : "",
+      (lesson.mock || lesson.mockFn) ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock || null) + ", " + JSON.stringify(lesson.mockFn || null) + ");" : "",
       "var __DONE = false;",
       "function __finish(steps) { if (__DONE) return; __DONE = true; __send({ type: 'results', steps: steps }); }",
       "var __fatal = null;",
@@ -515,7 +698,9 @@
       "window.addEventListener('unhandledrejection', function (e) { __send({ type: 'console', level: 'error', text: 'Unhandled promise rejection: ' + ((e.reason && e.reason.message) || e.reason) }); });" +
       "(" + harnessCommon.toString() + ")();" +
       (lesson.spec ? "(" + harnessSpec.toString() + ")();" : "") +
-      (lesson.mock ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock) + ");" : "") +
+      (lesson.crypto ? "(" + harnessCrypto.toString() + ")();" : "") +
+      ((lesson.mock || lesson.mockFn) ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock || null) + ", " + JSON.stringify(lesson.mockFn || null) + ");" : "") +
+      (lesson.cspLab ? "(" + harnessCspLab.toString() + ")();" : "") +
       "<\/script>";
 
     // 1) harness goes first, right after <head> (or prepended)

@@ -76,6 +76,13 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
+  id: "sec", prefix: "sec", title: "Web Security Basics",
+  icon: "🛡️", color: "#dc2626", level: "Intermediate", hours: 7, items: 33,
+  blurb: "Break your own app, then defend it: XSS you can watch fire, escaping and sanitizing, injection, secrets in shipped source, auth and password storage, and the security headers that harden what ships.",
+  files: ["sec/u1.js", "sec/u2.js", "sec/u3.js", "sec/u4.js", "sec/u5.js", "sec/u6.js", "sec/u7.js"]
+});
+
+window.CODELAB.defineCourse({
   id: "ship", prefix: "ship", title: "Deploying Your App",
   icon: "🛰️", color: "#0891b2", level: "Intermediate", hours: 8, items: 35,
   blurb: "From localhost to live: how a static host resolves URLs, env vars and builds, a real Cloudflare Worker with CORS, DNS, and shipping, breaking and rolling back.",

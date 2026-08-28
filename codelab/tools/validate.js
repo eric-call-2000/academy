@@ -104,6 +104,16 @@ function phase0() {
                 fail(`${l.id}: "${name}" is mutated by a checkpoint but declared with const/let — mutated bindings must be \`function ${name}(...)\``);
             }
           }
+          /* XSS async-sentinel flakiness (Web Security U2/U3): an <img onerror>
+             payload fires asynchronously, and the web grader starts ~60ms
+             after load — so any checkpoint that reads the __fired sentinel
+             without first awaiting a sleep passes on a fast machine and fails
+             on a slow one. Require a T.sleep before any __fired read. */
+          for (const s of (l.steps || [])) {
+            const src = String(s.test || "");
+            if (/__fired/.test(src) && !/T\.sleep\s*\(/.test(src))
+              fail(`${l.id}: a checkpoint reads __fired without a preceding await T.sleep(...) — async XSS sentinels race the grader (add T.sleep(120))`);
+          }
         }
       }
     }
