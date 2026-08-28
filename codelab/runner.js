@@ -174,6 +174,33 @@
           throw new Error((msg ? msg + " — " : "") + "expected about " + want + " but got " + String(got));
         return true;
       },
+      /* --- mutation testing (Testing Fundamentals) ---
+         Swap the learner's own function for a broken one, run their suite,
+         restore — the grading contract "a test that can't fail isn't a test".
+         Reaches the GLOBAL binding, which is where `function` and `var`
+         declarations land; a `const`/`let` in the eval's lexical scope will
+         NOT be shadowed by a global assignment, so anything a checkpoint
+         mutates must be declared `function name(...)` in the starter.
+         Spec events are silenced during the swap so the learner's panel
+         keeps showing their own suite against the REAL code, not a mutant. */
+      mutate: function (name, impl, runFn) {
+        var orig = g[name];
+        if (typeof orig !== "function")
+          throw new Error("The checks need to swap in a broken " + name + "() — keep it declared with `function " + name + "(...)`.");
+        g[name] = impl;
+        if (g[name] === orig)
+          throw new Error("Could not replace " + name + "() — is it declared with const? Change it back to `function`.");
+        var silentBefore = g.__SPEC_SILENT;
+        g.__SPEC_SILENT = true;
+        function restore() { g[name] = orig; g.__SPEC_SILENT = silentBefore; }
+        try {
+          var r = runFn();
+          if (r && typeof r.then === "function")
+            return r.then(function (v) { restore(); return v; }, function (e) { restore(); throw e; });
+          restore();
+          return r;
+        } catch (e) { restore(); throw e; }
+      },
       /* --- interaction (web lessons) --- */
       click: function (s) {
         var n = g.T.$(s);
@@ -251,6 +278,100 @@
     };
   }
 
+  /* Spec runner for lessons that opt in via `lesson.spec: true` (Testing
+     Fundamentals U4+): real describe/it/expect/beforeEach globals plus an
+     async run() that records failures instead of crashing, and streams one
+     {type:"spec"} message per test so the app can draw a green/red spec
+     list — the green-bar feedback loop real Jest/Vitest gives.
+
+     Injected AFTER harnessCommon and BEFORE learner code, so a lesson where
+     the learner builds their own it()/run() (U1–U3) simply doesn't opt in —
+     and even inside an opted-in lesson a learner `function it(...)` would
+     shadow these. Follows the harnessMock precedent exactly: stringified
+     into the sandbox, fully self-contained.
+
+     Contract for checkpoint authors: run() is ASYNC — always `await run()`.
+     It re-runs every registered test fresh, so mutation checkpoints can
+     call it repeatedly; T.mutate silences the panel messages meanwhile. */
+  function harnessSpec() {
+    var g = (typeof self !== "undefined") ? self : window;
+    var tests = [], eachHooks = [], suitePath = [], seq = 0;
+    function fmt(v) {
+      try {
+        if (typeof v === "string") return JSON.stringify(v);
+        var s = JSON.stringify(v);
+        return (s === undefined) ? String(v) : s;
+      } catch (e) { return String(v); }
+    }
+    g.describe = function (name, fn) {
+      suitePath.push(String(name));
+      try { fn(); } finally { suitePath.pop(); }
+    };
+    g.it = function (name, fn) {
+      tests.push({ suite: suitePath.join(" › "), name: String(name), fn: fn });
+    };
+    g.beforeEach = function (fn) { eachHooks.push(fn); };
+    g.expect = function (actual) {
+      return {
+        toBe: function (want) {
+          if (actual !== want) throw new Error("expected " + fmt(want) + " but got " + fmt(actual) +
+            (typeof actual === "object" && actual !== null && typeof want === "object" && want !== null ? " — different objects are never === (try toEqual)" : ""));
+        },
+        toEqual: function (want) {
+          var a, b;
+          try { a = JSON.stringify(actual); b = JSON.stringify(want); } catch (e) { a = String(actual); b = String(want); }
+          if (a !== b) throw new Error("expected " + b + " but got " + a);
+        },
+        toBeTruthy: function () { if (!actual) throw new Error("expected a truthy value but got " + fmt(actual)); },
+        toBeFalsy: function () { if (actual) throw new Error("expected a falsy value but got " + fmt(actual)); },
+        toContain: function (item) {
+          var okc = (typeof actual === "string") ? actual.indexOf(item) !== -1
+            : (Array.isArray(actual) ? actual.indexOf(item) !== -1 : false);
+          if (!okc) throw new Error("expected " + fmt(actual) + " to contain " + fmt(item));
+        },
+        toBeCloseTo: function (want, tol) {
+          if (tol == null) tol = 0.005;
+          if (typeof actual !== "number" || Math.abs(actual - want) > tol)
+            throw new Error("expected about " + want + " but got " + fmt(actual));
+        },
+        toThrow: function () {
+          if (typeof actual !== "function") throw new Error("toThrow needs a FUNCTION — pass () => code, not the result of calling it");
+          var threw = false;
+          try { actual(); } catch (e) { threw = true; }
+          if (!threw) throw new Error("expected the function to throw, but it returned normally");
+        }
+      };
+    };
+    g.run = function () {
+      var runId = ++seq;
+      var res = { total: tests.length, passed: 0, failed: 0, results: [] };
+      if (!g.__SPEC_SILENT) g.__send({ type: "specstart", run: runId, total: tests.length });
+      var i = 0;
+      function next() {
+        if (i >= tests.length) {
+          if (!g.__SPEC_SILENT) g.__send({ type: "specdone", run: runId, passed: res.passed, failed: res.failed, total: res.total });
+          return Promise.resolve(res);
+        }
+        var t = tests[i++];
+        return eachHooks.reduce(function (p, h) { return p.then(function () { return h(); }); }, Promise.resolve())
+          .then(function () { return t.fn(); })
+          .then(function () {
+            res.passed++;
+            res.results.push({ suite: t.suite, name: t.name, pass: true });
+            if (!g.__SPEC_SILENT) g.__send({ type: "spec", run: runId, suite: t.suite, name: t.name, pass: true });
+            return next();
+          }, function (e) {
+            var msg = (e && e.message) || String(e);
+            res.failed++;
+            res.results.push({ suite: t.suite, name: t.name, pass: false, error: msg });
+            if (!g.__SPEC_SILENT) g.__send({ type: "spec", run: runId, suite: t.suite, name: t.name, pass: false, error: msg });
+            return next();
+          });
+      }
+      return next();
+    };
+  }
+
   /* ---------- helpers (main thread) ---------- */
 
   function stepsSource(lesson) {
@@ -280,6 +401,7 @@
     return [
       'var __send = function (m) { try { postMessage(m); } catch (e) { try { postMessage({ type: "console", level: "warn", text: "(unprintable value)" }); } catch (e2) {} } };',
       "(" + harnessCommon.toString() + ")();",
+      lesson.spec ? "(" + harnessSpec.toString() + ")();" : "",
       lesson.mock ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock) + ");" : "",
       "var __DONE = false;",
       "function __finish(steps) { if (__DONE) return; __DONE = true; __send({ type: 'results', steps: steps }); }",
@@ -318,6 +440,7 @@
       w.onmessage = function (ev) {
         var m = ev.data || {};
         if (m.type === "console") { if (hooks.onConsole) hooks.onConsole(m); }
+        else if (m.type === "spec" || m.type === "specstart" || m.type === "specdone") { if (hooks.onSpec) hooks.onSpec(m); }
         else if (m.type === "fatal") { fatal = m.text; if (hooks.onConsole) hooks.onConsole({ level: "error", text: m.text }); }
         else if (m.type === "results") finish({ steps: m.steps || [], fatal: fatal });
       };
@@ -345,6 +468,7 @@
       "window.addEventListener('error', function (e) { __send({ type: 'console', level: 'error', text: (e.message || 'Script error') + (e.lineno ? ' (line ' + e.lineno + ')' : '') }); });" +
       "window.addEventListener('unhandledrejection', function (e) { __send({ type: 'console', level: 'error', text: 'Unhandled promise rejection: ' + ((e.reason && e.reason.message) || e.reason) }); });" +
       "(" + harnessCommon.toString() + ")();" +
+      (lesson.spec ? "(" + harnessSpec.toString() + ")();" : "") +
       (lesson.mock ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock) + ");" : "") +
       "<\/script>";
 
@@ -418,6 +542,7 @@
         var m = ev.data;
         if (!m || m.__codelab !== token) return;
         if (m.type === "console") { if (hooks.onConsole) hooks.onConsole(m); }
+        else if (m.type === "spec" || m.type === "specstart" || m.type === "specdone") { if (hooks.onSpec) hooks.onSpec(m); }
         else if (m.type === "fatal") { fatal = m.text; if (hooks.onConsole) hooks.onConsole({ level: "error", text: m.text }); }
         else if (m.type === "results") finish({ steps: m.steps || [], fatal: fatal });
       }
@@ -433,12 +558,147 @@
     });
   }
 
+  /* ============================================================
+     SHELL lessons → the simulated terminal (shell.js)
+     ------------------------------------------------------------
+     Runs on the MAIN THREAD, unlike js and web lessons, and that
+     is safe for a reason worth stating: the learner writes shell
+     COMMANDS, which are data. Nothing they type is evaluated as
+     JavaScript, so there is no sandbox to escape. The shell has
+     no loops and caps a script at 500 commands, so it cannot
+     hang the page either — which is the only thing the Worker
+     was buying us.
+     ============================================================ */
+  function runShell(lesson, files, hooks) {
+    var SH = window.CODELAB.shell;
+    return new Promise(function (resolve) {
+      if (!SH) { resolve({ steps: [], fatal: "The shell engine did not load." }); return; }
+      var name = (lesson.files && lesson.files[0] && lesson.files[0].name) || "commands.sh";
+      var script = (files[name] != null) ? files[name] : files[Object.keys(files)[0]] || "";
+
+      var fsTree, result;
+      try {
+        fsTree = SH.createFS(lesson.fs || {});
+        result = SH.run(fsTree, script, { cwd: lesson.cwd || "/home/you", home: lesson.home || "/home/you" });
+      } catch (e) {
+        resolve({ steps: [], fatal: (e && e.message) || String(e) });
+        return;
+      }
+
+      /* The Result pane becomes a terminal transcript, so the feedback loop
+         is the same one a real shell gives: prompt, command, output. */
+      if (hooks.previewEl) {
+        var pre = document.createElement("pre");
+        pre.className = "sh-term";
+        pre.textContent = SH.renderTranscript(result, lesson.user || "you");
+        hooks.previewEl.innerHTML = "";
+        hooks.previewEl.appendChild(pre);
+      }
+      /* Anything a command printed also reaches the console pane, so a
+         failing checkpoint and the output that explains it sit together. */
+      if (hooks.onConsole) {
+        result.transcript.forEach(function (t) {
+          if (t.out) hooks.onConsole({ level: "log", text: t.out.replace(/\n$/, "") });
+          if (t.err) hooks.onConsole({ level: "error", text: t.err.replace(/\n$/, "") });
+        });
+      }
+
+      var T = shellT(SH, fsTree, result, script);
+      var steps = lesson.steps || [], out = [];
+      for (var i = 0; i < steps.length; i++) {
+        try {
+          /* Tests are authored content, never learner input. */
+          var fn = new Function("T", '"use strict";' + steps[i].test);
+          fn(T);
+          out.push({ i: i, pass: true, msg: "" });
+        } catch (e) {
+          out.push({ i: i, pass: false, msg: (e && e.message) || String(e) });
+        }
+      }
+      resolve({ steps: out, fatal: null });
+    });
+  }
+
+  function shellT(SH, fsTree, result, script) {
+    function fail(msg) { throw new Error(msg || "Check failed"); }
+    var stdout = result.transcript.map(function (t) { return t.out; }).join("");
+    var stderr = result.transcript.map(function (t) { return t.err; }).join("");
+    var T = {
+      transcript: result.transcript,
+      out: function () { return stdout; },
+      err: function () { return stderr; },
+      cwd: function () { return result.cwd; },
+      exit: function () { return result.transcript.length ? result.transcript[result.transcript.length - 1].code : 0; },
+      /* The raw commands the learner wrote. Grading the SOURCE as well as the
+         result is what lets a lesson teach the tool rather than the outcome:
+         "get there without a leading slash" is a lesson about relative paths,
+         and only T.typed can tell the difference. */
+      script: function () { return script; },
+      typed: function (re, msg) {
+        var rx = (typeof re === "string") ? new RegExp(re) : re;
+        if (!rx.test(script)) fail(msg || "Expected a command matching " + rx);
+        return true;
+      },
+      notTyped: function (re, msg) {
+        var rx = (typeof re === "string") ? new RegExp(re) : re;
+        if (rx.test(script)) fail(msg || "This lesson asks you not to use " + rx);
+        return true;
+      },
+      /* Counting invocations is what makes `mkdir -p` a lesson about -p
+         rather than about ending up with a folder. */
+      cmdCount: function (name) {
+        return result.transcript.filter(function (t) {
+          return new RegExp("(^|\\||&&|;)\\s*" + name + "(\\s|$)").test(t.cmd);
+        }).length;
+      },
+      /* One helper answering "does it exist", "is it a dir", "what is in it". */
+      fs: function (p) {
+        var n = SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p));
+        if (!n) return null;
+        return n.d ? { type: "dir", names: Object.keys(n.d).sort() } : { type: "file", content: n.f };
+      },
+      /* File contents, or null when it does not exist — one helper covers
+         "did you create it" and "what is in it". */
+      file: function (p) {
+        var n = SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p));
+        return n && n.f !== undefined ? n.f : null;
+      },
+      exists: function (p) { return !!SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p)); },
+      isDir: function (p) {
+        var n = SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p));
+        return !!(n && n.d);
+      },
+      ls: function (p) {
+        var n = SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p || "."));
+        return n && n.d ? Object.keys(n.d).sort() : [];
+      },
+      /* Did the learner actually run a command matching this? Lets a
+         checkpoint insist on the tool, not just the end state — "copy it
+         with cp" rather than "have two files". */
+      ran: function (re) {
+        var rx = (typeof re === "string") ? new RegExp(re) : re;
+        return result.transcript.some(function (t) { return rx.test(t.cmd); });
+      },
+      commands: result.transcript.map(function (t) { return t.cmd; }),
+      lastCode: result.transcript.length ? result.transcript[result.transcript.length - 1].code : 0,
+      printed: function (s) { return stdout.indexOf(s) !== -1; },
+      expect: function (cond, msg) { if (!cond) fail(msg); },
+      eq: function (a, b, msg) {
+        if (JSON.stringify(a) !== JSON.stringify(b)) {
+          fail((msg || "Not equal") + "  (got " + JSON.stringify(a) + ")");
+        }
+      }
+    };
+    return T;
+  }
+
   /* ---------- public API ---------- */
   window.CODELAB = window.CODELAB || {};
   window.CODELAB.runner = {
     RUN_TIMEOUT: RUN_TIMEOUT,
     run: function (lesson, files, hooks) {
       hooks = hooks || {};
+      if (lesson.kind === "shell") return runShell(lesson, files, hooks);
       return (lesson.kind === "js") ? runJS(lesson, files, hooks) : runWeb(lesson, files, hooks);
     }
   };

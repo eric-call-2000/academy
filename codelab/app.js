@@ -110,6 +110,7 @@
   function chipOf(lesson) {
     if (lesson.project) return "PROJECT";
     if (lesson.kind === "quiz") return "QUIZ";
+    if (lesson.kind === "shell") return lesson.chip || "SHELL";
     return lesson.chip || (lesson.kind === "js" ? "JS" : "WEB");
   }
 
@@ -951,7 +952,9 @@
     scr.appendChild(top);
 
     var tabs = el("div", "l-tabs");
-    var tabDefs = [["learn", "📖 Learn"], ["code", "✏️ Code"], ["result", lesson.kind === "js" ? "▶ Output" : "▶ Result"]];
+    var resultLabel = lesson.kind === "shell" ? "▶ Terminal" : (lesson.kind === "js" ? "▶ Output" : "▶ Result");
+    var codeLabel = lesson.kind === "shell" ? "⌨️ Commands" : "✏️ Code";
+    var tabDefs = [["learn", "📖 Learn"], ["code", codeLabel], ["result", resultLabel]];
     var tabBtns = {};
     tabDefs.forEach(function (t) {
       var b = el("button", "l-tab", t[1]);
@@ -1075,6 +1078,15 @@
     var checksOutList = el("div", "checks-out");
     checksOut.appendChild(checksOutList);
     resultIn.appendChild(checksOut);
+    /* Spec list for lessons that opt into the injected test framework
+       (lesson.spec) — the learner's own suite, drawn green/red like a real
+       Jest/Vitest run. Hidden until the sandbox streams its first run. */
+    var specBlock = el("div", "res-block spec-block");
+    specBlock.style.display = "none";
+    specBlock.appendChild(el("div", "pane-label", "Your tests"));
+    var specList = el("div", "spec-lines");
+    specBlock.appendChild(specList);
+    resultIn.appendChild(specBlock);
     var consoleBlock = el("div", "res-block");
     consoleBlock.appendChild(el("div", "pane-label", "Console"));
     var consoleList = el("div", "console-lines");
@@ -1184,6 +1196,28 @@
     }
     paintChecks();
 
+    function pushSpec(m) {
+      if (m.type === "specstart") {
+        specBlock.style.display = "";
+        specList.innerHTML = "";
+        return;
+      }
+      if (m.type === "specdone") {
+        var sum = el("div", "spec-sum " + (m.failed ? "spec-red" : "spec-green"));
+        sum.textContent = m.total === 0 ? "no tests registered — write one with it()"
+          : (m.failed ? m.failed + " failed, " + m.passed + " passed" : "✓ " + m.passed + " passed");
+        specList.appendChild(sum);
+        specList.scrollTop = specList.scrollHeight;
+        return;
+      }
+      var line = el("div", "sline " + (m.pass ? "sline-pass" : "sline-fail"));
+      line.appendChild(el("span", "sline-ic", m.pass ? "✓" : "✕"));
+      line.appendChild(el("span", "sline-tx", esc((m.suite ? m.suite + " › " : "") + m.name)));
+      specList.appendChild(line);
+      if (!m.pass && m.error) specList.appendChild(el("div", "sline-err", esc(m.error)));
+      specList.scrollTop = specList.scrollHeight;
+    }
+
     function pushConsole(m) {
       var ic = m.level === "error" ? "✕" : (m.level === "warn" ? "⚠" : "▸");
       var line = el("div", "cline cline-" + m.level);
@@ -1199,11 +1233,13 @@
       runBtn.disabled = true;
       runBtn.textContent = "⏳ Running…";
       consoleList.innerHTML = "";
+      specList.innerHTML = "";
       persistCode();
       if (drill) drillRuns++;
       runner.run(gradedLesson, editor.getFiles(), {
         previewEl: previewHost,
-        onConsole: pushConsole
+        onConsole: pushConsole,
+        onSpec: pushSpec
       }).then(function (res) {
         if (!current || current.lesson !== lesson) return;
         current.running = false;
@@ -1283,7 +1319,7 @@
     current.showContinueFoot = showContinueFoot;
 
     if (lesson.kind !== "js") {
-      runner.run(lesson, editor.getFiles(), { previewEl: previewHost, onConsole: pushConsole }).then(function () {});
+      runner.run(lesson, editor.getFiles(), { previewEl: previewHost, onConsole: pushConsole, onSpec: pushSpec }).then(function () {});
     }
   }
 
