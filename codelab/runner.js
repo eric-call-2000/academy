@@ -30,6 +30,26 @@
   function harnessCommon() {
     var g = (typeof self !== "undefined") ? self : window;
     g.__LOGS = [];
+    /* The Request constructor's headers carry guard "request", which
+       silently drops forbidden names — Origin included. Deployment lessons
+       teach CORS by constructing cross-origin Requests, so rebuild each
+       new Request's headers as a guard-free Headers (standalone Headers
+       has no guard) merged with everything the init supplied. The object
+       is still a real platform Request — instanceof, url, method, json()
+       all untouched. */
+    (function () {
+      var NR = g.Request;
+      if (typeof NR !== "function") return;
+      g.Request = function Request(input, init) {
+        var req = new NR(input, init);
+        var h = new g.Headers(req.headers);
+        if (init && init.headers) new g.Headers(init.headers).forEach(function (v, k) { h.set(k, v); });
+        else if (input instanceof NR) input.headers.forEach(function (v, k) { h.set(k, v); });
+        try { Object.defineProperty(req, "headers", { value: h, configurable: true }); } catch (e) {}
+        return req;
+      };
+      g.Request.prototype = NR.prototype;
+    })();
     // Sandboxed iframes have an opaque origin, so touching the REAL
     // localStorage throws. Give lessons a faithful in-memory stand-in.
     if (typeof window !== "undefined") {
@@ -393,11 +413,33 @@
     });
   }
 
+  /* `export default { … }` is a SyntaxError under (0,eval) in a classic
+     worker, but it is the first line of every real Cloudflare Worker — and
+     the Deploying course's whole claim is that the learner's file is
+     byte-for-byte deployable. So: rewrite the export to a var, alias it to
+     `worker` (the name checkpoints call), and comment out bare import
+     lines with a note. A file with no export/import passes through
+     untouched, so every other course is unaffected. Not a module system,
+     not a bundler, and explicitly not a step toward one. */
+  function transpileModuleish(src) {
+    var out = String(src);
+    var hadExport = /^\s*export\s+default\s+/m.test(out);
+    if (!hadExport && !/^\s*import\s/m.test(out)) return out;
+    out = out.replace(/^\s*import\s[^\n]*$/mg, function (line) {
+      return "// " + line.trim() + "   ← this sandbox has no module resolver; anything you need is already in scope";
+    });
+    if (hadExport) {
+      out = out.replace(/^\s*export\s+default\s+/m, "var __default = ");
+      out += "\n;var worker = (typeof worker !== 'undefined') ? worker : __default;";
+    }
+    return out;
+  }
+
   /* ============================================================
      JS lessons → Web Worker
      ============================================================ */
   function buildWorkerSrc(lesson, userCode) {
-    var evalBlob = String(userCode) + "\n;\n" + stepsSource(lesson);
+    var evalBlob = transpileModuleish(userCode) + "\n;\n" + stepsSource(lesson);
     return [
       'var __send = function (m) { try { postMessage(m); } catch (e) { try { postMessage({ type: "console", level: "warn", text: "(unprintable value)" }); } catch (e2) {} } };',
       "(" + harnessCommon.toString() + ")();",
@@ -417,7 +459,11 @@
     return new Promise(function (resolve) {
       var w, url;
       try {
-        url = URL.createObjectURL(new Blob([buildWorkerSrc(lesson, code)], { type: "text/javascript" }));
+        /* Every editor tab, verbatim, so checkpoints can grade text the
+           learner typed into a non-JS tab (a .gitignore, a config file)
+           without any parser — they regex __FILES["name"]. */
+        var src = "var __FILES = " + JSON.stringify(files) + ";\n" + buildWorkerSrc(lesson, code);
+        url = URL.createObjectURL(new Blob([src], { type: "text/javascript" }));
         w = new Worker(url);
       } catch (e) {
         // Environment without blob workers (some file:// setups) → hidden iframe fallback.

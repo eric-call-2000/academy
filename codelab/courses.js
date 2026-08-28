@@ -74,3 +74,10 @@ window.CODELAB.defineCourse({
   blurb: "Put it all together — client and server in one page, optimistic UI, import/export, accessibility, and NoteStream: your portfolio app.",
   files: ["cap/u1.js", "cap/u2.js", "cap/u3.js", "cap/u4.js", "cap/u5.js", "cap/u6.js"]
 });
+
+window.CODELAB.defineCourse({
+  id: "ship", prefix: "ship", title: "Deploying Your App",
+  icon: "🛰️", color: "#0891b2", level: "Intermediate", hours: 8, items: 35,
+  blurb: "From localhost to live: how a static host resolves URLs, env vars and builds, a real Cloudflare Worker with CORS, DNS, and shipping, breaking and rolling back.",
+  files: ["ship/u1.js", "ship/u2.js", "ship/u3.js", "ship/u4.js", "ship/u5.js", "ship/u6.js", "ship/u7.js"]
+});
