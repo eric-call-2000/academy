@@ -1,0 +1,351 @@
+/* ============================================================
+   CodeLab — Premium/Modern + Dark/Developer-Focused Theme
+   Reference: GitHub Dark, VS Code, Linear Dark aesthetic
+   ============================================================ */
+
+:root {
+  /* Color Palette - Deep dark theme with vibrant accents */
+  --ink: #f1f5f9;
+  --ink-soft: #94a3b8;
+  --muted: #64748b;
+  --line: #334155;
+  --bg: #0a0a0a;
+  --card: #1a1a1a;
+  --accent: #06b6d4;
+  --accent-dark: #0891b2;
+  --accent-secondary: #8b5cf6;
+  --success: #10b981;
+  --success-dark: #059669;
+  --danger: #ef4444;
+  --danger-dark: #dc2626;
+  --gold: #f59e0b;
+  --gold-dark: #d97706;
+  --orange: #f97316;
+  --yellow-dark: #ca8a04;
+  --code-bg: #0f172a;
+  --code-bg2: #1e293b;
+  --code-line: #334155;
+  --code-ink: #e2e8f0;
+  --code-inline-bg: #1e293b;
+  --code-inline-color: #38bdf8;
+  
+  /* Typography - Inter font */
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  
+  /* Decorative values - Glassmorphism and glowing effects */
+  --btn-radius: 8px;
+  --btn-shadow: 0 2px 8px rgba(6, 182, 212, 0.2);
+  --card-radius: 12px;
+  --card-shadow: 0 4px 16px rgba(0,0,0,.3);
+  --item-radius: 8px;
+  --item-hover: #1e293b;
+  --progress-height: 6px;
+  --logo-gradient: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  --hero-gradient: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  --hero-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+  --topbar-bg: rgba(10, 10, 10, .85);
+  --sheet-backdrop: rgba(0, 0, 0, .7);
+  --cert-gradient: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+}
+
+/* Glassmorphism effects */
+.topbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.pcard, .unit, .course-card {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.hero {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+/* Glowing accent borders on active elements */
+.btn-blue:hover, .btn-green:hover, .btn-red:hover, .btn-gold:hover {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+}
+
+.q-choice:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
+}
+
+.pcard:hover, .course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+/* Animated gradient accents on hero buttons */
+.hero-btns .btn-ghost {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  transition: all 0.3s ease;
+}
+.hero-btns .btn-ghost:hover {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.4);
+}
+
+/* Dark-optimized styling */
+.btn-green { background: var(--success); color: #fff; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3); }
+.btn-blue  { background: var(--accent); color: #fff; box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3); }
+.btn-red   { background: var(--danger); color: #fff; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3); }
+.btn-gold  { background: var(--gold); color: #fff; box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3); }
+.btn-ghost { background: rgba(255,255,255,.05); color: var(--ink-soft); border: 1px solid var(--line); box-shadow: none; }
+
+/* Card styling with dark theme */
+.pcard, .unit, .course-card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
+}
+
+/* Hero section with dark theme */
+.hero {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+/* Progress bars with glow */
+.hero-bar, .cc-bar {
+  height: 6px;
+  background: rgba(255,255,255,.2);
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.2);
+}
+.hero-bar i, .cc-bar i {
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+}
+
+/* Lesson rows with dark theme */
+.lrow {
+  background: transparent;
+  border: 1px solid transparent;
+}
+.lrow:hover {
+  background: var(--item-hover);
+  border-color: rgba(6, 182, 212, 0.2);
+}
+
+/* Chips with dark theme */
+.lrow-chip, .cc-chip {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+/* Toast with dark theme */
+.toast {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+}
+
+/* Sheet with dark theme */
+.sheet {
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 32px rgba(0,0,0,.5);
+}
+
+/* Code areas with dark theme */
+.cheat-code, .q-code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+
+/* Quiz choices with dark theme */
+.q-choice {
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+.q-choice:hover {
+  border-color: var(--accent);
+  background: var(--item-hover);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
+}
+.q-choice.correct {
+  border-color: var(--success);
+  background: rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+.q-choice.wrong {
+  border-color: var(--danger);
+  background: rgba(239, 68, 68, 0.1);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Input styling with dark theme */
+.pcard-input, .rv-input, .sync-code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+/* Editor styling with dark theme */
+.ed-tab {
+  background: var(--code-bg2);
+  color: var(--ink-soft);
+}
+.ed-tab.on {
+  background: var(--code-bg);
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+.ed-key {
+  background: var(--code-bg2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.ed-key:active {
+  background: var(--code-bg);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+}
+
+/* Result pane with dark theme */
+.pane-result {
+  background: var(--code-bg);
+}
+.console-lines, .spec-lines {
+  background: var(--code-bg2);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+
+/* Certificate with dark theme */
+.cert {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+}
+.cert-inner {
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+/* Recall stats with dark theme */
+.rv-stats {
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+
+/* Sync card with dark theme */
+.sync-card {
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+
+/* Overall background - deep dark */
+body {
+  background: var(--bg);
+}
+
+/* Top bar with dark theme */
+.topbar {
+  border-bottom: 1px solid var(--line);
+  background: var(--topbar-bg);
+}
+
+/* Checkpoints with dark theme */
+.chk {
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+.chk-pass {
+  border-color: var(--success);
+  background: rgba(16, 185, 129, 0.1);
+}
+.chk-fail {
+  border-color: var(--danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Brief text with dark theme */
+.brief {
+  color: var(--ink);
+}
+
+/* Quiz brief with dark theme */
+.quiz-brief {
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+/* Logo subtitle with dark theme */
+.logo-sub {
+  background: var(--logo-gradient);
+  color: #fff;
+}
+
+/* Unit head with gradient backgrounds */
+.unit-head {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+}
+
+/* Course head with gradient */
+.course-head {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+}
+
+/* Loading screen with dark theme */
+.loading-tx {
+  color: var(--ink-soft);
+}
+
+/* Hints with dark theme */
+.hint {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: var(--ink);
+}
+
+/* Feedback with dark theme */
+.q-fb.ok {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--success);
+}
+.q-fb.no {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--danger);
+}
+
+/* Recall pill with dark theme */
+.stat.rv-pill {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--accent-secondary);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+/* Recall drill with dark theme */
+.rv-drill {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+/* Sync warning with dark theme */
+.sync-warn {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: var(--gold);
+}
+
+/* Terminal with dark theme */
+.sh-term {
+  background: var(--code-bg);
+  color: var(--code-ink);
+}

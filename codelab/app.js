@@ -24,6 +24,7 @@
   var ACADEMY_KEY = "academy_users_v1";
   var REV = window.CODELAB.review;
   var SYNC = window.CODELAB.sync;
+  var THEME_KEY = "codelab_theme_v1";
   /* One id per browser, so lifetime counters can be kept per device and
      summed instead of being double-counted or clobbered on a handoff. */
   var DEVICE_KEY = "codelab_device_v1";
@@ -48,6 +49,76 @@
   /* One line to reverse if the flame should go back to meaning "I completed
      a lesson" rather than "I studied today". See the README note. */
   var REVIEW_BUMPS_STREAK = true;
+
+  /* ---------- Theme Management ---------- */
+  var THEMES = {
+    "original": { name: "Original", path: "themes/original/theme.css" },
+    "premium-minimal": { name: "Premium Minimal", path: "themes/premium-minimal/theme.css" },
+    "premium-dark": { name: "Premium Dark", path: "themes/premium-dark/theme.css" },
+    "technical-minimal": { name: "Technical Minimal", path: "themes/technical-minimal/theme.css" },
+    "technical-dark": { name: "Technical Dark", path: "themes/technical-dark/theme.css" }
+  };
+
+  function getCurrentTheme() {
+    try {
+      return localStorage.getItem(THEME_KEY) || "original";
+    } catch (e) {
+      return "original";
+    }
+  }
+
+  function setTheme(themeId) {
+    var themeCss = document.getElementById("theme-css");
+    if (themeCss && THEMES[themeId]) {
+      themeCss.href = THEMES[themeId].path;
+      try {
+        localStorage.setItem(THEME_KEY, themeId);
+      } catch (e) {}
+    }
+  }
+
+  function initTheme() {
+    setTheme(getCurrentTheme());
+  }
+
+  function renderThemeSwitcher() {
+    var currentTheme = getCurrentTheme();
+    var modal = el("div", "sheet-backdrop");
+    
+    var content = el("div", "sheet");
+    var header = el("div", "sheet-head");
+    header.appendChild(el("div", "sheet-title", "Choose Theme"));
+    var closeBtn = el("button", "sheet-x", "×");
+    closeBtn.onclick = function () { modal.remove(); };
+    header.appendChild(closeBtn);
+    content.appendChild(header);
+
+    var themeList = el("div", "");
+    Object.keys(THEMES).forEach(function (themeId) {
+      var theme = THEMES[themeId];
+      var themeOption = el("button", "btn btn-ghost", theme.name);
+      themeOption.style.width = "100%";
+      themeOption.style.marginBottom = "8px";
+      themeOption.style.textAlign = "left";
+      if (themeId === currentTheme) {
+        themeOption.style.background = "var(--accent)";
+        themeOption.style.color = "#fff";
+        themeOption.style.borderColor = "var(--accent)";
+      }
+      themeOption.onclick = function () {
+        setTheme(themeId);
+        modal.remove();
+      };
+      themeList.appendChild(themeOption);
+    });
+    content.appendChild(themeList);
+
+    modal.appendChild(content);
+    modal.onclick = function (e) {
+      if (e.target === modal) modal.remove();
+    };
+    document.body.appendChild(modal);
+  }
   var REVIEW_MIN_SESSION = 5;   // graded cards that count as a real session
   var ACADEMY_TRACK = "fullstack";
 
@@ -433,6 +504,13 @@
     }
     stats.appendChild(el("div", "stat streak", '<span class="ico">🔥</span>' + u.streak));
     stats.appendChild(el("div", "stat xp", '<span class="ico">⭐</span>' + u.xp));
+    
+    /* Theme switcher button */
+    var themeBtn = el("button", "stat", '<span class="ico">🎨</span>');
+    themeBtn.title = "Switch theme";
+    themeBtn.onclick = renderThemeSwitcher;
+    stats.appendChild(themeBtn);
+    
     var chip = el("button", "user-chip");
     chip.innerHTML = '<span class="user-av" style="background:' + avatarColor(store.currentUser) + '">' + initial(store.currentUser) + "</span>" +
       '<span class="user-name">' + esc(store.currentUser) + "</span>";
@@ -466,6 +544,13 @@
     var scr = el("div", "profiles");
     scr.appendChild(el("div", "logo", '<span class="logo-ic">⚡</span> CodeLab'));
     scr.appendChild(el("div", "logo-sub", PATH_TITLE));
+    
+    /* Theme switcher button */
+    var themeBtn = el("button", "btn btn-ghost btn-small", "🎨 Theme");
+    themeBtn.style.marginTop = "12px";
+    themeBtn.onclick = renderThemeSwitcher;
+    scr.appendChild(themeBtn);
+    
     var names = allProfileNames();
     scr.appendChild(el("h1", "profiles-title", names.length ? "Who's coding?" : "Welcome! Create your profile"));
 
@@ -2268,6 +2353,7 @@
   };
 
   /* ---------- boot ---------- */
+  initTheme(); // Initialize theme system
   if (!COURSES.length) {
     app.innerHTML = '<div style="padding:40px;text-align:center;font-weight:800;color:#777">No courses found. Make sure courses.js is present.</div>';
   } else if (store.currentUser && store.users[store.currentUser]) {

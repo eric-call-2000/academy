@@ -1,0 +1,100 @@
+/* ============================================================
+   CodeLab — Premium/Modern + Minimalist/Clean Theme
+   Reference: Linear, Vercel, Stripe aesthetic
+   ============================================================ */
+
+:root {
+  /* Color Palette - Monochromatic slate with electric blue accent */
+  --ink: #1e293b;
+  --ink-soft: #64748b;
+  --muted: #94a3b8;
+  --line: #e2e8f0;
+  --bg: #ffffff;
+  --card: #ffffff;
+  --accent: #3b82f6;
+  --accent-dark: #2563eb;
+  --accent-secondary: #6366f1;
+  --success: #10b981;
+  --success-dark: #059669;
+  --danger: #ef4444;
+  --danger-dark: #dc2626;
+  --gold: #f59e0b;
+  --gold-dark: #d97706;
+  --orange: #f97316;
+  --yellow-dark: #ca8a04;
+  --code-bg: #f8fafc;
+  --code-bg2: #f1f5f9;
+  --code-line: #e2e8f0;
+  --code-ink: #334155;
+  --code-inline-bg: #eff6ff;
+  --code-inline-color: #1d4ed8;
+  
+  /* Typography - Inter font */
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  
+  /* Decorative values - Flat design, no shadows */
+  --btn-radius: 8px;
+  --btn-shadow: none;
+  --card-radius: 12px;
+  --card-shadow: none;
+  --item-radius: 8px;
+  --item-hover: #f8fafc;
+  --progress-height: 4px;
+  --logo-gradient: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  --hero-gradient: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  --hero-shadow: none;
+  --topbar-bg: rgba(255,255,255,.95);
+  --sheet-backdrop: rgba(15, 23, 42, .4);
+  --cert-gradient: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+}
+
+/* Theme-specific overrides that need element-level changes */
+.btn-green, .btn-blue, .btn-red, .btn-gold { box-shadow: none; }
+.btn-ghost { border: 1px solid var(--line); box-shadow: none; }
+
+.pcard, .unit, .course-card { box-shadow: none; border: 1px solid var(--line); }
+.hero { box-shadow: none; border: 1px solid var(--line); }
+
+.pcard:hover, .course-card:hover { 
+  transform: translateY(-1px); 
+  box-shadow: 0 1px 3px rgba(0,0,0,.05); 
+}
+
+.unit { margin-bottom: 28px; }
+.lessons { padding: 12px; gap: 8px; }
+.lrow { padding: 14px; }
+
+.hero-bar, .cc-bar { height: 4px; background: var(--line); }
+
+.lrow-status, .avatar, .pcard { border-radius: 8px; }
+
+.lrow-chip, .cc-chip { border-radius: 4px; font-size: 9px; letter-spacing: 0.5px; }
+
+.toast { border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+.sheet { border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+
+.cheat-code, .q-code { border: 1px solid var(--line); }
+
+.q-choice { border-radius: 8px; border: 1px solid var(--line); box-shadow: none; }
+.q-choice:hover { border-color: var(--accent); background: #f8fafc; }
+.q-choice.correct { border-color: var(--success); background: #f0fdf4; }
+.q-choice.wrong { border-color: var(--danger); background: #fef2f2; }
+
+.pcard-input, .rv-input, .sync-code { border-radius: 6px; border: 1px solid var(--line); }
+
+.ed-tab { border-radius: 6px 6px 0 0; }
+.ed-key { border-radius: 6px; border: 1px solid var(--line); background: #f1f5f9; color: var(--ink); }
+.ed-key:active { background: #e2e8f0; }
+
+.pane-result { background: #f8fafc; }
+.console-lines, .spec-lines { background: #fff; border: 1px solid var(--line); }
+
+.cert { border: 1px solid var(--line); box-shadow: none; }
+.cert-inner { border: 1px solid var(--line); }
+
+.rv-stats { border: 1px solid var(--line); box-shadow: none; }
+.sync-card { border: 1px solid var(--line); box-shadow: none; }
+
+body { background: #ffffff; }
+.topbar { border-bottom: 1px solid var(--line); background: rgba(255,255,255,.95); }
