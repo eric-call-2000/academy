@@ -1,0 +1,602 @@
+/* ============================================================
+   CodeLab — Technical/Developer-Focused + Dark/Developer-Focused Theme
+   Reference: Vim, terminal interfaces, CLI aesthetics
+   ============================================================ */
+
+:root {
+  /* Color Palette - True terminal/dark mode palette */
+  --ink: #e5e5e5;
+  --ink-soft: #a3a3a3;
+  --muted: #737373;
+  --line: #404040;
+  --bg: #000000;
+  --card: #111111;
+  --accent: #00ff00;
+  --accent-dark: #00cc00;
+  --accent-secondary: #ffb000;
+  --success: #00ff00;
+  --success-dark: #00cc00;
+  --danger: #ff4444;
+  --danger-dark: #cc0000;
+  --gold: #ffb000;
+  --gold-dark: #cc8800;
+  --orange: #ff8800;
+  --yellow-dark: #cc6600;
+  --code-bg: #0a0a0a;
+  --code-bg2: #111111;
+  --code-line: #262626;
+  --code-ink: #d4d4d4;
+  --code-inline-bg: #1a1a1a;
+  --code-inline-color: #00ff00;
+  
+  /* Typography - Monospace throughout */
+  --font: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  
+  /* Decorative values - Sharp corners, terminal aesthetics */
+  --btn-radius: 0px;
+  --btn-shadow: none;
+  --card-radius: 0px;
+  --card-shadow: none;
+  --item-radius: 0px;
+  --item-hover: #1a1a1a;
+  --progress-height: 2px;
+  --logo-gradient: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  --hero-gradient: linear-gradient(90deg, #1a1a1a, #262626);
+  --hero-shadow: none;
+  --topbar-bg: #111111;
+  --sheet-backdrop: rgba(0, 0, 0, .8);
+  --cert-gradient: linear-gradient(90deg, #1a1a1a, #262626);
+}
+
+/* Terminal-style button styles */
+.btn-green { background: var(--success); color: #000; box-shadow: none; border: 1px solid var(--success); }
+.btn-blue  { background: var(--accent); color: #000; box-shadow: none; border: 1px solid var(--accent); }
+.btn-red   { background: var(--danger); color: #000; box-shadow: none; border: 1px solid var(--danger); }
+.btn-gold  { background: var(--gold); color: #000; box-shadow: none; border: 1px solid var(--gold); }
+.btn-ghost { background: #111111; color: var(--ink-soft); border: 1px solid var(--line); box-shadow: none; }
+
+/* Sharp corners, ASCII-style borders */
+.pcard, .unit, .course-card {
+  border-radius: 0px;
+  border: 1px solid var(--line);
+  box-shadow: none;
+  background: #111111;
+}
+
+/* Hero section - terminal style */
+.hero {
+  border-radius: 0px;
+  box-shadow: none;
+  border: 1px solid var(--line);
+  background: #111111;
+}
+
+/* Terminal-style hover effects */
+.pcard:hover, .course-card:hover {
+  border-color: var(--accent);
+  transform: none;
+  background: #1a1a1a;
+}
+
+/* Dense spacing */
+.unit { margin-bottom: 16px; }
+.lessons { padding: 4px; gap: 2px; }
+.lrow { padding: 8px; }
+
+/* Terminal-style progress bars */
+.hero-bar, .cc-bar {
+  height: 2px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.hero-bar i, .cc-bar i {
+  background: var(--accent);
+  height: 100%;
+}
+
+/* Sharp corners, no rounding */
+.lrow-status, .avatar, .pcard {
+  border-radius: 0px;
+}
+
+/* Terminal-style chips */
+.lrow-chip, .cc-chip {
+  border-radius: 0px;
+  font-size: 10px;
+  letter-spacing: 0;
+  border: 1px solid var(--line);
+  background: #1a1a1a;
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
+/* Terminal-style toast */
+.toast {
+  border-radius: 0px;
+  box-shadow: none;
+  border: 1px solid var(--line);
+  background: #111111;
+  color: var(--ink);
+  font-family: var(--mono);
+}
+
+/* Sheet styling - terminal style */
+.sheet {
+  border-radius: 0px;
+  box-shadow: none;
+  border: 1px solid var(--line);
+  background: #111111;
+}
+
+/* Code areas - terminal style */
+.cheat-code, .q-code {
+  border: 1px solid var(--line);
+  border-radius: 0px;
+  background: #0a0a0a;
+}
+
+/* Terminal-style quiz choices */
+.q-choice {
+  border-radius: 0px;
+  border: 1px solid var(--line);
+  box-shadow: none;
+  background: #111111;
+  font-family: var(--mono);
+}
+.q-choice:hover {
+  border-color: var(--accent);
+  background: #1a1a1a;
+}
+.q-choice.correct {
+  border-color: var(--success);
+  background: #0a1a0a;
+}
+.q-choice.wrong {
+  border-color: var(--danger);
+  background: #1a0a0a;
+}
+
+/* Input styling - terminal feel */
+.pcard-input, .rv-input, .sync-code {
+  border-radius: 0px;
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  background: #0a0a0a;
+  color: var(--ink);
+}
+
+/* Editor styling - terminal feel */
+.ed-tab {
+  border-radius: 0px;
+  border: 1px solid var(--line);
+  border-bottom: 2px solid var(--line);
+  background: #111111;
+  color: var(--ink-soft);
+}
+.ed-tab.on {
+  border-bottom: 2px solid var(--accent);
+  background: #0a0a0a;
+  color: var(--accent);
+}
+.ed-key {
+  border-radius: 0px;
+  border: 1px solid var(--line);
+  background: #111111;
+  color: var(--ink);
+}
+.ed-key:active {
+  background: #1a1a1a;
+  border-color: var(--accent);
+}
+
+/* Result pane - terminal feel */
+.pane-result {
+  background: #0a0a0a;
+}
+.console-lines, .spec-lines {
+  background: #111111;
+  border: 1px solid var(--line);
+  border-radius: 0px;
+}
+
+/* Certificate styling - terminal style */
+.cert {
+  border: 1px solid var(--line);
+  box-shadow: none;
+  border-radius: 0px;
+  background: #111111;
+}
+.cert-inner {
+  border: 1px solid var(--line);
+  border-radius: 0px;
+  background: #0a0a0a;
+}
+
+/* Recall stats - terminal style */
+.rv-stats {
+  border: 1px solid var(--line);
+  box-shadow: none;
+  border-radius: 0px;
+  background: #111111;
+}
+
+/* Sync card - terminal style */
+.sync-card {
+  border: 1px solid var(--line);
+  box-shadow: none;
+  border-radius: 0px;
+  background: #111111;
+}
+
+/* Overall background - pure black */
+body {
+  background: #000000;
+  font-family: var(--mono);
+}
+
+/* Top bar - terminal style */
+.topbar {
+  border-bottom: 1px solid var(--line);
+  background: #111111;
+  font-family: var(--mono);
+}
+
+/* Blinking cursor animation on active elements */
+.btn:focus, .pcard-input:focus, .rv-input:focus {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% { border-color: var(--accent); }
+}
+
+/* Terminal-style status bars */
+.stat {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+/* Technical metadata visible */
+.lrow-meta, .cc-count {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+
+/* Status indicators using terminal colors */
+.lrow-status.ok {
+  background: var(--success);
+  color: #000;
+}
+
+/* Brief text with terminal typography */
+.brief {
+  font-family: var(--mono);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+/* Code inline with terminal styling */
+.cheat-h code, .cheat-note code, .brief code, .chk-text code, .q-prompt code, .q-choice code, .hint code, .q-fb code {
+  background: #1a1a1a;
+  color: var(--accent);
+  border: 1px solid var(--line);
+  border-radius: 0px;
+}
+
+/* Checkpoints with terminal styling */
+.chk {
+  border-radius: 0px;
+  border: 1px solid var(--line);
+  background: #111111;
+}
+.chk-pass {
+  border-color: var(--success);
+  background: #0a1a0a;
+}
+.chk-fail {
+  border-color: var(--danger);
+  background: #1a0a0a;
+}
+
+/* Hints with terminal styling */
+.hint {
+  background: #1a1a0a;
+  border: 1px solid var(--gold);
+  border-radius: 0px;
+  color: var(--gold);
+}
+
+/* Feedback with terminal styling */
+.q-fb.ok {
+  background: #0a1a0a;
+  border: 1px solid var(--success);
+  border-radius: 0px;
+}
+.q-fb.no {
+  background: #1a0a0a;
+  border: 1px solid var(--danger);
+  border-radius: 0px;
+}
+
+/* Quiz brief with terminal styling */
+.quiz-brief {
+  border: 1px solid var(--line);
+  border-radius: 0px;
+  background: #111111;
+  font-family: var(--mono);
+}
+
+/* Logo subtitle - terminal feel */
+.logo-sub {
+  background: #111111;
+  color: var(--accent);
+  border: 1px solid var(--line);
+  border-radius: 0px;
+}
+
+/* Unit head - terminal style */
+.unit-head {
+  background: #111111;
+  border: 1px solid var(--line);
+  border-radius: 0px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Course head - terminal feel */
+.course-head {
+  border-radius: 0px;
+  box-shadow: none;
+  border: 1px solid var(--line);
+  background: #111111;
+}
+
+/* Loading screen - terminal */
+.loading-tx {
+  color: var(--ink-soft);
+  font-family: var(--mono);
+}
+
+/* Recall pill - terminal */
+.stat.rv-pill {
+  background: #111111;
+  color: var(--accent-secondary);
+  border: 1px solid var(--line);
+  border-radius: 0px;
+}
+
+/* Recall drill - terminal */
+.rv-drill {
+  background: #111111;
+  border: 1px solid var(--line);
+  border-radius: 0px;
+}
+
+/* Sync warning - terminal */
+.sync-warn {
+  background: #1a1a0a;
+  border: 1px solid var(--gold);
+  border-radius: 0px;
+  color: var(--gold);
+}
+
+/* Terminal - terminal feel */
+.sh-term {
+  background: #0a0a0a;
+  color: var(--accent);
+  border: 1px solid var(--line);
+  border-radius: 0px;
+  font-family: var(--mono);
+}
+
+/* Status badges using terminal colors */
+.lrow-chip {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Chip colors - terminal palette */
+.chip-js { background: #1a1a0a; color: var(--gold); border-color: var(--gold); }
+.chip-css { background: #0a0a1a; color: var(--accent-secondary); border-color: var(--accent-secondary); }
+.chip-html { background: #1a1a0a; color: var(--orange); border-color: var(--orange); }
+.chip-dom { background: #0a1a0a; color: var(--success); border-color: var(--success); }
+.chip-api { background: #0a0a1a; color: var(--accent); border-color: var(--accent); }
+.chip-server { background: #111111; color: var(--ink-soft); border-color: var(--line); }
+.chip-quiz { background: #1a0a1a; color: var(--accent-secondary); border-color: var(--accent-secondary); }
+.chip-project { background: #1a1a0a; color: var(--gold); border-color: var(--gold); }
+
+/* Progress indicator - terminal style */
+.hero-bar i, .cc-bar i {
+  background: var(--accent);
+}
+
+/* User chip - terminal */
+.user-chip {
+  border: 1px solid var(--line);
+  background: #111111;
+  font-family: var(--mono);
+}
+
+/* Logo - terminal feel */
+.logo {
+  font-family: var(--mono);
+  letter-spacing: 0;
+}
+
+/* Pane label - terminal */
+.pane-label {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+
+/* Command-line navigation hints */
+.l-kicker {
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
+/* Terminal-style progress bar text representation */
+.hero-pct, .cc-count {
+  font-family: var(--mono);
+  color: var(--accent);
+}
+
+/* Status bar at bottom - terminal style */
+.l-foot {
+  background: #111111;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+}
+
+/* Lesson top bar - terminal style */
+.l-top {
+  background: #111111;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+}
+
+/* Tab styling - terminal */
+.l-tab {
+  font-family: var(--mono);
+  color: var(--ink-soft);
+}
+.l-tab.on {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Avatar - terminal style */
+.avatar {
+  background: #111111;
+  border: 1px solid var(--line);
+  color: var(--accent);
+}
+
+/* Add avatar - terminal */
+.add-avatar {
+  background: #111111;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+}
+
+/* Course card header - terminal */
+.cc-head {
+  background: #111111;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Course card body - terminal */
+.cc-body {
+  background: #0a0a0a;
+}
+
+/* Course chip - terminal */
+.cc-chip {
+  background: #1a1a1a;
+  border: 1px solid var(--line);
+  color: var(--accent);
+}
+
+/* Unit ring - terminal */
+.unit-ring {
+  color: var(--accent);
+}
+
+/* Cheat button - terminal */
+.cheat-btn {
+  background: #1a1a1a;
+  border: 1px solid var(--line);
+  color: var(--accent);
+}
+
+/* Footer note - terminal */
+.footer-note {
+  color: var(--ink-soft);
+  font-family: var(--mono);
+}
+
+/* Reset link - terminal */
+.reset-link {
+  color: var(--ink-soft);
+}
+
+/* Connection pill - terminal */
+.conn-pill {
+  background: #1a1a1a;
+  border: 1px solid var(--line);
+  color: var(--accent);
+}
+
+/* Hero kicker - terminal */
+.hero-kicker {
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
+/* Hero buttons - terminal */
+.hero-btns .btn-ghost {
+  background: #1a1a1a;
+  border: 1px solid var(--line);
+  color: var(--accent);
+}
+
+/* Course kicker - terminal */
+.course-kicker {
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
+/* Course back button - terminal */
+.course-back {
+  background: #1a1a1a;
+  border: 1px solid var(--line);
+  color: var(--accent);
+}
+
+/* Loading icon - terminal */
+.loading-ic {
+  color: var(--accent);
+}
+
+/* Quiz kicker - terminal */
+.q-kicker {
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
+/* Recall source - terminal */
+.rv-src {
+  background: #1a1a1a;
+  border: 1px solid var(--line);
+  color: var(--accent);
+}
+
+/* Recall cant - terminal */
+.rv-cant {
+  color: var(--ink-soft);
+}
+
+/* Sync code - terminal */
+.sync-code {
+  background: #0a0a0a;
+  color: var(--accent);
+}
+
+/* Sync list - terminal */
+.sync-list {
+  color: var(--ink);
+  font-family: var(--mono);
+}
+
+/* Optional: Sound effects class (would need JS implementation) */
+.terminal-beep {
+  cursor: pointer;
+}
+.terminal-beep:active {
+  /* This would trigger a beep sound via JS */
+}

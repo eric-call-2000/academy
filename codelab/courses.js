@@ -76,8 +76,73 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
+  id: "sec", prefix: "sec", title: "Web Security Basics",
+  icon: "🛡️", color: "#dc2626", level: "Intermediate", hours: 7, items: 33,
+  blurb: "Break your own app, then defend it: XSS you can watch fire, escaping and sanitizing, injection, secrets in shipped source, auth and password storage, and the security headers that harden what ships.",
+  files: ["sec/u1.js", "sec/u2.js", "sec/u3.js", "sec/u4.js", "sec/u5.js", "sec/u6.js", "sec/u7.js"]
+});
+
+window.CODELAB.defineCourse({
   id: "ship", prefix: "ship", title: "Deploying Your App",
   icon: "🛰️", color: "#0891b2", level: "Intermediate", hours: 8, items: 35,
   blurb: "From localhost to live: how a static host resolves URLs, env vars and builds, a real Cloudflare Worker with CORS, DNS, and shipping, breaking and rolling back.",
   files: ["ship/u1.js", "ship/u2.js", "ship/u3.js", "ship/u4.js", "ship/u5.js", "ship/u6.js", "ship/u7.js"]
+});
+
+// Backend Specialist Track
+window.CODELAB.defineCourse({
+  id: "nodejs", prefix: "nodejs", title: "Node.js Deep Dive",
+  icon: "⚡", color: "#68a063", level: "Advanced", hours: 10, items: 36,
+  blurb: "Event loop, streams, buffers, file system, modules, npm ecosystem, error handling, debugging, performance, and clustering — production Node.js patterns.",
+  files: ["nodejs/u1.js", "nodejs/u2.js", "nodejs/u3.js", "nodejs/u4.js", "nodejs/u5.js", "nodejs/u6.js"]
+});
+
+window.CODELAB.defineCourse({
+  id: "db", prefix: "db", title: "Database Mastery",
+  icon: "🗄️", color: "#eab308", level: "Advanced", hours: 12, items: 42,
+  blurb: "SQL fundamentals, database design, normalization, indexes, migrations, NoSQL basics, ORM patterns, transactions, and performance tuning — the data layer mastered.",
+  files: ["db/u1.js", "db/u2.js", "db/u3.js", "db/u4.js", "db/u5.js", "db/u6.js", "db/u7.js"]
+});
+
+window.CODELAB.defineCourse({
+  id: "api", prefix: "api", title: "Advanced API Design",
+  icon: "🔌", color: "#8b5cf6", level: "Advanced", hours: 10, items: 38,
+  blurb: "REST best practices, GraphQL fundamentals, API versioning, rate limiting, caching strategies, pagination, filtering, and documentation — production-grade APIs.",
+  files: ["api/u1.js", "api/u2.js", "api/u3.js", "api/u4.js", "api/u5.js", "api/u6.js"]
+});
+
+window.CODELAB.defineCourse({
+  id: "auth", prefix: "auth", title: "Authentication & Security",
+  icon: "🔐", color: "#ef4444", level: "Advanced", hours: 9, items: 36,
+  blurb: "Password hashing, JWT implementation, OAuth 2.0 flows, session management, CSRF protection, CORS configuration, security headers, and building secure auth systems.",
+  files: ["auth/u1.js", "auth/u2.js", "auth/u3.js", "auth/u4.js", "auth/u5.js", "auth/u6.js"]
+});
+
+// DevOps/Engineering Track
+window.CODELAB.defineCourse({
+  id: "git", prefix: "git", title: "Git & Version Control Mastery",
+  icon: "📦", color: "#f97316", level: "Intermediate", hours: 8, items: 32,
+  blurb: "Git fundamentals, branching strategies (Gitflow, trunk-based), collaboration workflows, PRs, code review, conflict resolution, Git hooks, and team Git practices.",
+  files: ["git/u1.js", "git/u2.js", "git/u3.js", "git/u4.js", "git/u5.js"]
+});
+
+window.CODELAB.defineCourse({
+  id: "cicd", prefix: "cicd", title: "CI/CD Pipelines",
+  icon: "🔄", color: "#06b6d4", level: "Advanced", hours: 10, items: 38,
+  blurb: "CI concepts, GitHub Actions workflows, automated testing, linting, builds, pipeline stages, artifact management, environment-specific deployments, and rollback strategies.",
+  files: ["cicd/u1.js", "cicd/u2.js", "cicd/u3.js", "cicd/u4.js", "cicd/u5.js", "cicd/u6.js"]
+});
+
+window.CODELAB.defineCourse({
+  id: "docker", prefix: "docker", title: "Docker & Containers",
+  icon: "🐳", color: "#2563eb", level: "Advanced", hours: 11, items: 42,
+  blurb: "Container concepts, Dockerfile best practices, multi-stage builds, layer caching, Docker Compose, networking, volumes, container orchestration basics, and security in containers.",
+  files: ["docker/u1.js", "docker/u2.js", "docker/u3.js", "docker/u4.js", "docker/u5.js", "docker/u6.js", "docker/u7.js"]
+});
+
+window.CODELAB.defineCourse({
+  id: "cloud", prefix: "cloud", title: "Cloud Platforms & Deployment",
+  icon: "☁️", color: "#7c3aed", level: "Advanced", hours: 9, items: 36,
+  blurb: "Cloud concepts (IaaS, PaaS, serverless), deployment strategies (blue-green, canary, rolling), environment variables, configuration management, monitoring, logging, cost optimization, and disaster recovery.",
+  files: ["cloud/u1.js", "cloud/u2.js", "cloud/u3.js", "cloud/u4.js", "cloud/u5.js", "cloud/u6.js"]
 });
