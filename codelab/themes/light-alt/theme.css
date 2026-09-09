@@ -1,0 +1,132 @@
+/* ============================================================
+   CodeLab — Alternative Light (slot 4)
+   "Solar": the Solarized Light palette, tuned for reading —
+   amber paper, cyan/blue accents, deliberately low contrast.
+   Reference: Solarized Light (Ethan Schoonover).
+   ============================================================ */
+
+:root {
+  --ink: #586e75;
+  --ink-soft: #657b83;
+  --muted: #93a1a1;
+  --line: #eae3cf;
+  --bg: #fdf6e3;
+  --card: #fffbef;
+  --accent: #268bd2;
+  --accent-dark: #1f6f9f;
+  --accent-secondary: #2aa198;
+  --success: #859900;
+  --success-dark: #6b7c00;
+  --danger: #dc322f;
+  --danger-dark: #b52a27;
+  --gold: #b58900;
+  --gold-dark: #96720a;
+  --orange: #cb4b16;
+  --yellow-dark: #96720a;
+  --code-bg: #073642;
+  --code-bg2: #0a3f4d;
+  --code-line: #0d4a5a;
+  --code-ink: #eee8d5;
+  --code-inline-bg: #eee8d5;
+  --code-inline-color: #cb4b16;
+  --font: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --btn-radius: 10px;
+  --btn-shadow: none;
+  --card-radius: 12px;
+  --card-shadow: 0 1px 2px rgba(101, 123, 131, .14);
+  --item-radius: 8px;
+  --item-hover: #f3ecd6;
+  --progress-height: 6px;
+  --logo-gradient: linear-gradient(90deg, #268bd2, #2aa198);
+  --hero-gradient: linear-gradient(135deg, #268bd2, #2aa198);
+  --hero-shadow: 0 8px 22px rgba(38, 139, 210, .22);
+  --topbar-bg: rgba(253, 246, 227, .9);
+  --sheet-backdrop: rgba(0, 43, 54, .5);
+  --cert-gradient: linear-gradient(135deg, #268bd2, #2aa198);
+}
+
+/* ---- surfaces ---- */
+body { background: var(--bg); }
+.topbar { background: var(--topbar-bg); border-bottom: 1px solid var(--line); }
+.pcard, .unit, .course-card { background: var(--card); border: 1px solid var(--line); }
+.user-chip { background: var(--card); border: 1px solid var(--line); }
+
+/* ---- buttons — flat, calm ---- */
+.btn-green, .btn-blue, .btn-red, .btn-gold { box-shadow: none; }
+.btn-ghost { background: var(--card); border: 1px solid var(--line); color: var(--ink-soft); box-shadow: none; }
+
+/* ---- overlays ---- */
+.sheet { background: var(--card); }
+.sheet-cert { background: #f3ecd6; }
+.cert-inner { background: var(--card); border-color: #cfe6d9; }
+
+/* ---- learn pane ---- */
+.brief { color: var(--ink); }
+.chk { background: var(--card); border: 1px solid var(--line); }
+.chk-pass { border-color: #c3cf7a; background: #f3f3d9; }
+.chk-fail { border-color: #e8b4b3; background: #fbeae9; }
+.chk-msg { color: var(--danger-dark); }
+.hint { background: #f7f0d0; border: 1px solid #e4d9a5; color: var(--ink); }
+.quiz-brief { background: var(--card); border: 1px solid var(--line); }
+
+/* ---- quiz ---- */
+.q-choice { background: var(--card); border: 1px solid var(--line); box-shadow: 0 1px 2px rgba(101, 123, 131, .1); }
+.q-choice:not(:disabled):hover { border-color: var(--accent); }
+.q-choice.correct { border-color: var(--success); background: #f3f3d9; box-shadow: none; }
+.q-choice.wrong { border-color: var(--danger); background: #fbeae9; box-shadow: none; }
+.q-fb.ok { background: #f3f3d9; border: 2px solid #c3cf7a; }
+.q-fb.no { background: #fbeae9; border: 2px solid #e8b4b3; }
+
+/* ---- lesson rows / chips ---- */
+.lrow.project { background: #f7f0d0; border-color: #e4d9a5; }
+.lrow.project:hover { background: #f2e9c2; }
+.lrow-chip { background: #e7edd6; color: #5f6b00; }
+.chip-js { background: #f7f0d0; color: #96720a; }
+.chip-css { background: #e8e6f4; color: #4b4f9c; }
+.chip-html { background: #f7e4d5; color: #a5401a; }
+.chip-dom { background: #e7edd6; color: #5f6b00; }
+.chip-api { background: #d9ede9; color: #1a6b64; }
+.chip-server { background: #eee8d5; color: #586e75; }
+.chip-quiz { background: #f3ddec; color: #a02368; }
+.chip-project { background: #f7f0d0; color: #96720a; }
+.pcard-del:hover { background: #fbeae9; color: var(--danger); }
+
+/* ---- lesson workspace chrome ---- */
+.l-top, .l-tabs { background: var(--card); border-bottom: 1px solid var(--line); }
+.l-foot { background: var(--card); border-top: 1px solid var(--line); }
+.l-tab { color: var(--muted); }
+.l-tab.on { color: var(--accent-dark); border-bottom-color: var(--accent); }
+
+/* ---- editor + result (stay dark — Solarized base02/03) ---- */
+.ed-tab { background: #0a3f4d; color: #93a1a1; }
+.ed-tab.on { background: #073642; color: #eee8d5; }
+.ed-key { background: #0a3f4d; color: #eee8d5; border: 1px solid #0d4a5a; }
+.ed-key:active { background: #0d4a5a; }
+.pane-result { background: #002b36; }
+.console-lines { background: #002b36; border-color: #0d4a5a; }
+.sh-term { background: #073642; color: #eee8d5; }
+
+/* ---- inputs ---- */
+.pcard-input, .rv-input, .sync-code { background: var(--card); border: 1px solid var(--line); border-radius: 8px; color: var(--ink); }
+.pcard-input:focus, .rv-input:focus, .sync-code:focus { border-color: var(--accent); }
+.rv-input:disabled { background: #f3ecd6; color: var(--muted); }
+
+/* ---- Recall ---- */
+.rv-stats { background: var(--card); border: 1px solid var(--line); }
+.rv-line { color: var(--ink-soft); }
+.rv-line.strong { color: var(--ink); }
+.rv-line.dim { color: var(--muted); }
+.rv-src { background: #f3ecd6; color: var(--ink-soft); }
+.rv-src:hover { background: #eee8d5; }
+.rv-why { color: var(--ink-soft); }
+.rv-cant { color: var(--muted); }
+.rv-drill { background: #eef3ec; border: 1px solid #cfe0c9; }
+.l-kicker.drill { color: var(--success-dark); }
+.stat.rv-pill { background: #e8e6f4; color: #4b4f9c; }
+
+/* ---- Handoff ---- */
+.sync-card { background: #d9ede9; border: 1px solid #a9d6cd; }
+.sync-list { color: var(--ink); }
+.sync-warn { background: #f7f0d0; border: 1px solid #e4d9a5; color: #7a5b00; }
