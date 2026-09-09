@@ -51,17 +51,20 @@
   var REVIEW_BUMPS_STREAK = true;
 
   /* ---------- Theme Management ---------- */
+  /* Four slots: the friendly Base, plus one each of Professional, Dark,
+     and an alternative Light. Object order is the order shown in the picker.
+     "original" keeps its id so existing saved preferences still resolve. */
   var THEMES = {
-    "original": { name: "Original", path: "themes/original/theme.css" },
-    "premium-minimal": { name: "Premium Minimal", path: "themes/premium-minimal/theme.css" },
-    "premium-dark": { name: "Premium Dark", path: "themes/premium-dark/theme.css" },
-    "technical-minimal": { name: "Technical Minimal", path: "themes/technical-minimal/theme.css" },
-    "technical-dark": { name: "Technical Dark", path: "themes/technical-dark/theme.css" }
+    "original": { name: "Base", path: "themes/original/theme.css" },
+    "professional": { name: "Professional", path: "themes/professional/theme.css" },
+    "dark": { name: "Dark", path: "themes/dark/theme.css" },
+    "light-alt": { name: "Alternative Light", path: "themes/light-alt/theme.css" }
   };
 
   function getCurrentTheme() {
     try {
-      return localStorage.getItem(THEME_KEY) || "original";
+      var t = localStorage.getItem(THEME_KEY);
+      return (t && THEMES[t]) ? t : "original";
     } catch (e) {
       return "original";
     }

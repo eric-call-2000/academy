@@ -1,0 +1,76 @@
+/* ============================================================
+   CodeLab — Professional (slot 2)
+   "Meridian": layered navy, tight 6px geometry, IBM Plex Sans,
+   with a flat deep-navy "Your Path" hero (from the Ledger direction).
+   Reference: IBM Carbon, Bloomberg, Stripe dashboard.
+   ============================================================ */
+
+:root {
+  --ink: #0b1f3a;
+  --ink-soft: #3d5170;
+  --muted: #7d8da3;
+  --line: #dbe2ea;
+  --bg: #f3f6f9;
+  --card: #ffffff;
+  --accent: #1d4ed8;
+  --accent-dark: #1a3fb0;
+  --accent-secondary: #1e3a8a;
+  --success: #177245;
+  --success-dark: #14532d;
+  --danger: #b91c1c;
+  --danger-dark: #991b1b;
+  --gold: #b45309;
+  --gold-dark: #92400e;
+  --orange: #c2410c;
+  --yellow-dark: #92400e;
+  --code-bg: #0b1f3a;
+  --code-bg2: #0f2647;
+  --code-line: #1e3355;
+  --code-ink: #dbe6f5;
+  --code-inline-bg: #e5edfb;
+  --code-inline-color: #1a3fb0;
+  --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Decorative — tight corners, one restrained shadow, hairline borders */
+  --btn-radius: 6px;
+  --btn-shadow: none;
+  --card-radius: 6px;
+  --card-shadow: 0 1px 2px rgba(11, 31, 58, .05), 0 2px 6px rgba(11, 31, 58, .07);
+  --item-radius: 5px;
+  --item-hover: #eef2f7;
+  --progress-height: 5px;
+  --logo-gradient: linear-gradient(90deg, #1d4ed8, #1e3a8a);
+  --hero-gradient: #0a2540;              /* flat deep navy — the Ledger "Your Path" look */
+  --hero-shadow: none;
+  --topbar-bg: rgba(255, 255, 255, .9);
+  --sheet-backdrop: rgba(11, 31, 58, .5);
+  --cert-gradient: linear-gradient(135deg, #0a2540, #1d4ed8);
+}
+
+/* Flat buttons — no coloured drop-underline */
+.btn-green, .btn-blue, .btn-red, .btn-gold { box-shadow: none; }
+.btn-ghost { background: #fff; border: 1px solid var(--line); box-shadow: none; }
+
+/* Hairline borders in place of the chunky 2px */
+.pcard, .unit, .course-card, .chk, .sheet, .quiz-brief, .q-choice,
+.rv-stats, .sync-card, .cert-inner { border-width: 1px; }
+
+.hero { border: none; box-shadow: none; }
+.topbar { border-bottom: 1px solid var(--line); background: var(--topbar-bg); }
+
+/* Structured, thin progress */
+.cc-bar { height: 5px; }
+
+/* Crisp interactive surfaces */
+.q-choice { box-shadow: 0 1px 2px rgba(11, 31, 58, .05); }
+.q-choice:not(:disabled):hover { border-color: var(--accent); }
+.chk { border-radius: 6px; }
+.lrow-chip, .cc-chip { border-radius: 4px; letter-spacing: .5px; }
+.pcard-input, .rv-input, .sync-code { border-radius: 6px; border-width: 1px; }
+.ed-tab { border-radius: 6px 6px 0 0; }
+
+/* Body copy locked to the theme ink */
+.brief { color: var(--ink); }
+
+body { background: var(--bg); }
