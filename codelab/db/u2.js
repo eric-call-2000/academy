@@ -16,7 +16,7 @@ window.CODELAB.addUnit("db", {
       id: "db-u2-1",
       title: "First Normal Form (1NF): eliminate repeating groups",
       kind: "js", chip: "DB", xp: 15, mins: 12,
-      brief: **First Normal Form (1NF)** requires that tables have no repeating groups and each column contains atomic (indivisible) values.\n\n**Rules**:\n- Each cell contains a single value\n- Each record is unique (primary key)\n- Columns are named consistently\n\nYou'll normalize a denormalized table to 1NF.",
+      brief: "**First Normal Form (1NF)** requires that tables have no repeating groups and each column contains atomic (indivisible) values.\n\n**Rules**:\n- Each cell contains a single value\n- Each record is unique (primary key)\n- Columns are named consistently\n\nYou'll normalize a denormalized table to 1NF.",
       example: { lang: "js", code: "// Denormalized (violates 1NF)\nconst bad = [\n  { user: 'Alice', phones: ['555-1234', '555-5678'] },\n  { user: 'Bob', phones: ['555-9999'] }\n];\n\n// Normalized to 1NF\nconst good = [\n  { user: 'Alice', phone: '555-1234' },\n  { user: 'Alice', phone: '555-5678' },\n  { user: 'Bob', phone: '555-9999' }\n];" },
       steps: [
         { text: "Create a denormalized table with repeating groups.",
@@ -46,7 +46,7 @@ window.CODELAB.addUnit("db", {
       id: "db-u2-2",
       title: "Second Normal Form (2NF): eliminate partial dependencies",
       kind: "js", chip: "DB", xp: 15, mins: 12,
-      brief: **Second Normal Form (2NF)** applies to tables with composite primary keys. It requires that non-key columns depend on the ENTIRE primary key, not just part of it.\n\n**Rule**: Remove partial dependencies by creating separate tables.\n\nYou'll identify and fix partial dependencies in a table with a composite key.",
+      brief: "**Second Normal Form (2NF)** applies to tables with composite primary keys. It requires that non-key columns depend on the ENTIRE primary key, not just part of it.\n\n**Rule**: Remove partial dependencies by creating separate tables.\n\nYou'll identify and fix partial dependencies in a table with a composite key.",
       example: { lang: "js", code: "// Violates 2NF: product_name depends only on product_id\nconst bad = [\n  { order_id: 1, product_id: 101, product_name: 'Laptop', quantity: 2 },\n  { order_id: 1, product_id: 102, product_name: 'Mouse', quantity: 5 }\n];\n\n// 2NF compliant: separate products\nconst products = [\n  { product_id: 101, product_name: 'Laptop' },\n  { product_id: 102, product_name: 'Mouse' }\n];\n\nconst order_items = [\n  { order_id: 1, product_id: 101, quantity: 2 },\n  { order_id: 1, product_id: 102, quantity: 5 }\n];" },
       steps: [
         { text: "Create a table with composite key and partial dependency.",
@@ -76,7 +76,7 @@ window.CODELAB.addUnit("db", {
       id: "db-u2-3",
       title: "Third Normal Form (3NF): eliminate transitive dependencies",
       kind: "js", chip: "DB", xp: 15, mins: 12,
-      brief: **Third Normal Form (3NF)** requires that non-key columns depend ONLY on the primary key, not on other non-key columns.\n\n**Rule**: Remove transitive dependencies (A → B → C) by creating separate tables.\n\nYou'll identify and fix transitive dependencies.",
+      brief: "**Third Normal Form (3NF)** requires that non-key columns depend ONLY on the primary key, not on other non-key columns.\n\n**Rule**: Remove transitive dependencies (A → B → C) by creating separate tables.\n\nYou'll identify and fix transitive dependencies.",
       example: { lang: "js", code: "// Violates 3NF: city depends on zip_code, zip_code depends on id\nconst bad = [\n  { id: 1, name: 'Alice', zip_code: '10001', city: 'NYC' },\n  { id: 2, name: 'Bob', zip_code: '10001', city: 'NYC' }\n];\n\n// 3NF compliant: separate zip_codes\nconst users = [\n  { id: 1, name: 'Alice', zip_code: '10001' },\n  { id: 2, name: 'Bob', zip_code: '10001' }\n];\n\nconst zip_codes = [\n  { zip_code: '10001', city: 'NYC' }\n];" },
       steps: [
         { text: "Create a table with transitive dependency.",
@@ -106,15 +106,15 @@ window.CODELAB.addUnit("db", {
       id: "db-u2-4",
       title: "Primary keys and foreign keys",
       kind: "js", chip: "DB", xp: 15, mins: 12,
-      brief: **Primary keys** uniquely identify rows. **Foreign keys** link tables and enforce referential integrity.\n\n**Primary key types**:\n- Auto-increment integer\n- UUID\n- Composite key (multiple columns)\n\n**Foreign key rules**:\n- CASCADE: automatically delete/update related rows\n- RESTRICT: prevent deletion if related rows exist\n- SET NULL: set foreign key to NULL",
+      brief: "**Primary keys** uniquely identify rows. **Foreign keys** link tables and enforce referential integrity.\n\n**Primary key types**:\n- Auto-increment integer\n- UUID\n- Composite key (multiple columns)\n\n**Foreign key rules**:\n- CASCADE: automatically delete/update related rows\n- RESTRICT: prevent deletion if related rows exist\n- SET NULL: set foreign key to NULL",
       example: { lang: "sql", code: "-- Primary key with auto-increment\nCREATE TABLE users (\n  id INT PRIMARY KEY AUTO_INCREMENT,\n  name VARCHAR(100)\n);\n\n-- Foreign key with CASCADE\nCREATE TABLE orders (\n  id INT PRIMARY KEY AUTO_INCREMENT,\n  user_id INT,\n  FOREIGN KEY (user_id) REFERENCES users(id)\n    ON DELETE CASCADE\n);" },
       steps: [
         { text: "Create tables with primary keys.",
-          test: "T.expect(typeof createTable === 'function', 'Create createTable function');\nconst users = createTable('users', { id: 'PK AUTO_INCREMENT', name: 'VARCHAR' });\nT.expect(users.schema.id === 'PK', 'Should have primary key');" },
+          test: "T.expect(typeof createTable === 'function', 'Create createTable function');\nconst users = createTable('users', { id: 'PK AUTO_INCREMENT', name: 'VARCHAR' });\nT.expect(users.schema.id.includes('PK'), 'Should have primary key');\nT.eq(users.primaryKey, 'id', 'The PK column should be recorded on the table');" },
         { text: "Implement foreign key relationship between tables.",
           test: "const orders = createTable('orders', { id: 'PK AUTO_INCREMENT', user_id: 'FK users.id' });\nT.expect(orders.foreignKeys.user_id, 'orders should have foreign key to users');" },
         { text: "Simulate CASCADE delete behavior.",
-          test: "T.expect(typeof cascadeDelete === 'function', 'Create cascadeDelete function');\ncascadeDelete('users', 1);\nT.expect(T.logged('Deleted order'), 'Should cascade delete related orders');" },
+          test: "T.expect(typeof cascadeDelete === 'function', 'Create cascadeDelete function');\ncascadeDelete('users', 1);\nT.expect(T.logged('Deleted row from orders'), 'Should cascade delete related orders');" },
         { text: "Implement referential integrity check (prevent invalid foreign keys).",
           test: "T.expect(typeof checkForeignKey === 'function', 'Create checkForeignKey function');\nconst valid = checkForeignKey('orders', 'user_id', 999);\nT.expect(!valid, 'Should reject invalid foreign key');" }
       ],
@@ -136,7 +136,7 @@ window.CODELAB.addUnit("db", {
       id: "db-u2-5",
       title: "Indexes for query performance",
       kind: "js", chip: "DB", xp: 15, mins: 12,
-      brief: **Indexes** dramatically speed up queries but slow down writes. They're essential for performance on large tables.\n\n**Index types**:\n- **B-tree**: default, good for equality and range queries\n- **Hash**: exact matches only\n- **Composite**: multiple columns\n- **Unique**: enforces uniqueness\n\n**When to index**: columns in WHERE, JOIN, ORDER BY, GROUP BY.",
+      brief: "**Indexes** dramatically speed up queries but slow down writes. They're essential for performance on large tables.\n\n**Index types**:\n- **B-tree**: default, good for equality and range queries\n- **Hash**: exact matches only\n- **Composite**: multiple columns\n- **Unique**: enforces uniqueness\n\n**When to index**: columns in WHERE, JOIN, ORDER BY, GROUP BY.",
       example: { lang: "sql", code: "-- Create index\nCREATE INDEX idx_users_email ON users(email);\n\n-- Composite index\nCREATE INDEX idx_orders_user_date ON orders(user_id, created_at);\n\n-- Unique index\nCREATE UNIQUE INDEX idx_users_email ON users(email);\n\n-- Check if index exists\nSHOW INDEX FROM users;" },
       steps: [
         { text: "Create an index system for tables.",
@@ -169,22 +169,22 @@ window.CODELAB.addUnit("db", {
       brief: "Normalization (1NF, 2NF, 3NF), keys, foreign keys, and indexes. 80% to pass.",
       questions: [
         { q: "What does 1NF require?",
-          choices: ["No repeating groups, atomic values", "No partial dependencies", "No transitive dependencies", "Primary key on every table"],
+          choices: ["No repeating groups, atomic values", "No partial dependencies", "No transitive dependencies between non-key columns", "Primary key on every table"],
           answer: 0, explain: "First Normal Form requires eliminating repeating groups and ensuring each column contains atomic (indivisible) values." },
         { q: "What's a partial dependency?",
-          choices: ["A column depending on another non-key column", "A column depending on only part of a composite key", "A column depending on the entire primary key", "A column with NULL values"],
+          choices: ["A column that depends on another non-key column instead", "A column depending on only part of a composite key", "A column depending on the entire primary key", "A column with NULL values"],
           answer: 1, explain: "Partial dependency occurs when a non-key column depends on only part of a composite primary key. 2NF removes these." },
         { q: "What does 3NF eliminate?",
-          choices: ["Repeating groups", "Partial dependencies", "Transitive dependencies", "Foreign keys"],
+          choices: ["Repeating groups", "Partial dependencies on a composite key", "Transitive dependencies", "Foreign keys"],
           answer: 2, explain: "Third Normal Form eliminates transitive dependencies where non-key columns depend on other non-key columns instead of directly on the primary key." },
         { q: "What's the purpose of a foreign key?",
-          choices: ["To uniquely identify rows", "To link tables and enforce referential integrity", "To speed up queries", "To ensure uniqueness"],
+          choices: ["To uniquely identify rows", "To link tables and enforce referential integrity", "To speed up queries that filter on the joined column", "To ensure uniqueness"],
           answer: 1, explain: "Foreign keys link tables together and enforce referential integrity, ensuring that related data exists across tables." },
         { q: "What does CASCADE delete do?",
           choices: ["Prevents deletion if related rows exist", "Automatically deletes related rows", "Sets foreign key to NULL", "Creates a backup before deletion"],
           answer: 1, explain: "CASCADE delete automatically deletes related rows in child tables when a parent row is deleted." },
         { q: "When should you create an index?",
-          choices: ["On every column", "Only on primary keys", "On columns used in WHERE, JOIN, ORDER BY", "Never, indexes slow down everything"],
+          choices: ["On every column", "Only on primary keys and unique constraint columns", "On columns used in WHERE, JOIN, ORDER BY", "Never, indexes slow down everything"],
           answer: 2, explain: "Index columns used in WHERE clauses, JOIN conditions, ORDER BY, and GROUP BY for performance. Don't over-index as they slow down writes." }
       ]
     }

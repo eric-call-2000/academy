@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**13 built courses · ~115 hours · 51 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus six roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**13 built courses · ~106 hours · 51 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus six roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -210,8 +210,60 @@ codelab/
 ├── srv/u1.js … u8.js     # Back-End Foundations      (38 items)
 ├── cap/u1.js … u6.js     # Full-Stack Capstone       (28 items)
 ├── server.js, manifest.webmanifest, icons/, .nojekyll
-└── tools/validate.js     # runs EVERY lesson's solution in real Chromium
+├── tools/validate.js     # runs EVERY lesson's solution in real Chromium
+├── tools/validate-unit.js # one unit through the real sandbox (~20s inner loop)
+└── tools/dump-lesson.js  # print a lesson's starter, solution and checkpoints
+                          #   `--phase0` skips the browser: static + credit +
+                          #   position + merge-algebra gates in ~1s
 ```
+
+## Lesson harnesses
+
+Checkpoints run in a browser Worker, not in Node. Anything a lesson needs
+beyond the platform is an **opt-in harness**, declared as a flag on the lesson
+and injected ahead of the learner's code (see `runner.js`):
+
+| Flag | Gives the lesson |
+|---|---|
+| `spec: true` | `describe` / `it` / `expect` / `beforeEach` and an async `run()` |
+| `crypto: true` | `sha256`, `randHex`, `slowHash` |
+| `mock` / `mockFn` | a stubbed `fetch` that records calls on `__CALLS` |
+| `cspLab: true` | a nested sandboxed frame with a real `<meta>` CSP |
+| `node: true` | `Buffer`, `process`, `setImmediate`, `EventEmitter`, `MockReadable`, `MockWritable` |
+
+`node: true` exists because a Node course cannot otherwise run a single line:
+`Buffer` and `process` simply are not there. The stand-ins are faithful on the
+behaviour lessons grade — `Buffer.slice()` shares memory while `copy()` does
+not, `process.nextTick` drains before `setImmediate`, which itself runs before
+`setTimeout(…, 0)` — and shallow everywhere else.
+
+**A lesson opts out when building the thing IS the exercise.** `nodejs-u2-3`
+and `u2-4` have the learner write `MockReadable` / `MockWritable` themselves,
+so they leave `node` unset; handing them the harness would make the starter
+pass on its own. `tools/validate.js` enforces both directions: it fails a
+lesson that uses a Node global without the flag, unless that lesson defines
+the name itself.
+
+### Authoring traps these courses paid for
+
+- **`T.expect(cond, msg)` takes two arguments.** A three-argument call is a
+  `T.eq(got, want, msg)` written wrong — it asserts only that `got` is truthy
+  and discards the comparison, so it passes for any non-empty value including
+  the starter's. Nineteen checkpoints had this; validate.js now rejects it.
+- **`T.logged()` is a case-insensitive substring test.** A probe for
+  `'UNCAUGHT EXCEPTION'` matched the lesson's own `'Testing uncaught
+  exception...'`, so a starter with no handler at all "passed".
+- **An assertion inside an un-awaited callback never runs.** Neither passing
+  nor failing — it just disappears, and the checkpoint reports success. Await
+  the work (`await T.sleep(60)`, or a promise around the callback) and assert
+  on the main path.
+- **Steps share one live worker, in order.** Whatever the module-level demo did
+  has already happened, and whatever step #1 left behind is still there. Reset
+  what you are about to measure.
+- **`const` declared in one step is not visible in the next.** Each step is its
+  own function body; only globals carry across.
+- **The starter must not be a copy of the solution.** Six lessons shipped that
+  way and passed every checkpoint untouched.
 
 ## Adding content
 

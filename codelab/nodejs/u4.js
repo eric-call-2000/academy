@@ -139,7 +139,7 @@ window.CODELAB.addUnit("nodejs", {
         { text: "Create a mock npm script runner with predefined scripts.",
           test: "T.expect(typeof npmScripts === 'object', 'Create npmScripts object');\nT.expect(typeof npmScripts.start === 'string', 'Should have start script');" },
         { text: "Implement `npmRun(scriptName)` function that executes scripts.",
-          test: "T.expect(typeof npmRun === 'function', 'Create npmRun() function');\nnpmRun('start');\nT.expect(T.logged('Running start'), 'Should execute start script');" },
+          test: "T.expect(typeof npmRun === 'function', 'Create npmRun() function');\nnpmRun('start');\nT.expect(T.logged('Running: start'), 'Should execute start script');" },
         { text: "Support lifecycle hooks (pre* and post* scripts).",
           test: "npmScripts.prestart = 'echo \"Pre-start hook\"';\nnpmScripts.poststart = 'echo \"Post-start hook\"';\nnpmRun('start');\nT.expect(T.logged('Pre-start hook'), 'Should run prestart before start');\nT.expect(T.logged('Post-start hook'), 'Should run poststart after start');" },
         { text: "Handle missing scripts with helpful error message.",

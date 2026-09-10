@@ -620,11 +620,261 @@
   /* ============================================================
      JS lessons → Web Worker
      ============================================================ */
+  /* ---------- harnessNode (lesson.node) ----------
+     The sandbox is a browser Worker, so `Buffer`, `process` and
+     `setImmediate` genuinely do not exist — a Node course that teaches them
+     cannot run a single checkpoint without stand-ins. Opt-in per lesson,
+     exactly like harnessSpec: a unit where the LEARNER builds the thing
+     (nodejs-u2-3 and u2-4 build MockReadable/MockWritable themselves) simply
+     does not set `node: true`, and a learner's own declaration shadows these
+     anyway.
+
+     These are teaching stand-ins, not polyfills. They are faithful on the
+     behaviour the lessons actually grade — Buffer.slice SHARES memory while
+     copy() does not, process.nextTick beats setImmediate which beats
+     setTimeout(0) — and deliberately shallow everywhere else. */
+  function harnessNode() {
+    var g = (typeof self !== "undefined") ? self : window;
+
+    /* ---- EventEmitter: the base the stream mocks are built on ---- */
+    function EventEmitter() { this._ev = {}; }
+    EventEmitter.prototype.on = function (name, fn) {
+      (this._ev[name] = this._ev[name] || []).push({ fn: fn, once: false });
+      return this;
+    };
+    EventEmitter.prototype.once = function (name, fn) {
+      (this._ev[name] = this._ev[name] || []).push({ fn: fn, once: true });
+      return this;
+    };
+    EventEmitter.prototype.off = EventEmitter.prototype.removeListener = function (name, fn) {
+      var list = this._ev[name] || [];
+      this._ev[name] = list.filter(function (h) { return h.fn !== fn; });
+      return this;
+    };
+    EventEmitter.prototype.emit = function (name) {
+      var args = [].slice.call(arguments, 1);
+      var list = (this._ev[name] || []).slice();
+      this._ev[name] = list.filter(function (h) { return !h.once; });
+      list.forEach(function (h) { h.fn.apply(this, args); }, this);
+      return list.length > 0;
+    };
+    EventEmitter.prototype.listenerCount = function (name) { return (this._ev[name] || []).length; };
+    if (typeof g.EventEmitter === "undefined") g.EventEmitter = EventEmitter;
+
+    /* ---- streams. Synchronous on purpose: a checkpoint that pushes a chunk
+       and asserts on the next line must see it, and the lessons teach the
+       event WIRING, not the microtask timing. ---- */
+    function MockReadable(opts) {
+      EventEmitter.call(this);
+      this.paused = false;
+      this.ended = false;
+      this.queue = [];
+      this.highWaterMark = (opts && opts.highWaterMark) || 3;
+    }
+    MockReadable.prototype = Object.create(EventEmitter.prototype);
+    MockReadable.prototype.constructor = MockReadable;
+    MockReadable.prototype.push = function (chunk) {
+      if (this.ended) return false;
+      if (this.paused) { this.queue.push(chunk); return false; }
+      this.emit("data", chunk);
+      return true;
+    };
+    MockReadable.prototype.pause = function () { this.paused = true; return this; };
+    MockReadable.prototype.resume = function () {
+      this.paused = false;
+      while (this.queue.length && !this.paused) this.emit("data", this.queue.shift());
+      return this;
+    };
+    MockReadable.prototype.end = function () {
+      if (this.ended) return this;
+      this.ended = true;
+      this.emit("end");
+      return this;
+    };
+    MockReadable.prototype.pipe = function (dest) {
+      var self2 = this;
+      this.on("data", function (c) {
+        if (dest.write(c) === false) { self2.pause(); dest.once("drain", function () { self2.resume(); }); }
+      });
+      this.on("end", function () { dest.end(); });
+      return dest;
+    };
+
+    function MockWritable(opts) {
+      EventEmitter.call(this);
+      this.buffer = [];
+      this.finished = false;
+      this.highWaterMark = (opts && opts.highWaterMark) || 3;
+    }
+    MockWritable.prototype = Object.create(EventEmitter.prototype);
+    MockWritable.prototype.constructor = MockWritable;
+    MockWritable.prototype.write = function (chunk) {
+      this.buffer.push(chunk);
+      /* Backpressure the way the lessons teach it: false once the buffer is
+         at or past the mark, and a 'drain' once it has been emptied. */
+      return this.buffer.length < this.highWaterMark;
+    };
+    MockWritable.prototype.drain = function () {
+      this.buffer = [];
+      this.emit("drain");
+      return this;
+    };
+    MockWritable.prototype.end = function (chunk) {
+      if (chunk !== undefined) this.write(chunk);
+      if (this.finished) return this;
+      this.finished = true;
+      this.emit("finish");
+      return this;
+    };
+    if (typeof g.MockReadable === "undefined") g.MockReadable = MockReadable;
+    if (typeof g.MockWritable === "undefined") g.MockWritable = MockWritable;
+
+    /* ---- Buffer over a real ArrayBuffer, so slice() shares memory and
+       copy() does not — which is the entire point of nodejs-u2-2. ---- */
+    if (typeof g.Buffer === "undefined") {
+      var enc = new TextEncoder(), dec = new TextDecoder();
+      function NodeBuffer(arg, byteOffset, length) {
+        var u8;
+        if (typeof arg === "number") u8 = new Uint8Array(arg);
+        else if (arg instanceof ArrayBuffer) u8 = new Uint8Array(arg, byteOffset || 0, length === undefined ? undefined : length);
+        else if (typeof arg === "string") u8 = enc.encode(arg);
+        else u8 = new Uint8Array(arg);
+        /* Give the Uint8Array the Buffer methods rather than subclassing:
+           subarray() on a subclass returns the subclass in modern engines,
+           but assigning the prototype keeps index access and .length exact. */
+        Object.setPrototypeOf(u8, NodeBuffer.proto);
+        return u8;
+      }
+      NodeBuffer.proto = Object.create(Uint8Array.prototype);
+      /* `buf instanceof Buffer` is the first thing a Buffer lesson checks, and
+         instanceof walks the prototype chain from .prototype — so the object we
+         actually stamp onto instances has to BE Buffer.prototype. */
+      NodeBuffer.prototype = NodeBuffer.proto;
+      NodeBuffer.proto.toString = function (encoding) {
+        if (encoding === "hex") {
+          return [].map.call(this, function (b) { return (b < 16 ? "0" : "") + b.toString(16); }).join("");
+        }
+        if (encoding === "base64") {
+          return btoa(String.fromCharCode.apply(null, [].slice.call(this)));
+        }
+        return dec.decode(this);
+      };
+      NodeBuffer.proto.slice = NodeBuffer.proto.subarray = function (start, end) {
+        var sub = Uint8Array.prototype.subarray.call(this, start, end);
+        Object.setPrototypeOf(sub, NodeBuffer.proto);
+        return sub;   // SHARES memory, as Node's Buffer.slice does
+      };
+      NodeBuffer.proto.copy = function (target, targetStart, sourceStart, sourceEnd) {
+        var src = Uint8Array.prototype.subarray.call(this, sourceStart || 0,
+          sourceEnd === undefined ? this.length : sourceEnd);
+        target.set(src, targetStart || 0);
+        return src.length;
+      };
+      NodeBuffer.proto.equals = function (other) {
+        if (this.length !== other.length) return false;
+        for (var i = 0; i < this.length; i++) if (this[i] !== other[i]) return false;
+        return true;
+      };
+      NodeBuffer.proto.write = function (str, offset) {
+        var bytes = enc.encode(str);
+        this.set(bytes, offset || 0);
+        return bytes.length;
+      };
+      NodeBuffer.from = function (v, encoding) {
+        if (typeof v === "string" && encoding === "hex") {
+          var out = new Uint8Array(v.length / 2);
+          for (var i = 0; i < out.length; i++) out[i] = parseInt(v.substr(i * 2, 2), 16);
+          return NodeBuffer(out);
+        }
+        return NodeBuffer(v);
+      };
+      NodeBuffer.alloc = function (n, fill) {
+        var b = NodeBuffer(n);
+        if (fill !== undefined) b.fill(typeof fill === "string" ? fill.charCodeAt(0) : fill);
+        return b;
+      };
+      NodeBuffer.allocUnsafe = NodeBuffer.alloc;
+      NodeBuffer.isBuffer = function (v) {
+        return !!v && Object.getPrototypeOf(v) === NodeBuffer.proto;
+      };
+      NodeBuffer.byteLength = function (v) {
+        return typeof v === "string" ? enc.encode(v).length : v.length;
+      };
+      NodeBuffer.concat = function (list, total) {
+        var len = total === undefined ? list.reduce(function (a, b) { return a + b.length; }, 0) : total;
+        var out2 = NodeBuffer(len), off = 0;
+        list.forEach(function (b) { out2.set(b, off); off += b.length; });
+        return out2;
+      };
+      g.Buffer = NodeBuffer;
+    }
+
+    /* ---- setImmediate / nextTick / process ----
+       Node's ordering is nextTick → microtasks → setImmediate → setTimeout(0),
+       and nodejs-u1-5 grades exactly that sequence. A microtask (nextTick) and
+       a MessageChannel-free 0ms-but-earlier-queued macrotask (setImmediate)
+       reproduce the observable order in a Worker. */
+    var immediates = {}, immSeq = 1;
+    if (typeof g.setImmediate === "undefined") {
+      g.setImmediate = function (fn) {
+        var id = immSeq++;
+        var args = [].slice.call(arguments, 1);
+        immediates[id] = true;
+        /* Queued ahead of any setTimeout(…, 0) registered in the same tick:
+           a 0ms timer is clamped to >=1ms by the platform, this is not. */
+        Promise.resolve().then(function () {
+          Promise.resolve().then(function () {
+            if (immediates[id]) { delete immediates[id]; fn.apply(null, args); }
+          });
+        });
+        return id;
+      };
+      g.clearImmediate = function (id) { delete immediates[id]; };
+    }
+
+    if (typeof g.process === "undefined") {
+      var started = Date.now();
+      g.process = {
+        argv: ["node", "script.js"],
+        env: {},
+        platform: "linux",
+        version: "v20.0.0",
+        versions: { node: "20.0.0", v8: "11.3.244" },
+        pid: 4242,
+        arch: "x64",
+        /* Real nextTick semantics: runs after the current synchronous block,
+           before setImmediate and before any timer. */
+        nextTick: function (fn) {
+          var args = [].slice.call(arguments, 1);
+          Promise.resolve().then(function () { fn.apply(null, args); });
+        },
+        uptime: function () { return (Date.now() - started) / 1000; },
+        hrtime: Object.assign(function (prev) {
+          var ns = Math.round(performance.now() * 1e6);
+          var s2 = Math.floor(ns / 1e9), n2 = ns % 1e9;
+          if (prev) { s2 -= prev[0]; n2 -= prev[1]; if (n2 < 0) { s2--; n2 += 1e9; } }
+          return [s2, n2];
+        }, { bigint: function () { return BigInt(Math.round(performance.now() * 1e6)); } }),
+        memoryUsage: function () {
+          return { rss: 30000000, heapTotal: 20000000, heapUsed: 10000000, external: 1000000, arrayBuffers: 0 };
+        },
+        cwd: function () { return "/app"; },
+        exit: function () {},
+        on: function () { return g.process; },
+        once: function () { return g.process; },
+        emit: function () { return false; },
+        stdout: { write: function (s2) { __send({ type: "console", level: "log", text: String(s2) }); return true; } },
+        stderr: { write: function (s2) { __send({ type: "console", level: "error", text: String(s2) }); return true; } }
+      };
+    }
+  }
+
   function buildWorkerSrc(lesson, userCode) {
     var evalBlob = transpileModuleish(userCode) + "\n;\n" + stepsSource(lesson);
     return [
       'var __send = function (m) { try { postMessage(m); } catch (e) { try { postMessage({ type: "console", level: "warn", text: "(unprintable value)" }); } catch (e2) {} } };',
       "(" + harnessCommon.toString() + ")();",
+      lesson.node ? "(" + harnessNode.toString() + ")();" : "",
       lesson.spec ? "(" + harnessSpec.toString() + ")();" : "",
       lesson.crypto ? "(" + harnessCrypto.toString() + ")();" : "",
       (lesson.mock || lesson.mockFn) ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock || null) + ", " + JSON.stringify(lesson.mockFn || null) + ");" : "",
@@ -697,6 +947,7 @@
       "window.addEventListener('error', function (e) { __send({ type: 'console', level: 'error', text: (e.message || 'Script error') + (e.lineno ? ' (line ' + e.lineno + ')' : '') }); });" +
       "window.addEventListener('unhandledrejection', function (e) { __send({ type: 'console', level: 'error', text: 'Unhandled promise rejection: ' + ((e.reason && e.reason.message) || e.reason) }); });" +
       "(" + harnessCommon.toString() + ")();" +
+      (lesson.node ? "(" + harnessNode.toString() + ")();" : "") +
       (lesson.spec ? "(" + harnessSpec.toString() + ")();" : "") +
       (lesson.crypto ? "(" + harnessCrypto.toString() + ")();" : "") +
       ((lesson.mock || lesson.mockFn) ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock || null) + ", " + JSON.stringify(lesson.mockFn || null) + ");" : "") +

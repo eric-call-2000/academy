@@ -113,7 +113,7 @@ window.CODELAB.defineCourse({
 // Backend Specialist Track
 window.CODELAB.defineCourse({
   id: "nodejs", prefix: "nodejs", title: "Node.js Deep Dive",
-  icon: "⚡", color: "#68a063", level: "Advanced", hours: 10, items: 36,
+  icon: "⚡", color: "#68a063", level: "Advanced", hours: 7, items: 37,
   credits: 3, categories: { be: 3 },
   blurb: "Event loop, streams, buffers, file system, modules, npm ecosystem, error handling, debugging, performance, and clustering — production Node.js patterns.",
   files: ["nodejs/u1.js", "nodejs/u2.js", "nodejs/u3.js", "nodejs/u4.js", "nodejs/u5.js", "nodejs/u6.js"]
@@ -121,10 +121,10 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "db", prefix: "db", title: "Database Mastery",
-  icon: "🗄️", color: "#eab308", level: "Advanced", hours: 12, items: 42,
+  icon: "🗄️", color: "#eab308", level: "Advanced", hours: 6, items: 32,
   credits: 3, categories: { data: 3 },
   blurb: "SQL fundamentals, database design, normalization, indexes, migrations, NoSQL basics, ORM patterns, transactions, and performance tuning — the data layer mastered.",
-  files: ["db/u1.js", "db/u2.js", "db/u3.js", "db/u4.js", "db/u5.js", "db/u6.js", "db/u7.js"]
+  files: ["db/u1.js", "db/u2.js", "db/u3.js", "db/u4.js", "db/u5.js", "db/u6.js"]
 });
 
 window.CODELAB.defineCourse({

@@ -38,6 +38,26 @@ function findBrowser() {
   process.exit(1);
 }
 
+/* Split a call's argument list on TOP-LEVEL commas only, so a comma inside a
+   nested call, string, array or object does not look like another argument. */
+function splitCallArgs(src, openIx) {
+  const args = [];
+  let depth = 0, cur = "", quote = null;
+  for (let i = openIx + 1; i < src.length; i++) {
+    const ch = src[i], prev = src[i - 1];
+    if (quote) { cur += ch; if (ch === quote && prev !== "\\") quote = null; continue; }
+    if (ch === '"' || ch === "'" || ch === "`") { quote = ch; cur += ch; continue; }
+    if ("([{".indexOf(ch) !== -1) { depth++; cur += ch; continue; }
+    if (")]}".indexOf(ch) !== -1) {
+      if (ch === ")" && depth === 0) { args.push(cur); return args; }
+      depth--; cur += ch; continue;
+    }
+    if (ch === "," && depth === 0) { args.push(cur); cur = ""; continue; }
+    cur += ch;
+  }
+  return null;
+}
+
 /* ---------------- phase 0: static checks ---------------- */
 function phase0() {
   console.log("\n== Phase 0: static curriculum checks ==");
@@ -117,6 +137,40 @@ function phase0() {
                 fail(`${l.id}: "${name}" is mutated by a checkpoint but declared with const/let — mutated bindings must be \`function ${name}(...)\``);
             }
           }
+          /* T.expect(cond, msg) takes TWO arguments. A three-argument call is a
+             T.eq(got, want, msg) written wrong: it asserts only that `got` is
+             truthy and throws the comparison away, so it passes for any
+             non-empty value — including the starter's. This exact mistake hid
+             19 broken checkpoints across the Node and Database courses and
+             made six lessons pass with an empty starter. */
+          for (const s of (l.steps || [])) {
+            const src = String(s.test || "");
+            let ix = 0;
+            while ((ix = src.indexOf("T.expect(", ix)) !== -1) {
+              const args = splitCallArgs(src, ix + "T.expect".length);
+              if (args && args.length >= 3)
+                fail(`${l.id}: T.expect() called with ${args.length} arguments — it takes (condition, message). Did you mean T.eq(got, want, message)?`);
+              ix += 9;
+            }
+          }
+
+          /* Node globals do not exist in a browser Worker. A lesson that uses
+             them without `node: true` dies on the first line with a bare
+             ReferenceError instead of failing a checkpoint. */
+          if (!l.node) {
+            const sources = [JSON.stringify(l.solution || {}), JSON.stringify(l.files || []), JSON.stringify(l.steps || [])].join(" ");
+            for (const sym of ["Buffer.", "setImmediate(", "MockReadable", "MockWritable"]) {
+              if (sources.indexOf(sym) === -1) continue;
+              /* …unless the lesson DEFINES it. nodejs-u2-3 and u2-4 are the
+                 units where building MockReadable/MockWritable IS the exercise;
+                 opting those into the harness would hand over the answer and
+                 make the starter pass on its own. */
+              const bare = sym.replace(/[.(]/g, "");
+              if (sources.indexOf("class " + bare) !== -1 || sources.indexOf("function " + bare) !== -1) continue;
+              fail(`${l.id}: uses ${sym} but does not set \`node: true\` — harnessNode provides it (see runner.js)`);
+            }
+          }
+
           /* XSS async-sentinel flakiness (Web Security U2/U3): an <img onerror>
              payload fires asynchronously, and the web grader starts ~60ms
              after load — so any checkpoint that reads the __fired sentinel
