@@ -1,8 +1,10 @@
-# ⚡ CodeLab — Full-Stack Engineer Path
+# ⚡ CodeLab — learn to code, qualify for the job
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**8 courses · ~69 hours · 304 items — the full path, complete** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). 251 coding lessons including 30 guided projects, 53 quizzes, 827 auto-graded checkpoints. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**13 built courses · ~115 hours · 51 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus six roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+
+Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
 ## The catalog
 
@@ -48,6 +50,47 @@ A normalization pass fixed it across all 334 questions — the *claim* stays in 
 `tools/validate.js` now **fails the build** if any course drifts back above 40%, the same way the hours guard keeps the catalog honest.
 
 Every one of the 334 rewritten questions was then re-audited independently for correctness: **zero broken answer keys, zero distractors that had drifted into being true.** The audit did surface a set of smaller defects, all since fixed — a worked example in one explain that computed the wrong result, two pairs of duplicate distractors, several overstatements, and answers that had become impossible to produce cold in review mode (an HTML-comment answer whose "right" text included invented filler, for instance, now asks for the syntax itself).
+
+## 🎓 Credits & Careers
+
+CodeLab is structured like a university, not like a single track. **You never pick a
+track.** Courses pay credits, credits accumulate, and job positions unlock when you
+hold enough — so one course advances every position that needs it at once, and nobody
+is locked into a choice they made in week one.
+
+**Credits.** A course pays its credits **only when the whole course is finished** — a
+half-finished semester earns nothing. One credit is two hours of real modelled
+material, and `tools/validate.js` re-derives every course's credit value from the
+lessons actually in its files, so credits cannot be inflated without writing lessons.
+
+**Categories, apportioned.** Credits are typed (Foundations, Frontend, Backend, Data,
+Quality, Security, Operations, Integration). A course that spans several **splits** its
+credits across them rather than paying full value into each — the category columns must
+sum back to the course total, and the validator fails the build if they stop summing.
+
+**Positions** are requirement sheets, read exactly like a degree audit: a credit total,
+per-category minimums, and required courses that cannot be substituted. Required
+courses **stack** — they are named *and* their credits count toward the totals. There is
+one sheet per job title and every sheet is junior-level; seniority comes from shipped
+work, not coursework. Thresholds are set against what juniors are actually screened on,
+**not** against what CodeLab happens to hold: three of the seven sheets are currently
+unreachable, and the board reports the shortfall as a number ("Operations tops out at 4
+credits — this sheet needs 10") rather than quietly hiding the gap.
+
+**Credits expire after two years — unless you keep them.** Any Recall drill or card you
+do not miss resets that course's clock, so the transcript measures what you can still
+do rather than what you once sat through. Expired credits stay on the transcript,
+greyed out, and come back the moment you refresh them. Drilling a course you never
+finished awards nothing.
+
+**Goals are opt-in.** The home screen is a job board with live gap math on every
+position. Pinning one adds a progress strip and a "next best course" nudge to the
+catalog — and clearing it is one tap.
+
+The credit clock is the only new stored field: `earned` maps a course id to the day it
+was completed or last renewed. It merges across devices by `Math.max`, which keeps
+Handoff inside the same monotone algebra as everything else — a merge can never rewind
+a clock and expire something you renewed on your phone.
 
 ## The experience (Codecademy-style)
 
@@ -150,8 +193,9 @@ Hosted on the same origin as [Academy](https://github.com/eric-call-2000/academy
 ```
 codelab/
 ├── index.html            # boots the engine (unit files lazy-load)
-├── courses.js            # the catalog: metadata + which files each course loads
-├── core.js               # course registry (defineCourse / addUnit)
+├── courses.js            # the catalog: metadata, credits, and which files each course loads
+├── positions.js          # job positions: the requirement sheets the board audits against
+├── core.js               # course registry + credit model (defineCourse / definePosition / addUnit)
 ├── review.js             # Recall: the spaced-repetition scheduler (pure, Node-testable)
 ├── editor.js             # mobile code editor + syntax highlighting
 ├── runner.js             # sandbox runner + checkpoint grader (worker/iframe)
