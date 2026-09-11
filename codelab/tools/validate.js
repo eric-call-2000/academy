@@ -233,6 +233,22 @@ function phase0() {
 
   positionGates();
   recallAndSyncGates();
+  gitsimGates();
+}
+
+/* The Git course is graded by INSPECTING gitsim's state, so an engine bug
+   would make lessons pass or fail for reasons unrelated to what the learner
+   typed — and Phase 1 only exercises the paths lessons happen to hit. The
+   engine's own suite is pure Node and takes about a second. */
+function gitsimGates() {
+  console.log("\n== Phase 0e: git engine ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-gitsim.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0]);
+  } catch (e) {
+    fail("gitsim engine tests failed:\n" + String(e.stdout || e.message));
+  }
 }
 
 /* The job board is only honest if every sheet is checked against what the

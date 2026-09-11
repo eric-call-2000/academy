@@ -1058,10 +1058,33 @@
       var name = (lesson.files && lesson.files[0] && lesson.files[0].name) || "commands.sh";
       var script = (files[name] != null) ? files[name] : files[Object.keys(files)[0]] || "";
 
-      var fsTree, result;
+      var fsTree, result, GIT = window.CODELAB.git, before = null;
+      var where = { cwd: lesson.cwd || "/home/you", home: lesson.home || "/home/you" };
       try {
         fsTree = SH.createFS(lesson.fs || {});
-        result = SH.run(fsTree, script, { cwd: lesson.cwd || "/home/you", home: lesson.home || "/home/you" });
+        /* lesson.setup builds the starting state by running REAL commands
+           before the learner's — so a seeded repository has an honest
+           history, index and reflog, and no seeding code can drift from
+           what the commands actually do. Its transcript is not shown, and
+           a setup command that fails is an authoring bug, not a lesson. */
+        if (lesson.setup) {
+          var pre = SH.run(fsTree, lesson.setup, where);
+          /* A few starting states are only reachable THROUGH a failure — a
+             merge left mid-conflict, say. Those commands are listed in
+             lesson.setupExpectFail, and the check runs both ways: a listed
+             command that succeeds means the state isn't what the author
+             thinks it is, which is just as much a bug. */
+          var mayFail = lesson.setupExpectFail || [];
+          var broke = pre.transcript.filter(function (t) { return (t.code !== 0) !== (mayFail.indexOf(t.cmd) !== -1); })[0];
+          if (broke) {
+            resolve({ steps: [], fatal: broke.code
+              ? "Lesson setup failed at `" + broke.cmd + "`: " + ((broke.err || "").trim() || "exit " + broke.code)
+              : "Lesson setup expected `" + broke.cmd + "` to fail, but it succeeded" });
+            return;
+          }
+        }
+        if (GIT) before = GIT.snapshot(fsTree);
+        result = SH.run(fsTree, script, where);
       } catch (e) {
         resolve({ steps: [], fatal: (e && e.message) || String(e) });
         return;
@@ -1086,6 +1109,9 @@
       }
 
       var T = shellT(SH, fsTree, result, script);
+      /* Git lessons get repository helpers (T.log, T.staged, T.sha …) plus
+         T.before — the same helpers over the state right after setup. */
+      if (GIT) GIT.extendT(T, fsTree, before, lesson.repo || where.cwd);
       var steps = lesson.steps || [], out = [];
       for (var i = 0; i < steps.length; i++) {
         try {

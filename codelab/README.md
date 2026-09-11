@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**13 built courses · ~106 hours · 51 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus six roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**14 built courses · ~114 hours · 55 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus five roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -209,13 +209,72 @@ codelab/
 ├── async/u1.js … u6.js   # Async JavaScript & APIs   (30 items)
 ├── srv/u1.js … u8.js     # Back-End Foundations      (38 items)
 ├── cap/u1.js … u6.js     # Full-Stack Capstone       (28 items)
+├── git/u1.js … u8.js     # Git & Version Control     (37 items)
+├── shell.js              # a virtual filesystem + POSIX-ish shell (kind: "shell" lessons)
+├── gitsim.js             # a real git inside that shell — the Git course's engine
 ├── server.js, manifest.webmanifest, icons/, .nojekyll
 ├── tools/validate.js     # runs EVERY lesson's solution in real Chromium
 ├── tools/validate-unit.js # one unit through the real sandbox (~20s inner loop)
+├── tools/test-gitsim.js  # gitsim's own suite — pure Node, ~1s, also run by phase 0
 └── tools/dump-lesson.js  # print a lesson's starter, solution and checkpoints
                           #   `--phase0` skips the browser: static + credit +
                           #   position + merge-algebra gates in ~1s
 ```
+
+## Shell and Git lessons
+
+`kind: "shell"` lessons run on `shell.js` instead of the Worker. The learner
+writes one command per line in `commands.sh`, every line really executes
+against a virtual filesystem, and the Result pane shows the session as a
+terminal transcript. It runs on the main thread safely because nothing the
+learner types is evaluated as JavaScript.
+
+The Git course runs on top of it. `gitsim.js` registers a `git` command whose
+working tree *is* the shell filesystem, so `echo`, `cat`, `ls` and even
+`rm -rf .git` behave the way they do on a real machine. It models the object
+store, the index, refs and detached HEAD, the reflog with `HEAD@{n}`, line
+diffs, three-way merge with real conflict markers, stash, rebase / cherry-pick /
+revert as one sequencer, `.gitignore`, and remotes (clone, fetch, pull, push,
+fast-forward checks, `--force-with-lease`) as other repositories on the same
+filesystem. Output follows real git's wording. Shas are 40 hex characters of a
+deterministic hash rather than SHA-1, so the same commands always produce the
+same shas. Anything that needs an editor (`rebase -i`, `commit` without `-m`,
+`add -p`) prints an honest error instead of inventing a flag.
+
+| Lesson field | What it does |
+|---|---|
+| `fs` | starting files, as `{ "/home/you/project/a.txt": "…" }` |
+| `setup` | commands run before the learner's, hidden — seeds a real history, index and reflog. A setup command that fails is a fatal authoring error |
+| `setupExpectFail` | setup commands that must fail (a merge left mid-conflict), checked both ways |
+| `cwd` | where both scripts start |
+
+Checkpoints get the shell helpers (`T.out`, `T.err`, `T.ran`, `T.typed`,
+`T.file` …) plus repository helpers: `T.log(rev)`, `T.count(rev)`, `T.sha(rev)`,
+`T.commit(rev)` (with `.files`), `T.branches()`, `T.head()`, `T.headDetached()`,
+`T.wt(path)`, `T.blobAt('index' | rev, path)`, `T.staged()`, `T.unstaged()`,
+`T.untracked()`, `T.conflicts()`, `T.merging()`, `T.rebasing()`, `T.clean()`,
+`T.stashList()`, `T.reflog(ref)`, `T.remoteSha('origin/main')`,
+`T.onRemote(branch)`, `T.upstream()`, `T.ignored(path)`, `T.tracked(path)`,
+`T.reachableFromAnyBranch(sha)` and `T.said(text)` (stdout **or** stderr).
+`T.before` is the same API over the state right after setup, so "main didn't
+move" is `T.eq(T.sha('main'), T.before.sha('main'))`.
+
+### Traps the Git course paid for
+
+- **The root commit has zero parents.** "History is linear" is
+  `parents.length < 2`, not `=== 1`.
+- **Changes on adjacent lines conflict**, exactly as in real git. Leave an
+  untouched line between edits a lesson expects to merge cleanly.
+- **`HEAD@{n}` shifts by one every time HEAD moves.** A solution that recovers
+  from the reflog uses the numbers before anything else moves HEAD
+  (`git branch x HEAD@{4}` first, then the `reset`).
+- **There is no editor.** Files are rewritten with `echo "…" > f` and
+  `echo "…" >> f`. The shell tokenizer has no `\"` inside double quotes and
+  splits pipelines on every `|`, so keep messages free of `|` and ` > `.
+- **Rejections, hints and warnings go to stderr**, as in real git. Check them
+  with `T.said`, not `T.out`.
+- **A state check alone can be satisfied by hand.** Where the command *is* the
+  lesson, pair the state check with `T.ran(/^git restore/)` or similar.
 
 ## Lesson harnesses
 

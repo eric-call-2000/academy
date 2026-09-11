@@ -145,11 +145,11 @@ window.CODELAB.defineCourse({
 
 // DevOps/Engineering Track
 window.CODELAB.defineCourse({
-  id: "git", prefix: "git", title: "Git & Version Control Mastery",
-  icon: "📦", color: "#f97316", level: "Intermediate", stub: true,
-  plannedCredits: 4, plannedCategories: { ops: 4 },
-  blurb: "Git fundamentals, branching strategies (Gitflow, trunk-based), collaboration workflows, PRs, code review, conflict resolution, Git hooks, and team Git practices.",
-  files: []
+  id: "git", prefix: "git", title: "Git & Version Control",
+  icon: "🌿", color: "#f97316", level: "Intermediate", hours: 8, items: 37,
+  credits: 4, categories: { ops: 4 },
+  blurb: "Undo for your whole project, typed into a real terminal: snapshots and the staging area, branches, merges and genuine conflicts, every way to undo — restore, reset, revert, stash, and the reflog that finds \"deleted\" commits — then rebase and a remote that rejects your push. Take it any time after Learn HTML; GitHub itself and pull requests are left to your real machine.",
+  files: ["git/u1.js", "git/u2.js", "git/u3.js", "git/u4.js", "git/u5.js", "git/u6.js", "git/u7.js", "git/u8.js"]
 });
 
 window.CODELAB.defineCourse({

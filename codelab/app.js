@@ -1695,7 +1695,7 @@
     var previewHost = null;
     if (lesson.kind !== "js") {
       var previewWrap = el("div", "res-block");
-      previewWrap.appendChild(el("div", "pane-label", "Preview"));
+      previewWrap.appendChild(el("div", "pane-label", lesson.kind === "shell" ? "Terminal" : "Preview"));
       previewHost = el("div", "preview-host");
       previewWrap.appendChild(previewHost);
       resultIn.appendChild(previewWrap);

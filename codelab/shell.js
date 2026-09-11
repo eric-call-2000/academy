@@ -110,6 +110,9 @@
     if (n.f !== undefined) return file(n.f);
     var out = dir();
     Object.keys(n.d).forEach(function (k) { out.d[k] = cloneNode(n.d[k]); });
+    /* A directory can carry a git repository (gitsim.js). Its state is plain
+       JSON, so a deep copy keeps `cp -r` and `mv` of a project working. */
+    if (n.repo) out.repo = JSON.parse(JSON.stringify(n.repo));
     return out;
   }
   /* Every path in the tree, for globbing and for test assertions. */
@@ -435,7 +438,7 @@
   var API = {
     createFS: createFS, run: run, resolve: resolve, nodeAt: nodeAt, walk: walk,
     tokenize: tokenize, renderTranscript: renderTranscript, shortCwd: shortCwd,
-    dir: dir, file: file, COMMANDS: COMMANDS
+    dir: dir, file: file, cloneNode: cloneNode, COMMANDS: COMMANDS
   };
 
   root.CODELAB = root.CODELAB || {};
