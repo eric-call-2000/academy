@@ -345,6 +345,23 @@ test("cp -r of a repo carries the repository with it", () => {
   const T = G.testApi(fs, "/home/you/copy");
   ok(T.isRepo()); eq(T.count(), 1);
 });
+test("editor tabs become files: nested folders made, the script skipped, git sees the edit", () => {
+  const fs = SH.createFS({});
+  SH.run(fs, BASE, { cwd: HOME });
+  const written = SH.writeTabs(fs, HOME, "/home/you", { "commands.sh": "git status", "a.txt": "tab\n", "src/deep/x.js": "x\n" }, "commands.sh");
+  eq(written, [HOME + "/a.txt", HOME + "/src/deep/x.js"]);
+  const T = G.testApi(fs, HOME);
+  eq(T.wt("a.txt"), "tab\n"); eq(T.wt("src/deep/x.js"), "x\n");
+  eq(T.wt("commands.sh"), null, "the script tab is not written as a file");
+  eq(T.unstaged(), ["a.txt"]); eq(T.untracked(), ["src/deep/x.js"]);
+});
+test("a tab that would replace a directory fails loudly", () => {
+  const fs = SH.createFS({ "/home/you/project/src/": null });
+  let threw = false;
+  try { SH.writeTabs(fs, HOME, "/home/you", { "commands.sh": "", src: "oops" }, "commands.sh"); } catch (e) { threw = true; }
+  ok(threw, "writing a tab over a directory must throw");
+  ok(SH.nodeAt(fs, HOME + "/src").d, "the directory is untouched");
+});
 test("unknown flags and commands error like git", () => {
   const T = sandbox(BASE, "git comit -m x\ngit log --bogus");
   ok(T.err().indexOf("git: 'comit' is not a git command.") !== -1);

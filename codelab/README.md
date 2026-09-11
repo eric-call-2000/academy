@@ -247,6 +247,7 @@ same shas. Anything that needs an editor (`rebase -i`, `commit` without `-m`,
 | `setup` | commands run before the learner's, hidden — seeds a real history, index and reflog. A setup command that fails is a fatal authoring error |
 | `setupExpectFail` | setup commands that must fail (a merge left mid-conflict), checked both ways |
 | `cwd` | where both scripts start |
+| more `files` | every tab after the first (the script) is written into `cwd` as a real file — after setup, before the commands — so a Dockerfile or a file to fix is edited in its own tab. `T.before` doesn't see them |
 
 Checkpoints get the shell helpers (`T.out`, `T.err`, `T.ran`, `T.typed`,
 `T.file` …) plus repository helpers: `T.log(rev)`, `T.count(rev)`, `T.sha(rev)`,

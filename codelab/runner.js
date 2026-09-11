@@ -1084,6 +1084,11 @@
           }
         }
         if (GIT) before = GIT.snapshot(fsTree);
+        /* Every editor tab after the first is a real file (a Dockerfile, a
+           compose.yaml, a conflicted file to fix by hand). They're written
+           after setup AND after the T.before snapshot: the tabs are the
+           learner's input, not part of the starting state. */
+        SH.writeTabs(fsTree, where.cwd, where.home, files, name);
         result = SH.run(fsTree, script, where);
       } catch (e) {
         resolve({ steps: [], fatal: (e && e.message) || String(e) });
