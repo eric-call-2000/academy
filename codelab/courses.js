@@ -145,6 +145,14 @@ window.CODELAB.defineCourse({
 
 // DevOps/Engineering Track
 window.CODELAB.defineCourse({
+  id: "cli", prefix: "cli", title: "The Command Line & Your Machine",
+  icon: "⌨️", color: "#475569", level: "Beginner", stub: true,
+  plannedCredits: 3, plannedCategories: { ops: 2, fnd: 1 },
+  blurb: "Paths and the filesystem, making and breaking files, pipes and search, environment variables, PATH and permissions, processes and ports, and running your own programs — the machine every other course quietly assumes.",
+  files: []
+});
+
+window.CODELAB.defineCourse({
   id: "git", prefix: "git", title: "Git & Version Control",
   icon: "🌿", color: "#f97316", level: "Intermediate", hours: 8, items: 37,
   credits: 4, categories: { ops: 4 },
@@ -163,7 +171,7 @@ window.CODELAB.defineCourse({
 window.CODELAB.defineCourse({
   id: "docker", prefix: "docker", title: "Docker & Containers",
   icon: "🐳", color: "#2563eb", level: "Advanced", stub: true,
-  plannedCredits: 5, plannedCategories: { ops: 5 },
+  plannedCredits: 4, plannedCategories: { ops: 4 },
   blurb: "Container concepts, Dockerfile best practices, multi-stage builds, layer caching, Docker Compose, networking, volumes, container orchestration basics, and security in containers.",
   files: []
 });
@@ -173,5 +181,22 @@ window.CODELAB.defineCourse({
   icon: "☁️", color: "#7c3aed", level: "Advanced", stub: true,
   plannedCredits: 4, plannedCategories: { ops: 4 },
   blurb: "Cloud concepts (IaaS, PaaS, serverless), deployment strategies (blue-green, canary, rolling), environment variables, configuration management, monitoring, logging, cost optimization, and disaster recovery.",
+  files: []
+});
+
+// Quality & Data Track
+window.CODELAB.defineCourse({
+  id: "debug", prefix: "debug", title: "Debugging & Diagnosis",
+  icon: "🐞", color: "#be123c", level: "Intermediate", stub: true,
+  plannedCredits: 3, plannedCategories: { fnd: 1, qa: 2 },
+  blurb: "Read the error before you touch the code: stack traces, reproducing a bug on purpose and isolating it, print debugging done well, breakpoints and the paused program, bugs that aren't in your JavaScript at all — then a real app to fix.",
+  files: []
+});
+
+window.CODELAB.defineCourse({
+  id: "etl", prefix: "etl", title: "Data Pipelines & ETL",
+  icon: "🚰", color: "#ca8a04", level: "Advanced", stub: true,
+  plannedCredits: 4, plannedCategories: { data: 4 },
+  blurb: "Extract, transform, load: parsing messy CSV and JSON, validating and rejecting bad rows, idempotent batch loads, incremental updates, and pipelines that survive the input you didn't expect.",
   files: []
 });

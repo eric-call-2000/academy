@@ -69,13 +69,16 @@ credits across them rather than paying full value into each — the category col
 sum back to the course total, and the validator fails the build if they stop summing.
 
 **Positions** are requirement sheets, read exactly like a degree audit: a credit total,
-per-category minimums, and required courses that cannot be substituted. Required
-courses **stack** — they are named *and* their credits count toward the totals. There is
+per-category minimums, and required courses that cannot be substituted. Every sheet
+names **at least eight** required courses (the validator enforces it), and required
+courses **stack** — they are named *and* their credits count toward the totals, which sit
+about one elective above what the required courses pay. There is
 one sheet per job title and every sheet is junior-level; seniority comes from shipped
 work, not coursework. Thresholds are set against what juniors are actually screened on,
-**not** against what CodeLab happens to hold: three of the seven sheets are currently
-unreachable, and the board reports the shortfall as a number ("Operations tops out at 4
-credits — this sheet needs 10") rather than quietly hiding the gap.
+**not** against what CodeLab happens to hold: four of the seven sheets are currently
+unreachable because they require courses still on the roadmap, and the board reports
+the shortfall as a number ("Operations tops out at 8 credits — this sheet needs 10")
+rather than quietly hiding the gap.
 
 **Credits expire after two years — unless you keep them.** Any Recall drill or card you
 do not miss resets that course's clock, so the transcript measures what you can still

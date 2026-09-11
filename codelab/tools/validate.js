@@ -288,12 +288,24 @@ function positionGates() {
     for (const cid of (p.required || [])) {
       if (!window.CODELAB._byId[cid]) fail(`position ${p.id}: required course "${cid}" is not in the catalog`);
     }
+    /* The eight-course rule: a job title is a curriculum, so every sheet names
+       at least this many required courses (see positions.js). */
+    const MIN_REQUIRED = 8;
+    const reqIds = p.required || [];
+    if (reqIds.length < MIN_REQUIRED)
+      fail(`position ${p.id}: names ${reqIds.length} required courses, needs at least ${MIN_REQUIRED}`);
+    if (new Set(reqIds).size !== reqIds.length) fail(`position ${p.id}: a required course is listed twice`);
     /* Required courses STACK, so their credits must be able to fit inside the
        sheet's own total — a sheet demanding fewer credits than its own
-       required courses pay is a spec bug. */
-    const reqCredits = (p.required || []).reduce((a, cid) => a + (window.CODELAB._byId[cid].credits || 0), 0);
+       required courses pay is a spec bug. Stubs count at their PLANNED value,
+       or a sheet that passes today would break the day a stub gets written. */
+    const reqCredits = reqIds.reduce((a, cid) => {
+      const c = window.CODELAB._byId[cid];
+      if (!c) return a;   // already reported above
+      return a + (c.stub ? (c.plannedCredits || 0) : (c.credits || 0));
+    }, 0);
     if (reqCredits > p.total)
-      fail(`position ${p.id}: required courses pay ${reqCredits} credits but the sheet only asks for ${p.total}`);
+      fail(`position ${p.id}: required courses pay ${reqCredits} credits (stubs at planned value) but the sheet only asks for ${p.total}`);
 
     const gaps = Object.keys(p.min || {}).filter(c => built[c] < p.min[c]);
     const stubReq = (p.required || []).filter(cid => window.CODELAB._byId[cid].stub);
