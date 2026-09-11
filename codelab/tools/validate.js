@@ -604,6 +604,34 @@ async function main() {
       if (!st.timeout && stPassed === nSteps && nSteps > 0) fail(`${id}: STARTER already passes all checks (lesson is trivial)`);
     } catch (e) { fail(`${id}: starter run threw: ${e.message}`); }
   }
+  /* ---- runner probe: extra editor tabs in shell lessons ----
+     A shell lesson's first tab is its script; every other tab is written into
+     the filesystem after setup and before the commands (the Docker course's
+     Dockerfile and compose.yaml tabs). No catalog lesson uses a second tab
+     yet, so without this probe that path would go unexercised in Chromium. */
+  const tabProbe = await page.evaluate(() => {
+    const lesson = {
+      id: "probe-shell-tabs", kind: "shell", cwd: "/home/you/project",
+      setup: "git init\necho \"old\" > notes.txt\ngit add notes.txt\ngit commit -m \"Start\"",
+      files: [{ name: "commands.sh", content: "" }, { name: "notes.txt", content: "" }, { name: "config/app.json", content: "" }],
+      steps: [
+        { test: "T.eq(T.file('notes.txt'), 'edited in a tab\\n', 'the tab should overwrite the file setup committed');" },
+        { test: "T.eq(T.file('config/app.json'), '{}', 'a nested tab should create its folder');" },
+        { test: "T.eq(T.unstaged(), ['notes.txt'], 'git should see the tab edit as an unstaged change');" },
+        { test: "T.eq(T.before.wt('notes.txt'), 'old\\n', 'T.before is the setup state, before any tab is written');" },
+        { test: "T.expect(T.out().indexOf('edited in a tab') !== -1, 'the commands should run after the tabs are written');" }
+      ]
+    };
+    const files = { "commands.sh": "cat notes.txt", "notes.txt": "edited in a tab\n", "config/app.json": "{}" };
+    const host = document.createElement("div");
+    return window.CODELAB.runner.run(lesson, files, { previewEl: host }).then(r => ({ steps: r.steps, fatal: r.fatal }));
+  });
+  const tabProbeBad = (tabProbe.steps || []).filter(s => !s.pass);
+  if (tabProbe.fatal) fail(`runner probe (shell tabs): FATAL ${tabProbe.fatal}`);
+  else if (tabProbeBad.length || (tabProbe.steps || []).length !== 5)
+    fail(`runner probe (shell tabs): ${tabProbeBad.map(s => "#" + s.i + ": " + s.msg).join(" | ") || "steps missing"}`);
+  else ok("runner probe: a shell lesson's extra tabs become files after setup, before the commands");
+
   await ctx.close();
 
   /* ---- phase 2: mobile UI smoke test ---- */

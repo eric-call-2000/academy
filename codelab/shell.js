@@ -435,10 +435,29 @@
   }
   function shortCwd(cwd) { return cwd === "/home/you" ? "~" : cwd.replace(/^\/home\/you/, "~"); }
 
+  /* Editor tabs become real files. A shell lesson's first tab is its script;
+     every other tab — a Dockerfile, a compose.yaml, a file to fix by hand —
+     is written into the filesystem, relative to cwd, before the script runs.
+     Folders are created as needed. Replacing a directory with a file is an
+     authoring bug, so it throws rather than silently clobbering the tree. */
+  function writeTabs(fs, cwd, home, files, script) {
+    var written = [];
+    Object.keys(files || {}).forEach(function (name) {
+      if (name === script || files[name] == null) return;
+      var abs = resolve(cwd, home || cwd, name);
+      var existing = nodeAt(fs, abs);
+      if (existing && existing.d) throw new Error("The " + name + " tab would replace a directory at " + abs);
+      if (!mkdirp(fs, parentOf(abs)) || !writeFile(fs, abs, files[name]))
+        throw new Error("Could not write the " + name + " tab to " + abs);
+      written.push(abs);
+    });
+    return written;
+  }
+
   var API = {
     createFS: createFS, run: run, resolve: resolve, nodeAt: nodeAt, walk: walk,
     tokenize: tokenize, renderTranscript: renderTranscript, shortCwd: shortCwd,
-    dir: dir, file: file, cloneNode: cloneNode, COMMANDS: COMMANDS
+    dir: dir, file: file, cloneNode: cloneNode, writeTabs: writeTabs, COMMANDS: COMMANDS
   };
 
   root.CODELAB = root.CODELAB || {};
