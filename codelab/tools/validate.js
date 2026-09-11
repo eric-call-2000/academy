@@ -38,15 +38,48 @@ function findBrowser() {
   process.exit(1);
 }
 
+/* Split a call's argument list on TOP-LEVEL commas only, so a comma inside a
+   nested call, string, array or object does not look like another argument. */
+function splitCallArgs(src, openIx) {
+  const args = [];
+  let depth = 0, cur = "", quote = null;
+  for (let i = openIx + 1; i < src.length; i++) {
+    const ch = src[i], prev = src[i - 1];
+    if (quote) { cur += ch; if (ch === quote && prev !== "\\") quote = null; continue; }
+    if (ch === '"' || ch === "'" || ch === "`") { quote = ch; cur += ch; continue; }
+    if ("([{".indexOf(ch) !== -1) { depth++; cur += ch; continue; }
+    if (")]}".indexOf(ch) !== -1) {
+      if (ch === ")" && depth === 0) { args.push(cur); return args; }
+      depth--; cur += ch; continue;
+    }
+    if (ch === "," && depth === 0) { args.push(cur); cur = ""; continue; }
+    cur += ch;
+  }
+  return null;
+}
+
 /* ---------------- phase 0: static checks ---------------- */
 function phase0() {
   console.log("\n== Phase 0: static curriculum checks ==");
   global.window = { CODELAB: {} };
   window.CODELAB.courses = [];
   window.CODELAB._byId = {};
-  window.CODELAB.defineCourse = (c) => { c.units = []; window.CODELAB.courses.push(c); window.CODELAB._byId[c.id] = c; };
+  window.CODELAB.positions = [];
+  window.CODELAB._posById = {};
+  window.CODELAB.defineCourse = (c) => {
+    c.units = [];
+    c.stub = !!c.stub; c.files = c.files || []; c.items = c.items || 0;
+    c.hours = c.hours || 0; c.credits = c.credits || 0; c.categories = c.categories || {};
+    window.CODELAB.courses.push(c); window.CODELAB._byId[c.id] = c;
+  };
+  window.CODELAB.definePosition = (p) => {
+    p.min = p.min || {}; p.required = p.required || [];
+    window.CODELAB.positions.push(p); window.CODELAB._posById[p.id] = p;
+  };
   window.CODELAB.addUnit = (courseId, u) => { u.lessons = u.lessons || []; window.CODELAB._byId[courseId].units.push(u); };
+  require(path.join(ROOT, "core.js"));
   require(path.join(ROOT, "courses.js"));
+  require(path.join(ROOT, "positions.js"));
   for (const course of window.CODELAB.courses) {
     for (const f of course.files) require(path.join(ROOT, f));
   }
@@ -104,6 +137,40 @@ function phase0() {
                 fail(`${l.id}: "${name}" is mutated by a checkpoint but declared with const/let — mutated bindings must be \`function ${name}(...)\``);
             }
           }
+          /* T.expect(cond, msg) takes TWO arguments. A three-argument call is a
+             T.eq(got, want, msg) written wrong: it asserts only that `got` is
+             truthy and throws the comparison away, so it passes for any
+             non-empty value — including the starter's. This exact mistake hid
+             19 broken checkpoints across the Node and Database courses and
+             made six lessons pass with an empty starter. */
+          for (const s of (l.steps || [])) {
+            const src = String(s.test || "");
+            let ix = 0;
+            while ((ix = src.indexOf("T.expect(", ix)) !== -1) {
+              const args = splitCallArgs(src, ix + "T.expect".length);
+              if (args && args.length >= 3)
+                fail(`${l.id}: T.expect() called with ${args.length} arguments — it takes (condition, message). Did you mean T.eq(got, want, message)?`);
+              ix += 9;
+            }
+          }
+
+          /* Node globals do not exist in a browser Worker. A lesson that uses
+             them without `node: true` dies on the first line with a bare
+             ReferenceError instead of failing a checkpoint. */
+          if (!l.node) {
+            const sources = [JSON.stringify(l.solution || {}), JSON.stringify(l.files || []), JSON.stringify(l.steps || [])].join(" ");
+            for (const sym of ["Buffer.", "setImmediate(", "MockReadable", "MockWritable"]) {
+              if (sources.indexOf(sym) === -1) continue;
+              /* …unless the lesson DEFINES it. nodejs-u2-3 and u2-4 are the
+                 units where building MockReadable/MockWritable IS the exercise;
+                 opting those into the harness would hand over the answer and
+                 make the starter pass on its own. */
+              const bare = sym.replace(/[.(]/g, "");
+              if (sources.indexOf("class " + bare) !== -1 || sources.indexOf("function " + bare) !== -1) continue;
+              fail(`${l.id}: uses ${sym} but does not set \`node: true\` — harnessNode provides it (see runner.js)`);
+            }
+          }
+
           /* XSS async-sentinel flakiness (Web Security U2/U3): an <img onerror>
              payload fires asynchronously, and the web grader starts ~60ms
              after load — so any checkpoint that reads the __fired sentinel
@@ -128,11 +195,126 @@ function phase0() {
     if (course.hours > modelHours * 2)
       fail(`course ${course.id}: advertises ${course.hours}h but only holds ~${modelHours.toFixed(1)}h of material (${count} items) — move the ambition to targetHours`);
 
+    /* ---- credits ----
+       The whole point of the credit model is that credits cannot be minted:
+       they are a restatement of hours that someone actually authored. So
+       re-derive them here from the lessons just counted and fail on drift.
+       A tolerance of 1 absorbs adding a lesson without a manifest edit; more
+       than that means the number stopped describing the content. */
+    const CH = window.CODELAB.CREDIT_HOURS;
+    if (course.stub) {
+      if (course.credits) fail(`course ${course.id}: stub courses must pay 0 credits (has ${course.credits})`);
+      if (course.files.length) fail(`course ${course.id}: stub course must have files: []`);
+      if (count) fail(`course ${course.id}: marked stub but registers ${count} items`);
+      const pc = course.plannedCredits || 0;
+      const psum = Object.values(course.plannedCategories || {}).reduce((a, b) => a + b, 0);
+      if (pc !== psum) fail(`course ${course.id}: plannedCategories sum to ${psum} but plannedCredits is ${pc}`);
+    } else {
+      const derived = Math.round(modelHours / CH);
+      if (Math.abs((course.credits || 0) - derived) > 1)
+        fail(`course ${course.id}: claims ${course.credits} credits but holds ~${modelHours.toFixed(1)}h of material (${derived} credits at ${CH}h each) — credits must restate content, not ambition`);
+      if (!course.credits) fail(`course ${course.id}: a built course must pay credits`);
+      /* Apportionment: a multi-category course splits its credits, it does not
+         pay full value into each. If these stopped summing, the ledger would
+         hand out credit nobody sat through. */
+      const sum = Object.values(course.categories || {}).reduce((a, b) => a + b, 0);
+      if (sum !== course.credits)
+        fail(`course ${course.id}: categories sum to ${sum} but credits is ${course.credits} — the split must be apportioned, not duplicated`);
+    }
+    for (const cat of Object.keys({ ...(course.categories || {}), ...(course.plannedCategories || {}) })) {
+      if (!window.CODELAB._catById[cat]) fail(`course ${course.id}: unknown category "${cat}"`);
+    }
+
     const target = course.targetHours ? `, target ${course.targetHours}h` : "";
-    console.log(`  ${course.id}: ${count} items (manifest ${course.items}) ~${course.hours}h (model ~${modelHours.toFixed(1)}h${target})`);
+    const crLabel = course.stub ? `stub, planned ${course.plannedCredits || 0}cr` : `${course.credits}cr`;
+    console.log(`  ${course.id}: ${count} items (manifest ${course.items}) ~${course.hours}h (model ~${modelHours.toFixed(1)}h${target}) ${crLabel}`);
   }
   console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ~${Math.round(totals.mins / 60)}h of material`);
 
+  positionGates();
+  recallAndSyncGates();
+  gitsimGates();
+}
+
+/* The Git course is graded by INSPECTING gitsim's state, so an engine bug
+   would make lessons pass or fail for reasons unrelated to what the learner
+   typed — and Phase 1 only exercises the paths lessons happen to hit. The
+   engine's own suite is pure Node and takes about a second. */
+function gitsimGates() {
+  console.log("\n== Phase 0e: git engine ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-gitsim.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0]);
+  } catch (e) {
+    fail("gitsim engine tests failed:\n" + String(e.stdout || e.message));
+  }
+}
+
+/* The job board is only honest if every sheet is checked against what the
+   catalog can actually supply. A sheet nobody can reach is NOT a failure —
+   three of them are deliberately unreachable, which is how the board reports
+   a content gap as a number — but it must be reported, never silent. */
+function positionGates() {
+  console.log("\n== Phase 0b: job positions ==");
+  const cats = window.CODELAB.CATEGORIES.map(c => c.id);
+  const built = {}, road = {};
+  cats.forEach(c => { built[c] = 0; road[c] = 0; });
+  let builtTotal = 0, roadTotal = 0;
+  for (const c of window.CODELAB.courses) {
+    if (c.stub) {
+      roadTotal += c.plannedCredits || 0;
+      for (const k of Object.keys(c.plannedCategories || {})) road[k] += c.plannedCategories[k];
+    } else {
+      builtTotal += c.credits || 0;
+      for (const k of Object.keys(c.categories || {})) built[k] += c.categories[k];
+    }
+  }
+  console.log(`  catalog supplies ${builtTotal} credits built (+${roadTotal} on the roadmap)`);
+  console.log(`  by category: ${cats.map(c => `${c} ${built[c]}${road[c] ? "+" + road[c] : ""}`).join(" · ")}`);
+
+  if (!window.CODELAB.positions.length) fail("no job positions defined");
+  const seen = new Set();
+  let reachable = 0, blocked = 0;
+  for (const p of window.CODELAB.positions) {
+    if (seen.has(p.id)) fail(`duplicate position id: ${p.id}`);
+    seen.add(p.id);
+    if (!p.title || !p.total) fail(`position ${p.id}: needs a title and a credit total`);
+    for (const cat of Object.keys(p.min || {})) {
+      if (!window.CODELAB._catById[cat]) fail(`position ${p.id}: unknown category "${cat}"`);
+    }
+    /* A required course that does not exist would render as a permanently
+       unmeetable row with no explanation. */
+    for (const cid of (p.required || [])) {
+      if (!window.CODELAB._byId[cid]) fail(`position ${p.id}: required course "${cid}" is not in the catalog`);
+    }
+    /* Required courses STACK, so their credits must be able to fit inside the
+       sheet's own total — a sheet demanding fewer credits than its own
+       required courses pay is a spec bug. */
+    const reqCredits = (p.required || []).reduce((a, cid) => a + (window.CODELAB._byId[cid].credits || 0), 0);
+    if (reqCredits > p.total)
+      fail(`position ${p.id}: required courses pay ${reqCredits} credits but the sheet only asks for ${p.total}`);
+
+    const gaps = Object.keys(p.min || {}).filter(c => built[c] < p.min[c]);
+    const stubReq = (p.required || []).filter(cid => window.CODELAB._byId[cid].stub);
+    const shortTotal = Math.max(0, p.total - builtTotal);
+    if (!gaps.length && !stubReq.length && !shortTotal) {
+      reachable++;
+      console.log(`  ✅ ${p.title} — reachable today (${p.total}cr)`);
+    } else {
+      blocked++;
+      const why = [];
+      gaps.forEach(c => why.push(`${c} ${built[c]}/${p.min[c]} (short ${p.min[c] - built[c]}, roadmap +${road[c]})`));
+      stubReq.forEach(cid => why.push(`requires unwritten ${cid}`));
+      if (shortTotal) why.push(`total short ${shortTotal}`);
+      const everFixable = gaps.every(c => built[c] + road[c] >= p.min[c]);
+      console.log(`  ⛔ ${p.title} — ${why.join(" · ")}${everFixable ? "" : "  [roadmap does NOT close this]"}`);
+    }
+  }
+  console.log(`  ${reachable} reachable · ${blocked} blocked by missing content`);
+}
+
+function recallAndSyncGates() {
   /* Recall gates run here, while the catalog is still loaded: node caches
      modules by path and the unit files are bare scripts, so a second
      in-process load would register nothing. */
@@ -237,7 +419,12 @@ function syncAlgebra(REV) {
 
   function randProfile(dev) {
     const u = { done: {}, quiz: {}, days: [], rev: {}, revPark: {}, revSkip: {}, revAlt: {},
-                revStatsSrc: {}, xp: 0, lastCourse: rnd() < 0.5 ? "js" : null };
+                revStatsSrc: {}, xp: 0, earned: {}, lastCourse: rnd() < 0.5 ? "js" : null };
+    /* Credit clocks merge by max, so the property tests must actually carry
+       them: a clock that merged by min would silently expire renewed credits. */
+    ["js", "html", "css", "srv", "test"].forEach(cid => {
+      if (rnd() < 0.5) u.earned[cid] = ctx.today - Math.floor(rnd() * 900);
+    });
     LESSONS.forEach(l => { if (rnd() < 0.4) { u.done[l] = true; u.xp += ctx.xpOf(l); } });
     CARDS.forEach(k => {
       if (rnd() > 0.5) return;
@@ -259,13 +446,16 @@ function syncAlgebra(REV) {
     if (!eq(M(once, I), once)) idem++;
     if (!eq(once, M(I, L))) comm++;
     if (Object.keys(once.done).length < Object.keys(L.done).length || once.xp < L.xp || once.days.length < L.days.length) mono++;
+    /* A merge that lost or rewound a credit clock would expire a course the
+       learner has already renewed on the other device. */
+    else if (Object.keys(L.earned).some(c => !(once.earned && once.earned[c] >= L.earned[c]))) mono++;
   }
   if (idem) fail(`merge is NOT idempotent (${idem}/400 pairs) — a repeat import would change the profile`);
   else ok("merge is idempotent over 400 random pairs");
   if (comm) fail(`merge is NOT commutative (${comm}/400 pairs) — the result would depend on import order`);
   else ok("merge is commutative over 400 random pairs");
   if (mono) fail(`merge LOSES data (${mono}/400 pairs) — done/xp/days shrank`);
-  else ok("merge is monotone — completions, XP and study days never shrink");
+  else ok("merge is monotone — completions, XP, study days and credit clocks never shrink");
 
   // The date format that silently resets the streak to 1 every day if padded.
   const d = new Date();
@@ -351,6 +541,20 @@ function schedulerSim(REV, poolSize) {
 /* ---------------- phases 1+2: browser ---------------- */
 async function main() {
   phase0();
+
+  /* Phase 0 is pure Node and finishes in about a second, while the browser
+     phases take ~12 minutes. `--phase0` is the curriculum-authoring inner
+     loop, the same role tools/validate-unit.js plays for a single unit. */
+  if (process.argv.includes("--phase0")) {
+    console.log("\n==================================");
+    if (failures.length) {
+      console.log("FAILURES: " + failures.length);
+      failures.forEach(f => console.log("  ✗ " + f));
+      process.exit(1);
+    }
+    console.log("PHASE 0 PASSED ✅  (browser phases skipped)");
+    return;
+  }
 
   const server = spawn("node", ["server.js"], { cwd: ROOT, stdio: "ignore" });
   await new Promise(r => setTimeout(r, 700));

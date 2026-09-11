@@ -17,8 +17,21 @@
   "use strict";
 
   var COURSES = (window.CODELAB && window.CODELAB.courses) || [];
+  /* Stubs are roadmap placeholders with no lessons. They belong in the
+     catalog and in the job sheets (so a blocked position can name what
+     would unblock it) but never in progress math — a stub can never be
+     completed, so counting one would make the path permanently unfinished. */
+  var LIVE_COURSES = COURSES.filter(function (c) { return !c.stub; });
+  var POSITIONS = (window.CODELAB && window.CODELAB.positions) || [];
+  var CATEGORIES = (window.CODELAB && window.CODELAB.CATEGORIES) || [];
+  var EXPIRY_DAYS = window.CODELAB.CREDIT_EXPIRY_DAYS;
+  var WARN_DAYS = window.CODELAB.CREDIT_WARN_DAYS;
   var runner = window.CODELAB.runner;
 
+  /* Used on the whole-catalog certificate. The CATALOG hero no longer names a
+     single role — with credits, one learner walks out a QA engineer and
+     another a backend developer from the same courses — but finishing every
+     course is still fairly called the full-stack path. */
   var PATH_TITLE = "Full-Stack Engineer Path";
   var LS_KEY = "codelab_v1";
   var ACADEMY_KEY = "academy_users_v1";
@@ -192,6 +205,11 @@
   function freshUser() {
     return {
       done: {}, xp: 0, streak: 0, lastDay: null, code: {}, quiz: {}, lastCourse: null,
+      /* Credit clocks: courseId -> day the course was completed or last
+         renewed by Recall. Absent = never earned. Credits are awarded for
+         the COURSE, so this map is ~19 entries, not one per lesson. */
+      earned: {},
+      goal: null,        // pinned position id, or null for the open board
       /* Recall. A missing rev record IS the "never introduced" marker, which
          is why there is no seeding pass and no seeded flag: new questions
          shipped in a later wave become eligible on their own. */
@@ -226,6 +244,24 @@
           u.revStats = u.revStats || { s: 0, a: 0, c: 0, ta: 0, tc: 0 };
           u.revPark = u.revPark || {};
           u.xpOwed = u.xpOwed || [];
+          if (!("goal" in u)) u.goal = null;
+          /* Credit migration. Everyone who already finished a course keeps it,
+             but the 2-year clock starts the day this feature ships, not at the
+             original completion: done[id] is a bare boolean, so there is no
+             honest date to recover (the same reason Recall refused to backfill
+             above), and dating the clock in the past would expire finished work
+             the moment the transcript first rendered. */
+          if (!u.earned) {
+            u.earned = {};
+            var day0 = REV.revToday();
+            COURSES.forEach(function (c) {
+              if (c.stub || !c.credits || !c.items) return;
+              var pre = c.prefix + "-";
+              var n = 0;
+              Object.keys(u.done).forEach(function (id) { if (id.indexOf(pre) === 0) n++; });
+              if (n >= c.items) u.earned[c.id] = day0;
+            });
+          }
           /* Handoff migration. The streak was a count plus an end-date, which
              cannot be merged across devices without inventing runs — so the
              existing pair is expanded back into the set of days it implies,
@@ -418,11 +454,11 @@
   }
   function pathTotals() {
     var done = 0, total = 0;
-    COURSES.forEach(function (c) { done += courseDoneCount(c); total += courseTotal(c); });
+    LIVE_COURSES.forEach(function (c) { done += courseDoneCount(c); total += courseTotal(c); });
     return { done: done, total: total };
   }
   function pathComplete() {
-    return COURSES.length > 0 && COURSES.every(courseComplete);
+    return LIVE_COURSES.length > 0 && LIVE_COURSES.every(courseComplete);
   }
   function firstIncomplete(course) {
     var list = courseLessons(course);
@@ -430,6 +466,164 @@
     return list.length;
   }
   function isUnlocked(course, gi) { return gi <= firstIncomplete(course); }
+
+  /* ---------- credits ----------
+     The transcript layer. A course pays its credits when it is COMPLETED,
+     apportioned across the categories it serves, and those credits stay
+     spendable for EXPIRY_DAYS — unless the learner keeps the course's Recall
+     drills current, which resets the clock. So the ledger answers "what can
+     this person still do today", not "what did they once sit through". */
+
+  function creditToday() { return REV.revToday(); }
+
+  function earnedDay(u, courseId) {
+    var d = u && u.earned ? u.earned[courseId] : null;
+    return typeof d === "number" ? d : null;
+  }
+
+  /* none → never completed · live → counts · warn → counts, expiring soon
+     · expired → on the transcript, but not spendable until refreshed. */
+  function creditState(u, course) {
+    var d = earnedDay(u, course.id);
+    if (d == null) return { state: "none", left: 0, day: null };
+    var left = EXPIRY_DAYS - (creditToday() - d);
+    if (left <= 0) return { state: "expired", left: 0, day: d };
+    return { state: left <= WARN_DAYS ? "warn" : "live", left: left, day: d };
+  }
+  function creditLive(st) { return st.state === "live" || st.state === "warn"; }
+
+  /* The ONLY place a clock starts. Returns true the first time, so the
+     completion sheet can say "+4 credits" rather than repeating it on every
+     later replay of the last lesson. */
+  function awardCredits(u, course) {
+    if (!course || course.stub || !course.credits) return false;
+    var first = earnedDay(u, course.id) == null;
+    u.earned[course.id] = creditToday();
+    return first;
+  }
+
+  /* Renewal. Any Recall item the learner did NOT miss proves the material is
+     still there, so it resets that course's clock — but only for a course
+     already completed. Drilling alone never awards credit. */
+  function touchCredits(u, courseId) {
+    if (!u || !courseId || earnedDay(u, courseId) == null) return false;
+    var was = u.earned[courseId], now = creditToday();
+    if (now <= was) return false;
+    u.earned[courseId] = now;
+    return true;
+  }
+
+  /* Recall keys are "k:<lessonId>" (drills) and "q:<quizId>#<hash>" (cards);
+     both ids carry the course prefix, which is what makes this a lookup and
+     not a second registry to keep in sync. */
+  function courseIdOfRevKey(key) {
+    var s2 = String(key || ""), id = "";
+    if (s2.indexOf("k:") === 0) id = s2.slice(2);
+    else if (s2.indexOf("q:") === 0) id = s2.slice(2).split("#")[0];
+    if (!id) return null;
+    for (var i = 0; i < LIVE_COURSES.length; i++) {
+      if (id.indexOf(LIVE_COURSES[i].prefix + "-") === 0) return LIVE_COURSES[i].id;
+    }
+    return null;
+  }
+
+  function emptyCats() {
+    var m = {};
+    CATEGORIES.forEach(function (c) { m[c.id] = 0; });
+    return m;
+  }
+
+  /* The transcript: every course with a live clock, apportioned. */
+  function ledger(u) {
+    var byCat = emptyCats(), total = 0, live = [], expired = [];
+    LIVE_COURSES.forEach(function (c) {
+      var st = creditState(u, c);
+      if (st.state === "none") return;
+      if (st.state === "expired") { expired.push({ course: c, st: st }); return; }
+      live.push({ course: c, st: st });
+      total += c.credits || 0;
+      Object.keys(c.categories || {}).forEach(function (k) {
+        byCat[k] = (byCat[k] || 0) + c.categories[k];
+      });
+    });
+    return { byCat: byCat, total: total, live: live, expired: expired };
+  }
+
+  /* A degree audit against one requirement sheet. Required courses STACK:
+     they are named here AND their credits already sit in the ledger. */
+  function audit(u, pos, L) {
+    L = L || ledger(u);
+    var gaps = [], missing = [];
+    Object.keys(pos.min || {}).forEach(function (cat) {
+      var have = L.byCat[cat] || 0;
+      if (have < pos.min[cat]) gaps.push({ cat: cat, have: have, need: pos.min[cat] });
+    });
+    (pos.required || []).forEach(function (cid) {
+      var c = window.CODELAB._byId[cid];
+      if (c && !creditLive(creditState(u, c))) missing.push(c);
+    });
+    var short = Math.max(0, pos.total - L.total);
+    return {
+      met: !short && !gaps.length && !missing.length,
+      have: L.total, need: pos.total, short: short,
+      gaps: gaps, missing: missing, ledger: L,
+      pct: pos.total ? Math.min(100, Math.round(L.total / pos.total * 100)) : 100
+    };
+  }
+
+  /* What the CATALOG could ever supply, ignoring the learner. A position
+     whose floor sits above this is blocked by missing content, not by
+     missing effort — and saying which is the whole point of the board. */
+  var _ceil = null;
+  function builtCeiling() {
+    if (_ceil) return _ceil;
+    var byCat = emptyCats(), total = 0;
+    LIVE_COURSES.forEach(function (c) {
+      total += c.credits || 0;
+      Object.keys(c.categories || {}).forEach(function (k) { byCat[k] = (byCat[k] || 0) + c.categories[k]; });
+    });
+    _ceil = { byCat: byCat, total: total };
+    return _ceil;
+  }
+
+  /* Categories this position needs that no built course can supply, plus the
+     stub courses that would. */
+  function blockers(pos) {
+    var cap = builtCeiling(), out = [];
+    Object.keys(pos.min || {}).forEach(function (cat) {
+      var max = cap.byCat[cat] || 0;
+      if (max >= pos.min[cat]) return;
+      var wouldFix = COURSES.filter(function (c) {
+        return c.stub && (c.plannedCategories || {})[cat];
+      });
+      out.push({ cat: cat, max: max, need: pos.min[cat], short: pos.min[cat] - max, courses: wouldFix });
+    });
+    (pos.required || []).forEach(function (cid) {
+      var c = window.CODELAB._byId[cid];
+      if (c && c.stub && !out.some(function (b) { return (b.courses || []).indexOf(c) !== -1; })) {
+        out.push({ course: c, courses: [c] });
+      }
+    });
+    return out;
+  }
+
+  function positionById(id) { return window.CODELAB._posById[id] || null; }
+
+  /* Positions this course moves the needle on — the reverse index that lets a
+     course card say what it is FOR. */
+  function positionsFor(course) {
+    if (!course || course.stub) {
+      return POSITIONS.filter(function (p) { return (p.required || []).indexOf(course.id) !== -1; });
+    }
+    var cats = Object.keys(course.categories || {});
+    return POSITIONS.filter(function (p) {
+      if ((p.required || []).indexOf(course.id) !== -1) return true;
+      return cats.some(function (k) { return (p.min || {})[k]; });
+    });
+  }
+
+  function plural(n, one, many) { return n + " " + (n === 1 ? one : many); }
+  function creditWord(n) { return plural(n, "credit", "credits"); }
 
   /* ---------- tiny DOM helpers ---------- */
   var app = document.getElementById("app");
@@ -638,11 +832,13 @@
 
     var totals = pathTotals();
     var pct = totals.total ? Math.round(totals.done / totals.total * 100) : 0;
-    var totalHours = COURSES.reduce(function (s, c) { return s + (c.hours || 0); }, 0);
+    var totalHours = LIVE_COURSES.reduce(function (s, c) { return s + (c.hours || 0); }, 0);
+    var totalCredits = LIVE_COURSES.reduce(function (s, c) { return s + (c.credits || 0); }, 0);
+    var heldCredits = ledger(u).total;
     var hero = el("div", "hero");
-    hero.appendChild(el("div", "hero-kicker", "CAREER PATH · " + COURSES.length + " COURSES · ~" + totalHours + " HOURS"));
-    hero.appendChild(el("h1", "hero-title", PATH_TITLE));
-    hero.appendChild(el("p", "hero-sub", "Every course below is a full, Codecademy-scale course — lessons, quizzes, projects and a certificate. Take them in order, or jump to what you need."));
+    hero.appendChild(el("div", "hero-kicker", LIVE_COURSES.length + " COURSES · ~" + totalHours + " HOURS · " + totalCredits + " CREDITS"));
+    hero.appendChild(el("h1", "hero-title", "Learn to code, qualify for the job"));
+    hero.appendChild(el("p", "hero-sub", "Every course is a full, Codecademy-scale course, and finishing one pays credits toward every job position that needs it. Take them in order, or go straight at the position you want."));
     var pr = el("div", "hero-progress");
     pr.appendChild(el("div", "hero-bar", '<i style="width:' + pct + '%"></i>'));
     pr.appendChild(el("div", "hero-pct", pct + "%"));
@@ -672,13 +868,17 @@
       cont.onclick = function () { openCourse(last); };
       heroBtns.appendChild(cont);
     } else {
-      var next = COURSES.filter(function (c) { return !courseComplete(c); })[0];
+      var next = LIVE_COURSES.filter(function (c) { return !courseComplete(c); })[0];
       if (next) {
         var start = el("button", "btn btn-green", (courseDoneCount(next) ? "Continue: " : "Start: ") + esc(next.title));
         start.onclick = function () { openCourse(next); };
         heroBtns.appendChild(start);
       }
     }
+    var jobs = el("button", "btn btn-blue", "💼 Careers");
+    jobs.title = "Which job positions your credits qualify you for";
+    jobs.onclick = renderJobs;
+    heroBtns.appendChild(jobs);
     var play = el("button", "btn btn-ghost", "🧪 Free sandbox");
     play.onclick = openPlayground;
     heroBtns.appendChild(play);
@@ -687,6 +887,26 @@
     handoff.onclick = renderSync;
     heroBtns.appendChild(handoff);
     hero.appendChild(heroBtns);
+
+    /* The pinned goal is the ONLY thing on this screen that narrows the
+       catalog to one job. It is opt-in and one tap to clear, because the
+       whole point of credits is that you are never locked into a track. */
+    var goal = u.goal && positionById(u.goal);
+    if (goal) {
+      var ga = audit(u, goal);
+      var strip = el("div", "goal-strip");
+      strip.appendChild(el("div", "gs-kick", "GOAL"));
+      strip.appendChild(el("div", "gs-title", (goal.icon || "💼") + " " + esc(goal.title)));
+      var gbar = el("div", "gs-bar", "<i></i>");
+      gbar.firstChild.style.width = ga.pct + "%";
+      strip.appendChild(gbar);
+      var nxg = nextForPosition(u, goal);
+      strip.appendChild(el("div", "gs-meta", ga.met
+        ? "✓ You meet every requirement — open Careers for the sheet."
+        : ga.have + " / " + goal.total + " credits" + (nxg ? " · next: " + esc(nxg.title) : "")));
+      strip.onclick = function () { showPosition(goal); };
+      hero.appendChild(strip);
+    }
     if (academyConnected()) hero.appendChild(el("div", "conn-pill", "🔗 Sharing profiles &amp; XP with your Academy app"));
     wrap.appendChild(hero);
 
@@ -701,18 +921,51 @@
       head.style.background = c.color || "#1cb0f6";
       head.appendChild(el("div", "cc-ic", c.icon || "📦"));
       var meta = el("div", "cc-chips");
-      meta.appendChild(el("span", "cc-chip", "~" + c.hours + "h"));
+      if (c.stub) meta.appendChild(el("span", "cc-chip", "Roadmap"));
+      else meta.appendChild(el("span", "cc-chip", "~" + c.hours + "h"));
       meta.appendChild(el("span", "cc-chip", esc(c.level || "Beginner")));
+      var cr = c.stub ? (c.plannedCredits || 0) : (c.credits || 0);
+      if (cr) meta.appendChild(el("span", "cc-chip cr", cr + " cr"));
       head.appendChild(meta);
       card.appendChild(head);
       var body = el("div", "cc-body");
       body.appendChild(el("div", "cc-kicker", "Course " + (i + 1)));
       body.appendChild(el("div", "cc-title", esc(c.title)));
       body.appendChild(el("div", "cc-blurb", esc(c.blurb || "")));
+      /* What this course is FOR. The reverse of the job board: there, a
+         position names the courses it needs; here, a course names the
+         positions it advances — same table, read the other way. */
+      var forPos = positionsFor(c);
+      if (forPos.length) {
+        body.appendChild(el("div", "cc-for", "Counts toward: " +
+          forPos.map(function (pp) { return esc(pp.title.replace(/^Junior /, "")); }).join(" · ")));
+      }
+
+      if (c.stub) {
+        body.appendChild(el("div", "cc-cta stub", "🚧 Not written yet"));
+        card.classList.add("stub");
+        card.onclick = function () {
+          toast(c.title + " is on the roadmap — no lessons yet.");
+        };
+        card.appendChild(body);
+        grid.appendChild(card);
+        return;
+      }
+
       var prog = el("div", "cc-progress");
       prog.appendChild(el("div", "cc-bar", '<i style="width:' + cpct + '%;background:' + (c.color || "#1cb0f6") + '"></i>'));
       prog.appendChild(el("div", "cc-count", complete ? "🏅 Complete" : (done ? done + "/" + total : total + " items")));
       body.appendChild(prog);
+
+      var cst = creditState(u, c);
+      if (cst.state === "expired") {
+        body.appendChild(el("div", "cc-credit gone", "⚠️ " + (c.credits || 0) + " credits expired — refresh with Recall"));
+      } else if (cst.state === "warn") {
+        body.appendChild(el("div", "cc-credit warn", "⏳ " + (c.credits || 0) + " credits expire in " + cst.left + " days"));
+      } else if (cst.state === "live") {
+        body.appendChild(el("div", "cc-credit ok", "✓ " + (c.credits || 0) + " credits on your transcript"));
+      }
+
       body.appendChild(el("div", "cc-cta " + (complete ? "done" : done ? "cont" : ""),
         complete ? "🎓 Review · certificate" : (done ? "Continue →" : "Start course →")));
       card.appendChild(body);
@@ -722,7 +975,8 @@
     wrap.appendChild(grid);
 
     var foot = el("div", "footer-note");
-    foot.innerHTML = COURSES.length + " courses · ~" + totalHours + " hours of hands-on material · progress saves automatically<br>";
+    foot.innerHTML = LIVE_COURSES.length + " courses · ~" + totalHours + " hours of hands-on material · you hold " +
+      heldCredits + " of " + totalCredits + " credits · progress saves automatically<br>";
     var reset = el("button", "reset-link", "Reset my CodeLab progress");
     reset.onclick = function () {
       if (confirm("Reset " + store.currentUser + "'s CodeLab progress, XP, streak and saved code? (Academy app tracks are untouched.)")) {
@@ -738,9 +992,294 @@
   }
 
   /* ============================================================
+     CAREERS — the job board
+     ------------------------------------------------------------
+     The inverse of a course list: positions declare what they need,
+     the ledger says what you hold, and every card shows the gap.
+     Nobody picks a track; courses pay credits and positions unlock.
+     ============================================================ */
+
+  /* The single course that closes the most of a position's gap. Required
+     courses win outright — no amount of elective credit substitutes. */
+  function nextForPosition(u, pos) {
+    var a = audit(u, pos);
+    if (a.met) return null;
+    var wanted = {};
+    a.gaps.forEach(function (g) { wanted[g.cat] = g.need - g.have; });
+    var best = null, bestScore = 0;
+    LIVE_COURSES.forEach(function (c) {
+      if (creditLive(creditState(u, c))) return;   // already on the transcript
+      var score = 0;
+      Object.keys(c.categories || {}).forEach(function (k) {
+        if (wanted[k]) score += Math.min(c.categories[k], wanted[k]) * 10;
+      });
+      if ((pos.required || []).indexOf(c.id) !== -1) score += 100;
+      if (a.short) score += (c.credits || 0);
+      if (score > bestScore) { bestScore = score; best = c; }
+    });
+    return best;
+  }
+
+  function statusOf(u, pos) {
+    var a = audit(u, pos);
+    if (a.met) return { key: "met", label: "✓ Qualified", a: a };
+    if (blockers(pos).length) return { key: "blocked", label: "Needs new courses", a: a };
+    return { key: "open", label: a.short ? creditWord(a.short) + " to go" : "Almost there", a: a };
+  }
+
+  function catBar(cat, have, need) {
+    var row = el("div", "cat-row");
+    var pct = need ? Math.min(100, Math.round(have / need * 100)) : 100;
+    var c = window.CODELAB._catById[cat] || {};
+    row.appendChild(el("div", "cat-name", esc(c.label || cat)));
+    var bar = el("div", "cat-bar", "<i></i>");
+    var fill = bar.firstChild;
+    fill.style.width = pct + "%";
+    fill.style.background = have >= need ? "var(--success)" : (c.color || "var(--accent)");
+    row.appendChild(bar);
+    row.appendChild(el("div", "cat-num" + (have >= need ? " ok" : ""), have + "/" + need));
+    return row;
+  }
+
+  function renderJobs() {
+    if (!store.currentUser || !me()) { renderProfiles(); return; }
+    clear();
+    var u = me();
+    app.appendChild(topbar());
+    var wrap = el("div", "wrap");
+    var L = ledger(u);
+
+    var hero = el("div", "hero");
+    hero.appendChild(el("div", "hero-kicker", "CAREERS · " + POSITIONS.length + " POSITIONS"));
+    hero.appendChild(el("h1", "hero-title", "What you qualify for"));
+    hero.appendChild(el("p", "hero-sub",
+      "Every course you finish pays credits into your transcript. Positions unlock when you hold enough — one course counts toward every position that needs it."));
+
+    var tot = el("div", "credit-total");
+    tot.appendChild(el("div", "ct-num", String(L.total)));
+    tot.appendChild(el("div", "ct-lab", "credits held" + (L.expired.length ? " · " + L.expired.length + " expired" : "")));
+    hero.appendChild(tot);
+
+    var chips = el("div", "cat-chips");
+    CATEGORIES.forEach(function (c) {
+      var n = L.byCat[c.id] || 0;
+      var chip = el("span", "cat-chip" + (n ? "" : " zero"), esc(c.label) + " " + n);
+      if (n) chip.style.borderColor = c.color;
+      chips.appendChild(chip);
+    });
+    hero.appendChild(chips);
+
+    var hb = el("div", "hero-btns");
+    var back = el("button", "btn btn-ghost", "← Courses");
+    back.onclick = renderCatalog;
+    hb.appendChild(back);
+    var tr = el("button", "btn btn-blue", "📜 Transcript");
+    tr.onclick = showTranscript;
+    hb.appendChild(tr);
+    hero.appendChild(hb);
+    wrap.appendChild(hero);
+
+    /* Qualified first, then closest, then the ones the catalog cannot yet
+       satisfy — last precisely because they are not the learner's fault and
+       nothing they do this week will change them. */
+    var rows = POSITIONS.map(function (p2) { return { pos: p2, st: statusOf(u, p2) }; });
+    var rank = { met: 0, open: 1, blocked: 2 };
+    rows.sort(function (x, y) {
+      if (rank[x.st.key] !== rank[y.st.key]) return rank[x.st.key] - rank[y.st.key];
+      return y.st.a.pct - x.st.a.pct;
+    });
+
+    var grid = el("div", "jobs");
+    rows.forEach(function (r) {
+      var pos = r.pos, st = r.st, a = st.a;
+      var card = el("button", "job-card " + st.key);
+      var head = el("div", "job-head");
+      head.appendChild(el("div", "job-ic", pos.icon || "💼"));
+      var ht = el("div", "job-ht");
+      ht.appendChild(el("div", "job-title", esc(pos.title)));
+      ht.appendChild(el("div", "job-pill " + st.key, esc(st.label)));
+      head.appendChild(ht);
+      card.appendChild(head);
+      card.appendChild(el("div", "job-blurb", esc(pos.blurb || "")));
+
+      var bar = el("div", "job-bar", "<i></i>");
+      bar.firstChild.style.width = a.pct + "%";
+      bar.firstChild.style.background = st.key === "met" ? "var(--success)" : (pos.color || "var(--accent)");
+      card.appendChild(bar);
+      card.appendChild(el("div", "job-meta", a.have + " / " + pos.total + " credits"));
+
+      if (st.key === "met") {
+        card.appendChild(el("div", "job-note ok", "You meet every requirement on this sheet."));
+      } else if (st.key === "blocked") {
+        var b = blockers(pos)[0];
+        card.appendChild(el("div", "job-note warn", b && b.cat
+          ? esc(window.CODELAB.catLabel(b.cat)) + " tops out at " + b.max + " credits in the catalog so far — this sheet needs " + b.need + "."
+          : "Requires a course that has not been written yet."));
+      } else {
+        var nx = nextForPosition(u, pos);
+        card.appendChild(el("div", "job-note", nx ? "Next: " + esc(nx.title) : "Finish what you have started."));
+      }
+      card.onclick = function () { showPosition(pos); };
+      grid.appendChild(card);
+    });
+    wrap.appendChild(grid);
+
+    var foot = el("div", "footer-note");
+    foot.innerHTML = "Credits expire after " + Math.round(EXPIRY_DAYS / 365) +
+      " years — keeping a course's Recall drills current resets its clock.";
+    wrap.appendChild(foot);
+    app.appendChild(wrap);
+  }
+
+  function showPosition(pos) {
+    var u = me();
+    var o = overlay("sheet-pos");
+    var a = audit(u, pos);
+    var bl = blockers(pos);
+
+    o.sheet.appendChild(el("div", "pos-ic", pos.icon || "💼"));
+    o.sheet.appendChild(el("h2", "pos-title", esc(pos.title)));
+    o.sheet.appendChild(el("div", "pos-blurb", esc(pos.blurb || "")));
+    if (pos.screen) o.sheet.appendChild(el("div", "pos-screen", "<b>Screened on:</b> " + esc(pos.screen)));
+
+    o.sheet.appendChild(el("div", "pos-sec", "Credits"));
+    var tot = el("div", "pos-total" + (a.have >= pos.total ? " ok" : ""));
+    tot.innerHTML = "<b>" + a.have + "</b> of <b>" + pos.total + "</b> required" +
+      (a.short ? " · " + esc(creditWord(a.short)) + " short" : " ✓");
+    o.sheet.appendChild(tot);
+
+    if (Object.keys(pos.min || {}).length) {
+      o.sheet.appendChild(el("div", "pos-sec", "Category minimums"));
+      var cats = el("div", "cat-list");
+      Object.keys(pos.min).forEach(function (cat) {
+        cats.appendChild(catBar(cat, a.ledger.byCat[cat] || 0, pos.min[cat]));
+      });
+      o.sheet.appendChild(cats);
+    }
+
+    if ((pos.required || []).length) {
+      o.sheet.appendChild(el("div", "pos-sec", "Required courses"));
+      var rl = el("div", "req-list");
+      pos.required.forEach(function (cid) {
+        var c = window.CODELAB._byId[cid];
+        if (!c) return;
+        var st = creditState(u, c);
+        var live = creditLive(st);
+        var row = el("div", "req-row" + (live ? " ok" : c.stub ? " stub" : ""));
+        row.appendChild(el("span", "req-ic", live ? "✓" : c.stub ? "🚧" : "○"));
+        row.appendChild(el("span", "req-name", esc(c.title)));
+        row.appendChild(el("span", "req-cr", c.stub ? "not written yet"
+          : ((c.credits || 0) + " cr" + (st.state === "expired" ? " · expired" : ""))));
+        rl.appendChild(row);
+      });
+      o.sheet.appendChild(rl);
+    }
+
+    if (bl.length) {
+      o.sheet.appendChild(el("div", "pos-sec", "Why this is blocked"));
+      var bw = el("div", "block-list");
+      bl.forEach(function (b) {
+        var txt;
+        if (b.cat) {
+          txt = "<b>" + esc(window.CODELAB.catLabel(b.cat)) + "</b> needs " + b.need +
+                " credits but every course written so far supplies only " + b.max + ". Short " + b.short + ".";
+        } else {
+          txt = "<b>" + esc(b.course.title) + "</b> is required but has no lessons yet.";
+        }
+        if (b.courses && b.courses.length) {
+          txt += " On the roadmap: " + b.courses.map(function (c) { return esc(c.title); }).join(", ") + ".";
+        }
+        bw.appendChild(el("div", "block-row", txt));
+      });
+      o.sheet.appendChild(bw);
+    }
+
+    var acts = el("div", "pos-actions");
+    var pinned = u.goal === pos.id;
+    var pin = el("button", "btn " + (pinned ? "btn-ghost" : "btn-green"), pinned ? "📌 Unpin goal" : "📌 Pin as my goal");
+    pin.onclick = function () {
+      u.goal = pinned ? null : pos.id;
+      saveStore();
+      o.back.remove();
+      renderJobs();
+      toast(pinned ? "Goal cleared" : "Goal set: " + pos.title);
+    };
+    acts.appendChild(pin);
+    var nx = nextForPosition(u, pos);
+    if (nx) {
+      var go = el("button", "btn btn-blue", "Start: " + esc(nx.title));
+      go.onclick = function () { o.back.remove(); openCourse(nx); };
+      acts.appendChild(go);
+    }
+    var cl = el("button", "btn btn-ghost", "Close");
+    cl.onclick = function () { o.back.remove(); };
+    acts.appendChild(cl);
+    o.sheet.appendChild(acts);
+  }
+
+  function showTranscript() {
+    var u = me();
+    var L = ledger(u);
+    var o = overlay("sheet-trans");
+    o.sheet.appendChild(el("h2", "pos-title", "📜 Transcript"));
+    o.sheet.appendChild(el("div", "pos-blurb", esc(store.currentUser) + " · " + esc(creditWord(L.total)) + " currently held"));
+
+    if (!L.live.length && !L.expired.length) {
+      o.sheet.appendChild(el("div", "trans-empty", "No credits yet. Finish a course — credits are awarded for the whole course, never for single lessons."));
+    }
+
+    function rowFor(entry, expired) {
+      var c = entry.course, st = entry.st;
+      var row = el("div", "trans-row" + (expired ? " gone" : st.state === "warn" ? " warn" : ""));
+      row.appendChild(el("span", "trans-ic", c.icon || "📦"));
+      var mid = el("span", "trans-mid");
+      mid.appendChild(el("span", "trans-name", esc(c.title)));
+      mid.appendChild(el("span", "trans-cats", Object.keys(c.categories || {}).map(function (k) {
+        return esc(window.CODELAB.catLabel(k)) + " " + c.categories[k];
+      }).join(" · ")));
+      row.appendChild(mid);
+      row.appendChild(el("span", "trans-cr",
+        expired ? "expired" : (st.state === "warn" ? st.left + "d left" : (c.credits || 0) + " cr")));
+      return row;
+    }
+
+    if (L.live.length) {
+      o.sheet.appendChild(el("div", "pos-sec", "Current"));
+      var lw = el("div", "trans-list");
+      L.live.forEach(function (e) { lw.appendChild(rowFor(e, false)); });
+      o.sheet.appendChild(lw);
+    }
+    if (L.expired.length) {
+      o.sheet.appendChild(el("div", "pos-sec", "Expired — refresh with Recall to restore"));
+      var ew = el("div", "trans-list");
+      L.expired.forEach(function (e) { ew.appendChild(rowFor(e, true)); });
+      o.sheet.appendChild(ew);
+    }
+
+    o.sheet.appendChild(el("div", "pos-sec", "By category"));
+    var cl2 = el("div", "cat-chips");
+    CATEGORIES.forEach(function (c) {
+      var n = L.byCat[c.id] || 0;
+      var chip = el("span", "cat-chip" + (n ? "" : " zero"), esc(c.label) + " " + n);
+      if (n) chip.style.borderColor = c.color;
+      cl2.appendChild(chip);
+    });
+    o.sheet.appendChild(cl2);
+
+    var acts = el("div", "pos-actions");
+    var pr = el("button", "btn btn-blue", "🖨 Print / save as PDF");
+    pr.onclick = function () { document.body.classList.add("printing-cert"); window.print(); setTimeout(function () { document.body.classList.remove("printing-cert"); }, 500); };
+    var cl3 = el("button", "btn btn-ghost", "Close");
+    cl3.onclick = function () { o.back.remove(); };
+    acts.appendChild(pr); acts.appendChild(cl3);
+    o.sheet.appendChild(acts);
+  }
+
+  /* ============================================================
      COURSE SCREEN (units → lessons)
      ============================================================ */
   function openCourse(course) {
+    if (!course || course.stub) { toast("That course has not been written yet."); return; }
     var u = me();
     u.lastCourse = course.id;
     saveStore();
@@ -1156,7 +1695,7 @@
     var previewHost = null;
     if (lesson.kind !== "js") {
       var previewWrap = el("div", "res-block");
-      previewWrap.appendChild(el("div", "pane-label", "Preview"));
+      previewWrap.appendChild(el("div", "pane-label", lesson.kind === "shell" ? "Terminal" : "Preview"));
       previewHost = el("div", "preview-host");
       previewWrap.appendChild(previewHost);
       resultIn.appendChild(previewWrap);
@@ -1228,6 +1767,9 @@
         hintsShown: current ? current.hintsShown : 0
       });
       REV.gradeDrill(u2, drill.key, outcome, REV.revToday());
+      /* Anything but a miss proves the material is still there, so it
+         renews that course's credit clock. */
+      if (outcome !== "missed") touchCredits(u2, courseIdOfRevKey(drill.key));
       /* Only wipe the scratch buffer on a pass — an abandoned attempt is
          worth keeping so the next sitting resumes rather than restarts. */
       if (passed) codeDel(store.currentUser, DRILL_TAG + lesson.id);
@@ -1428,6 +1970,11 @@
     u.done[lesson.id] = true;
     u.xp += gained;
     bumpStreak(u);
+    /* Credits are awarded for the COURSE, never the lesson — this is the one
+       place a clock starts. Computed before saveStore so the award is in the
+       same write as the completion that caused it. */
+    var finishedCourse = course && courseComplete(course);
+    var creditFirst = finishedCourse ? awardCredits(u, course) : false;
     saveStore();
     syncAcademy(function (t) {
       t.completed[lesson.id] = true;
@@ -1437,7 +1984,6 @@
 
     var o = overlay("sheet-done");
     var isProject = !!lesson.project;
-    var finishedCourse = course && courseComplete(course);
     var finishedPath = pathComplete();
     o.sheet.appendChild(el("div", "done-emoji", finishedPath ? "🏆" : (finishedCourse ? "🎓" : (isProject ? "🏆" : "🎉"))));
     o.sheet.appendChild(el("h2", "done-title",
@@ -1446,7 +1992,14 @@
     var rr = el("div", "reward-row");
     rr.appendChild(reward("XP earned", "+" + gained));
     rr.appendChild(reward("Streak", "🔥 " + u.streak));
+    if (creditFirst) rr.appendChild(reward("Credits", "+" + course.credits));
     o.sheet.appendChild(rr);
+    if (creditFirst) {
+      var unlocked = POSITIONS.filter(function (pp) { return audit(u, pp).met; });
+      o.sheet.appendChild(el("div", "done-credit",
+        "🎓 " + esc(course.title) + " added " + creditWord(course.credits) + " to your transcript" +
+        (unlocked.length ? " — you now qualify for " + plural(unlocked.length, "position", "positions") : "")));
+    }
     if (academyConnected()) o.sheet.appendChild(el("div", "done-conn", "🔗 Synced to your Academy profile"));
 
     var acts = el("div", "done-actions");
@@ -1799,6 +2352,7 @@
         var elapsed = Date.now() - started;
         if (queue.noPromote && outcome !== "missed") outcome = "close";
         REV.grade(u, key, outcome, elapsed, queue.day);
+        if (outcome !== "missed") touchCredits(u, courseIdOfRevKey(key));
         if (outcome === "got") queue.ok++;
         if (outcome === "missed") {
           queue.redo = queue.redo || [];
@@ -2181,8 +2735,13 @@
     } catch (e) { /* undo is a nicety; never block the merge on it */ }
 
     var merged = res.user;
-    /* Carry over the fields the merge does not own. */
+    /* Carry over the fields the merge does not own. mergeProfile computes into
+       a FRESH object, so anything it does not set is dropped by the assignment
+       below — the pinned goal is a local UI choice, not synced state, and
+       without this line importing a code from your phone would silently clear
+       it on your desktop. */
     merged.code = undefined;
+    merged.goal = (store.users[name] || {}).goal || null;
     store.users[name] = merged;
     if (!flushStore()) { toast("⚠ Couldn't save — storage may be full"); return; }
     payXpOwed();
@@ -2242,6 +2801,7 @@
         var right = REV.answerMatches({ choices: [item.answer], answer: 0 }, text, (u.revAlt || {})[key]);
         REV.recordTyped(u, right);
         REV.grade(u, key, right ? "got" : "missed", 9999, REV.revToday());
+        if (right) touchCredits(u, courseIdOfRevKey(key));
         saveStore();
         return { right: right, rec: u.rev[key] };
       }
@@ -2281,6 +2841,29 @@
     clearProfileCode: function (name) { return codeClearProfile(name || store.currentUser); },
     /* Handoff hooks: export this profile, and merge an envelope in without
        touching the DOM, so the validator can drive a full round trip. */
+    /* The credit layer, exposed for tests the same way handoff is: the
+       ledger and the audit are pure functions of the profile, so a test can
+       assert on them without driving the UI. */
+    credits: {
+      ledger: function () { var u = me(); return u ? ledger(u) : null; },
+      state: function (courseId) {
+        var u = me(), c = window.CODELAB._byId[courseId];
+        return (u && c) ? creditState(u, c) : null;
+      },
+      audit: function (posId) {
+        var u = me(), p = positionById(posId);
+        return (u && p) ? audit(u, p) : null;
+      },
+      touch: function (courseId) {
+        var u = me(); if (!u) return false;
+        var r = touchCredits(u, courseId); saveStore(); return r;
+      },
+      award: function (courseId) {
+        var u = me(), c = window.CODELAB._byId[courseId]; if (!u || !c) return false;
+        var r = awardCredits(u, c); saveStore(); return r;
+      },
+      courseOfKey: function (k) { return courseIdOfRevKey(k); }
+    },
     handoff: {
       exportText: function () { return JSON.stringify(currentEnvelope()); },
       profile: function () { var u = me(); return u ? JSON.parse(JSON.stringify(u)) : null; },

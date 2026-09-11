@@ -1,8 +1,10 @@
-# ⚡ CodeLab — Full-Stack Engineer Path
+# ⚡ CodeLab — learn to code, qualify for the job
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**8 courses · ~69 hours · 304 items — the full path, complete** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). 251 coding lessons including 30 guided projects, 53 quizzes, 827 auto-graded checkpoints. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**14 built courses · ~114 hours · 55 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus five roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+
+Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
 ## The catalog
 
@@ -48,6 +50,47 @@ A normalization pass fixed it across all 334 questions — the *claim* stays in 
 `tools/validate.js` now **fails the build** if any course drifts back above 40%, the same way the hours guard keeps the catalog honest.
 
 Every one of the 334 rewritten questions was then re-audited independently for correctness: **zero broken answer keys, zero distractors that had drifted into being true.** The audit did surface a set of smaller defects, all since fixed — a worked example in one explain that computed the wrong result, two pairs of duplicate distractors, several overstatements, and answers that had become impossible to produce cold in review mode (an HTML-comment answer whose "right" text included invented filler, for instance, now asks for the syntax itself).
+
+## 🎓 Credits & Careers
+
+CodeLab is structured like a university, not like a single track. **You never pick a
+track.** Courses pay credits, credits accumulate, and job positions unlock when you
+hold enough — so one course advances every position that needs it at once, and nobody
+is locked into a choice they made in week one.
+
+**Credits.** A course pays its credits **only when the whole course is finished** — a
+half-finished semester earns nothing. One credit is two hours of real modelled
+material, and `tools/validate.js` re-derives every course's credit value from the
+lessons actually in its files, so credits cannot be inflated without writing lessons.
+
+**Categories, apportioned.** Credits are typed (Foundations, Frontend, Backend, Data,
+Quality, Security, Operations, Integration). A course that spans several **splits** its
+credits across them rather than paying full value into each — the category columns must
+sum back to the course total, and the validator fails the build if they stop summing.
+
+**Positions** are requirement sheets, read exactly like a degree audit: a credit total,
+per-category minimums, and required courses that cannot be substituted. Required
+courses **stack** — they are named *and* their credits count toward the totals. There is
+one sheet per job title and every sheet is junior-level; seniority comes from shipped
+work, not coursework. Thresholds are set against what juniors are actually screened on,
+**not** against what CodeLab happens to hold: three of the seven sheets are currently
+unreachable, and the board reports the shortfall as a number ("Operations tops out at 4
+credits — this sheet needs 10") rather than quietly hiding the gap.
+
+**Credits expire after two years — unless you keep them.** Any Recall drill or card you
+do not miss resets that course's clock, so the transcript measures what you can still
+do rather than what you once sat through. Expired credits stay on the transcript,
+greyed out, and come back the moment you refresh them. Drilling a course you never
+finished awards nothing.
+
+**Goals are opt-in.** The home screen is a job board with live gap math on every
+position. Pinning one adds a progress strip and a "next best course" nudge to the
+catalog — and clearing it is one tap.
+
+The credit clock is the only new stored field: `earned` maps a course id to the day it
+was completed or last renewed. It merges across devices by `Math.max`, which keeps
+Handoff inside the same monotone algebra as everything else — a merge can never rewind
+a clock and expire something you renewed on your phone.
 
 ## The experience (Codecademy-style)
 
@@ -150,8 +193,9 @@ Hosted on the same origin as [Academy](https://github.com/eric-call-2000/academy
 ```
 codelab/
 ├── index.html            # boots the engine (unit files lazy-load)
-├── courses.js            # the catalog: metadata + which files each course loads
-├── core.js               # course registry (defineCourse / addUnit)
+├── courses.js            # the catalog: metadata, credits, and which files each course loads
+├── positions.js          # job positions: the requirement sheets the board audits against
+├── core.js               # course registry + credit model (defineCourse / definePosition / addUnit)
 ├── review.js             # Recall: the spaced-repetition scheduler (pure, Node-testable)
 ├── editor.js             # mobile code editor + syntax highlighting
 ├── runner.js             # sandbox runner + checkpoint grader (worker/iframe)
@@ -165,9 +209,120 @@ codelab/
 ├── async/u1.js … u6.js   # Async JavaScript & APIs   (30 items)
 ├── srv/u1.js … u8.js     # Back-End Foundations      (38 items)
 ├── cap/u1.js … u6.js     # Full-Stack Capstone       (28 items)
+├── git/u1.js … u8.js     # Git & Version Control     (37 items)
+├── shell.js              # a virtual filesystem + POSIX-ish shell (kind: "shell" lessons)
+├── gitsim.js             # a real git inside that shell — the Git course's engine
 ├── server.js, manifest.webmanifest, icons/, .nojekyll
-└── tools/validate.js     # runs EVERY lesson's solution in real Chromium
+├── tools/validate.js     # runs EVERY lesson's solution in real Chromium
+├── tools/validate-unit.js # one unit through the real sandbox (~20s inner loop)
+├── tools/test-gitsim.js  # gitsim's own suite — pure Node, ~1s, also run by phase 0
+└── tools/dump-lesson.js  # print a lesson's starter, solution and checkpoints
+                          #   `--phase0` skips the browser: static + credit +
+                          #   position + merge-algebra gates in ~1s
 ```
+
+## Shell and Git lessons
+
+`kind: "shell"` lessons run on `shell.js` instead of the Worker. The learner
+writes one command per line in `commands.sh`, every line really executes
+against a virtual filesystem, and the Result pane shows the session as a
+terminal transcript. It runs on the main thread safely because nothing the
+learner types is evaluated as JavaScript.
+
+The Git course runs on top of it. `gitsim.js` registers a `git` command whose
+working tree *is* the shell filesystem, so `echo`, `cat`, `ls` and even
+`rm -rf .git` behave the way they do on a real machine. It models the object
+store, the index, refs and detached HEAD, the reflog with `HEAD@{n}`, line
+diffs, three-way merge with real conflict markers, stash, rebase / cherry-pick /
+revert as one sequencer, `.gitignore`, and remotes (clone, fetch, pull, push,
+fast-forward checks, `--force-with-lease`) as other repositories on the same
+filesystem. Output follows real git's wording. Shas are 40 hex characters of a
+deterministic hash rather than SHA-1, so the same commands always produce the
+same shas. Anything that needs an editor (`rebase -i`, `commit` without `-m`,
+`add -p`) prints an honest error instead of inventing a flag.
+
+| Lesson field | What it does |
+|---|---|
+| `fs` | starting files, as `{ "/home/you/project/a.txt": "…" }` |
+| `setup` | commands run before the learner's, hidden — seeds a real history, index and reflog. A setup command that fails is a fatal authoring error |
+| `setupExpectFail` | setup commands that must fail (a merge left mid-conflict), checked both ways |
+| `cwd` | where both scripts start |
+
+Checkpoints get the shell helpers (`T.out`, `T.err`, `T.ran`, `T.typed`,
+`T.file` …) plus repository helpers: `T.log(rev)`, `T.count(rev)`, `T.sha(rev)`,
+`T.commit(rev)` (with `.files`), `T.branches()`, `T.head()`, `T.headDetached()`,
+`T.wt(path)`, `T.blobAt('index' | rev, path)`, `T.staged()`, `T.unstaged()`,
+`T.untracked()`, `T.conflicts()`, `T.merging()`, `T.rebasing()`, `T.clean()`,
+`T.stashList()`, `T.reflog(ref)`, `T.remoteSha('origin/main')`,
+`T.onRemote(branch)`, `T.upstream()`, `T.ignored(path)`, `T.tracked(path)`,
+`T.reachableFromAnyBranch(sha)` and `T.said(text)` (stdout **or** stderr).
+`T.before` is the same API over the state right after setup, so "main didn't
+move" is `T.eq(T.sha('main'), T.before.sha('main'))`.
+
+### Traps the Git course paid for
+
+- **The root commit has zero parents.** "History is linear" is
+  `parents.length < 2`, not `=== 1`.
+- **Changes on adjacent lines conflict**, exactly as in real git. Leave an
+  untouched line between edits a lesson expects to merge cleanly.
+- **`HEAD@{n}` shifts by one every time HEAD moves.** A solution that recovers
+  from the reflog uses the numbers before anything else moves HEAD
+  (`git branch x HEAD@{4}` first, then the `reset`).
+- **There is no editor.** Files are rewritten with `echo "…" > f` and
+  `echo "…" >> f`. The shell tokenizer has no `\"` inside double quotes and
+  splits pipelines on every `|`, so keep messages free of `|` and ` > `.
+- **Rejections, hints and warnings go to stderr**, as in real git. Check them
+  with `T.said`, not `T.out`.
+- **A state check alone can be satisfied by hand.** Where the command *is* the
+  lesson, pair the state check with `T.ran(/^git restore/)` or similar.
+
+## Lesson harnesses
+
+Checkpoints run in a browser Worker, not in Node. Anything a lesson needs
+beyond the platform is an **opt-in harness**, declared as a flag on the lesson
+and injected ahead of the learner's code (see `runner.js`):
+
+| Flag | Gives the lesson |
+|---|---|
+| `spec: true` | `describe` / `it` / `expect` / `beforeEach` and an async `run()` |
+| `crypto: true` | `sha256`, `randHex`, `slowHash` |
+| `mock` / `mockFn` | a stubbed `fetch` that records calls on `__CALLS` |
+| `cspLab: true` | a nested sandboxed frame with a real `<meta>` CSP |
+| `node: true` | `Buffer`, `process`, `setImmediate`, `EventEmitter`, `MockReadable`, `MockWritable` |
+
+`node: true` exists because a Node course cannot otherwise run a single line:
+`Buffer` and `process` simply are not there. The stand-ins are faithful on the
+behaviour lessons grade — `Buffer.slice()` shares memory while `copy()` does
+not, `process.nextTick` drains before `setImmediate`, which itself runs before
+`setTimeout(…, 0)` — and shallow everywhere else.
+
+**A lesson opts out when building the thing IS the exercise.** `nodejs-u2-3`
+and `u2-4` have the learner write `MockReadable` / `MockWritable` themselves,
+so they leave `node` unset; handing them the harness would make the starter
+pass on its own. `tools/validate.js` enforces both directions: it fails a
+lesson that uses a Node global without the flag, unless that lesson defines
+the name itself.
+
+### Authoring traps these courses paid for
+
+- **`T.expect(cond, msg)` takes two arguments.** A three-argument call is a
+  `T.eq(got, want, msg)` written wrong — it asserts only that `got` is truthy
+  and discards the comparison, so it passes for any non-empty value including
+  the starter's. Nineteen checkpoints had this; validate.js now rejects it.
+- **`T.logged()` is a case-insensitive substring test.** A probe for
+  `'UNCAUGHT EXCEPTION'` matched the lesson's own `'Testing uncaught
+  exception...'`, so a starter with no handler at all "passed".
+- **An assertion inside an un-awaited callback never runs.** Neither passing
+  nor failing — it just disappears, and the checkpoint reports success. Await
+  the work (`await T.sleep(60)`, or a promise around the callback) and assert
+  on the main path.
+- **Steps share one live worker, in order.** Whatever the module-level demo did
+  has already happened, and whatever step #1 left behind is still there. Reset
+  what you are about to measure.
+- **`const` declared in one step is not visible in the next.** Each step is its
+  own function body; only globals carry across.
+- **The starter must not be a copy of the solution.** Six lessons shipped that
+  way and passed every checkpoint untouched.
 
 ## Adding content
 

@@ -84,7 +84,7 @@ window.CODELAB.addUnit("nodejs", {
         { text: "join() should handle multiple segments and normalize slashes.",
           test: "T.eq(path.join('a', 'b', 'c'), 'a/b/c', 'Should join multiple segments');\nT.eq(path.join('a/', 'b'), 'a/b', 'Should normalize extra slashes');" },
         { text: "Add `resolve()` method that resolves to absolute paths.",
-          test: "T.expect(typeof path.resolve === 'function', 'Add path.resolve method');\nT.eq(path.resolve('/folder', './file.txt'), '/folder/file.txt', 'Should resolve to absolute path');" },
+          test: "T.expect(typeof path.resolve === 'function', 'Add path.resolve method');\nT.eq(path.resolve('/folder', './file.txt'), '/folder/file.txt', 'Should resolve to absolute path');\nT.eq(path.resolve('/home/user', '../admin'), '/home/admin', \"'..' should pop a directory\");" },
         { text: "Add `basename()`, `dirname()`, and `extname()` methods.",
           test: "T.eq(path.basename('/path/to/file.txt'), 'file.txt', 'Should extract filename');\nT.eq(path.dirname('/path/to/file.txt'), '/path/to', 'Should extract directory');\nT.eq(path.extname('file.txt'), '.txt', 'Should extract extension');" }
       ],
@@ -99,14 +99,14 @@ window.CODELAB.addUnit("nodejs", {
         "In `extname()`: `filePath.includes('.') ? '.' + filePath.split('.').pop() : ''` — everything after last dot"
       ],
       solution: {
-        "script.js": "// Mock path module for cross-platform path operations\nconst path = {\n  join(...segments) {\n    return segments.join('/').replace(/\\/+/g, '/');\n  },\n\n  resolve(...segments) {\n    let result = this.join(...segments);\n    if (!result.startsWith('/')) {\n      result = '/' + result;\n    }\n    return result;\n  },\n\n  basename(filePath) {\n    return filePath.split('/').pop();\n  },\n\n  dirname(filePath) {\n    const parts = filePath.split('/');\n    const dir = parts.slice(0, -1).join('/');\n    return dir || '/';\n  },\n\n  extname(filePath) {\n    if (filePath.includes('.')) {\n      return '.' + filePath.split('.').pop();\n    }\n    return '';\n  }\n};\n\n// Test the path module\nconsole.log('Join:', path.join('folder', 'subfolder', 'file.txt'));\nconsole.log('Join with slashes:', path.join('folder/', 'subfolder/', 'file.txt'));\nconsole.log('Resolve:', path.resolve('/home', './user', 'docs'));\nconsole.log('Basename:', path.basename('/path/to/file.txt'));\nconsole.log('Dirname:', path.dirname('/path/to/file.txt'));\nconsole.log('Extname:', path.extname('file.txt'));\nconsole.log('Extname (no extension):', path.extname('file'));\n"
+        "script.js": "// Mock path module for cross-platform path operations\nconst path = {\n  join(...segments) {\n    return segments.join('/').replace(/\\/+/g, '/');\n  },\n\n  resolve(...segments) {\n    let result = this.join(...segments);\n    if (!result.startsWith('/')) {\n      result = '/' + result;\n    }\n    // Resolving is normalising: '.' means \"here\" and '..' pops a level, so\n    // neither may survive into the final absolute path.\n    const parts = [];\n    for (const part of result.split('/')) {\n      if (part === '' || part === '.') continue;\n      if (part === '..') { parts.pop(); continue; }\n      parts.push(part);\n    }\n    return '/' + parts.join('/');\n  },\n\n  basename(filePath) {\n    return filePath.split('/').pop();\n  },\n\n  dirname(filePath) {\n    const parts = filePath.split('/');\n    const dir = parts.slice(0, -1).join('/');\n    return dir || '/';\n  },\n\n  extname(filePath) {\n    const base = this.basename(filePath);\n    const dot = base.lastIndexOf('.');\n    return dot > 0 ? base.slice(dot) : '';\n  }\n};\n\n// Test the path module\nconsole.log('Join:', path.join('folder', 'subfolder', 'file.txt'));\nconsole.log('Join with slashes:', path.join('folder/', 'subfolder/', 'file.txt'));\nconsole.log('Resolve:', path.resolve('/home', './user', 'docs'));\nconsole.log('Resolve with ..:', path.resolve('/home/user', '../admin'));\nconsole.log('Basename:', path.basename('/path/to/file.txt'));\nconsole.log('Dirname:', path.dirname('/path/to/file.txt'));\nconsole.log('Extname:', path.extname('file.txt'));\nconsole.log('Extname (no extension):', path.extname('file'));\n"
       }
     },
 
     {
       id: "nodejs-u3-4",
       title: "File system streams for large files",
-      kind: "js", chip: "NODE", xp: 15, mins: 13,
+      node: true, kind: "js", chip: "NODE", xp: 15, mins: 13,
       brief: "For large files, use **streams** instead of `readFile`/`writeFile`. Streams process data chunk by chunk without loading everything into memory.\n\n`fs.createReadStream(path)` — readable stream for files\n`fs.createWriteStream(path)` — writable stream for files\n\nPipe them together: `readStream.pipe(writeStream)` for efficient file copying.",
       example: { lang: "js", code: "const fs = require('fs');\n\nconst readStream = fs.createReadStream('large-file.txt');\nconst writeStream = fs.createWriteStream('copy.txt');\n\nreadStream.pipe(writeStream);\n\nwriteStream.on('finish', () => {\n  console.log('Copy complete');\n});\n\n// With progress tracking\nlet bytesCopied = 0;\nreadStream.on('data', (chunk) => {\n  bytesCopied += chunk.length;\n  console.log('Copied:', bytesCopied, 'bytes');\n});" },
       steps: [
@@ -140,13 +140,13 @@ window.CODELAB.addUnit("nodejs", {
       example: { lang: "js", code: "const fs = require('fs');\n\nfs.stat('file.txt', (err, stats) => {\n  if (err) throw err;\n  console.log('Is file:', stats.isFile());\n  console.log('Is directory:', stats.isDirectory());\n  console.log('Size:', stats.size, 'bytes');\n  console.log('Modified:', stats.mtime);\n});\n\nfs.access('file.txt', fs.constants.R_OK, (err) => {\n  if (err) console.log('Not readable');\n  else console.log('Readable');\n});" },
       steps: [
         { text: "Add `stat(path, callback)` method to mockFS.",
-          test: "T.expect(typeof mockFS.stat === 'function', 'Add stat method');\nmockFS.files['test.txt'] = 'hello';\nmockFS.stat('test.txt', (err, stats) => T.expect(stats, 'Should return stats object'));" },
+          test: "T.expect(typeof mockFS.stat === 'function', 'Add stat method');\nmockFS.files['test.txt'] = 'hello';\nconst stats = await new Promise(res => mockFS.stat('test.txt', (err, s) => res(s)));\nT.expect(stats, 'stat() should call back with a stats object');" },
         { text: "Stats object should have isFile(), isDirectory(), size, and mtime.",
-          test: "mockFS.stat('test.txt', (err, stats) => {\n  T.expect(stats.isFile(), 'Should be a file');\n  T.expect(!stats.isDirectory(), 'Should not be a directory');\n  T.expect(stats.size > 0, 'Should have size');\n});" },
+          test: "const stats = await new Promise(res => mockFS.stat('test.txt', (err, s) => res(s)));\nT.expect(stats && typeof stats.isFile === 'function', 'Stats should have isFile()');\nT.expect(stats.isFile(), 'Should be a file');\nT.expect(!stats.isDirectory(), 'Should not be a directory');\nT.expect(stats.size > 0, 'Should have size');" },
         { text: "Add `access(path, mode, callback)` method to check permissions.",
-          test: "T.expect(typeof mockFS.access === 'function', 'Add access method');\nmockFS.access('test.txt', 1, (err) => T.expect(!err, 'Should have read access'));" },
+          test: "T.expect(typeof mockFS.access === 'function', 'Add access method');\nconst err = await new Promise(res => mockFS.access('test.txt', 1, e => res(e)));\nT.expect(!err, 'Should have read access to a readable file');" },
         { text: "access() should return error for missing file or insufficient permissions.",
-          test: "mockFS.access('missing.txt', 1, (err) => T.expect(err, 'Should error for missing file'));" }
+          test: "const missing = await new Promise(res => mockFS.access('missing.txt', 1, e => res(e)));\nT.expect(missing, 'Should error for missing file');\nmockFS.permissions['test.txt'] = 1;             // read only\nconst denied = await new Promise(res => mockFS.access('test.txt', 2, e => res(e)));\nT.expect(denied, 'Should error when write access is not granted');" }
       ],
       files: [
         { name: "script.js", content: "// Extended mock file system with stats and permissions\nconst mockFS = {\n  files: {},\n  permissions: {},\n\n  stat(path, callback) {\n    // Return stats object with file info\n  },\n\n  access(path, mode, callback) {\n    // Check if file exists and has requested permissions\n    // mode: 1 = read, 2 = write, 4 = execute\n  }\n};\n\n// Setup test files\nmockFS.files['document.txt'] = 'Important document';\nmockFS.files['data.json'] = '{ \"key\": \"value\" }';\nmockFS.permissions['document.txt'] = 1; // read only\nmockFS.permissions['data.json'] = 3; // read + write\n\n// Test stat\nmockFS.stat('document.txt', (err, stats) => {\n  if (err) {\n    console.error('Stat error:', err.message);\n  } else {\n    console.log('Document stats:');\n    console.log('  Is file:', stats.isFile());\n    console.log('  Is directory:', stats.isDirectory());\n    console.log('  Size:', stats.size, 'bytes');\n    console.log('  Modified:', stats.mtime);\n  }\n});\n\n// Test access\nmockFS.access('document.txt', 1, (err) => {\n  if (err) console.log('Document not readable');\n  else console.log('Document is readable');\n});\n\nmockFS.access('document.txt', 2, (err) => {\n  if (err) console.log('Document not writable (expected)');\n  else console.log('Document is writable');\n});\n\nmockFS.access('missing.txt', 1, (err) => {\n  if (err) console.log('Missing file error (expected)');\n  else console.log('File exists');\n});\n" }
@@ -168,7 +168,7 @@ window.CODELAB.addUnit("nodejs", {
       brief: "Async vs sync file operations, path handling, streams, and file stats. 80% to pass.",
       questions: [
         { q: "When should you use sync file operations?",
-          choices: ["Always, they're simpler", "In request handlers", "Only in startup scripts and CLI tools", "Never, always use async"],
+          choices: ["Always, they're simpler", "In request handlers", "Only in startup scripts and CLI tools", "Never — the async versions are always the correct choice"],
           answer: 2, explain: "Sync operations block the event loop. Use them only in startup scripts where blocking doesn't matter. Never in request handlers." },
         { q: "What does path.join('folder', 'file.txt') return?",
           choices: ["'folder/file.txt'", "'folder\\\\file.txt'", "'folder file.txt'", "'folderfile.txt'"],
@@ -177,13 +177,13 @@ window.CODELAB.addUnit("nodejs", {
           choices: ["It appends to the file", "It overwrites the file", "It throws an error", "It creates a new file with a number suffix"],
           answer: 1, explain: "writeFile() overwrites existing files completely. Use appendFile() to add content without overwriting." },
         { q: "Why use streams for large files?",
-          choices: ["They're faster to write", "They process data chunk by chunk without loading everything into memory", "They automatically compress files", "They're the only way to read files"],
+          choices: ["They're faster to write", "They process data chunk by chunk without loading everything into memory", "They automatically compress files", "They are the only supported way to read a file larger than available heap memory"],
           answer: 1, explain: "Streams process data piece by piece, so you can handle multi-gigabyte files with only a few megabytes of RAM." },
         { q: "What does stats.isFile() return for a directory?",
           choices: ["true", "false", "undefined", "It throws an error"],
           answer: 1, explain: "isFile() returns true only for regular files. For directories, use isDirectory() instead." },
         { q: "How do you check if you can read a file?",
-          choices: ["fs.readFile() and catch the error", "fs.stat() and check permissions", "fs.access() with fs.constants.R_OK", "fs.exists()"],
+          choices: ["fs.readFile() and catch the error that it throws", "fs.stat() and check permissions", "fs.access() with fs.constants.R_OK", "fs.exists()"],
           answer: 2, explain: "fs.access(path, fs.constants.R_OK, callback) specifically checks read permissions without reading the file." }
       ]
     }

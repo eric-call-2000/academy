@@ -43,7 +43,7 @@
     try { REV = require("./review.js"); } catch (e) { /* browser load order */ }
   }
 
-  var ENVELOPE_V = 1;
+  var ENVELOPE_V = 2;   // v2 adds `earned` (credit clocks)
   var DAYS_RING = 64;        // how many study days travel with a profile
 
   /* ---------- days ----------
@@ -198,6 +198,13 @@
     out.done = unionTrue(L.done, I.done);
     out.quiz = maxMap(L.quiz, I.quiz);
 
+    /* Credit clocks. The value is the day a course was completed or last
+       refreshed by Recall, so the LATEST wins — maxMap is exactly right and
+       is monotone, which keeps the merge inside the same algebra as the
+       rest of this file. Taking the min would let an old device silently
+       expire credits the learner has since renewed. */
+    out.earned = maxMap(L.earned, I.earned);
+
     /* XP is a pure accumulation over done, so extending by the delta is
        exact — it never rewrites history and a repeat import adds zero
        because the delta set is empty the second time. */
@@ -283,6 +290,12 @@
       quizzesImproved: quizUp,
       daysAdded: (a.days || []).length - (b.days || []).length,
       streakBefore: b.streak || 0, streakAfter: a.streak || 0,
+      coursesCredited: Object.keys(a.earned || {}).filter(function (c) {
+        return !(b.earned && b.earned[c] != null);
+      }).length,
+      creditsRenewed: Object.keys(a.earned || {}).filter(function (c) {
+        return b.earned && b.earned[c] != null && a.earned[c] > b.earned[c];
+      }).length,
       parked: Object.keys(a.revPark || {}).length - Object.keys(b.revPark || {}).length,
       owed: (a.xpOwed || []).length,
       empty: newDone.length === 0 && revAdded === 0 && revChanged === 0 && quizUp === 0 &&
@@ -314,6 +327,7 @@
       days: (u.days || []).slice(),
       quiz: u.quiz || {},
       lastCourse: u.lastCourse || null,
+      earned: u.earned || {},
       rev: u.rev || {},
       revPark: u.revPark || {},
       revSkip: u.revSkip || {},
@@ -330,7 +344,8 @@
       counts: {
         done: p.done.length, rev: Object.keys(p.rev).length,
         park: Object.keys(p.revPark).length, skip: Object.keys(p.revSkip).length,
-        alt: Object.keys(p.revAlt).length, days: p.days.length
+        alt: Object.keys(p.revAlt).length, days: p.days.length,
+        earned: Object.keys(p.earned).length
       },
       sum: checksum(p),
       omits: ["code", "streak", "lastDay", "revQueue", "revDay", "academy"],
@@ -345,7 +360,8 @@
     (p.done || []).forEach(function (id) { done[id] = true; });
     return {
       done: done, xp: p.xp || 0, days: p.days || [], quiz: p.quiz || {},
-      lastCourse: p.lastCourse || null, rev: p.rev || {}, revPark: p.revPark || {},
+      lastCourse: p.lastCourse || null, earned: p.earned || {},
+      rev: p.rev || {}, revPark: p.revPark || {},
       revSkip: p.revSkip || {}, revAlt: p.revAlt || {}, revStatsSrc: p.revStatsSrc || {}
     };
   }
