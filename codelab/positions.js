@@ -23,7 +23,7 @@
 
    HONESTY RULE: these thresholds are set against what a junior is
    actually screened on, NOT against what CodeLab happens to hold.
-   Four of the seven sheets below are currently unreachable, and
+   Three of the seven sheets below are currently unreachable, and
    that is the point — the board reports the shortfall in credits
    so the gap is a number ("Operations is 6 credits short") rather
    than a vibe. Do not lower a floor to make a position light up.
