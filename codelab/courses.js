@@ -178,10 +178,10 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "docker", prefix: "docker", title: "Docker & Containers",
-  icon: "🐳", color: "#2563eb", level: "Advanced", stub: true,
-  plannedCredits: 4, plannedCategories: { ops: 4 },
-  blurb: "Container concepts, Dockerfile best practices, multi-stage builds, layer caching, Docker Compose, networking, volumes, container orchestration basics, and security in containers.",
-  files: []
+  icon: "🐳", color: "#2563eb", level: "Intermediate", hours: 8, items: 36,
+  credits: 4, categories: { ops: 4 },
+  blurb: "\"It works on my machine\" — so ship the machine. Images and containers, a Dockerfile you write and build, layers and the build cache, smaller and safer images, ports and networks, volumes that survive, and a Compose stack you repair. Orchestration and CI belong to later courses.",
+  files: ["docker/u1.js", "docker/u2.js", "docker/u3.js", "docker/u4.js", "docker/u5.js", "docker/u6.js", "docker/u7.js", "docker/u8.js"]
 });
 
 window.CODELAB.defineCourse({

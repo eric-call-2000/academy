@@ -1246,10 +1246,13 @@
       var name = (lesson.files && lesson.files[0] && lesson.files[0].name) || "commands.sh";
       var script = (files[name] != null) ? files[name] : files[Object.keys(files)[0]] || "";
 
-      var fsTree, result, GIT = window.CODELAB.git, before = null;
+      var fsTree, result, GIT = window.CODELAB.git, DOCKER = window.CODELAB.docker, before = null;
       var where = { cwd: lesson.cwd || "/home/you", home: lesson.home || "/home/you" };
       try {
         fsTree = SH.createFS(lesson.fs || {});
+        /* A Docker lesson DESCRIBES its processes rather than running them:
+           `apps` says what `node server.js` listens on, logs and answers. */
+        if (lesson.apps) fsTree.dockerApps = lesson.apps;
         /* lesson.setup builds the starting state by running REAL commands
            before the learner's — so a seeded repository has an honest
            history, index and reflog, and no seeding code can drift from
@@ -1271,7 +1274,9 @@
             return;
           }
         }
-        if (GIT) before = GIT.snapshot(fsTree);
+        /* dockersim's snapshot includes git's, so one call covers both. */
+        if (DOCKER) before = DOCKER.snapshot(fsTree);
+        else if (GIT) before = GIT.snapshot(fsTree);
         /* Every editor tab after the first is a real file (a Dockerfile, a
            compose.yaml, a conflicted file to fix by hand). They're written
            after setup AND after the T.before snapshot: the tabs are the
@@ -1305,6 +1310,8 @@
       /* Git lessons get repository helpers (T.log, T.staged, T.sha …) plus
          T.before — the same helpers over the state right after setup. */
       if (GIT) GIT.extendT(T, fsTree, before, lesson.repo || where.cwd);
+      /* Docker helpers merge into the same T (and the same T.before). */
+      if (DOCKER) DOCKER.extendT(T, fsTree, before);
       var steps = lesson.steps || [], out = [];
       for (var i = 0; i < steps.length; i++) {
         try {

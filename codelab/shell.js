@@ -129,10 +129,30 @@
   /* ---------- tokenizing ----------
      Quotes group, backslash escapes one character, and that is the whole
      story. Anything fancier belongs in a shell course this is not. */
-  function tokenize(line) {
+  function tokenize(line, env) {
     var out = [], cur = "", quote = null, had = false;
+    function lookup(n) {
+      return (env && Object.prototype.hasOwnProperty.call(env, n)) ? String(env[n]) : "";
+    }
+    /* $NAME and ${NAME}, expanded everywhere EXCEPT inside single quotes —
+       which is exactly why `-v "$PWD/src:/app/src"` works and '$PWD' doesn't. */
+    function readVar(i) {
+      var j = i + 1, name = "";
+      if (line.charAt(j) === "{") {
+        var end = line.indexOf("}", j);
+        if (end !== -1) return [lookup(line.slice(j + 1, end)), end + 1];
+      }
+      while (j < line.length && /[A-Za-z0-9_]/.test(line.charAt(j))) name += line.charAt(j++);
+      return name ? [lookup(name), j] : ["$", i + 1];
+    }
     for (var i = 0; i < line.length; i++) {
       var ch = line.charAt(i);
+      if (quote === "'") { if (ch === "'") quote = null; else cur += ch; had = true; continue; }
+      if (ch === "$" && env && i + 1 < line.length) {
+        var r = readVar(i);
+        cur += r[0]; i = r[1] - 1; had = true;
+        continue;
+      }
       if (quote) {
         if (ch === quote) quote = null;
         else cur += ch;
@@ -144,6 +164,36 @@
     }
     if (cur || had) out.push(cur);
     return out;
+  }
+
+  /* Split on top-level separators only: anything inside quotes, or escaped,
+     is text. `echo "a > b"` prints a > b instead of writing a file called b".
+     Returns [{ text, sep }], where sep is the separator that FOLLOWED the
+     text ("" on the last piece). Longer separators must come first. */
+  function splitTop(line, seps) {
+    var out = [], cur = "", quote = null;
+    for (var i = 0; i < line.length; i++) {
+      var ch = line.charAt(i);
+      if (quote) { cur += ch; if (ch === quote) quote = null; continue; }
+      if (ch === '"' || ch === "'") { quote = ch; cur += ch; continue; }
+      if (ch === "\\" && i + 1 < line.length) { cur += ch + line.charAt(++i); continue; }
+      var hit = null;
+      for (var s = 0; s < seps.length; s++) {
+        if (line.substr(i, seps[s].length) === seps[s]) { hit = seps[s]; break; }
+      }
+      if (hit) { out.push({ text: cur, sep: hit }); cur = ""; i += hit.length - 1; continue; }
+      cur += ch;
+    }
+    out.push({ text: cur, sep: "" });
+    return out;
+  }
+
+  /* The variables a command line can expand. PWD is read fresh every time,
+     so `cd deep && echo $PWD` reports where you actually are. */
+  function envFor(ctx) {
+    var env = { PWD: ctx.cwd, HOME: ctx.home, USER: ctx.user };
+    Object.keys(ctx.env || {}).forEach(function (k) { env[k] = ctx.env[k]; });
+    return env;
   }
 
   /* ---------- the commands ----------
@@ -375,18 +425,25 @@
   /* ---------- running a line ----------
      Supports pipes, > and >> redirection, and && / ; sequencing. That is the
      set a beginner meets in week one and nothing beyond it. */
-  function runLine(ctx, line) {
-    var trimmed = line.trim();
-    if (!trimmed || trimmed.charAt(0) === "#") return { out: "", err: "", code: 0, skip: true };
+  /* One command chain: pipes, then an optional trailing redirect. */
+  function runPipeline(ctx, body) {
+    var redirect = null;
+    var segs = splitTop(body, [">>", ">"]);
+    if (segs.length > 1) {
+      var pathText = segs[segs.length - 1].text.trim();
+      if (pathText) {
+        var target = tokenize(pathText, envFor(ctx))[0];
+        redirect = { append: segs[segs.length - 2].sep === ">>", path: target };
+        body = segs.slice(0, -1).map(function (p, i) {
+          return p.text + (i < segs.length - 2 ? p.sep : "");
+        }).join("");
+      }
+    }
 
-    var redirect = null, body = trimmed;
-    var m = body.match(/\s(>>?)\s*([^\s>]+)\s*$/);
-    if (m) { redirect = { append: m[1] === ">>", path: m[2] }; body = body.slice(0, m.index); }
-
-    var stages = body.split("|");
+    var stages = splitTop(body, ["|"]).map(function (p) { return p.text; });
     var stdin = "", res = { out: "", err: "", code: 0 };
     for (var i = 0; i < stages.length; i++) {
-      var parts = tokenize(stages[i].trim());
+      var parts = tokenize(stages[i].trim(), envFor(ctx));
       if (!parts.length) continue;
       var name = parts[0], args = parts.slice(1);
       var fn = COMMANDS[name];
@@ -405,6 +462,30 @@
     return res;
   }
 
+  /* A whole line: `a && b`, `a || b` and `a ; b`, left to right, sharing one
+     ctx so `mkdir deep && cd deep` really does leave you in deep. A failed
+     && skips forward to the next `;` — the same short-circuit a real shell
+     does, and the same one `RUN npm ci && rm -rf /root/.npm` relies on. */
+  function runLine(ctx, line) {
+    var trimmed = line.trim();
+    if (!trimmed || trimmed.charAt(0) === "#") return { out: "", err: "", code: 0, skip: true };
+
+    var segs = splitTop(trimmed, ["&&", "||", ";"]);
+    var out = "", err = "", code = 0, skip = false;
+    for (var i = 0; i < segs.length; i++) {
+      var text = segs[i].text.trim();
+      if (!skip && text) {
+        var r = runPipeline(ctx, text);
+        out += r.out; err += r.err; code = r.code;
+      }
+      var sep = segs[i].sep;
+      if (sep === ";") skip = false;
+      else if (sep === "&&") skip = skip || code !== 0;
+      else if (sep === "||") skip = skip || code === 0;
+    }
+    return { out: out, err: err, code: code };
+  }
+
   /* Run a whole script. Returns the transcript so the Result pane can render
      it like a terminal, and so a checkpoint can assert on any single command
      rather than only on the final filesystem. */
@@ -412,7 +493,7 @@
     opts = opts || {};
     var ctx = {
       fs: fs, cwd: opts.cwd || "/home/you", home: opts.home || "/home/you",
-      user: opts.user || "you"
+      user: opts.user || "you", env: opts.env || {}
     };
     if (!nodeAt(fs, ctx.cwd)) mkdirp(fs, ctx.cwd);
     var transcript = [], lines = String(script || "").split("\n");
@@ -456,7 +537,8 @@
 
   var API = {
     createFS: createFS, run: run, resolve: resolve, nodeAt: nodeAt, walk: walk,
-    tokenize: tokenize, renderTranscript: renderTranscript, shortCwd: shortCwd,
+    tokenize: tokenize, splitTop: splitTop, envFor: envFor,
+    renderTranscript: renderTranscript, shortCwd: shortCwd,
     dir: dir, file: file, cloneNode: cloneNode, writeTabs: writeTabs, COMMANDS: COMMANDS
   };
 
