@@ -71,6 +71,14 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
+  id: "debug", prefix: "debug", title: "Debugging & Diagnosis",
+  icon: "🐞", color: "#be123c", level: "Intermediate", hours: 8, items: 35,
+  credits: 4, categories: { fnd: 1, qa: 3 },
+  blurb: "Read the error before you touch the code: stack traces, reproducing a bug on purpose and isolating it, print debugging done well, breakpoints and the paused program, bugs that aren't in your JavaScript at all — then two real apps to fix. Take it after Async JavaScript & APIs.",
+  files: ["debug/u1.js", "debug/u2.js", "debug/u3.js", "debug/u4.js", "debug/u5.js", "debug/u6.js", "debug/u7.js"]
+});
+
+window.CODELAB.defineCourse({
   id: "srv", prefix: "srv", title: "Back-End Foundations",
   icon: "🖥️", color: "#6c5ce7", level: "Intermediate", hours: 8, items: 38,
   credits: 4, categories: { be: 4 },
@@ -185,14 +193,6 @@ window.CODELAB.defineCourse({
 });
 
 // Quality & Data Track
-window.CODELAB.defineCourse({
-  id: "debug", prefix: "debug", title: "Debugging & Diagnosis",
-  icon: "🐞", color: "#be123c", level: "Intermediate", stub: true,
-  plannedCredits: 3, plannedCategories: { fnd: 1, qa: 2 },
-  blurb: "Read the error before you touch the code: stack traces, reproducing a bug on purpose and isolating it, print debugging done well, breakpoints and the paused program, bugs that aren't in your JavaScript at all — then a real app to fix.",
-  files: []
-});
-
 window.CODELAB.defineCourse({
   id: "etl", prefix: "etl", title: "Data Pipelines & ETL",
   icon: "🚰", color: "#ca8a04", level: "Advanced", stub: true,

@@ -80,15 +80,144 @@
         return (s === undefined) ? String(a) : s;
       } catch (e) { return String(a); }
     }
-    ["log", "info", "warn", "error"].forEach(function (k) {
-      var orig = (g.console && g.console[k]) ? g.console[k].bind(g.console) : function () {};
+    /* Honest stack traces. Learner code is labelled `//# sourceURL=script.js`
+       (worker eval and iframe script alike), so V8 knows which frames are
+       theirs. This hook makes `e.stack` read the way Chrome prints it for a
+       real script — "TypeError: …" then "    at fn (script.js:12:5)" — and
+       drops every frame the learner did not write: harness code, the blob
+       URL, and checkpoint code (which the worker appends to the same eval,
+       past __USER_LINES). Without it a debugging lesson would be teaching
+       the learner to read frames that point at nothing. */
+    g.__USER_LINES = Infinity;   // the worker narrows this to the learner's file
+    Error.prepareStackTrace = function (err, sites) {
+      var head;
+      try { head = String(err); } catch (e0) { head = "Error"; }
+      var out = [];
+      for (var i = 0; i < sites.length; i++) {
+        try {
+          var s = sites[i];
+          var file = s.getScriptNameOrSourceURL ? s.getScriptNameOrSourceURL() : s.getFileName();
+          if (file !== "script.js") continue;
+          var line = s.getLineNumber(), col = s.getColumnNumber();
+          if (line > g.__USER_LINES) continue;
+          var fn = s.getFunctionName();
+          out.push("    at " + (fn && fn !== "eval" ? fn + " (script.js:" + line + ":" + col + ")" : "script.js:" + line + ":" + col));
+        } catch (e1) {}
+      }
+      return [head].concat(out).join("\n");
+    };
+    /* "in badPrice() at line 12" / "at line 12" for the first frame the
+       learner owns, or "" when the error came from somewhere else (a failed
+       T.expect is thrown by harness code, which has no such frame). */
+    g.__where = function (e) {
+      var m;
+      try { m = /\n {4}at (?:(\S+) \()?script\.js:(\d+):\d+/.exec(String(e && e.stack || "")); } catch (e2) { m = null; }
+      if (!m) return "";
+      return (m[1] ? "in " + m[1] + "() " : "") + "at line " + m[2];
+    };
+
+    /* Console. Every method a lesson might reach for is captured into __LOGS
+       so T.logged()/T.countLogged() can grade it. THESE SHAPES ARE PINNED —
+       Debugging & Diagnosis U4 asserts them, so changing one breaks it:
+         table(rows)    a header line "id | name | qty", then one " | "-joined
+                        line per row. Columns are keys in first-seen order; a
+                        primitive row fills a "value" column; a keyed object of
+                        rows gets a leading "(key)" column.
+         count(label)   "label: 3"               (label defaults to "default")
+         time/timeEnd   "label: 12ms"            (never assert the number)
+         assert(c, msg) "Assertion failed: msg"  at level error, only when c is falsy
+         trace(msg)     "Trace: msg", then "    at …" per frame the learner owns
+         group(label)   prints the label, then indents every later line by two
+                        spaces per level until groupEnd()
+       debug and dir log like log. One call = one __LOGS entry, except table,
+       which pushes one entry per line so rows can be counted. */
+    var depth = 0, counts = {}, timers = {};
+    function emit(level, text) {
+      var pad = new Array(depth + 1).join("  ");
+      text = pad + String(text).split("\n").join("\n" + pad);
+      g.__LOGS.push(text);
+      g.__send({ type: "console", level: level, text: text });
+    }
+    function joinArgs(args) { return Array.prototype.slice.call(args).map(fmt).join(" "); }
+    function native(k) { return (g.console && g.console[k]) ? g.console[k].bind(g.console) : function () {}; }
+    function labelOf(l) { return l === undefined ? "default" : String(l); }
+    ["log", "info", "warn", "error", "debug", "dir"].forEach(function (k) {
+      var orig = native(k);
+      var level = (k === "debug" || k === "dir") ? "log" : k;
       g.console[k] = function () {
         orig.apply(null, arguments);
-        var text = Array.prototype.slice.call(arguments).map(fmt).join(" ");
-        g.__LOGS.push(text);
-        g.__send({ type: "console", level: k, text: text });
+        emit(level, joinArgs(arguments));
       };
     });
+    g.console.table = function (rows) {
+      if (rows === null || typeof rows !== "object") { emit("log", fmt(rows)); return; }
+      var keyed = !Array.isArray(rows), ids = Object.keys(rows), cols = [];
+      function isObj(r) { return r !== null && typeof r === "object"; }
+      ids.forEach(function (id) {
+        var r = rows[id];
+        (isObj(r) ? Object.keys(r) : ["value"]).forEach(function (c) { if (cols.indexOf(c) === -1) cols.push(c); });
+      });
+      function cell(r, c) {
+        if (isObj(r)) return Object.prototype.hasOwnProperty.call(r, c) ? fmt(r[c]) : "";
+        return c === "value" ? fmt(r) : "";
+      }
+      emit("log", (keyed ? ["(key)"] : []).concat(cols).join(" | "));
+      ids.forEach(function (id) {
+        emit("log", (keyed ? [id] : []).concat(cols.map(function (c) { return cell(rows[id], c); })).join(" | "));
+      });
+    };
+    g.console.count = function (l) { l = labelOf(l); counts[l] = (counts[l] || 0) + 1; emit("log", l + ": " + counts[l]); };
+    g.console.countReset = function (l) { counts[labelOf(l)] = 0; };
+    g.console.time = function (l) { timers[labelOf(l)] = Date.now(); };
+    function lap(l, end) {
+      l = labelOf(l);
+      if (!Object.prototype.hasOwnProperty.call(timers, l)) { emit("warn", "Timer '" + l + "' does not exist"); return; }
+      emit("log", l + ": " + (Date.now() - timers[l]) + "ms");
+      if (end) delete timers[l];
+    }
+    g.console.timeLog = function (l) { lap(l, false); };
+    g.console.timeEnd = function (l) { lap(l, true); };
+    g.console.assert = function (cond) {
+      if (cond) return;
+      var rest = Array.prototype.slice.call(arguments, 1);
+      emit("error", "Assertion failed" + (rest.length ? ": " + rest.map(fmt).join(" ") : ""));
+    };
+    g.console.group = g.console.groupCollapsed = function () {
+      emit("log", arguments.length ? joinArgs(arguments) : "console.group");
+      depth++;
+    };
+    g.console.groupEnd = function () { if (depth > 0) depth--; };
+    g.console.trace = function () {
+      var lines = String(new Error().stack).split("\n").slice(1);   // our own Error: frames only
+      emit("log", ["Trace" + (arguments.length ? ": " + joinArgs(arguments) : "")].concat(lines).join("\n"));
+    };
+
+    /* probe(name, value) — a hand-rolled watchpoint. Records a DEEP COPY of
+       the value at the moment it was probed and returns the value untouched,
+       so it drops into any expression: `const total = probe("total", sum(xs))`.
+       The copy is the point: console.log(obj) in a real DevTools shows the
+       object as it is NOW, after later mutation; the timeline shows what it
+       WAS. Depth-limited with a cycle guard. Shown in the console panel, but
+       kept out of __LOGS so it never satisfies a T.logged() check. */
+    g.__TRACE = [];
+    function snap(v, d, stack) {
+      if (typeof v === "function") return "ƒ " + (v.name || "anonymous") + "()";
+      if (v === null || typeof v !== "object") return v;
+      if (stack.indexOf(v) !== -1) return "[Circular]";
+      if (d >= 6) return Array.isArray(v) ? "[Array]" : "[Object]";
+      stack.push(v);
+      var out;
+      if (Array.isArray(v)) out = v.map(function (x) { return snap(x, d + 1, stack); });
+      else { out = {}; Object.keys(v).forEach(function (k) { out[k] = snap(v[k], d + 1, stack); }); }
+      stack.pop();
+      return out;
+    }
+    g.probe = function (name, value) {
+      var rec = { n: g.__TRACE.length, name: String(name), value: snap(value, 0, []) };
+      g.__TRACE.push(rec);
+      g.__send({ type: "console", level: "info", text: "◆ " + rec.name + " = " + fmt(rec.value) });
+      return value;
+    };
 
     g.__T_STEPS = [];
     g.__T_QUEUE = [];
@@ -241,9 +370,27 @@
       },
       /* --- misc --- */
       logs: function () { return g.__LOGS.slice(); },
+      logLines: function () { return g.__LOGS.slice(); },
       logged: function (needle) {
         needle = String(needle).toLowerCase();
         return g.__LOGS.some(function (t) { return String(t).toLowerCase().indexOf(needle) !== -1; });
+      },
+      /* How many log entries contain the needle — CASE-SENSITIVE, unlike
+         logged(), so a count can't be padded by an unrelated line that
+         happens to share a word in another case. */
+      countLogged: function (needle) {
+        needle = String(needle);
+        return g.__LOGS.filter(function (t) { return String(t).indexOf(needle) !== -1; }).length;
+      },
+      /* --- probe() timeline (Debugging & Diagnosis U4) --- */
+      trace: function () { return JSON.parse(JSON.stringify(g.__TRACE)); },
+      traceOf: function (name) {
+        return JSON.parse(JSON.stringify(g.__TRACE.filter(function (r) { return r.name === name; }).map(function (r) { return r.value; })));
+      },
+      firstDivergence: function (name, expected) {
+        var got = g.T.traceOf(name), n = Math.max(got.length, expected.length);
+        for (var i = 0; i < n; i++) if (JSON.stringify(got[i]) !== JSON.stringify(expected[i])) return i;
+        return -1;
       },
       sleep: function (ms) { return new Promise(function (res) { setTimeout(res, ms); }); },
       step: function (i, fn) { g.__T_QUEUE.push({ i: i, fn: fn }); }
@@ -259,7 +406,15 @@
           fail(new Error("This check took too long — is a promise never resolving?"));
         }, 2500);
         function ok() { if (finished) return; finished = true; clearTimeout(guard); g.__T_STEPS.push({ i: s.i, pass: true }); next(); }
-        function fail(e) { if (finished) return; finished = true; clearTimeout(guard); g.__T_STEPS.push({ i: s.i, pass: false, msg: (e && e.message) || String(e) }); next(); }
+        /* An error the LEARNER'S code threw (not a failed T.expect) says where:
+           "Cannot read properties of null (reading 'name') — thrown in
+           total(), line 4". */
+        function fail(e) {
+          if (finished) return; finished = true; clearTimeout(guard);
+          var msg = (e && e.message) || String(e), at = g.__where(e);
+          g.__T_STEPS.push({ i: s.i, pass: false, msg: at ? msg + " — thrown " + at : msg });
+          next();
+        }
         try {
           var r = s.fn();
           if (r && typeof r.then === "function") r.then(ok, fail);
@@ -870,7 +1025,14 @@
   }
 
   function buildWorkerSrc(lesson, userCode) {
-    var evalBlob = transpileModuleish(userCode) + "\n;\n" + stepsSource(lesson);
+    /* ONE eval, learner code first: checkpoints must see the learner's
+       top-level const/let, and an indirect eval keeps those in its own
+       lexical scope — a second eval could not reach them. Learner code comes
+       first, so its line numbers are exact; the sourceURL names the frames
+       script.js, and __USER_LINES tells the stack hook where the learner's
+       file ends and the appended checkpoints begin. */
+    var evalBlob = transpileModuleish(userCode) + "\n;\n" + stepsSource(lesson) + "\n//# sourceURL=script.js";
+    var userLines = String(userCode).split("\n").length;
     return [
       'var __send = function (m) { try { postMessage(m); } catch (e) { try { postMessage({ type: "console", level: "warn", text: "(unprintable value)" }); } catch (e2) {} } };',
       "(" + harnessCommon.toString() + ")();",
@@ -881,7 +1043,8 @@
       "var __DONE = false;",
       "function __finish(steps) { if (__DONE) return; __DONE = true; __send({ type: 'results', steps: steps }); }",
       "var __fatal = null;",
-      "try { (0,eval)(" + JSON.stringify(evalBlob) + "); } catch (e) { __fatal = (e && e.message) || String(e); }",
+      "__USER_LINES = " + userLines + ";",
+      "try { (0,eval)(" + JSON.stringify(evalBlob) + "); } catch (e) { var __at = __where(e); __fatal = ((e && e.name && e.name !== 'Error' ? e.name + ': ' : '') + ((e && e.message) || String(e))) + (__at ? ' (' + __at + ')' : ''); }",
       "if (__fatal !== null) { __send({ type: 'fatal', text: __fatal }); __finish(__T_STEPS); }",
       "else { __T_RUN(function (steps) { __finish(steps); }); }"
     ].join("\n");
@@ -944,7 +1107,18 @@
       "<script>" +
       "var __send = function (m) { try { m.__codelab = " + JSON.stringify(token) + "; parent.postMessage(m, '*'); } catch (e) {} };" +
       "var __LOOPGUARD = 0;" +
-      "window.addEventListener('error', function (e) { __send({ type: 'console', level: 'error', text: (e.message || 'Script error') + (e.lineno ? ' (line ' + e.lineno + ')' : '') }); });" +
+      /* e.lineno counts from the top of the WHOLE srcdoc — harness included —
+         even for a script labelled with a sourceURL, so it was wrong for every
+         web lesson. The learner's line is (a) the first script.js frame of the
+         error's stack, or (b) lineno minus the line their script starts on,
+         when lineno falls inside their script. Anything else is harness or
+         grader code, and gets no line at all rather than a misleading one.
+         The two numbers are patched in once the document is assembled. */
+      "var __JSL0 = 0/*__JSL0__*/, __JSN = 0/*__JSN__*/;" +
+      "window.addEventListener('error', function (e) {" +
+      " var L = 0, m = e.error && /script\\.js:(\\d+)/.exec(String(e.error.stack || ''));" +
+      " if (m) L = +m[1]; else if (e.lineno > __JSL0 && e.lineno <= __JSL0 + __JSN) L = e.lineno - __JSL0;" +
+      " __send({ type: 'console', level: 'error', text: (e.message || 'Script error') + (L ? ' (script.js line ' + L + ')' : '') }); });" +
       "window.addEventListener('unhandledrejection', function (e) { __send({ type: 'console', level: 'error', text: 'Unhandled promise rejection: ' + ((e.reason && e.reason.message) || e.reason) }); });" +
       "(" + harnessCommon.toString() + ")();" +
       (lesson.node ? "(" + harnessNode.toString() + ")();" : "") +
@@ -981,7 +1155,10 @@
 
     // 3) learner JS replaces its <script src>, or is appended before </body>
     if (js != null) {
-      var scriptTag = "<script>\n" + safeInline(guardLoops(js)) + "\n<\/script>";
+      /* The learner's line 1 sits on the <script> line itself (no leading
+         newline), guardLoops never adds a line, and the sourceURL names the
+         frames script.js — so a stack's line numbers are the editor's. */
+      var scriptTag = "<script>" + safeInline(guardLoops(js)) + "\n//# sourceURL=script.js\n<\/script>";
       var srcRe = /<script[^>]*src\s*=\s*["']?script\.js["']?[^>]*>\s*<\/script>/i;
       if (srcRe.test(html)) html = html.replace(srcRe, function () { return scriptTag; });
       else if (/<\/body>/i.test(html)) html = html.replace(/<\/body>/i, function () { return scriptTag + "\n</body>"; });
@@ -1003,6 +1180,17 @@
       "<\/script>";
     if (/<\/body>/i.test(html)) html = html.replace(/<\/body>/i, function () { return grader + "\n</body>"; });
     else html += "\n" + grader;
+
+    // 5) now that nothing above the learner's script can move, tell the
+    //    error handler which document line their script starts on.
+    if (js != null) {
+      var at = html.indexOf(scriptTag);
+      if (at !== -1) {
+        var startLine = html.slice(0, at).split("\n").length;   // 1-based line of "<script>"
+        html = html.replace("0/*__JSL0__*/", function () { return String(startLine - 1); })
+                   .replace("0/*__JSN__*/", function () { return String(String(js).split("\n").length); });
+      }
+    }
 
     return html;
   }

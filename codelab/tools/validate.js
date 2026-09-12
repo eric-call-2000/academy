@@ -644,6 +644,76 @@ async function main() {
     fail(`runner probe (shell tabs): ${tabProbeBad.map(s => "#" + s.i + ": " + s.msg).join(" | ") || "steps missing"}`);
   else ok("runner probe: a shell lesson's extra tabs become files after setup, before the commands");
 
+  /* ---- runner probes: console shapes, honest stacks, probe() timeline ----
+     Debugging & Diagnosis grades exact console serializations and line
+     numbers, so the engine behaviour is pinned here directly — a change to
+     the shim would otherwise surface as a confusing lesson failure. Step 6
+     is MEANT to fail: its message must say where the learner's code threw. */
+  const dbgProbe = await page.evaluate(() => {
+    const code = [
+      "function boom(o) {",                                   // 1
+      "  return o.name;",                                     // 2
+      "}",                                                    // 3
+      "function outer() { return boom(null); }",              // 4
+      "console.table([{ id: 1, name: 'mug', qty: 2 }, { id: 2, name: 'pen' }]);",
+      "console.count('tick'); console.count('tick');",
+      "console.group('cart'); console.log('inside'); console.groupEnd(); console.log('outside');",
+      "console.assert(1 > 2, 'math broke'); console.assert(true, 'never shown');",
+      "const cart = { items: [1] };",
+      "probe('cart', cart); cart.items.push(2); probe('cart', cart);",
+      "[0, 1, 3, 7].forEach(function (s) { probe('sum', s); });"
+    ].join("\n");
+    const lesson = {
+      id: "probe-debug-engine", kind: "js",
+      steps: [
+        { test: "T.eq(T.logLines().slice(0, 3), ['id | name | qty', '1 | mug | 2', '2 | pen | '], 'console.table shape');" },
+        { test: "T.eq(T.countLogged('tick: '), 2, 'console.count'); T.expect(T.logged('tick: 2'), 'count label: n');" },
+        { test: "T.expect(T.logLines().indexOf('  inside') !== -1 && T.logLines().indexOf('outside') !== -1, 'group indents until groupEnd');" },
+        { test: "T.eq(T.countLogged('Assertion failed: math broke'), 1, 'assert fires once'); T.expect(!T.logged('never shown'), 'a true assert is silent');" },
+        { test: "T.eq(T.traceOf('cart'), [{ items: [1] }, { items: [1, 2] }], 'probe keeps a deep copy'); T.eq(T.firstDivergence('sum', [0, 1, 3, 6]), 3, 'first divergence');" },
+        { test: "var s = ''; try { outer(); } catch (e) { s = e.stack; }\nT.eq(s, \"TypeError: Cannot read properties of null (reading 'name')\\n    at boom (script.js:2:12)\\n    at outer (script.js:4:27)\", 'e.stack shows only learner frames, with editor line numbers');" },
+        { test: "outer();" }
+      ]
+    };
+    const host = document.createElement("div");
+    return window.CODELAB.runner.run(lesson, { "script.js": code }, { previewEl: host }).then(r => ({ steps: r.steps, fatal: r.fatal }));
+  });
+  const dbgBad = (dbgProbe.steps || []).filter(s => !s.pass && s.i !== 6);
+  const dbgSix = (dbgProbe.steps || []).filter(s => s.i === 6)[0];
+  if (dbgProbe.fatal) fail(`runner probe (debug engine): FATAL ${dbgProbe.fatal}`);
+  else if (dbgBad.length || (dbgProbe.steps || []).length !== 7)
+    fail(`runner probe (debug engine): ${dbgBad.map(s => "#" + s.i + ": " + s.msg).join(" | ") || "steps missing"}`);
+  else if (!dbgSix || dbgSix.pass || dbgSix.msg.indexOf("thrown in boom() at line 2") === -1)
+    fail(`runner probe (debug engine): a learner throw should report "thrown in boom() at line 2", got ${JSON.stringify(dbgSix && dbgSix.msg)}`);
+  else ok("runner probe: console table/count/group/assert shapes, probe() deep copies, learner-only stacks with editor line numbers");
+
+  const crashProbe = await page.evaluate(() => {
+    const logs = [];
+    const lesson = { id: "probe-debug-crash", kind: "js", steps: [{ test: "T.expect(true, 'never reached');" }] };
+    return window.CODELAB.runner.run(lesson, { "script.js": "var a = 1;\nvar cart = null;\ncart.total;\n" },
+      { previewEl: document.createElement("div"), onConsole: m => logs.push(m.text) }).then(r => ({ fatal: r.fatal, logs }));
+  });
+  if (crashProbe.fatal === "TypeError: Cannot read properties of null (reading 'total') (at line 3)")
+    ok("runner probe: a top-level crash names its error type and line");
+  else fail(`runner probe (worker crash): expected the fatal to name TypeError and line 3, got ${JSON.stringify(crashProbe.fatal)}`);
+
+  const webLineProbe = await page.evaluate(() => {
+    const logs = [];
+    const lesson = { id: "probe-web-lineno", kind: "web", steps: [{ test: "T.expect(true, 'ok');" }] };
+    const files = {
+      "index.html": "<!DOCTYPE html>\n<html>\n<head>\n<title>x</title>\n</head>\n<body>\n<p>hi</p>\n<script src=\"script.js\"></script>\n</body>\n</html>",
+      "script.js": "var ok = 1;\n\nnull.boom;\n"
+    };
+    const host = document.createElement("div");
+    host.style.cssText = "position:fixed;left:-12000px;top:0;width:800px;height:600px;";
+    document.body.appendChild(host);
+    return window.CODELAB.runner.run(lesson, files, { previewEl: host, onConsole: m => logs.push(m.text) })
+      .then(() => { host.remove(); return logs; });
+  });
+  if (webLineProbe.some(t => /\(script\.js line 3\)$/.test(t)))
+    ok("runner probe: a web lesson's console reports the learner's own line (script.js line 3)");
+  else fail(`runner probe (web line numbers): expected "(script.js line 3)", console said ${JSON.stringify(webLineProbe)}`);
+
   await ctx.close();
 
   /* ---- phase 2: mobile UI smoke test ---- */

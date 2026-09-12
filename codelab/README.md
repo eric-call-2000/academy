@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**14 built courses · ~114 hours · 55 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus five roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**15 built courses · ~122 hours · 59 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus seven roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -75,7 +75,7 @@ courses **stack** — they are named *and* their credits count toward the totals
 about one elective above what the required courses pay. There is
 one sheet per job title and every sheet is junior-level; seniority comes from shipped
 work, not coursework. Thresholds are set against what juniors are actually screened on,
-**not** against what CodeLab happens to hold: four of the seven sheets are currently
+**not** against what CodeLab happens to hold: three of the seven sheets are currently
 unreachable because they require courses still on the roadmap, and the board reports
 the shortfall as a number ("Operations tops out at 8 credits — this sheet needs 10")
 rather than quietly hiding the gap.
@@ -210,6 +210,7 @@ codelab/
 ├── js/u1.js … u8.js      # Learn JavaScript          (50 items)
 ├── dom/u1.js … u8.js     # Interactive Websites      (40 items)
 ├── async/u1.js … u6.js   # Async JavaScript & APIs   (30 items)
+├── debug/u1.js … u7.js   # Debugging & Diagnosis     (35 items)
 ├── srv/u1.js … u8.js     # Back-End Foundations      (38 items)
 ├── cap/u1.js … u6.js     # Full-Stack Capstone       (28 items)
 ├── git/u1.js … u8.js     # Git & Version Control     (37 items)
@@ -306,6 +307,28 @@ so they leave `node` unset; handing them the harness would make the starter
 pass on its own. `tools/validate.js` enforces both directions: it fails a
 lesson that uses a Node global without the flag, unless that lesson defines
 the name itself.
+
+### Always on: the console, honest stacks, and probe()
+
+Every JS and web lesson gets these without a flag — Debugging & Diagnosis
+grades them, and the rest of the catalog simply reads better for them:
+
+- **Real line numbers.** Learner code is labelled `//# sourceURL=script.js`, and
+  an `Error.prepareStackTrace` hook makes `e.stack` read the way Chrome prints a
+  real script — `at applyCoupon (script.js:3:34)` — keeping only the frames the
+  learner wrote. A failed checkpoint whose error came from their code says
+  where: `… — thrown in boom() at line 2`. The web console used to report
+  `e.lineno` counted from the top of the whole srcdoc, harness included; it now
+  reports the learner's own line.
+- **The whole console.** `table`, `group`/`groupEnd`, `count`, `time`/`timeEnd`,
+  `assert`, `trace`, `debug` and `dir` are captured into `__LOGS` with **pinned**
+  serializations (listed in `harnessCommon`) — `console.table` prints a
+  `sku | title | stock` header and one line per row. Grade them with
+  `T.logLines()` and `T.countLogged(needle)` (case-sensitive, unlike `T.logged`).
+- **`probe(name, value)`** records a deep copy of a value and returns it
+  unchanged. `T.traceOf(name)` is that value's timeline and
+  `T.firstDivergence(name, expected)` the first tick where it disagrees.
+  Probes show in the console panel but never satisfy `T.logged()`.
 
 ### Authoring traps these courses paid for
 
