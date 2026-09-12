@@ -185,6 +185,28 @@ shellTest("$PWD and $HOME expand, including inside double quotes", () => {
   eq(s.out, HOME + "\n" + HOME + "/src\n/home/you\n");
 });
 
+/* dockersim.js is loaded on every page in the catalog, so every command it
+   registers is registered for courses that have nothing to do with Docker.
+   env and curl already exist in shell.js; taking them over unconditionally
+   silently broke two Command Line lessons the first time these two courses
+   shared a build, and nothing caught it until they were merged. */
+shellTest("with no containers in play, env is the shell's — exported only", () => {
+  const s = shellRun("LOCAL=one\nexport SHARED=two\nenv");
+  ok(s.out.indexOf("SHARED=two") !== -1, "an exported variable is in the environment");
+  ok(s.out.indexOf("LOCAL=one") === -1, "an un-exported one is NOT — that distinction is a lesson");
+  ok(s.out.indexOf("HOME=/home/you") !== -1, "and the always-present ones are still there");
+});
+shellTest("with no containers in play, curl answers from the shell's own ports", () => {
+  const s = shellRun("serve 3000\ncurl localhost:3000");
+  ok(s.out.indexOf("Listening on http://localhost:3000") !== -1, "serve holds the port");
+  ok(s.out.indexOf("Hello from the server on port 3000") !== -1,
+    "curl must reach it rather than being answered by an empty Docker daemon");
+});
+shellTest("querying the shell's world does not conjure a Docker daemon", () => {
+  const s = shellRun("env\ncurl localhost:9999");
+  eq(s.fs.dockerd, undefined, "reading dockerd must not create it on a non-Docker filesystem");
+});
+
 /* ================= Unit 1 — images and containers ================= */
 test("run -d starts a container; stop exits it cleanly; only ps -a still lists it", () => {
   const T = sandbox({ fs: withDf(DF_GOOD), setup: BUILT, script: "docker run -d --name web shop:1.0\ndocker ps\ndocker stop web\ndocker ps\ndocker ps -a" });

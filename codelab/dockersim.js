@@ -319,10 +319,29 @@
   }
   SH.COMMANDS.adduser = addUser;
   SH.COMMANDS.useradd = addUser;
-  SH.COMMANDS.env = function (ctx) {
+  /* dockersim.js is loaded on every page, so whatever it registers into the
+     shell is registered for the WHOLE catalog — including courses that have
+     never heard of Docker. env and curl already exist in shell.js, and the
+     Docker answer is only the right one when there is a Docker world to
+     answer from: inside a container, or with containers on the daemon.
+     dockerd is read directly rather than through daemon(), which creates it. */
+  function dockerInPlay(ctx) {
+    if (ACTIVE) return true;
+    var d = ctx.fs && ctx.fs.dockerd;
+    return !!(d && keys(d.containers).length);
+  }
+
+  var baseEnv = SH.COMMANDS.env;
+  SH.COMMANDS.env = function (ctx, args, stdin) {
+    /* A container's environment is simply all of it. A shell's is the part
+       that was exported, which is a distinction shell.js models and the CLI
+       course teaches, so outside Docker the shell's own answer stands. */
+    if (!dockerInPlay(ctx)) return baseEnv(ctx, args, stdin);
     return ok(keys(ctx.env).sort().map(function (k) { return k + "=" + ctx.env[k]; }).join("\n") + "\n");
   };
-  SH.COMMANDS.sleep = function () { return ok(""); };
+  /* sleep is left to shell.js, which does the same nothing for a valid
+     interval and additionally rejects a nonsensical one. Overriding it
+     here would take that check away from the whole catalog. */
 
   function filler(bytes) {
     /* A stand-in payload of the right SIZE — layer sizes are a real rule, the
@@ -1085,7 +1104,11 @@
 
   /* curl, from the host or from inside a container. A pure query of the
      declared world: it never changes anything. */
+  var baseCurl = SH.COMMANDS.curl;
   SH.COMMANDS.curl = function (ctx, args) {
+    /* With no containers anywhere, localhost:3000 is not a published port —
+       it is whatever the shell's own process table has listening there. */
+    if (!dockerInPlay(ctx)) return baseCurl(ctx, args);
     var rest = args.filter(function (a) { return a.charAt(0) !== "-"; });
     var flags = args.filter(function (a) { return a.charAt(0) === "-"; }).join("");
     var url = rest[0] || "";

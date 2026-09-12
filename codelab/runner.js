@@ -1354,9 +1354,11 @@
       },
       /* Counting invocations is what makes `mkdir -p` a lesson about -p
          rather than about ending up with a folder. */
+      /* Every command match reads `exec` — the line with any trailing
+         comment stripped — so `ls -a   # show hidden` still counts as ls. */
       cmdCount: function (name) {
         return result.transcript.filter(function (t) {
-          return new RegExp("(^|\\||&&|;)\\s*" + name + "(\\s|$)").test(t.cmd);
+          return new RegExp("(^|\\||&&|;)\\s*" + name + "(\\s|$)").test(t.exec == null ? t.cmd : t.exec);
         }).length;
       },
       /* One helper answering "does it exist", "is it a dir", "what is in it". */
@@ -1385,9 +1387,29 @@
          with cp" rather than "have two files". */
       ran: function (re) {
         var rx = (typeof re === "string") ? new RegExp(re) : re;
-        return result.transcript.some(function (t) { return rx.test(t.cmd); });
+        return result.transcript.some(function (t) { return rx.test(t.exec == null ? t.cmd : t.exec); });
       },
-      commands: result.transcript.map(function (t) { return t.cmd; }),
+      commands: result.transcript.map(function (t) { return t.exec == null ? t.cmd : t.exec; }),
+      /* The permission string ls -l would print, so a checkpoint about
+         chmod can name the bit that is wrong instead of the whole mode. */
+      mode: function (p) {
+        var n = SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p));
+        return n ? SH.modeString(n) : null;
+      },
+      /* Variables as the shell holds them, and whether they were exported —
+         the difference is the whole point of the environment lessons and it
+         is invisible in the transcript. */
+      env: function (name) {
+        var e = fsTree.shellEnv || {};
+        return Object.prototype.hasOwnProperty.call(e, name) ? String(e[name]) : null;
+      },
+      exported: function (name) { return !!(fsTree.shellExported || {})[name]; },
+      /* What is still running, and what is still holding a port. */
+      procs: function () { return (fsTree.procs || []).slice(); },
+      port: function (n) {
+        var hits = (fsTree.procs || []).filter(function (p) { return p.port === n; });
+        return hits.length ? hits[0] : null;
+      },
       lastCode: result.transcript.length ? result.transcript[result.transcript.length - 1].code : 0,
       printed: function (s) { return stdout.indexOf(s) !== -1; },
       expect: function (cond, msg) { if (!cond) fail(msg); },

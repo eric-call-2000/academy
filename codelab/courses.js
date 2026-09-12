@@ -154,10 +154,10 @@ window.CODELAB.defineCourse({
 // DevOps/Engineering Track
 window.CODELAB.defineCourse({
   id: "cli", prefix: "cli", title: "The Command Line & Your Machine",
-  icon: "⌨️", color: "#475569", level: "Beginner", stub: true,
-  plannedCredits: 3, plannedCategories: { ops: 2, fnd: 1 },
-  blurb: "Paths and the filesystem, making and breaking files, pipes and search, environment variables, PATH and permissions, processes and ports, and running your own programs — the machine every other course quietly assumes.",
-  files: []
+  icon: "⌨️", color: "#475569", level: "Beginner", hours: 6, items: 35,
+  credits: 3, categories: { ops: 2, fnd: 1 },
+  blurb: "The machine every other course quietly assumes you can drive. Paths and the filesystem, making and breaking files, reading them without an editor, pipes and redirection and exit codes, globs and the searching they unlock, environment variables and PATH and permissions — and finally programs of your own: a script with a shebang, an execute bit, and a place on PATH. Typed into a real terminal, graded on what actually happened.",
+  files: ["cli/u1.js", "cli/u2.js", "cli/u3.js", "cli/u4.js", "cli/u5.js", "cli/u6.js", "cli/u7.js"]
 });
 
 window.CODELAB.defineCourse({
