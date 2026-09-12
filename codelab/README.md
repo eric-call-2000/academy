@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**16 built courses · ~128 hours · 62 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus six roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus five roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -11,7 +11,7 @@ Finishing a course pays **credits**, and credits qualify you for **job positions
 **Hours describe the material that is actually in the files.** The validator models each
 item at 10 min (30 for a project, 5 for a quiz) and **fails the build if a course
 advertises more than 2× what it holds** — so these numbers cannot drift back into fiction.
-The model puts the catalog at **~124h**; the advertised ~128h is the same material at a
+The model puts the catalog at **~133h**; the advertised ~136h is the same material at a
 learner's pace rather than an author's.
 
 Course sizes are aimed at real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS 14h,
@@ -215,8 +215,10 @@ codelab/
 ├── cap/u1.js … u6.js     # Full-Stack Capstone       (28 items)
 ├── git/u1.js … u8.js     # Git & Version Control     (37 items)
 ├── cli/u1.js … u7.js     # The Command Line          (35 items)
+├── docker/u1.js … u8.js  # Docker & Containers       (36 items)
 ├── shell.js              # a virtual filesystem + POSIX-ish shell (kind: "shell" lessons)
 ├── gitsim.js             # a real git inside that shell — the Git course's engine
+├── dockersim.js          # a Docker daemon inside that shell — the Docker course's engine
 ├── server.js, manifest.webmanifest, icons/, .nojekyll
 ├── tools/validate.js     # runs EVERY lesson's solution in real Chromium
 ├── tools/validate-unit.js # one unit through the real sandbox (~20s inner loop)
@@ -252,7 +254,7 @@ command substitution, no shell functions, no real signals, and **no
 concurrency** — a backgrounded command has already run to completion by the
 time you see its pid, and what is modelled is the bookkeeping (the pid, the
 job, and the port that really is held until you kill it). `>` redirects stdout
-only; `2>` is not modelled. `tools/test-shell.js` is 78 pure-Node cases
+only; `2>` is not modelled. `tools/test-shell.js` is 85 pure-Node cases
 covering all of it, a third of them regressions pinning the quoting,
 redirection and sequencing the Git course rides on.
 
@@ -303,6 +305,49 @@ move" is `T.eq(T.sha('main'), T.before.sha('main'))`.
   with `T.said`, not `T.out`.
 - **A state check alone can be satisfied by hand.** Where the command *is* the
   lesson, pair the state check with `T.ran(/^git restore/)` or similar.
+
+## Docker lessons
+
+`dockersim.js` registers `docker` and `curl` into the same shell, the way
+gitsim registers `git`. Daemon state — images, containers, volumes, networks,
+builds, the registry — is plain JSON on the filesystem root at
+`fsRoot.dockerd`, so a deep copy of the tree is a deep copy of the daemon,
+which is what gives these lessons `T.before` for free.
+
+**The design rule is: fake payloads, never rules.** Every rule a junior is
+screened on is enforced exactly — one layer per instruction, a changed
+instruction invalidating everything after it, a file deleted in a later layer
+still shipping, `EXPOSE` publishing nothing, an app bound to `127.0.0.1` being
+unreachable through a published port, the writable layer dying with the
+container while a named volume does not, `/bin/sh -c` swallowing SIGTERM so a
+stop ends in 137. What is faked is the *payload*: what `npm ci` downloads, and
+what a process computes. A process is **described**, never executed — each
+lesson's `apps` table says what `node server.js` listens on, logs, answers and
+does with SIGTERM, and the brief shows it. The simulator never runs learner
+JavaScript.
+
+| Lesson field | What it does |
+|---|---|
+| `apps` | the process table above, copied to `fsRoot.dockerApps` |
+| `fs`, `setup`, `cwd` | as for any shell lesson — `setup` usually pre-builds an image |
+| extra `files` tabs | `Dockerfile`, `.dockerignore`, `compose.yaml` are real editor tabs |
+
+Checkpoints get `T.images()`, `T.image(ref)` (size, base, layers, user, env,
+cmd, workdir, exposed, files), `T.containers({all})`, `T.container(name)`
+(status, exitCode, health, ports, networks, mounts, env, user, command,
+restartCount, stoppedAfter), `T.fileIn`, `T.logs`, `T.build(n)` (per-step
+`cached`), `T.volumes()`, `T.networks()`, `T.compose()`, `T.curl(url, {from})`
+and `T.inRegistry(ref)`. `tools/test-dockersim.js` is the engine's own suite —
+57 tests, pure Node, about a second, and run as validate.js phase 0f.
+
+**The Dockerfile is graded through the image it builds**, never by a regex on
+its text: `T.image('shop:1.0').user === 'node'` cannot be satisfied by a
+comment. Same rule the Git course uses — grade the state, not the prose.
+
+Building it also fixed three things in `shell.js` that every shell lesson now
+gets: quotes protect `>` and `|` from being read as redirects and pipes,
+`&&` / `||` / `;` chain commands on one line, and `$PWD` / `$HOME` / `$VAR`
+expand (outside single quotes).
 
 ## Lesson harnesses
 

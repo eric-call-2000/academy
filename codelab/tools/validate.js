@@ -235,6 +235,22 @@ function phase0() {
   recallAndSyncGates();
   shellGates();
   gitsimGates();
+  dockersimGates();
+}
+
+/* Same argument as gitsim's suite: the Docker course is graded by inspecting
+   dockersim's state, so an engine bug would make lessons pass or fail for
+   reasons unrelated to what the learner typed. Its suite also covers the
+   shell.js behaviour Docker lessons depend on (quoting, &&, $PWD). */
+function dockersimGates() {
+  console.log("\n== Phase 0f: docker engine ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-dockersim.js")], { encoding: "utf8" });
+    out.trim().split("\n").forEach(line => ok(line));
+  } catch (e) {
+    fail("dockersim engine tests failed:\n" + String(e.stdout || e.message));
+  }
 }
 
 /* The shell is the floor two courses stand on: the CLI course is graded
