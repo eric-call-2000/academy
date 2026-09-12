@@ -1381,6 +1381,26 @@
         return result.transcript.some(function (t) { return rx.test(t.cmd); });
       },
       commands: result.transcript.map(function (t) { return t.cmd; }),
+      /* The permission string ls -l would print, so a checkpoint about
+         chmod can name the bit that is wrong instead of the whole mode. */
+      mode: function (p) {
+        var n = SH.nodeAt(fsTree, SH.resolve(result.cwd, "/home/you", p));
+        return n ? SH.modeString(n) : null;
+      },
+      /* Variables as the shell holds them, and whether they were exported —
+         the difference is the whole point of the environment lessons and it
+         is invisible in the transcript. */
+      env: function (name) {
+        var e = fsTree.shellEnv || {};
+        return Object.prototype.hasOwnProperty.call(e, name) ? String(e[name]) : null;
+      },
+      exported: function (name) { return !!(fsTree.shellExported || {})[name]; },
+      /* What is still running, and what is still holding a port. */
+      procs: function () { return (fsTree.procs || []).slice(); },
+      port: function (n) {
+        var hits = (fsTree.procs || []).filter(function (p) { return p.port === n; });
+        return hits.length ? hits[0] : null;
+      },
       lastCode: result.transcript.length ? result.transcript[result.transcript.length - 1].code : 0,
       printed: function (s) { return stdout.indexOf(s) !== -1; },
       expect: function (cond, msg) { if (!cond) fail(msg); },
