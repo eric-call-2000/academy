@@ -173,7 +173,7 @@ window.CODELAB.addUnit("cli", {
           choices: ["grep -rn TAX .", "cat -n TAX", "find . -name TAX", "wc -l TAX"],
           answer: 0, explain: "`-r` walks every file under the directory you name, `.` is the directory you are standing in, and `-n` gives you the line number so you can jump straight there. `find` searches file NAMES, not contents — no file here is called TAX." },
         { q: "Why is `cat` named after concatenation when most people use it to print one file?",
-          choices: ["Because it concatenates the file with your terminal's buffer", "Because it takes several files and prints them joined into one stream", "Because it was originally a category listing tool and the name stuck", "Because it concatenates each line with a newline before printing it"],
+          choices: ["Because it concatenates the file with your terminal's scrollback buffer as it prints", "Because it takes several files and prints them joined into one stream", "Because it was originally a category listing tool and the name stuck", "Because it concatenates each line with a newline before printing it"],
           answer: 1, explain: "`cat a.txt b.txt` prints both, one straight after the other. Printing a single file is the degenerate case of joining a list of one — which is also why `cat` is the natural start of a pipeline." },
         { q: "`wc -l` on a file prints `12 app.log`. You then run `wc -l app.log users.csv` and get three rows. What is the third row?",
           code: "wc -l app.log users.csv\n# 12 app.log\n#  4 users.csv\n# ?",

@@ -163,7 +163,7 @@ window.CODELAB.addUnit("cli", {
           choices: ["Counts every line in app.log, then searches that number for ERROR", "Writes grep's output into a file called wc and counts it", "Feeds grep's matching lines into wc, which counts them", "Runs grep and wc at the same time on the same file"],
           answer: 2, explain: "The pipe connects grep's output to wc's input, in order, left to right. Neither command knows the other exists — grep just writes lines and wc just counts what it is given. That independence is what lets you rebuild the pipeline for a different question tomorrow." },
         { q: "`grep -q ERROR clean.log` prints nothing and sets `$?` to 1. Why is that useful rather than annoying?",
-          choices: ["Because 1 means grep needs to be run again with different flags", "Because the 1 counts how many lines it skipped", "Because a shell script can branch on it: no match is reported as failure", "Because -q suppresses errors so the code is always meaningful"],
+          choices: ["Because 1 means grep needs running again with different flags before it works", "Because the 1 counts how many lines it skipped", "Because a shell script can branch on it: no match is reported as failure", "Because -q suppresses errors so the code is always meaningful"],
           answer: 2, explain: "\"No match\" being a non-zero exit is what makes `grep -q PATTERN file || echo clean` work. `-q` prints nothing and exists purely to set that code, which is how you ask the shell a yes-or-no question." },
         { q: "Why is `cd build && rm -rf *` safer than `cd build ; rm -rf *`?",
           code: "cd build && rm -rf *\ncd build ;  rm -rf *",

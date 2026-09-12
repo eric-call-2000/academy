@@ -182,7 +182,7 @@ window.CODELAB.addUnit("cli", {
           choices: ["Try -1, -2 and -3 in turn until the output looks right", "Run `man tail` and read the SYNOPSIS", "Search your history for a previous tail command and hope you used it", "Run tail with no flags and count the output yourself"],
           answer: 1, explain: "Reading takes about four seconds and gives you the answer with certainty. Guessing flags is a habit that is harmless on `tail` and expensive on `rm` — the point is to build the reflex on the safe commands." },
         { q: "You run `pwd` and it prints `/home/you`. Then you run `cd` with no argument at all. Where do you end up?",
-          choices: ["One level up, in /home", "Nowhere — cd requires an argument and prints an error", "Still in /home/you, since cd with no argument goes home", "At the root of the machine, /"],
+          choices: ["One level up in /home, the same place cd .. would have taken you", "Nowhere — cd requires an argument and prints an error", "Still in /home/you, since cd with no argument goes home", "At the root of the machine, /"],
           answer: 2, explain: "Bare `cd` goes to your home directory, the same as `cd ~`. You were already there, so nothing appears to happen — but from anywhere else, plain `cd` is the fastest way home." }
       ]
     }
