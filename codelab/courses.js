@@ -157,7 +157,7 @@ window.CODELAB.defineCourse({
   icon: "⌨️", color: "#475569", level: "Beginner", hours: 6, items: 5,
   credits: 3, categories: { ops: 2, fnd: 1 },
   blurb: "The machine every other course quietly assumes you can drive. Paths and the filesystem, making and breaking files, reading them without an editor, pipes and redirection and exit codes, globs and the searching they unlock, environment variables and PATH and permissions — and finally programs of your own: a script with a shebang, an execute bit, and a place on PATH. Typed into a real terminal, graded on what actually happened.",
-  files: ["cli/u1.js", "cli/u2.js", "cli/u3.js"]
+  files: ["cli/u1.js", "cli/u2.js", "cli/u3.js", "cli/u4.js", "cli/u5.js"]
 });
 
 window.CODELAB.defineCourse({
