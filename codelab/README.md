@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**15 built courses · ~122 hours · 59 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus seven roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**16 built courses · ~128 hours · 62 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus six roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -11,7 +11,7 @@ Finishing a course pays **credits**, and credits qualify you for **job positions
 **Hours describe the material that is actually in the files.** The validator models each
 item at 10 min (30 for a project, 5 for a quiz) and **fails the build if a course
 advertises more than 2× what it holds** — so these numbers cannot drift back into fiction.
-The model puts the catalog at **~65h**; the advertised ~69h is the same material at a
+The model puts the catalog at **~124h**; the advertised ~128h is the same material at a
 learner's pace rather than an author's.
 
 Course sizes are aimed at real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS 14h,
@@ -214,11 +214,13 @@ codelab/
 ├── srv/u1.js … u8.js     # Back-End Foundations      (38 items)
 ├── cap/u1.js … u6.js     # Full-Stack Capstone       (28 items)
 ├── git/u1.js … u8.js     # Git & Version Control     (37 items)
+├── cli/u1.js … u7.js     # The Command Line          (35 items)
 ├── shell.js              # a virtual filesystem + POSIX-ish shell (kind: "shell" lessons)
 ├── gitsim.js             # a real git inside that shell — the Git course's engine
 ├── server.js, manifest.webmanifest, icons/, .nojekyll
 ├── tools/validate.js     # runs EVERY lesson's solution in real Chromium
 ├── tools/validate-unit.js # one unit through the real sandbox (~20s inner loop)
+├── tools/test-shell.js   # the shell's own suite — pure Node, also run by phase 0
 ├── tools/test-gitsim.js  # gitsim's own suite — pure Node, ~1s, also run by phase 0
 └── tools/dump-lesson.js  # print a lesson's starter, solution and checkpoints
                           #   `--phase0` skips the browser: static + credit +
@@ -232,6 +234,27 @@ writes one command per line in `commands.sh`, every line really executes
 against a virtual filesystem, and the Result pane shows the session as a
 terminal transcript. It runs on the main thread safely because nothing the
 learner types is evaluated as JavaScript.
+
+**What the shell models.** Pipes, `>` / `>>` redirection, `&&` / `||` / `;`
+sequencing and `&` backgrounding; glob expansion (`*`, `?`, `[…]`) done where a
+real shell does it, in the shell, before the command runs — so `rm *.log`
+reaches `rm` as a list of names and quoting is what stops it; shell variables
+versus exported ones, `$?`, and positional parameters; file modes with a real
+`ls -l` column and an execute bit; PATH lookup; and programs of the learner's
+own, found on PATH, checked for the execute bit, read for a shebang and then
+interpreted by the same interpreter with their own cwd and `$1..$n`. A child
+process gets the exported variables and nothing else, which is the only way to
+actually *see* what `export` is for.
+
+**Its honest edges,** stated because a simulator that pretends to be complete
+teaches worse than one with a known boundary: there are no subshells, no
+command substitution, no shell functions, no real signals, and **no
+concurrency** — a backgrounded command has already run to completion by the
+time you see its pid, and what is modelled is the bookkeeping (the pid, the
+job, and the port that really is held until you kill it). `>` redirects stdout
+only; `2>` is not modelled. `tools/test-shell.js` is 78 pure-Node cases
+covering all of it, a third of them regressions pinning the quoting,
+redirection and sequencing the Git course rides on.
 
 The Git course runs on top of it. `gitsim.js` registers a `git` command whose
 working tree *is* the shell filesystem, so `echo`, `cat`, `ls` and even

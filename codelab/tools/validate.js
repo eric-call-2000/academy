@@ -233,7 +233,23 @@ function phase0() {
 
   positionGates();
   recallAndSyncGates();
+  shellGates();
   gitsimGates();
+}
+
+/* The shell is the floor two courses stand on: the CLI course is graded
+   entirely by inspecting what it did, and every Git lesson is typed into it.
+   A regression here is invisible in a diff and obvious to a learner, so the
+   engine gets its own suite ahead of any lesson running. */
+function shellGates() {
+  console.log("\n== Phase 0d2: shell engine ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-shell.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0]);
+  } catch (e) {
+    fail("shell engine tests failed:\n" + String(e.stdout || e.message));
+  }
 }
 
 /* The Git course is graded by INSPECTING gitsim's state, so an engine bug

@@ -656,8 +656,25 @@
     return h;
   }
   function mdBlock(s) {
-    var parts = String(s || "").split(/\n\n+/);
-    return parts.map(function (p) {
+    var src = String(s || ""), fences = [];
+    /* Park ``` blocks before the paragraph split: a blank line inside one is
+       part of the code, not a paragraph break. Shell briefs lean on these —
+       a two-line command with its output is not an inline `code span`. */
+    src = src.replace(/```([A-Za-z]*)\n([\s\S]*?)```/g, function (_, lang, code) {
+      fences.push({ lang: lang, code: code.replace(/\n+$/, "") });
+      return "\n\n@@FENCE" + (fences.length - 1) + "@@\n\n";
+    });
+    return src.split(/\n\n+/).map(function (p) {
+      p = p.replace(/^\n+|\n+$/g, "");
+      if (!p) return "";
+      var f = p.match(/^@@FENCE(\d+)@@$/);
+      if (f) {
+        var b = fences[f[1]];
+        /* hl() escapes anything it cannot highlight, so an unknown language
+           is safe rather than unrendered. */
+        return "<pre class=\"cheat-code brief-code\"><code>" +
+          window.CODELAB.hl(b.code, b.lang || "text") + "</code></pre>";
+      }
       var lines = p.split("\n");
       if (lines.every(function (l) { return /^\s*-\s+/.test(l); })) {
         return "<ul>" + lines.map(function (l) { return "<li>" + mdInline(l.replace(/^\s*-\s+/, "")) + "</li>"; }).join("") + "</ul>";
