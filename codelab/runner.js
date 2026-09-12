@@ -1347,9 +1347,11 @@
       },
       /* Counting invocations is what makes `mkdir -p` a lesson about -p
          rather than about ending up with a folder. */
+      /* Every command match reads `exec` — the line with any trailing
+         comment stripped — so `ls -a   # show hidden` still counts as ls. */
       cmdCount: function (name) {
         return result.transcript.filter(function (t) {
-          return new RegExp("(^|\\||&&|;)\\s*" + name + "(\\s|$)").test(t.cmd);
+          return new RegExp("(^|\\||&&|;)\\s*" + name + "(\\s|$)").test(t.exec == null ? t.cmd : t.exec);
         }).length;
       },
       /* One helper answering "does it exist", "is it a dir", "what is in it". */
@@ -1378,9 +1380,9 @@
          with cp" rather than "have two files". */
       ran: function (re) {
         var rx = (typeof re === "string") ? new RegExp(re) : re;
-        return result.transcript.some(function (t) { return rx.test(t.cmd); });
+        return result.transcript.some(function (t) { return rx.test(t.exec == null ? t.cmd : t.exec); });
       },
-      commands: result.transcript.map(function (t) { return t.cmd; }),
+      commands: result.transcript.map(function (t) { return t.exec == null ? t.cmd : t.exec; }),
       /* The permission string ls -l would print, so a checkpoint about
          chmod can name the bit that is wrong instead of the whole mode. */
       mode: function (p) {

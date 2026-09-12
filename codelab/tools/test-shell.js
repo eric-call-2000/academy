@@ -172,6 +172,12 @@ test("pipes carry stdout onward and a classic count pipeline works", () => {
   const r = sh(spec, 'cut -d" " -f2 access.log | sort | uniq -c | sort -rn');
   eq(r.out, "   3 200\n   2 404\n   1 500\n");
 });
+test("/dev/null swallows output without becoming a file", () => {
+  const r = sh(FILES, "grep apple a.txt > /dev/null\necho $?\ngrep zebra a.txt > /dev/null\necho $?");
+  eq(r.out, "0\n1\n", "the exit code survives; the matched line does not");
+  ok(!r.exists("/dev/null"), "/dev/null must not be created in the tree");
+  ok(!r.exists("dev"), "and no dev directory either");
+});
 test("tee writes a file and keeps the stream flowing", () => {
   const r = sh(FILES, "echo hello | tee copy.txt | wc -c");
   eq(r.file("copy.txt"), "hello\n");
@@ -378,6 +384,16 @@ test("grep -n, -i, -v and -c each change one thing", () => {
   eq(sh(spec, "grep -v apple f.txt").out, "Apple\nbanana\n");
   eq(sh(spec, "grep -c -i apple f.txt").out, "2\n");
 });
+test("grep -q prints nothing and answers only with its exit code", () => {
+  const spec = { "/home/you/f.txt": "one\nERROR two\n" };
+  const hit = sh(spec, "grep -q ERROR f.txt");
+  eq(hit.out, "", "-q must print nothing even when it matched");
+  eq(hit.code, 0);
+  const miss = sh(spec, "grep -q ZEBRA f.txt");
+  eq(miss.out, "");
+  eq(miss.code, 1);
+  eq(sh(spec, 'grep -q ERROR f.txt && echo "found"').out, "found\n");
+});
 test("grep -r searches a whole tree and names the file each hit came from", () => {
   const spec = { "/home/you/src/a.js": "// TODO one\n", "/home/you/src/deep/b.js": "x // TODO two\n" };
   const r = sh(spec, "grep -rn TODO src");
@@ -486,6 +502,33 @@ test("a comment line runs nothing and is left out of the transcript", () => {
   const r = sh(FILES, "# just a note\necho after");
   eq(r.transcript.length, 1);
   eq(r.out, "after\n");
+});
+test("a trailing comment is stripped before the command runs", () => {
+  /* Every cheatsheet in the catalog writes examples this way, so typing one
+     back has to work rather than turning the note into three arguments. */
+  const r = sh(FILES, "ls -a   # show the hidden ones too");
+  has(r.out, ".env");
+  eq(r.err, "", "the note must not reach ls as arguments");
+  eq(r.code, 0);
+});
+test("the transcript echoes what was typed but matches on what ran", () => {
+  const r = sh(FILES, "pwd   # where am I");
+  eq(r.at(0).cmd, "pwd   # where am I", "the terminal echoes the line as typed");
+  eq(r.at(0).exec, "pwd", "checkpoints match against the stripped command");
+  eq(r.out, "/home/you\n");
+});
+test("a # that is not its own word stays part of the text", () => {
+  eq(sh(FILES, "echo abc#def").out, "abc#def\n");
+  eq(sh(FILES, 'echo "# Recipes" > r.md\ncat r.md').out, "# Recipes\n");
+  eq(sh(FILES, "echo '# hash'").out, "# hash\n");
+});
+test("a comment cannot smuggle out of quotes and eat a redirect", () => {
+  const r = sh(FILES, 'echo "text # not a comment" > out.txt');
+  eq(r.file("out.txt"), "text # not a comment\n");
+});
+test("a trailing comment does not disturb chaining or pipes", () => {
+  eq(sh(FILES, "true && echo yes   # only on success").out, "yes\n");
+  eq(sh(FILES, "grep apple a.txt | wc -l   # count them").out, "1\n");
 });
 test("the transcript records cwd, command, output and code for each line", () => {
   const r = sh(FILES, "cd src\nls");

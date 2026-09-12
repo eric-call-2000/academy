@@ -244,6 +244,23 @@
     return out;
   }
 
+  /* A # that begins a word starts a comment and runs to end of line, exactly
+     as in bash: `ls -a   # show hidden` is a listing, `echo abc#def` is one
+     word, and a # inside quotes is ordinary text. Without this a trailing
+     note becomes three more arguments, which is a trap every cheatsheet in
+     the catalog sets by writing its examples that way. */
+  function stripComment(line) {
+    var quote = null;
+    for (var i = 0; i < line.length; i++) {
+      var ch = line.charAt(i);
+      if (quote) { if (ch === quote) quote = null; continue; }
+      if (ch === '"' || ch === "'") { quote = ch; continue; }
+      if (ch === "\\") { i++; continue; }
+      if (ch === "#" && (i === 0 || /\s/.test(line.charAt(i - 1)))) return line.slice(0, i);
+    }
+    return line;
+  }
+
   /* The variables a command line can expand. PWD is read fresh every time,
      so `cd deep && echo $PWD` reports where you actually are. */
   function envFor(ctx) {
@@ -497,6 +514,9 @@
       var ci = flags.indexOf("i") !== -1, inv = flags.indexOf("v") !== -1;
       var num = flags.indexOf("n") !== -1, rec = flags.indexOf("r") !== -1;
       var listOnly = flags.indexOf("l") !== -1, count = flags.indexOf("c") !== -1;
+      /* -q asks a question rather than printing an answer: no output at all,
+         just the exit code. It is how a script says "is this in there?". */
+      var quiet = flags.indexOf("q") !== -1;
       var pat = p[0], needle = ci ? pat.toLowerCase() : pat;
       var targets = p.slice(1), errs = "";
 
@@ -528,6 +548,7 @@
           if (inv ? !found : found) hits.push({ n: i + 1, line: l });
         });
         total += hits.length;
+        if (quiet) return;
         if (count) { out += (many ? f.label + ":" : "") + hits.length + "\n"; return; }
         if (listOnly) { if (hits.length) out += f.label + "\n"; return; }
         hits.forEach(function (h) {
@@ -1142,6 +1163,11 @@
          failed — which is why `ls nope > out.txt` leaves you an EMPTY
          out.txt and the error still on your screen. */
       var abs = resolve(ctx.cwd, ctx.home, redirect.path);
+      /* /dev/null is where output goes to be forgotten. It is not a file in
+         the tree, so it is answered here rather than conjured into one — and
+         it has to work, because `cmd > /dev/null` is how you ask for a
+         command's exit code without its chatter. */
+      if (abs === "/dev/null") return { out: "", err: res.err, code: res.code };
       var existing = redirect.append ? (nodeAt(ctx.fs, abs) || {}).f || "" : "";
       if (!writeFile(ctx.fs, abs, existing + res.out))
         return { out: "", err: "cannot write " + redirect.path + "\n", code: 1 };
@@ -1202,8 +1228,8 @@
      && skips forward to the next `;` — the same short-circuit a real shell
      does, and the same one `RUN npm ci && rm -rf /root/.npm` relies on. */
   function runLine(ctx, line) {
-    var trimmed = line.trim();
-    if (!trimmed || trimmed.charAt(0) === "#") return { out: "", err: "", code: 0, skip: true };
+    var trimmed = stripComment(line).trim();
+    if (!trimmed) return { out: "", err: "", code: 0, skip: true };
 
     /* `&&` must be tried before `&`, or every chain would background its
        left half. splitTop takes the separators in order, so order is law. */
@@ -1267,11 +1293,15 @@
     var transcript = [], lines = String(script || "").split("\n");
     for (var i = 0; i < lines.length; i++) {
       var before = ctx.cwd;
-      var trimmed = lines[i].trim();
-      if (trimmed && trimmed.charAt(0) !== "#") ctx.history.push(trimmed);
+      /* `cmd` is what the learner typed, because that is what the terminal
+         echoes back. `exec` is what actually ran, with any trailing comment
+         removed — checkpoints match on that, so writing a note after a
+         command never fails a check that the command itself satisfies. */
+      var raw = lines[i].trim(), exec = stripComment(lines[i]).trim();
+      if (exec) ctx.history.push(raw);
       var r = runLine(ctx, lines[i]);
       if (r.skip) continue;
-      transcript.push({ cwd: before, cmd: trimmed, out: r.out, err: r.err, code: r.code });
+      transcript.push({ cwd: before, cmd: raw, exec: exec, out: r.out, err: r.err, code: r.code });
       if (transcript.length > 500) break;   // a runaway script is a bug, not a lesson
     }
     return { transcript: transcript, fs: fs, cwd: ctx.cwd, procs: ctx.procs };
