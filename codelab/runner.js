@@ -1148,6 +1148,9 @@
       lesson.spec ? "(" + harnessSpec.toString() + ")();" : "",
       lesson.crypto ? "(" + harnessCrypto.toString() + ")();" : "",
       lesson.clock != null ? "(" + harnessClock.toString() + ")(" + JSON.stringify(lesson.clock) + ");" : "",
+      /* authsim.js (a simulated browser, cookie jar and web sites) is one
+         self-contained function, copied in like the harnesses above. */
+      lesson.browser ? (window.CODELAB_AUTHSIM ? "(" + window.CODELAB_AUTHSIM.toString() + ")(self);" : "throw new Error('authsim.js is not loaded — add it to index.html');") : "",
       (lesson.mock || lesson.mockFn) ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock || null) + ", " + JSON.stringify(lesson.mockFn || null) + ");" : "",
       "var __DONE = false;",
       "function __finish(steps) { if (__DONE) return; __DONE = true; __send({ type: 'results', steps: steps }); }",
