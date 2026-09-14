@@ -157,6 +157,10 @@
     course._loading = (course.files || []).reduce(function (p, f) {
       return p.then(function () { return loadScript(f); });
     }, Promise.resolve()).then(function () {
+      /* Generated per-checkpoint solutions ride along. A missing file only
+         costs the Show-solution buttons, never the lessons themselves. */
+      return course.stepSolutions ? loadScript(course.stepSolutions).catch(function () {}) : null;
+    }).then(function () {
       course._loaded = true;
       course._loading = null;
       return course;
@@ -1555,7 +1559,8 @@
     current = {
       entry: entry, lesson: lesson, course: course, freeplay: !!freeplay,
       stepState: shownSteps.map(function () { return { state: "idle", msg: "" }; }),
-      hasRun: false, running: false, hintsShown: 0, allPass: false, drill: drill || null
+      hasRun: false, running: false, hintsShown: 0, allPass: false, drill: drill || null,
+      failedOnce: [], solOpen: []
     };
     /* Deliberately a closure variable, not a field on `current` — see the
        practice button below. */
@@ -1822,6 +1827,36 @@
       var pass = current ? current.stepState.filter(function (s) { return s.state === "pass"; }).length : 0;
       return pass + "/" + total;
     }
+    /* Per-checkpoint solutions (tools/build-step-solutions.js): the part of
+       the lesson's solution that this checkpoint needs, as a diff against the
+       starter, with an explanation of why the starter fails it. */
+    var stepSol = (window.CODELAB._stepSol || {})[lesson.id] || null;
+    function solutionBlock(sol, i) {
+      var wrap = el("div", "chk-sol");
+      var open = !!current.solOpen[i];
+      var btn = el("button", "chk-sol-btn", open ? "Hide solution" : "💡 Show solution");
+      btn.onclick = function () { current.solOpen[i] = !open; paintChecks(); };
+      wrap.appendChild(btn);
+      if (!open) return wrap;
+      var body = el("div", "chk-sol-body");
+      if (sol.why) body.appendChild(el("div", "chk-sol-why", mdInline(sol.why)));
+      if (sol.chunks.length) {
+        var multi = (lesson.files || []).length > 1;
+        sol.chunks.forEach(function (c) {
+          body.appendChild(el("div", "chk-sol-where", esc((multi ? c.file + " · " : "") + "line " + c.line)));
+          var lines = c.del.map(function (t) { return '<span class="d-del">- ' + esc(t) + "</span>"; })
+            .concat(c.add.map(function (t) { return '<span class="d-add">+ ' + esc(t) + "</span>"; }));
+          body.appendChild(el("pre", "chk-diff", lines.join("")));
+        });
+      } else if (sol.after && sol.after.length) {
+        body.appendChild(el("div", "chk-sol-why", "No new code for this checkpoint: it passes once " +
+          sol.after.map(function (k) { return "checkpoint " + (k + 1); }).join(" and ") + " passes."));
+      } else {
+        body.appendChild(el("div", "chk-sol-why", "No new code for this checkpoint: the starter already passes it. If it fails now, compare your file with the starter (↺ Reset code)."));
+      }
+      wrap.appendChild(body);
+      return wrap;
+    }
     function paintChecks() {
       badge.textContent = stepBadgeText();
       badge.classList.toggle("all", current.allPass);
@@ -1836,6 +1871,7 @@
           var tx = el("div", "chk-tx");
           tx.appendChild(el("div", "chk-text", mdInline(s.text)));
           if (st.state === "fail" && st.msg) tx.appendChild(el("div", "chk-msg", esc(st.msg)));
+          if (stepSol && stepSol.steps[i] && current.failedOnce[i]) tx.appendChild(solutionBlock(stepSol.steps[i], i));
           d.appendChild(tx);
           box.appendChild(d);
         });
@@ -1904,6 +1940,9 @@
           else if (r.pass) { current.stepState[i] = { state: "pass", msg: "" }; }
           else { current.stepState[i] = { state: "fail", msg: r.msg || "Check failed" }; allPass = false; }
         });
+        /* A checkpoint's solution unlocks once a real run has failed it, and
+           stays unlocked for this sitting even after it passes. */
+        steps.forEach(function (s, i) { if (current.stepState[i].state === "fail") current.failedOnce[i] = true; });
         current.allPass = allPass;
         paintChecks();
         if (res.timeout) toast("⏱ Took too long — maybe an infinite loop?");
@@ -2946,6 +2985,14 @@
       if (useSolution && lesson.solution) {
         Object.keys(lesson.solution).forEach(function (n) { files[n] = lesson.solution[n]; });
       }
+      return window.CODELAB.dev.runFiles(id, files);
+    },
+    /* Run a coding lesson against any set of files. The step-solution
+       generator reverts one starter→solution change at a time through this
+       to learn which checkpoint each change is for. */
+    runFiles: function (id, files) {
+      var lesson = window.CODELAB.dev.lesson(id);
+      if (!lesson || lesson.kind === "quiz") return Promise.reject(new Error("No coding lesson " + id));
       var host = document.createElement("div");
       host.style.cssText = "position:fixed;left:-12000px;top:0;width:1000px;height:700px;";
       document.body.appendChild(host);

@@ -89,6 +89,14 @@ window.CODELAB.definePosition = function (p) {
   window.CODELAB._posById[p.id] = p;
 };
 
+/* Per-checkpoint solutions, one generated file per course (see
+   tools/build-step-solutions.js): lesson id -> { hash, steps: [{ chunks,
+   after, why }] }. Loaded after the course's units; absent is fine. */
+window.CODELAB._stepSol = window.CODELAB._stepSol || {};
+window.CODELAB.addStepSolutions = function (courseId, map) {
+  Object.keys(map).forEach(function (id) { window.CODELAB._stepSol[id] = map[id]; });
+};
+
 window.CODELAB.addUnit = function (courseId, u) {
   u.lessons = u.lessons || [];
   var c = window.CODELAB._byId[courseId];
