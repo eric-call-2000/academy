@@ -481,12 +481,19 @@
   }
 
   /* Synchronous crypto primitives for the auth/password lessons (Web
-     Security U6): a pure-JS sha256, a random-hex helper, and an iterated
-     slowHash(str, salt, rounds). Pure JS because crypto.subtle is async and
-     absent on file://; injected only when lesson.crypto is set. */
+     Security U6, Authentication U4-U8): a pure-JS sha256, a random-hex
+     helper, and an iterated slowHash(str, salt, rounds) — plus, for signing,
+     BYTE-level sha256Bytes / sha1Bytes / hmac(alg, key, msg), utf8, hex and
+     timingSafeEqual. The string sha256 alone can't carry HMAC: its 0x36/0x5c
+     pads produce bytes above 0x7F that a string round-trip would re-encode.
+     Pure JS because crypto.subtle is async and absent on file://; injected
+     only when lesson.crypto is set. tools/test-crypto.js checks all of it
+     against RFC vectors and Node's crypto. base64url is deliberately NOT
+     here: building it is an Authentication lesson. */
   function harnessCrypto() {
     var g = (typeof self !== "undefined") ? self : window;
     function rrot(n, x) { return (x >>> n) | (x << (32 - n)); }
+    function rotl(n, x) { return (x << n) | (x >>> (32 - n)); }
     var K = [
       0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
       0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
@@ -496,19 +503,75 @@
       0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
       0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
       0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
-    function sha256(ascii) {
-      ascii = unescape(encodeURIComponent(String(ascii)));
+    /* Strings are UTF-8 encoded exactly as the original string-only sha256
+       did, so every existing hash is unchanged; arrays and typed arrays are
+       taken as raw bytes. */
+    function utf8(s) {
+      var a = unescape(encodeURIComponent(String(s)));
+      var out = new Uint8Array(a.length);
+      for (var i = 0; i < a.length; i++) out[i] = a.charCodeAt(i);
+      return out;
+    }
+    function bytes(x) {
+      if (typeof x === "string") return utf8(x);
+      if (x instanceof Uint8Array) return x;
+      if (x && typeof x.length === "number") {
+        var out = new Uint8Array(x.length);
+        for (var i = 0; i < x.length; i++) out[i] = x[i] & 0xff;
+        return out;
+      }
+      throw new TypeError("expected a string or an array of bytes, got " + typeof x);
+    }
+    function hex(u8) {
+      var s = "";
+      for (var i = 0; i < u8.length; i++) s += ("0" + (u8[i] & 0xff).toString(16)).slice(-2);
+      return s;
+    }
+    // Padding shared by SHA-1 and SHA-256: 0x80, zeros, 64-bit big-endian bit length.
+    function pad(msg) {
+      var len = msg.length, total = Math.ceil((len + 9) / 64) * 64, p = new Uint8Array(total);
+      p.set(msg);
+      p[len] = 0x80;
+      for (var i = 0; i < 8; i++) p[total - 1 - i] = Math.floor(len * 8 / Math.pow(2, i * 8)) & 0xff;
+      return p;
+    }
+    function word(p, j) { return (p[j] << 24) | (p[j + 1] << 16) | (p[j + 2] << 8) | p[j + 3]; }
+    function out32(h) {
+      var o = new Uint8Array(h.length * 4);
+      for (var i = 0; i < h.length; i++) {
+        o[i * 4] = h[i] >>> 24; o[i * 4 + 1] = h[i] >>> 16; o[i * 4 + 2] = h[i] >>> 8; o[i * 4 + 3] = h[i];
+      }
+      return o;
+    }
+    function sha1Bytes(input) {
+      var p = pad(bytes(input));
+      var h = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0];
+      var w = new Array(80), i, j;
+      for (i = 0; i < p.length; i += 64) {
+        for (j = 0; j < 16; j++) w[j] = word(p, i + j * 4);
+        for (j = 16; j < 80; j++) w[j] = rotl(1, w[j - 3] ^ w[j - 8] ^ w[j - 14] ^ w[j - 16]);
+        var a = h[0], b = h[1], c = h[2], d = h[3], e = h[4];
+        for (j = 0; j < 80; j++) {
+          var f, k;
+          if (j < 20) { f = (b & c) | (~b & d); k = 0x5a827999; }
+          else if (j < 40) { f = b ^ c ^ d; k = 0x6ed9eba1; }
+          else if (j < 60) { f = (b & c) | (b & d) | (c & d); k = 0x8f1bbcdc; }
+          else { f = b ^ c ^ d; k = 0xca62c1d6; }
+          var t = (rotl(5, a) + f + e + k + w[j]) | 0;
+          e = d; d = c; c = rotl(30, b); b = a; a = t;
+        }
+        h[0] = (h[0] + a) | 0; h[1] = (h[1] + b) | 0; h[2] = (h[2] + c) | 0;
+        h[3] = (h[3] + d) | 0; h[4] = (h[4] + e) | 0;
+      }
+      return out32(h);
+    }
+    function sha256Bytes(input) {
+      var p = pad(bytes(input));
       var h = [0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
-      var i, j, bytes = [];
-      for (i = 0; i < ascii.length; i++) bytes.push(ascii.charCodeAt(i) & 0xff);
-      var bitLen = bytes.length * 8;
-      bytes.push(0x80);
-      while (bytes.length % 64 !== 56) bytes.push(0);
-      for (i = 7; i >= 0; i--) bytes.push((bitLen / Math.pow(2, i * 8)) & 0xff);
+      var i, j;
       var w = new Array(64);
-      for (i = 0; i < bytes.length; i += 64) {
-        for (j = 0; j < 16; j++)
-          w[j] = (bytes[i + j * 4] << 24) | (bytes[i + j * 4 + 1] << 16) | (bytes[i + j * 4 + 2] << 8) | (bytes[i + j * 4 + 3]);
+      for (i = 0; i < p.length; i += 64) {
+        for (j = 0; j < 16; j++) w[j] = word(p, i + j * 4);
         for (j = 16; j < 64; j++) {
           var s0 = rrot(7, w[j-15]) ^ rrot(18, w[j-15]) ^ (w[j-15] >>> 3);
           var s1 = rrot(17, w[j-2]) ^ rrot(19, w[j-2]) ^ (w[j-2] >>> 10);
@@ -527,11 +590,39 @@
         h[0]=(h[0]+a)|0; h[1]=(h[1]+b)|0; h[2]=(h[2]+c)|0; h[3]=(h[3]+d)|0;
         h[4]=(h[4]+e)|0; h[5]=(h[5]+f)|0; h[6]=(h[6]+gg)|0; h[7]=(h[7]+hh)|0;
       }
-      var hex = "";
-      for (i = 0; i < 8; i++) hex += ("00000000" + (h[i] >>> 0).toString(16)).slice(-8);
-      return hex;
+      return out32(h);
+    }
+    function sha256(str) { return hex(sha256Bytes(String(str))); }
+    // RFC 2104. Keys longer than the 64-byte block are hashed first.
+    function hmac(alg, key, msg) {
+      var H = alg === "sha256" ? sha256Bytes : alg === "sha1" ? sha1Bytes : null;
+      if (!H) throw new Error('hmac(alg, key, msg): alg must be "sha256" or "sha1", got ' + JSON.stringify(alg));
+      var k = bytes(key), m = bytes(msg), i;
+      if (k.length > 64) k = H(k);
+      var inner = new Uint8Array(64 + m.length);
+      for (i = 0; i < 64; i++) inner[i] = (k[i] || 0) ^ 0x36;
+      inner.set(m, 64);
+      var ih = H(inner);
+      var outer = new Uint8Array(64 + ih.length);
+      for (i = 0; i < 64; i++) outer[i] = (k[i] || 0) ^ 0x5c;
+      outer.set(ih, 64);
+      return H(outer);
+    }
+    /* Touches every byte whatever the first mismatch; only the LENGTH can
+       leak, and signatures of one algorithm all share a length. */
+    function timingSafeEqual(a, b) {
+      a = bytes(a); b = bytes(b);
+      var diff = a.length ^ b.length;
+      for (var i = 0; i < a.length; i++) diff |= a[i] ^ (i < b.length ? b[i] : 0);
+      return diff === 0;
     }
     g.sha256 = sha256;
+    g.sha256Bytes = sha256Bytes;
+    g.sha1Bytes = sha1Bytes;
+    g.hmac = hmac;
+    g.utf8 = utf8;
+    g.hex = hex;
+    g.timingSafeEqual = timingSafeEqual;
     g.randHex = function (n) {
       n = n || 16;
       var out = "";
@@ -552,6 +643,23 @@
       rounds = rounds || 1;
       for (var i = 0; i < rounds; i++) h = sha256(h + ":" + salt);
       return h;
+    };
+  }
+
+  /* A fake clock for expiry lessons (Authentication: session timeouts, JWT
+     exp/nbf, TOTP steps, reset-token lifetimes). Lessons must be
+     deterministic, so the real clock is off limits — `lesson.clock: <start
+     ms>` injects now() and T.advance(ms) instead. Injected after
+     harnessCommon, which owns T. validate.js fails an auth- lesson that
+     reads Date.now or new Date(). */
+  function harnessClock(START) {
+    var g = (typeof self !== "undefined") ? self : window;
+    var t = Number(START) || 0;
+    g.now = function () { return t; };
+    g.T.advance = function (ms) {
+      if (typeof ms !== "number" || !(ms >= 0)) throw new Error("T.advance(ms) needs a non-negative number of milliseconds, got " + JSON.stringify(ms));
+      t += ms;
+      return t;
     };
   }
 
@@ -1039,6 +1147,7 @@
       lesson.node ? "(" + harnessNode.toString() + ")();" : "",
       lesson.spec ? "(" + harnessSpec.toString() + ")();" : "",
       lesson.crypto ? "(" + harnessCrypto.toString() + ")();" : "",
+      lesson.clock != null ? "(" + harnessClock.toString() + ")(" + JSON.stringify(lesson.clock) + ");" : "",
       (lesson.mock || lesson.mockFn) ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock || null) + ", " + JSON.stringify(lesson.mockFn || null) + ");" : "",
       "var __DONE = false;",
       "function __finish(steps) { if (__DONE) return; __DONE = true; __send({ type: 'results', steps: steps }); }",
@@ -1124,6 +1233,7 @@
       (lesson.node ? "(" + harnessNode.toString() + ")();" : "") +
       (lesson.spec ? "(" + harnessSpec.toString() + ")();" : "") +
       (lesson.crypto ? "(" + harnessCrypto.toString() + ")();" : "") +
+      (lesson.clock != null ? "(" + harnessClock.toString() + ")(" + JSON.stringify(lesson.clock) + ");" : "") +
       ((lesson.mock || lesson.mockFn) ? "(" + harnessMock.toString() + ")(" + JSON.stringify(lesson.mock || null) + ", " + JSON.stringify(lesson.mockFn || null) + ");" : "") +
       (lesson.cspLab ? "(" + harnessCspLab.toString() + ")();" : "") +
       "<\/script>";

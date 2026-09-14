@@ -145,10 +145,10 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "auth", prefix: "auth", title: "Authentication & Security",
-  icon: "🔐", color: "#ef4444", level: "Advanced", stub: true,
-  plannedCredits: 4, plannedCategories: { sec: 3, be: 1 },
-  blurb: "Password hashing, JWT implementation, OAuth 2.0 flows, session management, CSRF protection, CORS configuration, security headers, and building secure auth systems.",
-  files: []
+  icon: "🔐", color: "#ef4444", level: "Advanced", hours: 5, items: 22, targetHours: 8,
+  credits: 2, categories: { sec: 2 },
+  blurb: "How a server knows it's still you: server-side sessions and a hand-written Set-Cookie, session fixation, idle and absolute timeouts, and a logout that actually ends something. Signed tokens, JWTs, OAuth with PKCE and second factors follow.",
+  files: ["auth/u1.js", "auth/u4.js", "auth/u5.js", "auth/u7.js"]
 });
 
 // DevOps/Engineering Track
