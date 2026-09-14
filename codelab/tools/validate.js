@@ -181,6 +181,27 @@ function phase0() {
             if (/__fired/.test(src) && !/T\.sleep\s*\(/.test(src))
               fail(`${l.id}: a checkpoint reads __fired without a preceding await T.sleep(...) — async XSS sentinels race the grader (add T.sleep(120))`);
           }
+
+          /* The signing primitives and the fake clock are opt-in harnesses,
+             like node:true: a lesson that calls them without its flag dies on
+             a bare ReferenceError instead of failing a checkpoint. And expiry
+             lessons must never read the real clock — they would pass or fail
+             depending on when the validator happened to run. */
+          {
+            const srcs = [JSON.stringify(l.solution || {}), JSON.stringify(l.files || []), JSON.stringify(l.steps || [])].join(" ");
+            const defines = name => new RegExp("(function|const|let|var)\\s+" + name + "\\b").test(srcs);
+            if (!l.crypto) for (const name of ["hmac", "sha1Bytes", "sha256Bytes", "timingSafeEqual"]) {
+              if (new RegExp("(^|[^.\\w$])" + name + "\\s*\\(").test(srcs) && !defines(name))
+                fail(`${l.id}: calls ${name}() but does not set \`crypto: true\` — harnessCrypto provides it (see runner.js)`);
+            }
+            /* Bare now() is only checked in auth- lessons: elsewhere it is a
+               learner's own injected clock parameter (test-u5-4 passes one). */
+            const callsNow = l.id.indexOf("auth-") === 0 && /(^|[^.\w$])now\s*\(\s*\)/.test(srcs);
+            if (l.clock == null && (callsNow || /T\.advance\s*\(/.test(srcs)) && !defines("now"))
+              fail(`${l.id}: uses now() or T.advance() but does not set \`clock\` — harnessClock provides them (see runner.js)`);
+            if (l.id.indexOf("auth-") === 0 && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
+              fail(`${l.id}: reads the real clock (Date.now / new Date()) — set \`clock\` and use now() and T.advance(ms), or the lesson passes or fails depending on when it runs`);
+          }
         }
       }
     }
@@ -236,6 +257,23 @@ function phase0() {
   shellGates();
   gitsimGates();
   dockersimGates();
+  cryptoGates();
+}
+
+/* The Authentication course grades signatures, JWTs, PKCE challenges and
+   TOTP codes by comparing them with harnessCrypto's output, and its expiry
+   lessons run on harnessClock. A wrong byte would fail a correct learner
+   with nothing in the lesson to show why, so the primitives are checked
+   against RFC vectors and Node's crypto before any lesson runs. */
+function cryptoGates() {
+  console.log("\n== Phase 0g: crypto & clock harness ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-crypto.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0]);
+  } catch (e) {
+    fail("crypto harness tests failed:\n" + String(e.stdout || e.message));
+  }
 }
 
 /* Same argument as gitsim's suite: the Docker course is graded by inspecting
