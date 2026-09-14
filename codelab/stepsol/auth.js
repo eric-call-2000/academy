@@ -575,6 +575,218 @@ window.CODELAB.addStepSolutions("auth", {
    }
   ]
  },
+ "auth-u3-1": {
+  "hash": "41708011ed5b9eeb",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 25,
+      "del": [
+       "  // TODO: from a page on evil.example, POST to the bank's /transfer, moving 50 to eve.",
+       "  // Use victim.submitForm(pageUrl, { action, fields })."
+      ],
+      "add": [
+       "  // No token, no password — the browser supplies ada's cookie for us.",
+       "  return victim.submitForm(\"https://evil.example/prize\", {",
+       "    action: \"https://bank.example/transfer\",",
+       "    fields: { to: \"eve\", amount: \"50\" }",
+       "  });"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The forged POST should move 50 from ada. Her balance is still 100 — is forgeTransfer posting to https://bank.example/transfer with amount 50? — expected 50 but got 100",
+    "why": "The starter's `forgeTransfer` does nothing, so no request is made and the balance stays put. The attack is a single cross-site form POST from a page on `evil.example` to the bank's `/transfer`. It needs no token and no password: the browser attaches ada's session cookie to the request on its own. The later checkpoints inspect that same request."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u3-2": {
+  "hash": "51d6b242971a4019",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 10,
+      "del": [
+       "  // TODO: mint with randHex(16) the first time, store in csrfTokens, and reuse it after",
+       "  return \"token\";"
+      ],
+      "add": [
+       "  if (!csrfTokens.has(sid)) csrfTokens.set(sid, randHex(16)); // one token per session",
+       "  return csrfTokens.get(sid);"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "GET /form should return a csrf token — got \"token\"",
+    "why": "The starter returns the fixed string \"token\", so every session shares one guessable value. Minting `randHex(16)` on first use and storing it per session gives each session its own unguessable token, stable across the requests that read it."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 16,
+      "del": [
+       "  // TODO: 403 unless req.body.csrf is this session's token; otherwise null"
+      ],
+      "add": [
+       "  if (!req.body || req.body.csrf !== csrfFor(sid)) // must be THIS session's token",
+       "    return { status: 403, body: { error: \"bad csrf token\" } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The forged POST carries no csrf token, so it must be refused — got {\"status\":200,\"headers\":{},\"body\":{\"balance\":50},\"url\":\"https://bank.example/transfer\"} — expected 403 but got 200",
+    "why": "The starter's `checkCsrf` allows every request, so the forged POST goes through. Requiring `req.body.csrf` to equal this session's token refuses a forgery, which arrives without the token because the attacker's page can't read it off your origin's form."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0,
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u3-3": {
+  "hash": "010e7976c4f6c45b",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 10,
+      "del": [
+       "  // TODO: nonce = randHex(8); token = nonce + \".\" + hex(hmac(\"sha256\", CSRF_KEY, sid + \"!\" + nonce))",
+       "  return randHex(8);"
+      ],
+      "add": [
+       "  const nonce = randHex(8);",
+       "  return nonce + \".\" + hex(hmac(\"sha256\", CSRF_KEY, sid + \"!\" + nonce)); // bound to this session"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 16,
+      "del": [
+       "  // Naive double-submit: the caller compares this against the cookie. It ignores the session.",
+       "  // TODO: split off the nonce, recompute the signature from sid, and compare",
+       "  return typeof token === \"string\";"
+      ],
+      "add": [
+       "  const parts = String(token).split(\".\");",
+       "  if (parts.length !== 2) return false;",
+       "  const want = hex(hmac(\"sha256\", CSRF_KEY, sid + \"!\" + parts[0])); // recompute from the SESSION's sid",
+       "  return parts[1] === want;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "A token is randHex(8) + \".\" + hex of an HMAC-SHA256 — got \"ced3a51be53e739b\"",
+    "why": "The starter returns a bare nonce as the token and, in `tokenValid`, accepts any string, which is the naive double-submit that a sibling subdomain defeats by setting both halves. Signing the nonce with `hmac(\"sha256\", CSRF_KEY, sid + \"!\" + nonce)` binds the token to the session, and verifying by recomputing that signature from the request's own `sid` rejects any value the attacker invents, since they lack the key. The other checkpoints exercise this same pair."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u3-4": {
+  "hash": "0aaa89de83fa0035",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 12,
+      "del": [
+       "  // TODO: if site is present, block only when it is \"cross-site\"",
+       "  // TODO: if site is absent, block when Origin is set and not in ALLOWED_ORIGINS"
+      ],
+      "add": [
+       "  if (site) {",
+       "    if (site === \"cross-site\") return { status: 403, body: { error: \"cross-site request refused\" } };",
+       "    return null; // same-origin, same-site or none",
+       "  }",
+       "  const origin = req.headers.origin; // older browser: fall back to Origin",
+       "  if (origin && ALLOWED_ORIGINS.indexOf(origin) === -1) return { status: 403, body: { error: \"cross-site request refused\" } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "cross-site must be blocked with a 403 — got null",
+    "why": "The starter's `csrfGuard` allows everything, so a cross-site POST still lands. Blocking when `Sec-Fetch-Site` is `cross-site`, and falling back to an `Origin` allow-list when that header is absent, refuses the forgery while leaving same-origin and same-site requests alone. The remaining checkpoints test this same guard through the browser."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   }
+  ]
+ },
  "auth-u4-1": {
   "hash": "98d87a197feb340d",
   "steps": [
