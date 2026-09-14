@@ -332,6 +332,249 @@ window.CODELAB.addStepSolutions("auth", {
    }
   ]
  },
+ "auth-u2-1": {
+  "hash": "81decacf31486d9a",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 6,
+      "del": [
+       "    \"sid=7f3a9c21; Domain=app.example; Path=/; Secure; HttpOnly; SameSite=Lax\","
+      ],
+      "add": [
+       "    \"sid=7f3a9c21; Path=/; Secure; HttpOnly; SameSite=Lax\",                  // host-only: never leaves app.example"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "blog.app.example received the session cookie ({\"sid\":\"7f3a9c21\",\"theme\":\"dark\"}). A Domain cookie goes to every subdomain: leave Domain off the session",
+    "why": "The starter's session line has `Domain=app.example`, and a Domain cookie goes to that domain and every subdomain, so `blog.app.example` (another team's server) receives the session. Leaving Domain off makes the cookie host-only: it only ever goes back to `app.example`."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 7,
+      "del": [
+       "    \"theme=dark; Path=/; Secure; SameSite=Lax\","
+      ],
+      "add": [
+       "    \"theme=dark; Domain=app.example; Path=/; Secure; SameSite=Lax\",         // every subdomain may read the theme"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The blog should receive theme=dark. A host-only cookie never leaves app.example; this one needs Domain=app.example — expected \"dark\" but got undefined",
+    "why": "The starter's theme line has no Domain, so the theme is host-only and never reaches the blog. A preference every subdomain should share is exactly what `Domain=app.example` is for."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 8,
+      "del": [
+       "    \"docs-lang=fr; Path=/doc; Secure; SameSite=Lax\""
+      ],
+      "add": [
+       "    \"docs-lang=fr; Path=/docs; Secure; SameSite=Lax\""
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "docs-lang should reach /docs — expected \"fr\" but got undefined",
+    "why": "The starter scopes `docs-lang` to `Path=/doc`. Paths match only at a `/` boundary, so `/doc` covers `/doc` and `/doc/...` but not `/docs`. The cookie belongs under `Path=/docs`."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u2-2": {
+  "hash": "f9aee4ed24370a91",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 5,
+      "del": [
+       "    \"__Host-sid=7f3a9c21; Domain=app.example; Path=/; Secure; HttpOnly; SameSite=Lax\","
+      ],
+      "add": [
+       "    \"__Host-sid=7f3a9c21; Path=/; Secure; HttpOnly; SameSite=Lax\",  // no Domain, Path=/, Secure"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The browser refused __Host-sid: __Host- cookies must not have a Domain attribute",
+    "why": "The starter gives `__Host-sid` a `Domain` attribute. A `__Host-` name promises the cookie came from exactly this host, so the browser refuses any `__Host-` line that has a Domain at all. Removing it (keeping `Secure` and `Path=/`) makes the line acceptable."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 6,
+      "del": [
+       "    \"__Secure-pref=compact; Path=/; SameSite=Lax\","
+      ],
+      "add": [
+       "    \"__Secure-pref=compact; Path=/; Secure; SameSite=Lax\","
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The browser refused __Secure-pref: __Secure- cookies need the Secure attribute and an https page",
+    "why": "The starter's `__Secure-pref` line has no `Secure` attribute, and the `__Secure-` prefix is a promise that it does. The browser refuses the line until `Secure` is added."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 7,
+      "del": [
+       "    \"__Host-csrf=c5e1; Path=/account; Secure; SameSite=Strict\""
+      ],
+      "add": [
+       "    \"__Host-csrf=c5e1; Path=/; Secure; SameSite=Strict\""
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The browser refused __Host-csrf: __Host- cookies must have Path=/",
+    "why": "The starter scopes `__Host-csrf` to `Path=/account`. A `__Host-` cookie must have exactly `Path=/`, so the browser refuses the line; with `Path=/` it is stored and sent to every path, `/account` included."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0,
+     1,
+     2
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u2-3": {
+  "hash": "6cb74c46ffa5ffc3",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 5,
+      "del": [
+       "  return \"sid=; Expires=Fri, 31 Dec 9999 23:59:59 GMT\";"
+      ],
+      "add": [
+       "  return \"sid=; Path=/; Max-Age=0\"; // same name and Path as the cookie it deletes"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "After logout the jar still holds [{\"name\":\"sid\",\"value\":\"\",\"domain\":\"app.example\",\"hostOnly\":true,\"path\":\"/\",\"secure\":false,\"httpOnly\":false,\"sameSite\":\"Default\",\"expires\":253402300799000,\"created\":1700000000000}]. An Expires date in the future keeps the cookie; Max-Age=0 deletes it — expected 0 but got 1",
+    "why": "The starter's logout sends an `Expires` date in the year 9999, which does not delete anything: the browser stores an empty `sid` that lasts for centuries. It also has no `Path`, so from `/account/logout` it would be filed under `/account` as a separate cookie. `Path=/` with `Max-Age=0` replaces the real `sid` and deletes it at once, which is why checkpoint 2 passes with the same line."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 9,
+      "del": [
+       "  return \"remember=\" + token + \"; Path=/; Max-Age=\" + (30 * DAY * 1000) + \"; Secure; HttpOnly; SameSite=Lax\";"
+      ],
+      "add": [
+       "  return \"remember=\" + token + \"; Path=/; Max-Age=\" + (30 * DAY) + \"; Secure; HttpOnly; SameSite=Lax\";"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "31 days after login the remember cookie should be gone. Max-Age counts seconds: 30 * DAY, not 30 * DAY * 1000 — expected false but got true",
+    "why": "The starter multiplies by 1000, but `Max-Age` counts seconds and `DAY` already is seconds, so the cookie lasts about 82 years instead of 30 days. `Max-Age` is `30 * DAY`."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 17,
+      "del": [
+       "  // TODO: a visit that carries a remember cookie renews it for another 30 days"
+      ],
+      "add": [
+       "  if (req.cookies.remember) // every visit slides the 30 days forward",
+       "    return { status: 200, headers: { \"Set-Cookie\": rememberCookie(req.cookies.remember) }, body: { cookies: req.cookies } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Day 45: ada visited on day 20, so the remember cookie should have been renewed until day 50",
+    "why": "The starter never sends the remember cookie again after login, so it expires 30 days after sign-in however often ada visits. Sending it again on each visit that carries it slides the 30 days forward, the way Unit 1 slid `lastSeen`."
+   }
+  ]
+ },
+ "auth-u2-4": {
+  "hash": "e28bc2d8e1e5e509",
+  "steps": [
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 5,
+      "del": [
+       "  return \"sid=\" + sid + \"; Path=/; Secure; HttpOnly; SameSite=None\";"
+      ],
+      "add": [
+       "  return \"sid=\" + sid + \"; Path=/; Secure; HttpOnly; SameSite=Lax\"; // links in, forged POSTs out"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The forged POST from evil.example moved money: the session cookie rode along. A cross-site form POST must not carry it — expected 50 but got 0",
+    "why": "The starter's session is `SameSite=None`, so the browser attaches it to every cross-site request, a form on `evil.example` included, and the forged transfer goes through. `Lax` keeps cross-site top-level GET navigations (the email link) and drops cross-site POSTs and fetches; checkpoint 3 tests the fetch half of the same change."
+   },
+   {
+    "chunks": [],
+    "after": [
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 10,
+      "del": [
+       "  return \"widget=on; Path=/; SameSite=None\";"
+      ],
+      "add": [
+       "  return \"widget=on; Path=/; Secure; SameSite=None\";              // None only ever with Secure"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The widget flag did not reach the bank from shop.example: the browser refused a line (SameSite=None requires the Secure attribute) — expected {\"ready\":true} but got {\"ready\":false}",
+    "why": "The starter's widget line asks for `SameSite=None` without `Secure`, and browsers refuse that combination, so the flag is never stored and the embedded button never sees it. A cookie meant to ride cross-site requests has to be `Secure`."
+   }
+  ]
+ },
  "auth-u4-1": {
   "hash": "98d87a197feb340d",
   "steps": [

@@ -145,11 +145,11 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "auth", prefix: "auth", title: "Authentication & Security",
-  icon: "🔐", color: "#ef4444", level: "Advanced", hours: 5, items: 22, targetHours: 8,
-  credits: 2, categories: { sec: 2 },
+  icon: "🔐", color: "#ef4444", level: "Advanced", hours: 6, items: 27, targetHours: 8,
+  credits: 3, categories: { sec: 3 },
   blurb: "How a server knows it's still you: server-side sessions and a hand-written Set-Cookie, session fixation, idle and absolute timeouts, and a logout that actually ends something. Signed tokens, JWTs, OAuth with PKCE and second factors follow.",
   stepSolutions: "stepsol/auth.js",
-  files: ["auth/u1.js", "auth/u4.js", "auth/u5.js", "auth/u7.js"]
+  files: ["auth/u1.js", "auth/u2.js", "auth/u4.js", "auth/u5.js", "auth/u7.js"]
 });
 
 // DevOps/Engineering Track
