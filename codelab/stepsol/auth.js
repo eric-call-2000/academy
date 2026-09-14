@@ -982,5 +982,288 @@ window.CODELAB.addStepSolutions("auth", {
     "why": "The starter falls back to the first key in `KEYS` when it doesn't recognise the token's `kid`, so a token naming a key that doesn't exist is still checked, and accepted, against some other key. Refuse a `kid` that isn't one of `KEYS`' own properties before any HMAC runs."
    }
   ]
+ },
+ "auth-u7-1": {
+  "hash": "947f4d16c782a1f6",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 9,
+      "del": [
+       "  // TODO: the counter as 8 bytes, most significant first (it can be bigger than 2^32)",
+       "  // TODO: mac = hmac(\"sha1\", secret, those bytes): 20 bytes",
+       "  // TODO: offset = low 4 bits of the last byte; read 4 bytes there as a number, top bit cleared",
+       "  // TODO: that number modulo 10^digits, as a string padded with leading zeros",
+       "  return \"\";"
+      ],
+      "add": [
+       "  const msg = new Uint8Array(8);",
+       "  let c = counter;",
+       "  for (let i = 7; i >= 0; i--) { msg[i] = c % 256; c = Math.floor(c / 256); } // division, not shifts",
+       "  const mac = hmac(\"sha1\", secret, msg);",
+       "  const offset = mac[19] & 0x0f;",
+       "  const bin = ((mac[offset] & 0x7f) << 24) | (mac[offset + 1] << 16) | (mac[offset + 2] << 8) | mac[offset + 3];",
+       "  return String(bin % Math.pow(10, digits)).padStart(digits, \"0\");"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "hotp(SECRET, 0), from RFC 4226 Appendix D — expected \"755224\" but got \"\"",
+    "why": "The starter's `hotp` returns an empty string, so there is no code to compare. HOTP writes the counter as 8 bytes using division (shifts stop at 32 bits), takes `hmac(\"sha1\", ...)`, reads 4 bytes at the offset given by the last byte's low 4 bits with the top bit cleared, and keeps the last `digits` digits as a zero-padded string. Checkpoints 2 and 3 exercise this same code, which is why they pass once this one does."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 25,
+      "del": [
+       "  // TODO: now() is in milliseconds; TOTP wants whole seconds",
+       "  return totp(secret, now());"
+      ],
+      "add": [
+       "  return totp(secret, Math.floor(now() / 1000));"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "now() is 1700000000000 milliseconds; TOTP counts 30-second steps of Unix SECONDS — expected \"921300\" but got \"604551\"",
+    "why": "The starter passes `now()` straight to `totp`, but `now()` counts milliseconds and TOTP counts seconds. The step comes out a thousand times too large, so the code never matches the one on the phone. Convert with `Math.floor(now() / 1000)` first."
+   }
+  ]
+ },
+ "auth-u7-2": {
+  "hash": "b5b292220c92308d",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 31,
+      "del": [
+       "  if (!user) return false;",
+       "  // TODO: accept the code for any step from now - WINDOW to now + WINDOW",
+       "  // TODO: refuse a step that isn't newer than user.lastStep; remember the step that was used",
+       "  return code === currentCode(user.secret);"
+      ],
+      "add": [
+       "  if (!user || !/^\\d{6}$/.test(String(code))) return false;",
+       "  const step = Math.floor(now() / 1000 / 30);",
+       "  for (let s = step - WINDOW; s <= step + WINDOW; s++) {",
+       "    if (hotp(user.secret, s) === code && s > user.lastStep) {",
+       "      user.lastStep = s; // this step, and every earlier one, is spent",
+       "      return true;",
+       "    }",
+       "  }",
+       "  return false;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The code for the previous 30-second step is inside the window: accept it",
+    "why": "The starter compares only against the current code and never records a use. A phone clock 30 seconds off is locked out, and a code that just worked can be sent again. Checking every step within `WINDOW`, and accepting only a step newer than `lastStep`, fixes both; the later checkpoints test the same loop."
+   },
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u7-3": {
+  "hash": "857123c319981316",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 26,
+      "del": [
+       "  if (!account) return { status: 404, body: { error: \"No account with that email\" } };",
+       "  const token = randHex(16);"
+      ],
+      "add": [
+       "  if (account) {",
+       "    const token = randHex(16);"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 29,
+      "del": [
+       "  outbox.push({ to: email, link: \"https://app.example/reset?token=\" + token });",
+       "  return { status: 200, body: { message: \"Reset link sent to \" + email } };"
+      ],
+      "add": [
+       "    outbox.push({ to: email, link: \"https://app.example/reset?token=\" + token });",
+       "  }",
+       "  // One answer whether or not the address has an account.",
+       "  return { status: 200, body: { message: \"If that address has an account, a reset link is on its way.\" } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "An address with no account must get a byte-identical response, or the form tells anyone which emails have accounts. Known: {\"status\":200,\"body\":{\"message\":\"Reset link sent to ada@example.com\"}} Unknown: {\"status\":404,\"body\":{\"error\":\"No account with that email\"}} — expected \"{\\\"status\\\":200,\\\"body\\\":{\\\"message\\\":\\\"Reset link sent to ada@example.com\\\"}}\" but got \"{\\\"status\\\":404,\\\"body\\\":{\\\"error\\\":\\\"No account with that email\\\"}}\"",
+    "why": "The starter answers 404 \"No account with that email\" for unknown addresses and names the address for known ones, so the form tells anyone which emails have accounts. Send the email only when the account exists, but return one identical response either way."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 28,
+      "del": [
+       "  resetTokens.set(token, { email: email }); // TODO: store sha256(token), an expiry and used: false"
+      ],
+      "add": [
+       "    resetTokens.set(sha256(token), { email: email, expires: now() + RESET_TTL_MS, used: false });"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The raw token is a key in resetTokens, so anyone who reads the table can reset the password. Store sha256(token)",
+    "why": "The starter keys `resetTokens` by the raw token, so anyone who can read the table can reset any account with a pending link. Store `sha256(token)` with an expiry and a `used` flag. The token is 128 random bits, so a single SHA-256 is enough."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 37,
+      "del": [
+       "  const row = resetTokens.get(token);",
+       "  if (!row) return { status: 400, body: { error: \"invalid or expired token\" } };",
+       "  // TODO: refuse a used or expired token, and mark this one used"
+      ],
+      "add": [
+       "  const row = resetTokens.get(sha256(String(token)));",
+       "  if (!row || row.used || now() >= row.expires) return { status: 400, body: { error: \"invalid or expired token\" } };",
+       "  row.used = true; // a link works once"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "A fresh token resets the password — expected {\"status\":200,\"body\":{\"ok\":true}} but got {\"status\":400,\"body\":{\"error\":\"invalid or expired token\"}}",
+    "why": "The starter's `resetPassword` never marks a token used or checks its age, so one link resets the password again and again for as long as the server runs. Look the row up by `sha256`, refuse it when it is used or past `expires`, and mark it used before changing the password. The expiry check here is what checkpoint 4 tests."
+   },
+   {
+    "chunks": [],
+    "after": [
+     1,
+     2
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u7-4": {
+  "hash": "395bf78239a09648",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 9,
+      "del": [
+       "  recoveryCodes.set(userName, new Set(codes)); // TODO: store sha256 of each code, never the code",
+       "  return codes;"
+      ],
+      "add": [
+       "  recoveryCodes.set(userName, new Set(codes.map(c => sha256(c)))); // replaces any older set",
+       "  return codes; // shown once; the server keeps only the hashes"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The codes are stored as themselves, so a leaked table is a list of working codes. Store sha256(code)",
+    "why": "The starter stores the recovery codes themselves, so a leaked table is a list of working codes. Store `sha256` of each code instead: the codes are shown to the user once and never kept."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 14,
+      "del": [
+       "  const codes = recoveryCodes.get(userName);",
+       "  // TODO: tidy what was typed, compare by hash, and a code works only once",
+       "  return !!codes && codes.has(code);"
+      ],
+      "add": [
+       "  const hashes = recoveryCodes.get(userName);",
+       "  const h = sha256(String(code).trim().toLowerCase());",
+       "  if (!hashes || !hashes.has(h)) return false;",
+       "  hashes.delete(h); // single use",
+       "  return true;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "People type codes from paper: trim and lowercase before hashing",
+    "why": "The starter checks the typed text as-is against the stored set, so a code copied with spaces or in capitals fails, and a code that does match keeps working forever. Trim and lowercase, compare by `sha256`, and delete the hash once it has been used."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 54,
+      "del": [
+       "  // TODO: owner, type, challenge (used once), origin, rpIdHash, signCount — then store signCount",
+       "  return !!cred && verifySignature(cred.publicKey, assertion);"
+      ],
+      "add": [
+       "  if (!cred || cred.userName !== userName) return false;",
+       "  const expected = challenges.get(userName);",
+       "  challenges.delete(userName); // a challenge is good for one attempt",
+       "  const cd = assertion.clientData || {};",
+       "  if (cd.type !== \"webauthn.get\") return false;",
+       "  if (!expected || cd.challenge !== expected) return false;",
+       "  if (cd.origin !== ORIGIN) return false;",
+       "  if (assertion.rpIdHash !== sha256(RP_ID)) return false;",
+       "  if (!verifySignature(cred.publicKey, assertion)) return false;",
+       "  if ((assertion.signCount !== 0 || cred.signCount !== 0) && !(assertion.signCount > cred.signCount)) return false;",
+       "  cred.signCount = assertion.signCount;",
+       "  return true;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Store the new signCount after a successful sign-in — expected 8 but got 7",
+    "why": "The starter trusts any assertion whose signature verifies, so a reused challenge, a lookalike origin, a key scoped to another site and a cloned authenticator all get through, and the new `signCount` is never recorded. Check the owner, the type, the one-time challenge, the origin, `rpIdHash` and the counter around the signature, then store the counter. Checkpoint 4 tests the rest of these same checks."
+   },
+   {
+    "chunks": [],
+    "after": [
+     2
+    ],
+    "why": null
+   }
+  ]
  }
 });
