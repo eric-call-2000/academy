@@ -366,6 +366,25 @@ input { font-family: var(--font); }
   padding: 10px 12px; font-size: 13px; font-weight: 700; margin-bottom: 8px; line-height: 1.5;
 }
 
+/* per-checkpoint solutions: shown on a checkpoint once it has failed */
+.chk-sol { margin-top: 8px; }
+.chk-sol-btn {
+  font: inherit; font-size: 12px; font-weight: 800; color: var(--accent-dark);
+  background: none; border: 0; padding: 0; cursor: pointer;
+}
+.chk-sol-btn:hover { text-decoration: underline; }
+.chk-sol-body { margin-top: 8px; }
+.chk-sol-why { font-size: 13px; font-weight: 600; line-height: 1.55; color: var(--ink-soft); margin-bottom: 8px; }
+.chk-sol-where { font-size: 11px; font-weight: 800; color: var(--muted); font-family: var(--mono); margin: 8px 0 4px; }
+.chk-diff {
+  margin: 0 0 6px; padding: 8px 0; border-radius: 10px; overflow-x: auto;
+  background: var(--code-bg); color: var(--code-ink);
+  font-family: var(--mono); font-size: 12px; line-height: 1.6;
+}
+.chk-diff span { display: block; white-space: pre-wrap; overflow-wrap: anywhere; padding: 0 12px 0 28px; text-indent: -16px; }
+.chk-diff .d-del { background: rgba(248, 81, 73, .18); color: #ffb4ae; }
+.chk-diff .d-add { background: rgba(63, 185, 80, .18); color: #aff5b4; }
+
 /* code pane */
 .pane-code { flex-direction: column; background: var(--code-bg); position: relative; }
 .ed-root { flex: 1; min-height: 0; display: flex; }
@@ -430,6 +449,9 @@ input { font-family: var(--font); }
 .checks-out .chk-pass { border-color: #14532d; background: #0c1f14; }
 .checks-out .chk-fail { border-color: #7f1d1d; background: #1f0d0d; }
 .checks-out .chk-msg { color: #fca5a5; }
+.checks-out .chk-sol-btn { color: #93c5fd; }
+.checks-out .chk-sol-why { color: #cbd5e1; }
+.checks-out .chk-diff { background: #020617; }
 .console-lines {
   background: #020617; border: 1px solid #1e293b; border-radius: 12px;
   min-height: 54px; max-height: 220px; overflow: auto;

@@ -253,6 +253,7 @@ function phase0() {
   console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ~${Math.round(totals.mins / 60)}h of material`);
 
   positionGates();
+  stepSolutionGates();   // needs the loaded catalog, which recallAndSyncGates clears
   recallAndSyncGates();
   shellGates();
   gitsimGates();
@@ -265,6 +266,53 @@ function phase0() {
    lessons run on harnessClock. A wrong byte would fail a correct learner
    with nothing in the lesson to show why, so the primitives are checked
    against RFC vectors and Node's crypto before any lesson runs. */
+/* Per-checkpoint solutions are generated (tools/build-step-solutions.js), so
+   the only way they go wrong is by going stale: a lesson edited without a
+   rebuild would show a diff for code that no longer exists. The hash pins
+   each entry to the exact starter, solution and checkpoints it came from.
+   Also checked without a browser: every starter→solution change is filed
+   under some checkpoint, and every checkpoint that has code has an
+   explanation of why the starter fails it. */
+function stepSolutionGates() {
+  console.log("\n== Phase 0h: per-checkpoint solutions ==");
+  const fs = require("fs");
+  const SL = require(path.join(__dirname, "stepsol-lib.js"));
+  for (const course of window.CODELAB.courses) {
+    if (!course.stepSolutions) continue;
+    const file = path.join(ROOT, course.stepSolutions);
+    if (!fs.existsSync(file)) {
+      fail(`course ${course.id}: ${course.stepSolutions} is missing — run node tools/build-step-solutions.js ${course.id}`);
+      continue;
+    }
+    window.CODELAB._stepSol = {};
+    delete require.cache[require.resolve(file)];
+    require(file);
+    let lessons = 0, checkpoints = 0, explained = 0;
+    for (const unit of course.units) for (const l of unit.lessons) {
+      if (l.kind === "quiz" || !(l.steps || []).length) continue;
+      lessons++;
+      const e = window.CODELAB._stepSol[l.id];
+      if (!e) { fail(`${l.id}: no step solutions — run node tools/build-step-solutions.js ${course.id}`); continue; }
+      if (e.hash !== SL.lessonHash(l)) {
+        fail(`${l.id}: step solutions are stale (the lesson changed) — run node tools/build-step-solutions.js ${course.id}, then re-check its explanations`);
+        continue;
+      }
+      if (e.steps.length !== l.steps.length) { fail(`${l.id}: step solutions list ${e.steps.length} checkpoints, the lesson has ${l.steps.length}`); continue; }
+      const changed = SL.changedLineCount(SL.lessonDiff(l));
+      const filed = e.steps.reduce((a, s) => a + s.chunks.reduce((x, c) => x + c.del.length + c.add.length, 0), 0);
+      if (changed !== filed) fail(`${l.id}: ${changed} lines change between starter and solution but ${filed} are filed under checkpoints`);
+      e.steps.forEach((s, i) => {
+        checkpoints++;
+        if (!s.chunks.length) return;
+        if (typeof s.why !== "string" || s.why.trim().length < 40)
+          fail(`${l.id} checkpoint ${i + 1}: shows solution code but has no explanation — add it to tools/step-why/${course.id}.json (node tools/build-step-solutions.js ${course.id} --todo lists them)`);
+        else explained++;
+      });
+    }
+    ok(`${course.id}: ${lessons} lessons, ${checkpoints} checkpoints, ${explained} explained`);
+  }
+}
+
 function cryptoGates() {
   console.log("\n== Phase 0g: crypto & clock harness ==");
   const { execFileSync } = require("child_process");
