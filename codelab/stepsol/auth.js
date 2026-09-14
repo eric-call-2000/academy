@@ -645,5 +645,342 @@ window.CODELAB.addStepSolutions("auth", {
     "why": "The starter's `retireKey` does nothing, so a retired key keeps verifying its tokens forever. Deleting it from `KEYS` ends them, and refusing to delete `currentKid` stops every newly signed token from failing at once."
    }
   ]
+ },
+ "auth-u5-1": {
+  "hash": "5d862413c48504c2",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 60,
+      "del": [
+       "  // TODO: three parts; the first two are base64url JSON (readPart); keep the signature as text",
+       "  return null;"
+      ],
+      "add": [
+       "  const parts = String(token).split(\".\");",
+       "  if (parts.length !== 3) return null;",
+       "  try {",
+       "    return { header: readPart(parts[0]), payload: readPart(parts[1]), signature: parts[2] };",
+       "  } catch (e) {",
+       "    return null;",
+       "  }"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "decodeJwt should return { header, payload, signature }. No key is needed to read a JWT — expected {\"header\":{\"alg\":\"HS256\",\"typ\":\"JWT\"},\"payload\":{\"sub\":\"ada\",\"exp\":1700000000},\"signature\":\"fV-HwGz830YHmMilXlswsjAFDg8mJmcqKa4Znyv7ZzU\"} but got null",
+    "why": "The starter's `decodeJwt` returns `null` for every token, so it never shows what a JWT carries. A JWT is three base64url parts: the first two are JSON anyone can read with `readPart`, and the third is the signature, kept as text. Reading them inside a `try` makes a malformed token `null` instead of an exception."
+   },
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 72,
+      "del": [
+       "  // The whole user record goes into the token.",
+       "  return mint(Object.assign({}, user, { sub: user.userName, iat: iat, exp: iat + 900 }));"
+      ],
+      "add": [
+       "  // Only what the next request needs. Everything here is readable by anyone.",
+       "  return mint({ sub: user.userName, role: user.role, iat: iat, exp: iat + 900 });"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Anyone holding the token can read every claim. Yours carries [\"userName\",\"role\",\"email\",\"passwordHash\",\"resetToken\",\"sub\",\"iat\",\"exp\"] — expected [\"exp\",\"iat\",\"role\",\"sub\"] but got [\"email\",\"exp\",\"iat\",\"passwordHash\",\"resetToken\",\"role\",\"sub\",\"userName\"]",
+    "why": "The starter copies the whole user record into the token, so the email, password hash and reset token travel with every request, readable by anyone who decodes it. Building the claims by hand keeps the token to what the server needs next time: who (`sub`), what they may do (`role`) and when (`iat`, `exp`)."
+   },
+   {
+    "chunks": [],
+    "after": [
+     2
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u5-2": {
+  "hash": "675d0a20d5669fe5",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 68,
+      "del": [
+       "  // TODO: part() the header { alg: \"none\", typ: \"JWT\" } and the claims, then add a dot and nothing else",
+       "  return \"\";"
+      ],
+      "add": [
+       "  return part({ alg: \"none\", typ: \"JWT\" }) + \".\" + part(claims) + \".\";"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "A JWT always has three parts, even an unsigned one — yours: \"\" — expected 3 but got 1",
+    "why": "The starter's `forgeNone` returns an empty string, which isn't a JWT at all. An unsecured JWT is still three parts: a header saying `alg: \"none\"`, the claims, and an empty signature after the last dot."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 77,
+      "del": [
+       "  if (header.alg === \"none\") return payload; // \"unsecured JWTs are part of the spec\"",
+       "  if (header.alg !== \"HS256\") return null;"
+      ],
+      "add": [
+       "  if (!header || header.alg !== \"HS256\") return null; // the server decides; the token only claims"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The alg none token must be refused — expected null but got {\"sub\":\"admin\",\"role\":\"admin\"}",
+    "why": "The starter keeps the legacy rule that returns the payload whenever the header says `none`, so the token decides how it gets checked. Allowing exactly `HS256`, and refusing a header that isn't an object, puts that decision back on the server: `none` in any spelling, `HS512` and a missing `alg` all fall out."
+   },
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   }
+  ]
+ },
+ "auth-u5-3": {
+  "hash": "4f5e025aab195624",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 73,
+      "del": [
+       "  // TODO: exp (required) and nbf (if present), in seconds, with LEEWAY either way",
+       "  // TODO: iss must be ISSUER; aud (a string or an array) must include AUDIENCE"
+      ],
+      "add": [
+       "  const t = Math.floor(now() / 1000);",
+       "  if (typeof claims.exp !== \"number\" || t > claims.exp + LEEWAY) return null;",
+       "  if (claims.nbf != null && (typeof claims.nbf !== \"number\" || t < claims.nbf - LEEWAY)) return null;",
+       "  if (claims.iss !== ISSUER) return null;",
+       "  const aud = Array.isArray(claims.aud) ? claims.aud : [claims.aud];",
+       "  if (aud.indexOf(AUDIENCE) === -1) return null;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "90 seconds past exp is outside the leeway: refused — expected null but got {\"sub\":\"ada\",\"iss\":\"https://auth.example\",\"aud\":\"notes-api\",\"iat\":1700000000,\"exp\":1700000300}",
+    "why": "The starter's `acceptToken` returns any correctly signed token, so an expired one, one not valid yet, one from another issuer and one meant for another API all get in. Each claim needs its own check, in seconds (`Math.floor(now() / 1000)`) with `LEEWAY` for clock drift. All four checks live in this one block, which is why the later checkpoints pass once this one does."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u5-4": {
+  "hash": "3d7d407236c8b9c5",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 91,
+      "del": [],
+      "add": [
+       "  return issuePair(userName, randHex(8)); // a new login starts a new family",
+       "}",
+       "",
+       "function issuePair(userName, family) {"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 96,
+      "del": [
+       "  refreshTokens.set(refresh, { userName: userName }); // TODO: store sha256(refresh), a family id and used: false"
+      ],
+      "add": [
+       "  refreshTokens.set(sha256(refresh), { userName: userName, family: family, used: false });"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The raw refresh token is a key in refreshTokens, so a leaked table would hand out working tokens. Store sha256(refresh) instead",
+    "why": "The starter stores the raw refresh token as the Map key and records no family or `used` flag. A leaked table would hand out working tokens, and there would be nothing to rotate or revoke. Keying by `sha256(refresh)` and recording the family with `used: false` gives each refresh token a row the server can reason about."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 101,
+      "del": [
+       "  const row = refreshTokens.get(oldRefresh);"
+      ],
+      "add": [
+       "  const row = refreshTokens.get(sha256(String(oldRefresh)));"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 103,
+      "del": [
+       "  // TODO: rotate: mark this token used and hand out a new one in the same family",
+       "  // TODO: a used token presented again means it was copied: revoke the whole family",
+       "  return { access: issueAccess(row.userName), refresh: oldRefresh };"
+      ],
+      "add": [
+       "  if (row.used) {",
+       "    // Presented twice: someone else holds a copy. End every token in this family.",
+       "    for (const [key, r] of refreshTokens) if (r.family === row.family) refreshTokens.delete(key);",
+       "    return null;",
+       "  }",
+       "  row.used = true;",
+       "  return issuePair(row.userName, row.family);"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "refreshSession should return { access, refresh } for a valid refresh token — got null",
+    "why": "The starter hands back the same refresh token every time and never notices one being used twice. Rotation marks the old row `used` and issues a new token in the same family, and a used token that comes back means someone copied it, so every token in that family is deleted. The lookup also has to go by `sha256`, since that is how the rows are stored."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0,
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0,
+     1
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u5-p": {
+  "hash": "79eaf2f6042e816e",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 67,
+      "del": [
+       "  if (header.alg === \"none\") return checkClaims(claims);"
+      ],
+      "add": [
+       "  if (header.alg !== \"HS256\") return null;                                  // the server decides"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "An alg:none token with no signature was accepted as admin. The server decides the algorithm — expected null but got {\"sub\":\"admin\",\"iss\":\"https://auth.example\",\"aud\":\"notes-api\",\"iat\":1700000000,\"exp\":1700000300,\"role\":\"admin\"}",
+    "why": "The starter returns the claims for any token whose header says `alg: none`, so an unsigned token claiming to be admin gets in. The server allows exactly `HS256` and refuses everything else."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 81,
+      "del": [],
+      "add": [
+       "  const aud = Array.isArray(claims.aud) ? claims.aud : [claims.aud];",
+       "  if (aud.indexOf(AUDIENCE) === -1) return null;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "A token for billing-api opened notes-api. Check aud — expected null but got {\"sub\":\"ada\",\"iss\":\"https://auth.example\",\"aud\":\"billing-api\",\"iat\":1700000000,\"exp\":1700000300}",
+    "why": "The starter checks `exp` and `iss` but never `aud`, so a token the same auth server issued for `billing-api` opens `notes-api` too. Normalise `aud` to an array and refuse a token that doesn't name this API."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 50,
+      "del": [
+       "const LEEWAY = 60000; // allowed clock drift"
+      ],
+      "add": [
+       "const LEEWAY = 60; // allowed clock drift, in seconds like every JWT time"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "This token expired two hours ago and was accepted. Look at the unit of every number compared with exp — expected null but got {\"sub\":\"ada\",\"iss\":\"https://auth.example\",\"aud\":\"notes-api\",\"iat\":1699992500,\"exp\":1699992800}",
+    "why": "The starter's `LEEWAY` is 60000, a millisecond-sized number used in a check where every time is in seconds. That is almost 17 hours of drift allowance, so a token that expired two hours ago still passes. JWT times are seconds, so the leeway is 60."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 70,
+      "del": [
+       "  const key = KEYS[header.kid] || Object.values(KEYS)[0];",
+       "  const expected = b64urlEncode(hmac(\"sha256\", key, parts[0] + \".\" + parts[1]));",
+       "  if (expected !== parts[2]) return null;"
+      ],
+      "add": [
+       "  let given;",
+       "  try { given = b64urlDecode(parts[2]); } catch (e) { return null; }",
+       "  if (!safeEqual(given, hmac(\"sha256\", KEYS[header.kid], parts[0] + \".\" + parts[1]))) return null;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The signature should be compared with safeEqual exactly once. It was called 0 times, so a === still stops at the first different character",
+    "why": "The starter compares base64url strings with `!==`, which stops at the first different character, so rejecting a bad signature takes longer the more of it is right. Decode the signature to bytes (a bad encoding is `null`) and compare with `safeEqual`, which reads every byte whatever it finds."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 68,
+      "del": [],
+      "add": [
+       "  if (!Object.prototype.hasOwnProperty.call(KEYS, header.kid)) return null; // unknown kid: refuse"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "verifyAccessToken threw on a token with an unknown kid (\"expected a string or an array of bytes, got undefined\"). Return null instead",
+    "why": "The starter falls back to the first key in `KEYS` when it doesn't recognise the token's `kid`, so a token naming a key that doesn't exist is still checked, and accepted, against some other key. Refuse a `kid` that isn't one of `KEYS`' own properties before any HMAC runs."
+   }
+  ]
  }
 });
