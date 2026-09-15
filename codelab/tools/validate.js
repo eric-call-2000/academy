@@ -199,6 +199,14 @@ function phase0() {
             const callsNow = l.id.indexOf("auth-") === 0 && /(^|[^.\w$])now\s*\(\s*\)/.test(srcs);
             if (l.clock == null && (callsNow || /T\.advance\s*\(/.test(srcs)) && !defines("now"))
               fail(`${l.id}: uses now() or T.advance() but does not set \`clock\` — harnessClock provides them (see runner.js)`);
+            if (l.browser && l.kind !== "js")
+              fail(`${l.id}: \`browser: true\` runs in the JS Worker, so the lesson must be kind "js" (it is "${l.kind}")`);
+            if (l.browser && l.clock == null)
+              fail(`${l.id}: \`browser: true\` needs \`clock\` — cookie expiry and the SameSite two-minute window read now()`);
+            if (!l.browser && l.id.indexOf("auth-") === 0) for (const name of ["site", "visit", "click", "submitForm", "fetchFrom", "newBrowser"]) {
+              if (new RegExp("(^|[^.\\w$])" + name + "\\s*\\(").test(srcs) && !defines(name))
+                fail(`${l.id}: calls ${name}() but does not set \`browser: true\` — authsim.js provides it`);
+            }
             if (l.id.indexOf("auth-") === 0 && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
               fail(`${l.id}: reads the real clock (Date.now / new Date()) — set \`clock\` and use now() and T.advance(ms), or the lesson passes or fails depending on when it runs`);
           }
@@ -259,6 +267,7 @@ function phase0() {
   gitsimGates();
   dockersimGates();
   cryptoGates();
+  authsimGates();
 }
 
 /* The Authentication course grades signatures, JWTs, PKCE challenges and
@@ -310,6 +319,20 @@ function stepSolutionGates() {
       });
     }
     ok(`${course.id}: ${lessons} lessons, ${checkpoints} checkpoints, ${explained} explained`);
+  }
+}
+
+/* The Authentication course's cookie, CSRF and OAuth lessons are graded on
+   what authsim.js says a browser sent and stored, so an engine bug would pass
+   or fail lessons for reasons unrelated to the learner's code. */
+function authsimGates() {
+  console.log("\n== Phase 0i: browser & cookie simulator ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-authsim.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n").pop());
+  } catch (e) {
+    fail("authsim tests failed:\n" + String(e.stdout || e.message));
   }
 }
 

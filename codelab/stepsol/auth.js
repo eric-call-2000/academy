@@ -332,6 +332,461 @@ window.CODELAB.addStepSolutions("auth", {
    }
   ]
  },
+ "auth-u2-1": {
+  "hash": "81decacf31486d9a",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 6,
+      "del": [
+       "    \"sid=7f3a9c21; Domain=app.example; Path=/; Secure; HttpOnly; SameSite=Lax\","
+      ],
+      "add": [
+       "    \"sid=7f3a9c21; Path=/; Secure; HttpOnly; SameSite=Lax\",                  // host-only: never leaves app.example"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "blog.app.example received the session cookie ({\"sid\":\"7f3a9c21\",\"theme\":\"dark\"}). A Domain cookie goes to every subdomain: leave Domain off the session",
+    "why": "The starter's session line has `Domain=app.example`, and a Domain cookie goes to that domain and every subdomain, so `blog.app.example` (another team's server) receives the session. Leaving Domain off makes the cookie host-only: it only ever goes back to `app.example`."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 7,
+      "del": [
+       "    \"theme=dark; Path=/; Secure; SameSite=Lax\","
+      ],
+      "add": [
+       "    \"theme=dark; Domain=app.example; Path=/; Secure; SameSite=Lax\",         // every subdomain may read the theme"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The blog should receive theme=dark. A host-only cookie never leaves app.example; this one needs Domain=app.example — expected \"dark\" but got undefined",
+    "why": "The starter's theme line has no Domain, so the theme is host-only and never reaches the blog. A preference every subdomain should share is exactly what `Domain=app.example` is for."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 8,
+      "del": [
+       "    \"docs-lang=fr; Path=/doc; Secure; SameSite=Lax\""
+      ],
+      "add": [
+       "    \"docs-lang=fr; Path=/docs; Secure; SameSite=Lax\""
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "docs-lang should reach /docs — expected \"fr\" but got undefined",
+    "why": "The starter scopes `docs-lang` to `Path=/doc`. Paths match only at a `/` boundary, so `/doc` covers `/doc` and `/doc/...` but not `/docs`. The cookie belongs under `Path=/docs`."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u2-2": {
+  "hash": "f9aee4ed24370a91",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 5,
+      "del": [
+       "    \"__Host-sid=7f3a9c21; Domain=app.example; Path=/; Secure; HttpOnly; SameSite=Lax\","
+      ],
+      "add": [
+       "    \"__Host-sid=7f3a9c21; Path=/; Secure; HttpOnly; SameSite=Lax\",  // no Domain, Path=/, Secure"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The browser refused __Host-sid: __Host- cookies must not have a Domain attribute",
+    "why": "The starter gives `__Host-sid` a `Domain` attribute. A `__Host-` name promises the cookie came from exactly this host, so the browser refuses any `__Host-` line that has a Domain at all. Removing it (keeping `Secure` and `Path=/`) makes the line acceptable."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 6,
+      "del": [
+       "    \"__Secure-pref=compact; Path=/; SameSite=Lax\","
+      ],
+      "add": [
+       "    \"__Secure-pref=compact; Path=/; Secure; SameSite=Lax\","
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The browser refused __Secure-pref: __Secure- cookies need the Secure attribute and an https page",
+    "why": "The starter's `__Secure-pref` line has no `Secure` attribute, and the `__Secure-` prefix is a promise that it does. The browser refuses the line until `Secure` is added."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 7,
+      "del": [
+       "    \"__Host-csrf=c5e1; Path=/account; Secure; SameSite=Strict\""
+      ],
+      "add": [
+       "    \"__Host-csrf=c5e1; Path=/; Secure; SameSite=Strict\""
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The browser refused __Host-csrf: __Host- cookies must have Path=/",
+    "why": "The starter scopes `__Host-csrf` to `Path=/account`. A `__Host-` cookie must have exactly `Path=/`, so the browser refuses the line; with `Path=/` it is stored and sent to every path, `/account` included."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0,
+     1,
+     2
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u2-3": {
+  "hash": "6cb74c46ffa5ffc3",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 5,
+      "del": [
+       "  return \"sid=; Expires=Fri, 31 Dec 9999 23:59:59 GMT\";"
+      ],
+      "add": [
+       "  return \"sid=; Path=/; Max-Age=0\"; // same name and Path as the cookie it deletes"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "After logout the jar still holds [{\"name\":\"sid\",\"value\":\"\",\"domain\":\"app.example\",\"hostOnly\":true,\"path\":\"/\",\"secure\":false,\"httpOnly\":false,\"sameSite\":\"Default\",\"expires\":253402300799000,\"created\":1700000000000}]. An Expires date in the future keeps the cookie; Max-Age=0 deletes it — expected 0 but got 1",
+    "why": "The starter's logout sends an `Expires` date in the year 9999, which does not delete anything: the browser stores an empty `sid` that lasts for centuries. It also has no `Path`, so from `/account/logout` it would be filed under `/account` as a separate cookie. `Path=/` with `Max-Age=0` replaces the real `sid` and deletes it at once, which is why checkpoint 2 passes with the same line."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 9,
+      "del": [
+       "  return \"remember=\" + token + \"; Path=/; Max-Age=\" + (30 * DAY * 1000) + \"; Secure; HttpOnly; SameSite=Lax\";"
+      ],
+      "add": [
+       "  return \"remember=\" + token + \"; Path=/; Max-Age=\" + (30 * DAY) + \"; Secure; HttpOnly; SameSite=Lax\";"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "31 days after login the remember cookie should be gone. Max-Age counts seconds: 30 * DAY, not 30 * DAY * 1000 — expected false but got true",
+    "why": "The starter multiplies by 1000, but `Max-Age` counts seconds and `DAY` already is seconds, so the cookie lasts about 82 years instead of 30 days. `Max-Age` is `30 * DAY`."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 17,
+      "del": [
+       "  // TODO: a visit that carries a remember cookie renews it for another 30 days"
+      ],
+      "add": [
+       "  if (req.cookies.remember) // every visit slides the 30 days forward",
+       "    return { status: 200, headers: { \"Set-Cookie\": rememberCookie(req.cookies.remember) }, body: { cookies: req.cookies } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Day 45: ada visited on day 20, so the remember cookie should have been renewed until day 50",
+    "why": "The starter never sends the remember cookie again after login, so it expires 30 days after sign-in however often ada visits. Sending it again on each visit that carries it slides the 30 days forward, the way Unit 1 slid `lastSeen`."
+   }
+  ]
+ },
+ "auth-u2-4": {
+  "hash": "e28bc2d8e1e5e509",
+  "steps": [
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 5,
+      "del": [
+       "  return \"sid=\" + sid + \"; Path=/; Secure; HttpOnly; SameSite=None\";"
+      ],
+      "add": [
+       "  return \"sid=\" + sid + \"; Path=/; Secure; HttpOnly; SameSite=Lax\"; // links in, forged POSTs out"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The forged POST from evil.example moved money: the session cookie rode along. A cross-site form POST must not carry it — expected 50 but got 0",
+    "why": "The starter's session is `SameSite=None`, so the browser attaches it to every cross-site request, a form on `evil.example` included, and the forged transfer goes through. `Lax` keeps cross-site top-level GET navigations (the email link) and drops cross-site POSTs and fetches; checkpoint 3 tests the fetch half of the same change."
+   },
+   {
+    "chunks": [],
+    "after": [
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 10,
+      "del": [
+       "  return \"widget=on; Path=/; SameSite=None\";"
+      ],
+      "add": [
+       "  return \"widget=on; Path=/; Secure; SameSite=None\";              // None only ever with Secure"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The widget flag did not reach the bank from shop.example: the browser refused a line (SameSite=None requires the Secure attribute) — expected {\"ready\":true} but got {\"ready\":false}",
+    "why": "The starter's widget line asks for `SameSite=None` without `Secure`, and browsers refuse that combination, so the flag is never stored and the embedded button never sees it. A cookie meant to ride cross-site requests has to be `Secure`."
+   }
+  ]
+ },
+ "auth-u3-1": {
+  "hash": "41708011ed5b9eeb",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 25,
+      "del": [
+       "  // TODO: from a page on evil.example, POST to the bank's /transfer, moving 50 to eve.",
+       "  // Use victim.submitForm(pageUrl, { action, fields })."
+      ],
+      "add": [
+       "  // No token, no password — the browser supplies ada's cookie for us.",
+       "  return victim.submitForm(\"https://evil.example/prize\", {",
+       "    action: \"https://bank.example/transfer\",",
+       "    fields: { to: \"eve\", amount: \"50\" }",
+       "  });"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The forged POST should move 50 from ada. Her balance is still 100 — is forgeTransfer posting to https://bank.example/transfer with amount 50? — expected 50 but got 100",
+    "why": "The starter's `forgeTransfer` does nothing, so no request is made and the balance stays put. The attack is a single cross-site form POST from a page on `evil.example` to the bank's `/transfer`. It needs no token and no password: the browser attaches ada's session cookie to the request on its own. The later checkpoints inspect that same request."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u3-2": {
+  "hash": "51d6b242971a4019",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 10,
+      "del": [
+       "  // TODO: mint with randHex(16) the first time, store in csrfTokens, and reuse it after",
+       "  return \"token\";"
+      ],
+      "add": [
+       "  if (!csrfTokens.has(sid)) csrfTokens.set(sid, randHex(16)); // one token per session",
+       "  return csrfTokens.get(sid);"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "GET /form should return a csrf token — got \"token\"",
+    "why": "The starter returns the fixed string \"token\", so every session shares one guessable value. Minting `randHex(16)` on first use and storing it per session gives each session its own unguessable token, stable across the requests that read it."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 16,
+      "del": [
+       "  // TODO: 403 unless req.body.csrf is this session's token; otherwise null"
+      ],
+      "add": [
+       "  if (!req.body || req.body.csrf !== csrfFor(sid)) // must be THIS session's token",
+       "    return { status: 403, body: { error: \"bad csrf token\" } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The forged POST carries no csrf token, so it must be refused — got {\"status\":200,\"headers\":{},\"body\":{\"balance\":50},\"url\":\"https://bank.example/transfer\"} — expected 403 but got 200",
+    "why": "The starter's `checkCsrf` allows every request, so the forged POST goes through. Requiring `req.body.csrf` to equal this session's token refuses a forgery, which arrives without the token because the attacker's page can't read it off your origin's form."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0,
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u3-3": {
+  "hash": "010e7976c4f6c45b",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 10,
+      "del": [
+       "  // TODO: nonce = randHex(8); token = nonce + \".\" + hex(hmac(\"sha256\", CSRF_KEY, sid + \"!\" + nonce))",
+       "  return randHex(8);"
+      ],
+      "add": [
+       "  const nonce = randHex(8);",
+       "  return nonce + \".\" + hex(hmac(\"sha256\", CSRF_KEY, sid + \"!\" + nonce)); // bound to this session"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 16,
+      "del": [
+       "  // Naive double-submit: the caller compares this against the cookie. It ignores the session.",
+       "  // TODO: split off the nonce, recompute the signature from sid, and compare",
+       "  return typeof token === \"string\";"
+      ],
+      "add": [
+       "  const parts = String(token).split(\".\");",
+       "  if (parts.length !== 2) return false;",
+       "  const want = hex(hmac(\"sha256\", CSRF_KEY, sid + \"!\" + parts[0])); // recompute from the SESSION's sid",
+       "  return parts[1] === want;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "A token is randHex(8) + \".\" + hex of an HMAC-SHA256 — got \"435a6173e3c41d7e\"",
+    "why": "The starter returns a bare nonce as the token and, in `tokenValid`, accepts any string, which is the naive double-submit that a sibling subdomain defeats by setting both halves. Signing the nonce with `hmac(\"sha256\", CSRF_KEY, sid + \"!\" + nonce)` binds the token to the session, and verifying by recomputing that signature from the request's own `sid` rejects any value the attacker invents, since they lack the key. The other checkpoints exercise this same pair."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u3-4": {
+  "hash": "0aaa89de83fa0035",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 12,
+      "del": [
+       "  // TODO: if site is present, block only when it is \"cross-site\"",
+       "  // TODO: if site is absent, block when Origin is set and not in ALLOWED_ORIGINS"
+      ],
+      "add": [
+       "  if (site) {",
+       "    if (site === \"cross-site\") return { status: 403, body: { error: \"cross-site request refused\" } };",
+       "    return null; // same-origin, same-site or none",
+       "  }",
+       "  const origin = req.headers.origin; // older browser: fall back to Origin",
+       "  if (origin && ALLOWED_ORIGINS.indexOf(origin) === -1) return { status: 403, body: { error: \"cross-site request refused\" } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "cross-site must be blocked with a 403 — got null",
+    "why": "The starter's `csrfGuard` allows everything, so a cross-site POST still lands. Blocking when `Sec-Fetch-Site` is `cross-site`, and falling back to an `Origin` allow-list when that header is absent, refuses the forgery while leaving same-origin and same-site requests alone. The remaining checkpoints test this same guard through the browser."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   }
+  ]
+ },
  "auth-u4-1": {
   "hash": "98d87a197feb340d",
   "steps": [
@@ -983,6 +1438,313 @@ window.CODELAB.addStepSolutions("auth", {
    }
   ]
  },
+ "auth-u6-1": {
+  "hash": "176f8b9d28427cb1",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 71,
+      "del": [
+       "  // TODO: return the IdP /authorize URL with response_type=code, client_id,",
+       "  // redirect_uri (URL-encoded), and scope=openid.",
+       "  return \"https://idp.example/authorize\";"
+      ],
+      "add": [
+       "  return \"https://idp.example/authorize?response_type=code\" +",
+       "    \"&client_id=\" + CLIENT_ID +",
+       "    \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) +",
+       "    \"&scope=openid\";"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "response_type must be code — expected \"code\" but got null",
+    "why": "The starter's `buildAuthorizeUrl` returns the bare endpoint with no query, so the IdP has nothing to act on. The authorize URL has to name the flow (`response_type=code`), the app (`client_id`), where to send the code (`redirect_uri`, URL-encoded) and what it wants (`scope=openid`). Checkpoint 2's redirect chain depends on this same URL being right."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 80,
+      "del": [
+       "    // TODO: read req.query.code, exchange it with idpToken({...}), and on success",
+       "    // store tokens.sub in a session and redirect to \"/\".",
+       "    return { status: 200, body: { todo: true } };"
+      ],
+      "add": [
+       "    const tokens = idpToken({ grant_type: \"authorization_code\", code: req.query.code, client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });",
+       "    if (tokens.error) return { status: 400, body: tokens };",
+       "    const s = \"app-\" + (++appSeq); sessions.set(s, tokens.sub); // the app's own session, for the IdP user",
+       "    return { status: 303, headers: { \"Set-Cookie\": \"appsid=\" + s + \"; Path=/; Secure; HttpOnly; SameSite=Lax\" }, Location: \"/\" };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "After the flow the app session should hold the IdP sub. Did the callback call idpToken and store tokens.sub? — expected \"idp-ada-42\" but got null",
+    "why": "The starter's `/callback` returns a placeholder and never exchanges the code, so no session is created. Calling `idpToken` with the code on the back channel, then storing `tokens.sub` in a session cookie, is what actually signs the user in."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u6-2": {
+  "hash": "34b57de276628867",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 74,
+      "del": [
+       "    // TODO: make a state (newState()), set it in an oauth_state cookie (SameSite=Lax),",
+       "    // and add &state=<value> to the authorize URL."
+      ],
+      "add": [
+       "    const state = newState();"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 76,
+      "del": [
+       "      \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid\";",
+       "    return { status: 302, headers: { Location: url } };"
+      ],
+      "add": [
+       "      \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid&state=\" + state;",
+       "    return { status: 302, headers: { \"Set-Cookie\": \"oauth_state=\" + state + \"; Path=/; Secure; HttpOnly; SameSite=Lax\", Location: url } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The authorize URL needs a state parameter",
+    "why": "The starter's `/login` sends no `state` at all, so there is nothing to check on the way back. Minting a state, setting it in a `SameSite=Lax` `oauth_state` cookie, and putting the same value on the authorize URL gives the callback something bound to this browser to compare against."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 81,
+      "del": [
+       "    // TODO: reject with 403 unless q.state matches the oauth_state cookie."
+      ],
+      "add": [
+       "    if (!q.state || q.state !== req.cookies.oauth_state) return { status: 403, body: { error: \"bad state\" } }; // bound to this browser"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The victim was signed in from an injected callback. Reject a callback whose state does not match the oauth_state cookie — expected null but got \"idp-attacker-666\"",
+    "why": "The starter's `/callback` exchanges any code it is handed, so an attacker's code injected via a lured link logs the victim into the attacker's account. Refusing the request unless `req.query.state` equals the `oauth_state` cookie — before calling `idpToken` — rejects a callback the app didn't start."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0,
+     2
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u6-3": {
+  "hash": "b71104160a3998bf",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 77,
+      "del": [
+       "  // TODO: base64url(SHA-256(verifier)). sha256Bytes and b64url are provided.",
+       "  return verifier;"
+      ],
+      "add": [
+       "  return b64url(sha256Bytes(toBytes(verifier)));"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The S256 challenge is base64url(SHA-256(verifier)) — this is the RFC 7636 App. B vector — expected \"E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM\" but got \"dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk\"",
+    "why": "The starter's `challengeFor` returns the verifier unchanged, so the challenge equals the verifier and PKCE proves nothing. The S256 challenge is `base64url(SHA-256(verifier))`: a one-way hash, so the value in the authorize URL can't be turned back into the verifier the exchange needs."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 81,
+      "del": [
+       "  // TODO: include code_challenge and code_challenge_method=S256."
+      ],
+      "add": []
+     },
+     {
+      "file": "script.js",
+      "line": 82,
+      "del": [
+       "    \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid\";"
+      ],
+      "add": [
+       "    \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid\" +",
+       "    \"&code_challenge=\" + challengeFor(CODE_VERIFIER) + \"&code_challenge_method=S256\";"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Name the method: S256 — expected \"S256\" but got null",
+    "why": "The starter's authorize URL omits the challenge, so the IdP stores none and can't bind the code to this app. Adding `code_challenge` (the hash) and `code_challenge_method=S256`, while keeping the verifier out of the URL, is what makes a stolen code useless. Checkpoint 3's exchange relies on this challenge being present."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 89,
+      "del": [
+       "    // TODO: pass code_verifier: CODE_VERIFIER in the exchange.",
+       "    const tokens = idpToken({ grant_type: \"authorization_code\", code: req.query.code, client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });"
+      ],
+      "add": [
+       "    const tokens = idpToken({ grant_type: \"authorization_code\", code: req.query.code, client_id: CLIENT_ID, redirect_uri: REDIRECT_URI, code_verifier: CODE_VERIFIER });"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "With the matching verifier the exchange succeeds — expected \"idp-ada-42\" but got null",
+    "why": "The starter's exchange sends no `code_verifier`, so the IdP's PKCE check fails and no session is created. Passing `code_verifier: CODE_VERIFIER` on the back channel proves the app that redeems the code is the one that started the flow."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u6-4": {
+  "hash": "88df6b2c3e84bb85",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 45,
+      "del": [
+       "      return { status: 400, body: \"bad redirect_uri\" };"
+      ],
+      "add": [
+       "    if (q.redirect_uri !== REDIRECT_URI) return { status: 400, body: \"bad redirect_uri\" }; // exact match only"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The registered redirect_uri should receive the redirect — expected \"https://app.example/callback\" but got \"https://idp.example/authorize\"",
+    "why": "The starter matches `redirect_uri` with a prefix check, so a genuine sign-in still works but the door is open. Comparing the whole string against the registered `REDIRECT_URI` keeps the honest case working while it closes checkpoint 2's attack."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 45,
+      "del": [
+       "    // Starter: a prefix match. It also passes https://app.example.evil.example/callback.",
+       "    if (q.redirect_uri.indexOf(REDIRECT_URI.replace(\"/callback\", \"\")) !== 0)"
+      ],
+      "add": []
+     }
+    ],
+    "after": [],
+    "fail": "The IdP redirected the code to app.example.evil.example. A startsWith check passes that host — compare the whole string",
+    "why": "The prefix check accepts `https://app.example.evil.example/callback`, because it begins with `https://app.example`, and the IdP then redirects a live code to the attacker's host. An exact `!==` comparison rejects any redirect_uri that isn't the registered one, so the code is never issued."
+   },
+   {
+    "chunks": [],
+    "after": [
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   }
+  ]
+ },
+ "auth-u6-5": {
+  "hash": "556973b6655c50fa",
+  "steps": [
+   {
+    "chunks": [],
+    "after": [
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 81,
+      "del": [
+       "  // TODO: check the HS256 signature with IDP_SECRET, then the claims:",
+       "  //   iss === \"https://idp.example\", aud === CLIENT_ID, nonce === expectedNonce,",
+       "  //   and exp is in the future (now() is milliseconds; exp is seconds).",
+       "  return decodePayload(token);"
+      ],
+      "add": [
+       "  let header;",
+       "  try { header = JSON.parse(fromBytes(b64urlDecode(parts[0]))); } catch (e) { return null; }",
+       "  if (!header || header.alg !== \"HS256\") return null;",
+       "  if (b64url(hmac(\"sha256\", IDP_SECRET, parts[0] + \".\" + parts[1])) !== parts[2]) return null; // opaque access tokens fail here",
+       "  const c = decodePayload(token);",
+       "  if (!c || c.iss !== \"https://idp.example\" || c.aud !== CLIENT_ID || c.nonce !== expectedNonce) return null;",
+       "  if (typeof c.exp !== \"number\" || Math.floor(now() / 1000) >= c.exp) return null;",
+       "  return c;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "A token minted for some-other-app must not sign anyone into your client (check aud) — expected null but got {\"iss\":\"https://idp.example\",\"sub\":\"idp-ada-42\",\"aud\":\"some-other-app\",\"nonce\":\"n\",\"iat\":1700000000,\"exp\":1700000300}",
+    "why": "The starter's `verifyIdToken` just decodes the payload, checking neither the signature nor the claims, so a token forged for another client, a tampered one, an expired one, or even an opaque access token would all be accepted. Verifying the HS256 signature and then requiring the right `iss`, `aud`, `nonce` and a future `exp` is what makes the token proof of who signed in. The other checkpoints exercise these same checks."
+   },
+   {
+    "chunks": [],
+    "after": [
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     1
+    ],
+    "why": null
+   }
+  ]
+ },
  "auth-u7-1": {
   "hash": "947f4d16c782a1f6",
   "steps": [
@@ -1261,6 +2023,243 @@ window.CODELAB.addStepSolutions("auth", {
     "chunks": [],
     "after": [
      2
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u8-p1": {
+  "hash": "24cccae69678ca21",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 37,
+      "del": [
+       "  const sid = req.cookies[\"sid\"];"
+      ],
+      "add": [
+       "  const sid = req.cookies[\"__Host-sid\"];"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 50,
+      "del": [
+       "    // FLAW 1: a session is created here, before the second factor. 2FA is skipped entirely.",
+       "    const s = randHex(16); sessions.set(s, { userName: body.userName, created: nowMs(), lastSeen: nowMs() });",
+       "    return { status: 200, headers: { \"Set-Cookie\": \"__Host-sid=\" + s + \"; Path=/; Secure; HttpOnly; SameSite=Lax\" }, body: { ok: true } };"
+      ],
+      "add": [
+       "    // Password is only the first factor: hand back a pending token, create NO session yet.",
+       "    const p = randHex(16); pending.set(p, body.userName);",
+       "    return { status: 200, body: { need2fa: true, pending: p } };"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 59,
+      "del": [
+       "    // FLAW 2: the pending token is reused as the session id (no rotation).",
+       "    // FLAW 3: the cookie is a plain sid, not __Host- and without the safe attributes.",
+       "    sessions.set(body.pending, { userName: userName, created: nowMs(), lastSeen: nowMs() });",
+       "    return { status: 200, headers: { \"Set-Cookie\": \"sid=\" + body.pending + \"; Path=/\" }, body: { ok: true } };"
+      ],
+      "add": [
+       "    const s = randHex(16); // a fresh id at the privilege change: no fixation",
+       "    sessions.set(s, { userName: userName, created: nowMs(), lastSeen: nowMs() });",
+       "    return { status: 200, headers: { \"Set-Cookie\": \"__Host-sid=\" + s + \"; Path=/; Secure; HttpOnly; SameSite=Lax\" }, body: { ok: true } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The password step should ask for a second factor and return a pending token, not sign in — got {\"ok\":true}",
+    "why": "Three flaws break the happy path together, so they are shown here. FLAW 1: the password step mints a session, skipping the second factor — it should return a pending token instead. FLAW 2: the TOTP step reuses that pending token as the session id, so a planted id survives — mint a fresh one. FLAW 3: the cookie is a plain `sid` with no protection and is read under that name — make it `__Host-sid` (Secure, HttpOnly, SameSite=Lax, Path=/) and read it back under that name."
+   },
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 40,
+      "del": [
+       "  // FLAW 5: no idle timeout — a session never expires."
+      ],
+      "add": [
+       "  if (nowMs() - row.lastSeen >= IDLE_MS) { sessions.delete(sid); return null; } // idle timeout"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "31 more idle minutes: the session must expire — expected 401 but got 200",
+    "why": "FLAW 5: `currentUser` never checks how long a session has been idle, so it lives forever. Deleting the row and returning null once `nowMs() - row.lastSeen` reaches `IDLE_MS` gives the 30-minute idle timeout."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 73,
+      "del": [
+       "    const sid = req.cookies[\"sid\"];"
+      ],
+      "add": [
+       "    const sid = req.cookies[\"__Host-sid\"];"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Logout must delete the server row, not just clear the cookie",
+    "why": "The session cookie name has to match everywhere: with FLAW 3 fixed to `__Host-sid`, logout must delete the row it finds under that same name. Reading the wrong name here would clear the cookie but leave the server session alive."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 79,
+      "del": [
+       "    // FLAW 6: this reveals whether an email has an account.",
+       "    if (!users.get(\"ada\") || users.get(\"ada\").email !== body.email)",
+       "      return { status: 404, body: { error: \"no account with that email\" } };",
+       "    const t = randHex(16); resetTokens.set(sha256(t), { email: body.email, expires: nowMs() + 900000, used: false });",
+       "    outbox.push({ to: body.email, token: t });",
+       "    return { status: 200, body: { message: \"reset link sent to \" + body.email } };"
+      ],
+      "add": [
+       "    if (users.get(\"ada\") && users.get(\"ada\").email === body.email) {",
+       "      const t = randHex(16); resetTokens.set(sha256(t), { email: body.email, expires: nowMs() + 900000, used: false });",
+       "      outbox.push({ to: body.email, token: t });",
+       "    }",
+       "    // One identical answer, account or not.",
+       "    return { status: 200, body: { message: \"if that address has an account, a reset link is on its way\" } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The response must be identical for a known and an unknown email — known {\"message\":\"reset link sent to ada@example.com\"} unknown {\"error\":\"no account with that email\"} — expected \"{\\\"message\\\":\\\"reset link sent to ada@example.com\\\"}\" but got \"{\\\"error\\\":\\\"no account with that email\\\"}\"",
+    "why": "FLAW 6: the reset route answers \"no account with that email\" for unknown addresses, turning it into an account-enumeration oracle. Emailing only when the account exists but returning one identical response either way closes it."
+   }
+  ]
+ },
+ "auth-u8-p2": {
+  "hash": "61d7f1658f0fad85",
+  "steps": [
+   {
+    "chunks": [],
+    "after": [
+     1,
+     3
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 57,
+      "del": [
+       "  // FLAW 2: no PKCE. Without a challenge, a stolen code can be redeemed by anyone."
+      ],
+      "add": [
+       "  const challenge = b64url(sha256Bytes(toBytes(VERIFIER)));"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 59,
+      "del": [
+       "    \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid&nonce=fixed-nonce&state=\" + state;"
+      ],
+      "add": [
+       "    \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid&nonce=fixed-nonce&state=\" + state +",
+       "    \"&code_challenge=\" + challenge + \"&code_challenge_method=S256\";"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Add code_challenge_method=S256 — expected \"S256\" but got null",
+    "why": "FLAW 2: the authorize URL carries no PKCE, so a stolen code could be redeemed by anyone. Adding `code_challenge` (the S256 hash of `VERIFIER`) and `code_challenge_method=S256`, while keeping the verifier out of the URL, binds the code to this client."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 70,
+      "del": [
+       "    // FLAW 1: the callback trusts any code, with no state check (login CSRF)."
+      ],
+      "add": [
+       "    if (!q.state || q.state !== req.cookies.oauth_state) return { status: 403, body: { error: \"bad state\" } };"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 73,
+      "del": [
+       "    // FLAW 4: it signs in from the unverified payload instead of the verified claims.",
+       "    const claims = decodePayload(tokens.id_token);",
+       "    const s = \"n-\" + (++appSeq); sessions.set(s, claims.sub);"
+      ],
+      "add": [
+       "    const claims = verifyIdToken(tokens.id_token, \"fixed-nonce\");",
+       "    if (!claims) return { status: 401, body: { error: \"bad id token\" } };",
+       "    const s = \"n-\" + (++appSeq); sessions.set(s, claims.sub); // only after the ID token verifies"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "A callback whose state does not match the oauth_state cookie must be refused — expected null but got \"idp-attacker\"",
+    "why": "FLAW 1: the callback exchanges any code it is handed, so an attacker's injected code logs the victim in as the attacker. Rejecting a callback whose `state` doesn't match the `oauth_state` cookie — before the exchange — stops login CSRF."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 45,
+      "del": [
+       "  // FLAW 3: this decodes the token but verifies nothing — no signature, aud, nonce or exp.",
+       "  return decodePayload(token);"
+      ],
+      "add": [
+       "  const parts = String(token).split(\".\");",
+       "  if (parts.length !== 3) return null;",
+       "  let header; try { header = JSON.parse(fromBytes(b64urlDecode(parts[0]))); } catch (e) { return null; }",
+       "  if (!header || header.alg !== \"HS256\") return null;",
+       "  if (b64url(hmac(\"sha256\", IDP_SECRET, parts[0] + \".\" + parts[1])) !== parts[2]) return null;",
+       "  const c = decodePayload(token);",
+       "  if (!c || c.iss !== \"https://idp.example\" || c.aud !== CLIENT_ID || c.nonce !== expectedNonce) return null;",
+       "  if (typeof c.exp !== \"number\" || Math.floor(nowMs() / 1000) >= c.exp) return null;",
+       "  return c;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Wrong aud → null — expected null but got {\"iss\":\"https://idp.example\",\"sub\":\"idp-ada\",\"aud\":\"other-client\",\"nonce\":\"fixed-nonce\",\"iat\":1700000000,\"exp\":1700000300}",
+    "why": "FLAWS 3 and 4: `verifyIdToken` decoded the token without checking anything, and the callback signed the user in from that unverified payload. Verifying the signature and the `iss`/`aud`/`nonce`/`exp` claims, then creating the session only from the verified claims, is what makes the login trustworthy."
+   },
+   {
+    "chunks": [],
+    "after": [
+     1,
+     3
     ],
     "why": null
    }
