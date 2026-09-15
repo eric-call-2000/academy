@@ -714,7 +714,7 @@ window.CODELAB.addStepSolutions("auth", {
      }
     ],
     "after": [],
-    "fail": "A token is randHex(8) + \".\" + hex of an HMAC-SHA256 — got \"631752e6d021df7f\"",
+    "fail": "A token is randHex(8) + \".\" + hex of an HMAC-SHA256 — got \"435a6173e3c41d7e\"",
     "why": "The starter returns a bare nonce as the token and, in `tokenValid`, accepts any string, which is the naive double-submit that a sibling subdomain defeats by setting both halves. Signing the nonce with `hmac(\"sha256\", CSRF_KEY, sid + \"!\" + nonce)` binds the token to the session, and verifying by recomputing that signature from the request's own `sid` rejects any value the attacker invents, since they lack the key. The other checkpoints exercise this same pair."
    },
    {
@@ -2023,6 +2023,243 @@ window.CODELAB.addStepSolutions("auth", {
     "chunks": [],
     "after": [
      2
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u8-p1": {
+  "hash": "24cccae69678ca21",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 37,
+      "del": [
+       "  const sid = req.cookies[\"sid\"];"
+      ],
+      "add": [
+       "  const sid = req.cookies[\"__Host-sid\"];"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 50,
+      "del": [
+       "    // FLAW 1: a session is created here, before the second factor. 2FA is skipped entirely.",
+       "    const s = randHex(16); sessions.set(s, { userName: body.userName, created: nowMs(), lastSeen: nowMs() });",
+       "    return { status: 200, headers: { \"Set-Cookie\": \"__Host-sid=\" + s + \"; Path=/; Secure; HttpOnly; SameSite=Lax\" }, body: { ok: true } };"
+      ],
+      "add": [
+       "    // Password is only the first factor: hand back a pending token, create NO session yet.",
+       "    const p = randHex(16); pending.set(p, body.userName);",
+       "    return { status: 200, body: { need2fa: true, pending: p } };"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 59,
+      "del": [
+       "    // FLAW 2: the pending token is reused as the session id (no rotation).",
+       "    // FLAW 3: the cookie is a plain sid, not __Host- and without the safe attributes.",
+       "    sessions.set(body.pending, { userName: userName, created: nowMs(), lastSeen: nowMs() });",
+       "    return { status: 200, headers: { \"Set-Cookie\": \"sid=\" + body.pending + \"; Path=/\" }, body: { ok: true } };"
+      ],
+      "add": [
+       "    const s = randHex(16); // a fresh id at the privilege change: no fixation",
+       "    sessions.set(s, { userName: userName, created: nowMs(), lastSeen: nowMs() });",
+       "    return { status: 200, headers: { \"Set-Cookie\": \"__Host-sid=\" + s + \"; Path=/; Secure; HttpOnly; SameSite=Lax\" }, body: { ok: true } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The password step should ask for a second factor and return a pending token, not sign in — got {\"ok\":true}",
+    "why": "Three flaws break the happy path together, so they are shown here. FLAW 1: the password step mints a session, skipping the second factor — it should return a pending token instead. FLAW 2: the TOTP step reuses that pending token as the session id, so a planted id survives — mint a fresh one. FLAW 3: the cookie is a plain `sid` with no protection and is read under that name — make it `__Host-sid` (Secure, HttpOnly, SameSite=Lax, Path=/) and read it back under that name."
+   },
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 40,
+      "del": [
+       "  // FLAW 5: no idle timeout — a session never expires."
+      ],
+      "add": [
+       "  if (nowMs() - row.lastSeen >= IDLE_MS) { sessions.delete(sid); return null; } // idle timeout"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "31 more idle minutes: the session must expire — expected 401 but got 200",
+    "why": "FLAW 5: `currentUser` never checks how long a session has been idle, so it lives forever. Deleting the row and returning null once `nowMs() - row.lastSeen` reaches `IDLE_MS` gives the 30-minute idle timeout."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 73,
+      "del": [
+       "    const sid = req.cookies[\"sid\"];"
+      ],
+      "add": [
+       "    const sid = req.cookies[\"__Host-sid\"];"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Logout must delete the server row, not just clear the cookie",
+    "why": "The session cookie name has to match everywhere: with FLAW 3 fixed to `__Host-sid`, logout must delete the row it finds under that same name. Reading the wrong name here would clear the cookie but leave the server session alive."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 79,
+      "del": [
+       "    // FLAW 6: this reveals whether an email has an account.",
+       "    if (!users.get(\"ada\") || users.get(\"ada\").email !== body.email)",
+       "      return { status: 404, body: { error: \"no account with that email\" } };",
+       "    const t = randHex(16); resetTokens.set(sha256(t), { email: body.email, expires: nowMs() + 900000, used: false });",
+       "    outbox.push({ to: body.email, token: t });",
+       "    return { status: 200, body: { message: \"reset link sent to \" + body.email } };"
+      ],
+      "add": [
+       "    if (users.get(\"ada\") && users.get(\"ada\").email === body.email) {",
+       "      const t = randHex(16); resetTokens.set(sha256(t), { email: body.email, expires: nowMs() + 900000, used: false });",
+       "      outbox.push({ to: body.email, token: t });",
+       "    }",
+       "    // One identical answer, account or not.",
+       "    return { status: 200, body: { message: \"if that address has an account, a reset link is on its way\" } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The response must be identical for a known and an unknown email — known {\"message\":\"reset link sent to ada@example.com\"} unknown {\"error\":\"no account with that email\"} — expected \"{\\\"message\\\":\\\"reset link sent to ada@example.com\\\"}\" but got \"{\\\"error\\\":\\\"no account with that email\\\"}\"",
+    "why": "FLAW 6: the reset route answers \"no account with that email\" for unknown addresses, turning it into an account-enumeration oracle. Emailing only when the account exists but returning one identical response either way closes it."
+   }
+  ]
+ },
+ "auth-u8-p2": {
+  "hash": "61d7f1658f0fad85",
+  "steps": [
+   {
+    "chunks": [],
+    "after": [
+     1,
+     3
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 57,
+      "del": [
+       "  // FLAW 2: no PKCE. Without a challenge, a stolen code can be redeemed by anyone."
+      ],
+      "add": [
+       "  const challenge = b64url(sha256Bytes(toBytes(VERIFIER)));"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 59,
+      "del": [
+       "    \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid&nonce=fixed-nonce&state=\" + state;"
+      ],
+      "add": [
+       "    \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid&nonce=fixed-nonce&state=\" + state +",
+       "    \"&code_challenge=\" + challenge + \"&code_challenge_method=S256\";"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Add code_challenge_method=S256 — expected \"S256\" but got null",
+    "why": "FLAW 2: the authorize URL carries no PKCE, so a stolen code could be redeemed by anyone. Adding `code_challenge` (the S256 hash of `VERIFIER`) and `code_challenge_method=S256`, while keeping the verifier out of the URL, binds the code to this client."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 70,
+      "del": [
+       "    // FLAW 1: the callback trusts any code, with no state check (login CSRF)."
+      ],
+      "add": [
+       "    if (!q.state || q.state !== req.cookies.oauth_state) return { status: 403, body: { error: \"bad state\" } };"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 73,
+      "del": [
+       "    // FLAW 4: it signs in from the unverified payload instead of the verified claims.",
+       "    const claims = decodePayload(tokens.id_token);",
+       "    const s = \"n-\" + (++appSeq); sessions.set(s, claims.sub);"
+      ],
+      "add": [
+       "    const claims = verifyIdToken(tokens.id_token, \"fixed-nonce\");",
+       "    if (!claims) return { status: 401, body: { error: \"bad id token\" } };",
+       "    const s = \"n-\" + (++appSeq); sessions.set(s, claims.sub); // only after the ID token verifies"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "A callback whose state does not match the oauth_state cookie must be refused — expected null but got \"idp-attacker\"",
+    "why": "FLAW 1: the callback exchanges any code it is handed, so an attacker's injected code logs the victim in as the attacker. Rejecting a callback whose `state` doesn't match the `oauth_state` cookie — before the exchange — stops login CSRF."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 45,
+      "del": [
+       "  // FLAW 3: this decodes the token but verifies nothing — no signature, aud, nonce or exp.",
+       "  return decodePayload(token);"
+      ],
+      "add": [
+       "  const parts = String(token).split(\".\");",
+       "  if (parts.length !== 3) return null;",
+       "  let header; try { header = JSON.parse(fromBytes(b64urlDecode(parts[0]))); } catch (e) { return null; }",
+       "  if (!header || header.alg !== \"HS256\") return null;",
+       "  if (b64url(hmac(\"sha256\", IDP_SECRET, parts[0] + \".\" + parts[1])) !== parts[2]) return null;",
+       "  const c = decodePayload(token);",
+       "  if (!c || c.iss !== \"https://idp.example\" || c.aud !== CLIENT_ID || c.nonce !== expectedNonce) return null;",
+       "  if (typeof c.exp !== \"number\" || Math.floor(nowMs() / 1000) >= c.exp) return null;",
+       "  return c;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Wrong aud → null — expected null but got {\"iss\":\"https://idp.example\",\"sub\":\"idp-ada\",\"aud\":\"other-client\",\"nonce\":\"fixed-nonce\",\"iat\":1700000000,\"exp\":1700000300}",
+    "why": "FLAWS 3 and 4: `verifyIdToken` decoded the token without checking anything, and the callback signed the user in from that unverified payload. Verifying the signature and the `iss`/`aud`/`nonce`/`exp` claims, then creating the session only from the verified claims, is what makes the login trustworthy."
+   },
+   {
+    "chunks": [],
+    "after": [
+     1,
+     3
     ],
     "why": null
    }
