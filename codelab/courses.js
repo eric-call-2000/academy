@@ -196,8 +196,8 @@ window.CODELAB.defineCourse({
 // Quality & Data Track
 window.CODELAB.defineCourse({
   id: "etl", prefix: "etl", title: "Data Pipelines & ETL",
-  icon: "🚰", color: "#ca8a04", level: "Advanced", hours: 2, items: 10, targetHours: 8,
+  icon: "🚰", color: "#ca8a04", level: "Advanced", hours: 3, items: 15, targetHours: 8,
   credits: 1, categories: { data: 1 },
   blurb: "Getting data in without getting it wrong. It starts with reading files honestly: CSV parsed by the RFC, encodings and the byte order mark, input that arrives in chunks, and JSON Lines that name the broken line. Types, quarantine, idempotent loads, incremental updates and orchestration follow.",
-  files: ["etl/u1.js", "etl/u2.js"]
+  files: ["etl/u1.js", "etl/u2.js", "etl/u3.js"]
 });
