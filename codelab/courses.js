@@ -196,8 +196,8 @@ window.CODELAB.defineCourse({
 // Quality & Data Track
 window.CODELAB.defineCourse({
   id: "etl", prefix: "etl", title: "Data Pipelines & ETL",
-  icon: "🚰", color: "#ca8a04", level: "Advanced", stub: true,
-  plannedCredits: 4, plannedCategories: { data: 4 },
-  blurb: "Extract, transform, load: parsing messy CSV and JSON, validating and rejecting bad rows, idempotent batch loads, incremental updates, and pipelines that survive the input you didn't expect.",
-  files: []
+  icon: "🚰", color: "#ca8a04", level: "Advanced", hours: 4, items: 20, targetHours: 8,
+  credits: 2, categories: { data: 2 },
+  blurb: "Getting data in without getting it wrong: CSV parsed by the RFC, encodings and chunked input, JSON Lines, types converted on purpose, bad rows quarantined with their reasons, schema drift and duplicates caught before loading, and pipelines that plan their tasks, retry safely and run for their logical date. Idempotent loads, incremental updates and history follow.",
+  files: ["etl/u1.js", "etl/u2.js", "etl/u3.js", "etl/u6.js"]
 });

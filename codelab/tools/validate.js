@@ -194,9 +194,9 @@ function phase0() {
               if (new RegExp("(^|[^.\\w$])" + name + "\\s*\\(").test(srcs) && !defines(name))
                 fail(`${l.id}: calls ${name}() but does not set \`crypto: true\` — harnessCrypto provides it (see runner.js)`);
             }
-            /* Bare now() is only checked in auth- lessons: elsewhere it is a
+            /* Bare now() is only checked in auth- and etl- lessons: elsewhere it is a
                learner's own injected clock parameter (test-u5-4 passes one). */
-            const callsNow = l.id.indexOf("auth-") === 0 && /(^|[^.\w$])now\s*\(\s*\)/.test(srcs);
+            const callsNow = /^(auth|etl)-/.test(l.id) && /(^|[^.\w$])now\s*\(\s*\)/.test(srcs);
             if (l.clock == null && (callsNow || /T\.advance\s*\(/.test(srcs)) && !defines("now"))
               fail(`${l.id}: uses now() or T.advance() but does not set \`clock\` — harnessClock provides them (see runner.js)`);
             if (l.browser && l.kind !== "js")
@@ -207,7 +207,7 @@ function phase0() {
               if (new RegExp("(^|[^.\\w$])" + name + "\\s*\\(").test(srcs) && !defines(name))
                 fail(`${l.id}: calls ${name}() but does not set \`browser: true\` — authsim.js provides it`);
             }
-            if (l.id.indexOf("auth-") === 0 && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
+            if (/^(auth|etl)-/.test(l.id) && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
               fail(`${l.id}: reads the real clock (Date.now / new Date()) — set \`clock\` and use now() and T.advance(ms), or the lesson passes or fails depending on when it runs`);
           }
         }
