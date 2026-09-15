@@ -714,7 +714,7 @@ window.CODELAB.addStepSolutions("auth", {
      }
     ],
     "after": [],
-    "fail": "A token is randHex(8) + \".\" + hex of an HMAC-SHA256 — got \"ced3a51be53e739b\"",
+    "fail": "A token is randHex(8) + \".\" + hex of an HMAC-SHA256 — got \"631752e6d021df7f\"",
     "why": "The starter returns a bare nonce as the token and, in `tokenValid`, accepts any string, which is the naive double-submit that a sibling subdomain defeats by setting both halves. Signing the nonce with `hmac(\"sha256\", CSRF_KEY, sid + \"!\" + nonce)` binds the token to the session, and verifying by recomputing that signature from the request's own `sid` rejects any value the attacker invents, since they lack the key. The other checkpoints exercise this same pair."
    },
    {
@@ -1435,6 +1435,313 @@ window.CODELAB.addStepSolutions("auth", {
     "after": [],
     "fail": "verifyAccessToken threw on a token with an unknown kid (\"expected a string or an array of bytes, got undefined\"). Return null instead",
     "why": "The starter falls back to the first key in `KEYS` when it doesn't recognise the token's `kid`, so a token naming a key that doesn't exist is still checked, and accepted, against some other key. Refuse a `kid` that isn't one of `KEYS`' own properties before any HMAC runs."
+   }
+  ]
+ },
+ "auth-u6-1": {
+  "hash": "176f8b9d28427cb1",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 71,
+      "del": [
+       "  // TODO: return the IdP /authorize URL with response_type=code, client_id,",
+       "  // redirect_uri (URL-encoded), and scope=openid.",
+       "  return \"https://idp.example/authorize\";"
+      ],
+      "add": [
+       "  return \"https://idp.example/authorize?response_type=code\" +",
+       "    \"&client_id=\" + CLIENT_ID +",
+       "    \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) +",
+       "    \"&scope=openid\";"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "response_type must be code — expected \"code\" but got null",
+    "why": "The starter's `buildAuthorizeUrl` returns the bare endpoint with no query, so the IdP has nothing to act on. The authorize URL has to name the flow (`response_type=code`), the app (`client_id`), where to send the code (`redirect_uri`, URL-encoded) and what it wants (`scope=openid`). Checkpoint 2's redirect chain depends on this same URL being right."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 80,
+      "del": [
+       "    // TODO: read req.query.code, exchange it with idpToken({...}), and on success",
+       "    // store tokens.sub in a session and redirect to \"/\".",
+       "    return { status: 200, body: { todo: true } };"
+      ],
+      "add": [
+       "    const tokens = idpToken({ grant_type: \"authorization_code\", code: req.query.code, client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });",
+       "    if (tokens.error) return { status: 400, body: tokens };",
+       "    const s = \"app-\" + (++appSeq); sessions.set(s, tokens.sub); // the app's own session, for the IdP user",
+       "    return { status: 303, headers: { \"Set-Cookie\": \"appsid=\" + s + \"; Path=/; Secure; HttpOnly; SameSite=Lax\" }, Location: \"/\" };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "After the flow the app session should hold the IdP sub. Did the callback call idpToken and store tokens.sub? — expected \"idp-ada-42\" but got null",
+    "why": "The starter's `/callback` returns a placeholder and never exchanges the code, so no session is created. Calling `idpToken` with the code on the back channel, then storing `tokens.sub` in a session cookie, is what actually signs the user in."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u6-2": {
+  "hash": "34b57de276628867",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 74,
+      "del": [
+       "    // TODO: make a state (newState()), set it in an oauth_state cookie (SameSite=Lax),",
+       "    // and add &state=<value> to the authorize URL."
+      ],
+      "add": [
+       "    const state = newState();"
+      ]
+     },
+     {
+      "file": "script.js",
+      "line": 76,
+      "del": [
+       "      \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid\";",
+       "    return { status: 302, headers: { Location: url } };"
+      ],
+      "add": [
+       "      \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid&state=\" + state;",
+       "    return { status: 302, headers: { \"Set-Cookie\": \"oauth_state=\" + state + \"; Path=/; Secure; HttpOnly; SameSite=Lax\", Location: url } };"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The authorize URL needs a state parameter",
+    "why": "The starter's `/login` sends no `state` at all, so there is nothing to check on the way back. Minting a state, setting it in a `SameSite=Lax` `oauth_state` cookie, and putting the same value on the authorize URL gives the callback something bound to this browser to compare against."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 81,
+      "del": [
+       "    // TODO: reject with 403 unless q.state matches the oauth_state cookie."
+      ],
+      "add": [
+       "    if (!q.state || q.state !== req.cookies.oauth_state) return { status: 403, body: { error: \"bad state\" } }; // bound to this browser"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The victim was signed in from an injected callback. Reject a callback whose state does not match the oauth_state cookie — expected null but got \"idp-attacker-666\"",
+    "why": "The starter's `/callback` exchanges any code it is handed, so an attacker's code injected via a lured link logs the victim into the attacker's account. Refusing the request unless `req.query.state` equals the `oauth_state` cookie — before calling `idpToken` — rejects a callback the app didn't start."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0,
+     2
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u6-3": {
+  "hash": "b71104160a3998bf",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 77,
+      "del": [
+       "  // TODO: base64url(SHA-256(verifier)). sha256Bytes and b64url are provided.",
+       "  return verifier;"
+      ],
+      "add": [
+       "  return b64url(sha256Bytes(toBytes(verifier)));"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The S256 challenge is base64url(SHA-256(verifier)) — this is the RFC 7636 App. B vector — expected \"E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM\" but got \"dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk\"",
+    "why": "The starter's `challengeFor` returns the verifier unchanged, so the challenge equals the verifier and PKCE proves nothing. The S256 challenge is `base64url(SHA-256(verifier))`: a one-way hash, so the value in the authorize URL can't be turned back into the verifier the exchange needs."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 81,
+      "del": [
+       "  // TODO: include code_challenge and code_challenge_method=S256."
+      ],
+      "add": []
+     },
+     {
+      "file": "script.js",
+      "line": 82,
+      "del": [
+       "    \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid\";"
+      ],
+      "add": [
+       "    \"&redirect_uri=\" + encodeURIComponent(REDIRECT_URI) + \"&scope=openid\" +",
+       "    \"&code_challenge=\" + challengeFor(CODE_VERIFIER) + \"&code_challenge_method=S256\";"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "Name the method: S256 — expected \"S256\" but got null",
+    "why": "The starter's authorize URL omits the challenge, so the IdP stores none and can't bind the code to this app. Adding `code_challenge` (the hash) and `code_challenge_method=S256`, while keeping the verifier out of the URL, is what makes a stolen code useless. Checkpoint 3's exchange relies on this challenge being present."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 89,
+      "del": [
+       "    // TODO: pass code_verifier: CODE_VERIFIER in the exchange.",
+       "    const tokens = idpToken({ grant_type: \"authorization_code\", code: req.query.code, client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });"
+      ],
+      "add": [
+       "    const tokens = idpToken({ grant_type: \"authorization_code\", code: req.query.code, client_id: CLIENT_ID, redirect_uri: REDIRECT_URI, code_verifier: CODE_VERIFIER });"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "With the matching verifier the exchange succeeds — expected \"idp-ada-42\" but got null",
+    "why": "The starter's exchange sends no `code_verifier`, so the IdP's PKCE check fails and no session is created. Passing `code_verifier: CODE_VERIFIER` on the back channel proves the app that redeems the code is the one that started the flow."
+   },
+   {
+    "chunks": [],
+    "after": [
+     0
+    ],
+    "why": null
+   }
+  ]
+ },
+ "auth-u6-4": {
+  "hash": "88df6b2c3e84bb85",
+  "steps": [
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 45,
+      "del": [
+       "      return { status: 400, body: \"bad redirect_uri\" };"
+      ],
+      "add": [
+       "    if (q.redirect_uri !== REDIRECT_URI) return { status: 400, body: \"bad redirect_uri\" }; // exact match only"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "The registered redirect_uri should receive the redirect — expected \"https://app.example/callback\" but got \"https://idp.example/authorize\"",
+    "why": "The starter matches `redirect_uri` with a prefix check, so a genuine sign-in still works but the door is open. Comparing the whole string against the registered `REDIRECT_URI` keeps the honest case working while it closes checkpoint 2's attack."
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 45,
+      "del": [
+       "    // Starter: a prefix match. It also passes https://app.example.evil.example/callback.",
+       "    if (q.redirect_uri.indexOf(REDIRECT_URI.replace(\"/callback\", \"\")) !== 0)"
+      ],
+      "add": []
+     }
+    ],
+    "after": [],
+    "fail": "The IdP redirected the code to app.example.evil.example. A startsWith check passes that host — compare the whole string",
+    "why": "The prefix check accepts `https://app.example.evil.example/callback`, because it begins with `https://app.example`, and the IdP then redirects a live code to the attacker's host. An exact `!==` comparison rejects any redirect_uri that isn't the registered one, so the code is never issued."
+   },
+   {
+    "chunks": [],
+    "after": [
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [],
+    "why": null
+   }
+  ]
+ },
+ "auth-u6-5": {
+  "hash": "556973b6655c50fa",
+  "steps": [
+   {
+    "chunks": [],
+    "after": [
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [
+     {
+      "file": "script.js",
+      "line": 81,
+      "del": [
+       "  // TODO: check the HS256 signature with IDP_SECRET, then the claims:",
+       "  //   iss === \"https://idp.example\", aud === CLIENT_ID, nonce === expectedNonce,",
+       "  //   and exp is in the future (now() is milliseconds; exp is seconds).",
+       "  return decodePayload(token);"
+      ],
+      "add": [
+       "  let header;",
+       "  try { header = JSON.parse(fromBytes(b64urlDecode(parts[0]))); } catch (e) { return null; }",
+       "  if (!header || header.alg !== \"HS256\") return null;",
+       "  if (b64url(hmac(\"sha256\", IDP_SECRET, parts[0] + \".\" + parts[1])) !== parts[2]) return null; // opaque access tokens fail here",
+       "  const c = decodePayload(token);",
+       "  if (!c || c.iss !== \"https://idp.example\" || c.aud !== CLIENT_ID || c.nonce !== expectedNonce) return null;",
+       "  if (typeof c.exp !== \"number\" || Math.floor(now() / 1000) >= c.exp) return null;",
+       "  return c;"
+      ]
+     }
+    ],
+    "after": [],
+    "fail": "A token minted for some-other-app must not sign anyone into your client (check aud) — expected null but got {\"iss\":\"https://idp.example\",\"sub\":\"idp-ada-42\",\"aud\":\"some-other-app\",\"nonce\":\"n\",\"iat\":1700000000,\"exp\":1700000300}",
+    "why": "The starter's `verifyIdToken` just decodes the payload, checking neither the signature nor the claims, so a token forged for another client, a tampered one, an expired one, or even an opaque access token would all be accepted. Verifying the HS256 signature and then requiring the right `iss`, `aud`, `nonce` and a future `exp` is what makes the token proof of who signed in. The other checkpoints exercise these same checks."
+   },
+   {
+    "chunks": [],
+    "after": [
+     1
+    ],
+    "why": null
+   },
+   {
+    "chunks": [],
+    "after": [
+     1
+    ],
+    "why": null
    }
   ]
  },
