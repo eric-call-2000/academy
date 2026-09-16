@@ -207,6 +207,15 @@ function phase0() {
               if (new RegExp("(^|[^.\\w$])" + name + "\\s*\\(").test(srcs) && !defines(name))
                 fail(`${l.id}: calls ${name}() but does not set \`browser: true\` — authsim.js provides it`);
             }
+            /* harnessWarehouse is opt-in like crypto and node: a lesson that
+               calls db without the flag dies on a bare ReferenceError instead
+               of failing a checkpoint, and it runs in the JS Worker only. */
+            if (l.warehouse && l.kind !== "js")
+              fail(`${l.id}: \`warehouse\` runs in the JS Worker, so the lesson must be kind "js" (it is "${l.kind}")`);
+            if (!l.warehouse && !defines("db")) for (const call of ["db.insert", "db.upsert", "db.delete", "db.select", "db.count", "db.tx", "T.failAfterWrites", "T.clearFaults"]) {
+              if (srcs.indexOf(call + "(") !== -1)
+                fail(`${l.id}: calls ${call}() but does not set \`warehouse\` — harnessWarehouse provides db and those T helpers (see runner.js)`);
+            }
             if (/^(auth|etl)-/.test(l.id) && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
               fail(`${l.id}: reads the real clock (Date.now / new Date()) — set \`clock\` and use now() and T.advance(ms), or the lesson passes or fails depending on when it runs`);
           }
@@ -267,6 +276,7 @@ function phase0() {
   gitsimGates();
   dockersimGates();
   cryptoGates();
+  warehouseGates();
   authsimGates();
 }
 
@@ -344,6 +354,21 @@ function cryptoGates() {
     ok(out.trim().split("\n")[0]);
   } catch (e) {
     fail("crypto harness tests failed:\n" + String(e.stdout || e.message));
+  }
+}
+
+/* The ETL warehouse enforces the rules its own course teaches: key
+   uniqueness, column types, transaction atomicity, and the crash that lands
+   between two row writes. A wrong rule here would teach the wrong lesson, so
+   the suite is the contract and it was written before the harness. */
+function warehouseGates() {
+  console.log("\n== Phase 0j: ETL warehouse harness ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-warehouse.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0]);
+  } catch (e) {
+    fail("warehouse harness tests failed:\n" + String(e.stdout || e.message));
   }
 }
 
@@ -681,8 +706,14 @@ function schedulerSim(REV, poolSize) {
     if (day0 !== REV.NEW_PER_DAY) fail(`sim p=${p}: day one offered ${day0}, expected exactly ${REV.NEW_PER_DAY} introductions`);
     // Two-sided: a lower bound alone passes happily when the real ramp is
     // twice as long as claimed.
-    if (p >= 0.85 && fullyIntroducedOn !== null && (fullyIntroducedOn < 25 || fullyIntroducedOn > 80))
-      fail(`sim p=${p}: full introduction took ${fullyIntroducedOn} days, expected 25-80`);
+    /* Derived from the pool, not hard-coded: at NEW_PER_DAY introductions a
+       day, a pool of N can never finish sooner than N / NEW_PER_DAY, so a
+       fixed ceiling silently becomes unreachable as the catalog grows. The
+       upper bound still catches a scheduler that starves introductions. */
+    const floorDays = Math.ceil(poolSize / REV.NEW_PER_DAY);
+    const ceilDays = Math.floor(floorDays * 1.25) + 5;
+    if (p >= 0.85 && fullyIntroducedOn !== null && (fullyIntroducedOn < floorDays || fullyIntroducedOn > ceilDays))
+      fail(`sim p=${p}: full introduction took ${fullyIntroducedOn} days, expected ${floorDays}-${ceilDays} for a pool of ${poolSize}`);
 
     const boxes = REV.Q_IV.map((_, b) => Object.values(u.rev).filter(r => r[0] === b).length);
     const mature = Object.values(u.rev).filter(r => REV.Q_IV[r[0]] >= REV.HOLDING_DAYS).length;

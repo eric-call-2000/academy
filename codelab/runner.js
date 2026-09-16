@@ -663,6 +663,193 @@
     };
   }
 
+  /* A warehouse for the Data Pipelines & ETL course (idempotent loads,
+     incremental updates, SCD2 history). Tables with enforced keys and column
+     types, real all-or-nothing transactions, and grader-only fault injection
+     that can cut the connection between two row writes — which is how a
+     lesson proves that a crashed load plus a rerun equals one clean run.
+     Autocommit is real: outside db.tx, a batch that fails partway leaves the
+     rows written before it. Gated on `lesson.warehouse`; the contract is
+     tools/test-warehouse.js, which was written before this code. */
+  function harnessWarehouse(SPEC) {
+    var g = (typeof self !== "undefined") ? self : window;
+    var spec = SPEC || {};
+    var tables = {};
+
+    function err(name, msg) { var e = new Error(msg); e.name = name; return e; }
+    function copy(v) { return JSON.parse(JSON.stringify(v)); }
+
+    var DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    function realDay(s) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+      if (!m) return false;
+      var y = +m[1], mo = +m[2], d = +m[3];
+      if (mo < 1 || mo > 12 || d < 1) return false;
+      var leap = (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
+      return d <= (mo === 2 && leap ? 29 : DAYS[mo - 1]);
+    }
+    function okType(type, v) {
+      if (type === "int") return typeof v === "number" && Number.isSafeInteger(v);
+      if (type === "text") return typeof v === "string";
+      if (type === "bool") return typeof v === "boolean";
+      if (type === "date") return typeof v === "string" && realDay(v);
+      if (type === "timestamp") {
+        if (typeof v !== "string") return false;
+        var m = /^(\d{4}-\d{2}-\d{2})T\d{2}:\d{2}:\d{2}(\.\d{1,3})?(Z|[+-]\d{2}:\d{2})$/.exec(v);
+        return !!m && realDay(m[1]);
+      }
+      return false;
+    }
+
+    Object.keys(spec.tables || {}).forEach(function (name) {
+      var t = spec.tables[name] || {}, columns = {};
+      Object.keys(t.columns || {}).forEach(function (c) {
+        var raw = String(t.columns[c]), nullable = raw.slice(-1) === "?";
+        var type = nullable ? raw.slice(0, -1) : raw;
+        if (["int", "text", "bool", "date", "timestamp"].indexOf(type) === -1)
+          throw err("SpecError", name + "." + c + ": unknown column type " + JSON.stringify(raw));
+        columns[c] = { type: type, nullable: nullable };
+      });
+      if (!t.key || !t.key.length) throw err("SpecError", name + ": a table needs a key");
+      t.key.forEach(function (c) {
+        if (!columns[c]) throw err("SpecError", name + ": key column " + c + " is not a column of the table");
+        if (columns[c].nullable) throw err("SpecError", name + ": key column " + c + " must not be nullable");
+      });
+      tables[name] = { key: t.key.slice(), columns: columns, rows: [], index: new Map() };
+    });
+
+    function table(name) {
+      if (!tables[name]) throw err("UnknownTable", "no table named " + JSON.stringify(name));
+      return tables[name];
+    }
+    function keyOf(t, row) {
+      return t.key.map(function (c) { return JSON.stringify(row[c]); }).join(" ");
+    }
+    /* Validate one row against the table and return a fresh row holding
+       exactly the declared columns. This throws before any write happens, so
+       a bad row never consumes an injected fault. */
+    function clean(t, name, raw) {
+      if (!raw || typeof raw !== "object" || Array.isArray(raw)) throw err("TypeMismatch", name + ": a row must be an object");
+      Object.keys(raw).forEach(function (c) {
+        if (!t.columns[c]) throw err("UnknownColumn", name + " has no column " + JSON.stringify(c));
+      });
+      var out = {};
+      Object.keys(t.columns).forEach(function (c) {
+        var col = t.columns[c], v = raw[c];
+        if (v === undefined) {
+          if (!col.nullable) throw err("MissingColumn", name + "." + c + " is required");
+          out[c] = null;
+        } else if (v === null) {
+          if (!col.nullable) throw err("TypeMismatch", name + "." + c + " is not nullable");
+          out[c] = null;
+        } else {
+          if (!okType(col.type, v)) throw err("TypeMismatch", name + "." + c + " expects " + col.type + ", got " + JSON.stringify(v));
+          out[c] = v;
+        }
+      });
+      return out;
+    }
+
+    var writes = 0, failAt = null, depth = 0;
+    function noteWrite() {
+      if (failAt !== null && writes >= failAt) { failAt = null; throw err("ConnectionLost", "connection lost to the warehouse"); }
+      writes++;
+    }
+    function asRows(rows) { return Array.isArray(rows) ? rows : [rows]; }
+    function matches(row, pred) {
+      if (pred == null) return true;
+      if (typeof pred === "function") return !!pred(copy(row));
+      return Object.keys(pred).every(function (c) { return row[c] === pred[c]; });
+    }
+
+    g.db = {
+      insert: function (name, rows) {
+        var t = table(name), n = 0;
+        asRows(rows).forEach(function (raw) {
+          var row = clean(t, name, raw), k = keyOf(t, row);
+          if (t.index.has(k))
+            throw err("DuplicateKey", name + " already holds " + t.key.map(function (c) { return c + "=" + JSON.stringify(row[c]); }).join(", "));
+          noteWrite();
+          t.rows.push(row);
+          t.index.set(k, row);
+          n++;
+        });
+        return n;
+      },
+      upsert: function (name, rows) {
+        var t = table(name), out = { inserted: 0, updated: 0 };
+        asRows(rows).forEach(function (raw) {
+          var row = clean(t, name, raw), k = keyOf(t, row), old = t.index.get(k);
+          noteWrite();
+          if (old) {
+            t.rows[t.rows.indexOf(old)] = row;  // a whole-row replace, in place
+            t.index.set(k, row);
+            out.updated++;
+          } else {
+            t.rows.push(row);
+            t.index.set(k, row);
+            out.inserted++;
+          }
+        });
+        return out;
+      },
+      "delete": function (name, pred) {
+        var t = table(name), n = 0;
+        t.rows.filter(function (r) { return matches(r, pred); }).forEach(function (row) {
+          noteWrite();
+          t.rows.splice(t.rows.indexOf(row), 1);
+          t.index["delete"](keyOf(t, row));
+          n++;
+        });
+        return n;
+      },
+      select: function (name, pred) {
+        return table(name).rows.filter(function (r) { return matches(r, pred); }).map(copy);
+      },
+      count: function (name, pred) {
+        return table(name).rows.filter(function (r) { return matches(r, pred); }).length;
+      },
+      tx: function (fn) {
+        if (depth > 0) throw err("TxError", "transactions do not nest");
+        var snapshot = {};
+        Object.keys(tables).forEach(function (n) { snapshot[n] = tables[n].rows.map(copy); });
+        depth = 1;
+        try {
+          var out = fn();
+          depth = 0;
+          return out;
+        } catch (e) {
+          depth = 0;
+          Object.keys(snapshot).forEach(function (n) {  // all or nothing
+            var t = tables[n];
+            t.rows = snapshot[n];
+            t.index = new Map();
+            t.rows.forEach(function (r) { t.index.set(keyOf(t, r), r); });
+          });
+          throw e;
+        }
+      }
+    };
+
+    /* Seed rows are the lesson's starting state: validated, but not counted
+       as writes and never hit by an injected fault. */
+    Object.keys(spec.seed || {}).forEach(function (name) {
+      var t = table(name);
+      asRows(spec.seed[name]).forEach(function (raw) {
+        var row = clean(t, name, raw), k = keyOf(t, row);
+        if (t.index.has(k)) throw err("SpecError", name + ": duplicate key in seed data");
+        t.rows.push(row);
+        t.index.set(k, row);
+      });
+    });
+
+    g.T = g.T || {};
+    g.T.rows = function (name) { return table(name).rows.map(copy); };
+    g.T.writes = function () { return writes; };
+    g.T.failAfterWrites = function (n) { failAt = writes + Number(n); };
+    g.T.clearFaults = function () { failAt = null; writes = 0; };
+  }
+
   /* CSP enforcement lab (Web Security U7 L2). The preview iframe's own
      sandbox is fixed and a learner CSP in index.html would also gag the
      grader — so enforcement happens one level DOWN: __runCspLab(policy)
@@ -1148,6 +1335,7 @@
       lesson.spec ? "(" + harnessSpec.toString() + ")();" : "",
       lesson.crypto ? "(" + harnessCrypto.toString() + ")();" : "",
       lesson.clock != null ? "(" + harnessClock.toString() + ")(" + JSON.stringify(lesson.clock) + ");" : "",
+      lesson.warehouse ? "(" + harnessWarehouse.toString() + ")(" + JSON.stringify(lesson.warehouse) + ");" : "",
       /* authsim.js (a simulated browser, cookie jar and web sites) is one
          self-contained function, copied in like the harnesses above. */
       lesson.browser ? (window.CODELAB_AUTHSIM ? "(" + window.CODELAB_AUTHSIM.toString() + ")(self);" : "throw new Error('authsim.js is not loaded — add it to index.html');") : "",
