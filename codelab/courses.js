@@ -54,6 +54,18 @@ window.CODELAB.defineCourse({
   files: ["js/u1.js", "js/u2.js", "js/u3.js", "js/u4.js", "js/u5.js", "js/u6.js", "js/u7.js", "js/u8.js"]
 });
 
+/* The first THEORY course: most of its time is concept lessons (predict,
+   trace, order, explain) rather than code, which validate.js checks.
+   Built in tranches; credits restate what's written so far. */
+window.CODELAB.defineCourse({
+  id: "algo", prefix: "algo", title: "How Code Scales",
+  icon: "📈", color: "#4f46e5", level: "Intermediate", hours: 2, items: 10,
+  theory: true, targetHours: 9,
+  credits: 1, categories: { fnd: 1 },
+  blurb: "Why code that's fast on your laptop crawls on real data. Counting steps instead of timing, the doubling test, big-O as a language, best and worst cases, and hidden loops. A course about reasoning about cost, mostly theory: you predict, trace and explain before you write. Take it after Learn JavaScript.",
+  files: ["algo/u1.js", "algo/u2.js"]
+});
+
 window.CODELAB.defineCourse({
   id: "dom", prefix: "dom", title: "Building Interactive Websites",
   icon: "🖱️", color: "#58cc02", level: "Intermediate", hours: 8, items: 40,

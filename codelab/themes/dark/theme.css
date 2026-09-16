@@ -93,6 +93,7 @@ body { background: var(--bg); }
 .chip-server { background: #1c2128; color: #9aa5b1; }
 .chip-quiz { background: #26182b; color: #e878d8; }
 .chip-project { background: #26210f; color: #e3b341; }
+.chip-theory { background: #1c1f3a; color: #a5b4fc; }
 .pcard-del:hover { background: #2d1315; color: var(--danger); }
 
 /* ---- lesson workspace chrome ---- */
