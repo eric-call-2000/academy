@@ -706,8 +706,14 @@ function schedulerSim(REV, poolSize) {
     if (day0 !== REV.NEW_PER_DAY) fail(`sim p=${p}: day one offered ${day0}, expected exactly ${REV.NEW_PER_DAY} introductions`);
     // Two-sided: a lower bound alone passes happily when the real ramp is
     // twice as long as claimed.
-    if (p >= 0.85 && fullyIntroducedOn !== null && (fullyIntroducedOn < 25 || fullyIntroducedOn > 80))
-      fail(`sim p=${p}: full introduction took ${fullyIntroducedOn} days, expected 25-80`);
+    /* Derived from the pool, not hard-coded: at NEW_PER_DAY introductions a
+       day, a pool of N can never finish sooner than N / NEW_PER_DAY, so a
+       fixed ceiling silently becomes unreachable as the catalog grows. The
+       upper bound still catches a scheduler that starves introductions. */
+    const floorDays = Math.ceil(poolSize / REV.NEW_PER_DAY);
+    const ceilDays = Math.floor(floorDays * 1.25) + 5;
+    if (p >= 0.85 && fullyIntroducedOn !== null && (fullyIntroducedOn < floorDays || fullyIntroducedOn > ceilDays))
+      fail(`sim p=${p}: full introduction took ${fullyIntroducedOn} days, expected ${floorDays}-${ceilDays} for a pool of ${poolSize}`);
 
     const boxes = REV.Q_IV.map((_, b) => Object.values(u.rev).filter(r => r[0] === b).length);
     const mature = Object.values(u.rev).filter(r => REV.Q_IV[r[0]] >= REV.HOLDING_DAYS).length;
