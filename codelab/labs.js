@@ -387,5 +387,67 @@
     reset();
   };
 
+  /* waterfall — { columns, items: [{ label, start, rtt, kind }], caption }
+     A timeline in round-trip units. Each item is a bar from column `start`
+     to `start + rtt`; the total round trips is the furthest-right column any
+     bar reaches. "Reveal one more" steps the trips across so a learner sees
+     the request build up after committing to a count. `kind` (setup|request)
+     just colours the bar. Used for the single-request critical path (U3) and
+     for parallel resources across connections (U7). */
+  LABS.waterfall = function (host, params) {
+    var items = params.items || [];
+    var columns = params.columns || items.reduce(function (m, it) { return Math.max(m, it.start + it.rtt); }, 1);
+    var total = items.reduce(function (m, it) { return Math.max(m, it.start + it.rtt); }, 0);
+    var box = el("div", "cx-lab");
+    box.appendChild(el("div", "cx-lab-title", "Lab: round trips on the timeline"));
+    if (params.caption) box.appendChild(el("div", "cx-lab-hint", params.caption));
+
+    var head = el("div", "cx-wf-head");
+    head.style.gridTemplateColumns = "120px repeat(" + columns + ", 1fr)";
+    head.appendChild(el("div", "cx-wf-corner", ""));
+    for (var c = 0; c < columns; c++) head.appendChild(el("div", "cx-wf-col", "RT " + (c + 1)));
+    box.appendChild(head);
+
+    var rows = el("div", "cx-wf-rows");
+    box.appendChild(rows);
+    var stat = el("div", "cx-lab-big");
+    box.appendChild(stat);
+    var actions = el("div", "cx-chips");
+    var more = el("button", "cx-chip", "Reveal one more");
+    var all = el("button", "cx-chip", "Reveal all");
+    var reset = el("button", "cx-chip", "Reset");
+    [more, all, reset].forEach(function (b) { b.type = "button"; actions.appendChild(b); });
+    box.appendChild(actions);
+
+    var shown = 0;
+    function draw() {
+      rows.innerHTML = "";
+      items.forEach(function (it) {
+        var row = el("div", "cx-wf-row");
+        row.style.gridTemplateColumns = "120px repeat(" + columns + ", 1fr)";
+        row.appendChild(el("div", "cx-wf-label", it.label));
+        for (var c = 0; c < columns; c++) {
+          var cell = el("div", "cx-wf-cell");
+          if (c >= it.start && c < it.start + it.rtt && c < shown) {
+            cell.classList.add("fill", it.kind === "setup" ? "setup" : "request");
+          }
+          row.appendChild(cell);
+        }
+        rows.appendChild(row);
+      });
+      var done = Math.min(shown, total);
+      stat.textContent = shown >= total
+        ? "Total: " + total + (total === 1 ? " round trip" : " round trips") + " on the critical path."
+        : done + " of " + total + " round trips revealed";
+      more.disabled = shown >= total;
+      all.disabled = shown >= total;
+    }
+    more.onclick = function () { shown = Math.min(shown + 1, total); draw(); };
+    all.onclick = function () { shown = total; draw(); };
+    reset.onclick = function () { shown = 0; draw(); };
+    host.appendChild(box);
+    draw();
+  };
+
   C.labs = LABS;
 })();

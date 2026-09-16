@@ -658,6 +658,12 @@ input { font-family: var(--font); }
 .cx-bar-val { font-family: var(--mono); color: var(--ink-soft); }
 .cx-bar-track { height: 10px; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 4px; }
 .cx-bar-fill { height: 100%; background: var(--accent); border-radius: 999px; }
+.cx-wf-head, .cx-wf-row { display: grid; gap: 3px; align-items: center; margin-bottom: 3px; }
+.cx-wf-col { font-size: 10px; font-weight: 800; color: var(--muted); text-align: center; letter-spacing: 1px; }
+.cx-wf-label { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cx-wf-cell { height: 22px; border-radius: 5px; background: var(--line); }
+.cx-wf-cell.fill.setup { background: var(--gold, #d29922); }
+.cx-wf-cell.fill.request { background: var(--accent); }
 .chip-theory { background: #e0e7ff; color: #3730a3; }
 .cx-buckets { display: flex; flex-direction: column; gap: 4px; margin: 10px 0; }
 .cx-bucket { display: flex; gap: 10px; align-items: center; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-family: var(--mono); font-size: 13px; }
