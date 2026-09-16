@@ -1045,6 +1045,198 @@
     });
   }
 
+  /* ---------- operation counting (lesson.count — How Code Scales) ----------
+     Big-O is about how WORK grows, so the complexity course grades a
+     learner's function by counting operations at doubling input sizes,
+     never by timing it (a timing depends on the machine). Two sources of
+     work are counted: iterations of the learner's own loops, and elements
+     the built-in scanners may visit (harnessCount wraps those while a
+     measurement runs).
+
+     instrumentLoops puts `__OPS++;` first in every braced for/while/do body,
+     on the same line so line numbers don't move. One scanner also counts
+     loops written WITHOUT braces, which the counter can't see into — T.growth
+     refuses to measure those rather than let a hidden inner loop make
+     quadratic code look linear. Comments and string literals are skipped;
+     headers are matched with balanced parentheses, so `for (let i = f(g(x));`
+     is still a loop. Contract: tools/test-concept.js. */
+  function instrumentLoops(src) {
+    src = String(src);
+    var out = "", i = 0, n = src.length, braceless = 0;
+    var lastCode = "";            // the last non-space code character emitted
+    function isId(c) { return !!c && /[A-Za-z0-9_$]/.test(c); }
+    /* Skip a string/template/comment starting at j; returns the index after it, or -1. */
+    function skipNonCode(j) {
+      var c = src[j], d = src[j + 1];
+      if (c === "/" && d === "/") { var e = src.indexOf("\n", j); return e === -1 ? n : e; }
+      if (c === "/" && d === "*") { var e2 = src.indexOf("*/", j + 2); return e2 === -1 ? n : e2 + 2; }
+      if (c === '"' || c === "'" || c === "`") {
+        for (var k = j + 1; k < n; k++) {
+          if (src[k] === "\\") { k++; continue; }
+          if (src[k] === c) return k + 1;
+        }
+        return n;
+      }
+      return -1;
+    }
+    /* Index of the next code character at or after j (skipping space and comments). */
+    function nextCode(j) {
+      while (j < n) {
+        if (/\s/.test(src[j])) { j++; continue; }
+        if (src[j] === "/" && (src[j + 1] === "/" || src[j + 1] === "*")) { j = skipNonCode(j); continue; }
+        return j;
+      }
+      return n;
+    }
+    while (i < n) {
+      var skip = skipNonCode(i);
+      if (skip !== -1) { out += src.slice(i, skip); i = skip; continue; }
+      var c = src[i];
+      var word = null;
+      if (!isId(src[i - 1]) && src[i - 1] !== ".") {
+        if (src.substr(i, 3) === "for" && !isId(src[i + 3])) word = "for";
+        else if (src.substr(i, 5) === "while" && !isId(src[i + 5])) word = "while";
+        else if (src.substr(i, 2) === "do" && !isId(src[i + 2])) word = "do";
+      }
+      if (word === "do") {
+        var b = nextCode(i + 2);
+        out += src.slice(i, b);
+        if (src[b] === "{") { out += "{ __OPS++;"; i = b + 1; lastCode = "{"; }
+        else { braceless++; i = b; }
+        continue;
+      }
+      if (word === "for" || word === "while") {
+        var p = nextCode(i + word.length);
+        if (src[p] !== "(") { out += c; lastCode = c; i++; continue; }
+        var depth = 0, q = p;
+        for (; q < n; q++) {
+          var s2 = skipNonCode(q);
+          if (s2 !== -1) { q = s2 - 1; continue; }
+          if (src[q] === "(") depth++;
+          else if (src[q] === ")" && --depth === 0) break;
+        }
+        var after = nextCode(q + 1);
+        var doTail = word === "while" && lastCode === "}" &&
+          (after >= n || src[after] === ";" || src[after] === "}" || /\n/.test(src.slice(q + 1, after)));
+        out += src.slice(i, after);
+        if (src[after] === "{") { out += "{ __OPS++;"; i = after + 1; lastCode = "{"; }
+        else { if (!doTail) braceless++; i = after; lastCode = ")"; }
+        continue;
+      }
+      out += c;
+      if (!/\s/.test(c)) lastCode = c;
+      i++;
+    }
+    return { src: out, braceless: braceless };
+  }
+
+  function harnessCount(BRACELESS) {
+    var g = (typeof self !== "undefined") ? self : window;
+    g.__OPS = 0;
+    var T = g.T;
+
+    function lenOf(x) {
+      if (x == null) return 0;
+      if (typeof x === "string") return x.length;
+      var l = x.length;
+      return typeof l === "number" && l > 0 ? Math.floor(l) : 0;
+    }
+    function strLen(x) { return String(x).length; }
+    function resultLen(r) { return lenOf(r); }
+    function one() { return 1; }
+
+    /* [owner, key, cost, measureResult] — cost(this) before the call, or
+       cost(result) after it for methods whose work is the size of what they
+       build (slice, concat, Object.keys). */
+    var AP = Array.prototype, SP = String.prototype;
+    var TABLE = [];
+    ["includes", "indexOf", "lastIndexOf", "find", "findIndex", "findLast", "findLastIndex",
+     "some", "every", "filter", "map", "forEach", "reduce", "reduceRight", "join", "reverse",
+     "fill", "splice", "shift", "unshift", "values", "keys", "entries", "flat", "flatMap", "copyWithin"
+    ].forEach(function (k) { TABLE.push([AP, k, lenOf, false]); });
+    TABLE.push([AP, Symbol.iterator, lenOf, false]);
+    TABLE.push([AP, "slice", resultLen, true]);
+    TABLE.push([AP, "concat", resultLen, true]);
+    TABLE.push([AP, "sort", function (t) { var m = lenOf(t); return m > 1 ? m * Math.log2(m) : m; }, false]);
+    ["includes", "indexOf", "lastIndexOf", "split", "slice", "substring", "replace", "replaceAll", "repeat"
+    ].forEach(function (k) { TABLE.push([SP, k, strLen, false]); });
+    ["keys", "values", "entries"].forEach(function (k) { TABLE.push([Object, k, resultLen, true]); });
+    TABLE.push([Array, "from", resultLen, true]);
+    ["has", "add", "delete"].forEach(function (k) { TABLE.push([Set.prototype, k, one, false]); });
+    ["has", "get", "set", "delete"].forEach(function (k) { TABLE.push([Map.prototype, k, one, false]); });
+
+    var saved = null;
+    function install() {
+      saved = [];
+      TABLE.forEach(function (row) {
+        var owner = row[0], key = row[1], cost = row[2], afterCall = row[3];
+        var orig = owner[key];
+        if (typeof orig !== "function") return;
+        var wrapped = function () {
+          if (!afterCall) g.__OPS += cost(this);
+          var r = orig.apply(this, arguments);
+          if (afterCall) g.__OPS += cost(r);
+          return r;
+        };
+        saved.push([owner, key, orig]);
+        owner[key] = wrapped;
+      });
+    }
+    function uninstall() {
+      if (!saved) return;
+      for (var i = saved.length - 1; i >= 0; i--) saved[i][0][saved[i][1]] = saved[i][2];
+      saved = null;
+    }
+
+    function bandOf(counts) {
+      var ratios = [];
+      for (var i = 1; i < counts.length; i++) ratios.push(counts[i] / Math.max(counts[i - 1], 1));
+      var sorted = ratios.slice().sort(function (a, b) { return a - b; });
+      var mid = sorted.length % 2 ? sorted[(sorted.length - 1) / 2]
+        : (sorted[sorted.length / 2 - 1] + sorted[sorted.length / 2]) / 2;
+      if (!(mid > 1.3)) return "sublinear";
+      if (mid >= 1.7 && mid <= 2.4) return "linear";
+      if (mid >= 3.4) return "quadratic";
+      return "unclear";
+    }
+
+    T.ops = function () { return g.__OPS; };
+    T.resetOps = function () { g.__OPS = 0; };
+    T.bandOf = bandOf;
+    T.counted = function (arr) {
+      function idx(k) { return typeof k === "string" && /^(0|[1-9]\d*)$/.test(k); }
+      return new Proxy(arr, {
+        get: function (t, k, r) { if (idx(k)) g.__OPS++; return Reflect.get(t, k, r); },
+        set: function (t, k, v, r) { if (idx(k)) g.__OPS++; return Reflect.set(t, k, v, r); },
+        has: function (t, k) { if (idx(k)) g.__OPS++; return Reflect.has(t, k); },
+        deleteProperty: function (t, k) { if (idx(k)) g.__OPS++; return Reflect.deleteProperty(t, k); }
+      });
+    };
+    T.calls = function (fn) {
+      var w = function () { w.count++; return fn.apply(this, arguments); };
+      w.count = 0;
+      return w;
+    };
+    T.growth = function (make, work, opts) {
+      if (BRACELESS > 0)
+        throw new Error("Put braces { } around every loop body. The checks count loop iterations and can't see inside a loop written without them (" +
+          BRACELESS + (BRACELESS === 1 ? " loop" : " loops") + " found).");
+      var sizes = (opts && opts.sizes) || [250, 500, 1000, 2000];
+      var counts = [];
+      for (var i = 0; i < sizes.length; i++) {
+        var input = make(sizes[i]);
+        g.__OPS = 0;
+        install();
+        try { work(input, sizes[i]); }
+        finally { uninstall(); }
+        counts.push(Math.round(g.__OPS));
+      }
+      var ratios = [];
+      for (var j = 1; j < counts.length; j++) ratios.push(Math.round(counts[j] / Math.max(counts[j - 1], 1) * 100) / 100);
+      return { band: bandOf(counts), counts: counts, ratios: ratios, sizes: sizes.slice() };
+    };
+  }
+
   /* `export default { … }` is a SyntaxError under (0,eval) in a classic
      worker, but it is the first line of every real Cloudflare Worker — and
      the Deploying course's whole claim is that the learner's file is
@@ -1326,7 +1518,10 @@
        first, so its line numbers are exact; the sourceURL names the frames
        script.js, and __USER_LINES tells the stack hook where the learner's
        file ends and the appended checkpoints begin. */
-    var evalBlob = transpileModuleish(userCode) + "\n;\n" + stepsSource(lesson) + "\n//# sourceURL=script.js";
+    /* lesson.count instruments the LEARNER'S code only — the checkpoints
+       appended after it build inputs with loops that must not be counted. */
+    var counting = lesson.count ? instrumentLoops(transpileModuleish(userCode)) : null;
+    var evalBlob = (counting ? counting.src : transpileModuleish(userCode)) + "\n;\n" + stepsSource(lesson) + "\n//# sourceURL=script.js";
     var userLines = String(userCode).split("\n").length;
     return [
       'var __send = function (m) { try { postMessage(m); } catch (e) { try { postMessage({ type: "console", level: "warn", text: "(unprintable value)" }); } catch (e2) {} } };',
@@ -1336,6 +1531,7 @@
       lesson.crypto ? "(" + harnessCrypto.toString() + ")();" : "",
       lesson.clock != null ? "(" + harnessClock.toString() + ")(" + JSON.stringify(lesson.clock) + ");" : "",
       lesson.warehouse ? "(" + harnessWarehouse.toString() + ")(" + JSON.stringify(lesson.warehouse) + ");" : "",
+      counting ? "(" + harnessCount.toString() + ")(" + counting.braceless + ");" : "",
       /* authsim.js (a simulated browser, cookie jar and web sites) is one
          self-contained function, copied in like the harnesses above. */
       lesson.browser ? (window.CODELAB_AUTHSIM ? "(" + window.CODELAB_AUTHSIM.toString() + ")(self);" : "throw new Error('authsim.js is not loaded — add it to index.html');") : "",

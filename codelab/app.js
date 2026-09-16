@@ -201,6 +201,7 @@
   function chipOf(lesson) {
     if (lesson.project) return "PROJECT";
     if (lesson.kind === "quiz") return "QUIZ";
+    if (lesson.kind === "concept") return lesson.chip || "THEORY";
     if (lesson.kind === "shell") return lesson.chip || "SHELL";
     return lesson.chip || (lesson.kind === "js" ? "JS" : "WEB");
   }
@@ -1513,6 +1514,7 @@
     var entry = courseLessons(course)[gi];
     if (!entry) { renderCourse(course); return; }
     if (entry.lesson.kind === "quiz") { renderQuiz(entry); return; }
+    if (entry.lesson.kind === "concept") { renderConcept(entry); return; }
     renderWorkspace(entry, false, drill);
   }
   function openPlayground() {
@@ -2206,6 +2208,408 @@
   }
 
   /* ============================================================
+     CONCEPT LESSONS — theory, one committed answer at a time
+     ------------------------------------------------------------
+     A run of screens: a little reading, then one question the learner
+     answers BEFORE the explanation shows (concept.js holds the rules
+     and grading). A first miss shows why that answer is wrong; a
+     second reveals the answer, and the learner enters it themselves to
+     move on, so nobody is stuck and nobody skips. Explains are checked
+     by the learner against a rubric and reported apart from the graded
+     answers, never merged into one number. "Test out" shows only the
+     transfer questions, and one miss drops into the full lesson.
+     Nothing new is stored: completion goes through completeLesson.
+     ============================================================ */
+  function renderConcept(entry, mode) {
+    clear();
+    var CX = window.CODELAB.concept;
+    var lesson = entry.lesson;
+    var course = entry.course;
+    var screens = lesson.screens || [];
+    var transfers = CX.transferIndexes(lesson);
+    var testOut = mode === "testout";
+    var order = testOut ? transfers : screens.map(function (_, i) { return i; });
+    var pos = 0;
+    var firstTry = {};                       // screen index -> first attempt right?
+    var claims = { points: 0, ticked: 0, count: 0 };
+
+    var scr = el("div", "lesson quiz concept");
+    var top = el("div", "l-top");
+    var back = el("button", "l-x", "✕");
+    back.onclick = function () { renderCourse(course); };
+    top.appendChild(back);
+    var tt = el("div", "l-tt");
+    tt.appendChild(el("div", "l-kicker", esc(course.title).toUpperCase() + (testOut ? " · TEST OUT" : " · THEORY")));
+    tt.appendChild(el("div", "l-title", esc(lesson.title)));
+    top.appendChild(tt);
+    var prog = el("div", "l-badge", "");
+    top.appendChild(prog);
+    scr.appendChild(top);
+    var body = el("div", "quiz-body");
+    scr.appendChild(body);
+    app.appendChild(scr);
+    function setProg(text) { prog.textContent = text; prog.style.visibility = text ? "" : "hidden"; }
+
+    function codeBlock(src, lang) {
+      var pre = el("pre", "q-code");
+      pre.innerHTML = "<code>" + window.CODELAB.hl(src, lang || "js") + "</code>";
+      return pre;
+    }
+    function shuffled(n) {
+      var o = []; for (var i = 0; i < n; i++) o.push(i);
+      for (var s = n - 1; s > 0; s--) { var r = Math.floor(Math.random() * (s + 1)); var t = o[s]; o[s] = o[r]; o[r] = t; }
+      return o;
+    }
+
+    function intro() {
+      setProg("");
+      body.innerHTML = "";
+      var inner = el("div", "quiz-in");
+      var graded = screens.filter(function (s) { return CX.isEvidence(s.ask); }).length;
+      inner.appendChild(el("div", "q-kicker", "Theory lesson"));
+      inner.appendChild(el("div", "quiz-brief",
+        mdBlock("**" + plural(graded, "question", "questions") + " · about " + minsOf(lesson) + " min**\n\n" +
+          "You answer before each explanation appears, so expect to get some wrong at first. That's how it's meant to work.")));
+      var start = el("button", "btn btn-green", "Start");
+      start.onclick = function () { renderConcept(entry, "full"); };
+      inner.appendChild(start);
+      if (transfers.length >= 2) {
+        var skip = el("button", "btn btn-ghost", "Test out · " + plural(transfers.length, "question", "questions"));
+        skip.onclick = function () { renderConcept(entry, "testout"); };
+        inner.appendChild(skip);
+        inner.appendChild(el("div", "cx-note", "Already know this? Answer the test-out questions with no reading. Get them all right the first time and the lesson is done; miss one and you start the lesson."));
+      }
+      body.appendChild(inner);
+      window.scrollTo(0, 0);
+    }
+
+    function show() {
+      body.innerHTML = "";
+      if (pos >= order.length) { finish(); return; }
+      setProg((pos + 1) + "/" + order.length);
+      var idx = order[pos];
+      var s = screens[idx];
+      var inner = el("div", "quiz-in");
+      if (s.read && !testOut) inner.appendChild(el("div", "quiz-brief cx-read", mdBlock(s.read)));
+      body.appendChild(inner);
+      window.scrollTo(0, 0);
+
+      function next() {
+        var last = pos === order.length - 1;
+        var cont = el("button", "btn btn-green", last ? "Finish" : "Continue");
+        cont.onclick = function () { pos++; show(); };
+        inner.appendChild(cont);
+        cont.scrollIntoView({ block: "nearest" });
+      }
+      if (!s.ask) { next(); return; }
+      askView(s.ask, inner, function (res) {
+        if (res.graded) firstTry[idx] = res.first;
+        next();
+      });
+    }
+
+    /* Renders one question into host and calls done({ graded, first })
+       once it is resolved. */
+    function askView(ask, host, done) {
+      if (ask.type === "lab") {
+        askView(ask.predict, host, function (res) {
+          var lh = el("div", "cx-lab-host");
+          host.appendChild(lh);
+          var lab = window.CODELAB.labs && window.CODELAB.labs[ask.lab];
+          if (lab) lab(lh, ask.params || {});
+          else lh.appendChild(el("div", "cx-note", "This lab didn't load. Reload the page to try again."));
+          done(res);
+        });
+        return;
+      }
+      if (ask.q) host.appendChild(el("div", "q-prompt", mdInline(ask.q)));
+      if (ask.code) host.appendChild(codeBlock(ask.code, ask.lang));
+      if (ask.type === "explain") { explainView(ask, host, done); return; }
+
+      var misses = 0, revealed = false, fbNode = null;
+      function feedback(good, html) {
+        if (fbNode) fbNode.remove();
+        fbNode = el("div", "q-fb " + (good ? "ok" : "no"), html);
+        host.appendChild(fbNode);
+        fbNode.scrollIntoView({ block: "nearest" });
+      }
+      /* A wrong attempt. Returns true when the caller should now reveal. */
+      function missed(whyHtml) {
+        misses++;
+        if (testOut) { testOutFailed(); return false; }
+        if (misses === 1) { feedback(false, "<b>Not quite.</b> " + (whyHtml ? whyHtml + " " : "") + "Try again."); return false; }
+        revealed = true;
+        return true;
+      }
+      function right(whyText) {
+        feedback(true, (revealed ? "<b>That's it.</b> " : "<b>Correct!</b> ") + mdInline(whyText || ""));
+        done({ graded: true, first: misses === 0 });
+      }
+
+      if (ask.type === "predict") {
+        var row = el("div", "rv-input-row");
+        var input = el("input", "rv-input");
+        input.setAttribute("autocomplete", "off");
+        input.setAttribute("autocapitalize", "off");
+        input.setAttribute("spellcheck", "false");
+        input.setAttribute("enterkeyhint", "done");
+        input.placeholder = "Your answer";
+        var check = el("button", "btn btn-green", "Check");
+        row.appendChild(input); row.appendChild(check);
+        host.appendChild(row);
+        var submit = function () {
+          if (check.disabled || !input.value.trim()) return;
+          if (CX.gradePredict(ask, input.value)) {
+            input.disabled = true; check.disabled = true;
+            right(ask.why);
+          } else if (missed("")) {
+            feedback(false, "<b>The answer is " + mdInline("`" + ask.answer + "`") + ".</b> " + mdInline(ask.why) + " Type it to continue.");
+            input.value = ""; input.focus();
+          }
+        };
+        check.onclick = submit;
+        input.onkeydown = function (e) { if (e.key === "Enter") submit(); };
+        return;
+      }
+
+      if (ask.type === "pick") {
+        var box = el("div", "q-choices");
+        var buttons = [];
+        shuffled(ask.choices.length).forEach(function (orig) {
+          var b = el("button", "q-choice", mdInline(ask.choices[orig]));
+          b.onclick = function () {
+            if (b.disabled) return;
+            if (CX.gradePick(ask, orig)) {
+              buttons.forEach(function (x) { x.btn.disabled = true; x.btn.classList.remove("cx-target"); });
+              b.classList.add("correct");
+              right(ask.why[orig]);
+            } else {
+              b.classList.add("wrong");
+              b.disabled = true;
+              if (missed(mdInline(ask.why[orig] || ""))) {
+                buttons.forEach(function (x) { if (x.orig === ask.answer) x.btn.classList.add("cx-target"); });
+                feedback(false, "<b>Not quite.</b> " + mdInline(ask.why[orig] || "") + " The right answer is outlined. Tap it to continue.");
+              }
+            }
+          };
+          buttons.push({ orig: orig, btn: b });
+          box.appendChild(b);
+        });
+        host.appendChild(box);
+        return;
+      }
+
+      if (ask.type === "order") {
+        var items = ask.lines.concat(ask.distractors || []);
+        var pool = shuffled(items.length);
+        var built = [];
+        host.appendChild(el("div", "cx-note", "Tap the lines in order to build your answer. Tap a placed line to take it back." +
+          ((ask.distractors || []).length ? " Not every line belongs." : "")));
+        var builtBox = el("div", "cx-built");
+        var poolBox = el("div", "cx-pool");
+        var acts = el("div", "cx-acts");
+        var checkO = el("button", "btn btn-green", "Check");
+        var fill = el("button", "btn btn-ghost", "Use the correct order");
+        fill.style.display = "none";
+        acts.appendChild(checkO); acts.appendChild(fill);
+        host.appendChild(builtBox); host.appendChild(poolBox); host.appendChild(acts);
+        var locked = false;
+        var line = function (i, where) {
+          var b = el("button", "q-choice cx-line");
+          b.textContent = items[i];
+          b.onclick = function () {
+            if (locked) return;
+            if (where === "built") { built.splice(built.indexOf(i), 1); pool.push(i); }
+            else { pool.splice(pool.indexOf(i), 1); built.push(i); }
+            drawO();
+          };
+          return b;
+        };
+        var drawO = function (wrongAt) {
+          builtBox.innerHTML = ""; poolBox.innerHTML = "";
+          if (!built.length) builtBox.appendChild(el("div", "cx-empty", "Your answer appears here"));
+          built.forEach(function (i, p) {
+            var b = line(i, "built");
+            if (p === wrongAt) b.classList.add("wrong");
+            builtBox.appendChild(b);
+          });
+          pool.forEach(function (i) { poolBox.appendChild(line(i, "pool")); });
+        };
+        checkO.onclick = function () {
+          var res = CX.gradeOrder(ask, built.map(function (i) { return items[i]; }));
+          if (res.ok) {
+            locked = true; checkO.disabled = true; fill.style.display = "none";
+            drawO();
+            right(ask.why);
+          } else {
+            drawO(res.firstWrong);
+            if (missed(res.firstWrong < built.length ? "The first line out of place is marked." : "Some lines are still missing.")) {
+              fill.style.display = "";
+              feedback(false, "<b>Not quite.</b> " + mdInline(ask.why) + " Tap **Use the correct order**, read it, then Check.");
+            }
+          }
+        };
+        fill.onclick = function () {
+          built = ask.lines.map(function (_, i) { return i; });
+          pool = (ask.distractors || []).map(function (_, j) { return ask.lines.length + j; });
+          drawO();
+        };
+        drawO();
+        return;
+      }
+
+      if (ask.type === "trace") {
+        var given = ask.given || 0;
+        var wrap = el("div", "cx-trace-wrap");
+        var table = el("table", "cx-trace");
+        var thead = el("tr");
+        thead.appendChild(el("th", "", "#"));
+        ask.columns.forEach(function (c) { var th = el("th"); th.textContent = c; thead.appendChild(th); });
+        table.appendChild(thead);
+        var inputs = [];
+        ask.rows.forEach(function (r, ri) {
+          var tr = el("tr");
+          tr.appendChild(el("td", "cx-rownum", String(ri + 1)));
+          inputs.push([]);
+          r.forEach(function (v, ci) {
+            var td = el("td");
+            if (ci < given) { td.textContent = String(v); inputs[ri].push(null); }
+            else {
+              var inp = el("input", "rv-input cx-cell");
+              inp.setAttribute("autocomplete", "off");
+              inp.setAttribute("autocapitalize", "off");
+              inp.setAttribute("spellcheck", "false");
+              inp.setAttribute("aria-label", ask.columns[ci] + ", row " + (ri + 1));
+              td.appendChild(inp);
+              inputs[ri].push(inp);
+            }
+            tr.appendChild(td);
+          });
+          table.appendChild(tr);
+        });
+        wrap.appendChild(table);
+        host.appendChild(wrap);
+        var actsT = el("div", "cx-acts");
+        var checkT = el("button", "btn btn-green", "Check");
+        var fillT = el("button", "btn btn-ghost", "Fill in the answers");
+        fillT.style.display = "none";
+        actsT.appendChild(checkT); actsT.appendChild(fillT);
+        host.appendChild(actsT);
+        checkT.onclick = function () {
+          var cells = inputs.map(function (row, ri) {
+            return row.map(function (inp, ci) { return inp ? inp.value : String(ask.rows[ri][ci]); });
+          });
+          inputs.forEach(function (row) { row.forEach(function (inp) { if (inp) inp.classList.remove("cx-bad"); }); });
+          var res = CX.gradeTrace(ask, cells);
+          if (res.ok) {
+            inputs.forEach(function (row) { row.forEach(function (inp) { if (inp) inp.disabled = true; }); });
+            checkT.disabled = true; fillT.style.display = "none";
+            right(ask.why);
+          } else {
+            var bad = inputs[res.firstWrong[0]][res.firstWrong[1]];
+            if (bad) bad.classList.add("cx-bad");
+            if (missed("The first cell that's off is marked.")) {
+              fillT.style.display = "";
+              feedback(false, "<b>Not quite.</b> " + mdInline(ask.why) + " Tap **Fill in the answers**, read them, then Check.");
+            }
+          }
+        };
+        fillT.onclick = function () {
+          inputs.forEach(function (row, ri) { row.forEach(function (inp, ci) { if (inp) { inp.value = String(ask.rows[ri][ci]); inp.classList.remove("cx-bad"); } }); });
+        };
+        return;
+      }
+    }
+
+    function explainView(ask, host, done) {
+      var ta = el("textarea", "rv-input cx-text");
+      ta.rows = 3;
+      ta.placeholder = "One or two sentences, in your own words";
+      host.appendChild(ta);
+      var reveal = el("button", "btn btn-green", "Show the model answer");
+      reveal.disabled = true;
+      ta.oninput = function () { reveal.disabled = !ta.value.trim(); };
+      host.appendChild(reveal);
+      reveal.onclick = function () {
+        if (!ta.value.trim()) return;
+        ta.disabled = true; reveal.remove();
+        host.appendChild(el("div", "quiz-brief cx-model", "<b>Model answer</b>" + mdBlock(ask.model)));
+        host.appendChild(el("div", "cx-note", "Tick what your answer covered. This is your own check: it isn't graded, and it's reported separately."));
+        var boxes = [];
+        var list = el("div", "cx-rubric");
+        ask.rubric.forEach(function (r) {
+          var lab = el("label", "cx-rubric-item");
+          var cb = document.createElement("input");
+          cb.type = "checkbox";
+          lab.appendChild(cb);
+          lab.appendChild(el("span", "", mdInline(r)));
+          list.appendChild(lab);
+          boxes.push(cb);
+        });
+        host.appendChild(list);
+        var ok = el("button", "btn btn-ghost", "Done checking");
+        ok.onclick = function () {
+          ok.remove();
+          boxes.forEach(function (cb) { cb.disabled = true; });
+          claims.count++;
+          claims.points += boxes.length;
+          claims.ticked += boxes.filter(function (cb) { return cb.checked; }).length;
+          done({ graded: false });
+        };
+        host.appendChild(ok);
+        ok.scrollIntoView({ block: "nearest" });
+      };
+    }
+
+    function testOutFailed() {
+      body.innerHTML = "";
+      setProg("");
+      var inner = el("div", "quiz-in center");
+      inner.appendChild(el("div", "done-emoji", "📘"));
+      inner.appendChild(el("h2", "done-title", "Not yet"));
+      inner.appendChild(el("div", "done-sub", "That answer was off, so the full lesson is the quicker route. Nothing was recorded."));
+      var acts = el("div", "done-actions");
+      var go = el("button", "btn btn-green", "Start the lesson");
+      go.onclick = function () { renderConcept(entry, "full"); };
+      acts.appendChild(go);
+      var home = el("button", "btn btn-ghost", "Back to course");
+      home.onclick = function () { renderCourse(course); };
+      acts.appendChild(home);
+      inner.appendChild(acts);
+      body.appendChild(inner);
+      window.scrollTo(0, 0);
+    }
+
+    function finish() {
+      setProg("");
+      var keys = Object.keys(firstTry);
+      var firstRight = keys.filter(function (k) { return firstTry[k]; }).length;
+      var inner = el("div", "quiz-in center");
+      inner.appendChild(el("div", "done-emoji", testOut ? "⚡" : "🧠"));
+      inner.appendChild(el("h2", "done-title", testOut ? "Tested out!" : "Lesson finished"));
+      var sub = "Right the first time: " + firstRight + " of " + keys.length + " graded answers";
+      if (claims.count) sub += "<br>Explanations: you ticked " + claims.ticked + " of " + claims.points + " rubric points (self-checked, not graded)";
+      inner.appendChild(el("div", "done-sub", sub));
+      var acts = el("div", "done-actions");
+      if (!isDone(lesson.id)) {
+        var claim = el("button", "btn btn-green", "Claim +" + xpOf(lesson) + " XP");
+        claim.onclick = function () { completeLesson(entry); };
+        acts.appendChild(claim);
+      } else {
+        var b2 = el("button", "btn btn-green", "Back to course");
+        b2.onclick = function () { renderCourse(course); };
+        acts.appendChild(b2);
+      }
+      inner.appendChild(acts);
+      body.innerHTML = "";
+      body.appendChild(inner);
+      window.scrollTo(0, 0);
+    }
+
+    if (mode) show(); else intro();
+  }
+
+  /* ============================================================
      RECALL — spaced repetition over the quiz bank
      ------------------------------------------------------------
      One card is one quiz question shown WITHOUT its four choices,
@@ -2882,6 +3286,11 @@
     /* Exercises the real migration by planting a pre-split profile in the
        LIVE store. Writing localStorage directly and reloading does not work:
        the pagehide flush would overwrite the plant on the way out. */
+    /* Render any concept lesson (an authoring preview, and how the browser
+       check exercises ask types no shipped lesson uses yet). */
+    concept: function (lesson, mode) {
+      renderConcept({ lesson: lesson, course: COURSES[0], unit: { title: "Preview" }, gi: -1, unitIndex: -1 }, mode || "full");
+    },
     migrateCodeForTest: function (lessonId, files) {
       var u = me(); if (!u) return null;
       u.code = {}; u.code[lessonId] = files;
@@ -2981,6 +3390,10 @@
         }).length;
         return Promise.resolve({ quiz: true, questions: (lesson.questions || []).length, invalid: bad });
       }
+      if (lesson.kind === "concept") {
+        return Promise.resolve({ concept: true, screens: (lesson.screens || []).length,
+          problems: window.CODELAB.concept.checkLesson(lesson) });
+      }
       var files = starterFiles(lesson);
       if (useSolution && lesson.solution) {
         Object.keys(lesson.solution).forEach(function (n) { files[n] = lesson.solution[n]; });
@@ -2992,7 +3405,7 @@
        to learn which checkpoint each change is for. */
     runFiles: function (id, files) {
       var lesson = window.CODELAB.dev.lesson(id);
-      if (!lesson || lesson.kind === "quiz") return Promise.reject(new Error("No coding lesson " + id));
+      if (!lesson || lesson.kind === "quiz" || lesson.kind === "concept") return Promise.reject(new Error("No coding lesson " + id));
       var host = document.createElement("div");
       host.style.cssText = "position:fixed;left:-12000px;top:0;width:1000px;height:700px;";
       document.body.appendChild(host);

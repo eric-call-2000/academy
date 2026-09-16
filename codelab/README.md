@@ -425,7 +425,7 @@ grades them, and the rest of the catalog simply reads better for them:
 
 ```js
 {
-  id: "html-u2-9", title: "…", kind: "web",        // "web" | "js" | "quiz"
+  id: "html-u2-9", title: "…", kind: "web",        // "web" | "js" | "shell" | "quiz" | "concept"
   chip: "HTML", xp: 15, mins: 10,                   // project: true for projects
   brief: "Markdown-ish teaching text.",
   steps: [{ text: "Do X.", test: "T.expect(T.$('h1'), 'No h1 yet.');" }],
@@ -433,6 +433,23 @@ grades them, and the rest of the catalog simply reads better for them:
   hints: ["…"], solution: { "index.html": "…passes every step…" }
 }
 ```
+
+**A concept lesson** (theory, no editor) — screens of short reading, each followed by one question the learner commits to before the explanation appears. `concept.js` grades them; its contract is the header of `tools/test-concept.js`:
+
+```js
+{
+  id: "algo-u2-2", title: "…", kind: "concept", xp: 15, mins: 13,
+  screens: [
+    { read: "≤180 words of markdown", ask: { type: "predict", q: "What does this print?",
+      code: "…", answer: "10", why: "…", run: true, transfer: true } },
+    { ask: { type: "pick", q: "…", choices: ["…", "…", "…"], answer: 1, why: ["…", "…", "…"] } }
+  ]
+}
+```
+
+Ask types: `predict` (typed), `pick` (a `why` per choice: the refutation for wrong ones, the explanation for the answer), `order` (Parsons; `distractors`, `groups` of swappable lines), `trace` (a table of values; `given` leading columns), `lab` (an interactive model from `labs.js`, opened only after its `predict`/`pick` is answered) and `explain` (self-checked against a `rubric`; never counted as graded). Phase 0 enforces it: `run: true` executes the code (or hidden `check` code) and the printed output must match the key; `mins` must sit between the modelled floor (words ÷ 200 + 1.5 per graded ask + 3 per lab or explain) and twice it; at least two `transfer` asks per lesson feed **Test out**. A course with `theory: true` must spend at least 60% of its minutes in concept lessons. Preview any lesson object in the browser with `CODELAB.dev.concept(lesson)`.
+
+**Growth checkpoints** (`count: true`, kind `js`) — `T.growth(make, work)` runs `work` at n = 250, 500, 1000 and 2000 and returns `{ band, counts, ratios }`, where `band` is `sublinear`, `linear`, `quadratic` or `unclear`. It counts passes of the learner's own braced loops plus the elements built-in scanners like `includes` may visit, never time, and refuses code with a brace-less loop. Also `T.counted(array)` and `T.calls(fn)`.
 
 **A unit** — new file calling `window.CODELAB.addUnit("courseId", {…})`, listed in that course's `files` in `courses.js`.
 

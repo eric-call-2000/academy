@@ -85,10 +85,13 @@ function phase0() {
   }
 
   const ids = new Set();
-  let totals = { lessons: 0, quizzes: 0, projects: 0, steps: 0, questions: 0, mins: 0 };
+  let totals = { lessons: 0, quizzes: 0, projects: 0, steps: 0, questions: 0, mins: 0, concepts: 0, asks: 0 };
+  const CX = require(path.join(ROOT, "concept.js"));
   for (const course of window.CODELAB.courses) {
     let count = 0;
     let courseMins = 0;
+    let conceptMins = 0;
+    let pickTotal = 0, pickLongest = 0;
     for (const unit of course.units) {
       if (!unit.cheat || !unit.cheat.length) fail(`unit ${unit.id || unit.title} (${course.id}): missing cheatsheet`);
       for (const l of unit.lessons) {
@@ -107,6 +110,27 @@ function phase0() {
             if (!q.q || !q.choices || q.answer == null || !q.choices[q.answer] || !q.explain)
               fail(`${l.id} q${i}: malformed question`);
           });
+        } else if (l.kind === "concept") {
+          totals.concepts++;
+          conceptMins += lessonMins;
+          CX.checkLesson(l).forEach(fail);
+          for (const [si, sc] of (l.screens || []).entries()) {
+            const asks = sc.ask ? (sc.ask.type === "lab" ? [sc.ask.predict, sc.ask] : [sc.ask]) : [];
+            for (const a of asks) {
+              if (!a) continue;
+              if (a.type !== "lab") totals.asks++;
+              const where = `${l.id} screen ${si + 1}`;
+              if (a.run) verifyRun(a, where, CX);
+              if (a.type === "lab") verifyLab(a, where);
+              /* The same length tell the quiz bank is gated on: a pick whose
+                 right answer is reliably the longest choice is spot-the-long-one. */
+              if (a.type === "pick" && Array.isArray(a.choices) && a.choices[a.answer]) {
+                pickTotal++;
+                const others = a.choices.filter((_, i) => i !== a.answer).map(c => c.length);
+                if (a.choices[a.answer].length > Math.max(...others)) pickLongest++;
+              }
+            }
+          }
         } else {
           totals.lessons++;
           if (l.project) totals.projects++;
@@ -216,6 +240,18 @@ function phase0() {
               if (srcs.indexOf(call + "(") !== -1)
                 fail(`${l.id}: calls ${call}() but does not set \`warehouse\` — harnessWarehouse provides db and those T helpers (see runner.js)`);
             }
+            /* harnessCount is opt-in like warehouse: its T helpers don't exist
+               without the flag, and it instruments the Worker's learner code. */
+            if (!l.count) for (const call of ["T.growth", "T.counted", "T.calls", "T.ops", "T.resetOps"]) {
+              if (srcs.indexOf(call + "(") !== -1)
+                fail(`${l.id}: calls ${call}() but does not set \`count: true\` — harnessCount provides it (see runner.js)`);
+            }
+            if (l.count && l.kind !== "js")
+              fail(`${l.id}: \`count\` instruments the JS Worker, so the lesson must be kind "js" (it is "${l.kind}")`);
+            /* How Code Scales grades growth by counting, never by the clock:
+               a timing passes on a fast machine and fails on a slow one. */
+            if (/^algo-/.test(l.id) && /performance\.now\s*\(|Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
+              fail(`${l.id}: reads a clock — complexity lessons measure growth with T.growth (operation counts), never with timing`);
             if (/^(auth|etl)-/.test(l.id) && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
               fail(`${l.id}: reads the real clock (Date.now / new Date()) — set \`clock\` and use now() and T.advance(ms), or the lesson passes or fails depending on when it runs`);
           }
@@ -263,11 +299,21 @@ function phase0() {
       if (!window.CODELAB._catById[cat]) fail(`course ${course.id}: unknown category "${cat}"`);
     }
 
+    /* A theory course is one whose time is mostly concept lessons. The chip
+       on the catalog says THEORY, so the share has to be real. */
+    const THEORY_SHARE = 0.6;
+    if (course.theory && courseMins && conceptMins / courseMins < THEORY_SHARE)
+      fail(`course ${course.id}: marked theory but only ${Math.round(conceptMins / courseMins * 100)}% of its modelled minutes are concept lessons (needs ${THEORY_SHARE * 100}%)`);
+    if (!course.theory && conceptMins && conceptMins / courseMins >= THEORY_SHARE)
+      fail(`course ${course.id}: ${Math.round(conceptMins / courseMins * 100)}% concept lessons — mark it \`theory: true\``);
+    if (pickTotal && Math.round(pickLongest / pickTotal * 100) > 40)
+      fail(`course ${course.id}: in concept picks the correct answer is the longest choice ${Math.round(pickLongest / pickTotal * 100)}% of the time (max 40%) — lengthen a distractor`);
+
     const target = course.targetHours ? `, target ${course.targetHours}h` : "";
     const crLabel = course.stub ? `stub, planned ${course.plannedCredits || 0}cr` : `${course.credits}cr`;
     console.log(`  ${course.id}: ${count} items (manifest ${course.items}) ~${course.hours}h (model ~${modelHours.toFixed(1)}h${target}) ${crLabel}`);
   }
-  console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ~${Math.round(totals.mins / 60)}h of material`);
+  console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ${totals.concepts} concept lessons (${totals.asks} asks), ~${Math.round(totals.mins / 60)}h of material`);
 
   positionGates();
   stepSolutionGates();   // needs the loaded catalog, which recallAndSyncGates clears
@@ -278,6 +324,66 @@ function phase0() {
   cryptoGates();
   warehouseGates();
   authsimGates();
+  conceptGates();
+}
+
+/* ---------------- concept lessons ----------------
+   A theory lesson has no starter that must fail, so the check that keeps
+   it honest is the answer key: an ask marked `run` has its code (or its
+   hidden `check` code) executed here, and what it prints must be the
+   authored answer. A wrong key can't ship. */
+function verifyRun(a, where, CX) {
+  const vm = require("vm");
+  const lines = [];
+  const src = a.check || a.code;
+  try {
+    vm.runInNewContext(src, { console: { log: (...args) => lines.push(CX.formatLog(args)) } }, { timeout: 2000 });
+  } catch (e) {
+    fail(`${where}: run code threw — ${e.message}`);
+    return;
+  }
+  const out = lines.join("\n");
+  if (a.type === "predict") {
+    if (!CX.gradePredict(a, out)) fail(`${where}: the code prints ${JSON.stringify(out)} but the answer key says ${JSON.stringify(a.answer)}`);
+  } else if (a.type === "pick") {
+    if (out.trim() !== String(a.answer)) fail(`${where}: check code prints ${JSON.stringify(out)} but the pick answer is ${a.answer}`);
+  } else if (a.type === "trace") {
+    let rows = null;
+    try { rows = JSON.parse(out); } catch (e) {}
+    if (JSON.stringify(rows) !== JSON.stringify(a.rows)) fail(`${where}: check code prints ${out} but the trace rows are ${JSON.stringify(a.rows)}`);
+  }
+}
+
+/* Labs run author code in the page on a phone, so each counting function
+   must return a number at every size it offers, and all of them together
+   must stay quick. */
+function verifyLab(a, where) {
+  const vm = require("vm");
+  if (a.lab !== "doubling") return;
+  const p = a.params || {};
+  const started = Date.now();
+  for (const f of (p.fns || [])) {
+    let fn;
+    try { fn = vm.runInNewContext("(" + f.code + ")", {}, { timeout: 1000 }); }
+    catch (e) { fail(`${where}: lab function ${f.label} doesn't compile — ${e.message}`); continue; }
+    for (const n of (p.sizes || [])) {
+      const v = fn(n);
+      if (typeof v !== "number" || !isFinite(v)) fail(`${where}: lab function ${f.label} returned ${v} at n = ${n}`);
+    }
+  }
+  const ms = Date.now() - started;
+  if (ms > 400) fail(`${where}: lab functions take ${ms}ms across their sizes (max 400ms) — lower the sizes`);
+}
+
+function conceptGates() {
+  console.log("\n== Phase 0k: concept grading & operation counting ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-concept.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
+  } catch (e) {
+    fail("concept tests failed:\n" + String(e.stdout || e.message));
+  }
 }
 
 /* The Authentication course grades signatures, JWTs, PKCE challenges and
@@ -769,6 +875,12 @@ async function main() {
       const r = await page.evaluate((i) => window.CODELAB.dev.run(i, true), id);
       if (r.invalid > 0) fail(`${id}: ${r.invalid} malformed quiz questions`);
       else ok(`${id} (quiz, ${r.questions} questions)`);
+      continue;
+    }
+    if (kind === "concept") {
+      const r = await page.evaluate((i) => window.CODELAB.dev.run(i, true), id);
+      if (r.problems.length) r.problems.forEach(pr => fail(pr));
+      else ok(`${id} (concept, ${r.screens} screens)`);
       continue;
     }
     const nSteps = await page.evaluate((i) => (window.CODELAB.dev.lesson(i).steps || []).length, id);

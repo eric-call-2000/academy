@@ -62,6 +62,12 @@ async function main() {
       else ok(`${id} (quiz, ${r.questions} questions)`);
       continue;
     }
+    if (kind === "concept") {
+      const r = await page.evaluate((i) => window.CODELAB.dev.run(i, true), id);
+      if (r.problems.length) r.problems.forEach(pr => fail(pr));
+      else ok(`${id} (concept, ${r.screens} screens)`);
+      continue;
+    }
     const nSteps = await page.evaluate((i) => (window.CODELAB.dev.lesson(i).steps || []).length, id);
     let sol;
     try { sol = await page.evaluate((i) => window.CODELAB.dev.run(i, true), id); }
