@@ -103,7 +103,7 @@ Modelled at 14 min per concept lesson, 12 per js lesson, 35 for the concept proj
 
 **Position impact, checked against phase 0 on main d123507:** 6 of 7 positions reachable, 16 fnd credits built. `algo` is an elective on every sheet, so no sheet changes and no reachability changes. It raises fnd supply 16 → 20. It gives the Data and QA sheets a natural fnd elective; the ETL research doc noted Data's required courses leave fnd one short.
 
-**Decided (Eric, 2026-09-16): `algo` is required on the Backend and Full-Stack sheets.** Each sheet's total follows the course's credits as tranches land (required + ~3): with tranche A built at 1 credit the totals are 36 and 45, and they reach 39 and 48 when the course is complete at 4.
+**Decided (Eric, 2026-09-16): `algo` is required on the Backend and Full-Stack sheets.** Each sheet's total follows the course's credits as tranches land (required + ~3): 36 and 45 at tranche A (1 credit), 38 and 47 at tranche B (3 credits), and 39 and 48 when the course is complete at 4.
 
 ## Engine needs (course-specific)
 About 150 lines in runner.js, on top of the format engine above.
@@ -116,6 +116,14 @@ About 150 lines in runner.js, on top of the format engine above.
 EXPLICITLY NOT NEEDED: shell.js, any simulator, `lesson.clock`, the network or `sync.js` changes.
 
 **Tranche A as built (2026-09-16).** Format engine (`concept.js`, `renderConcept`, `labs.js` with `doubling` and `halving`, CSS on the themed quiz classes), `harnessCount`, phase 0k (`tools/test-concept.js`, 62 cases, written first), and Units 1–2: 7 concept lessons, 1 js lesson and 2 quizzes, 123 modelled minutes (82% concept) → 1 credit {fnd 1}, `targetHours: 9`. Lesson minutes came out higher than this doc's flat 14 min estimate for some lessons and lower for others once the words-based floor was applied (11–17 min). The Unit 1 js lesson grades the starter's `includes` loop as quadratic (counts 31,625 / 125,750 / 501,500 / 2,003,000) and a Set rewrite as linear.
+
+**Tranche B as built (2026-09-16).** Units 3–5: 8 concept lessons, 4 js lessons and 3 quizzes. The course is now 25 items, ~5.3h modelled → **3 credits {fnd 3}**. Changes from the plan above:
+- **`calltree` moved to tranche C**, where U6 uses it; tranche B needed only `buckets`.
+- **`buckets` uses 16 buckets, not 8.** With the 10 lesson keys, 8 buckets left the good (all-letters) hash with a 3-key bucket, which undercut the lesson; at 16 the first-letter hash still stacks 4 and the good hash never more than 2. Every prediction in U4-1 keeps its answer (97 % 16 is 1, 98 % 16 is 2).
+- **`T.reads()` was added.** In a `count: true` lesson `T.ops()` also includes the learner's loop passes, so a binary search measured 40 "operations" for 20 reads. `T.reads()` counts only element accesses through `T.counted`, and U5-2's bounds (≤ 21 for `insertionPoint`, ≤ 22 for `indexOf` on 1,000,000 items) use it.
+- **The Chromium probe exists** (validate.js, "runner probe: operation counting"): shift on 1,000 counted elements touches exactly 2,999 in V8, push 1 and pop 2, and the dedupe bands and brace refusal hold in the real Worker. Note the brace check covers the whole learner file, so one brace-less loop anywhere refuses every growth check in that lesson; the message says so.
+- **U3-4 grades three functions** (`flatten`, `processAll`, `chunks`), U4 has two js lessons (`countBy`/`groupBy`/`joinOrders`, then pairs), and U5-2 is graded on element reads rather than a growth band, as planned. Each starter passes its correctness checks and fails only on cost (ratios ≈ ×4, or 1,000,000 reads against a bound of 21).
+- **U5-4's boolean comparator** is taught with its measured V8 result (`[3, 1, 2].sort((a, b) => a > b)` stays `3,1,2`), not as "looks right on small tests", which was false in V8.
 
 ## Teachable today
 Nothing. Every unit needs `kind:"concept"`. Recommended tranches:

@@ -242,7 +242,7 @@ function phase0() {
             }
             /* harnessCount is opt-in like warehouse: its T helpers don't exist
                without the flag, and it instruments the Worker's learner code. */
-            if (!l.count) for (const call of ["T.growth", "T.counted", "T.calls", "T.ops", "T.resetOps"]) {
+            if (!l.count) for (const call of ["T.growth", "T.counted", "T.calls", "T.ops", "T.reads", "T.resetOps"]) {
               if (srcs.indexOf(call + "(") !== -1)
                 fail(`${l.id}: calls ${call}() but does not set \`count: true\` — harnessCount provides it (see runner.js)`);
             }
@@ -359,6 +359,20 @@ function verifyRun(a, where, CX) {
    must stay quick. */
 function verifyLab(a, where) {
   const vm = require("vm");
+  if (a.lab === "buckets") {
+    const p = a.params || {};
+    if (!(p.size > 1) || !(p.keys || []).length || !(p.hashes || []).length) { fail(`${where}: a buckets lab needs size, keys and hashes`); return; }
+    for (const h of p.hashes) {
+      let fn;
+      try { fn = vm.runInNewContext("(" + h.code + ")", {}, { timeout: 1000 }); }
+      catch (e) { fail(`${where}: hash ${h.label} does not compile — ${e.message}`); continue; }
+      for (const k of p.keys) {
+        const v = fn(k);
+        if (!Number.isInteger(v) || v < 0) fail(`${where}: hash ${h.label} returned ${v} for "${k}" (needs a non-negative integer)`);
+      }
+    }
+    return;
+  }
   if (a.lab !== "doubling") return;
   const p = a.params || {};
   const started = Date.now();
@@ -970,6 +984,47 @@ async function main() {
   else if (!dbgSix || dbgSix.pass || dbgSix.msg.indexOf("thrown in boom() at line 2") === -1)
     fail(`runner probe (debug engine): a learner throw should report "thrown in boom() at line 2", got ${JSON.stringify(dbgSix && dbgSix.msg)}`);
   else ok("runner probe: console table/count/group/assert shapes, probe() deep copies, learner-only stacks with editor line numbers");
+
+  /* ---- runner probe: operation counting in V8 (How Code Scales) ----
+     test-concept.js pins harnessCount in Node's vm; this runs it in the real
+     Worker. The shift count is the spec's algorithm as V8 performs it through
+     a Proxy (a Get, a HasProperty and a Set per moved element), which is what
+     the arrays unit teaches, so a change here must change that unit too. */
+  const countProbe = await page.evaluate(() => {
+    const lesson = {
+      id: "probe-count", kind: "js", count: true,
+      steps: [
+        { test: "var a = T.counted(Array.from({ length: 1000 }, function (_, i) { return i; })); T.resetOps(); a.shift(); T.eq(T.ops(), 2999, 'one shift on 1,000 elements touches 2,999');" },
+        { test: "var b = T.counted([1, 2, 3]); T.resetOps(); b.push(4); b.pop(); T.eq(T.ops(), 3, 'push touches 1 and pop 2');" },
+        { test: "var g = T.growth(function (n) { return Array.from({ length: n }, function (_, i) { return i; }); }, function (l) { slow(l); }); T.eq(g.band, 'quadratic', 'includes in a loop: ' + g.counts);" },
+        { test: "var g = T.growth(function (n) { return Array.from({ length: n }, function (_, i) { return i; }); }, function (l) { fast(l); }); T.eq(g.band, 'linear', 'Set in a loop: ' + g.counts);" }
+      ]
+    };
+    const code = [
+      "function slow(list) { const r = []; for (const v of list) { if (!r.includes(v)) { r.push(v); } } return r; }",
+      "function fast(list) { const s = new Set(); for (const v of list) { if (!s.has(v)) { s.add(v); } } return s; }"
+    ].join("\n");
+    /* The brace check covers the whole learner file, so the brace-less case
+       gets a run of its own; its one result becomes step 4. */
+    const braceLesson = { id: "probe-count-braces", kind: "js", count: true, steps: [
+      { test: "var g = T.growth(function (n) { return Array.from({ length: n }, function (_, i) { return i; }); }, function (l) { braceless(l); });" }
+    ] };
+    const braceCode = "function braceless(list) { let t = 0; for (const v of list) t += v; return t; }";
+    const host = document.createElement("div");
+    return window.CODELAB.runner.run(lesson, { "script.js": code }, { previewEl: host }).then(r =>
+      window.CODELAB.runner.run(braceLesson, { "script.js": braceCode }, { previewEl: host }).then(b => ({
+        steps: (r.steps || []).concat((b.steps || []).map(st => ({ i: 4, pass: st.pass, msg: st.msg }))),
+        fatal: r.fatal || b.fatal
+      })));
+  });
+  const cntBad = (countProbe.steps || []).filter(st => !st.pass && st.i !== 4);
+  const cntBrace = (countProbe.steps || []).filter(st => st.i === 4)[0];
+  if (countProbe.fatal) fail(`runner probe (counting): FATAL ${countProbe.fatal}`);
+  else if (cntBad.length || (countProbe.steps || []).length !== 5)
+    fail(`runner probe (counting): ${cntBad.map(st => "#" + st.i + ": " + st.msg).join(" | ") || "steps missing"}`);
+  else if (!cntBrace || cntBrace.pass || cntBrace.msg.indexOf("braces") === -1)
+    fail(`runner probe (counting): a brace-less loop should be refused, got ${JSON.stringify(cntBrace && cntBrace.msg)}`);
+  else ok("runner probe: Proxy counts match the spec (shift 3n-1, push 1, pop 2), growth bands, brace-less loops refused");
 
   const crashProbe = await page.evaluate(() => {
     const logs = [];

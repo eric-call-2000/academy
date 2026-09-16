@@ -52,7 +52,7 @@ window.CODELAB.definePosition({
   /* algo (How Code Scales) is required because junior screens still ask
      about big-O and hash maps. Its credits rise as tranches land, and the
      total rises with them: required + ~3. */
-  total: 45,
+  total: 47,
   min: { fnd: 12, fe: 8, be: 8, integ: 1 },
   required: ["html", "css", "js", "algo", "dom", "async", "srv", "db", "test", "git", "cap"]
 });
@@ -63,7 +63,7 @@ window.CODELAB.definePosition({
   blurb: "Extends REST endpoints, writes and optimises queries, handles auth and validation, and covers it with tests.",
   screen: "REST design, SQL you wrote yourself, auth and validation, tests that catch regressions, and the cost of your code as data grows.",
   /* algo: see the Full-Stack sheet. */
-  total: 36,
+  total: 38,
   min: { be: 10, data: 3, qa: 4 },
   required: ["js", "algo", "async", "srv", "nodejs", "db", "test", "git", "sec"]
 });

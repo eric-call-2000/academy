@@ -659,6 +659,11 @@ input { font-family: var(--font); }
 .cx-bar-track { height: 10px; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 4px; }
 .cx-bar-fill { height: 100%; background: var(--accent); border-radius: 999px; }
 .chip-theory { background: #e0e7ff; color: #3730a3; }
+.cx-buckets { display: flex; flex-direction: column; gap: 4px; margin: 10px 0; }
+.cx-bucket { display: flex; gap: 10px; align-items: center; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-family: var(--mono); font-size: 13px; }
+.cx-bucket.crowded { border-color: var(--danger); }
+.cx-bucket-n { color: var(--muted); width: 16px; flex-shrink: 0; }
+.cx-bucket-keys { overflow-wrap: anywhere; }
 
 /* ---------- Recall (spaced repetition) ---------- */
 .stat.rv-pill {

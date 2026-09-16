@@ -145,5 +145,79 @@
     start();
   };
 
+  /* buckets — { size, keys: [...], hashes: [{ label, code }] }
+     A hash table with `size` buckets. Pick a hash function, tap keys to
+     insert them (or insert them all), and watch where they land. The
+     longest bucket is what a lookup in it has to compare against. */
+  LABS.buckets = function (host, params) {
+    var size = params.size || 8;
+    var keys = params.keys || [];
+    var hashes = (params.hashes || []).map(function (h) { return { label: h.label, code: h.code, fn: compile(h.code) }; });
+    var box = el("div", "cx-lab");
+    box.appendChild(el("div", "cx-lab-title", "Lab: a hash table with " + size + " buckets"));
+    box.appendChild(el("div", "cx-lab-hint", "Hash function:"));
+    var hashChips = el("div", "cx-chips");
+    box.appendChild(hashChips);
+    var codeHost = el("div", "");
+    box.appendChild(codeHost);
+    box.appendChild(el("div", "cx-lab-hint", "Tap keys to insert them:"));
+    var keyChips = el("div", "cx-chips");
+    box.appendChild(keyChips);
+    var grid = el("div", "cx-buckets");
+    box.appendChild(grid);
+    var stat = el("div", "cx-lab-big");
+    box.appendChild(stat);
+
+    var hi = 0, inserted = [];
+    function bucketOf(k) { return ((hashes[hi].fn(k) % size) + size) % size; }
+    function draw() {
+      Array.prototype.forEach.call(hashChips.children, function (b, i) { b.classList.toggle("on", i === hi); });
+      codeHost.innerHTML = "";
+      codeHost.appendChild(code(hashes[hi].code));
+      Array.prototype.forEach.call(keyChips.children, function (b) {
+        var k = b.getAttribute("data-key");
+        if (k != null) b.classList.toggle("on", inserted.indexOf(k) !== -1);
+      });
+      grid.innerHTML = "";
+      var rows = [];
+      for (var i = 0; i < size; i++) rows.push([]);
+      inserted.forEach(function (k) { rows[bucketOf(k)].push(k); });
+      var longest = 0;
+      rows.forEach(function (r, i) {
+        longest = Math.max(longest, r.length);
+        var row = el("div", "cx-bucket" + (r.length > 1 ? " crowded" : ""));
+        row.appendChild(el("span", "cx-bucket-n", String(i)));
+        row.appendChild(el("span", "cx-bucket-keys", r.length ? r.join(" → ") : "·"));
+        grid.appendChild(row);
+      });
+      stat.textContent = inserted.length
+        ? "Longest bucket: " + longest + (longest === 1 ? " key" : " keys") + ". A lookup there compares up to " + longest + "."
+        : "Nothing inserted yet.";
+    }
+    hashes.forEach(function (h, i) {
+      var b = el("button", "cx-chip", h.label);
+      b.type = "button";
+      b.onclick = function () { hi = i; draw(); };
+      hashChips.appendChild(b);
+    });
+    keys.forEach(function (k) {
+      var b = el("button", "cx-chip", k);
+      b.type = "button";
+      b.setAttribute("data-key", k);
+      b.onclick = function () {
+        var at = inserted.indexOf(k);
+        if (at === -1) inserted.push(k); else inserted.splice(at, 1);
+        draw();
+      };
+      keyChips.appendChild(b);
+    });
+    var all = el("button", "cx-chip", "Insert all");
+    all.type = "button";
+    all.onclick = function () { inserted = keys.slice(); draw(); };
+    keyChips.appendChild(all);
+    host.appendChild(box);
+    draw();
+  };
+
   C.labs = LABS;
 })();
