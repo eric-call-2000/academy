@@ -50,9 +50,8 @@ window.CODELAB.definePosition({
   blurb: "The largest single developer role. Owns a feature end to end — interface, endpoint, and the wiring between them.",
   screen: "One app you built on both sides, plus the judgement to know where a bug lives and what your code costs as data grows.",
   /* algo (How Code Scales) is required because junior screens still ask
-     about big-O and hash maps. Its credits rise as tranches land, and the
-     total rises with them: required + ~3. */
-  total: 47,
+     about big-O and hash maps. */
+  total: 49,
   min: { fnd: 12, fe: 8, be: 8, integ: 1 },
   required: ["html", "css", "js", "algo", "dom", "async", "srv", "db", "test", "git", "cap"]
 });
@@ -63,7 +62,7 @@ window.CODELAB.definePosition({
   blurb: "Extends REST endpoints, writes and optimises queries, handles auth and validation, and covers it with tests.",
   screen: "REST design, SQL you wrote yourself, auth and validation, tests that catch regressions, and the cost of your code as data grows.",
   /* algo: see the Full-Stack sheet. */
-  total: 38,
+  total: 40,
   min: { be: 10, data: 3, qa: 4 },
   required: ["js", "algo", "async", "srv", "nodejs", "db", "test", "git", "sec"]
 });

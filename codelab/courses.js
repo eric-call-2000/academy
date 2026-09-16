@@ -55,15 +55,14 @@ window.CODELAB.defineCourse({
 });
 
 /* The first THEORY course: most of its time is concept lessons (predict,
-   trace, order, explain) rather than code, which validate.js checks.
-   Built in tranches; credits restate what's written so far. */
+   trace, order, explain) rather than code, which validate.js checks. */
 window.CODELAB.defineCourse({
   id: "algo", prefix: "algo", title: "How Code Scales",
-  icon: "📈", color: "#4f46e5", level: "Intermediate", hours: 5, items: 25,
-  theory: true, targetHours: 9,
-  credits: 3, categories: { fnd: 3 },
-  blurb: "Why code that's fast on your laptop crawls on real data. Counting steps instead of timing, the doubling test, big-O as a language, what arrays and hash maps really cost, binary search, and why sorting is n log n. A course about reasoning about cost, mostly theory: you predict, trace and explain before you write. Take it after Learn JavaScript.",
-  files: ["algo/u1.js", "algo/u2.js", "algo/u3.js", "algo/u4.js", "algo/u5.js"]
+  icon: "📈", color: "#4f46e5", level: "Intermediate", hours: 9, items: 40,
+  theory: true,
+  credits: 5, categories: { fnd: 5 },
+  blurb: "Why code that's fast on your laptop crawls on real data. Counting steps instead of timing, the doubling test, big-O as a language, what arrays and hash maps really cost, binary search and sorting, recursion and memoization, stacks, queues and graph search, and deciding under real constraints. A course about reasoning about cost, mostly theory: you predict, trace and explain before you write. Take it after Learn JavaScript.",
+  files: ["algo/u1.js", "algo/u2.js", "algo/u3.js", "algo/u4.js", "algo/u5.js", "algo/u6.js", "algo/u7.js", "algo/u8.js"]
 });
 
 window.CODELAB.defineCourse({
