@@ -16,7 +16,7 @@
    ============================================================ */
 (function (root) {
   var TYPES = ["predict", "pick", "order", "trace", "lab", "explain"];
-  var LABS = ["doubling", "halving", "buckets"];
+  var LABS = ["doubling", "halving", "buckets", "calltree", "grid"];
   var READ_WORDS_MAX = 180;
   var WORDS_PER_MIN = 200;
 

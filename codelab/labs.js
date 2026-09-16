@@ -219,5 +219,173 @@
     draw();
   };
 
+  /* calltree — { sizes: [3, 4, 5, 6], bigger: [10, 20, 30] }
+     The calls fib(n) makes, drawn as an indented tree, with a switch that
+     remembers results. With it on, a repeated call is a single remembered
+     lookup instead of a whole subtree. Below the tree, call counts for
+     bigger n, where the tree would no longer fit. */
+  LABS.calltree = function (host, params) {
+    var sizes = params.sizes || [3, 4, 5, 6];
+    var bigger = params.bigger || [10, 20, 30];
+    var box = el("div", "cx-lab");
+    box.appendChild(el("div", "cx-lab-title", "Lab: the calls fib(n) makes"));
+    box.appendChild(code("function fib(n) {\n  if (n < 2) { return n; }\n  return fib(n - 1) + fib(n - 2);\n}"));
+    var chips = el("div", "cx-chips");
+    box.appendChild(chips);
+    var memoRow = el("div", "cx-chips");
+    var memoBtn = el("button", "cx-chip", "Remember results: off");
+    memoBtn.type = "button";
+    memoRow.appendChild(memoBtn);
+    box.appendChild(memoRow);
+    var stat = el("div", "cx-lab-big");
+    box.appendChild(stat);
+    var tree = el("div", "cx-tree");
+    box.appendChild(tree);
+    var table = el("div", "cx-bars");
+    box.appendChild(table);
+
+    var si = sizes.length - 1, memo = false;
+    function calls(n, remember) {
+      var count = 0, seen = {};
+      (function f(k) {
+        count++;
+        if (remember && seen[k]) return;
+        if (k >= 2) { f(k - 1); f(k - 2); }
+        seen[k] = true;
+      })(n);
+      return count;
+    }
+    function draw() {
+      Array.prototype.forEach.call(chips.children, function (b, i) { b.classList.toggle("on", i === si); });
+      memoBtn.textContent = "Remember results: " + (memo ? "on" : "off");
+      memoBtn.classList.toggle("on", memo);
+      tree.innerHTML = "";
+      var seen = {}, count = 0;
+      (function f(k, depth) {
+        count++;
+        var line = el("div", "cx-tree-line");
+        line.style.paddingLeft = (depth * 14) + "px";
+        if (memo && seen[k]) {
+          line.textContent = "fib(" + k + ")  remembered";
+          line.classList.add("remembered");
+          tree.appendChild(line);
+          return;
+        }
+        line.textContent = "fib(" + k + ")";
+        tree.appendChild(line);
+        if (k >= 2) { f(k - 1, depth + 1); f(k - 2, depth + 1); }
+        seen[k] = true;
+      })(sizes[si], 0);
+      stat.textContent = "fib(" + sizes[si] + ") makes " + count + (count === 1 ? " call" : " calls");
+      table.innerHTML = "";
+      bigger.forEach(function (n) {
+        var row = el("div", "cx-bar-head");
+        row.appendChild(el("span", "cx-bar-name", "fib(" + n + ")"));
+        row.appendChild(el("span", "cx-bar-val", fmt(calls(n, memo)) + " calls"));
+        table.appendChild(row);
+      });
+    }
+    sizes.forEach(function (n, i) {
+      var b = el("button", "cx-chip", "n = " + n);
+      b.type = "button";
+      b.onclick = function () { si = i; draw(); };
+      chips.appendChild(b);
+    });
+    memoBtn.onclick = function () { memo = !memo; draw(); };
+    host.appendChild(box);
+    draw();
+  };
+
+  /* grid — { grid: ["....", ".#..", ...], start: [r, c], goal: [r, c] }
+     Breadth-first or depth-first search on a grid, one visit at a time.
+     Each cell shows the order it was visited in; when the goal is reached
+     the lab reports the length of the path that search found. Neighbours
+     are tried right, down, left, up. */
+  LABS.grid = function (host, params) {
+    var G = params.grid, start = params.start, goal = params.goal;
+    var rows = G.length, cols = G[0].length;
+    var DIRS = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+    var box = el("div", "cx-lab");
+    box.appendChild(el("div", "cx-lab-title", "Lab: search a grid"));
+    var modes = el("div", "cx-chips");
+    box.appendChild(modes);
+    var board = el("div", "cx-grid");
+    board.style.gridTemplateColumns = "repeat(" + cols + ", 1fr)";
+    box.appendChild(board);
+    var stat = el("div", "cx-lab-big");
+    box.appendChild(stat);
+    var acts = el("div", "cx-chips");
+    box.appendChild(acts);
+
+    var mode = "BFS", order, frontier, parent, done, found;
+    function key(r, c) { return r + "," + c; }
+    function reset() {
+      order = {}; parent = {}; done = false; found = false;
+      frontier = [[start[0], start[1]]];
+      parent[key(start[0], start[1])] = null;
+      draw();
+    }
+    function step() {
+      if (done) return;
+      if (!frontier.length) { done = true; draw(); return; }
+      var cell = mode === "BFS" ? frontier.shift() : frontier.pop();
+      var k = key(cell[0], cell[1]);
+      if (order[k] != null) { step(); return; }
+      order[k] = Object.keys(order).length + 1;
+      if (cell[0] === goal[0] && cell[1] === goal[1]) { done = true; found = true; draw(); return; }
+      var next = [];
+      DIRS.forEach(function (d) {
+        var r = cell[0] + d[0], c = cell[1] + d[1], nk = key(r, c);
+        if (r < 0 || c < 0 || r >= rows || c >= cols || G[r][c] === "#" || order[nk] != null) return;
+        if (mode === "BFS" && parent[nk] !== undefined) return;
+        if (parent[nk] === undefined || mode === "DFS") parent[nk] = k;
+        next.push([r, c]);
+      });
+      if (mode === "DFS") next.reverse();
+      next.forEach(function (n) { frontier.push(n); });
+      draw();
+    }
+    function pathLength() {
+      var n = 0, k = key(goal[0], goal[1]);
+      while (parent[k]) { k = parent[k]; n++; }
+      return n;
+    }
+    function draw() {
+      Array.prototype.forEach.call(modes.children, function (b) { b.classList.toggle("on", b.textContent.indexOf(mode) === 0); });
+      board.innerHTML = "";
+      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+        var k = key(r, c);
+        var cell = el("div", "cx-cell-box");
+        if (G[r][c] === "#") cell.classList.add("wall");
+        else if (order[k] != null) { cell.classList.add("seen"); cell.textContent = String(order[k]); }
+        if (r === start[0] && c === start[1] && order[k] == null) cell.textContent = "S";
+        if (r === goal[0] && c === goal[1]) { cell.classList.add("goal"); if (order[k] == null) cell.textContent = "G"; }
+        board.appendChild(cell);
+      }
+      var visited = Object.keys(order).length;
+      stat.textContent = found
+        ? "Reached G after visiting " + visited + " cells. The path " + mode + " found is " + pathLength() + " steps."
+        : done ? "G can't be reached." : "Visited " + visited + (visited === 1 ? " cell" : " cells");
+    }
+    ["BFS (queue)", "DFS (stack)"].forEach(function (label) {
+      var b = el("button", "cx-chip", label);
+      b.type = "button";
+      b.onclick = function () { mode = label.slice(0, 3); reset(); };
+      modes.appendChild(b);
+    });
+    var stepBtn = el("button", "cx-chip", "Visit next");
+    stepBtn.type = "button";
+    stepBtn.onclick = step;
+    var runBtn = el("button", "cx-chip", "Run to the end");
+    runBtn.type = "button";
+    runBtn.onclick = function () { var guard = rows * cols * 4; while (!done && guard-- > 0) step(); };
+    var resetBtn = el("button", "cx-chip", "Reset");
+    resetBtn.type = "button";
+    resetBtn.onclick = reset;
+    [stepBtn, runBtn, resetBtn].forEach(function (b) { acts.appendChild(b); });
+    host.appendChild(box);
+    reset();
+  };
+
   C.labs = LABS;
 })();

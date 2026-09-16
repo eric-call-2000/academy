@@ -359,6 +359,23 @@ function verifyRun(a, where, CX) {
    must stay quick. */
 function verifyLab(a, where) {
   const vm = require("vm");
+  if (a.lab === "calltree") {
+    const p = a.params || {};
+    if ((p.sizes || []).some(n => !Number.isInteger(n) || n < 1 || n > 7)) fail(`${where}: calltree sizes must be whole numbers from 1 to 7 (the tree is drawn in full)`);
+    if ((p.bigger || []).some(n => !Number.isInteger(n) || n < 1 || n > 30)) fail(`${where}: calltree bigger sizes must be at most 30 (fib(30) is 2.7 million calls)`);
+    return;
+  }
+  if (a.lab === "grid") {
+    const p = a.params || {};
+    const g = p.grid || [];
+    const ok = g.length && g.every(r => typeof r === "string" && r.length === g[0].length && /^[.#]+$/.test(r));
+    if (!ok) { fail(`${where}: a grid lab needs equal-length rows of . and #`); return; }
+    for (const [name, cell] of [["start", p.start], ["goal", p.goal]]) {
+      if (!Array.isArray(cell) || !(cell[0] >= 0 && cell[0] < g.length && cell[1] >= 0 && cell[1] < g[0].length) || g[cell[0]][cell[1]] === "#")
+        fail(`${where}: grid ${name} must be an open cell inside the grid`);
+    }
+    return;
+  }
   if (a.lab === "buckets") {
     const p = a.params || {};
     if (!(p.size > 1) || !(p.keys || []).length || !(p.hashes || []).length) { fail(`${where}: a buckets lab needs size, keys and hashes`); return; }

@@ -103,7 +103,7 @@ Modelled at 14 min per concept lesson, 12 per js lesson, 35 for the concept proj
 
 **Position impact, checked against phase 0 on main d123507:** 6 of 7 positions reachable, 16 fnd credits built. `algo` is an elective on every sheet, so no sheet changes and no reachability changes. It raises fnd supply 16 → 20. It gives the Data and QA sheets a natural fnd elective; the ETL research doc noted Data's required courses leave fnd one short.
 
-**Decided (Eric, 2026-09-16): `algo` is required on the Backend and Full-Stack sheets.** Each sheet's total follows the course's credits as tranches land (required + ~3): 36 and 45 at tranche A (1 credit), 38 and 47 at tranche B (3 credits), and 39 and 48 when the course is complete at 4.
+**Decided (Eric, 2026-09-16): `algo` is required on the Backend and Full-Stack sheets.** Each sheet's total follows the course's credits as tranches land (required + ~3): 36 and 45 at tranche A (1 credit), 38 and 47 at tranche B (3 credits), and **40 and 49 at completion (5 credits)**. See tranche C below for why the course came out at 5, not the 4 planned here.
 
 ## Engine needs (course-specific)
 About 150 lines in runner.js, on top of the format engine above.
@@ -124,6 +124,14 @@ EXPLICITLY NOT NEEDED: shell.js, any simulator, `lesson.clock`, the network or `
 - **The Chromium probe exists** (validate.js, "runner probe: operation counting"): shift on 1,000 counted elements touches exactly 2,999 in V8, push 1 and pop 2, and the dedupe bands and brace refusal hold in the real Worker. Note the brace check covers the whole learner file, so one brace-less loop anywhere refuses every growth check in that lesson; the message says so.
 - **U3-4 grades three functions** (`flatten`, `processAll`, `chunks`), U4 has two js lessons (`countBy`/`groupBy`/`joinOrders`, then pairs), and U5-2 is graded on element reads rather than a growth band, as planned. Each starter passes its correctness checks and fails only on cost (ratios ≈ ×4, or 1,000,000 reads against a bound of 21).
 - **U5-4's boolean comparator** is taught with its measured V8 result (`[3, 1, 2].sort((a, b) => a > b)` stays `3,1,2`), not as "looks right on small tests", which was false in V8.
+
+**Tranche C as built (2026-09-16). The course is complete:** Units 6–8, 15 items, bringing it to 40 items (22 concept lessons, 8 js lessons, 2 projects (one js, one concept) and 8 quizzes). Changes from the plan:
+- **5 credits, not 4.** Minutes were set from the words-based floor for each lesson (the concept project at 28, the js project at 40), and the finished course models ~9.2h. By the 2-hours-per-credit rule that is 5 {fnd 5}. Trimming minutes to land on 4 would have been exactly the inflation-in-reverse the gate exists to stop, so the sheets moved instead (Backend 40, Full-Stack 49), as the Authentication course did when it came out at 5. `targetHours` is gone.
+- **Labs `calltree` and `grid`.** `calltree` draws fib(n)'s calls for n ≤ 6 with a "Remember results" switch, and shows call counts for 10, 20 and 30 (naive 2,692,537 against 59 remembered at 30). `grid` steps BFS or DFS; on the lesson grid BFS finds a 4-step path and DFS a 10-step one, measured by simulating the lab's own code before choosing the grid.
+- **U6-3 counts calls by swapping the global binding** (`memoFib = T.calls(memoFib)`), so the brief asks learners to keep `function memoFib(n)`. The call-count check runs before the big exact value (fib(78), gridPaths(18, 18)), so a naive starter fails with a count (242,785 calls against a bound of 51) instead of hanging the Worker.
+- **U7-2's Queue is graded "no faster than n"** (band `sublinear` or `linear`), because a head-index queue's operations are invisible to the counter; the `shift` starter is still caught as quadratic.
+- **U8-3 grades four functions** (uniqueTags, attachBrands, rankMatches and searchPage) with 8 checkpoints; the sorting checks use sizes 100–800 so the re-sort-per-match starter stays well inside the Worker's time limit (its ratios are ×4.5).
+- **U8-4, the concept project,** reviews a real-looking pull request whose "after" version drops orders for users with fewer than 5 (`slice(mine.length - 5)`), verified by running it.
 
 ## Teachable today
 Nothing. Every unit needs `kind:"concept"`. Recommended tranches:

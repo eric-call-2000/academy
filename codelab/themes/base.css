@@ -664,6 +664,13 @@ input { font-family: var(--font); }
 .cx-bucket.crowded { border-color: var(--danger); }
 .cx-bucket-n { color: var(--muted); width: 16px; flex-shrink: 0; }
 .cx-bucket-keys { overflow-wrap: anywhere; }
+.cx-tree { font-family: var(--mono); font-size: 13px; line-height: 1.7; margin: 8px 0; max-height: 320px; overflow: auto; }
+.cx-tree-line.remembered { color: var(--success); }
+.cx-grid { display: grid; gap: 3px; margin: 10px 0; }
+.cx-cell-box { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 6px; font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--ink); }
+.cx-cell-box.wall { background: var(--ink-soft); border-color: var(--ink-soft); }
+.cx-cell-box.seen { border-color: var(--accent); color: var(--accent); }
+.cx-cell-box.goal { box-shadow: inset 0 0 0 2px var(--success); }
 
 /* ---------- Recall (spaced repetition) ---------- */
 .stat.rv-pill {
