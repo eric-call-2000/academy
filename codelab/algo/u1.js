@@ -150,7 +150,7 @@ for (const v of list) {
           { read: "Timing is still useful. A single timing just answers a narrow question: *how long did this input take, on this machine, right now?*\n\n- Back-to-back runs of the same function often report different times, because other work shares the machine.\n- The first run is often the slowest, because the JavaScript engine optimizes code after it has run a few times.\n- Your laptop isn't the server, and your test data usually isn't production data.\n\nNone of that tells you what happens when the input gets 100 times bigger.",
             ask: { type: "pick",
               q: "A teammate times `findUser` on their laptop with 50 test users and gets 3 ms. What does that tell you?",
-              choices: ["It will take about 3 ms in production too", "It's quick for 50 users on that laptop, and says little about 500,000", "It's O(1), because 3 ms is too quick for a function that loops", "Nothing at all, so the team should stop timing its code"],
+              choices: ["It will take about 3 ms in production too", "It's quick for 50 users on that laptop, and says little about 500,000", "It's O(1), because 3 ms is too quick for a function that loops", "Nothing at all, so the team should stop timing any of its code from now on"],
               answer: 1,
               why: [
                 "Production has different hardware, other load and far more users. A timing on 50 test users doesn't carry over.",

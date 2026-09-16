@@ -59,11 +59,11 @@ window.CODELAB.defineCourse({
    Built in tranches; credits restate what's written so far. */
 window.CODELAB.defineCourse({
   id: "algo", prefix: "algo", title: "How Code Scales",
-  icon: "📈", color: "#4f46e5", level: "Intermediate", hours: 2, items: 10,
+  icon: "📈", color: "#4f46e5", level: "Intermediate", hours: 5, items: 25,
   theory: true, targetHours: 9,
-  credits: 1, categories: { fnd: 1 },
-  blurb: "Why code that's fast on your laptop crawls on real data. Counting steps instead of timing, the doubling test, big-O as a language, best and worst cases, and hidden loops. A course about reasoning about cost, mostly theory: you predict, trace and explain before you write. Take it after Learn JavaScript.",
-  files: ["algo/u1.js", "algo/u2.js"]
+  credits: 3, categories: { fnd: 3 },
+  blurb: "Why code that's fast on your laptop crawls on real data. Counting steps instead of timing, the doubling test, big-O as a language, what arrays and hash maps really cost, binary search, and why sorting is n log n. A course about reasoning about cost, mostly theory: you predict, trace and explain before you write. Take it after Learn JavaScript.",
+  files: ["algo/u1.js", "algo/u2.js", "algo/u3.js", "algo/u4.js", "algo/u5.js"]
 });
 
 window.CODELAB.defineCourse({

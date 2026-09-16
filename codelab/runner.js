@@ -1133,6 +1133,7 @@
   function harnessCount(BRACELESS) {
     var g = (typeof self !== "undefined") ? self : window;
     g.__OPS = 0;
+    g.__READS = 0;
     var T = g.T;
 
     function lenOf(x) {
@@ -1201,15 +1202,20 @@
     }
 
     T.ops = function () { return g.__OPS; };
-    T.resetOps = function () { g.__OPS = 0; };
+    T.resetOps = function () { g.__OPS = 0; g.__READS = 0; };
+    T.reads = function () { return g.__READS; };
     T.bandOf = bandOf;
     T.counted = function (arr) {
-      function idx(k) { return typeof k === "string" && /^(0|[1-9]\d*)$/.test(k); }
+      function idx(k) {
+        if (typeof k !== "string" || !/^(0|[1-9]\d*)$/.test(k)) return false;
+        g.__OPS++; g.__READS++;
+        return true;
+      }
       return new Proxy(arr, {
-        get: function (t, k, r) { if (idx(k)) g.__OPS++; return Reflect.get(t, k, r); },
-        set: function (t, k, v, r) { if (idx(k)) g.__OPS++; return Reflect.set(t, k, v, r); },
-        has: function (t, k) { if (idx(k)) g.__OPS++; return Reflect.has(t, k); },
-        deleteProperty: function (t, k) { if (idx(k)) g.__OPS++; return Reflect.deleteProperty(t, k); }
+        get: function (t, k, r) { idx(k); return Reflect.get(t, k, r); },
+        set: function (t, k, v, r) { idx(k); return Reflect.set(t, k, v, r); },
+        has: function (t, k) { idx(k); return Reflect.has(t, k); },
+        deleteProperty: function (t, k) { idx(k); return Reflect.deleteProperty(t, k); }
       });
     };
     T.calls = function (fn) {

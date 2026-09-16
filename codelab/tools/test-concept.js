@@ -43,8 +43,12 @@
 
    harnessCount(braceless) defines, on the global:
      __OPS                     the running operation count
-     T.ops() / T.resetOps()
-     T.counted(array)          a Proxy counting element reads/writes (index keys only)
+     T.ops() / T.resetOps()    resetOps zeroes both counters
+     T.counted(array)          a Proxy counting element reads/writes (index keys only),
+                               into __OPS and into its own counter:
+     T.reads()                 element accesses through T.counted only, never loop passes,
+                               so "binary search reads at most 21 elements" can be checked
+                               in a lesson whose loops are also being counted
      T.calls(fn)               a wrapper whose .count is how often it was called
      T.growth(make, work, opts) -> { band, counts, ratios, sizes }
         make(n) builds an input with nothing counted; work(input, n) runs with
@@ -358,6 +362,12 @@ if (countLoops && HARNESS) {
     const G = build();
     const n = vm.runInContext("var a = T.counted([1, 2, 3]); T.resetOps(); var s = a[0] + a[2]; a[1] = 9; a.length; T.ops();", G);
     eq(n, 3);
+  });
+  test("T.reads: counts only T.counted accesses, not the learner's loop passes", () => {
+    const G = build("function firstBig(list) { let i = 0; while (i < list.length) { if (list[i] > 2) { return i; } i++; } return -1; }");
+    const r = vm.runInContext("var a = T.counted([1, 2, 3, 4]); T.resetOps(); firstBig(a); [T.reads(), T.ops()];", G);
+    eq(r, [3, 6], "3 element reads; ops adds the 3 loop passes");
+    eq(vm.runInContext("T.resetOps(); [T.reads(), T.ops()];", G), [0, 0], "resetOps zeroes both");
   });
   test("T.calls: counts invocations and passes through", () => {
     const G = build();
