@@ -39,9 +39,13 @@ window.CODELAB.definePosition({
   icon: "🖥️", color: "#58cc02",
   blurb: "Builds what people actually touch: semantic markup, responsive layout, and interactive pages that work on every screen.",
   screen: "HTML/CSS/JS depth, DOM work, responsive layout, and a page you can show.",
-  total: 37,
+  /* web (How the Web Works) is required across fe/fs/be: what a request is,
+     DNS, the round-trip model, HTTP methods/status, caching and the HTTP
+     versions are a canonical junior screen, and every one of these roles is
+     built on the network it explains. */
+  total: 41,
   min: { fnd: 12, fe: 10 },
-  required: ["html", "css", "resp", "js", "dom", "async", "test", "git"]
+  required: ["html", "css", "resp", "js", "dom", "async", "web", "test", "git"]
 });
 
 window.CODELAB.definePosition({
@@ -51,9 +55,9 @@ window.CODELAB.definePosition({
   screen: "One app you built on both sides, plus the judgement to know where a bug lives and what your code costs as data grows.",
   /* algo (How Code Scales) is required because junior screens still ask
      about big-O and hash maps. */
-  total: 49,
+  total: 53,
   min: { fnd: 12, fe: 8, be: 8, integ: 1 },
-  required: ["html", "css", "js", "algo", "dom", "async", "srv", "db", "test", "git", "cap"]
+  required: ["html", "css", "js", "algo", "dom", "async", "web", "srv", "db", "test", "git", "cap"]
 });
 
 window.CODELAB.definePosition({
@@ -62,9 +66,9 @@ window.CODELAB.definePosition({
   blurb: "Extends REST endpoints, writes and optimises queries, handles auth and validation, and covers it with tests.",
   screen: "REST design, SQL you wrote yourself, auth and validation, tests that catch regressions, and the cost of your code as data grows.",
   /* algo: see the Full-Stack sheet. */
-  total: 40,
+  total: 44,
   min: { be: 10, data: 3, qa: 4 },
-  required: ["js", "algo", "async", "srv", "nodejs", "db", "test", "git", "sec"]
+  required: ["js", "algo", "async", "web", "srv", "nodejs", "db", "test", "git", "sec"]
 });
 
 window.CODELAB.definePosition({
