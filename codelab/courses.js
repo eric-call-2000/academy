@@ -193,10 +193,11 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "cicd", prefix: "cicd", title: "CI/CD Pipelines",
-  icon: "🔄", color: "#06b6d4", level: "Advanced", stub: true,
-  plannedCredits: 5, plannedCategories: { ops: 3, qa: 2 },
-  blurb: "CI concepts, GitHub Actions workflows, automated testing, linting, builds, pipeline stages, artifact management, environment-specific deployments, and rollback strategies.",
-  files: []
+  icon: "🔄", color: "#06b6d4", level: "Intermediate", hours: 2, items: 5,
+  targetHours: 8,
+  credits: 1, categories: { ops: 1 },
+  blurb: "The robot that says no. A workflow file, a push that starts it, and the rule the whole subject hangs on: every job begins on a machine that has never heard of your code. Jobs and steps, tests and lint and a matrix, caching against artifacts, masked secrets, and the required check that refuses the merge until the build is green. Typed into a real terminal, graded on what the CI server actually did. Take it after Git, Testing Fundamentals and Docker.",
+  files: ["cicd/u1.js"]
 });
 
 window.CODELAB.defineCourse({
