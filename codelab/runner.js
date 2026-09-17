@@ -1749,7 +1749,7 @@
       var name = (lesson.files && lesson.files[0] && lesson.files[0].name) || "commands.sh";
       var script = (files[name] != null) ? files[name] : files[Object.keys(files)[0]] || "";
 
-      var fsTree, result, GIT = window.CODELAB.git, DOCKER = window.CODELAB.docker, before = null;
+      var fsTree, result, GIT = window.CODELAB.git, DOCKER = window.CODELAB.docker, CICD = window.CODELAB.cicd, before = null;
       var where = { cwd: lesson.cwd || "/home/you", home: lesson.home || "/home/you" };
       try {
         fsTree = SH.createFS(lesson.fs || {});
@@ -1777,8 +1777,11 @@
             return;
           }
         }
-        /* dockersim's snapshot includes git's, so one call covers both. */
-        if (DOCKER) before = DOCKER.snapshot(fsTree);
+        /* Each snapshot composes the one below it — cisim's includes
+           dockersim's, which includes gitsim's — so the outermost engine
+           present is the only one that needs calling. */
+        if (CICD) before = CICD.snapshot(fsTree);
+        else if (DOCKER) before = DOCKER.snapshot(fsTree);
         else if (GIT) before = GIT.snapshot(fsTree);
         /* Every editor tab after the first is a real file (a Dockerfile, a
            compose.yaml, a conflicted file to fix by hand). They're written
@@ -1813,8 +1816,11 @@
       /* Git lessons get repository helpers (T.log, T.staged, T.sha …) plus
          T.before — the same helpers over the state right after setup. */
       if (GIT) GIT.extendT(T, fsTree, before, lesson.repo || where.cwd);
-      /* Docker helpers merge into the same T (and the same T.before). */
-      if (DOCKER) DOCKER.extendT(T, fsTree, before);
+      /* Docker and CI helpers merge into the same T (and the same
+         T.before). cisim's extendT calls dockersim's, so only the outermost
+         one is called or the Docker helpers would be installed twice. */
+      if (CICD) CICD.extendT(T, fsTree, before);
+      else if (DOCKER) DOCKER.extendT(T, fsTree, before);
       var steps = lesson.steps || [], out = [];
       for (var i = 0; i < steps.length; i++) {
         try {
