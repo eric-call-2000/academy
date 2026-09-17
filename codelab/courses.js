@@ -65,6 +65,17 @@ window.CODELAB.defineCourse({
   files: ["algo/u1.js", "algo/u2.js", "algo/u3.js", "algo/u4.js", "algo/u5.js", "algo/u6.js", "algo/u7.js", "algo/u8.js"]
 });
 
+/* The second THEORY course, built in tranches; credits restate what's
+   written so far and the sheets follow at completion. */
+window.CODELAB.defineCourse({
+  id: "web", prefix: "web", title: "How the Web Works",
+  icon: "🌐", color: "#0ea5e9", level: "Intermediate", hours: 4, items: 15,
+  theory: true, targetHours: 9,
+  credits: 1, categories: { fnd: 1 },
+  blurb: "What actually happens when you type a URL and press Enter. The parts of a URL and what an origin is, how DNS turns a name into an address, and how TCP and TLS open a private connection — counted in round trips, the way distance is really measured on the web. A theory course: you predict, trace and explain before you write. Take it after Async JavaScript & APIs.",
+  files: ["web/u1.js", "web/u2.js", "web/u3.js"]
+});
+
 window.CODELAB.defineCourse({
   id: "dom", prefix: "dom", title: "Building Interactive Websites",
   icon: "🖱️", color: "#58cc02", level: "Intermediate", hours: 8, items: 40,

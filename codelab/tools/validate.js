@@ -220,7 +220,7 @@ function phase0() {
             }
             /* Bare now() is only checked in auth- and etl- lessons: elsewhere it is a
                learner's own injected clock parameter (test-u5-4 passes one). */
-            const callsNow = /^(auth|etl)-/.test(l.id) && /(^|[^.\w$])now\s*\(\s*\)/.test(srcs);
+            const callsNow = /^(auth|etl|web)-/.test(l.id) && /(^|[^.\w$])now\s*\(\s*\)/.test(srcs);
             if (l.clock == null && (callsNow || /T\.advance\s*\(/.test(srcs)) && !defines("now"))
               fail(`${l.id}: uses now() or T.advance() but does not set \`clock\` — harnessClock provides them (see runner.js)`);
             if (l.browser && l.kind !== "js")
@@ -252,7 +252,7 @@ function phase0() {
                a timing passes on a fast machine and fails on a slow one. */
             if (/^algo-/.test(l.id) && /performance\.now\s*\(|Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
               fail(`${l.id}: reads a clock — complexity lessons measure growth with T.growth (operation counts), never with timing`);
-            if (/^(auth|etl)-/.test(l.id) && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
+            if (/^(auth|etl|web)-/.test(l.id) && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
               fail(`${l.id}: reads the real clock (Date.now / new Date()) — set \`clock\` and use now() and T.advance(ms), or the lesson passes or fails depending on when it runs`);
           }
         }
@@ -337,7 +337,7 @@ function verifyRun(a, where, CX) {
   const lines = [];
   const src = a.check || a.code;
   try {
-    vm.runInNewContext(src, { console: { log: (...args) => lines.push(CX.formatLog(args)) } }, { timeout: 2000 });
+    vm.runInNewContext(src, { console: { log: (...args) => lines.push(CX.formatLog(args)) }, URL, URLSearchParams, TextEncoder, TextDecoder }, { timeout: 2000 });
   } catch (e) {
     fail(`${where}: run code threw — ${e.message}`);
     return;
@@ -363,6 +363,18 @@ function verifyLab(a, where) {
     const p = a.params || {};
     if ((p.sizes || []).some(n => !Number.isInteger(n) || n < 1 || n > 7)) fail(`${where}: calltree sizes must be whole numbers from 1 to 7 (the tree is drawn in full)`);
     if ((p.bigger || []).some(n => !Number.isInteger(n) || n < 1 || n > 30)) fail(`${where}: calltree bigger sizes must be at most 30 (fib(30) is 2.7 million calls)`);
+    return;
+  }
+  if (a.lab === "waterfall") {
+    const p = a.params || {};
+    const items = p.items || [];
+    if (!items.length) { fail(`${where}: a waterfall lab needs items`); return; }
+    for (const it of items) {
+      if (!it.label || !Number.isInteger(it.start) || it.start < 0 || !Number.isInteger(it.rtt) || it.rtt < 1)
+        fail(`${where}: waterfall item ${JSON.stringify(it.label)} needs a label, a start >= 0 and an rtt >= 1`);
+    }
+    const total = items.reduce((m, it) => Math.max(m, (it.start || 0) + (it.rtt || 0)), 0);
+    if (p.columns != null && p.columns < total) fail(`${where}: waterfall columns (${p.columns}) is less than the ${total} round trips the items reach`);
     return;
   }
   if (a.lab === "grid") {
