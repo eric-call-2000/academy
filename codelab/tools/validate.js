@@ -321,6 +321,7 @@ function phase0() {
   shellGates();
   gitsimGates();
   dockersimGates();
+  cisimGates();
   cryptoGates();
   warehouseGates();
   authsimGates();
@@ -525,6 +526,21 @@ function warehouseGates() {
    dockersim's state, so an engine bug would make lessons pass or fail for
    reasons unrelated to what the learner typed. Its suite also covers the
    shell.js behaviour Docker lessons depend on (quoting, &&, $PWD). */
+/* The CI/CD course is graded by inspecting what the CI server did — which
+   runs started, which jobs ran and what each step printed — so an engine bug
+   would pass or fail a learner for reasons unrelated to the workflow they
+   wrote. Its suite also pins the shell and YAML behaviour CI lessons lean on. */
+function cisimGates() {
+  console.log("\n== Phase 0g: ci engine ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-cisim.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0]);
+  } catch (e) {
+    fail("cisim engine tests failed:\n" + String(e.stdout || e.message));
+  }
+}
+
 function dockersimGates() {
   console.log("\n== Phase 0f: docker engine ==");
   const { execFileSync } = require("child_process");
