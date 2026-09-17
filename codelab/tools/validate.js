@@ -252,7 +252,7 @@ function phase0() {
                a timing passes on a fast machine and fails on a slow one. */
             if (/^algo-/.test(l.id) && /performance\.now\s*\(|Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
               fail(`${l.id}: reads a clock — complexity lessons measure growth with T.growth (operation counts), never with timing`);
-            if (/^(auth|etl|web)-/.test(l.id) && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
+            if (/^(auth|etl|web|cloud)-/.test(l.id) && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
               fail(`${l.id}: reads the real clock (Date.now / new Date()) — set \`clock\` and use now() and T.advance(ms), or the lesson passes or fails depending on when it runs`);
           }
         }
