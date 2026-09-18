@@ -66,7 +66,7 @@ console.log(minAvailable({ replicas: 4, surge: 1, maxUnavailable: 1 }));
       {
         id: "cloud-u4-1",
         title: "Rolling vs recreate",
-        kind: "concept", xp: 15, mins: 12,
+        kind: "concept", xp: 15, mins: 15,
         screens: [
           { read: "You have a service running and a new version to ship. The blunt way is **recreate**: stop all the old instances, then start all the new ones. Simple — but between the stop and the start, nothing is serving. That's **downtime**, and for a user-facing service it's usually unacceptable.\n\nThe standard alternative is a **rolling update**: replace instances **a few at a time**, so enough of the old version keeps serving while the new version comes up. The service never fully drops. The price is that both versions run at once for a while — your code has to tolerate that.",
             ask: { type: "pick",

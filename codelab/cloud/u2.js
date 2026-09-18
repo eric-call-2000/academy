@@ -63,7 +63,7 @@ console.log(resolveConfig({
       {
         id: "cloud-u2-1",
         title: "One build, many environments",
-        kind: "concept", xp: 15, mins: 12,
+        kind: "concept", xp: 15, mins: 15,
         screens: [
           { read: "Real software runs in more than one place: **dev** on your laptop, **staging** that mirrors production for testing, and **production** where real users live. The trap is to build a separate version for each. Then what you tested in staging isn't byte-for-byte what ships.\n\nThe discipline is the opposite: **build one artifact, and configure it per environment at run time.** The same image points at the dev database on your laptop and the prod database in production — because the database URL is *config*, injected when it runs, not baked into the build. That's the build-time vs run-time split from Deploying Your App, applied across environments.",
             ask: { type: "pick",
