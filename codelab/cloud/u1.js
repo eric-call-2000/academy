@@ -29,7 +29,7 @@
       {
         id: "cloud-u1-1",
         title: "Renting computers you don't own",
-        kind: "concept", xp: 15, mins: 12,
+        kind: "concept", xp: 15, mins: 15,
         screens: [
           { read: "\"The cloud\" is a plain idea dressed up: **renting computers and services you don't own or house.** Instead of buying servers, racking them in a room and waiting weeks, you ask a provider for a server and have one in seconds — and you pay only while you use it.\n\nThree properties make it different from a machine under your desk:\n\n- **on-demand** — you provision it yourself, instantly\n- **pay-as-you-go** — you rent by the hour, or even by the request\n- **elastic** — you scale up for a spike and back down after, without buying for the peak",
             ask: { type: "pick",
@@ -72,7 +72,7 @@
       {
         id: "cloud-u1-2",
         title: "IaaS, PaaS, serverless: the responsibility line",
-        kind: "concept", xp: 15, mins: 13,
+        kind: "concept", xp: 15, mins: 16,
         screens: [
           { read: "The three words that sound like jargon — **IaaS**, **PaaS**, **serverless** — are really one question: *how much of the stack do you manage, and how much does the provider?* Draw a line through the stack (hardware → OS → runtime → your app) and each model puts the line in a different place.\n\n- **IaaS** (infrastructure): they give you a bare virtual machine. You install the OS packages, the runtime, your app — you manage almost everything above the hardware.\n- **PaaS** (platform): you hand them your app and a little config; they run the OS, the runtime and the scaling.\n- **Serverless**: you hand them a single function; they run literally everything else and only wake it when a request arrives.",
             ask: { type: "order",

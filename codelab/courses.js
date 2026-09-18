@@ -211,11 +211,11 @@ window.CODELAB.defineCourse({
    written so far and the DevOps sheet is already counting on it. */
 window.CODELAB.defineCourse({
   id: "cloud", prefix: "cloud", title: "Cloud Platforms & Deployment",
-  icon: "☁️", color: "#7c3aed", level: "Intermediate", hours: 6, items: 29,
-  theory: true, targetHours: 8,
-  credits: 3, categories: { ops: 3 },
-  blurb: "Someone else's computers, and how to ship to them safely. What IaaS, PaaS and serverless really divide up, one artifact configured per environment, where serverless stops being cheaper than an always-on box, and how a release is made reversible — rolling, blue-green and canary — plus the logs, metrics and traces that tell you it's working. A theory course: you predict, decide and explain before you write. Take it after Deploying Your App.",
-  files: ["cloud/u1.js", "cloud/u2.js", "cloud/u3.js", "cloud/u4.js", "cloud/u5.js", "cloud/u6.js"]
+  icon: "☁️", color: "#7c3aed", level: "Intermediate", hours: 8, items: 37,
+  theory: true,
+  credits: 4, categories: { ops: 4 },
+  blurb: "Someone else's computers, and how to ship to them safely. What IaaS, PaaS and serverless really divide up, one artifact configured per environment, where serverless stops being cheaper than an always-on box, how a release is made reversible — rolling, blue-green and canary — the logs, metrics and traces that tell you it's working, and the error budgets and recovery targets that decide how reliable is reliable enough. A theory course: you predict, decide and explain before you write. Take it after Deploying Your App.",
+  files: ["cloud/u1.js", "cloud/u2.js", "cloud/u3.js", "cloud/u4.js", "cloud/u5.js", "cloud/u6.js", "cloud/u7.js", "cloud/u8.js"]
 });
 
 // Quality & Data Track

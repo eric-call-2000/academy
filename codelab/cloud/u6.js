@@ -66,7 +66,7 @@ console.log(shouldAlert([50, 120, 130, 140, 60], 100, 3));
       {
         id: "cloud-u6-1",
         title: "The three pillars",
-        kind: "concept", xp: 15, mins: 12,
+        kind: "concept", xp: 15, mins: 15,
         screens: [
           { read: "A running system in the cloud is out of reach — you can't attach a debugger to production. So it has to **tell you** what it's doing, and it does that through three kinds of signal, each answering a different question:\n\n- **Logs** — *what happened?* A record of individual events: \"user 7 logged in\", \"payment failed\". One event, one entry.\n- **Metrics** — *how much, how often?* Numbers measured over time: requests per second, error rate, memory used. Trends and rates, not individual events.\n- **Traces** — *where did the time go?* One request followed across every service it touched, showing which step was slow.",
             ask: { type: "pick",
