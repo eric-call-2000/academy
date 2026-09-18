@@ -191,12 +191,16 @@ window.CODELAB.defineCourse({
   files: ["git/u1.js", "git/u2.js", "git/u3.js", "git/u4.js", "git/u5.js", "git/u6.js", "git/u7.js", "git/u8.js"]
 });
 
+/* Built on cisim.js: workflows are real editor tabs, a `git push` fires the
+   pipeline, and every checkpoint grades the RUN (T.run/T.deployed/T.merged),
+   never the YAML text. Composes the shell, Git and Docker engines. */
 window.CODELAB.defineCourse({
   id: "cicd", prefix: "cicd", title: "CI/CD Pipelines",
-  icon: "🔄", color: "#06b6d4", level: "Advanced", stub: true,
-  plannedCredits: 5, plannedCategories: { ops: 3, qa: 2 },
-  blurb: "CI concepts, GitHub Actions workflows, automated testing, linting, builds, pipeline stages, artifact management, environment-specific deployments, and rollback strategies.",
-  files: []
+  icon: "🔄", color: "#06b6d4", level: "Intermediate", hours: 3, items: 12,
+  targetHours: 8,
+  credits: 1, categories: { ops: 1 },
+  blurb: "Automate the checklist you run before every merge. Write a real workflow, push, and watch the pipeline go green or red; gate merges on lint, test and build; run a matrix and cache dependencies. Every checkpoint grades what the pipeline actually did. Take it after Git, Testing and Docker.",
+  files: ["cicd/u1.js", "cicd/u2.js", "cicd/u3.js"]
 });
 
 window.CODELAB.defineCourse({

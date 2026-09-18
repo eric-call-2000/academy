@@ -370,11 +370,19 @@
   /* ======================= trigger from git push ======================= */
   function firePush(fs, cwd) {
     var g = GIT() && GIT().findRepo(fs, cwd);
-    if (!g || !g.root) return;
+    if (!g || !g.root) return "";
     var repo = g.repo, ref = repo.head && repo.head.ref;
-    if (!ref || ref.indexOf("refs/heads/") !== 0) return;
-    var branch = ref.slice(11), sha = GIT().resolveRev(repo, "HEAD");
-    eachWorkflow(fs, g.root, function (wf) { if (eventMatches(wf.on, "push", branch)) runWorkflow(fs, g.root, wf, "push", ref, sha); });
+    if (!ref || ref.indexOf("refs/heads/") !== 0) return "";
+    var branch = ref.slice(11), sha = GIT().resolveRev(repo, "HEAD"), summary = "";
+    eachWorkflow(fs, g.root, function (wf) { if (eventMatches(wf.on, "push", branch)) summary += summarize(runWorkflow(fs, g.root, wf, "push", ref, sha)); });
+    return summary;
+  }
+  function summarize(run) {
+    var icon = { success: "✓", failure: "✗", skipped: "-", cancelled: "-", waiting: "⏸" };
+    var head = run.status === "success" ? "passed" : (run.status === "waiting" ? "waiting for approval" : "FAILED");
+    var s = "\n▸ " + run.name + " · push to " + (run.ref.indexOf("refs/heads/") === 0 ? run.ref.slice(11) : run.ref) + " — " + head + "\n";
+    keys(run.jobs).forEach(function (k) { var j = run.jobs[k]; s += "  " + (icon[j.status] || "?") + " " + k + (j.status === "skipped" ? " (skipped)" : "") + "\n"; });
+    return s;
   }
   function eachWorkflow(fs, rootAbs, fn) {
     var dir = SH.nodeAt(fs, rootAbs + "/.github/workflows");
@@ -435,7 +443,9 @@
     var baseGit = SH.COMMANDS.git;
     SH.COMMANDS.git = function (ctx, args, stdin) {
       var r = baseGit(ctx, args, stdin);
-      if (r.code === 0 && args[0] === "push") { try { firePush(ctx.fs, ctx.cwd); } catch (e) { if (API.strict) throw e; } }
+      if (r.code === 0 && args[0] === "push") {
+        try { var sum = firePush(ctx.fs, ctx.cwd); if (sum) r = { out: (r.out || "") + sum, err: r.err, code: r.code }; } catch (e) { if (API.strict) throw e; }
+      }
       return r;
     };
     SH.COMMANDS.gh = gh;
@@ -453,7 +463,7 @@
     function at(k) { return k == null ? c.runs[c.runs.length - 1] : c.runs[k - 1]; }
     var api = {
       runs: function () { return c.runs.map(function (r) { return { id: r.id, event: r.event, ref: r.ref, status: r.status }; }); },
-      run: function (k) { var r = at(k); return r ? { event: r.event, ref: r.ref, status: r.status, jobs: jobsView(r), artifacts: keys(r.artifacts) } : null; },
+      run: function (k) { var r = at(k); return r ? { event: r.event, ref: r.ref, status: r.status, jobs: jobsView(r), artifacts: keys(r.artifacts), cacheHits: r.cacheHits.slice() } : null; },
       lastRun: function () { return api.run(); },
       job: function (k, id) { var r = api.run(k); return r ? r.jobs[id] : null; },
       stepLog: function (k, id, name) { var r = at(k); if (!r || !r.jobs[id]) return null; if (name == null) return r.jobs[id].log; var s = r.jobs[id].steps.filter(function (x) { return x.name === name; })[0]; return s ? r.jobs[id].log : null; },
