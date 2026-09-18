@@ -534,6 +534,13 @@ function dockersimGates() {
   } catch (e) {
     fail("dockersim engine tests failed:\n" + String(e.stdout || e.message));
   }
+  console.log("\n== Phase 0f2: CI/CD pipeline engine ==");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-cisim.js")], { encoding: "utf8" });
+    out.trim().split("\n").forEach(line => ok(line));
+  } catch (e) {
+    fail("cisim engine tests failed:\n" + String(e.stdout || e.message));
+  }
 }
 
 /* The shell is the floor two courses stand on: the CLI course is graded

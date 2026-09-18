@@ -25,7 +25,7 @@
                            push to base is NOT auto-fired (keep it explicit).
    A run is over before the next command; there is no async/waiting.
 
-   ── WORKFLOW YAML (a subset; parsed with dockersim's parseYaml) ────────────
+   ── WORKFLOW YAML (a subset; cisim's own flow-aware parser) ────────────────
    on:  push: { branches: [main, "feature/*"] }   pull_request: { branches:[main] }
         workflow_dispatch: {}          (any of these keys; branch globs allowed)
    jobs:
@@ -116,7 +116,7 @@ function ok(c, msg) { if (!c) throw new Error(msg || "expected true"); }
 /* ---------------- fixtures ---------------- */
 const PKG = (test_) => JSON.stringify({
   name: "shop", version: "1.0.0",
-  scripts: { build: "cp -r src dist", test: test_ || "node -e \"process.exit(0)\"", lint: "true" },
+  scripts: { build: "cp -r src dist", test: test_ || "true", lint: "true" },
   dependencies: { express: "4.19.2" }
 }, null, 2) + "\n";
 
@@ -171,7 +171,7 @@ function sandbox(o) {
     "git commit -qm init",
     "git init -q --bare /srv/origin.git",
     "git remote add origin /srv/origin.git",
-    "git push -qu origin main"
+    "git push -u origin main"
   ].join("\n") + (o.setup ? "\n" + o.setup : "");
   const pre = SH.run(fs, setup, { cwd });
   const broke = pre.transcript.find(t => t.code !== 0);
@@ -190,7 +190,21 @@ function sandbox(o) {
   return T;
 }
 // commit a change and push, in one helper the tests reuse
-const CHANGE_PUSH = "echo x >> index.js\ngit commit -qam change\ngit push -q";
+const CHANGE_PUSH = "echo x >> index.js\ngit commit -qam change\ngit push";
+// a workflow that fires on every branch push, so a PR's head gets a run
+const PRCI_YML = [
+  "name: CI",
+  "on: { push: {} }",
+  "jobs:",
+  "  test:",
+  "    runs-on: ubuntu-latest",
+  "    steps:",
+  "      - uses: actions/checkout@v4",
+  "      - run: npm test",
+  ""
+].join("\n");
+// make a feature branch, change, and push it
+const FEATURE_PUSH = "git checkout -b feature\necho x >> index.js\ngit commit -qam c\ngit push -u origin feature";
 
 /* ================= trigger ================= */
 test("a push to main fires the matching on:push workflow, and it goes green", () => {
@@ -200,14 +214,13 @@ test("a push to main fires the matching on:push workflow, and it goes green", ()
   eq(run.jobs.test.status, "success");
 });
 test("a failing test turns the same push red", () => {
-  const fs = baseFiles(Object.assign(wf("ci.yml", CI_YML), { [HOME + "/package.json"]: PKG("node -e \"process.exit(1)\"") }));
+  const fs = baseFiles(Object.assign(wf("ci.yml", CI_YML), { [HOME + "/package.json"]: PKG("false") }));
   const T = sandbox({ fs, script: CHANGE_PUSH });
   eq(T.lastRun().status, "failure");
   eq(T.lastRun().jobs.test.status, "failure");
 });
 test("a push to a branch the workflow doesn't list fires nothing", () => {
-  const T = sandbox({ fs: baseFiles(wf("ci.yml", CI_YML)),
-    script: "git checkout -q -b feature\n" + CHANGE_PUSH.replace("git push -q", "git push -qu origin feature") });
+  const T = sandbox({ fs: baseFiles(wf("ci.yml", CI_YML)), script: FEATURE_PUSH });
   // only the setup push to main fired; the feature push matched no branch filter
   eq(T.runs().length, 1);
   eq(T.runs()[0].ref, "refs/heads/main");
@@ -215,7 +228,7 @@ test("a push to a branch the workflow doesn't list fires nothing", () => {
 
 /* ================= stages, needs, gates ================= */
 test("needs orders jobs, and a failed job skips those that need it", () => {
-  const fs = baseFiles(Object.assign(wf("ci.yml", STAGED_YML), { [HOME + "/package.json"]: PKG("node -e \"process.exit(1)\"") }));
+  const fs = baseFiles(Object.assign(wf("ci.yml", STAGED_YML), { [HOME + "/package.json"]: PKG("false") }));
   const T = sandbox({ fs, script: CHANGE_PUSH });
   const r = T.lastRun();
   eq(r.jobs.lint.status, "success");
@@ -225,15 +238,14 @@ test("needs orders jobs, and a failed job skips those that need it", () => {
 });
 test("continue-on-error keeps the job green despite a failing step", () => {
   const y = ["on: { push: { branches: [main] } }", "jobs:",
-    "  test: { runs-on: ubuntu-latest, steps: [ { run: node -e \"process.exit(1)\", continue-on-error: true }, { run: npm test } ] }", ""].join("\n");
+    "  test: { runs-on: ubuntu-latest, steps: [ { run: false, continue-on-error: true }, { run: npm test } ] }", ""].join("\n");
   const T = sandbox({ fs: baseFiles(wf("ci.yml", y)), script: CHANGE_PUSH });
   eq(T.lastRun().jobs.test.status, "success");
 });
 test("a job-level if scopes it to main only", () => {
   const y = ["on: { push: {} }", "jobs:",
     "  deploy: { runs-on: ubuntu-latest, if: \"${{ github.ref == 'refs/heads/main' }}\", steps: [ { run: echo deploying } ] }", ""].join("\n");
-  const T = sandbox({ fs: baseFiles(wf("cd.yml", y)),
-    script: "git checkout -q -b feature\ngit commit -q --allow-empty -m x\ngit push -qu origin feature" });
+  const T = sandbox({ fs: baseFiles(wf("cd.yml", y)), script: FEATURE_PUSH });
   eq(T.lastRun().ref, "refs/heads/feature");
   eq(T.lastRun().jobs.deploy.status, "skipped");
 });
@@ -248,13 +260,15 @@ test("a matrix expands one job per combination", () => {
   eq(jobs.length, 3);
 });
 test("cache misses on the first run and hits on the second", () => {
-  const y = ["on: { push: { branches: [main] } }", "jobs:",
+  // triggers only on the feature branch, so the setup push to main doesn't prime it
+  const y = ["on: { push: { branches: [feature] } }", "jobs:",
     "  test:", "    runs-on: ubuntu-latest",
     "    steps: [ { uses: actions/cache@v4, with: { path: node_modules, key: deps-v1 } }, { run: npm test } ]", ""].join("\n");
-  const T1 = sandbox({ fs: baseFiles(wf("ci.yml", y)), script: CHANGE_PUSH });
-  eq(T1.cacheHit("deps-v1"), false);
-  const T2 = sandbox({ fs: baseFiles(wf("ci.yml", y)), script: CHANGE_PUSH + "\n" + CHANGE_PUSH });
-  eq(T2.cacheHit("deps-v1"), true);   // second run in the same repo restores it
+  const start = "git checkout -b feature\ngit push -u origin feature";   // first run
+  const T1 = sandbox({ fs: baseFiles(wf("ci.yml", y)), script: start });
+  eq(T1.cacheHit("deps-v1"), false);   // first ever run: miss
+  const T2 = sandbox({ fs: baseFiles(wf("ci.yml", y)), script: start + "\n" + CHANGE_PUSH });
+  eq(T2.cacheHit("deps-v1"), true);    // the second run restores it
 });
 
 /* ================= artifacts ================= */
@@ -287,15 +301,15 @@ test("a secret is masked in the logs", () => {
 
 /* ================= branch protection + PRs ================= */
 test("a PR merge is blocked until the required check passes on the head", () => {
-  const fs = baseFiles(Object.assign(wf("ci.yml", CI_YML), { [HOME + "/package.json"]: PKG("node -e \"process.exit(1)\"") }));
+  const fs = baseFiles(Object.assign(wf("ci.yml", PRCI_YML), { [HOME + "/package.json"]: PKG("false") }));
   const T = sandbox({ ci: { protection: { main: { requiredChecks: ["test"] } } }, fs,
-    script: "git checkout -q -b feature\ngit commit -qam c\ngit push -qu origin feature\ngh pr create -B main -H feature --title x\ngh pr merge feature --squash" });
+    script: FEATURE_PUSH + "\ngh pr create -B main -H feature --title x\ngh pr merge feature --squash" });
   ok(T.said("required checks"), "merge refused while the required check is red");
   eq(T.merged("feature"), false);
 });
 test("once the check is green, the PR merges", () => {
-  const T = sandbox({ ci: { protection: { main: { requiredChecks: ["test"] } } }, fs: baseFiles(wf("ci.yml", CI_YML)),
-    script: "git checkout -q -b feature\ngit commit -qam c\ngit push -qu origin feature\ngh pr create -B main -H feature --title x\ngh pr merge feature --squash" });
+  const T = sandbox({ ci: { protection: { main: { requiredChecks: ["test"] } } }, fs: baseFiles(wf("ci.yml", PRCI_YML)),
+    script: FEATURE_PUSH + "\ngh pr create -B main -H feature --title x\ngh pr merge feature --squash" });
   eq(T.merged("feature"), true);
 });
 
