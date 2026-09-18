@@ -276,7 +276,7 @@
             choices: ["Strictly one after another in the order written", "In parallel", "Only the first job ever runs at all", "In a random order chosen fresh each run"],
             answer: 1, explain: "Jobs run in parallel by default; `needs` is what introduces ordering and dependencies." },
           { q: "A test step has `continue-on-error: true` and the tests fail. The pipeline is…",
-            choices: ["Red, because a failed step always fails the whole run", "Green, because that step's failure doesn't fail the job", "Unable to finish running the rest of the pipeline", "Automatically retried until the tests finally pass"],
+            choices: ["Red, because any step that fails will always immediately fail the entire run, no matter what settings are used", "Green, because that step's failure doesn't fail the job", "Unable to finish running the rest of the pipeline", "Automatically retried until the tests finally pass"],
             answer: 1, explain: "continue-on-error keeps a failed step from failing the job — a green pipeline that isn't really checking. Read the run." },
           { q: "What does branch protection with a required `test` check enforce?",
             choices: ["That the tests are rewritten so they can never fail again", "That a PR into the protected branch can't merge while the check is red", "That every branch in the repo runs the test job on each push", "That the test job always runs before every other job everywhere"],

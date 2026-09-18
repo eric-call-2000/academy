@@ -184,7 +184,7 @@
             choices: ["Because dist/ is deleted at the end of the build job on purpose", "Because each job starts with a fresh, empty workspace", "Because deploy runs before build finishes producing it", "Because dist/ is added to .gitignore automatically by CI"],
             answer: 1, explain: "Jobs don't share a workspace. To move a build between them, upload it as an artifact and download it." },
           { q: "What is an artifact used for?",
-            choices: ["Speeding up future runs by storing dependencies", "Passing a build or report between jobs of one run", "Permanently archiving every commit's source code", "Caching the git history so clones are faster"],
+            choices: ["Speeding up all of your future pipeline runs by storing the installed dependencies between them", "Passing a build or report between jobs of one run", "Permanently archiving every commit's source code", "Caching the git history so clones are faster"],
             answer: 1, explain: "An artifact carries a deliverable between jobs within a run; it doesn't persist to future runs." },
           { q: "Installed dependencies you want the NEXT run to reuse — artifact or cache?",
             choices: ["Artifact", "Cache", "Both", "Neither"],

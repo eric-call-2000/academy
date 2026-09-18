@@ -266,7 +266,7 @@
             choices: ["2", "4", "1", "6"],
             answer: 1, explain: "Every combination: 2 × 2 = 4 runs." },
           { q: "What does a cache do on its FIRST run with a new key?",
-            choices: ["Restores the cached files immediately", "Misses, then saves the files after the job succeeds", "Fails the job because there's nothing to restore", "Deletes any older caches sharing that path"],
+            choices: ["Immediately restores all of the previously cached files from the very first moment that it runs", "Misses, then saves the files after the job succeeds", "Fails the job because there's nothing to restore", "Deletes any older caches sharing that path"],
             answer: 1, explain: "First run is a miss; the cache is populated after the job passes, so later runs can hit it." },
           { q: "What is the one rule a cache must never break?",
             choices: ["It must never make the pipeline run any faster than before", "It may make a run faster but must never change its result", "It must be cleared by hand before every single pipeline run", "It must store the entire repository, not just dependencies"],

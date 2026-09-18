@@ -1759,7 +1759,7 @@
         /* A CI lesson SEEDS its pipeline state — secrets, branch protection,
            protected environments — on fsRoot.ci before setup runs, so a
            `git push` in setup already fires against the real config. */
-        if (lesson.ci) fsTree.ci = lesson.ci;
+        if (lesson.ci) fsTree.ci = JSON.parse(JSON.stringify(lesson.ci));
         /* lesson.setup builds the starting state by running REAL commands
            before the learner's — so a seeded repository has an honest
            history, index and reflog, and no seeding code can drift from

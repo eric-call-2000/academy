@@ -224,7 +224,7 @@
             choices: ["The deploy region, like us-east-1", "The API token used to authenticate", "The public staging URL", "The Node version to test on"],
             answer: 1, explain: "A token is a credential (masked secret). Regions, URLs and versions are plain config (vars)." },
           { q: "A token was committed to the repo, then deleted in the next commit. Is it safe?",
-            choices: ["Yes, deleting it removed it entirely", "No — it's in git history and must be rotated", "Yes, as long as the repository is private", "Only if no one has cloned the repo yet"],
+            choices: ["Yes, deleting it in the very next commit removed it from the project entirely and for good", "No — it's in git history and must be rotated", "Yes, as long as the repository is private", "Only if no one has cloned the repo yet"],
             answer: 1, explain: "Git keeps history; the token is recoverable from the old commit. Rotate it — and never commit secrets." },
           { q: "What does a protected environment with a required reviewer do to a deploy job?",
             choices: ["It speeds the deploy up by skipping the tests", "It pauses the job as waiting until someone approves", "It deploys immediately but sends an email afterward", "It blocks the deploy permanently with no way to proceed"],
