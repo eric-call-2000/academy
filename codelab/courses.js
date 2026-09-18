@@ -196,11 +196,11 @@ window.CODELAB.defineCourse({
    never the YAML text. Composes the shell, Git and Docker engines. */
 window.CODELAB.defineCourse({
   id: "cicd", prefix: "cicd", title: "CI/CD Pipelines",
-  icon: "🔄", color: "#06b6d4", level: "Intermediate", hours: 3, items: 12,
+  icon: "🔄", color: "#06b6d4", level: "Intermediate", hours: 5, items: 22,
   targetHours: 8,
-  credits: 1, categories: { ops: 1 },
+  credits: 2, categories: { ops: 2 },
   blurb: "Automate the checklist you run before every merge. Write a real workflow, push, and watch the pipeline go green or red; gate merges on lint, test and build; run a matrix and cache dependencies. Every checkpoint grades what the pipeline actually did. Take it after Git, Testing and Docker.",
-  files: ["cicd/u1.js", "cicd/u2.js", "cicd/u3.js"]
+  files: ["cicd/u1.js", "cicd/u2.js", "cicd/u3.js", "cicd/u4.js", "cicd/u5.js", "cicd/u6.js"]
 });
 
 window.CODELAB.defineCourse({
