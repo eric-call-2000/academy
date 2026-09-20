@@ -11,6 +11,8 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | 🤖 AI & Coding | 16 | 128 | Using AI well — Claude, prompting, models, capabilities, coding, agents, safety |
 | 🏛️ System Design | 25 | 200 | Architecting at scale — distributed systems, trade-offs, and running agents at the max level |
 | 📣 Marketing | 8 | 64 | Brand, audience, content, channels, metrics, growth, and marketing with AI |
+| 🎥 OBS Studio | 8 | 64 | Recording studio-quality video with OBS — scenes, sources, audio, encoding, cameras, overlays, workflow, and a streaming/troubleshooting intro |
+| ▶️ Content Creation | 8 | 64 | Growing on YouTube — the algorithm, niche, ideas, titles/thumbnails, hooks, retention, publishing/SEO, analytics and monetization |
 | 🛡️ Cybersecurity | 10 | 80 | Staying safe and building securely — for both websites and apps |
 | 👷 Construction | 13 | 112 | Physical building — foundations, framing, commercial, MEP, structural, scheduling |
 | 🏢 BIM Fundamentals | 8 | 64 | BIM the process — dimensions, LOD, ISO 19650, the CDE, and openBIM (vendor-neutral) |
@@ -23,10 +25,10 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | 🧸 Attachment Theory | 25 | 200 | How early bonds shape us — Bowlby, Ainsworth, the Strange Situation, adult love |
 | ♟️ Evolutionary Game Theory | 25 | 192 | The math of cooperation and conflict — ESS, Hawk-Dove, the evolution of strategy |
 
-**13,015 quiz questions across 1,864 lessons in 237 units, over 14 quiz tracks** — plus
-CodeLab's 205 interactive coding items as a fifteenth, external track.
+**13,850 quiz questions across 1,992 lessons in 253 units, over 16 quiz tracks** — plus
+CodeLab's 205 interactive coding items as a seventeenth, external track.
 
-*(Counted from the unit files on 2026-08-25. If you add units, recount rather than
+*(Counted from the unit files on 2026-09-19. If you add units, recount rather than
 guessing — this table was wrong by more than double before it was last checked.)*
 
 ## How to use it
@@ -57,6 +59,8 @@ academy/
 ├── ai-unit1.js … ai-unit16.js
 ├── sysdesign-unit1.js … sysdesign-unit25.js
 ├── marketing-unit1.js … marketing-unit8.js
+├── obs-unit1.js … obs-unit8.js               # OBS Studio (recording-first)
+├── content-unit1.js … content-unit8.js       # Content Creation (YouTube)
 ├── cyber-unit1.js … cyber-unit10.js
 ├── construction-unit1.js … construction-unit13.js
 ├── bim-unit1.js … bim-unit8.js
@@ -70,7 +74,7 @@ academy/
 ├── egt-unit1.js … egt-unit25.js
 └── codelab/                # the external Full-Stack Coding Lab app
 ```
-237 unit files, all flat at the root — no subfolders — so uploading to a static host is
+253 unit files, all flat at the root — no subfolders — so uploading to a static host is
 drag-and-drop simple. `codelab/` is the one exception: it is a whole second app, and it
 lives in a folder so its relative link works wherever Academy is hosted.
 
