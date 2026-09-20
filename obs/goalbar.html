@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wibbly · Goal Bar</title>
+<!--
+  Wibbly goal / progress bar for OBS Browser Source (1920x1080, TRANSPARENT).
+  Track (base + hairline) with a SOLID ELECTRIC-BLUE fill (pink offset + blue glow).
+  Chrome is deliberately NOT used for the wide fill (would read muddy — parent spec rule).
+
+  CONTENT / TEST:
+    goalbar.html?label=SUB GOAL&value=142&max=200
+    goalbar.html?pos=tl|bl|bc            placement (default tl = top-left, mirrors HUD)
+    goalbar.html?demo=1                  stand-in bg for preview
+  At 100% the fill + count flip to Signal Yellow ("GOAL!").
+
+  LIVE: wibblyGoal({ label:'SUB GOAL', value:142, max:200 })   // animates the fill
+  Built on WIBBLY-BRAND-SPEC.md + WIBBLY-OBS-CHROME-SPEC.md tokens (verbatim).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#0C0E12; --blue:#2FB6FF; --pink:#FF2E88; --white:#FFFFFF; --yellow:#F5E14B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:transparent;}
+  body{color:var(--white);font-family:'IBM Plex Mono',monospace;position:relative;-webkit-font-smoothing:antialiased;}
+  body.demo{background:#191d23;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.5px);background-size:38px 38px;}
+
+  .goal{position:absolute;width:460px;}
+  .goal-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;}
+  .goal-label{font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-size:22px;color:var(--blue);}
+  .goal-count{font-weight:500;letter-spacing:.12em;font-size:22px;color:var(--white);}
+  .goal-track{position:relative;height:26px;border-radius:13px;background:rgba(12,14,18,.9);
+    border:1px solid rgba(255,255,255,.16);overflow:visible;box-shadow:0 8px 22px rgba(0,0,0,.45);}
+  .goal-fill{position:absolute;left:0;top:0;height:100%;width:0;border-radius:13px;background:var(--blue);
+    filter:drop-shadow(3px 3px 0 rgba(255,46,136,.72)) drop-shadow(0 0 10px rgba(47,182,255,.7));
+    transition:width .7s cubic-bezier(.2,.8,.25,1), background-color .3s;}
+  .goal-fill::after{content:'';position:absolute;inset:0;border-radius:13px;
+    background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,0) 55%);}
+  .goal.done .goal-fill{background:var(--yellow);
+    filter:drop-shadow(3px 3px 0 rgba(255,46,136,.5)) drop-shadow(0 0 14px rgba(245,225,75,.75));}
+  .goal.done .goal-count{color:var(--yellow);}
+  .goal.done .goal-label{color:var(--yellow);}
+</style>
+</head>
+<body>
+  <div class="goal" id="goal">
+    <div class="goal-top">
+      <span class="goal-label" id="glabel">SUB GOAL</span>
+      <span class="goal-count" id="gcount">0 / 0</span>
+    </div>
+    <div class="goal-track"><div class="goal-fill" id="gfill"></div></div>
+  </div>
+
+<script>
+  var q = new URLSearchParams(location.search);
+  if (q.get('demo') === '1') document.body.classList.add('demo');
+
+  var goal = document.getElementById('goal');
+  var gLabel = document.getElementById('glabel');
+  var gCount = document.getElementById('gcount');
+  var gFill  = document.getElementById('gfill');
+
+  function place(){
+    goal.style.left = goal.style.right = goal.style.top = goal.style.bottom = goal.style.marginLeft = '';
+    var pos = q.get('pos') || 'tl';
+    if (pos === 'bl'){ goal.style.left='96px'; goal.style.bottom='120px'; }
+    else if (pos === 'bc'){ goal.style.left='50%'; goal.style.bottom='120px'; goal.style.marginLeft=(-460/2)+'px'; }
+    else { goal.style.left='96px'; goal.style.top='92px'; }   // tl
+  }
+  place();
+
+  window.wibblyGoal = function(p){
+    p = p || {};
+    var label = p.label != null ? p.label : (gLabel.textContent);
+    var value = Math.max(0, +p.value || 0);
+    var max   = Math.max(1, +p.max || 1);
+    var pct   = Math.min(100, Math.round((value / max) * 1000) / 10);
+    gLabel.textContent = label;
+    gCount.textContent = value + ' / ' + max;
+    goal.classList.toggle('done', value >= max);
+    // start from 0 then animate to target after a reflow gap (robust across renderers)
+    gFill.style.width = '0%';
+    setTimeout(function(){ gFill.style.width = pct + '%'; }, 40);
+  };
+
+  // initial from URL (default demo values)
+  wibblyGoal({
+    label: q.get('label') || 'SUB GOAL',
+    value: q.get('value') != null ? q.get('value') : 142,
+    max:   q.get('max')   != null ? q.get('max')   : 200
+  });
+</script>
+</body>
+</html>

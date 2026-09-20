@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wibbly · Gameplay Overlay</title>
+<!--
+  Wibbly gameplay overlay for OBS Browser Source (1920x1080, TRANSPARENT).
+  Draws the facecam frame (bottom-left) + HUD brand bug (top-right).
+  The webcam + game are SEPARATE OBS sources placed BELOW this overlay.
+
+    overlay.html                 corner cam (480x270) + HUD top-right   [default]
+    overlay.html?cam=big         Just-Chatting cam (960x540), left, vertically centered
+    overlay.html?hud=tl          move HUD bug to top-left
+    overlay.html?handle=@you     set the facecam handle label
+    overlay.html?demo=1          preview: stand-in gameplay bg + placeholder cam fill
+
+  Place your WEBCAM capture behind this overlay at:
+    corner : 480 x 270  @ (96, 714)
+    big    : 960 x 540  @ (96, 270)
+  Built on WIBBLY-BRAND-SPEC.md + WIBBLY-OBS-CHROME-SPEC.md tokens (verbatim).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#0C0E12; --blue:#2FB6FF; --pink:#FF2E88; --white:#FFFFFF; --yellow:#F5E14B; --ink:#07090D;
+    --offset:var(--pink);
+    --chrome:linear-gradient(176deg,#ffffff 0%,#eaf7ff 11%,#2FB6FF 31%,#0a2f47 48%,#0d3c59 52%,#2FB6FF 63%,#ffffff 80%,#9bdcff 100%);
+    --sphere:radial-gradient(circle at 34% 22%,#ffffff 0%,#e6f5ff 12%,#2FB6FF 44%,#0b3a57 76%,#06202f 100%);
+    --eye:radial-gradient(circle at 38% 30%,#fff 0%,#fff 58%,#cfe9f7 82%,#9dc2d6 100%);
+    --pupil:radial-gradient(circle at 42% 34%,#20262e,#0a0d12 55%,#04060a);
+    --ring:3px; /* frame thickness */
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:transparent;}
+  body{color:var(--white);font-family:'Barlow Condensed',Arial,sans-serif;position:relative;-webkit-font-smoothing:antialiased;}
+  /* demo-only stand-in gameplay bg so the transparent overlay + glow read */
+  body.demo{background:#191d23;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.5px);background-size:38px 38px;}
+
+  /* ---------- chrome text + drawn I (verbatim) ---------- */
+  .chrome-text{position:relative;display:inline-block;font-family:'Anton',Arial Black,sans-serif;
+    background:var(--chrome);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;text-shadow:0 0 30px rgba(47,182,255,.5);}
+  .chrome-text::before{content:attr(data-text);position:absolute;left:0;top:0;z-index:-1;
+    transform:translate(.05em,.056em);-webkit-text-fill-color:var(--offset);color:var(--offset);text-shadow:none;}
+  .wibbly{font-family:'Anton',Arial Black,sans-serif;transform:skewX(-10deg);letter-spacing:-.012em;
+    line-height:1;display:inline-flex;align-items:baseline;white-space:nowrap;}
+  .iglyph{position:relative;display:inline-block;width:.36em;height:.98em;margin:0 .02em;}
+  .iglyph>span{position:absolute;box-sizing:border-box;}
+  .i-stem-offset{left:.095em;top:.327em;width:.26em;height:.628em;border-radius:.09em;background:var(--offset);}
+  .i-stem-chrome{left:.05em;top:.282em;width:.26em;height:.628em;border-radius:.09em;background:var(--chrome);
+    box-shadow:inset 0 -5px 12px rgba(255,255,255,.4),0 0 22px rgba(47,182,255,.5);}
+  .i-dot-offset{left:.125em;top:.095em;width:.20em;height:.20em;border-radius:50%;background:var(--offset);}
+  .i-dot-chrome{left:.08em;top:.05em;width:.20em;height:.20em;border-radius:50%;background:var(--chrome);
+    box-shadow:inset 0 -5px 12px rgba(255,255,255,.4),0 0 22px rgba(47,182,255,.5);}
+  .i-dot-chrome .i-pupil{left:32%;top:30%;width:38%;height:38%;border-radius:50%;
+    background:radial-gradient(circle at 42% 34%,#20262e,#0a0d12 55%,#04060a);}
+
+  /* ---------- orb (static) ---------- */
+  .orb{position:relative;border-radius:50%;width:var(--d);height:var(--d);background:var(--sphere);
+    box-shadow:0 0 calc(var(--d)*.184) rgba(47,182,255,.5),inset 0 calc(var(--d)*-.068) calc(var(--d)*.121) rgba(255,255,255,.32);}
+  .orb-spec{position:absolute;left:12%;top:10%;width:35%;height:24%;border-radius:50%;
+    background:radial-gradient(ellipse at center,rgba(255,255,255,.95),rgba(255,255,255,0) 70%);
+    transform:rotate(-16deg);filter:blur(3px);}
+  .orb-eye{position:absolute;left:50%;top:46%;width:46%;height:46%;border-radius:50%;
+    transform:translate(-50%,-50%);background:var(--eye);}
+  .orb-pupil{position:absolute;left:54%;top:50%;width:52%;height:52%;border-radius:50%;
+    transform:translate(-50%,-50%);background:var(--pupil);}
+  .orb-hl{position:absolute;left:34%;top:30%;width:17%;height:17%;border-radius:50%;background:#fff;filter:blur(.4px);}
+
+  /* ---------- facecam frame ---------- */
+  .cam{position:absolute;--r:28px;}
+  /* a gradient/solid ring with a transparent center (cam shows through) */
+  .ring{position:absolute;inset:0;border-radius:var(--r);padding:var(--ring);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;}
+  .ring.pink{background:var(--offset);transform:translate(6px,7px);}      /* offset copy behind */
+  .ring.chrome{background:var(--chrome);filter:drop-shadow(0 0 22px rgba(47,182,255,.5));}
+  /* demo-only placeholder showing where the webcam sits */
+  .cam-fill{position:absolute;inset:var(--ring);border-radius:calc(var(--r) - var(--ring));
+    background:#0e1116;display:none;align-items:center;justify-content:center;overflow:hidden;}
+  body.demo .cam-fill{display:flex;}
+  .cam-fill .tag{font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;color:rgba(255,255,255,.28);font-size:18px;position:absolute;bottom:14px;}
+  /* handle tab, sits on the top edge */
+  .cam-handle{position:absolute;top:-19px;left:18px;display:flex;align-items:center;gap:11px;
+    background:var(--base);border:1px solid rgba(47,182,255,.55);border-radius:8px;padding:7px 14px;
+    font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+    font-size:16px;color:var(--white);box-shadow:0 0 18px rgba(47,182,255,.28);white-space:nowrap;z-index:3;}
+  .cam-handle .live{color:var(--blue);} .cam-handle .h{color:rgba(255,255,255,.72);}
+  .dot{width:11px;height:11px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px rgba(255,46,136,.9);
+    animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.7);}}
+  /* mascot bumper pip, top-right corner of the frame */
+  .cam-bump{position:absolute;top:-20px;right:-20px;z-index:3;filter:drop-shadow(0 0 10px rgba(47,182,255,.5));}
+
+  /* ---------- HUD brand bug ---------- */
+  .hud{position:absolute;top:86px;display:flex;align-items:center;gap:18px;z-index:4;}
+  .hud.tr{right:96px;flex-direction:row;} .hud.tl{left:96px;flex-direction:row-reverse;}
+</style>
+</head>
+<body>
+
+  <!-- HUD brand bug -->
+  <div class="hud tr" id="hud">
+    <div class="orb" style="--d:52px;"><div class="orb-spec"></div><div class="orb-eye"><div class="orb-pupil"></div><div class="orb-hl"></div></div></div>
+    <div class="wibbly" style="font-size:44px;">
+      <span class="chrome-text" data-text="W">W</span><span class="iglyph"><span class="i-stem-offset"></span><span class="i-stem-chrome"></span><span class="i-dot-offset"></span><span class="i-dot-chrome"><span class="i-pupil"></span></span></span><span class="chrome-text" data-text="BBLY">BBLY</span>
+    </div>
+  </div>
+
+  <!-- Facecam frame -->
+  <div class="cam" id="cam">
+    <div class="ring pink"></div>
+    <div class="ring chrome"></div>
+    <div class="cam-fill"><span class="tag">Facecam · 16:9</span>
+      <div class="orb" style="--d:150px;opacity:.9;"><div class="orb-spec"></div><div class="orb-eye"><div class="orb-pupil"></div><div class="orb-hl"></div></div></div>
+    </div>
+    <div class="cam-handle"><span class="dot"></span><span class="live">LIVE</span><span class="h" id="handle">@DADDYWIBBLY2832</span></div>
+    <div class="cam-bump"><div class="orb" style="--d:44px;"><div class="orb-spec"></div><div class="orb-eye"><div class="orb-pupil"></div><div class="orb-hl"></div></div></div></div>
+  </div>
+
+<script>
+  var q = new URLSearchParams(location.search);
+  if (q.get('demo') === '1') document.body.classList.add('demo');
+
+  // HUD side
+  var hud = document.getElementById('hud');
+  hud.className = 'hud ' + (q.get('hud') === 'tl' ? 'tl' : 'tr');
+
+  // handle label
+  var handle = (q.get('handle') || '@DADDYWIBBLY2832').toUpperCase();
+  document.getElementById('handle').textContent = handle;
+
+  // cam size + position
+  var cam = document.getElementById('cam');
+  var big = q.get('cam') === 'big';
+  if (big){
+    cam.style.left = '96px'; cam.style.width = '960px'; cam.style.height = '540px';
+    cam.style.top = ((1080 - 540) / 2) + 'px';   // vertically centered
+  } else {
+    cam.style.left = '96px'; cam.style.width = '480px'; cam.style.height = '270px';
+    cam.style.top = (1080 - 96 - 270) + 'px';      // bottom-left, 96 safe margin
+  }
+</script>
+</body>
+</html>

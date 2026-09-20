@@ -12,6 +12,7 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | 🏛️ System Design | 25 | 200 | Architecting at scale — distributed systems, trade-offs, and running agents at the max level |
 | 📣 Marketing | 8 | 64 | Brand, audience, content, channels, metrics, growth, and marketing with AI |
 | 🎥 OBS Studio | 8 | 64 | Recording studio-quality video with OBS — scenes, sources, audio, encoding, cameras, overlays, workflow, and a streaming/troubleshooting intro |
+| 🎛️ OBS Overlays | 8 | 64 | Building stream overlays as browser sources — standby screens, facecam frame, HUD, lower thirds, alerts, goal bars and stinger transitions (grounded in the bundled `obs/` assets) |
 | ▶️ Content Creation | 8 | 64 | Growing on YouTube — the algorithm, niche, ideas, titles/thumbnails, hooks, retention, publishing/SEO, analytics and monetization |
 | 🛡️ Cybersecurity | 10 | 80 | Staying safe and building securely — for both websites and apps |
 | 👷 Construction | 13 | 112 | Physical building — foundations, framing, commercial, MEP, structural, scheduling |
@@ -25,8 +26,8 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | 🧸 Attachment Theory | 25 | 200 | How early bonds shape us — Bowlby, Ainsworth, the Strange Situation, adult love |
 | ♟️ Evolutionary Game Theory | 25 | 192 | The math of cooperation and conflict — ESS, Hawk-Dove, the evolution of strategy |
 
-**13,850 quiz questions across 1,992 lessons in 253 units, over 16 quiz tracks** — plus
-CodeLab's 205 interactive coding items as a seventeenth, external track.
+**14,235 quiz questions across 2,056 lessons in 261 units, over 17 quiz tracks** — plus
+CodeLab's 205 interactive coding items as an eighteenth, external track.
 
 *(Counted from the unit files on 2026-09-19. If you add units, recount rather than
 guessing — this table was wrong by more than double before it was last checked.)*
@@ -61,6 +62,7 @@ academy/
 ├── marketing-unit1.js … marketing-unit8.js
 ├── obs-unit1.js … obs-unit8.js               # OBS Studio (recording-first)
 ├── content-unit1.js … content-unit8.js       # Content Creation (YouTube)
+├── overlays-unit1.js … overlays-unit8.js     # OBS Overlays (uses obs/ assets)
 ├── cyber-unit1.js … cyber-unit10.js
 ├── construction-unit1.js … construction-unit13.js
 ├── bim-unit1.js … bim-unit8.js
@@ -72,11 +74,14 @@ academy/
 ├── behavior-unit1.js … behavior-unit25.js
 ├── attachment-unit1.js … attachment-unit25.js
 ├── egt-unit1.js … egt-unit25.js
-└── codelab/                # the external Full-Stack Coding Lab app
+├── codelab/                # the external Full-Stack Coding Lab app
+└── obs/                     # overlay assets the OBS Overlays track teaches
 ```
-253 unit files, all flat at the root — no subfolders — so uploading to a static host is
-drag-and-drop simple. `codelab/` is the one exception: it is a whole second app, and it
-lives in a folder so its relative link works wherever Academy is hosted.
+261 unit files, all flat at the root — no subfolders — so uploading to a static host is
+drag-and-drop simple. Two folders are the exceptions: `codelab/` is a whole second app,
+and `obs/` holds the stream-overlay assets (standby, facecam, alerts, goal bar, stinger)
+that the OBS Overlays track is built around — hosted alongside Academy so the course can
+link to the live demos.
 
 ## The Full-Stack Coding Lab card
 The 🧑‍💻 card on the picker is an **external track**: it opens the CodeLab app (a Codecademy-style sandbox course) instead of a quiz path. CodeLab ships in this repo under `codelab/`, so the card's relative link works wherever Academy is hosted (e.g. `https://<user>.github.io/academy/codelab/`). Because both apps share the same origin, they **share profiles automatically** — CodeLab records completed lessons, XP and streaks into this app's store as track `fullstack`, so they count toward each profile's totals here. Defined in `tracks.js` via the `link` property (any track with `link` becomes an open-this-URL card). The folder can also be mirrored to its own repo (`codelab`) for a standalone URL — sync still works, same origin.

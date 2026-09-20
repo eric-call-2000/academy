@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wibbly · Alerts</title>
+<!--
+  Wibbly alert overlay for OBS Browser Source (1920x1080, TRANSPARENT).
+  Plays follower / sub / donation / raid toasts, orb reacting, above the facecam.
+
+  PREVIEW / TEST:
+    alerts.html?demo=1                 cycle all four types on a loop (with stand-in bg)
+    alerts.html?test=follow&name=Pixel Fire one on load. types: follow|sub|tip|raid
+    alerts.html?test=tip&name=GG&amount=$25&message=Clutch!
+    alerts.html?test=raid&name=Queen&count=142
+    alerts.html?anchor=top|center|camtop  where the toast appears (default camtop)
+
+  LIVE WIRING (backend-agnostic): call the global from anywhere on the page —
+    wibblyAlert({ type:'follow', name:'PixelWraith' })
+    wibblyAlert({ type:'sub',    name:'Nova', tier:'TIER 1', months:3 })
+    wibblyAlert({ type:'tip',    name:'GG',   amount:'$25', message:'Clutch!' })
+    wibblyAlert({ type:'raid',   name:'Queen', count:142 })
+  Streamlabs / StreamElements / YouTube adapters are a tiny shim that maps their
+  event payload onto wibblyAlert(...) — see WIBBLY-OBS-CHROME-SPEC.md, decision 5.
+  Audio is out of scope (not a visual-brand element).
+
+  Built on WIBBLY-BRAND-SPEC.md + WIBBLY-OBS-CHROME-SPEC.md tokens (verbatim).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#0C0E12; --blue:#2FB6FF; --pink:#FF2E88; --white:#FFFFFF; --yellow:#F5E14B; --ink:#07090D;
+    --offset:var(--pink);
+    --chrome:linear-gradient(176deg,#ffffff 0%,#eaf7ff 11%,#2FB6FF 31%,#0a2f47 48%,#0d3c59 52%,#2FB6FF 63%,#ffffff 80%,#9bdcff 100%);
+    --sphere:radial-gradient(circle at 34% 22%,#ffffff 0%,#e6f5ff 12%,#2FB6FF 44%,#0b3a57 76%,#06202f 100%);
+    --eye:radial-gradient(circle at 38% 30%,#fff 0%,#fff 58%,#cfe9f7 82%,#9dc2d6 100%);
+    --pupil:radial-gradient(circle at 42% 34%,#20262e,#0a0d12 55%,#04060a);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:transparent;}
+  body{color:var(--white);font-family:'Barlow Condensed',Arial,sans-serif;position:relative;-webkit-font-smoothing:antialiased;}
+  body.demo{background:#191d23;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.5px);background-size:38px 38px;}
+
+  /* ---------- chrome text ---------- */
+  .chrome-text{position:relative;display:inline-block;font-family:'Anton',Arial Black,sans-serif;transform:skewX(-10deg);
+    letter-spacing:-.012em;background:var(--chrome);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;text-shadow:0 0 30px rgba(47,182,255,.5);}
+  .chrome-text::before{content:attr(data-text);position:absolute;left:0;top:0;z-index:-1;
+    transform:translate(.05em,.056em);-webkit-text-fill-color:var(--offset);color:var(--offset);text-shadow:none;}
+  /* white name with pink offset (donation) */
+  .name-offset{position:relative;display:inline-block;font-family:'Anton',Arial Black,sans-serif;transform:skewX(-10deg);
+    letter-spacing:-.012em;color:var(--white);}
+  .name-offset::before{content:attr(data-text);position:absolute;left:0;top:0;z-index:-1;
+    transform:translate(.05em,.056em);color:var(--offset);}
+  /* yellow knockout name (sub) */
+  .knock{display:inline-block;font-family:'Anton',Arial Black,sans-serif;transform:skewX(-10deg);letter-spacing:-.012em;
+    background:var(--yellow);color:var(--base);padding:.02em .1em;box-shadow:0 0 30px rgba(245,225,75,.32);}
+
+  /* ---------- orb ---------- */
+  .orb{position:relative;border-radius:50%;width:var(--d);height:var(--d);background:var(--sphere);
+    box-shadow:0 0 calc(var(--d)*.184) rgba(47,182,255,.5),inset 0 calc(var(--d)*-.068) calc(var(--d)*.121) rgba(255,255,255,.32);}
+  .orb-spec{position:absolute;left:12%;top:10%;width:35%;height:24%;border-radius:50%;
+    background:radial-gradient(ellipse at center,rgba(255,255,255,.95),rgba(255,255,255,0) 70%);transform:rotate(-16deg);filter:blur(3px);}
+  .orb-eye{position:absolute;left:50%;top:46%;width:46%;height:46%;border-radius:50%;transform:translate(-50%,-50%);background:var(--eye);}
+  .orb-pupil{position:absolute;left:54%;top:50%;width:52%;height:52%;border-radius:50%;transform:translate(-50%,-50%);background:var(--pupil);}
+  .orb-hl{position:absolute;left:34%;top:30%;width:17%;height:17%;border-radius:50%;background:#fff;filter:blur(.4px);}
+  .orb-eye.blinkonce{animation:blink .5s ease .55s 1;}
+  @keyframes blink{0%,100%{transform:translate(-50%,-50%) scaleY(1);}50%{transform:translate(-50%,-50%) scaleY(.12);}}
+
+  /* ---------- alert card ---------- */
+  .alert{position:absolute;display:flex;align-items:center;gap:24px;max-width:760px;
+    background:var(--base);border:1px solid var(--edge);border-left:6px solid var(--accent);border-radius:16px;
+    padding:24px 34px 24px 26px;box-shadow:0 0 48px var(--glow),0 16px 44px rgba(0,0,0,.55);
+    opacity:0;pointer-events:none;--accent:var(--blue);--glow:rgba(47,182,255,.5);--edge:rgba(47,182,255,.45);}
+  .alert.in{animation:cardIn .55s cubic-bezier(.2,.9,.25,1.2) forwards;}
+  .alert.out{animation:cardOut .5s ease forwards;}
+  @keyframes cardIn{0%{opacity:0;transform:translateY(42px) scale(.9);}60%{transform:translateY(-6px) scale(1.02);}100%{opacity:1;transform:translateY(0) scale(1);}}
+  @keyframes cardOut{0%{opacity:1;transform:translateY(0) scale(1);}100%{opacity:0;transform:translateY(26px) scale(.96);}}
+
+  .a-orb{flex:0 0 auto;}
+  .alert.in .a-orb{animation:orbPop .6s cubic-bezier(.2,.9,.25,1.4) forwards;}
+  @keyframes orbPop{0%{transform:scale(0) rotate(0);}65%{transform:scale(1.16) rotate(0);}100%{transform:scale(1) rotate(0);}}
+  .alert.in.spin .a-orb{animation:orbSpin .7s cubic-bezier(.2,.7,.2,1) forwards;}
+  @keyframes orbSpin{0%{transform:scale(0) rotate(-40deg);}65%{transform:scale(1.16) rotate(220deg);}100%{transform:scale(1) rotate(360deg);}}
+
+  .a-text{min-width:0;}
+  .a-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.28em;
+    font-size:30px;color:var(--accent);opacity:0;}
+  .alert.in .a-label{animation:fadeUp .5s ease .18s forwards;}
+  .a-name{font-size:76px;line-height:1.02;white-space:nowrap;margin-top:2px;opacity:0;}
+  .alert.in .a-name{animation:fadeUp .5s cubic-bezier(.2,.9,.25,1.2) .3s forwards;}
+  .a-underline{height:6px;width:100%;background:var(--accent);border-radius:3px;margin-top:12px;
+    transform:scaleX(0);transform-origin:left;box-shadow:0 0 16px var(--glow);}
+  .alert.in .a-underline{animation:sweep .5s cubic-bezier(.3,.8,.3,1) .4s forwards;}
+  .a-sub{font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+    font-size:26px;color:rgba(255,255,255,.82);margin-top:12px;opacity:0;min-height:1px;}
+  .alert.in .a-sub{animation:fadeUp .5s ease .5s forwards;}
+  .a-sub .amt{font-family:'IBM Plex Mono',monospace;background:var(--chrome);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;font-weight:500;}
+  .a-sub .cnt{color:var(--blue);}
+  .a-sub .msg{color:rgba(255,255,255,.7);}
+
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes sweep{0%{transform:scaleX(0);}100%{transform:scaleX(1);}}
+</style>
+</head>
+<body>
+  <div class="alert" id="alert">
+    <div class="a-orb"><div class="orb" style="--d:104px;"><div class="orb-spec"></div><div class="orb-eye" id="orbeye"><div class="orb-pupil"></div><div class="orb-hl"></div></div></div></div>
+    <div class="a-text">
+      <div class="a-label" id="alabel">NEW FOLLOWER</div>
+      <div class="a-name" id="aname"></div>
+      <div class="a-underline"></div>
+      <div class="a-sub" id="asub"></div>
+    </div>
+  </div>
+
+<script>
+  var q = new URLSearchParams(location.search);
+  if (q.get('demo') === '1') document.body.classList.add('demo');
+
+  var el = document.getElementById('alert');
+  var eLabel = document.getElementById('alabel');
+  var eName  = document.getElementById('aname');
+  var eSub   = document.getElementById('asub');
+  var eEye   = document.getElementById('orbeye');
+
+  // anchor placement
+  var anchor = q.get('anchor') || 'camtop';
+  function place(){
+    el.style.left = el.style.right = el.style.top = el.style.bottom = '';
+    if (anchor === 'top'){ el.style.top='120px'; el.style.left='50%'; el.style.transform='translateX(-50%)'; el.style.setProperty('--nudge','0'); }
+    else if (anchor === 'center'){ el.style.top='50%'; el.style.left='50%'; }
+    else { el.style.left='96px'; el.style.bottom='390px'; }   // camtop: above the facecam
+  }
+  place();
+
+  // type config
+  var TYPES = {
+    follow:{label:'NEW FOLLOWER', accent:'--blue',   glow:'rgba(47,182,255,.5)',  edge:'rgba(47,182,255,.45)', name:'chrome', spin:false},
+    sub:   {label:'NEW SUB',      accent:'--yellow', glow:'rgba(245,225,75,.45)', edge:'rgba(245,225,75,.55)', name:'knock',  spin:false},
+    tip:   {label:'SUPER CHAT',   accent:'--pink',   glow:'rgba(255,46,136,.5)',  edge:'rgba(255,46,136,.55)', name:'offset', spin:false},
+    raid:  {label:'RAID',         accent:'--blue',   glow:'rgba(47,182,255,.5)',  edge:'rgba(47,182,255,.45)', name:'chrome', spin:true}
+  };
+
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  function buildName(kind, name){
+    var n = esc(name || 'Someone');
+    if (kind === 'chrome') return '<span class="chrome-text" data-text="'+n+'">'+n+'</span>';
+    if (kind === 'knock')  return '<span class="knock">'+n+'</span>';
+    return '<span class="name-offset" data-text="'+n+'">'+n+'</span>';
+  }
+  function buildSub(p){
+    if (p.type === 'tip'){
+      var a = p.amount ? '<span class="amt">'+esc(p.amount)+'</span>' : '';
+      var m = p.message ? '<span class="msg"> &nbsp;·&nbsp; '+esc(p.message)+'</span>' : '';
+      return a + m;
+    }
+    if (p.type === 'raid') return '<span class="cnt">'+esc(p.count!=null?p.count:0)+' RAIDERS</span>';
+    if (p.type === 'sub'){
+      var bits = [];
+      if (p.tier) bits.push(esc(p.tier));
+      if (p.months) bits.push(esc(p.months)+' MO');
+      return bits.length ? bits.join(' &nbsp;·&nbsp; ') : 'WELCOME TO THE CREW';
+    }
+    return 'WELCOME IN';
+  }
+
+  // queue + player
+  var queue = [], playing = false;
+  var IN = 550, HOLD = 4200, OUT = 500, GAP = 650;
+
+  function render(p){
+    var T = TYPES[p.type] || TYPES.follow;
+    el.style.setProperty('--accent','var('+T.accent+')');
+    el.style.setProperty('--glow', T.glow);
+    el.style.setProperty('--edge', T.edge);
+    eLabel.textContent = p.label || T.label;
+    eName.innerHTML = buildName(T.name, p.name);
+    eSub.innerHTML = buildSub(p);
+    el.classList.toggle('spin', !!T.spin);
+    // restart blink
+    eEye.classList.remove('blinkonce'); void eEye.offsetWidth; eEye.classList.add('blinkonce');
+  }
+
+  function playNext(){
+    if (playing) return;
+    var p = queue.shift();
+    if (!p){ playing = false; return; }
+    playing = true;
+    render(p);
+    el.classList.remove('out'); el.classList.remove('in'); void el.offsetWidth;
+    el.classList.add('in');
+    setTimeout(function(){
+      el.classList.remove('in'); el.classList.add('out');
+      setTimeout(function(){
+        el.classList.remove('out'); el.style.opacity='0';
+        playing = false;
+        setTimeout(playNext, GAP);
+      }, OUT);
+    }, IN + HOLD);
+  }
+
+  window.wibblyAlert = function(payload){
+    if (!payload || !payload.type) return;
+    queue.push(payload);
+    if (!playing) playNext();
+  };
+
+  // one-shot test via URL
+  var test = q.get('test');
+  if (test){
+    wibblyAlert({ type:test, name:q.get('name')||'TestUser', amount:q.get('amount'),
+      message:q.get('message'), count:q.get('count'), tier:q.get('tier'), months:q.get('months') });
+  }
+
+  // demo cycle
+  if (q.get('demo') === '1'){
+    var samples = [
+      {type:'follow', name:'PixelWraith'},
+      {type:'sub',    name:'NovaByte', tier:'TIER 1', months:3},
+      {type:'tip',    name:'GG_Gremlin', amount:'$25', message:'CLUTCH OR KICK!'},
+      {type:'raid',   name:'QueenOfClips', count:142}
+    ];
+    var i = 0;
+    function feed(){ wibblyAlert(samples[i % samples.length]); i++; }
+    feed();
+    setInterval(feed, IN + HOLD + OUT + GAP + 400);
+  }
+</script>
+</body>
+</html>

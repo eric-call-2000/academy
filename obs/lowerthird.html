@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wibbly · Lower Third</title>
+<!--
+  Wibbly lower third for OBS Browser Source (1920x1080, TRANSPARENT).
+  Base panel + chrome left edge (pink offset) + yellow tick + two lines. Slides in from left.
+
+  CONTENT / TEST:
+    lowerthird.html?name=POV: Ranked Grind&role=Wibbly · Variety Gaming
+    lowerthird.html?pos=cam|bl|bc|br         placement (default cam = right of facecam)
+    lowerthird.html?tick=0                   hide the yellow tick
+    lowerthird.html?auto=8                   auto-slide-out after 8s (default: stays)
+    lowerthird.html?demo=1                   stand-in bg for preview
+
+  LIVE: wibblyLowerThird({ name:'...', role:'...' })  /  wibblyLowerThirdHide()
+  Built on WIBBLY-BRAND-SPEC.md + WIBBLY-OBS-CHROME-SPEC.md tokens (verbatim).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#0C0E12; --blue:#2FB6FF; --pink:#FF2E88; --white:#FFFFFF; --yellow:#F5E14B;
+    --chrome:linear-gradient(176deg,#ffffff 0%,#eaf7ff 11%,#2FB6FF 31%,#0a2f47 48%,#0d3c59 52%,#2FB6FF 63%,#ffffff 80%,#9bdcff 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:transparent;}
+  body{color:var(--white);font-family:'Barlow Condensed',Arial,sans-serif;position:relative;-webkit-font-smoothing:antialiased;}
+  body.demo{background:#191d23;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.5px);background-size:38px 38px;}
+
+  .lt{position:absolute;display:flex;align-items:center;background:var(--base);
+    border-radius:0 14px 14px 0;padding-right:38px;
+    box-shadow:7px 8px 0 rgba(255,46,136,.92), 0 0 34px rgba(47,182,255,.26), 0 16px 40px rgba(0,0,0,.5);
+    opacity:0;transform:translateX(-40px);}
+  .lt.in{animation:ltIn .34s cubic-bezier(.2,.85,.25,1.05) forwards;}
+  .lt.out{animation:ltOut .3s ease forwards;}
+  @keyframes ltIn{to{opacity:1;transform:translateX(0);}}
+  @keyframes ltOut{to{opacity:0;transform:translateX(-40px);}}
+
+  .lt-edge{align-self:stretch;width:6px;background:var(--chrome);border-radius:0;}
+  .lt-tick{width:22px;height:22px;flex:0 0 auto;background:var(--yellow);margin:0 22px 0 20px;
+    box-shadow:0 0 18px rgba(245,225,75,.5);}
+  .lt-body{padding:18px 0;}
+  .lt-1{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;
+    font-size:46px;line-height:1;color:var(--white);white-space:nowrap;}
+  .lt-2{font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+    font-size:23px;color:var(--blue);margin-top:9px;white-space:nowrap;}
+</style>
+</head>
+<body>
+  <div class="lt" id="lt">
+    <div class="lt-edge"></div>
+    <div class="lt-tick" id="tick"></div>
+    <div class="lt-body">
+      <div class="lt-1" id="lt1">POV: RANKED GRIND</div>
+      <div class="lt-2" id="lt2">WIBBLY · VARIETY GAMING</div>
+    </div>
+  </div>
+
+<script>
+  var q = new URLSearchParams(location.search);
+  if (q.get('demo') === '1') document.body.classList.add('demo');
+
+  var lt = document.getElementById('lt');
+  var e1 = document.getElementById('lt1'), e2 = document.getElementById('lt2');
+  if (q.get('tick') === '0') document.getElementById('tick').style.display = 'none';
+
+  function place(){
+    lt.style.left = lt.style.right = lt.style.top = lt.style.bottom = '';
+    var pos = q.get('pos') || 'cam';
+    lt.style.bottom = '120px';
+    if (pos === 'bl') lt.style.left = '96px';
+    else if (pos === 'br') lt.style.right = '96px';
+    else if (pos === 'bc') { lt.style.left = '50%'; }   // centered handled after measure
+    else lt.style.left = '620px';                        // cam: clears a corner facecam
+  }
+  place();
+  // center pos: offset by half width once laid out
+  if ((q.get('pos')||'') === 'bc'){
+    requestAnimationFrame(function(){ lt.style.marginLeft = (-lt.offsetWidth/2) + 'px'; });
+  }
+
+  function show(){ lt.classList.remove('out'); void lt.offsetWidth; lt.classList.add('in'); }
+  function hide(){ lt.classList.remove('in'); lt.classList.add('out'); }
+
+  window.wibblyLowerThird = function(p){
+    if (p){ if (p.name!=null) { e1.textContent = p.name; } if (p.role!=null){ e2.textContent = p.role; } }
+    if ((q.get('pos')||'') === 'bc') requestAnimationFrame(function(){ lt.style.marginLeft = (-lt.offsetWidth/2) + 'px'; });
+    show();
+  };
+  window.wibblyLowerThirdHide = hide;
+
+  // content from URL
+  if (q.get('name') != null) e1.textContent = q.get('name');
+  if (q.get('role') != null) e2.textContent = q.get('role');
+
+  show();
+  var auto = parseInt(q.get('auto'),10);
+  if (!isNaN(auto) && auto > 0) setTimeout(hide, auto*1000);
+</script>
+</body>
+</html>

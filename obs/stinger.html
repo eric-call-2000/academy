@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wibbly · Stinger</title>
+<!--
+  Wibbly stinger transition (1920x1080). A base panel wipes across with chrome
+  leading/trailing edges and orbs riding the edges; WIBBLY flashes at full cover.
+
+  IMPORTANT — OBS can't use HTML as a Stinger. This page is the SOURCE you render
+  to a video WITH ALPHA (webm/VP9 or .mov ProRes 4444), then load in
+  Settings > Scene Transitions > Stinger.
+    Duration (default): 750 ms
+    TRANSITION POINT:   375 ms  (the panel is fully covering the screen 330-420 ms)
+  Set the Stinger "Transition Point" to 375 ms so OBS swaps scenes while covered.
+
+  PREVIEW:
+    stinger.html?demo=1     loop, swapping SCENE A -> SCENE B at the transition point
+    stinger.html?loop=1     loop over transparency (what the render looks like)
+    stinger.html?ms=900     change duration (transition point stays at 50%)
+    stinger.html?render=1    hide all UI + make bg transparent (use this to capture)
+
+  Built on WIBBLY-BRAND-SPEC.md + WIBBLY-OBS-CHROME-SPEC.md tokens (verbatim).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#0C0E12; --blue:#2FB6FF; --pink:#FF2E88; --white:#FFFFFF; --yellow:#F5E14B;
+    --offset:var(--pink);
+    --chrome:linear-gradient(176deg,#ffffff 0%,#eaf7ff 11%,#2FB6FF 31%,#0a2f47 48%,#0d3c59 52%,#2FB6FF 63%,#ffffff 80%,#9bdcff 100%);
+    --sphere:radial-gradient(circle at 34% 22%,#ffffff 0%,#e6f5ff 12%,#2FB6FF 44%,#0b3a57 76%,#06202f 100%);
+    --eye:radial-gradient(circle at 38% 30%,#fff 0%,#fff 58%,#cfe9f7 82%,#9dc2d6 100%);
+    --pupil:radial-gradient(circle at 42% 34%,#20262e,#0a0d12 55%,#04060a);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:transparent;}
+  body{color:var(--white);font-family:'Barlow Condensed',Arial,sans-serif;position:relative;-webkit-font-smoothing:antialiased;}
+
+  /* demo scenes (behind the wipe) */
+  .scene{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:18px;}
+  body.demo .scene{display:flex;}
+  .scene .lab{font-family:'Anton',Arial Black,sans-serif;transform:skewX(-10deg);letter-spacing:-.012em;font-size:150px;color:#fff;opacity:.9;}
+  .scene .sub{font-family:'IBM Plex Mono',monospace;letter-spacing:.24em;font-size:26px;color:rgba(255,255,255,.7);text-transform:uppercase;}
+  #sa{background:#12202b;} #sb{background:#221019;}
+  #sb{display:none;}
+  body.demo #sb{display:none;}
+
+  /* stinger stage */
+  .stage{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+  .panel{position:absolute;top:0;left:0;width:1920px;height:1080px;background:var(--base);
+    transform:translateX(-2050px);
+    box-shadow:0 0 90px rgba(47,182,255,.35);}
+  .panel.run{animation:wipe var(--ms,750ms) cubic-bezier(.55,0,.3,1) 1 both;}
+  @keyframes wipe{
+    0%{transform:translateX(-2050px);}
+    44%{transform:translateX(0);}
+    56%{transform:translateX(0);}
+    100%{transform:translateX(2050px);}
+  }
+  /* chrome edge bands (skewed sliver — empty, so no coverage gaps) */
+  .edge{position:absolute;top:-40px;height:1160px;width:64px;background:var(--chrome);
+    filter:drop-shadow(0 0 34px rgba(47,182,255,.65));transform:skewX(-10deg);}
+  .edge.l{left:-64px;} .edge.r{right:-64px;}
+  .edge.l::before,.edge.r::before{content:'';position:absolute;inset:0;left:-8px;width:8px;background:var(--offset);opacity:.9;}
+
+  /* orbs riding the edges */
+  .orb{position:absolute;top:50%;border-radius:50%;width:var(--d);height:var(--d);background:var(--sphere);
+    transform:translateY(-50%);
+    box-shadow:0 0 calc(var(--d)*.184) rgba(47,182,255,.6),inset 0 calc(var(--d)*-.068) calc(var(--d)*.121) rgba(255,255,255,.32);}
+  .orb-spec{position:absolute;left:12%;top:10%;width:35%;height:24%;border-radius:50%;
+    background:radial-gradient(ellipse at center,rgba(255,255,255,.95),rgba(255,255,255,0) 70%);transform:rotate(-16deg);filter:blur(3px);}
+  .orb-eye{position:absolute;left:50%;top:46%;width:46%;height:46%;border-radius:50%;transform:translate(-50%,-50%);background:var(--eye);}
+  .orb-pupil{position:absolute;left:54%;top:50%;width:52%;height:52%;border-radius:50%;transform:translate(-50%,-50%);background:var(--pupil);}
+  .orb-hl{position:absolute;left:34%;top:30%;width:17%;height:17%;border-radius:50%;background:#fff;filter:blur(.4px);}
+  .orb.lo{left:-52px;} .orb.ro{right:-52px;}
+
+  /* center wordmark flash */
+  .brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+  .chrome-text{position:relative;display:inline-block;font-family:'Anton',Arial Black,sans-serif;
+    background:var(--chrome);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;text-shadow:0 0 30px rgba(47,182,255,.5);}
+  .chrome-text::before{content:attr(data-text);position:absolute;left:0;top:0;z-index:-1;
+    transform:translate(.05em,.056em);-webkit-text-fill-color:var(--offset);color:var(--offset);text-shadow:none;}
+  .wibbly{font-family:'Anton',Arial Black,sans-serif;transform:skewX(-10deg);letter-spacing:-.012em;line-height:1;
+    display:inline-flex;align-items:baseline;white-space:nowrap;}
+  .iglyph{position:relative;display:inline-block;width:.36em;height:.98em;margin:0 .02em;}
+  .iglyph>span{position:absolute;box-sizing:border-box;}
+  .i-stem-offset{left:.095em;top:.327em;width:.26em;height:.628em;border-radius:.09em;background:var(--offset);}
+  .i-stem-chrome{left:.05em;top:.282em;width:.26em;height:.628em;border-radius:.09em;background:var(--chrome);box-shadow:inset 0 -5px 12px rgba(255,255,255,.4),0 0 22px rgba(47,182,255,.5);}
+  .i-dot-offset{left:.125em;top:.095em;width:.20em;height:.20em;border-radius:50%;background:var(--offset);}
+  .i-dot-chrome{left:.08em;top:.05em;width:.20em;height:.20em;border-radius:50%;background:var(--chrome);box-shadow:inset 0 -5px 12px rgba(255,255,255,.4),0 0 22px rgba(47,182,255,.5);}
+  .i-dot-chrome .i-pupil{left:32%;top:30%;width:38%;height:38%;border-radius:50%;background:radial-gradient(circle at 42% 34%,#20262e,#0a0d12 55%,#04060a);}
+
+  /* preview UI */
+  .ui{position:absolute;left:50%;bottom:40px;transform:translateX(-50%);display:flex;gap:12px;z-index:9;
+    font-family:'IBM Plex Mono',monospace;font-size:20px;}
+  .ui button{background:var(--base);color:var(--white);border:1px solid rgba(47,182,255,.5);border-radius:8px;
+    padding:12px 20px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;}
+  body.render .ui, body.render .scene{display:none;}
+</style>
+</head>
+<body>
+  <!-- demo scenes -->
+  <div class="scene" id="sa"><div class="lab">SCENE A</div><div class="sub">Gameplay</div></div>
+  <div class="scene" id="sb"><div class="lab">SCENE B</div><div class="sub">Just Chatting</div></div>
+
+  <!-- stinger -->
+  <div class="stage">
+    <div class="panel" id="panel">
+      <div class="edge l"></div>
+      <div class="edge r"></div>
+      <div class="orb lo" style="--d:120px;"><div class="orb-spec"></div><div class="orb-eye"><div class="orb-pupil"></div><div class="orb-hl"></div></div></div>
+      <div class="orb ro" style="--d:120px;"><div class="orb-spec"></div><div class="orb-eye"><div class="orb-pupil"></div><div class="orb-hl"></div></div></div>
+      <div class="brand">
+        <div class="wibbly" style="font-size:150px;">
+          <span class="chrome-text" data-text="W">W</span><span class="iglyph"><span class="i-stem-offset"></span><span class="i-stem-chrome"></span><span class="i-dot-offset"></span><span class="i-dot-chrome"><span class="i-pupil"></span></span></span><span class="chrome-text" data-text="BBLY">BBLY</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui">
+    <button id="replay">▶ Replay</button>
+    <button id="loopbtn">↻ Loop: off</button>
+  </div>
+
+<script>
+  var q = new URLSearchParams(location.search);
+  if (q.get('demo') === '1') document.body.classList.add('demo');
+  if (q.get('render') === '1') document.body.classList.add('render');
+
+  var ms = parseInt(q.get('ms'),10); if (isNaN(ms) || ms < 200) ms = 750;
+  var panel = document.getElementById('panel');
+  panel.style.setProperty('--ms', ms + 'ms');
+  var sa = document.getElementById('sa'), sb = document.getElementById('sb');
+  var looping = q.get('loop') === '1' || q.get('demo') === '1';
+
+  var swapTimer = null;
+  function play(){
+    // reset demo scenes
+    if (document.body.classList.contains('demo')){ sa.style.display='flex'; sb.style.display='none'; }
+    panel.classList.remove('run'); void panel.offsetWidth; panel.classList.add('run');
+    // swap the demo scene at the transition point (50%)
+    clearTimeout(swapTimer);
+    if (document.body.classList.contains('demo')){
+      swapTimer = setTimeout(function(){ sa.style.display='none'; sb.style.display='flex'; }, ms*0.5);
+    }
+  }
+  panel.addEventListener('animationend', function(){
+    if (looping) setTimeout(play, 550);
+  });
+
+  document.getElementById('replay').addEventListener('click', play);
+  document.getElementById('loopbtn').addEventListener('click', function(){
+    looping = !looping; this.textContent = '↻ Loop: ' + (looping?'on':'off');
+    if (looping) play();
+  });
+
+  // autoplay
+  play();
+</script>
+</body>
+</html>

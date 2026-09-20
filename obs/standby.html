@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wibbly · Standby</title>
+<!--
+  Wibbly standby screen for OBS Browser Source (1920x1080, opaque).
+  One file, three states via URL query:
+    standby.html?state=soon            Starting Soon (live countdown)
+    standby.html?state=soon&mins=10    ...counts down 10:00 from load
+    standby.html?state=soon&to=19:30   ...counts down to a wall-clock time
+    standby.html?state=brb             Be Right Back
+    standby.html?state=over            Stream Over
+  Built on WIBBLY-BRAND-SPEC.md + WIBBLY-OBS-CHROME-SPEC.md tokens (verbatim).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#0C0E12; --blue:#2FB6FF; --pink:#FF2E88; --white:#FFFFFF; --yellow:#F5E14B; --ink:#07090D;
+    --offset:var(--pink);
+    --chrome:linear-gradient(176deg,#ffffff 0%,#eaf7ff 11%,#2FB6FF 31%,#0a2f47 48%,#0d3c59 52%,#2FB6FF 63%,#ffffff 80%,#9bdcff 100%);
+    --sphere:radial-gradient(circle at 34% 22%,#ffffff 0%,#e6f5ff 12%,#2FB6FF 44%,#0b3a57 76%,#06202f 100%);
+    --eye:radial-gradient(circle at 38% 30%,#fff 0%,#fff 58%,#cfe9f7 82%,#9dc2d6 100%);
+    --pupil:radial-gradient(circle at 42% 34%,#20262e,#0a0d12 55%,#04060a);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1920px;height:1080px;overflow:hidden;}
+  body{
+    background-color:var(--base);
+    /* faint blue dot-matrix texture — not a gradient wash */
+    background-image:radial-gradient(rgba(47,182,255,.06) 1px, transparent 1.6px);
+    background-size:46px 46px;
+    color:var(--white);
+    font-family:'Barlow Condensed',Arial,sans-serif;
+    position:relative;-webkit-font-smoothing:antialiased;
+  }
+
+  /* thin brand hairlines top/bottom */
+  .rule{position:absolute;left:96px;right:96px;height:2px;background:linear-gradient(90deg,transparent,rgba(47,182,255,.5),rgba(255,46,136,.5),transparent);}
+  .rule.top{top:70px;} .rule.bot{bottom:70px;}
+
+  /* ---------- chrome text + drawn I (verbatim construction) ---------- */
+  .chrome-text{position:relative;display:inline-block;font-family:'Anton',Arial Black,sans-serif;
+    background:var(--chrome);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;text-shadow:0 0 30px rgba(47,182,255,.5);}
+  .chrome-text::before{content:attr(data-text);position:absolute;left:0;top:0;z-index:-1;
+    transform:translate(.05em,.056em);-webkit-text-fill-color:var(--offset);color:var(--offset);text-shadow:none;}
+  .wibbly{font-family:'Anton',Arial Black,sans-serif;transform:skewX(-10deg);letter-spacing:-.012em;
+    line-height:1;display:inline-flex;align-items:baseline;white-space:nowrap;}
+  .iglyph{position:relative;display:inline-block;width:.36em;height:.98em;margin:0 .02em;}
+  .iglyph>span{position:absolute;box-sizing:border-box;}
+  .i-stem-offset{left:.095em;top:.327em;width:.26em;height:.628em;border-radius:.09em;background:var(--offset);}
+  .i-stem-chrome{left:.05em;top:.282em;width:.26em;height:.628em;border-radius:.09em;background:var(--chrome);
+    box-shadow:inset 0 -5px 12px rgba(255,255,255,.4),0 0 22px rgba(47,182,255,.5);}
+  .i-dot-offset{left:.125em;top:.095em;width:.20em;height:.20em;border-radius:50%;background:var(--offset);}
+  .i-dot-chrome{left:.08em;top:.05em;width:.20em;height:.20em;border-radius:50%;background:var(--chrome);
+    box-shadow:inset 0 -5px 12px rgba(255,255,255,.4),0 0 22px rgba(47,182,255,.5);}
+  .i-dot-chrome .i-pupil{left:32%;top:30%;width:38%;height:38%;border-radius:50%;
+    background:radial-gradient(circle at 42% 34%,#20262e,#0a0d12 55%,#04060a);}
+
+  /* ---------- orb (static) ---------- */
+  .orb{position:relative;border-radius:50%;width:var(--d);height:var(--d);background:var(--sphere);
+    box-shadow:0 0 calc(var(--d)*.184) rgba(47,182,255,.5),inset 0 calc(var(--d)*-.068) calc(var(--d)*.121) rgba(255,255,255,.32);}
+  .orb-spec{position:absolute;left:12%;top:10%;width:35%;height:24%;border-radius:50%;
+    background:radial-gradient(ellipse at center,rgba(255,255,255,.95),rgba(255,255,255,0) 70%);
+    transform:rotate(-16deg);filter:blur(3px);}
+  .orb-eye{position:absolute;left:50%;top:46%;width:46%;height:46%;border-radius:50%;
+    transform:translate(-50%,-50%);background:var(--eye);}
+  .orb-pupil{position:absolute;left:54%;top:50%;width:52%;height:52%;border-radius:50%;
+    transform:translate(-50%,-50%);background:var(--pupil);}
+  .orb-hl{position:absolute;left:34%;top:30%;width:17%;height:17%;border-radius:50%;background:#fff;filter:blur(.4px);}
+
+  /* ---------- center stack ---------- */
+  .stage{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;}
+  .mark{transform:skewX(0);}
+  .subk{font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:.34em;text-transform:uppercase;
+    font-size:24px;color:var(--blue);}
+  .headline{display:flex;align-items:center;gap:.22em;white-space:nowrap;}
+  .h-word{font-family:'Anton',Arial Black,sans-serif;transform:skewX(-10deg);letter-spacing:-.012em;
+    line-height:1;font-size:150px;position:relative;display:inline-block;color:var(--white);}
+  .h-word::before{content:attr(data-text);position:absolute;left:0;top:0;z-index:-1;
+    transform:translate(.05em,.056em);color:var(--offset);}
+  .knock{font-family:'Anton',Arial Black,sans-serif;transform:skewX(-10deg);letter-spacing:-.012em;line-height:1;
+    font-size:150px;background:var(--yellow);color:var(--base);padding:.02em .12em;box-shadow:0 0 34px rgba(245,225,75,.32);}
+  .status{font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+    font-size:40px;color:var(--white);}
+  .status.count{font-size:76px;color:var(--blue);letter-spacing:.1em;text-shadow:0 0 26px rgba(47,182,255,.45);}
+  .chip{display:inline-block;background:var(--yellow);color:var(--base);font-family:'IBM Plex Mono',monospace;
+    font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:14px 26px;font-size:26px;
+    box-shadow:0 0 34px rgba(245,225,75,.3);}
+
+  /* ---------- corners ---------- */
+  .socials{position:absolute;left:96px;bottom:104px;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.28em;font-size:28px;color:rgba(255,255,255,.82);}
+  .socials b{color:var(--blue);font-weight:700;}
+  .schedule{position:absolute;right:96px;bottom:104px;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.28em;font-size:28px;color:var(--blue);}
+  .brandtag{position:absolute;left:96px;top:104px;}
+  .livechip{position:absolute;right:96px;top:98px;display:flex;align-items:center;gap:12px;
+    font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+    font-size:22px;color:rgba(255,255,255,.85);}
+  .dot{width:14px;height:14px;border-radius:50%;background:var(--pink);box-shadow:0 0 14px rgba(255,46,136,.9);
+    animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.7);}}
+</style>
+</head>
+<body>
+  <div class="rule top"></div>
+  <div class="rule bot"></div>
+
+  <!-- top-left small wordmark -->
+  <div class="brandtag">
+    <div class="wibbly" style="font-size:56px;">
+      <span class="chrome-text" data-text="W">W</span><span class="iglyph"><span class="i-stem-offset"></span><span class="i-stem-chrome"></span><span class="i-dot-offset"></span><span class="i-dot-chrome"><span class="i-pupil"></span></span></span><span class="chrome-text" data-text="BBLY">BBLY</span>
+    </div>
+  </div>
+
+  <!-- top-right live chip -->
+  <div class="livechip"><span class="dot"></span><span id="livelabel">LIVE</span></div>
+
+  <!-- center -->
+  <div class="stage">
+    <div class="orb" style="--d:360px;">
+      <div class="orb-spec"></div>
+      <div class="orb-eye"><div class="orb-pupil"></div><div class="orb-hl"></div></div>
+    </div>
+    <div class="subk" id="subk">STREAM BEGINS IN</div>
+    <div class="headline">
+      <span class="h-word" id="h1" data-text="STARTING">STARTING</span>
+      <span class="knock" id="h2">SOON</span>
+    </div>
+    <div class="status count" id="status">05:00</div>
+    <div class="chip" id="chip">&#9654; PRESS START</div>
+  </div>
+
+  <!-- corners -->
+  <div class="socials" id="socials">YT <b>@DADDYWIBBLY2832</b> &nbsp;·&nbsp; TW <b>@DADDYWIB_BLY</b></div>
+  <div class="schedule">UPLOADS · SCHEDULE TBD</div>
+
+<script>
+  var q = new URLSearchParams(location.search);
+  var state = (q.get('state')||'soon').toLowerCase();
+
+  var STATES = {
+    soon: {sub:'STREAM BEGINS IN', h1:'STARTING', h2:'SOON', countdown:true,  status:null,               chip:'▶ PRESS START', live:'STARTING'},
+    brb:  {sub:'BACK IN A FEW',    h1:'BE RIGHT', h2:'BACK', countdown:false, status:'GRAB A DRINK',      chip:'▶ STAY TUNED',  live:'AFK'},
+    over: {sub:'THAT’S A WRAP',h1:'STREAM',  h2:'OVER', countdown:false, status:'THANKS FOR WATCHING',chip:'▶ VOD UP SOON', live:'OFFLINE'}
+  };
+  var S = STATES[state] || STATES.soon;
+
+  document.getElementById('subk').textContent = S.sub;
+  var h1 = document.getElementById('h1'); h1.textContent = S.h1; h1.setAttribute('data-text', S.h1);
+  document.getElementById('h2').textContent = S.h2;
+  document.getElementById('livelabel').textContent = S.live;
+  var chip = document.getElementById('chip');
+  if (S.chip){ chip.innerHTML = S.chip.replace('▶','&#9654;'); chip.style.display=''; } else { chip.style.display='none'; }
+
+  var statusEl = document.getElementById('status');
+  if (!S.countdown){
+    statusEl.className = 'status';
+    statusEl.textContent = S.status;
+  } else {
+    statusEl.className = 'status count';
+    // target: ?to=HH:MM wall-clock, else ?mins=N (default 5) from load
+    var target;
+    var to = q.get('to');
+    if (to && /^\d{1,2}:\d{2}$/.test(to)){
+      var p = to.split(':'); var d = new Date();
+      d.setHours(+p[0], +p[1], 0, 0);
+      if (d.getTime() <= Date.now()) d.setDate(d.getDate()+1);
+      target = d.getTime();
+    } else {
+      var mins = parseInt(q.get('mins'),10); if (isNaN(mins)) mins = 5;
+      target = Date.now() + mins*60000;
+    }
+    function tick(){
+      var ms = target - Date.now();
+      if (ms <= 0){
+        statusEl.textContent = 'LIVE ANY SECOND';
+        statusEl.style.fontSize = '52px';
+        clearInterval(timer);
+        return;
+      }
+      var t = Math.floor(ms/1000);
+      var h = Math.floor(t/3600), m = Math.floor((t%3600)/60), s = t%60;
+      var mm = (m<10?'0':'')+m, ss = (s<10?'0':'')+s;
+      statusEl.textContent = h>0 ? (h+':'+mm+':'+ss) : (mm+':'+ss);
+    }
+    tick();
+    var timer = setInterval(tick, 250);
+  }
+</script>
+</body>
+</html>
