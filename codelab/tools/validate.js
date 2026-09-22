@@ -730,6 +730,37 @@ function reviewGates() {
   if (noExplain) fail(`${noExplain} quiz questions have no explain — that is the whole answer card in Recall`);
   else ok("every question carries an explain");
 
+  /* 7. Drill grading is decided PER LESSON KIND, and the decision is written
+        down here as well as in review.js. drillOutcome's allow-list means a
+        new kind silently inherits the lenient rule; this gate is what turns
+        that silence into a build failure, so every kind that can be drilled
+        was looked at by someone. (Shell arrived after drills shipped and went
+        unexamined for a month — that is the regression this prevents.) */
+  const RUN_MEANS = { js: "check", web: "preview", shell: "preview" };
+  const drillKinds = {};
+  for (const c of courses) for (const u of c.units) for (const l of u.lessons)
+    if (l.kind !== "quiz" && (l.steps || []).length) drillKinds[l.kind] = (drillKinds[l.kind] || 0) + 1;
+  const undecided = Object.keys(drillKinds).filter(k => !RUN_MEANS[k]);
+  if (undecided.length) fail(`drillable lesson kind(s) with no drill-grading decision: ${undecided.join(", ")} — decide what a failing Run means and add it to RUN_MEANS here and RUN_IS_A_CHECK in review.js`);
+  let wrongRule = [];
+  for (const kind of Object.keys(RUN_MEANS)) {
+    const base = { kind, passed: true, abandoned: false, runs: 2, failedRuns: 1, hintsShown: 0 };
+    const want = RUN_MEANS[kind] === "check" ? "close" : "got";
+    const got = REV.drillOutcome(base);
+    if (got !== want) wrongRule.push(`${kind}: a pass after one failing run graded "${got}", expected "${want}"`);
+    // The rules that hold for every kind, whatever Run means.
+    const all = [
+      [{ ...base, failedRuns: 0, runs: 1 }, "got"],
+      [{ ...base, passed: false }, "missed"],
+      [{ ...base, abandoned: true }, "missed"],
+      [{ ...base, failedRuns: 0, runs: REV.DRILL_MAX_RUNS + 1 }, "close"],
+      [{ ...base, failedRuns: 0, runs: 1, hintsShown: 1 }, "close"]
+    ];
+    all.forEach(([o, w]) => { const g = REV.drillOutcome(o); if (g !== w) wrongRule.push(`${kind}: ${JSON.stringify(o)} graded "${g}", expected "${w}"`); });
+  }
+  if (wrongRule.length) wrongRule.forEach(m => fail("drillOutcome " + m));
+  else ok(`drill grading decided for every drillable kind: ${Object.keys(drillKinds).map(k => `${k} ×${drillKinds[k]} (${RUN_MEANS[k]})`).join(", ")}`);
+
   schedulerSim(REV, usable);
   syncAlgebra(REV);
 }
@@ -1261,22 +1292,29 @@ async function main() {
 
   /* ---- Tier B: checkpoint-prefix drills ----
      The regression that must never rot: a drill opens from the STARTER, and
-     the learner's saved solution comes back untouched. */
-  const drill = await mp.evaluate(async () => {
-    const d = window.CODELAB.dev, R = window.CODELAB.review;
+     the learner's saved solution comes back untouched.
+
+     Run once per lesson kind whose Run means "preview" rather than "check".
+     The shell case uses a lesson whose starting repository is BUILT by setup
+     commands, so it also proves a drill starts from that state and not from
+     wherever the finished lesson left the simulator. */
+  const DRILL_TARGETS = [
+    { lessonId: "html-1", courseId: "html", mark: "/* MY SAVED SOLUTION — must survive */", shot: "6c-recall-drill-mobile" },
+    { lessonId: "git-u3-1", courseId: "git", mark: "# MY SAVED SOLUTION — must survive", shot: "6d-recall-drill-shell-mobile" }
+  ];
+  for (const target of DRILL_TARGETS) {
+  const drill = await mp.evaluate(async (t) => {
+    const d = window.CODELAB.dev;
     await d.loadAll();
     // Give the profile a finished coding lesson WITH saved code, so there is
     // something to accidentally clobber.
-    const raw = JSON.parse(localStorage.getItem("codelab_v1"));
-    const lessonId = "html-1";
-    const lesson = d.lesson(lessonId);
-    const fingerprint = "/* MY SAVED SOLUTION — must survive */";
+    const lesson = d.lesson(t.lessonId);
     const savedFiles = {};
-    (lesson.files || []).forEach(f => { savedFiles[f.name] = f.content + "\n" + fingerprint; });
+    (lesson.files || []).forEach(f => { savedFiles[f.name] = f.content + "\n" + t.mark; });
     d.rev.seed({});
-    const u = raw.users.Eric;
-    return { lessonId, fingerprint, savedFiles, steps: (lesson.steps || []).length };
-  });
+    return { lessonId: t.lessonId, courseId: t.courseId, kind: lesson.kind, fingerprint: t.mark, savedFiles, steps: (lesson.steps || []).length };
+  }, target);
+  console.log(`  — drill cycle: ${drill.lessonId} (kind ${drill.kind})`);
 
   const drillProbe = await mp.evaluate(async (fx) => {
     const d = window.CODELAB.dev, R = window.CODELAB.review;
@@ -1284,7 +1322,7 @@ async function main() {
     const before = d.rev.drillState(fx.lessonId);
     d.setCodeForTest(fx.lessonId, fx.savedFiles);
     const pick = {
-      key: R.drillKey(fx.lessonId), lessonId: fx.lessonId, courseId: "html",
+      key: R.drillKey(fx.lessonId), lessonId: fx.lessonId, courseId: fx.courseId,
       unitId: null, title: "test", steps: fx.steps, k: 0
     };
     d.rev.startDrill(pick);
@@ -1313,7 +1351,7 @@ async function main() {
   else fail(`drill showed ${drillProbe.checkpoints} checkpoints at k=0, expected 1`);
   if (drillProbe.solutionLocked) ok("solution locked until the first graded run");
   else fail("solution was available before any attempt");
-  await mp.screenshot({ path: SHOTS + "/6c-recall-drill-mobile.png" });
+  await mp.screenshot({ path: SHOTS + "/" + target.shot + ".png" });
 
   // A failing run first: it must persist the scratch buffer and settle nothing.
   const failedRun = await mp.evaluate(async (fx) => {
@@ -1353,16 +1391,19 @@ async function main() {
     const st = d.rev.drillState(fx.lessonId);
     return { rec: st.rec, scratch: st.scratch, savedCode: st.savedCode, today: d.rev.today() };
   }, drill);
-  // Clean pass at box 0 → box 1, and D_IV[1] is 3 days. It lands on "close"
-  // rather than "got" here because the failing run above is part of the record.
-  if (solved.rec && solved.rec[0] >= 0 && solved.rec[1] > solved.today)
-    ok(`drill settled → box ${solved.rec[0]}, due in ${solved.rec[1] - solved.today} day(s), ${solved.rec[3]} review(s)`);
-  else fail(`drill schedule after a pass was ${JSON.stringify(solved.rec)}, expected a real record`);
+  // Both targets are kinds where Run is a preview, so the failing run above
+  // must NOT cost anything: the pass is a clean "got", box 0 → box 1, due in
+  // D_IV[1] days. Asserted exactly — ">= 0" let a mis-grade through before.
+  const D1 = require(path.join(ROOT, "review.js")).D_IV[1];
+  if (solved.rec && solved.rec[0] === 1 && solved.rec[1] - solved.today === D1)
+    ok(`drill settled "got" despite a failing ${drill.kind} run → box 1, due in ${D1} day(s), ${solved.rec[3]} review(s)`);
+  else fail(`${drill.lessonId}: drill schedule after a pass was ${JSON.stringify(solved.rec)} (today ${solved.today}), expected box 1 due in ${D1} days — a failing ${drill.kind} run was counted against the learner`);
   if (!solved.scratch) ok("scratch buffer reclaimed on pass — never becomes a second answer key");
   else fail("drillCode survived a passing drill");
   if (JSON.stringify(solved.savedCode || {}).indexOf(drill.fingerprint) !== -1)
     ok("saved solution STILL intact after a full drill cycle");
   else fail("the saved solution was lost somewhere in the drill cycle");
+  }
 
   /* ---- Code store: the split of saved lesson files out of codelab_v1 ----
      The migration moves real work between keys, so it gets a gate. */

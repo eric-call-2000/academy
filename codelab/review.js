@@ -556,14 +556,26 @@
   }
 
   /* The judgement call of this tier, isolated in one function so it can be
-     changed once. 162 of 251 lessons are kind:"web", where Run IS the preview
-     button — counting a failing Run as a miss there would pin most of the pool
-     at box 0 forever. So a failing run only counts against you on "js"
-     lessons, where Run is unambiguously "check my work". */
+     changed once. A failing Run only costs you where Run is unambiguously
+     "check my work" — and that is an allow-list, so a lesson kind added later
+     gets the lenient rule until someone decides otherwise, never the harsh one
+     by accident.
+
+     web   — Run IS the preview button. Counting a failing Run there would pin
+             most of the pool at box 0 forever.
+     shell — Run is the ONLY window onto the machine. Every shell lesson's
+             starting state (its files, and for 57 of the 101 a git history
+             built by setup commands) is invisible until a command prints it,
+             and the lessons are written to be explored: run `ls` or
+             `git status`, read, then write the next line. A failing Run there
+             is looking, not guessing. (Counted 2026-09-22.)
+     js    — the one kind where you can see everything you need in the editor,
+             so a failing Run is a wrong answer. */
+  var RUN_IS_A_CHECK = { js: 1 };
   function drillOutcome(opts) {
     if (!opts.passed) return "missed";
     if (opts.abandoned) return "missed";
-    if (opts.kind === "js" && opts.failedRuns > 0) return "close";
+    if (RUN_IS_A_CHECK[opts.kind] && opts.failedRuns > 0) return "close";
     if (opts.runs > DRILL_MAX_RUNS) return "close";
     if (opts.hintsShown > 0) return "close";
     return "got";
