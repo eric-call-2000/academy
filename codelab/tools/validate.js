@@ -761,7 +761,56 @@ function reviewGates() {
   if (wrongRule.length) wrongRule.forEach(m => fail("drillOutcome " + m));
   else ok(`drill grading decided for every drillable kind: ${Object.keys(drillKinds).map(k => `${k} ×${drillKinds[k]} (${RUN_MEANS[k]})`).join(", ")}`);
 
-  schedulerSim(REV, usable);
+  /* 8. Theory-lesson asks as cards. Graded by concept.js exactly as in the
+        lesson, so the gate is that every card's own key passes its own grader
+        — a card that rejects its authored answer is a guaranteed false miss,
+        which is the one failure that makes a review tool feel rigged. */
+  const CX = require(path.join(ROOT, "concept.js"));
+  const cc = { predict: 0, pick: 0, order: 0, trace: 0, explain: 0 }, left = {};
+  let ccTyped = 0, ccBad = [];
+  const allKeys = new Map();
+  for (const c of courses) for (const u of c.units) for (const l of u.lessons) {
+    if (l.kind === "quiz") (l.questions || []).forEach(q => { if (!REV.illPosed(q)) allKeys.set(REV.keyOf(l.id, q), l.id); });
+    if (l.kind !== "concept") continue;
+    (l.screens || []).forEach((s, si) => {
+      const a = s.ask;
+      if (!a) return;
+      if (!REV.conceptCardable(a)) { const why = a.type === "pick" ? "pick:" + REV.illPosed(a) : a.type; left[why] = (left[why] || 0) + 1; return; }
+      cc[a.type]++;
+      const where = `${l.id} screen ${si + 1} (${a.type})`;
+      const k = REV.conceptKeyOf(l.id, a);
+      if (allKeys.has(k)) fail(`Recall key collision: ${where} and ${allKeys.get(k)}`);
+      allKeys.set(k, where);
+      let passes = true;
+      if (a.type === "predict") passes = CX.gradePredict(a, String(a.answer));
+      else if (a.type === "order") passes = CX.gradeOrder(a, a.lines).ok;
+      else if (a.type === "trace") passes = CX.gradeTrace(a, a.rows.map(r => r.map(String))).ok;
+      else if (a.type === "pick" && REV.isTyped(a)) passes = REV.answerMatches(a, a.choices[a.answer]);
+      if (!passes) ccBad.push(where);
+      if (a.type !== "explain" && (a.type !== "pick" || REV.isTyped(a))) ccTyped++;
+      const reason = a.type === "pick" ? (a.why || [])[a.answer] : a.type === "explain" ? a.model : a.why;
+      if (!reason || !String(reason).trim()) fail(`${where}: nothing to show on reveal (no why/model)`);
+      if (a.type === "explain" && !(a.rubric || []).length) fail(`${where}: explain card has no rubric to self-grade against`);
+    });
+  }
+  const ccTotal = Object.values(cc).reduce((x, y) => x + y, 0);
+  if (ccBad.length) fail(`${ccBad.length} theory card(s) reject their own authored answer: ${ccBad.slice(0, 5).join("; ")}`);
+  else ok(`every theory card accepts its own answer key (${ccTotal} cards: ${Object.entries(cc).map(([t, n]) => t + " " + n).join(", ")})`);
+  console.log(`  theory cards: ${ccTyped} graded against a key, ${ccTotal - ccTyped} self-graded · left out ${JSON.stringify(left)}`);
+  /* What the app will actually build, for a learner who has done everything,
+     must be exactly quiz + theory. A mismatch means collectItems and this
+     gate disagree about what a card is. */
+  const everything = new Proxy({}, { get: () => true });
+  const built = REV.collectItems(courses, { done: everything, quiz: everything });
+  if (built.length === usable + ccTotal) ok(`collectItems builds ${built.length} cards = ${usable} quiz + ${ccTotal} theory`);
+  else fail(`collectItems built ${built.length} cards, expected ${usable} quiz + ${ccTotal} theory = ${usable + ccTotal}`);
+  if (new Set(built.map(i => i.key)).size !== built.length) fail("collectItems produced duplicate keys");
+  // A theory card must only appear once its lesson is done.
+  const none = REV.collectItems(courses, { done: {}, quiz: {} });
+  if (none.length === 0) ok("no cards before any quiz is engaged or lesson is finished");
+  else fail(`${none.length} cards offered to a learner who has finished nothing`);
+
+  schedulerSim(REV, usable + ccTotal);
   syncAlgebra(REV);
 }
 
@@ -1289,6 +1338,126 @@ async function main() {
   if (card.canSkip) ok("\"can't answer this one\" is offered");
   else fail("no skip affordance — the tombstone is how eligibility gets measured");
   await mp.screenshot({ path: SHOTS + "/6b-recall-card-mobile.png" });
+
+  /* ---- Theory-lesson cards ----
+     One card of each type, driven through the real session UI. The grading
+     is concept.js's, so what is under test here is the wiring: the right
+     widget renders, one try decides it, typed evidence is counted as typed,
+     and a pick card still never shows its choices. */
+  const theory = await mp.evaluate(async () => {
+    const d = window.CODELAB.dev;
+    await d.loadAll();
+    window.CODELAB.courses.forEach(c => (c.units || []).forEach(u => (u.lessons || []).forEach(l => {
+      if (l.kind === "concept") d.rev.markDone(l.id);
+    })));
+    d.rev.seed({});
+    const pool = d.rev.pool();
+    const first = kind => pool.filter(p => p.kind === kind)[0];
+    return {
+      counts: pool.reduce((o, p) => { o[p.kind] = (o[p.kind] || 0) + 1; return o; }, {}),
+      pick: pool.filter(p => p.kind === "pick" && !p.typed)[0],
+      predict: first("predict"), order: first("order"), trace: first("trace"), explain: first("explain"),
+      stats0: d.rev.state().stats || {}
+    };
+  });
+  console.log("  theory cards in a finished-everything pool: " + JSON.stringify(theory.counts));
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const openCard = async (key) => {
+    await mp.evaluate(k => window.CODELAB.dev.rev.session([k]), key);
+    await mp.waitForSelector(".quiz-in .q-prompt", { timeout: 8000 });
+    // A "got" faster than SKIM_MS is demoted to "close" — answer like a human.
+    await sleep(1300);
+  };
+  const recOf = key => mp.evaluate(k => (window.CODELAB.dev.rev.state().rev || {})[k] || null, key);
+
+  // pick: choices hidden, answer revealed, self-graded.
+  await openCard(theory.pick.key);
+  const pickCard = await mp.evaluate(ask => ({
+    buttons: document.querySelectorAll(".q-choice").length,
+    leaked: ask.choices.filter((c, i) => i !== ask.answer && document.body.textContent.indexOf(c) !== -1).length,
+    canReveal: [...document.querySelectorAll(".quiz-in .btn")].some(b => /show answer/i.test(b.textContent))
+  }), theory.pick.ask);
+  if (pickCard.buttons === 0 && pickCard.leaked === 0 && pickCard.canReveal)
+    ok("theory pick card: no choices on screen, no distractor text anywhere, reveal-then-self-grade");
+  else fail(`theory pick card leaked its choices: ${JSON.stringify(pickCard)}`);
+
+  // predict: typed, graded by concept.gradePredict, correct → box 1.
+  await openCard(theory.predict.key);
+  await mp.fill(".rv-input", String(theory.predict.ask.answer));
+  await mp.click(".rv-input-row .btn");
+  const predictRec = await recOf(theory.predict.key);
+  if (predictRec && predictRec[0] === 1) ok(`theory predict card: typed "${theory.predict.ask.answer}" graded right → box 1`);
+  else fail(`theory predict card: authored answer graded ${JSON.stringify(predictRec)}, expected box 1`);
+
+  // order: build the right order by tapping lines, skipping distractors.
+  await openCard(theory.order.key);
+  const orderRes = await mp.evaluate(async (ask) => {
+    for (const line of ask.lines) {
+      const b = [...document.querySelectorAll(".cx-pool .cx-line")].filter(x => x.textContent === line)[0];
+      if (!b) return { err: "line not in pool: " + line };
+      b.click();
+    }
+    return { tapped: true };
+  }, theory.order.ask);
+  await mp.screenshot({ path: SHOTS + "/6e-recall-order-mobile.png" });
+  const orderDone = await mp.evaluate(async () => {
+    // Count before Check: a right answer settles and moves the screen on.
+    const built = document.querySelectorAll(".cx-built .cx-line").length;
+    [...document.querySelectorAll(".cx-acts .btn")].filter(b => b.textContent === "Check")[0].click();
+    await new Promise(r => setTimeout(r, 50));
+    return { built };
+  });
+  if (!orderRes.err) Object.assign(orderRes, orderDone);
+  const orderRec = await recOf(theory.order.key);
+  if (!orderRes.err && orderRec && orderRec[0] === 1) ok(`theory order card: ${orderRes.built} lines tapped into order → box 1`);
+  else fail(`theory order card: ${orderRes.err || "graded " + JSON.stringify(orderRec) + ", expected box 1"}`);
+
+  // trace: a WRONG answer — one try, the right table is shown, it's a miss.
+  await openCard(theory.trace.key);
+  const traceRes = await mp.evaluate(async () => {
+    document.querySelectorAll(".cx-cell").forEach(i => { i.value = "999"; });
+    [...document.querySelectorAll(".cx-acts .btn")].filter(b => b.textContent === "Check")[0].click();
+    await new Promise(r => setTimeout(r, 50));
+    const cont = [...document.querySelectorAll(".quiz-in .btn")].filter(b => b.textContent === "Continue")[0];
+    const shown = { marked: document.querySelectorAll(".cx-bad").length, answerTable: !!document.querySelector(".q-fb .cx-trace"),
+                    locked: [...document.querySelectorAll(".cx-cell")].every(i => i.disabled) };
+    return shown;
+  });
+  await mp.screenshot({ path: SHOTS + "/6f-recall-trace-miss-mobile.png" });
+  await mp.evaluate(() => { const c = [...document.querySelectorAll(".quiz-in .btn")].filter(b => b.textContent === "Continue")[0]; if (c) c.click(); });
+  const traceRec = await recOf(theory.trace.key);
+  if (traceRes.marked === 1 && traceRes.answerTable && traceRes.locked && traceRec && traceRec[2] === 1)
+    ok("theory trace card: wrong answer marked, locked after one try, right table shown, recorded as a miss");
+  else fail(`theory trace card miss path: ${JSON.stringify(traceRes)} rec ${JSON.stringify(traceRec)}`);
+
+  // explain: reveal shows the model AND the rubric, then self-grade.
+  await openCard(theory.explain.key);
+  await mp.click(".quiz-in .btn-green");
+  const explainRes = await mp.evaluate(ask => {
+    const fb = (document.querySelector(".q-fb") || {}).textContent || "";
+    const gradeBtns = document.querySelectorAll(".rv-grade .btn").length;
+    const got = [...document.querySelectorAll(".rv-grade .btn")].filter(b => b.textContent === "Got it")[0];
+    if (got) got.click();
+    return { rubric: ask.rubric.every(r => fb.indexOf(r.replace(/[`*]/g, "").slice(0, 20)) !== -1), gradeBtns };
+  }, theory.explain.ask);
+  const explainRec = await recOf(theory.explain.key);
+  if (explainRes.rubric && explainRes.gradeBtns === 3 && explainRec && explainRec[0] === 1)
+    ok("theory explain card: model answer + rubric on reveal, self-graded Got it → box 1");
+  else fail(`theory explain card: ${JSON.stringify(explainRes)} rec ${JSON.stringify(explainRec)}`);
+
+  // Evidence vs claims: predict, order, trace count as typed; explain doesn't.
+  const stats1 = await mp.evaluate(() => window.CODELAB.dev.rev.state().stats || {});
+  const dTa = (stats1.ta || 0) - (theory.stats0.ta || 0), dTc = (stats1.tc || 0) - (theory.stats0.tc || 0);
+  if (dTa === 3 && dTc === 2) ok("typed tally +3 attempts / +2 right (predict, order, trace); the explain card stayed a claim");
+  else fail(`typed tally moved by ${dTa} attempts / ${dTc} right, expected 3 / 2`);
+  // Leave the profile as found: later gates count this learner's lessons.
+  await mp.evaluate(() => {
+    const d = window.CODELAB.dev;
+    window.CODELAB.courses.forEach(c => (c.units || []).forEach(u => (u.lessons || []).forEach(l => {
+      if (l.kind === "concept") d.rev.markDone(l.id, false);
+    })));
+    d.rev.seed({});
+  });
 
   /* ---- Tier B: checkpoint-prefix drills ----
      The regression that must never rot: a drill opens from the STARTER, and

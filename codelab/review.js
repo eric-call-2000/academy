@@ -159,11 +159,74 @@
     return !!(u && ((u.done && u.done[quizId]) || (u.quiz && u.quiz[quizId] != null)));
   }
 
+  /* ---------- theory-lesson asks ----------
+     A concept lesson's questions are cards too, once the lesson is done.
+     Every one already carries an answer key and a grader in concept.js, so
+     this needs no new content. This file stays independent of concept.js:
+     it builds the item, and app.js grades it with the lesson's own grader,
+     so a card can never disagree with the lesson that taught it.
+
+       predict, order, trace  graded against a key       evidence
+       pick                   choices HIDDEN, as above;  typed if isTyped,
+                              otherwise self-graded
+       explain                model answer + rubric      self-graded (claim)
+       lab                    left out: the question only means something
+                              with the interactive lab beside it
+
+     Excluded by TYPE, like illPosed, so the pool cannot rot as lessons are
+     edited. */
+  var CONCEPT_CARD = { predict: 1, pick: 1, order: 1, trace: 1, explain: 1 };
+  /* What the learner has to produce, for the key: same role as the correct
+     choice in keyOf. For a pick it IS the correct choice, so the two key
+     schemes agree on the shape they share. */
+  function conceptAnswerSig(ask) {
+    if (ask.type === "pick") return (ask.choices || [])[ask.answer] || "";
+    if (ask.type === "predict") return String(ask.answer);
+    if (ask.type === "order") return (ask.lines || []).join("\n");
+    if (ask.type === "trace") return JSON.stringify(ask.rows || []);
+    return ask.model || "";
+  }
+  function conceptKeyOf(lessonId, ask) {
+    var sig = (ask.q || "") + "\u001f" + (ask.code || "") + "\u001f" + conceptAnswerSig(ask);
+    return "q:" + lessonId + "#" + hash6(sig);
+  }
+  function conceptCardable(ask) {
+    if (!ask || !CONCEPT_CARD[ask.type]) return false;
+    if (ask.type === "pick" && illPosed(ask)) return false;
+    return true;
+  }
+
   function collectItems(courses, u) {
     var out = [];
     (courses || []).forEach(function (c) {
       (c.units || []).forEach(function (unit) {
         (unit.lessons || []).forEach(function (l) {
+          if (l.kind === "concept") {
+            /* No quiz score to engage with: finishing the lesson (or testing
+               out of it) is what introduces its questions. */
+            if (u && !(u.done && u.done[l.id])) return;
+            (l.screens || []).forEach(function (s) {
+              var ask = s.ask;
+              if (!conceptCardable(ask)) return;
+              var pick = ask.type === "pick";
+              out.push({
+                key: conceptKeyOf(l.id, ask),
+                quizId: l.id,
+                kind: ask.type,
+                ask: ask,
+                courseId: c.id,
+                courseTitle: c.title,
+                unitId: unit.id,
+                unitTitle: unit.title,
+                q: ask.q, code: ask.code, lang: ask.lang,
+                answer: pick ? ask.choices[ask.answer] : ask.type === "predict" ? String(ask.answer) : ask.model || null,
+                explain: pick ? (ask.why || [])[ask.answer] : typeof ask.why === "string" ? ask.why : null,
+                typed: pick ? isTyped(ask) : ask.type !== "explain",
+                codeShaped: pick ? isCodeAnswer(ask) : false
+              });
+            });
+            return;
+          }
           if (l.kind !== "quiz") return;
           if (u && !quizEngaged(u, l.id)) return;
           (l.questions || []).forEach(function (q) {
@@ -171,6 +234,7 @@
             out.push({
               key: keyOf(l.id, q),
               quizId: l.id,
+              kind: "quiz",
               courseId: c.id,
               courseTitle: c.title,
               unitId: unit.id,
@@ -589,6 +653,7 @@
     MAX_SESSION: MAX_SESSION, NEW_PER_DAY: NEW_PER_DAY,
     SKIM_MS: SKIM_MS, HOLDING_DAYS: HOLDING_DAYS,
     revToday: revToday, hash6: hash6, keyOf: keyOf,
+    conceptKeyOf: conceptKeyOf, conceptCardable: conceptCardable, CONCEPT_CARD: CONCEPT_CARD,
     illPosed: illPosed, isTyped: isTyped, isCodeAnswer: isCodeAnswer,
     normalize: normalize, answerMatches: answerMatches,
     quizEngaged: quizEngaged, collectItems: collectItems,

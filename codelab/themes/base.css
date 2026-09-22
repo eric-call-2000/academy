@@ -729,6 +729,9 @@ input { font-family: var(--font); }
 .rv-grade { display: flex; gap: 8px; margin-top: 14px; }
 .quiz .rv-grade .btn { width: auto; flex: 1; margin-top: 0; }
 .rv-why { display: inline-block; margin-top: 6px; color: #475569; }
+.rv-order { margin: 6px 0 0 1.4em; padding: 0; }
+.rv-order li { margin: 2px 0; }
+.q-fb .cx-trace-wrap { margin-top: 8px; }
 .rv-cant {
   display: block;
   margin: 18px auto 0;
