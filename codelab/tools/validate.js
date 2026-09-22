@@ -915,11 +915,15 @@ function schedulerSim(REV, poolSize) {
 
   for (const p of [0.6, 0.75, 0.85, 0.95]) {
     const u = { rev: {}, revSkip: {}, revAlt: {}, revQueue: null, revStats: { s: 0, a: 0, c: 0, ta: 0, tc: 0 } };
-    let maxSession = 0, maxNew = 0, introduced = 0, day0 = 0, fullyIntroducedOn = null, reviews = 0;
+    let maxSession = 0, maxNew = 0, introduced = 0, day0 = 0, fullyIntroducedOn = null, reviews = 0, starved = 0;
     for (let day = 0; day < 400; day++) {
       u.revQueue = null;
       const before = Object.keys(u.rev).length;
+      const dueToday = Object.values(u.rev).filter(r => r[1] <= day).length;
       const q = REV.buildQueue(u, pool, day, rnd);
+      /* A short session while the backlog could fill it is wasted capacity:
+         it is how reserved-but-empty "new" slots once halved every session. */
+      if (q.keys.length < REV.MAX_SESSION && dueToday + Math.min(REV.NEW_PER_DAY, poolSize - before) >= REV.MAX_SESSION) starved++;
       maxSession = Math.max(maxSession, q.keys.length);
       let newToday = 0;
       for (const k of q.keys) {
@@ -951,8 +955,12 @@ function schedulerSim(REV, poolSize) {
     if (p >= 0.85 && fullyIntroducedOn !== null && (fullyIntroducedOn < floorDays || fullyIntroducedOn > ceilDays))
       fail(`sim p=${p}: full introduction took ${fullyIntroducedOn} days, expected ${floorDays}-${ceilDays} for a pool of ${poolSize}`);
 
+    if (starved) fail(`sim p=${p}: ${starved} day(s) offered fewer than ${REV.MAX_SESSION} cards while the backlog could fill the session`);
     const boxes = REV.Q_IV.map((_, b) => Object.values(u.rev).filter(r => r[0] === b).length);
     const mature = Object.values(u.rev).filter(r => REV.Q_IV[r[0]] >= REV.HOLDING_DAYS).length;
+    /* A learner who is right 95% of the time must end up with most of the
+       deck holding. 0 of 1,326 did, before empty "new" slots were freed. */
+    if (p === 0.95 && mature < poolSize * 0.5) fail(`sim p=0.95: only ${mature}/${poolSize} cards holding at ${REV.HOLDING_DAYS}+ days after 400 days (min 50%)`);
     console.log(`  p=${p}: ramp ${fullyIntroducedOn || ">400"}d · ~${(reviews / 400).toFixed(1)} cards/day · holding ${mature}/${poolSize} · boxes [${boxes.join(",")}]`);
   }
   if (!failures.length) ok("scheduler invariants hold at every accuracy level");
