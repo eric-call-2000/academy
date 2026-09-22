@@ -2220,6 +2220,108 @@
      transfer questions, and one miss drops into the full lesson.
      Nothing new is stored: completion goes through completeLesson.
      ============================================================ */
+  function shuffledIndexes(n) {
+    var o = []; for (var i = 0; i < n; i++) o.push(i);
+    for (var s = n - 1; s > 0; s--) { var r = Math.floor(Math.random() * (s + 1)); var t = o[s]; o[s] = o[r]; o[r] = t; }
+    return o;
+  }
+
+  /* The order and trace widgets, shared by theory lessons and Recall. They
+     build the board and report what is on it; grading, buttons, and what a
+     wrong answer costs stay with the caller, because a lesson gives you a
+     second try and a Recall card does not. */
+  function orderBoard(ask, host) {
+    var items = ask.lines.concat(ask.distractors || []);
+    var pool = shuffledIndexes(items.length);
+    var built = [], locked = false;
+    host.appendChild(el("div", "cx-note", "Tap the lines in order to build your answer. Tap a placed line to take it back." +
+      ((ask.distractors || []).length ? " Not every line belongs." : "")));
+    var builtBox = el("div", "cx-built");
+    var poolBox = el("div", "cx-pool");
+    host.appendChild(builtBox); host.appendChild(poolBox);
+    function line(i, where) {
+      var b = el("button", "q-choice cx-line");
+      b.textContent = items[i];
+      b.onclick = function () {
+        if (locked) return;
+        if (where === "built") { built.splice(built.indexOf(i), 1); pool.push(i); }
+        else { pool.splice(pool.indexOf(i), 1); built.push(i); }
+        draw();
+      };
+      return b;
+    }
+    function draw(wrongAt) {
+      builtBox.innerHTML = ""; poolBox.innerHTML = "";
+      if (!built.length) builtBox.appendChild(el("div", "cx-empty", "Your answer appears here"));
+      built.forEach(function (i, p) {
+        var b = line(i, "built");
+        if (p === wrongAt) b.classList.add("wrong");
+        builtBox.appendChild(b);
+      });
+      pool.forEach(function (i) { poolBox.appendChild(line(i, "pool")); });
+    }
+    draw();
+    return {
+      texts: function () { return built.map(function (i) { return items[i]; }); },
+      mark: function (wrongAt) { draw(wrongAt); },
+      lock: function () { locked = true; draw(); },
+      fill: function () {
+        built = ask.lines.map(function (_, i) { return i; });
+        pool = (ask.distractors || []).map(function (_, j) { return ask.lines.length + j; });
+        draw();
+      }
+    };
+  }
+
+  function traceTable(ask, host) {
+    var given = ask.given || 0;
+    var wrap = el("div", "cx-trace-wrap");
+    var table = el("table", "cx-trace");
+    var thead = el("tr");
+    thead.appendChild(el("th", "", "#"));
+    ask.columns.forEach(function (c) { var th = el("th"); th.textContent = c; thead.appendChild(th); });
+    table.appendChild(thead);
+    var inputs = [];
+    ask.rows.forEach(function (r, ri) {
+      var tr = el("tr");
+      tr.appendChild(el("td", "cx-rownum", String(ri + 1)));
+      inputs.push([]);
+      r.forEach(function (v, ci) {
+        var td = el("td");
+        if (ci < given) { td.textContent = String(v); inputs[ri].push(null); }
+        else {
+          var inp = el("input", "rv-input cx-cell");
+          inp.setAttribute("autocomplete", "off");
+          inp.setAttribute("autocapitalize", "off");
+          inp.setAttribute("spellcheck", "false");
+          inp.setAttribute("aria-label", ask.columns[ci] + ", row " + (ri + 1));
+          td.appendChild(inp);
+          inputs[ri].push(inp);
+        }
+        tr.appendChild(td);
+      });
+      table.appendChild(tr);
+    });
+    wrap.appendChild(table);
+    host.appendChild(wrap);
+    function each(fn) { inputs.forEach(function (row, ri) { row.forEach(function (inp, ci) { if (inp) fn(inp, ri, ci); }); }); }
+    return {
+      cells: function () {
+        return inputs.map(function (row, ri) {
+          return row.map(function (inp, ci) { return inp ? inp.value : String(ask.rows[ri][ci]); });
+        });
+      },
+      /* null clears the marks; [row, col] marks the first cell that's off. */
+      mark: function (at) {
+        each(function (inp) { inp.classList.remove("cx-bad"); });
+        var bad = at && inputs[at[0]] && inputs[at[0]][at[1]];
+        if (bad) bad.classList.add("cx-bad");
+      },
+      lock: function () { each(function (inp) { inp.disabled = true; }); },
+      fill: function () { each(function (inp, ri, ci) { inp.value = String(ask.rows[ri][ci]); inp.classList.remove("cx-bad"); }); }
+    };
+  }
+
   function renderConcept(entry, mode) {
     clear();
     var CX = window.CODELAB.concept;
@@ -2255,11 +2357,7 @@
       pre.innerHTML = "<code>" + window.CODELAB.hl(src, lang || "js") + "</code>";
       return pre;
     }
-    function shuffled(n) {
-      var o = []; for (var i = 0; i < n; i++) o.push(i);
-      for (var s = n - 1; s > 0; s--) { var r = Math.floor(Math.random() * (s + 1)); var t = o[s]; o[s] = o[r]; o[r] = t; }
-      return o;
-    }
+    var shuffled = shuffledIndexes;
 
     function intro() {
       setProg("");
@@ -2400,95 +2498,32 @@
       }
 
       if (ask.type === "order") {
-        var items = ask.lines.concat(ask.distractors || []);
-        var pool = shuffled(items.length);
-        var built = [];
-        host.appendChild(el("div", "cx-note", "Tap the lines in order to build your answer. Tap a placed line to take it back." +
-          ((ask.distractors || []).length ? " Not every line belongs." : "")));
-        var builtBox = el("div", "cx-built");
-        var poolBox = el("div", "cx-pool");
+        var board = orderBoard(ask, host);
         var acts = el("div", "cx-acts");
         var checkO = el("button", "btn btn-green", "Check");
         var fill = el("button", "btn btn-ghost", "Use the correct order");
         fill.style.display = "none";
         acts.appendChild(checkO); acts.appendChild(fill);
-        host.appendChild(builtBox); host.appendChild(poolBox); host.appendChild(acts);
-        var locked = false;
-        var line = function (i, where) {
-          var b = el("button", "q-choice cx-line");
-          b.textContent = items[i];
-          b.onclick = function () {
-            if (locked) return;
-            if (where === "built") { built.splice(built.indexOf(i), 1); pool.push(i); }
-            else { pool.splice(pool.indexOf(i), 1); built.push(i); }
-            drawO();
-          };
-          return b;
-        };
-        var drawO = function (wrongAt) {
-          builtBox.innerHTML = ""; poolBox.innerHTML = "";
-          if (!built.length) builtBox.appendChild(el("div", "cx-empty", "Your answer appears here"));
-          built.forEach(function (i, p) {
-            var b = line(i, "built");
-            if (p === wrongAt) b.classList.add("wrong");
-            builtBox.appendChild(b);
-          });
-          pool.forEach(function (i) { poolBox.appendChild(line(i, "pool")); });
-        };
+        host.appendChild(acts);
         checkO.onclick = function () {
-          var res = CX.gradeOrder(ask, built.map(function (i) { return items[i]; }));
+          var res = CX.gradeOrder(ask, board.texts());
           if (res.ok) {
-            locked = true; checkO.disabled = true; fill.style.display = "none";
-            drawO();
+            board.lock(); checkO.disabled = true; fill.style.display = "none";
             right(ask.why);
           } else {
-            drawO(res.firstWrong);
-            if (missed(res.firstWrong < built.length ? "The first line out of place is marked." : "Some lines are still missing.")) {
+            board.mark(res.firstWrong);
+            if (missed(res.firstWrong < board.texts().length ? "The first line out of place is marked." : "Some lines are still missing.")) {
               fill.style.display = "";
               feedback(false, "<b>Not quite.</b> " + mdInline(ask.why) + " Tap **Use the correct order**, read it, then Check.");
             }
           }
         };
-        fill.onclick = function () {
-          built = ask.lines.map(function (_, i) { return i; });
-          pool = (ask.distractors || []).map(function (_, j) { return ask.lines.length + j; });
-          drawO();
-        };
-        drawO();
+        fill.onclick = board.fill;
         return;
       }
 
       if (ask.type === "trace") {
-        var given = ask.given || 0;
-        var wrap = el("div", "cx-trace-wrap");
-        var table = el("table", "cx-trace");
-        var thead = el("tr");
-        thead.appendChild(el("th", "", "#"));
-        ask.columns.forEach(function (c) { var th = el("th"); th.textContent = c; thead.appendChild(th); });
-        table.appendChild(thead);
-        var inputs = [];
-        ask.rows.forEach(function (r, ri) {
-          var tr = el("tr");
-          tr.appendChild(el("td", "cx-rownum", String(ri + 1)));
-          inputs.push([]);
-          r.forEach(function (v, ci) {
-            var td = el("td");
-            if (ci < given) { td.textContent = String(v); inputs[ri].push(null); }
-            else {
-              var inp = el("input", "rv-input cx-cell");
-              inp.setAttribute("autocomplete", "off");
-              inp.setAttribute("autocapitalize", "off");
-              inp.setAttribute("spellcheck", "false");
-              inp.setAttribute("aria-label", ask.columns[ci] + ", row " + (ri + 1));
-              td.appendChild(inp);
-              inputs[ri].push(inp);
-            }
-            tr.appendChild(td);
-          });
-          table.appendChild(tr);
-        });
-        wrap.appendChild(table);
-        host.appendChild(wrap);
+        var grid = traceTable(ask, host);
         var actsT = el("div", "cx-acts");
         var checkT = el("button", "btn btn-green", "Check");
         var fillT = el("button", "btn btn-ghost", "Fill in the answers");
@@ -2496,27 +2531,21 @@
         actsT.appendChild(checkT); actsT.appendChild(fillT);
         host.appendChild(actsT);
         checkT.onclick = function () {
-          var cells = inputs.map(function (row, ri) {
-            return row.map(function (inp, ci) { return inp ? inp.value : String(ask.rows[ri][ci]); });
-          });
-          inputs.forEach(function (row) { row.forEach(function (inp) { if (inp) inp.classList.remove("cx-bad"); }); });
-          var res = CX.gradeTrace(ask, cells);
+          grid.mark(null);
+          var res = CX.gradeTrace(ask, grid.cells());
           if (res.ok) {
-            inputs.forEach(function (row) { row.forEach(function (inp) { if (inp) inp.disabled = true; }); });
+            grid.lock();
             checkT.disabled = true; fillT.style.display = "none";
             right(ask.why);
           } else {
-            var bad = inputs[res.firstWrong[0]][res.firstWrong[1]];
-            if (bad) bad.classList.add("cx-bad");
+            grid.mark(res.firstWrong);
             if (missed("The first cell that's off is marked.")) {
               fillT.style.display = "";
               feedback(false, "<b>Not quite.</b> " + mdInline(ask.why) + " Tap **Fill in the answers**, read them, then Check.");
             }
           }
         };
-        fillT.onclick = function () {
-          inputs.forEach(function (row, ri) { row.forEach(function (inp, ci) { if (inp) { inp.value = String(ask.rows[ri][ci]); inp.classList.remove("cx-bad"); } }); });
-        };
+        fillT.onclick = grid.fill;
         return;
       }
     }
@@ -2610,7 +2639,8 @@
   }
 
   /* ============================================================
-     RECALL — spaced repetition over the quiz bank
+     RECALL — spaced repetition over the quiz bank and the
+     questions inside theory lessons
      ------------------------------------------------------------
      One card is one quiz question shown WITHOUT its four choices,
      so the answer has to be produced rather than spotted. Short
@@ -2632,6 +2662,17 @@
     var pool = REV.collectItems(reviewCourses(u).filter(function (c) { return c._loaded; }), u);
     REV.pruneOrphans(u, pool);
     return pool;
+  }
+  /* A typed card is graded by whatever graded it where it was taught: a
+     theory lesson's predict by concept.js, everything else by Recall's own
+     normalizer. Answers flagged "should have counted" count from then on. */
+  function cardMatches(item, raw, alts) {
+    if (item.kind === "predict") {
+      var ask = item.ask;
+      return window.CODELAB.concept.gradePredict(
+        { answer: ask.answer, accept: (ask.accept || []).concat(alts || []), exact: ask.exact }, raw);
+    }
+    return REV.answerMatches({ choices: [item.answer], answer: 0 }, raw, alts);
   }
 
   /* Open a drill: find the lesson, load its course if needed, hand
@@ -2688,7 +2729,7 @@
       /* A caught-up SRS looks broken when it shows an empty screen, so say
          when the next one lands. */
       head.appendChild(el("p", "hero-sub", next === null
-        ? "Finish a quiz to start building your recall deck."
+        ? "Finish a quiz or a theory lesson to start building your recall deck."
         : "Next review in " + (next - today) + " day" + (next - today === 1 ? "" : "s") + "."));
       if (pool.length) {
         var practice = el("button", "btn btn-ghost", "Practice 5 anyway");
@@ -2800,12 +2841,56 @@
       var started = Date.now();
       var typedWrong = null;
 
+      /* The answer as it reads best for its type. A trace card shows its
+         answer in the table itself, and an explain card adds the rubric the
+         lesson used, so self-grading has something concrete to check. */
+      function answerHtml() {
+        var ask = item.ask || {};
+        if (item.kind === "order") {
+          return "<ol class=\"rv-order\">" + ask.lines.map(function (l) { return "<li><code>" + esc(l) + "</code></li>"; }).join("") + "</ol>";
+        }
+        if (item.kind === "trace") {
+          var head = "<tr><th>#</th>" + ask.columns.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") + "</tr>";
+          var body = ask.rows.map(function (r, ri) {
+            return "<tr><td class=\"cx-rownum\">" + (ri + 1) + "</td>"
+              + r.map(function (v) { return "<td>" + esc(String(v)) + "</td>"; }).join("") + "</tr>";
+          }).join("");
+          return "<div class=\"cx-trace-wrap\"><table class=\"cx-trace\">" + head + body + "</table></div>";
+        }
+        if (item.kind === "predict") return mdInline("`" + item.answer + "`");
+        if (item.kind === "explain") {
+          return mdInline(item.answer) + "<br><span class=\"rv-why\">A full answer covers: "
+            + (ask.rubric || []).map(function (r) { return mdInline(r); }).join(" · ") + "</span>";
+        }
+        return mdInline(item.answer);
+      }
       function reveal(graded) {
         var fb = el("div", "q-fb " + (graded === true ? "ok" : graded === false ? "no" : ""));
         fb.innerHTML = "<b>" + (graded === true ? "Correct!" : graded === false ? "Not quite." : "Answer") + "</b> "
-          + mdInline(item.answer) + (item.explain ? "<br><span class=\"rv-why\">" + mdInline(item.explain) + "</span>" : "");
+          + answerHtml() + (item.explain ? "<br><span class=\"rv-why\">" + mdInline(item.explain) + "</span>" : "");
         inner.appendChild(fb);
         fb.scrollIntoView({ block: "nearest" });
+      }
+      /* Order and trace are graded exactly, by the lesson's own grader, and
+         get ONE try, like a typed card. There is no "should have counted":
+         the order of lines has no alternative spelling to learn. */
+      function boardCard(board, grader) {
+        var acts = el("div", "cx-acts");
+        var checkB = el("button", "btn btn-green", "Check");
+        acts.appendChild(checkB);
+        inner.appendChild(acts);
+        checkB.onclick = function () {
+          var res = grader();
+          REV.recordTyped(u, res.ok);
+          checkB.disabled = true;
+          board.lock();
+          if (res.ok) { reveal(true); settle("got"); return; }
+          board.mark(res.firstWrong);
+          reveal(false);
+          var cont = el("button", "btn btn-red", "Continue");
+          cont.onclick = function () { settle("missed"); };
+          inner.appendChild(cont);
+        };
       }
 
       function settle(outcome) {
@@ -2823,7 +2908,14 @@
         show();
       }
 
-      if (item.typed) {
+      var CX = window.CODELAB.concept;
+      if (item.kind === "order") {
+        var board = orderBoard(item.ask, inner);
+        boardCard(board, function () { return CX.gradeOrder(item.ask, board.texts()); });
+      } else if (item.kind === "trace") {
+        var grid = traceTable(item.ask, inner);
+        boardCard(grid, function () { return CX.gradeTrace(item.ask, grid.cells()); });
+      } else if (item.typed) {
         var row = el("div", "rv-input-row");
         var input = el("input", "rv-input");
         input.setAttribute("placeholder", "Type your answer…");
@@ -2841,7 +2933,7 @@
         check.onclick = function () {
           var raw = input.value;
           if (!raw.trim()) { input.focus(); return; }
-          var right = REV.answerMatches({ choices: [item.answer], answer: 0 }, raw, (u.revAlt || {})[key]);
+          var right = cardMatches(item, raw, (u.revAlt || {})[key]);
           REV.recordTyped(u, right);
           input.disabled = true; check.disabled = true;
           reveal(right);
@@ -3219,7 +3311,23 @@
     rev: {
       today: function () { return REV.revToday(); },
       state: function () { var u = me(); return u ? { rev: u.rev, skip: u.revSkip, stats: u.revStats, xp: u.xp, streak: u.streak } : null; },
-      pool: function () { var u = me(); return u ? reviewPool(u).map(function (i) { return { key: i.key, typed: i.typed, answer: i.answer }; }) : []; },
+      pool: function () { var u = me(); return u ? reviewPool(u).map(function (i) { return { key: i.key, typed: i.typed, answer: i.answer, kind: i.kind, ask: i.ask || null }; }) : []; },
+      /* Finish a lesson on the LIVE store — what introduces a theory
+         lesson's questions — and open a session on chosen cards, so the
+         smoke test can drive each card type without waiting for the queue
+         to happen to deal one. */
+      markDone: function (id, on) {
+        var u = me(); if (!u) return null;
+        if (on === false) delete u.done[id]; else u.done[id] = true;
+        saveStore();
+        return true;
+      },
+      session: function (keys) {
+        var u = me(); if (!u) return null;
+        clear();
+        renderReviewSession({ day: REV.revToday(), keys: keys.slice(), i: 0, ok: 0, n: keys.length, redo: [] }, reviewPool(u));
+        return true;
+      },
       alts: function () { var u = me(); return u ? u.revAlt : {}; },
       seed: function (spec) {
         var u = me(); if (!u) return null;
@@ -3258,7 +3366,7 @@
         var u = me(); if (!u) return null;
         var item = reviewPool(u).filter(function (i) { return i.key === key; })[0];
         if (!item) return null;
-        var right = REV.answerMatches({ choices: [item.answer], answer: 0 }, text, (u.revAlt || {})[key]);
+        var right = cardMatches(item, text, (u.revAlt || {})[key]);
         REV.recordTyped(u, right);
         REV.grade(u, key, right ? "got" : "missed", 9999, REV.revToday());
         if (right) touchCredits(u, courseIdOfRevKey(key));
