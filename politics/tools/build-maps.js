@@ -23,7 +23,8 @@
    gives to Russia). Lines of control that run through a polygon, such
    as Kashmir's, are drawn as the data has them, and the caption says so.
 
-   Reviewed with --reviewed on 2026-09-28: us, cn, ru, in, ua.
+   Reviewed with --reviewed on 2026-09-28: us, cn, ru, in, ua, il (Golan
+   overlay; West Bank and Gaza hatched as contested on every map).
    ============================================================ */
 const fs = require("fs");
 const path = require("path");
@@ -42,6 +43,25 @@ const W = 1200, H = 750;
 const DISPUTED_AREAS = [
   { name: "Crimea", holder: "643", claimant: "804", point: [34.1, 44.95] }
 ];
+/* Areas the data folds into the holder's single polygon, so they can't be
+   split out: an outline is drawn hatched on top, clipped to the holder's
+   shape. The Golan Heights' eastern edge follows the data's 1974 ceasefire
+   line; the western edge traces the pre-1967 line (Jordan River, the east
+   shore of the Sea of Galilee, the Yarmouk). */
+const DISPUTED_OVERLAYS = [
+  { name: "Golan Heights", holder: "376", claimant: "760", outline: [
+    [35.628, 33.275], [35.736, 33.332], [35.786, 33.370], [35.840, 33.415], [35.869, 33.433],
+    [35.851, 33.370], [35.837, 33.330], [35.837, 33.278], [35.858, 33.250], [35.887, 33.193],
+    [35.905, 33.136], [35.869, 33.089], [35.873, 33.039], [35.883, 32.999], [35.912, 32.950],
+    [35.858, 32.863], [35.801, 32.782], [35.786, 32.735], [35.736, 32.730], [35.660, 32.700],
+    [35.650, 32.700], [35.645, 32.750], [35.650, 32.800], [35.636, 32.870], [35.625, 32.900],
+    [35.630, 32.960], [35.640, 33.020], [35.645, 33.100], [35.655, 33.170], [35.662, 33.215],
+    [35.655, 33.250], [35.628, 33.275]
+  ] }
+];
+/* Features drawn hatched in neutral grey on every map: territories whose
+   status is itself the dispute. Palestine here is the West Bank and Gaza. */
+const CONTESTED_FEATURES = ["275"];
 const COLORS = { ocean: "#dbe7f0", grat: "#c9d9e6", land: "#f1ede4", border: "#ffffff", globeLand: "#e2ddd1", globeRim: "#9fb3c4" };
 
 /* Pull each disputed polygon out of its holder's geometry, so it can be
@@ -115,7 +135,19 @@ function build(c) {
     '<pattern id="hatch-c" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="' + COLORS.land + '"/><rect width="4" height="9" fill="' + c.color + '"/></pattern>' +
     '<pattern id="hatch-n" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="' + COLORS.land + '"/><rect width="3" height="9" fill="#b9b3a6"/></pattern>' +
     '</defs>';
-  const disputedPaths = disputed.map((a) => '<path d="' + geo(a) + '" fill="' + hatch(a) + '" stroke="' + (involved(a) ? stroke : "#9d978a") + '" stroke-width="1.4" stroke-dasharray="5 3"/>').join("\n");
+  const contested = features.filter((x) => CONTESTED_FEATURES.indexOf(x.id) > -1 && x.id !== c.iso && geo(x))
+    .map((x) => '<path d="' + geo(x) + '" fill="url(#hatch-n)" stroke="#9d978a" stroke-width="1.2" stroke-dasharray="5 3"/>').join("\n");
+  /* Off-screen shapes project to null; leave them out of the file. */
+  const overlays = DISPUTED_OVERLAYS.filter((o) => geo({ type: "Feature", geometry: { type: "MultiPoint", coordinates: o.outline } })).map((o, i) => {
+    const holder = features.find((x) => x.id === o.holder);
+    let shape = { type: "Feature", geometry: { type: "Polygon", coordinates: [o.outline] } };
+    /* d3 reads a ring wound the wrong way as "the whole globe minus this". */
+    if (d3.geoArea(shape) > 2 * Math.PI) shape = { type: "Feature", geometry: { type: "Polygon", coordinates: [o.outline.slice().reverse()] } };
+    const inv = o.holder === c.iso || o.claimant === c.iso;
+    return '<clipPath id="clip-o' + i + '"><path d="' + geo(holder) + '"/></clipPath>' +
+      '<path d="' + geo(shape) + '" clip-path="url(#clip-o' + i + ')" fill="url(#hatch-' + (inv ? "c" : "n") + ')" stroke="' + (inv ? stroke : "#9d978a") + '" stroke-width="1.4" stroke-dasharray="5 3"/>';
+  }).join("\n");
+  const disputedPaths = disputed.filter((a) => geo(a)).map((a) => '<path d="' + geo(a) + '" fill="' + hatch(a) + '" stroke="' + (involved(a) ? stroke : "#9d978a") + '" stroke-width="1.4" stroke-dasharray="5 3"/>').join("\n");
   const globeDisputed = coarseDisputed.map((a) => '<path d="' + gpath(a) + '" fill="' + (involved(a) ? c.color : COLORS.globeLand) + '" opacity="0.6"/>').join("\n");
   const svg = [
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-labelledby="t">',
@@ -128,6 +160,8 @@ function build(c) {
     '<path d="' + geo(borders) + '" fill="none" stroke="' + COLORS.border + '" stroke-width="1.6" stroke-linejoin="round"/>',
     '<path d="' + geo(f) + '" fill="none" stroke="' + stroke + '" stroke-width="1.6" stroke-linejoin="round"/>',
     disputedPaths,
+    contested,
+    overlays,
     /* globe */
     '<circle cx="' + gx + '" cy="' + gy + '" r="' + (R + 6) + '" fill="#ffffff" opacity="0.9"/>',
     '<path d="' + gpath({ type: "Sphere" }) + '" fill="' + COLORS.ocean + '"/>',
@@ -136,7 +170,7 @@ function build(c) {
     globeDisputed,
     '<path d="' + gpath({ type: "Sphere" }) + '" fill="none" stroke="' + COLORS.globeRim + '" stroke-width="2"/>',
     "</svg>"
-  ].join("\n");
+  ].filter(Boolean).join("\n");
   const out = path.join(ROOT, "maps", c.id + ".svg");
   fs.writeFileSync(out, svg + "\n");
   return { out, bytes: Buffer.byteLength(svg) };

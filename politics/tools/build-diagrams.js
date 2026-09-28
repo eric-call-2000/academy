@@ -157,6 +157,76 @@ const SPECS = {
       { head: "OPPOSITION CITIES", tag: "CHP", color: "#6b4f8a", lines: ["Won most big cities in 2024", "Many mayors jailed or removed"] }
     ],
     bottom: ["NEXT ELECTIONS", "due by May 2028; talk of an earlier vote"]
+  },
+  il: {
+    title: "How power works in Israel",
+    top: ["THE VOTERS", "one national list vote; 3.25% threshold"],
+    boxes: [
+      { head: "KNESSET", tag: "120 seats", color: "#1f4e79", lines: ["Proportional: every government a coalition", "Can bring down the government"] },
+      { arrow: "61 seats form" },
+      { head: "PRIME MINISTER", tag: "Benjamin Netanyahu", color: "#2b6cb0", lines: ["Leads the coalition and the war cabinet", "Commands through the defence minister"] },
+      { arrow: "checked by" },
+      { head: "SUPREME COURT", tag: "no written constitution", color: "#6b4f8a", lines: ["Reviews laws against the Basic Laws", "Centre of the 2023 overhaul fight"] },
+      { arrow: "alongside" },
+      { head: "PRESIDENT", tag: "Isaac Herzog", color: "#5b6270", lines: ["Largely ceremonial; asks a leader to", "form a government; can pardon"] }
+    ],
+    bottom: ["NEXT ELECTION", "27 October 2026"]
+  },
+  ir: {
+    title: "How power works in Iran",
+    top: ["THE VOTERS", "elect a president, parliament and the Assembly of Experts"],
+    boxes: [
+      { head: "SUPREME LEADER", tag: "Mojtaba Khamenei", color: "#2e7d5b", lines: ["Head of state for life", "Commands the armed forces and IRGC", "Final say on nuclear and foreign policy"] },
+      { arrow: "appoints half of" },
+      { head: "GUARDIAN COUNCIL", tag: "12 members", color: "#6b4f8a", lines: ["Vets every candidate", "Can veto laws passed by parliament"] },
+      { arrow: "filters" },
+      { head: "PRESIDENT AND PARLIAMENT", tag: "elected", color: "#2b6cb0", lines: ["President Masoud Pezeshkian runs", "the government; Majlis passes laws"] },
+      { arrow: "overshadowed by" },
+      { head: "REVOLUTIONARY GUARDS", tag: "IRGC", color: "#8a3b2e", lines: ["Army, missile force and business empire", "Answers to the Supreme Leader"] }
+    ],
+    bottom: ["ASSEMBLY OF EXPERTS", "88 clerics who choose the Supreme Leader"]
+  },
+  sa: {
+    title: "How power works in Saudi Arabia",
+    top: ["THE KING", "Salman bin Abdulaziz, since 2015"],
+    boxes: [
+      { head: "CROWN PRINCE AND PM", tag: "Mohammed bin Salman", color: "#1c5e38", lines: ["Runs the government day to day", "Defence, oil, economy, foreign policy"] },
+      { arrow: "appoints" },
+      { head: "COUNCIL OF MINISTERS", tag: "cabinet", color: "#2b6cb0", lines: ["Many ministers are royals or MBS allies", "Decrees have the force of law"] },
+      { arrow: "advised by" },
+      { head: "SHURA COUNCIL", tag: "150 appointed", color: "#5b6270", lines: ["Proposes and reviews laws", "No power to overrule the king"] },
+      { arrow: "legitimised by" },
+      { head: "RELIGIOUS ESTABLISHMENT", tag: "ulema", color: "#6b4f8a", lines: ["Grand Mufti and senior scholars", "Influence curbed since 2017"] }
+    ],
+    bottom: ["NO NATIONAL ELECTIONS", "only limited municipal votes"]
+  },
+  ae: {
+    title: "How power works in the UAE",
+    top: ["SEVEN EMIRATES", "each ruled by its own hereditary family"],
+    boxes: [
+      { head: "FEDERAL SUPREME COUNCIL", tag: "7 rulers", color: "#5a6b2e", lines: ["Top decision-making body", "Elects the president"] },
+      { arrow: "elects" },
+      { head: "PRESIDENT", tag: "Mohamed bin Zayed", color: "#2b6cb0", lines: ["Ruler of Abu Dhabi, since 2022", "Defence, foreign policy, oil wealth"] },
+      { arrow: "with" },
+      { head: "VICE PRESIDENT AND PM", tag: "Mohammed bin Rashid", color: "#1f4e79", lines: ["Ruler of Dubai", "Runs the federal cabinet"] },
+      { arrow: "advised by" },
+      { head: "FEDERAL NATIONAL COUNCIL", tag: "40 members", color: "#6b4f8a", lines: ["Half chosen by a small electorate", "Advisory: cannot make laws alone"] }
+    ],
+    bottom: ["ABU DHABI AND DUBAI", "the two emirates that matter most"]
+  },
+  eg: {
+    title: "How power works in Egypt",
+    top: ["THE VOTERS", "elect a president and parliament; turnout low"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Abdel Fattah el-Sisi", color: "#a0782b", lines: ["Since 2014; term runs to 2030", "Appoints the PM and top judges"] },
+      { arrow: "rests on" },
+      { head: "ARMY AND INTELLIGENCE", tag: "the real base", color: "#8a3b2e", lines: ["Guardians of the state", "Large business interests"] },
+      { arrow: "appoints" },
+      { head: "PRIME MINISTER AND CABINET", tag: "Mostafa Madbouly", color: "#2b6cb0", lines: ["Runs the economy and services", "Negotiates with the IMF"] },
+      { arrow: "backed by" },
+      { head: "PARLIAMENT", tag: "pro-Sisi majority", color: "#1f4e79", lines: ["House and Senate dominated by", "parties loyal to the president"] }
+    ],
+    bottom: ["NEXT PRESIDENTIAL ELECTION", "due 2029–30"]
   }
 };
 
