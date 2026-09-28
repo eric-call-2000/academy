@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1010" role="img" aria-labelledby="t">
+<title id="t">How power works in France</title>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5b6270"/></marker>
+<style>text{font-family:"Nunito","Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#1c1d20}.h{font-size:27px;font-weight:900;fill:#fff;letter-spacing:1px}.hs{font-size:20px;font-weight:700;fill:#fff;opacity:.92}.li{font-size:23px;font-weight:600}.lab{font-size:19px;font-weight:800;fill:#5b6270}.band{font-size:25px;font-weight:900;letter-spacing:1px}.bands{font-size:19px;font-weight:700;fill:#3f4148}</style>
+</defs>
+<rect width="760" height="1010" fill="#ffffff"/>
+<rect x="40" y="22" width="680" height="72" rx="36" fill="#eef1f5" stroke="#cfd6df" stroke-width="2"/>
+<text x="380" y="54" text-anchor="middle" class="band">THE VOTERS</text>
+<text x="380" y="80" text-anchor="middle" class="bands">elect the president and 577 deputies in two rounds</text>
+<line x1="170" y1="96" x2="170" y2="144" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="40" y="148" width="680" height="172" rx="18" fill="#f7f8fa" stroke="#2b6cb0" stroke-width="3"/>
+<path d="M40 166 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#2b6cb0"/>
+<text x="62" y="186" class="h">PRESIDENT</text>
+<text x="700" y="186" text-anchor="end" class="hs">Emmanuel Macron</text>
+<text x="62" y="236" class="li">Five-year term, limit of two</text>
+<text x="62" y="270" class="li">Foreign policy, defence, appoints PM</text>
+<text x="62" y="304" class="li">Can dissolve the Assembly</text>
+<line x1="170" y1="322" x2="170" y2="370" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="354" class="lab">appoints</text>
+<rect x="40" y="374" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#5b6270" stroke-width="3"/>
+<path d="M40 392 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#5b6270"/>
+<text x="62" y="412" class="h">PRIME MINISTER</text>
+<text x="700" y="412" text-anchor="end" class="hs">Sébastien Lecornu</text>
+<text x="62" y="462" class="li">Runs the government day to day</text>
+<text x="62" y="496" class="li">Can pass a text by Article 49.3</text>
+<line x1="170" y1="514" x2="170" y2="562" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="546" class="lab">answers to</text>
+<rect x="40" y="566" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#1f4e79" stroke-width="3"/>
+<path d="M40 584 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#1f4e79"/>
+<text x="62" y="604" class="h">NATIONAL ASSEMBLY</text>
+<text x="700" y="604" text-anchor="end" class="hs">577 seats</text>
+<text x="62" y="654" class="li">Hung since 2024: three blocs</text>
+<text x="62" y="688" class="li">Can topple the government</text>
+<line x1="170" y1="706" x2="170" y2="754" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="738" class="lab">checked by</text>
+<rect x="40" y="758" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#6b4f8a" stroke-width="3"/>
+<path d="M40 776 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#6b4f8a"/>
+<text x="62" y="796" class="h">SENATE AND COUNCILS</text>
+<text x="700" y="796" text-anchor="end" class="hs">slower checks</text>
+<text x="62" y="846" class="li">Senate revises laws</text>
+<text x="62" y="880" class="li">Constitutional Council reviews them</text>
+<rect x="40" y="916" width="680" height="72" rx="36" fill="#f7f4ec" stroke="#d8cfb8" stroke-width="2"/>
+<text x="380" y="948" text-anchor="middle" class="band">NEXT PRESIDENTIAL ELECTION</text>
+<text x="380" y="974" text-anchor="middle" class="bands">April-May 2027; Macron cannot run again</text>
+</svg>

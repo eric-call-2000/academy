@@ -27,17 +27,17 @@
   /* Part 2 — Europe */
   C({ id: "ua", iso: "804", part: 2, name: "Ukraine", flag: "🇺🇦", color: "#2b6cb0", lessons: 8,
       blurb: "The largest war in Europe since 1945 — and the security order it will decide." });
-  C({ id: "de", iso: "276", part: 2, name: "Germany", flag: "🇩🇪", color: "#8a6b12", lessons: 0,
+  C({ id: "de", iso: "276", part: 2, name: "Germany", flag: "🇩🇪", color: "#8a6b12", lessons: 8,
       blurb: "Europe's biggest economy is rearming, stalling, and watching the far right surge." });
-  C({ id: "gb", iso: "826", part: 2, name: "United Kingdom", flag: "🇬🇧", color: "#7a2e3a", lessons: 0,
+  C({ id: "gb", iso: "826", part: 2, name: "United Kingdom", flag: "🇬🇧", color: "#7a2e3a", lessons: 8,
       blurb: "A nuclear power still redefining itself after Brexit — with a new prime minister since July." });
-  C({ id: "fr", iso: "250", part: 2, name: "France", flag: "🇫🇷", color: "#3f5fa8", lessons: 0,
+  C({ id: "fr", iso: "250", part: 2, name: "France", flag: "🇫🇷", color: "#3f5fa8", lessons: 8,
       blurb: "The EU's only nuclear power, where a hung parliament keeps toppling governments." });
-  C({ id: "it", iso: "380", part: 2, name: "Italy", flag: "🇮🇹", color: "#2f7d4f", lessons: 0,
+  C({ id: "it", iso: "380", part: 2, name: "Italy", flag: "🇮🇹", color: "#2f7d4f", lessons: 8,
       blurb: "A G7 heavyweight whose prime minister bridges Trump's Washington and Brussels." });
-  C({ id: "pl", iso: "616", part: 2, name: "Poland", flag: "🇵🇱", color: "#b0354a", lessons: 0,
+  C({ id: "pl", iso: "616", part: 2, name: "Poland", flag: "🇵🇱", color: "#b0354a", lessons: 8,
       blurb: "NATO's eastern anchor, where a president's vetoes hold the government hostage." });
-  C({ id: "tr", iso: "792", part: 2, name: "Turkey", flag: "🇹🇷", color: "#b5462f", lessons: 0,
+  C({ id: "tr", iso: "792", part: 2, name: "Turkey", flag: "🇹🇷", color: "#b5462f", lessons: 8,
       blurb: "Holder of the Bosphorus and broker on Ukraine, Gaza and Syria — the bridge to Part 3." });
 
   /* Part 3 — The Middle East */

@@ -8,7 +8,7 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | Track | Units | Lessons | What it covers |
 |-------|-------|---------|----------------|
 | 🧑‍💻 Full-Stack Coding Lab ↗ | 8 courses | 205 items | **Interactive coding** in [CodeLab](codelab/) — write real HTML/CSS/JS/APIs in a browser sandbox; shares this app's profiles & XP |
-| 🗳️ Political Academy ↗ | 30 countries (5 written) | 40 briefings so far | **Daily reading** in [Political Academy](politics/) — illustrated briefings on the world's 30 most important countries; shares this app's profiles & XP |
+| 🗳️ Political Academy ↗ | 30 countries (11 written) | 88 briefings so far | **Daily reading** in [Political Academy](politics/) — illustrated briefings on the world's 30 most important countries; shares this app's profiles & XP |
 | 🤖 AI & Coding | 16 | 128 | Using AI well — Claude, prompting, models, capabilities, coding, agents, safety |
 | 🏛️ System Design | 25 | 200 | Architecting at scale — distributed systems, trade-offs, and running agents at the max level |
 | 📣 Marketing | 8 | 64 | Brand, audience, content, channels, metrics, growth, and marketing with AI |
@@ -98,7 +98,8 @@ quizzes to pass; you read and tap **Finish briefing**. Like CodeLab, it shares p
 through this app's store and mirrors its progress as track `politics`, so the card shows
 live "N done · XP". The plan is in [`politics-curriculum.md`](politics-curriculum.md), and
 how it works is in [`politics/README.md`](politics/README.md). The United States, China, Russia,
-India and Ukraine are written so far; the other 25 countries arrive in waves.
+India, Ukraine, Germany, the UK, France, Italy, Poland and Turkey are written so far; the other 19
+countries arrive in waves.
 
 External cards take a `cta` in `tracks.js` for the text shown before any progress
 ("Write real code", "Read today's briefing").
