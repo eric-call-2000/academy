@@ -1,0 +1,26 @@
+name: Political Academy
+
+on:
+  pull_request:
+    paths:
+      - "politics/**"
+      - ".github/workflows/politics.yml"
+  push:
+    branches: [main]
+    paths:
+      - "politics/**"
+      - ".github/workflows/politics.yml"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Both are dependency-free: they load the app's files the way the browser does.
+      - name: Progress-rule tests
+        run: node politics/tools/test-core.js
+      - name: Content validator
+        run: node politics/tools/validate.js

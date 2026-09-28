@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f4e79" />
+  <meta name="description" content="Political Academy — daily five-minute briefings on the world's 30 most important countries: who holds power, what just happened, and what to watch." />
+  <title>Political Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Apply saved theme and text size before first paint (no flash). */
+    (function () {
+      try {
+        var p = JSON.parse(localStorage.getItem("politics_prefs_v1")) || {};
+        if (p.theme === "light" || p.theme === "dark") document.documentElement.setAttribute("data-theme", p.theme);
+        if (p.size === "s" || p.size === "l") document.documentElement.setAttribute("data-size", p.size);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div id="app"><div class="boot">Opening the Political Academy… 🗳️</div></div>
+
+  <!-- Registry first, then the manifest and shared content. Country files
+       (units/<id>.js) lazy-load the first time they're needed. -->
+  <script src="core.js"></script>
+  <script src="countries.js"></script>
+  <script src="glossary.js"></script>
+  <script src="updates.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

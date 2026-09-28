@@ -256,11 +256,12 @@
       if (t.blurb) card.appendChild(el("div", "track-blurb", esc(t.blurb)));
       var meta;
       if (t.link) {
-        // External track (e.g. CodeLab): the card opens another app that
-        // syncs its progress back into this store under the same track id.
+        // External track (CodeLab, Political Academy): the card opens another
+        // app that syncs its progress back into this store under the same
+        // track id. `cta` is the card's call to action before any progress.
         meta = doneCount > 0
           ? (doneCount + " done · " + (prog.xp || 0) + " XP · open ↗")
-          : "Write real code · open ↗";
+          : (t.cta || "Open") + " · open ↗";
       } else {
         meta = doneCount > 0
           ? (doneCount + "/" + lessonTotal + " lessons · " + (prog.xp || 0) + " XP")

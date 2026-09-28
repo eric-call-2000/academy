@@ -1,14 +1,16 @@
 # Political Academy — Plan (30 countries)
 
 Design doc for a new reading-first app that lives under Academy the way CodeLab does.
-Written 2026-09-28. **Status: plan only, no code yet.** Facts below were checked against
+Written 2026-09-28. **Status: Phase 1 is built:** the app in [`politics/`](politics/) and the
+United States pilot unit (see [`politics/README.md`](politics/README.md)). The rest of this doc
+is the plan for the other 29 countries. Facts below were checked against
 news coverage on the date above (sources at the end); every lesson still gets a fresh
 fact-check when it is written.
 
 ## At a glance
 
 - **30 units, one per country.** Each unit has **8 lessons** ("briefings"): **240 briefings** in all.
-- **A briefing is a 5-minute read.** It runs about 600–800 words, in short sections of 180 words
+- **A briefing is a 3–5 minute read.** It runs 500–900 words, in short sections of 180 words
   or fewer. It has one or two pictures: an AI-generated illustration of a specific event, or an
   accurate map. It closes with three key takeaways, its sources, and a "current as of" date.
 - **Not Codecademy and not Duolingo.** Briefings have no editor, no hearts and no graded quiz
@@ -77,7 +79,8 @@ politics/
 ├── countries.js          manifest: 30 countries, with id, name, flag, region, part, color, file, asOf
 ├── app.js                screens: profiles → Today → Atlas → Unit → Reader (+ Glossary, What's new)
 ├── styles.css            reading-first, mobile-first; serif body text, light/dark
-├── glossary.js           ~150 terms (supermajority, coalition, Guardian Council…) shown as tappable chips
+├── core.js               registry + every progress rule, DOM-free so Node can test it
+├── glossary.js           terms (supermajority, coalition, Guardian Council…) shown as tappable chips
 ├── updates.js            dated "dispatches" added to a unit between full rewrites
 ├── units/us.js … za.js   one file per country: 8 lessons of text, image references and sources
 ├── img/<id>/…webp        illustrations, lazy-loaded
@@ -86,6 +89,9 @@ politics/
     ├── validate.js       schema, word counts, sources, images, asOf dates, glossary links
     ├── image-manifest.js lists every image whose file is missing, with its prompt
     ├── build-maps.js     Natural Earth → one SVG per country (dev-only dependency)
+    ├── test-core.js      tests for the progress rules (streaks, XP, next briefing, markup)
+    ├── smoke.js          a browser walk-through with Playwright
+    ├── load.js           loads the data files the way the browser does
     └── research/<id>.md  the research note behind each unit (like codelab/tools/course-research)
 ```
 
@@ -108,18 +114,20 @@ politics/
 
 ```js
 {
-  read:  { "us-1": "2026-10-02", … },   // lessonId -> day it was finished
-  days:  ["2026-10-02", …],             // study days; the streak is DERIVED from this set (CodeLab's rule)
-  xp:    120,                            // 10 per briefing, +20 when a country is finished
-  goal:  1,                              // briefings per day
-  last:  "us-3",                         // resume point
-  seenUpdates: "2026-10-02"              // for the What's new badge
+  read:      { "us-1": "2026-10-02", … },  // lessonId -> day it was (last) finished
+  days:      ["2026-10-02", …],            // study days; the streak is DERIVED from this set (CodeLab's rule)
+  unitsDone: { "us": "2026-10-09" },        // countries finished (sticky, for the +20 bonus)
+  goal:      1,                             // briefings per day
+  last:      "us-3",                        // resume point
+  checks:    { "us-1": 1 },                 // answers to the optional quick checks
+  seen:      { "<dispatch id>": 1 }         // dispatches already opened
 }
 ```
 
 Lesson ids are stable (`us-1` … `us-8`), so progress survives rewrites. If a lesson's `asOf`
 date is newer than the day you read it, it gets an **"Updated since you read it"** badge. That
-handles the fact that politics keeps moving after you've finished a unit.
+handles the fact that politics keeps moving after you've finished a unit. XP is never stored:
+it's derived as 10 per briefing read plus 20 per finished country, so it can only grow.
 
 ### Lesson file schema
 
@@ -147,8 +155,9 @@ window.POLITICS.addUnit("ir", {
 });
 ```
 
-Block types are `section`, `image`, `map`, `facts`, `timeline`, `quote`, `callout`
-("Why it matters"), and `compare` (two sides' cases, side by side).
+Block types are `section`, `image`, `map`, `diagram`, `facts`, `timeline`, `quote`, `callout`
+("Why it matters"), `compare` (two sides' cases, side by side), and `people` (the players,
+with portraits).
 
 ### What the validator enforces
 
@@ -939,7 +948,7 @@ without touching anything else.
 
 | Phase | What ships | Why this order |
 |-------|------------|----------------|
-| **1. Engine + pilot** | `politics/` app (Today, Atlas, Reader, progress, Academy bridge, validator, image manifest, map builder), the `cta` change in Academy, and **Unit 1 United States**, complete with images | You judge the format on a real unit before 29 more are written. It's also timely: the midterms are on 3 Nov |
+| **1. Engine + pilot** ✅ | `politics/` app (Today, Atlas, Reader, progress, Academy bridge, validator, image manifest, map builder), the `cta` change in Academy, and **Unit 1 United States**. Its map and diagram are done; 6 illustrations and 7 portraits are listed by the image manifest | You judge the format on a real unit before 29 more are written. It's also timely: the midterms are on 3 Nov |
 | **2. Wave A** | China, Russia, India, Ukraine | Finishes Part 1, and Ukraine anchors Part 2 |
 | **3. Wave B** | Germany, UK, France, Italy, Poland, Turkey | Europe |
 | **4. Wave C** | Israel, Iran, Saudi Arabia, UAE, Egypt | The Middle East; Israel's is timed against its election |

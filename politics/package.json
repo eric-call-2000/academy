@@ -1,0 +1,22 @@
+{
+  "name": "political-academy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Political Academy — reading-first daily briefings on 30 countries, inside Academy.",
+  "scripts": {
+    "validate": "node tools/validate.js",
+    "test": "node tools/test-core.js",
+    "images": "node tools/image-manifest.js",
+    "maps": "node tools/build-maps.js"
+  },
+  "devDependencies": {
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  },
+  "comment": [
+    "The devDependencies are only for tools/build-maps.js, which turns Natural Earth",
+    "data (public domain) into the SVG locator maps in maps/. The maps are committed,",
+    "so the app, the validator and the tests need no install at all."
+  ]
+}
