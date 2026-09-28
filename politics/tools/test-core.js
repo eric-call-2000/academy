@@ -135,11 +135,18 @@ test("next is the first unread briefing of the country you're in", () => {
   p.last = "us-5";
   assert.strictEqual(P.nextLessonId(p), "us-4");
 });
+test("finishing a country walks on to the next written one in path order", () => {
+  const p = P.freshProfile();
+  unit.lessons.forEach((l) => P.markRead(p, unit, l.id, "2026-09-28"));
+  p.last = "us-8";
+  const next = P.countries.filter((c) => c.lessons > 0 && c.id !== "us")[0];
+  assert.strictEqual(P.nextLessonId(p), next ? next.id + "-1" : null);
+});
 test("when every written briefing is read, there is no next", () => {
   const p = P.freshProfile();
   unit.lessons.forEach((l) => P.markRead(p, unit, l.id, "2026-09-28"));
   p.last = "us-8";
-  assert.strictEqual(P.nextLessonId(p), null);
+  assert.strictEqual(P.nextLessonId(p, [P.country("us")]), null);
 });
 test("unbuilt countries are skipped", () => {
   const fake = [{ id: "cn", lessons: 0 }, { id: "us", lessons: 8 }];

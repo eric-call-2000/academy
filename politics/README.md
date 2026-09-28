@@ -12,8 +12,12 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 
 | Unit | Country | Briefings | Current as of | Pictures |
 |------|---------|-----------|---------------|----------|
-| 1 | 🇺🇸 United States | 8 of 8 | 28 Sep 2026 | map and diagram done; 6 illustrations and 7 portraits pending |
-| 2–30 | everyone else | coming in waves (see the plan's build order) | | |
+| 1 | 🇺🇸 United States | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 2 | 🇨🇳 China | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 3 | 🇷🇺 Russia | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 4 | 🇮🇳 India | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 5 | 🇺🇦 Ukraine | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 6–30 | everyone else | coming in waves (see the plan's build order) | | |
 
 ## Run it
 
@@ -73,7 +77,8 @@ politics/
     ├── test-core.js    progress-rule tests (CI)
     ├── smoke.js        browser walk-through (needs Playwright + Chromium)
     ├── image-manifest.js  every missing picture, with its prompt or source
-    ├── build-maps.js   Natural Earth → maps/<id>.svg (npm install first)
+    ├── build-maps.js   Natural Earth → maps/<id>.svg (npm install first); disputed areas hatched
+    ├── build-diagrams.js  the "how power works" diagram for each country
     ├── load.js         loads the data the way the browser does
     └── research/<id>.md   the checked facts and sources behind each unit
 ```
@@ -92,7 +97,9 @@ politics/
 4. **Pictures.** An AI illustration carries `kind: "illustration"`, its alt text, caption,
    the credit *"AI illustration — not a photograph"* and a scene `prompt`. Real people
    appear only as credited public-domain or Creative Commons portraits, never as AI faces.
-   Build the map with `node tools/build-maps.js <id>`.
+   Build the map with `node tools/build-maps.js <id>` (countries with disputed territory need
+   a review of how it's drawn, then `--reviewed`), and add a diagram spec to
+   `tools/build-diagrams.js`.
 5. **Set `lessons`** for the country in `countries.js`.
 6. **Check it:** run `node tools/validate.js` and `node tools/test-core.js`, then open the
    unit in a browser. If Playwright is installed, `node tools/smoke.js` walks the app.

@@ -16,6 +16,14 @@
    someone has reviewed how the map draws it and passes --reviewed:
    the plan requires those areas to be shown as disputed, with a note
    in the caption, not silently assigned to one side.
+
+   Natural Earth draws de facto control. Where that assigns an area
+   to one side of an unresolved dispute as a whole polygon, DISPUTED_AREAS
+   splits it out and draws it hatched instead (Crimea, which the data
+   gives to Russia). Lines of control that run through a polygon, such
+   as Kashmir's, are drawn as the data has them, and the caption says so.
+
+   Reviewed with --reviewed on 2026-09-28: us, cn, ru, in, ua.
    ============================================================ */
 const fs = require("fs");
 const path = require("path");
@@ -28,13 +36,39 @@ const { load, ROOT } = require("./load");
 const { P } = load({ units: false });
 const DISPUTED = new Set(["ua", "ru", "cn", "tw", "in", "pk", "il", "kr", "kp", "ma"]);
 const W = 1200, H = 750;
+/* Whole polygons held by one country but not recognised as its territory.
+   `holder` is the ISO code the data assigns it to; `claimant` the country
+   most states recognise; `point` any spot inside it. */
+const DISPUTED_AREAS = [
+  { name: "Crimea", holder: "643", claimant: "804", point: [34.1, 44.95] }
+];
 const COLORS = { ocean: "#dbe7f0", grat: "#c9d9e6", land: "#f1ede4", border: "#ffffff", globeLand: "#e2ddd1", globeRim: "#9fb3c4" };
 
+/* Pull each disputed polygon out of its holder's geometry, so it can be
+   drawn hatched rather than as a plain part of either country. */
+function splitDisputed(list) {
+  const areas = [];
+  DISPUTED_AREAS.forEach((d) => {
+    const holder = list.find((f) => f.id === d.holder);
+    if (!holder || holder.geometry.type !== "MultiPolygon") return;
+    const keep = [], taken = [];
+    holder.geometry.coordinates.forEach((coords) => {
+      const poly = { type: "Feature", geometry: { type: "Polygon", coordinates: coords } };
+      (d3.geoContains(poly, d.point) ? taken : keep).push(coords);
+    });
+    if (!taken.length) return;
+    holder.geometry = { type: "MultiPolygon", coordinates: keep };
+    areas.push(Object.assign({ type: "Feature", geometry: { type: "MultiPolygon", coordinates: taken } }, { dispute: d }));
+  });
+  return areas;
+}
 const features = topojson.feature(detailed, detailed.objects.countries).features;
+const disputed = splitDisputed(features);
 const land = topojson.feature(detailed, detailed.objects.land);
 const borders = topojson.mesh(detailed, detailed.objects.countries, (a, b) => a !== b);
 const coarseLand = topojson.feature(coarse, coarse.objects.land);
 const coarseFeatures = topojson.feature(coarse, coarse.objects.countries).features;
+const coarseDisputed = splitDisputed(coarseFeatures);
 
 /* The largest single polygon of a (multi)polygon feature: the mainland,
    so the frame isn't stretched across an ocean to fit far islands. */
@@ -64,7 +98,7 @@ function build(c) {
   const proj = d3.geoAzimuthalEqualArea().rotate([-lon, -lat])
     .fitExtent([[170, 120], [W - 170, H - 120]], main)
     .clipExtent([[0, 0], [W, H]]);
-  const geo = d3.geoPath(proj).digits(1);
+  const geo = d3.geoPath(proj).digits(0);   // whole pixels: a third smaller, no visible change
 
   /* Globe inset, top right. */
   const R = 82, gx = W - 22 - R, gy = 22 + R;
@@ -73,20 +107,33 @@ function build(c) {
   const cf = coarseFeatures.find((x) => x.id === c.iso) || f;
 
   const stroke = darker(c.color, 0.7);
+  /* Hatched: in this country's colour if it's a party to the dispute,
+     neutral grey otherwise. */
+  const involved = (a) => a.dispute.holder === c.iso || a.dispute.claimant === c.iso;
+  const hatch = (a) => "url(#hatch-" + (involved(a) ? "c" : "n") + ")";
+  const defs = '<defs>' +
+    '<pattern id="hatch-c" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="' + COLORS.land + '"/><rect width="4" height="9" fill="' + c.color + '"/></pattern>' +
+    '<pattern id="hatch-n" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="' + COLORS.land + '"/><rect width="3" height="9" fill="#b9b3a6"/></pattern>' +
+    '</defs>';
+  const disputedPaths = disputed.map((a) => '<path d="' + geo(a) + '" fill="' + hatch(a) + '" stroke="' + (involved(a) ? stroke : "#9d978a") + '" stroke-width="1.4" stroke-dasharray="5 3"/>').join("\n");
+  const globeDisputed = coarseDisputed.map((a) => '<path d="' + gpath(a) + '" fill="' + (involved(a) ? c.color : COLORS.globeLand) + '" opacity="0.6"/>').join("\n");
   const svg = [
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-labelledby="t">',
     '<title id="t">Locator map: ' + P.esc(c.name) + "</title>",
+    defs,
     '<rect width="' + W + '" height="' + H + '" fill="' + COLORS.ocean + '"/>',
     '<path d="' + geo(d3.geoGraticule10()) + '" fill="none" stroke="' + COLORS.grat + '" stroke-width="1"/>',
     '<path d="' + geo(land) + '" fill="' + COLORS.land + '"/>',
     '<path d="' + geo(f) + '" fill="' + c.color + '"/>',
     '<path d="' + geo(borders) + '" fill="none" stroke="' + COLORS.border + '" stroke-width="1.6" stroke-linejoin="round"/>',
     '<path d="' + geo(f) + '" fill="none" stroke="' + stroke + '" stroke-width="1.6" stroke-linejoin="round"/>',
+    disputedPaths,
     /* globe */
     '<circle cx="' + gx + '" cy="' + gy + '" r="' + (R + 6) + '" fill="#ffffff" opacity="0.9"/>',
     '<path d="' + gpath({ type: "Sphere" }) + '" fill="' + COLORS.ocean + '"/>',
     '<path d="' + gpath(coarseLand) + '" fill="' + COLORS.globeLand + '"/>',
     '<path d="' + gpath(cf) + '" fill="' + c.color + '"/>',
+    globeDisputed,
     '<path d="' + gpath({ type: "Sphere" }) + '" fill="none" stroke="' + COLORS.globeRim + '" stroke-width="2"/>',
     "</svg>"
   ].join("\n");

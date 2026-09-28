@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1010" role="img" aria-labelledby="t">
+<title id="t">How power works in China</title>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5b6270"/></marker>
+<style>text{font-family:"Nunito","Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#1c1d20}.h{font-size:27px;font-weight:900;fill:#fff;letter-spacing:1px}.hs{font-size:20px;font-weight:700;fill:#fff;opacity:.92}.li{font-size:23px;font-weight:600}.lab{font-size:19px;font-weight:800;fill:#5b6270}.band{font-size:25px;font-weight:900;letter-spacing:1px}.bands{font-size:19px;font-weight:700;fill:#3f4148}</style>
+</defs>
+<rect width="760" height="1010" fill="#ffffff"/>
+<rect x="40" y="22" width="680" height="72" rx="36" fill="#eef1f5" stroke="#cfd6df" stroke-width="2"/>
+<text x="380" y="54" text-anchor="middle" class="band">THE COMMUNIST PARTY</text>
+<text x="380" y="80" text-anchor="middle" class="bands">about 100 million members; no rival parties can compete</text>
+<line x1="170" y1="96" x2="170" y2="144" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="40" y="148" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#8a2a26" stroke-width="3"/>
+<path d="M40 166 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#8a2a26"/>
+<text x="62" y="186" class="h">PARTY CONGRESS</text>
+<text x="700" y="186" text-anchor="end" class="hs">sets the line</text>
+<text x="62" y="236" class="li">Meets every five years (next: 2027)</text>
+<text x="62" y="270" class="li">Elects the Central Committee (~200)</text>
+<line x1="170" y1="288" x2="170" y2="336" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="320" class="lab">which chooses</text>
+<rect x="40" y="340" width="680" height="172" rx="18" fill="#f7f8fa" stroke="#a8322d" stroke-width="3"/>
+<path d="M40 358 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#a8322d"/>
+<text x="62" y="378" class="h">STANDING COMMITTEE</text>
+<text x="700" y="378" text-anchor="end" class="hs">rules</text>
+<text x="62" y="428" class="li">Seven men at the top of the Politburo</text>
+<text x="62" y="462" class="li">Led by Xi Jinping, Party chief since 2012</text>
+<text x="62" y="496" class="li">Makes the big decisions</text>
+<line x1="170" y1="514" x2="170" y2="562" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="546" class="lab">which directs</text>
+<rect x="40" y="566" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#5b6270" stroke-width="3"/>
+<path d="M40 584 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#5b6270"/>
+<text x="62" y="604" class="h">THE STATE</text>
+<text x="700" y="604" text-anchor="end" class="hs">carries out</text>
+<text x="62" y="654" class="li">State Council, led by Premier Li Qiang</text>
+<text x="62" y="688" class="li">National People's Congress passes laws</text>
+<line x1="170" y1="706" x2="170" y2="754" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="738" class="lab">the Party also controls</text>
+<rect x="40" y="758" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#4a3b2a" stroke-width="3"/>
+<path d="M40 776 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#4a3b2a"/>
+<text x="62" y="796" class="h">MILITARY COMMISSION</text>
+<text x="700" y="796" text-anchor="end" class="hs">the army</text>
+<text x="62" y="846" class="li">Chaired by Xi; controls the PLA</text>
+<text x="62" y="880" class="li">The army answers to the Party</text>
+<rect x="40" y="916" width="680" height="72" rx="36" fill="#f7f4ec" stroke="#d8cfb8" stroke-width="2"/>
+<text x="380" y="948" text-anchor="middle" class="band">PROVINCES</text>
+<text x="380" y="974" text-anchor="middle" class="bands">run by Party secretaries appointed from Beijing</text>
+</svg>

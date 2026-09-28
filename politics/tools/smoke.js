@@ -156,7 +156,8 @@ function check(name, ok, detail) {
   await page.goto(base + "/politics/#/atlas");
   await page.waitForSelector(".ccard");
   check("the Atlas shows all 30 countries", (await page.$$(".ccard")).length === 30);
-  check("…29 of them coming soon", (await page.$$(".ccard.soon")).length === 29);
+  const soon = (await page.$$(".ccard.soon")).length;
+  check("…unwritten ones marked coming soon", soon === 30 - (await page.evaluate(() => window.POLITICS.builtCountries().length)), String(soon));
   await shot(page, "phone-atlas");
   await page.goto(base + "/politics/#/glossary");
   await page.fill(".search", "filibuster");
