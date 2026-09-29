@@ -35,9 +35,9 @@
       blurb: "The EU's only nuclear power, where a hung parliament keeps toppling governments." });
   C({ id: "it", iso: "380", part: 2, name: "Italy", flag: "🇮🇹", color: "#2f7d4f", lessons: 12,
       blurb: "A G7 heavyweight whose prime minister bridges Trump's Washington and Brussels." });
-  C({ id: "pl", iso: "616", part: 2, name: "Poland", flag: "🇵🇱", color: "#b0354a", lessons: 8,
+  C({ id: "pl", iso: "616", part: 2, name: "Poland", flag: "🇵🇱", color: "#b0354a", lessons: 12,
       blurb: "NATO's eastern anchor, where a president's vetoes hold the government hostage." });
-  C({ id: "tr", iso: "792", part: 2, name: "Turkey", flag: "🇹🇷", color: "#b5462f", lessons: 8,
+  C({ id: "tr", iso: "792", part: 2, name: "Turkey", flag: "🇹🇷", color: "#b5462f", lessons: 12,
       blurb: "Holder of the Bosphorus and broker on Ukraine, Gaza and Syria — the bridge to Part 3." });
 
   /* Part 3 — The Middle East */

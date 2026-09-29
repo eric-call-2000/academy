@@ -101,6 +101,57 @@ window.POLITICS.addUnit("pl", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "pl-9", kind: "founding", asOf: "2026-09-28",
+      title: "Reborn in 1918",
+      dek: "Poland was a great European power, vanished from the map for 123 years, and returned as an independent state at the end of the First World War.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/pl/pl-9-hero.webp",
+          alt: "Illustration of a Renaissance royal castle on a hill above a river, with brick walls, towers and a cathedral, in autumn light.",
+          caption: "Wawel Castle in Kraków, seat of Polish kings for five centuries.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A Renaissance royal castle with red brick walls, towers and a cathedral with golden domes on a hill above a wide river, autumn trees in gold and red, soft afternoon light, historic and proud, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "Rise, fall and rebirth", items: [
+          ["966", "Mieszko I is baptised; the Polish state is born"],
+          ["1569", "Union of Lublin creates the Polish-Lithuanian Commonwealth"],
+          ["1683", "King Jan III Sobieski defeats the Ottomans at Vienna"],
+          ["1791", "Constitution of 3 May, Europe's first modern written constitution"],
+          ["1772–95", "Three partitions erase Poland from the map"],
+          ["11 Nov 1918", "Independence restored"],
+          ["1920", "Poland defeats the Red Army at the Battle of Warsaw"]
+        ] },
+        { type: "section", head: "A Commonwealth", md:
+          "The Polish state dates its birth to 966, when Duke Mieszko I accepted Christianity. In 1569 Poland and Lithuania formed a Commonwealth that became one of Europe's largest states, stretching from the Baltic toward the Black Sea and home to Poles, Lithuanians, Ruthenians, Germans and Europe's largest Jewish community. It was unusual: its nobles, about a tenth of the population, elected their kings and met in a parliament, the Sejm, where any single member could veto legislation, the famous liberum veto." },
+        { type: "section", head: "Partition", md:
+          "That system left the Commonwealth weak as its neighbours grew stronger. In three partitions, in 1772, 1793 and 1795, Russia, Prussia and Austria divided it among themselves. A last attempt at reform, the Constitution of 3 May 1791, often called Europe's first modern written constitution, came too late. For 123 years Poland did not exist as a state. Poles rose against Russian rule in 1830 and 1863 and were crushed; Polish culture, the Catholic Church and a romantic literature of national longing kept the idea of Poland alive." },
+        { type: "section", head: "Independence", md:
+          "The First World War destroyed all three partitioning empires. On 11 November 1918, the day the war ended, Józef Piłsudski, a socialist-turned-nationalist who had led Polish legions in the war, took command in Warsaw; the date is now Independence Day. The new republic fought wars over its borders with Ukrainians, Lithuanians and Germans, and above all with Soviet Russia. In August 1920, when the Red Army reached the gates of Warsaw, the Poles counter-attacked and routed it, a victory remembered as the 'Miracle on the Vistula'." },
+        { type: "section", head: "The Second Republic", md:
+          "Interwar Poland was a multi-ethnic state: about a third of its citizens were Ukrainians, Jews, Belarusians or Germans. Its democracy was fragile; in 1926 Piłsudski staged a coup and ruled in an increasingly authoritarian way until his death in 1935. Squeezed between Nazi Germany and the Soviet Union, the republic lasted only 21 years before both invaded it in September 1939 (see the next briefing)." },
+        { type: "compare", head: "Two founding traditions",
+          left: { head: "Piłsudski's Poland", md:
+            "A civic, multi-ethnic republic in the tradition of the old Commonwealth, and a bulwark against Russia." },
+          right: { head: "Dmowski's Poland", md:
+            "Roman Dmowski's National Democrats saw Poland as an ethnically Polish, Catholic nation, a strand that still runs through the Polish right." } },
+        { type: "section", head: "Why it still matters", md:
+          "Centuries of partition and occupation explain Poland's fierce attachment to sovereignty, its deep distrust of Russia, and its enthusiasm for NATO. They also explain why Poles argue so passionately about their own history, as the Smolensk debate (briefing 11) shows." }
+      ],
+      takeaways: [
+        "The Polish-Lithuanian Commonwealth was one of Europe's largest states until Russia, Prussia and Austria partitioned it by 1795.",
+        "Poland regained independence on 11 November 1918, led by Józef Piłsudski.",
+        "In 1920 it defeated the Red Army at Warsaw; its independence lasted until 1939."
+      ],
+      check: { q: "For how long did Poland disappear from the map after the partitions?",
+        choices: ["About 20 years", "123 years", "Two centuries"], answer: 1,
+        explain: "From the third partition in 1795 until independence in 1918, there was no Polish state." },
+      sources: [
+        { title: "Poland: History", publisher: "Britannica", url: "https://www.britannica.com/place/Poland/History", date: "n.d." },
+        { title: "Partitions of Poland", publisher: "Britannica", url: "https://www.britannica.com/event/Partitions-of-Poland", date: "n.d." },
+        { title: "Józef Piłsudski", publisher: "Britannica", url: "https://www.britannica.com/biography/Jozef-Pilsudski", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "pl-3", kind: "history", asOf: "2026-09-28",
@@ -144,6 +195,104 @@ window.POLITICS.addUnit("pl", {
         { title: "Poland profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-europe-17754512", date: "n.d." },
         { title: "2025 Polish presidential election", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2025_Polish_presidential_election", date: "2025" },
         { title: "Poland: The Tusk government and the 2025 presidential election", publisher: "House of Commons Library", url: "https://commonslibrary.parliament.uk/research-briefings/cbp-10300/", date: "2025" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "pl-10", kind: "past", asOf: "2026-09-28",
+      title: "War, occupation and the Holocaust",
+      dek: "From 1939 to 1945 Poland was carved up by Hitler and Stalin. About six million of its citizens died, half of them Jews murdered in the Holocaust.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/pl/pl-10-hero.webp",
+          alt: "Illustration of a city of ruined buildings under a smoky sky, with the shell of a church tower standing among the rubble.",
+          caption: "Warsaw was about 85% destroyed by the end of the war.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A ruined European city of shattered brick buildings under a smoky grey sky, the gutted shell of a church tower standing among mountains of rubble, winter light, silent and devastated, no people, no flags, no legible text." },
+        { type: "facts", head: "Poland's war", rows: [
+          ["Invaded", "1 September 1939 by Germany; 17 September by the USSR"],
+          ["Polish citizens killed", "About 6 million, roughly 17% of the population"],
+          ["Polish Jews murdered", "About 3 million, about 90% of the community"],
+          ["Katyn massacre", "About 22,000 Poles shot by the Soviet NKVD, 1940"],
+          ["Warsaw Uprising", "August–October 1944; about 200,000 killed"]
+        ] },
+        { type: "section", head: "Two invaders", md:
+          "Germany invaded Poland on 1 September 1939, starting the Second World War. On 17 September the Soviet Union invaded from the east under its secret pact with Hitler. Poland was partitioned again. Both occupiers set out to destroy the Polish elite: the Germans murdered teachers, priests and officials; in spring 1940 Stalin's secret police shot about 22,000 Polish officers, police and intellectuals at Katyn and other sites. Moscow blamed the Germans for half a century, admitting responsibility only in 1990." },
+        { type: "section", head: "The Holocaust", md:
+          "Poland had Europe's largest Jewish community, about 3.3 million people. The Germans confined Jews in ghettos, including Warsaw's, where about 400,000 were crowded together, and from 1942 deported them to death camps built on occupied Polish soil: Auschwitz-Birkenau, Treblinka, Sobibor, Bełżec, Chełmno and Majdanek. About three million Polish Jews were murdered, along with Jews from across Europe. In 1943 the Warsaw Ghetto Uprising fought the Germans for nearly a month before it was crushed." },
+        { type: "section", head: "Occupation and resistance", md:
+          "Poles under German rule faced mass executions, forced labour and deportations; about three million non-Jewish Polish citizens also died. Poland built one of the largest underground resistance movements in Europe, the Home Army, loyal to a government in exile in London. Some Poles risked their lives to hide Jews; Poland has the largest number of people honoured by Israel's Yad Vashem as 'Righteous Among the Nations'. Others betrayed or killed Jews, as at Jedwabne in 1941." },
+        { type: "section", head: "Warsaw, 1944", md:
+          "In August 1944, as the Red Army approached, the Home Army rose in Warsaw to liberate the city before the Soviets arrived. The Soviet forces halted across the river. After 63 days the uprising was crushed; about 200,000 people, mostly civilians, were killed, and the Germans systematically razed the city. After the war the Soviet Union installed a communist government, and Poland's borders were moved westward, with millions of Poles and Germans expelled." },
+        { type: "compare", head: "Debates about memory",
+          left: { head: "A nation of victims and heroes", md:
+            "Poland was the first to fight, suffered terribly under two occupiers, and many Poles saved Jews at the risk of death." },
+          right: { head: "A fuller account", md:
+            "Historians argue that remembrance must also include Polish complicity in some crimes against Jews, a debate that grew heated over a 2018 law." } },
+        { type: "section", head: "Why it still matters", md:
+          "The war explains Poland's view of Germany and Russia today: its demand for German reparations, raised by the PiS government, and its conviction that Russia is an existential threat. A 2018 law criminalising claims that the Polish nation shared responsibility for Nazi crimes caused a diplomatic storm with Israel before it was softened." }
+      ],
+      takeaways: [
+        "Germany and the Soviet Union invaded and divided Poland in 1939.",
+        "About 6 million Polish citizens died, including about 3 million Jews murdered in the Holocaust.",
+        "The Warsaw Uprising of 1944 was crushed and the city razed; the war shapes Polish attitudes to Germany and Russia."
+      ],
+      check: { q: "Who carried out the Katyn massacre of 1940?",
+        choices: ["The German army", "The Soviet secret police (NKVD)", "Polish partisans"], answer: 1,
+        explain: "The NKVD shot about 22,000 Polish officers and others; Moscow admitted it only in 1990." },
+      sources: [
+        { title: "Invasion of Poland, Fall 1939", publisher: "United States Holocaust Memorial Museum", url: "https://encyclopedia.ushmm.org/content/en/article/invasion-of-poland-fall-1939", date: "n.d." },
+        { title: "Katyn Massacre", publisher: "Britannica", url: "https://www.britannica.com/event/Katyn-Massacre", date: "n.d." },
+        { title: "Warsaw Uprising", publisher: "Britannica", url: "https://www.britannica.com/event/Warsaw-Uprising", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "pl-11", kind: "past", asOf: "2026-09-28",
+      title: "Smolensk, 2010",
+      dek: "A plane crash killed Poland's president and 95 others on their way to commemorate Katyn. The disaster split the country for a decade.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/pl/pl-11-hero.webp",
+          alt: "Illustration of a misty birch forest in early spring with candles and flowers laid on the ground in the foreground.",
+          caption: "Mourners laid candles for the victims of the crash near Smolensk, in western Russia.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A misty birch forest in early spring, rows of small glowing candles in red and white glass holders and bunches of flowers laid on the damp ground in the foreground, grey morning light, grief and silence, no people, no legible text." },
+        { type: "facts", head: "The disaster", rows: [
+          ["Date", "10 April 2010"],
+          ["Killed", "96, including President Lech Kaczyński and his wife"],
+          ["Also killed", "The army chief of staff, the central bank governor and many MPs"],
+          ["Official Polish and Russian inquiries", "Pilot error in fog, with Russian air-traffic control failings"],
+          ["PiS-era subcommittee", "Alleged an explosion; rejected by most experts, abolished in December 2023"]
+        ] },
+        { type: "section", head: "The crash", md:
+          "On 10 April 2010 a Polish air force Tu-154 carrying President Lech Kaczyński, his wife and much of Poland's political and military elite was flying to Russia to mark the 70th anniversary of the Katyn massacre. Attempting to land in thick fog at a military airfield near Smolensk, it hit trees and crashed, killing all 96 people on board, among them the chief of the general staff, the central bank governor and many members of parliament. Poland was plunged into mourning." },
+        { type: "section", head: "The investigations", md:
+          "Russian and Polish government investigations concluded that the crew had descended below the safe altitude in fog, under pressure to land, with failings by Russian air-traffic controllers. Russia's refusal to return the wreckage and black boxes, still in its possession, fuelled suspicion. Jarosław Kaczyński, the president's twin brother and leader of the Law and Justice party (PiS), rejected the findings and suggested the crash had been an assassination." },
+        { type: "section", head: "A national rift", md:
+          "Smolensk became a dividing line in Polish politics. PiS supporters held monthly commemorations outside the presidential palace for years, and many believed the government of Donald Tusk, then prime minister, bore responsibility for failing to secure the flight or the investigation. After PiS returned to power in 2015, a subcommittee led by defence minister Antoni Macierewicz exhumed victims' bodies and claimed that explosions had destroyed the plane. Independent experts and most of the victims' families rejected those conclusions." },
+        { type: "section", head: "Closing the file", md:
+          "After Tusk's coalition took power in December 2023, the Macierewicz subcommittee was dissolved, and in 2024 a government-appointed team produced an 800-page report accusing it of deliberately manipulating black-box material to support the explosion theory, and sent dozens of notifications of possible crimes to prosecutors. Macierewicz has since been charged with disclosing classified information and faces investigation over other alleged offences, which he denies. PiS denounced this as a political attack. For many Poles on both sides, the tragedy remains raw." },
+        { type: "compare", head: "Two versions",
+          left: { head: "The official investigations", md:
+            "A tragic accident caused by a combination of pilot error in bad weather, pressure to land and poor airfield control." },
+          right: { head: "Kaczyński's supporters", md:
+            "Russia may have caused the crash, and the Tusk government failed the victims and covered up the truth." } },
+        { type: "section", head: "Why it matters", md:
+          "Smolensk deepened the bitter rivalry between Tusk and Kaczyński that has defined Polish politics for two decades, and hardened suspicion of Russia long before its invasion of [[unit:ua|Ukraine]]. It shows how events can become symbols that divide a nation more than any policy." }
+      ],
+      takeaways: [
+        "In April 2010 a plane crash near Smolensk killed President Lech Kaczyński and 95 others.",
+        "Official inquiries found an accident in fog; Jarosław Kaczyński's PiS alleged a possible assassination.",
+        "The disaster became a symbol of the Tusk–Kaczyński rivalry that divides Poland."
+      ],
+      check: { q: "Why was the Polish delegation flying to Russia in April 2010?",
+        choices: ["For trade talks", "To mark the 70th anniversary of the Katyn massacre", "For a NATO summit"], answer: 1,
+        explain: "The president was travelling to a commemoration of the 1940 massacre of Polish officers by the Soviet NKVD." },
+      sources: [
+        { title: "Death in Smolensk: A Polish Tragedy", publisher: "RUSI", url: "https://www.rusi.org/explore-our-research/publications/commentary/death-smolensk-polish-tragedy", date: "2010-04" },
+        { title: "Polish government finds large-scale irregularities in predecessor's Smolensk investigation commission", publisher: "Notes from Poland", url: "https://notesfrompoland.com/2024/10/24/polish-government-finds-large-scale-irregularities-in-predecessors-smolensk-investigation-commission/", date: "2024-10-24" },
+        { title: "Lech Kaczyński", publisher: "Britannica", url: "https://www.britannica.com/biography/Lech-Kaczynski", date: "n.d." }
       ]
     },
 
@@ -340,6 +489,55 @@ window.POLITICS.addUnit("pl", {
         { title: "Poland election 2027: Tusk is winning the battle of the parties but not the blocs", publisher: "Poland Watch", url: "https://polandwatch.substack.com/p/poland-election-2027-tusk-is-winning", date: "2026" },
         { title: "Poland's duopoly is cracking as the 2027 battle begins", publisher: "TVP World", url: "https://tvpworld.com/95157323/poland-2027-election-tusk-pis-and-a-divided-right", date: "2026" },
         { title: "Opinion polling for the next Polish parliamentary election", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Next_Polish_parliamentary_election", date: "2026-09" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "pl-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "The Polish economic miracle",
+      dek: "Since communism fell, Poland has grown faster than almost any European economy, more than tripling its output. Now it is catching up with the West.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/pl/pl-12-hero.webp",
+          alt: "Illustration of a modern city skyline of glass towers beside a grand socialist-realist palace with a spire, at dusk.",
+          caption: "Warsaw's skyline, where new towers rise around the Stalin-era Palace of Culture and Science.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A modern city skyline of glass skyscrapers at dusk rising around a massive socialist-realist palace with a tall spire, lit windows, a wide avenue with light trails, confident and dynamic, no people close up, no legible text or logos." },
+        { type: "facts", head: "The miracle in numbers", rows: [
+          ["Shock therapy", "The Balcerowicz plan, January 1990"],
+          ["Years without recession", "1992 to 2019, the longest run in the EU"],
+          ["GDP per head (purchasing power)", "About 51% of the EU average in 2004; 80% in 2024"],
+          ["EU membership", "Since 2004; the largest net recipient of EU funds"],
+          ["Economy", "Among the world's 20 largest (2025)"]
+        ] },
+        { type: "section", head: "Shock therapy", md:
+          "In 1989 Poland's communist economy was collapsing, with shortages, debt and inflation running at hundreds of per cent. The first non-communist government, with Leszek Balcerowicz as finance minister, launched a 'shock therapy' programme on 1 January 1990: prices were freed, subsidies cut, the currency made convertible and the budget tightened. Output and living standards fell sharply at first and unemployment soared, but new private businesses sprang up and inflation was brought down." },
+        { type: "section", head: "Three decades of growth", md:
+          "From 1992 Poland's economy grew every single year until the pandemic, the longest run of uninterrupted growth in the European Union; it was the only EU country to avoid recession in the 2008–09 financial crisis. Foreign investment poured into factories making cars, appliances and furniture, and later into services centres. Joining the EU in 2004 opened markets and brought hundreds of billions of euros in funds for motorways, railways and cities. Measured by purchasing power, output per person rose from about half the EU average when Poland joined in 2004 to 80% in 2024." },
+        { type: "section", head: "Who was left behind", md:
+          "The gains were uneven. Unemployment exceeded 20% in the early 2000s, and about two million Poles emigrated after 2004, many to Britain and Ireland. Small towns and the rural east felt left behind by booming cities such as Warsaw, Kraków and Wrocław. That resentment helped PiS win power in 2015 with generous family benefits, including a monthly child payment, '500+', later raised to 800 złoty, which cut child poverty sharply." },
+        { type: "section", head: "Challenges ahead", md:
+          "Poland now faces the problems of success: rising wages that erode its cost advantage, a rapidly ageing population and low birth rate, dependence on coal for much of its electricity, and huge spending on defence, now over 4% of GDP, the highest in NATO. It has also taken in about a million Ukrainian refugees, many of whom have joined the workforce." },
+        { type: "compare", head: "Two views of the transition",
+          left: { head: "A success story", md:
+            "Bold reform and EU membership turned Poland into one of Europe's most dynamic economies within a generation." },
+          right: { head: "A costly transition", md:
+            "Shock therapy imposed heavy costs on workers and regions, and growth relied on low wages and EU money." } },
+        { type: "section", head: "Why it matters", md:
+          "Poland's prosperity underpins its new weight in Europe: its army is set to be the EU's largest, and its economy is now bigger than Sweden's or Belgium's. A country that queued for bread in 1989 is now one of Europe's leading economies and military powers." }
+      ],
+      takeaways: [
+        "Poland's 1990 'shock therapy' ended communist economics at a heavy short-term cost.",
+        "It grew every year from 1992 to 2019 and avoided recession in the 2008–09 crisis.",
+        "EU membership and investment have taken output per person from about half the EU average in 2004 to 80% in 2024."
+      ],
+      check: { q: "What was notable about Poland in the 2008–09 financial crisis?",
+        choices: ["It left the EU", "It was the only EU country to avoid a recession", "It adopted the euro"], answer: 1,
+        explain: "Poland kept growing through the crisis, part of an unbroken run from 1992 to 2019." },
+      sources: [
+        { title: "Poland: Economy", publisher: "Britannica", url: "https://www.britannica.com/place/Poland/Economy", date: "n.d." },
+        { title: "Leszek Balcerowicz", publisher: "Britannica", url: "https://www.britannica.com/biography/Leszek-Balcerowicz", date: "n.d." },
+        { title: "Poland's GDP is already 80% of the EU average", publisher: "Trade.gov.pl", url: "https://www.trade.gov.pl/en/news/polands-gdp-is-already-80-of-the-eu-average/", date: "2025" }
       ]
     },
 

@@ -100,6 +100,57 @@ window.POLITICS.addUnit("tr", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "tr-9", kind: "founding", asOf: "2026-09-28",
+      title: "Atatürk's republic",
+      dek: "From the ruins of the Ottoman Empire, Mustafa Kemal fought a war of independence and built a secular, Western-facing nation-state.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/tr/tr-9-hero.webp",
+          alt: "Illustration of a monumental stone mausoleum with a colonnade on a hilltop above a city, approached by a long avenue lined with stone lions.",
+          caption: "Anıtkabir in Ankara, Atatürk's mausoleum, visited by millions of Turks every year.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A monumental pale stone mausoleum with a tall square colonnade on a hilltop above a city, approached by a long wide avenue lined with carved stone lions, bright clear sky, solemn and grand, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "From empire to republic", items: [
+          ["1453", "The Ottomans take Constantinople"],
+          ["1914–18", "The Ottoman Empire fights and loses the First World War"],
+          ["1915", "Gallipoli: Mustafa Kemal makes his name"],
+          ["1919–22", "War of Independence"],
+          ["1923", "Treaty of Lausanne; Republic of Turkey proclaimed, 29 October"],
+          ["1924", "The caliphate is abolished"],
+          ["1938", "Atatürk dies"]
+        ] },
+        { type: "section", head: "The sick man of Europe", md:
+          "For six centuries the Ottoman Empire ruled much of south-east Europe, the Middle East and North Africa from Constantinople, today's Istanbul. By the 19th century it was in decline, losing territory to Russia, to Austria and to Balkan nations winning independence, and was mocked as the 'sick man of Europe'. Reformers tried to modernise it, and in 1908 the Young Turk revolution restored a constitution. The empire entered the First World War on Germany's side in 1914 and was defeated." },
+        { type: "section", head: "War of Independence", md:
+          "The victors planned to carve up even the Anatolian heartland: the 1920 Treaty of Sèvres gave land to Greece, Armenia and a possible Kurdish state, and left Istanbul under Allied control. Mustafa Kemal, an Ottoman officer who had become famous for defending Gallipoli in 1915, organised resistance from Ankara. His forces drove out a Greek army in 1922, amid atrocities on both sides and the burning of Smyrna (İzmir). The 1923 Treaty of Lausanne recognised Turkey's borders and led to a population exchange in which about 1.2 million Greek Orthodox Christians and 400,000 Muslims were forced to move." },
+        { type: "section", head: "A revolution from above", md:
+          "Kemal proclaimed the Republic of Turkey on 29 October 1923, with Ankara as its capital, and ruled through his Republican People's Party (CHP) in a one-party state. He abolished the Ottoman sultanate and, in 1924, the caliphate, the religious leadership of Sunni Islam. Religious courts were closed, the Arabic script replaced by a Latin alphabet in 1928, the fez banned, European legal codes adopted, and women given the vote in 1934. Surnames were introduced; parliament named him Atatürk, 'father of the Turks'." },
+        { type: "section", head: "Kemalism", md:
+          "His ideology, Kemalism, rested on six principles: republicanism, nationalism, populism, statism, secularism and reformism. The army came to see itself as its guardian. The republic was also defined by a strong Turkish national identity that left little room for minorities; a Kurdish uprising in 1925 and later revolts were crushed, and in 1937–38 a rebellion in Dersim was suppressed with great loss of life." },
+        { type: "compare", head: "Two views of Atatürk",
+          left: { head: "Kemalists", md:
+            "A military genius and visionary who saved Turkey from partition and turned a collapsed empire into a modern, secular nation." },
+          right: { head: "Critics", md:
+            "Religious conservatives resent his forced secularisation; Kurds and other minorities see a nationalism that denied their identities." } },
+        { type: "section", head: "Why it still matters", md:
+          "Atatürk's portrait still hangs in every classroom and his memory is protected by law, but Erdoğan's AK Party, rooted in political Islam, has spent two decades reversing parts of his legacy, from restoring Hagia Sophia as a mosque in 2020 to loosening curbs on headscarves. The argument between secular and religious Turkey runs through its politics." }
+      ],
+      takeaways: [
+        "After the Ottoman defeat in 1918, Mustafa Kemal led a war of independence against partition.",
+        "The Republic of Turkey was proclaimed on 29 October 1923, and the caliphate abolished in 1924.",
+        "Atatürk's reforms created a secular, nationalist state; Erdoğan's era has reversed some of them."
+      ],
+      check: { q: "Which treaty recognised modern Turkey's borders in 1923?",
+        choices: ["Sèvres", "Lausanne", "Versailles"], answer: 1,
+        explain: "The Treaty of Lausanne replaced the harsh Treaty of Sèvres after Turkey's victory in the War of Independence." },
+      sources: [
+        { title: "Kemal Atatürk", publisher: "Britannica", url: "https://www.britannica.com/biography/Kemal-Ataturk", date: "n.d." },
+        { title: "Turkey: History", publisher: "Britannica", url: "https://www.britannica.com/place/Turkey/History", date: "n.d." },
+        { title: "Treaty of Lausanne", publisher: "Britannica", url: "https://www.britannica.com/event/Treaty-of-Lausanne-1923", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "tr-3", kind: "history", asOf: "2026-09-28",
@@ -145,6 +196,105 @@ window.POLITICS.addUnit("tr", {
         { title: "Turkey profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-europe-17994865", date: "n.d." },
         { title: "World Report 2026: Türkiye", publisher: "Human Rights Watch", url: "https://www.hrw.org/world-report/2026/country-chapters/turkiye", date: "2026" },
         { title: "Erdoğan's Kurdish Initiative & the Logic Behind Arresting His Opponent", publisher: "Just Security", url: "https://www.justsecurity.org/110693/turkey-erdogan-kurds-peace-imamoglu/", date: "2025" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "tr-10", kind: "past", asOf: "2026-09-28",
+      title: "1915: the Armenians",
+      dek: "During the First World War, Ottoman authorities deported and massacred the empire's Armenians. Most historians call it genocide; Turkey rejects the term.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/tr/tr-10-hero.webp",
+          alt: "Illustration of a ruined stone medieval church with a conical dome standing alone in an empty highland landscape at dusk.",
+          caption: "Ruined Armenian churches still stand across eastern Anatolia.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A ruined medieval stone church with a conical dome and carved walls standing alone on an empty highland plateau at dusk, distant mountains, long shadows, melancholy and silent, no people, no legible text." },
+        { type: "facts", head: "The facts in brief", rows: [
+          ["Began", "24 April 1915, with arrests of Armenian leaders in Constantinople"],
+          ["Deaths", "At least 664,000 and possibly 1.2 million (USHMM); Armenia says 1.5 million"],
+          ["Method", "Deportations to the Syrian desert, massacres, starvation"],
+          ["Recognised as genocide by", "More than 30 countries, including France, Germany, and the US (2021)"],
+          ["Turkey's position", "Rejects the term genocide; cites wartime deaths on all sides"]
+        ] },
+        { type: "section", head: "Armenians in the empire", md:
+          "Armenians, an ancient Christian people, had lived in eastern Anatolia for more than two thousand years. By the late 19th century about two million lived in the Ottoman Empire, many as farmers in the east and many more as merchants and professionals in cities. As the empire declined, Armenian demands for reform and security were met with suspicion. In the massacres of 1894–96 under Sultan Abdulhamid II, an estimated 100,000 to 300,000 Armenians were killed." },
+        { type: "section", head: "1915", md:
+          "The empire entered the First World War in 1914, and its army suffered a disastrous defeat by Russia in the Caucasus that winter. The ruling Committee of Union and Progress blamed Armenians, some of whom fought for Russia, for treachery. On 24 April 1915 authorities arrested hundreds of Armenian intellectuals and community leaders in Constantinople; most were later killed. Across Anatolia, Armenian men were separated and shot, and women, children and the elderly were deported on death marches toward the Syrian desert, where many died of starvation, disease and massacre." },
+        { type: "section", head: "The toll and the evidence", md:
+          "The US Holocaust Memorial Museum estimates that at least 664,000 and possibly as many as 1.2 million Armenians were killed; Armenia puts the figure at 1.5 million. Contemporary witnesses, including the US ambassador Henry Morgenthau, German diplomats and missionaries, reported mass killings, and Ottoman courts-martial after the war convicted several officials. The lawyer Raphael Lemkin, who coined the word 'genocide' in 1944, cited the fate of the Armenians as an example. Most historians and genocide scholars regard the events as genocide." },
+        { type: "section", head: "Turkey's position", md:
+          "Turkey accepts that many Armenians died but rejects the term genocide. It argues that the deaths resulted from wartime deportations, disease and inter-communal fighting in which many Muslims also died, and denies any plan of extermination. It has recalled ambassadors from countries that have recognised the genocide. In Turkey, the subject was long taboo; the Armenian-Turkish journalist Hrant Dink, who wrote about it, was assassinated in 2007." },
+        { type: "compare", head: "Two positions",
+          left: { head: "Most historians and Armenia", md:
+            "The deportations and massacres were a deliberate campaign to destroy the Armenian people of Anatolia, meeting the definition of genocide." },
+          right: { head: "The Turkish state", md:
+            "The deaths were a tragedy of a world war in which all communities suffered; history should be left to historians, not parliaments." } },
+        { type: "section", head: "Why it still matters", md:
+          "The issue has kept the Turkish–Armenian border closed since 1993 and shaped Turkey's relations with Europe and the US, where President Biden recognised the genocide in 2021. In 2025, after Armenia and Azerbaijan agreed a peace framework, Turkey and Armenia moved toward normalising relations, with direct flights between Istanbul and Yerevan from 2026 and preparations to reopen the border, but 24 April remains a day of mourning for Armenians worldwide." }
+      ],
+      takeaways: [
+        "From April 1915, Ottoman authorities deported and massacred Armenians; estimates of the dead run from about 664,000 to 1.5 million.",
+        "Most historians call it genocide, and over 30 countries recognise it as such.",
+        "Turkey rejects the term, arguing the deaths were part of a wider wartime tragedy."
+      ],
+      check: { q: "What date do Armenians commemorate as the start of the genocide?",
+        choices: ["1 November", "24 April", "29 October"], answer: 1,
+        explain: "On 24 April 1915 Ottoman authorities arrested Armenian leaders in Constantinople; most were later killed." },
+      sources: [
+        { title: "Armenian Genocide", publisher: "Britannica", url: "https://www.britannica.com/event/Armenian-Genocide", date: "n.d." },
+        { title: "The Armenian Genocide (1915–16): Overview", publisher: "United States Holocaust Memorial Museum", url: "https://encyclopedia.ushmm.org/content/en/article/the-armenian-genocide-1915-16-overview", date: "n.d." },
+        { title: "Statement by President Joe Biden on Armenian Remembrance Day", publisher: "The White House (archived)", url: "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2021/04/24/statement-by-president-joe-biden-on-armenian-remembrance-day/", date: "2021-04-24" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "tr-11", kind: "past", asOf: "2026-09-28",
+      title: "Coups and the army",
+      dek: "Turkey's army overthrew elected governments three times and forced out a fourth. A failed coup in 2016 ended its political power for good.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/tr/tr-11-hero.webp",
+          alt: "Illustration of a long suspension bridge over a strait at night, lit by streetlights, with tanks silhouetted at one end and crowds gathering.",
+          caption: "On 15 July 2016 soldiers blocked Istanbul's Bosphorus bridge; crowds came out to stop them.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long suspension bridge over a dark strait at night lit by rows of streetlights, the silhouettes of military tanks at one end and a large crowd of people seen from behind gathering, tense and dramatic, no faces, no flags, no legible text." },
+        { type: "timeline", head: "Army and politics", items: [
+          ["1960", "Coup; Prime Minister Adnan Menderes later hanged"],
+          ["1971", "'Coup by memorandum' forces the government out"],
+          ["1980", "Coup; hundreds of thousands detained; new constitution in 1982"],
+          ["1997", "'Postmodern coup' ousts an Islamist-led government"],
+          ["2007", "'E-memorandum' fails to stop Abdullah Gül's presidency"],
+          ["15 July 2016", "Failed coup attempt; about 250 killed"]
+        ] },
+        { type: "section", head: "Guardians of the republic", md:
+          "Turkey became a multiparty democracy in 1950, when the Democrat Party defeated Atatürk's CHP. But the armed forces saw themselves as guardians of Kemalism and intervened whenever they believed the republic was threatened, by Islamism, communism, Kurdish nationalism or disorder. A National Security Council gave generals a formal say over policy for decades." },
+        { type: "section", head: "Three coups", md:
+          "In 1960 officers overthrew the Democrat government; Prime Minister Adnan Menderes and two ministers were hanged. In 1971 a military memorandum forced the government to resign. In September 1980, after years of political violence between left and right that killed thousands, General Kenan Evren seized power: about 650,000 people were detained, many tortured, and 50 executed. The 1982 constitution written under military rule, much amended, is still in force." },
+        { type: "section", head: "Soft coups", md:
+          "In 1997 the military pressured Turkey's first Islamist-led government, under Necmettin Erbakan, to resign, a 'postmodern coup' without tanks. Headscarves were banned in universities and public offices. Recep Tayyip Erdoğan, then mayor of Istanbul, was jailed briefly for reciting a religious poem. In 2007 the army posted a warning on its website against the presidential candidacy of Abdullah Gül, whose wife wore a headscarf; Erdoğan's government called an early election and won." },
+        { type: "section", head: "Taming the army and 15 July", md:
+          "Erdoğan's AK Party curbed the military's power with reforms encouraged by the EU and mass trials of officers accused of coup plots, many of whose convictions were later overturned. On the night of 15 July 2016, a faction of the military tried to seize power, bombing parliament and blocking Istanbul's bridges. Erdoğan called on citizens via a video call broadcast on television to take to the streets; crowds confronted the soldiers, and the coup collapsed. About 250 people were killed on the government side." },
+        { type: "compare", head: "After 2016",
+          left: { head: "The government", md:
+            "A coup by followers of the cleric Fethullah Gülen was defeated by the people, and the state had to be purged of the network behind it." },
+          right: { head: "Critics", md:
+            "The purge went far beyond plotters, sweeping up journalists, academics and opponents and giving Erdoğan near-absolute power." } },
+        { type: "section", head: "Why it still matters", md:
+          "The government blamed Fethullah Gülen, a US-based cleric once allied with Erdoğan, who denied involvement and died in 2024. Under a two-year state of emergency, more than 150,000 people were detained or dismissed. In 2017 voters narrowly approved a presidential system concentrating power in Erdoğan's hands. The army no longer threatens elected governments, but critics say the courts, media and civil service now serve the president instead." }
+      ],
+      takeaways: [
+        "Turkey's army overthrew governments in 1960, 1971 and 1980 and forced out another in 1997.",
+        "Erdoğan's AK Party curbed the army's power in the 2000s.",
+        "A failed coup in July 2016 was followed by mass purges and a presidential system."
+      ],
+      check: { q: "Whom did the Turkish government blame for the 2016 coup attempt?",
+        choices: ["The PKK", "Followers of the cleric Fethullah Gülen", "The CHP"], answer: 1,
+        explain: "The government blamed Gülen's movement, which it calls FETÖ; Gülen denied involvement." },
+      sources: [
+        { title: "Turkey coup attempt of 2016", publisher: "Britannica", url: "https://www.britannica.com/event/Turkey-coup-attempt-of-2016", date: "n.d." },
+        { title: "Turkey: The Republic", publisher: "Britannica", url: "https://www.britannica.com/place/Turkey/The-Republic", date: "n.d." },
+        { title: "Fethullah Gulen, the powerful cleric accused of orchestrating a Turkish coup, dies", publisher: "CNBC", url: "https://www.cnbc.com/2024/10/21/fethullah-gulen-cleric-accused-of-orchestrating-a-turkish-coup-dies.html", date: "2024-10-21" }
       ]
     },
 
@@ -355,6 +505,55 @@ window.POLITICS.addUnit("tr", {
         { title: "Turkey Leaves Gaza Peace Board Summit Empty-Handed", publisher: "FDD", url: "https://www.fdd.org/analysis/2026/02/20/turkey-leaves-gaza-peace-board-summit-empty-handed/", date: "2026-02-20" },
         { title: "Turkey and the War on Iran: Between Opportunity and Catastrophe", publisher: "Arab Center Washington DC", url: "https://arabcenterdc.org/resource/turkey-and-the-war-on-iran-between-opportunity-and-catastrophe/", date: "2026" },
         { title: "How Turkey and the Syrian Interim Government Outmanoeuvred the U.S. and the SDF in Syria", publisher: "Manara Magazine", url: "https://manaramagazine.org/2026/02/turkey-syrian-government-us-sdf-syria/", date: "2026-02" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "tr-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "Cyprus",
+      dek: "Since 1974 the island has been divided between a Greek Cypriot republic in the EU and a Turkish Cypriot north recognised only by Turkey.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/tr/tr-12-hero.webp",
+          alt: "Illustration of a sandbagged checkpoint across a narrow street between old stone houses, with barrels and a watchtower, in afternoon light.",
+          caption: "The UN buffer zone, the 'Green Line', still runs through the old city of Nicosia.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A narrow old street of weathered stone houses blocked by sandbags, rusty oil barrels and barbed wire, a small watchtower beyond, bougainvillea on a wall, afternoon light, frozen in time, no people, no flags, no legible text." },
+        { type: "facts", head: "A divided island", rows: [
+          ["Independence from Britain", "1960"],
+          ["Turkish invasion", "July–August 1974"],
+          ["North declared independence", "1983; recognised only by Turkey"],
+          ["Annan Plan referendum", "2004: Turkish Cypriots yes (65%), Greek Cypriots no (76%)"],
+          ["Republic of Cyprus", "EU member since 2004"]
+        ] },
+        { type: "section", head: "Two communities", md:
+          "Cyprus, in the eastern Mediterranean, was Ottoman for three centuries and British from 1878. Its population was about four-fifths Greek Cypriot and one-fifth Turkish Cypriot. In the 1950s a Greek Cypriot guerrilla campaign fought for enosis, union with Greece, which Turkish Cypriots and Turkey opposed. Cyprus became independent in 1960 with a power-sharing constitution guaranteed by Britain, Greece and Turkey. It broke down within three years amid intercommunal fighting, and UN peacekeepers arrived in 1964." },
+        { type: "section", head: "1974", md:
+          "In July 1974 the military junta then ruling Greece backed a coup in Cyprus aimed at union with Greece. Turkey invaded five days later, citing its role as guarantor, and in a second offensive took about 37% of the island. Around 160,000 Greek Cypriots fled or were expelled south, and about 45,000 Turkish Cypriots moved north. Thousands were killed or went missing. The coup's failure also brought down the junta in Athens." },
+        { type: "section", head: "Failed reunification", md:
+          "In 1983 the north declared itself the Turkish Republic of Northern Cyprus, recognised only by Turkey, which keeps tens of thousands of troops there. The most serious attempt at a settlement, the UN's Annan Plan for a federation, was put to referendums in 2004: Turkish Cypriots backed it, but Greek Cypriots rejected it by three to one. Days later the Republic of Cyprus joined the EU, with EU law suspended in the north. Talks collapsed again at Crans-Montana in 2017." },
+        { type: "section", head: "Two states or one?", md:
+          "Turkey and the north's leadership have since argued for a two-state solution, which the UN, EU and Greek Cypriots reject. In October 2025 Turkish Cypriots elected Tufan Erhürman, a centre-left supporter of a federal settlement, as their leader with 62.8% of the vote, defeating the Ankara-backed incumbent, Ersin Tatar, and reviving hopes of talks. Gas discoveries off the island have added disputes over maritime boundaries between Cyprus, Greece and Turkey." },
+        { type: "compare", head: "Two narratives",
+          left: { head: "Greek Cypriots", md:
+            "Turkey invaded and occupies a third of an EU member state; refugees should be able to return, and Turkish troops must leave." },
+          right: { head: "Turkish Cypriots and Turkey", md:
+            "Turkey's intervention saved Turkish Cypriots from violence and annexation by Greece; any deal must guarantee their political equality." } },
+        { type: "section", head: "Why it matters", md:
+          "Cyprus is a major obstacle in Turkey's stalled bid to join the EU, a source of tension with Greece, a fellow NATO member, and a test of whether frozen conflicts can ever be resolved. Crossing points opened in 2003 let Cypriots visit the other side for the first time in decades, and many returned to see the homes they had fled." }
+      ],
+      takeaways: [
+        "Cyprus has been divided since Turkey invaded in 1974 after a Greek-backed coup.",
+        "The north is recognised only by Turkey; Greek Cypriots rejected the UN reunification plan in 2004.",
+        "The dispute blocks Turkey's EU bid and strains its relations with Greece."
+      ],
+      check: { q: "What happened in the 2004 referendums on the UN's Annan Plan?",
+        choices: ["Both communities approved it", "Turkish Cypriots approved it, Greek Cypriots rejected it", "Both rejected it"], answer: 1,
+        explain: "65% of Turkish Cypriots voted yes; 76% of Greek Cypriots voted no, and the plan failed." },
+      sources: [
+        { title: "Cyprus: History", publisher: "Britannica", url: "https://www.britannica.com/place/Cyprus/History", date: "n.d." },
+        { title: "UNFICYP: United Nations Peacekeeping Force in Cyprus", publisher: "United Nations Peacekeeping", url: "https://peacekeeping.un.org/en/mission/unficyp", date: "n.d." },
+        { title: "Tufan Erhurman elected Turkish Cypriot leader", publisher: "Cyprus Mail", url: "https://cyprus-mail.com/2025/10/19/tufan-erhurman-elected-turkish-cypriot-leader", date: "2025-10-19" }
       ]
     },
 
