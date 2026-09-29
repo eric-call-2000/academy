@@ -49,7 +49,7 @@
       blurb: "The oil superpower of OPEC+, Vision 2030, and a front-row seat in the Iran war." });
   C({ id: "ae", iso: "784", part: 3, name: "United Arab Emirates", flag: "🇦🇪", color: "#5a6b2e", lessons: 12,
       blurb: "A small federation with outsized reach: finance, AI, Sudan — and Iran's missiles." });
-  C({ id: "eg", iso: "818", part: 3, name: "Egypt", flag: "🇪🇬", color: "#a0782b", lessons: 8,
+  C({ id: "eg", iso: "818", part: 3, name: "Egypt", flag: "🇪🇬", color: "#a0782b", lessons: 12,
       blurb: "The Suez Canal, the Gaza border and the Nile — with an economy on the edge." });
 
   /* Part 4 — The Indo-Pacific */

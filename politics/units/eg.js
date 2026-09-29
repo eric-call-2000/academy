@@ -99,6 +99,56 @@ window.POLITICS.addUnit("eg", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "eg-9", kind: "founding", asOf: "2026-09-28",
+      title: "1952: the Free Officers",
+      dek: "A group of young army officers overthrew the king and founded the republic. Every Egyptian president since has come from the military, bar one.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/eg/eg-9-hero.webp",
+          alt: "Illustration of a wide boulevard along the Nile in Cairo at dusk, with 1950s cars, palm trees and ornate belle époque buildings.",
+          caption: "Cairo in the early 1950s, the capital of a kingdom about to become a republic.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A wide boulevard along the Nile in Cairo at dusk in the early 1950s, vintage cars, tall palm trees, ornate belle époque buildings with balconies, feluccas on the river, warm nostalgic light, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "From khedive to republic", items: [
+          ["1805", "Muhammad Ali takes power and modernises Egypt"],
+          ["1869", "The Suez Canal opens"],
+          ["1882", "Britain occupies Egypt"],
+          ["1922", "Formal independence under King Fuad"],
+          ["23 July 1952", "Free Officers' coup"],
+          ["1953", "Monarchy abolished; Egypt becomes a republic"],
+          ["1956", "Gamal Abdel Nasser becomes president"]
+        ] },
+        { type: "section", head: "Modern Egypt", md:
+          "Egypt's modern state began with Muhammad Ali, an Ottoman officer who seized power in 1805 and built an army, factories and schools. His successors borrowed heavily, including to build the Suez Canal, which opened in 1869, and went bankrupt. Britain occupied Egypt in 1882 to protect the canal and its loans. After a nationalist revolution in 1919, Britain granted formal independence in 1922, but kept troops, control of the canal zone and great influence over the monarchy." },
+        { type: "section", head: "A discredited kingdom", md:
+          "King Farouk, who came to the throne in 1936, became a symbol of corruption and extravagance while most Egyptians lived in poverty and a few hundred families owned much of the land. Egypt's defeat by Israel in the 1948 war humiliated the army, which blamed the palace for faulty weapons and incompetence. In January 1952, after British troops killed dozens of Egyptian policemen in Ismailia, riots in Cairo burned much of the city centre, including hotels, cinemas and department stores associated with foreigners and the elite." },
+        { type: "section", head: "The coup", md:
+          "On the night of 22–23 July 1952, a secret society of young officers, the Free Officers, seized power almost without bloodshed. They put forward a respected general, Muhammad Naguib, as their figurehead, but the real leader was Lieutenant Colonel Gamal Abdel Nasser, aged 34. Farouk abdicated and sailed into exile. In 1953 the monarchy was abolished and Egypt declared a republic. Nasser pushed Naguib aside and became president in 1956." },
+        { type: "section", head: "Nasser's revolution", md:
+          "Nasser redistributed land, built schools and factories, nationalised much of the economy, and began the Aswan High Dam. He banned political parties, jailed communists and members of the Muslim Brotherhood after an assassination attempt in 1954, and built a powerful security state. His Arab nationalism, broadcast across the region by radio, made him a hero to millions, especially after the Suez crisis (briefing 10). His rule ended with Egypt's crushing defeat by Israel in 1967, and he died in 1970." },
+        { type: "compare", head: "Two views of 1952",
+          left: { head: "A revolution", md:
+            "The officers ended foreign domination and a corrupt monarchy, gave land to peasants and restored Egyptian dignity." },
+          right: { head: "A coup", md:
+            "A military takeover ended a flawed but pluralist parliamentary system and began seven decades of army-dominated rule." } },
+        { type: "section", head: "Why it still matters", md:
+          "Every Egyptian president since 1952 has been a military officer, except Mohamed Morsi, elected in 2012 and overthrown a year later by the army led by Abdel Fattah el-Sisi. The army's central role in politics and the economy today, and 23 July as a national holiday, are legacies of the Free Officers." }
+      ],
+      takeaways: [
+        "Britain occupied Egypt from 1882; formal independence in 1922 left a weak, British-influenced monarchy.",
+        "On 23 July 1952 the Free Officers overthrew King Farouk; Egypt became a republic in 1953.",
+        "Nasser's rule set the pattern of army-dominated government that continues under Sisi."
+      ],
+      check: { q: "Who was the real leader of the Free Officers?",
+        choices: ["King Farouk", "Gamal Abdel Nasser", "Anwar Sadat"], answer: 1,
+        explain: "General Naguib was the figurehead; Nasser led the movement and became president in 1956." },
+      sources: [
+        { title: "Gamal Abdel Nasser", publisher: "Britannica", url: "https://www.britannica.com/biography/Gamal-Abdel-Nasser", date: "n.d." },
+        { title: "Egypt: History", publisher: "Britannica", url: "https://www.britannica.com/place/Egypt/History", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "eg-3", kind: "history", asOf: "2026-09-28",
@@ -144,6 +194,105 @@ window.POLITICS.addUnit("eg", {
         { title: "Egypt profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-africa-13315719", date: "n.d." },
         { title: "All According to Plan: The Rab'a Massacre and Mass Killings of Protesters in Egypt", publisher: "Human Rights Watch", url: "https://www.hrw.org/report/2014/08/12/all-according-plan/raba-massacre-and-mass-killings-protesters-egypt", date: "2014-08-12" },
         { title: "Egypt", publisher: "Britannica", url: "https://www.britannica.com/place/Egypt", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "eg-10", kind: "past", asOf: "2026-09-28",
+      title: "Suez, 1956",
+      dek: "When Nasser nationalised the Suez Canal, Britain, France and Israel invaded. Washington forced them out, and Nasser became the hero of the Arab world.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/eg/eg-10-hero.webp",
+          alt: "Illustration of a large ship passing through a narrow canal in the desert at sunset, with sand on both banks.",
+          caption: "The Suez Canal, linking the Mediterranean and the Red Sea, carries about a tenth of world trade in normal times.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A large cargo ship passing through a narrow straight canal cutting across flat desert at sunset, pale sand on both banks, a small lighthouse, warm orange sky reflected in the water, calm and strategic, no people close up, no flags, no legible text or logos." },
+        { type: "facts", head: "The crisis", rows: [
+          ["Canal nationalised", "26 July 1956"],
+          ["Israel invades Sinai", "29 October 1956"],
+          ["British and French landings", "5–6 November 1956"],
+          ["Ceasefire", "7 November, under US and Soviet pressure"],
+          ["Withdrawal", "Britain and France by December 1956; Israel by March 1957"]
+        ] },
+        { type: "section", head: "The canal", md:
+          "The Suez Canal, opened in 1869, was owned by a company controlled by British and French shareholders, and British troops guarded it until 1956. For Egyptians it symbolised foreign domination; for Britain it was the route to its empire and its oil. In 1956 the United States and Britain withdrew offers to finance the Aswan High Dam, angry at Nasser's arms deal with the Soviet bloc. On 26 July Nasser responded by nationalising the canal company, promising to use its revenues to build the dam." },
+        { type: "section", head: "Collusion", md:
+          "Britain's prime minister, Anthony Eden, saw Nasser as a new Mussolini. At a secret meeting at Sèvres, near Paris, Britain, France and Israel agreed a plan: Israel would invade Sinai, and Britain and France would then demand that both sides withdraw from the canal, using Egypt's refusal as a pretext to seize it. Israel attacked on 29 October; British and French forces bombed Egyptian airfields and landed at Port Said on 5–6 November. Egypt blocked the canal by sinking ships." },
+        { type: "section", head: "America says no", md:
+          "President Eisenhower, who had not been told, was furious, especially as the Soviet Union was crushing a revolt in Hungary at the same moment. The US threatened to withhold support for the pound, which was under heavy pressure, and the Soviets threatened to intervene. Britain and France agreed to a ceasefire on 7 November and withdrew in humiliation; UN peacekeepers, the first large UN force, moved in. Israel withdrew from Sinai in March 1957 after gaining shipping rights through the Straits of Tiran. Eden resigned in January 1957." },
+        { type: "section", head: "Nasser triumphant", md:
+          "Though Egypt lost militarily, Nasser won politically: he kept the canal and became the champion of Arab nationalism and of anti-colonial movements worldwide. In 1958 Egypt and Syria formed a short-lived United Arab Republic. The crisis marked the end of Britain as an independent great power in the Middle East and the rise of the United States and the Soviet Union as the region's rival patrons." },
+        { type: "compare", head: "Two lessons",
+          left: { head: "For Egypt and the Arab world", md:
+            "A newly independent nation stood up to empires and won, taking control of its own greatest asset." },
+          right: { head: "For Britain and France", md:
+            "Old colonial powers could no longer act without Washington's consent; France concluded it needed its own nuclear deterrent and a united Europe." } },
+        { type: "section", head: "Why it still matters", md:
+          "The canal remains one of Egypt's biggest sources of foreign currency, which is why Houthi attacks on Red Sea shipping from late 2023, which cut canal revenues by more than half, hurt Egypt so badly, as this unit's stories describe." }
+      ],
+      takeaways: [
+        "Nasser nationalised the Suez Canal in July 1956 after the West withdrew funding for the Aswan Dam.",
+        "Britain, France and Israel secretly planned an invasion, but US pressure forced them to withdraw.",
+        "Suez made Nasser a hero of the Arab world and marked the end of British power in the region."
+      ],
+      check: { q: "Why did Britain and France withdraw from Suez in 1956?",
+        choices: ["They won a quick victory", "The United States and the Soviet Union forced a ceasefire", "Egypt paid compensation"], answer: 1,
+        explain: "Eisenhower's financial pressure and Soviet threats forced Britain and France to accept a ceasefire and withdraw." },
+      sources: [
+        { title: "Suez Crisis", publisher: "Britannica", url: "https://www.britannica.com/event/Suez-Crisis", date: "n.d." },
+        { title: "The Suez Crisis, 1956", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/milestones/1953-1960/suez", date: "n.d." },
+        { title: "Anthony Eden", publisher: "Britannica", url: "https://www.britannica.com/biography/Anthony-Eden", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "eg-11", kind: "past", asOf: "2026-09-28",
+      title: "1973, Camp David and Sadat's death",
+      dek: "Anwar Sadat went to war with Israel, then made peace with it, becoming the first Arab leader to do so. Islamist officers killed him for it.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/eg/eg-11-hero.webp",
+          alt: "Illustration of a reviewing stand with empty chairs under a canopy beside a parade ground, with military jets trailing coloured smoke in the sky.",
+          caption: "Sadat was assassinated on 6 October 1981 while watching a military parade marking the 1973 war.",
+          credit: "AI illustration — not a photograph",
+          prompt: "An official reviewing stand with rows of empty chairs under a canopy beside a wide parade ground, military jets trailing coloured smoke across a pale sky, bright harsh light, ominous stillness, no people, no flags, no legible text." },
+        { type: "timeline", head: "From war to peace", items: [
+          ["6 Oct 1973", "Egypt and Syria attack Israel"],
+          ["Nov 1977", "Sadat addresses Israel's Knesset in Jerusalem"],
+          ["Sep 1978", "Camp David Accords with Israel, brokered by Jimmy Carter"],
+          ["Mar 1979", "Egypt–Israel peace treaty"],
+          ["6 Oct 1981", "Sadat assassinated"],
+          ["1982", "Israel completes its withdrawal from Sinai"]
+        ] },
+        { type: "section", head: "The crossing", md:
+          "Anwar Sadat, one of the Free Officers, succeeded Nasser in 1970. On 6 October 1973, the Jewish holy day of Yom Kippur and during Ramadan, Egypt and Syria launched a surprise attack on Israeli forces in Sinai and the Golan Heights. Egyptian troops crossed the Suez Canal and breached Israel's defensive line. Israel recovered and counter-attacked across the canal before a ceasefire, but Egypt had restored its army's honour, and Egyptians still celebrate the crossing on 6 October." },
+        { type: "section", head: "Peace", md:
+          "Sadat concluded that only the United States could return Sinai. In November 1977 he stunned the world by flying to Jerusalem and addressing Israel's parliament. At Camp David in September 1978, President Jimmy Carter brokered agreements between Sadat and Israel's prime minister, Menachem Begin, and a peace treaty was signed in March 1979: Israel would return all of Sinai, and Egypt would recognise Israel. Sadat and Begin shared the Nobel Peace Prize. Egypt has received billions of dollars in US aid every year since." },
+        { type: "section", head: "Backlash and assassination", md:
+          "The Arab League expelled Egypt and moved its headquarters from Cairo. At home, Sadat's opening of the economy, the 'infitah', enriched a few while bread riots erupted in 1977, and he cracked down on critics of all kinds, arresting more than 1,500 people in September 1981. On 6 October 1981, during a parade celebrating the 1973 war, soldiers belonging to the Islamist group Egyptian Islamic Jihad jumped from a truck and shot him dead. His vice-president, Hosni Mubarak, took over and ruled for 30 years under a state of emergency." },
+        { type: "compare", head: "Two views of Sadat",
+          left: { head: "A statesman", md:
+            "Sadat recovered Egypt's land, ended a cycle of wars and made a peace that has held for over four decades." },
+          right: { head: "His critics then", md:
+            "He broke Arab ranks, abandoned the Palestinians and tied Egypt to Washington, while ruling as an autocrat." } },
+        { type: "section", head: "A cold peace", md:
+          "The peace with Israel has survived wars in Lebanon and Gaza, the fall of Mubarak and the rule of the Muslim Brotherhood. It is a 'cold peace': security cooperation is close, but trade and public contact are limited, and most Egyptians remain hostile to Israel. It made Egypt a key mediator between Israel and Hamas, as in the 2025 Gaza ceasefire talks at Sharm el-Sheikh." },
+        { type: "section", head: "Why it still matters", md:
+          "Camp David was the model for later peace deals, from Jordan in 1994 to the Abraham Accords. Sadat's assassination also foreshadowed the jihadist violence that followed: one of those convicted in the wider case, Ayman al-Zawahiri, later led al-Qaeda." }
+      ],
+      takeaways: [
+        "Egypt's surprise crossing of the Suez Canal in October 1973 restored its military pride.",
+        "Sadat flew to Jerusalem in 1977 and signed a peace treaty with Israel in 1979, recovering Sinai.",
+        "Islamist soldiers assassinated Sadat in 1981; the peace with Israel has held for over four decades."
+      ],
+      check: { q: "What did Egypt gain from the 1979 peace treaty?",
+        choices: ["The Gaza Strip", "The return of all of Sinai", "Control of Jerusalem"], answer: 1,
+        explain: "Israel returned all of Sinai by 1982 in exchange for peace and recognition." },
+      sources: [
+        { title: "Anwar Sadat", publisher: "Britannica", url: "https://www.britannica.com/biography/Anwar-Sadat", date: "n.d." },
+        { title: "Camp David Accords and the Arab-Israeli Peace Process", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/milestones/1977-1980/camp-david", date: "n.d." },
+        { title: "Yom Kippur War", publisher: "Britannica", url: "https://www.britannica.com/event/Yom-Kippur-War", date: "n.d." }
       ]
     },
 
@@ -342,6 +491,55 @@ window.POLITICS.addUnit("eg", {
         { title: "Ethiopia inaugurates GERD dam amid downstream tensions with Egypt, Sudan", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2025/9/9/ethiopia-inaugurates-gerd-dam-amid-downstream-tensions-with-egypt-sudan", date: "2025-09-09" },
         { title: "Ethiopia launches Africa's largest hydropower dam, straining ties with Egypt", publisher: "France 24", url: "https://www.france24.com/en/africa/20250909-ethiopia-africa-hydropower-dam-egypt", date: "2025-09-09" },
         { title: "Ethiopia's Renaissance mega-dam fuels energy hopes and regional anxiety", publisher: "Mongabay", url: "https://news.mongabay.com/2026/02/ethiopias-renaissance-mega-dam-fuels-energy-hopes-and-regional-anxiety/", date: "2026-02" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "eg-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "The Muslim Brotherhood",
+      dek: "Founded in Egypt in 1928, the Brotherhood became the Arab world's most influential Islamist movement, won Egypt's first free presidential election, and was crushed a year later.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/eg/eg-12-hero.webp",
+          alt: "Illustration of a large mosque with a slender minaret at the edge of a wide square in Cairo at dawn, with scattered debris on the ground.",
+          caption: "Rabaa al-Adawiya square in Cairo, where security forces broke up a pro-Morsi sit-in in August 2013.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A large modern mosque with a slender minaret at the edge of a wide city square at dawn, scattered debris and abandoned tents on the ground, faint smoke, grey-pink light, sorrowful and still, no people, no legible text." },
+        { type: "facts", head: "The Brotherhood", rows: [
+          ["Founded", "1928, in Ismailia, by Hassan al-Banna"],
+          ["Won", "About half the seats in Egypt's 2011–12 parliamentary election"],
+          ["President Mohamed Morsi", "Elected June 2012 with about 52%; overthrown July 2013"],
+          ["Rabaa dispersal", "14 August 2013; Human Rights Watch counted at least 817 killed"],
+          ["Status", "Banned as a terrorist organisation in Egypt since December 2013"]
+        ] },
+        { type: "section", head: "Origins", md:
+          "Hassan al-Banna, a schoolteacher, founded the Society of the Muslim Brothers in 1928, calling for a society governed by Islamic principles and resistance to British influence. It grew into a mass movement with schools, clinics and charities, and branches across the Arab world. It also had a secret armed wing in its early decades. After an attempt on Nasser's life in 1954, the regime crushed it; one of its thinkers, Sayyid Qutb, whose writings later inspired jihadists, was hanged in 1966." },
+        { type: "section", head: "Tolerated opposition", md:
+          "Under Sadat and Mubarak the Brotherhood renounced violence and was allowed to operate in a legal grey zone. Officially banned, it won control of professional unions and, running candidates as independents, took 88 seats in parliament in 2005. It became the best-organised opposition force in Egypt, rooted in social services in poor neighbourhoods." },
+        { type: "section", head: "Power and fall", md:
+          "After the 2011 revolution toppled Mubarak, the Brotherhood's Freedom and Justice Party won the most seats in parliament, and in June 2012 its candidate, Mohamed Morsi, narrowly won Egypt's first free presidential election. His year in power was turbulent: he issued a decree placing himself above judicial review, pushed through a constitution drafted mainly by Islamists, and the economy faltered. Millions protested on 30 June 2013. Three days later the army, led by Abdel Fattah el-Sisi, removed him." },
+        { type: "section", head: "Rabaa and after", md:
+          "Brotherhood supporters staged sit-ins in Cairo. On 14 August 2013 security forces cleared them by force; Human Rights Watch counted at least 817 killed at Rabaa square alone and called it likely a crime against humanity, while the government said its forces faced armed protesters. The Brotherhood was declared a terrorist organisation; tens of thousands of supporters and others were jailed and hundreds sentenced to death in mass trials. Morsi died in court in 2019 after years in solitary confinement." },
+        { type: "compare", head: "Two views",
+          left: { head: "The Egyptian state and allies", md:
+            "The Brotherhood is an extremist organisation that tried to monopolise power; the army saved Egypt from Islamist rule and civil war." },
+          right: { head: "Supporters and many rights groups", md:
+            "An elected government was overthrown by a coup, followed by the worst massacre in Egypt's modern history and mass repression." } },
+        { type: "section", head: "Why it matters", md:
+          "Egypt's crackdown shaped the region: the UAE and Saudi Arabia backed it, while Qatar and Turkey sheltered Brotherhood figures. The movement is weakened and divided, but the question of political Islam's place in Arab politics remains unresolved." }
+      ],
+      takeaways: [
+        "Hassan al-Banna founded the Muslim Brotherhood in Egypt in 1928; it became a mass Islamist movement.",
+        "Its candidate Mohamed Morsi won the 2012 presidential election and was overthrown by the army in 2013.",
+        "Security forces killed at least 817 people at Rabaa in August 2013; the Brotherhood is now banned."
+      ],
+      check: { q: "Who was Mohamed Morsi?",
+        choices: ["An army general", "The Brotherhood candidate who won Egypt's 2012 presidential election", "Nasser's successor"], answer: 1,
+        explain: "Morsi was Egypt's first freely elected president; the army removed him in July 2013." },
+      sources: [
+        { title: "Muslim Brotherhood", publisher: "Britannica", url: "https://www.britannica.com/topic/Muslim-Brotherhood", date: "n.d." },
+        { title: "All According to Plan: The Rab'a Massacre and Mass Killings of Protesters in Egypt", publisher: "Human Rights Watch", url: "https://www.hrw.org/report/2014/08/12/all-according-plan/raba-massacre-and-mass-killings-protesters-egypt", date: "2014-08-12" },
+        { title: "Mohamed Morsi", publisher: "Britannica", url: "https://www.britannica.com/biography/Mohamed-Morsi", date: "n.d." }
       ]
     },
 
