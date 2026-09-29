@@ -109,6 +109,59 @@ window.POLITICS.addUnit("us", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "us-9", kind: "founding", asOf: "2026-09-28",
+      title: "Revolution and the Constitution",
+      dek: "Thirteen colonies broke with Britain, nearly fell apart, and then wrote the rulebook America still argues over.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/us/us-9-hero.webp",
+          alt: "Illustration of a Georgian brick assembly hall with tall arched windows, rows of green-covered tables and empty wooden chairs, and quill pens and papers left on the tables.",
+          caption: "Independence Hall in Philadelphia, where the Declaration of Independence was adopted in 1776 and the Constitution written in 1787.",
+          credit: "AI illustration — not a photograph",
+          prompt: "An 18th-century Georgian assembly room with tall arched windows, wooden panelling, rows of tables covered in green baize cloth, empty wooden chairs, quill pens, inkwells and scattered papers, warm summer light, historic and hushed, no people, no flags, no legible text." },
+        { type: "timeline", head: "From colonies to a constitution", items: [
+          ["1765", "Stamp Act protests: 'no taxation without representation'"],
+          ["1775", "Fighting begins at Lexington and Concord"],
+          ["1776", "Declaration of Independence, 4 July"],
+          ["1781", "British surrender at Yorktown; Articles of Confederation in force"],
+          ["1787", "Constitutional Convention in Philadelphia"],
+          ["1789", "George Washington becomes the first president"],
+          ["1791", "The Bill of Rights is ratified"]
+        ] },
+        { type: "section", head: "Colonies that governed themselves", md:
+          "By the 1760s Britain's thirteen colonies along the Atlantic coast held about two million people, including hundreds of thousands of enslaved Africans. They had their own elected assemblies and were used to running their own affairs. After an expensive war with France, Britain tried to make them pay more toward their defence, taxing stamps, then tea. Colonists answered that Parliament, where they had no members, had no right to tax them: 'no taxation without representation'. Boycotts, riots and the Boston Tea Party of 1773 followed, and Britain responded with troops and punitive laws." },
+        { type: "section", head: "Independence", md:
+          "Fighting broke out in Massachusetts in April 1775. On 4 July 1776 the Continental Congress adopted the Declaration of Independence, drafted mainly by Thomas Jefferson, which proclaimed that 'all men are created equal' with rights to 'life, liberty and the pursuit of happiness', and that governments draw their power from the consent of the governed. Its author owned slaves, a contradiction that would haunt the country. With decisive help from France, George Washington's army forced a British surrender at Yorktown in 1781, and Britain recognised independence in 1783." },
+        { type: "section", head: "A government too weak to govern", md:
+          "The first national charter, the Articles of Confederation, created a loose league of sovereign states. Congress could not tax, raise an army on its own, or regulate trade, and every state had one vote. The new country could not pay its war debts, states fought over trade, and in 1786 an uprising of indebted farmers in Massachusetts, Shays' Rebellion, alarmed the elite. Leaders such as James Madison and Alexander Hamilton concluded that the union needed a stronger central government." },
+        { type: "section", head: "The Philadelphia bargain", md:
+          "Fifty-five delegates met in Philadelphia in the summer of 1787 and, rather than amending the Articles, wrote a new constitution. It rested on compromises. Big and small states split the difference with a House elected by population and a Senate with two members per state. Slave states won the 'three-fifths compromise', counting enslaved people as three-fifths of a person for representation, and a guarantee that the slave trade could continue until 1808. The president would be chosen by an Electoral College rather than directly by voters or by Congress." },
+        { type: "section", head: "Ratification and rights", md:
+          "The Constitution needed nine states to ratify it. Supporters, the Federalists, made their case in essays still studied today, the Federalist Papers; opponents feared a distant government that could crush liberty. The deal that won was a promise of amendments protecting individual rights. The first ten, the Bill of Rights, ratified in 1791, guarantee freedom of speech, religion and the press, the right to bear arms, jury trials and protection from unreasonable searches." },
+        { type: "compare", head: "Two ways to read the founding",
+          left: { head: "A revolution for liberty", md:
+            "The founders created the first large modern republic, with checks on power and guaranteed rights that inspired democrats around the world." },
+          right: { head: "A compromise with injustice", md:
+            "The new republic protected slavery, excluded women and dispossessed Native Americans; its ideals were extended to most people only through later struggle." } },
+        { type: "section", head: "Why it still matters", md:
+          "Americans still fight over the founding. Judges who follow 'originalism' try to apply the Constitution as its framers understood it; others see a living document. The Electoral College, the Senate's equal representation of states and the Second Amendment all trace back to 1787, and all remain at the centre of political battles today." }
+      ],
+      takeaways: [
+        "Thirteen British colonies declared independence in 1776 over taxation and self-government.",
+        "The weak Articles of Confederation were replaced by the Constitution, written in 1787.",
+        "Its compromises, from the Senate to the Electoral College and the protection of slavery, still shape US politics."
+      ],
+      check: { q: "What was the 'Great Compromise' at the 1787 convention?",
+        choices: ["Ending slavery", "A House elected by population and a Senate with two members per state", "Electing the president directly"], answer: 1,
+        explain: "Large and small states compromised on a two-chamber Congress: population-based representation in the House, equal representation in the Senate." },
+      sources: [
+        { title: "American Revolution", publisher: "Britannica", url: "https://www.britannica.com/event/American-Revolution", date: "n.d." },
+        { title: "Constitution of the United States", publisher: "National Archives", url: "https://www.archives.gov/founding-docs/constitution", date: "n.d." },
+        { title: "The Bill of Rights: A Transcription", publisher: "National Archives", url: "https://www.archives.gov/founding-docs/bill-of-rights-transcript", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "us-3", kind: "history", asOf: "2026-09-28",
@@ -154,6 +207,105 @@ window.POLITICS.addUnit("us", {
         { title: "Voting Rights Act (1965)", publisher: "National Archives", url: "https://www.archives.gov/milestone-documents/voting-rights-act", date: "n.d." },
         { title: "2024 Electoral College Results", publisher: "National Archives", url: "https://www.archives.gov/electoral-college/2024", date: "2025" },
         { title: "High Court Narrows Voting Rights Act in Louisiana v. Callais", publisher: "Congressional Research Service", url: "https://www.congress.gov/crs-product/LSB11431", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "us-10", kind: "past", asOf: "2026-09-28",
+      title: "Slavery, civil war and Reconstruction",
+      dek: "The question the founders dodged split the country in two, killed some 620,000 soldiers, and left a legacy still being fought over.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/us/us-10-hero.webp",
+          alt: "Illustration of a quiet battlefield at dawn with a split-rail fence, a stone wall, rolling fields and mist, and a lone cannon on a ridge.",
+          caption: "Gettysburg, Pennsylvania, site of the Civil War's bloodiest battle in July 1863.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A quiet rolling battlefield at dawn, a weathered split-rail fence and low stone wall crossing green fields, mist in the hollows, a lone 19th-century cannon on a ridge, soft grey-gold light, solemn and still, no people, no flags, no legible text." },
+        { type: "facts", head: "The war in numbers", rows: [
+          ["Enslaved people in 1860", "About 4 million"],
+          ["States that seceded", "11"],
+          ["War", "April 1861 – April 1865"],
+          ["Soldiers killed", "About 620,000 (some estimates are higher)"],
+          ["Amendments", "13th (abolition, 1865), 14th (citizenship and equal protection, 1868), 15th (vote regardless of race, 1870)"]
+        ] },
+        { type: "section", head: "A house divided", md:
+          "By 1860 about four million people were enslaved in the southern states, where cotton picked by slaves was the country's most valuable export. The North had abolished slavery and was industrialising. Each time the country expanded westward, the question was whether new territories would allow slavery, and a series of compromises failed to settle it. In 1857 the Supreme Court ruled in the Dred Scott case that Black Americans could not be citizens. Abraham Lincoln, whose new Republican Party opposed slavery's expansion, won the 1860 election without carrying a single southern state." },
+        { type: "section", head: "Secession and war", md:
+          "Eleven southern states seceded and formed the Confederacy, whose leaders said openly that it was founded to protect slavery. War began in April 1861. The North had more people, factories and railways; the South had skilled generals and fought on home ground. In 1863 Lincoln's Emancipation Proclamation declared slaves in rebel areas free, and nearly 200,000 Black soldiers joined the Union army. After Gettysburg and the fall of Vicksburg that July, the tide turned. The Confederacy surrendered in April 1865; days later Lincoln was assassinated." },
+        { type: "section", head: "Reconstruction", md:
+          "Three amendments rewrote the Constitution: the 13th abolished slavery, the 14th made everyone born in the US a citizen with 'equal protection of the laws', and the 15th barred denying the vote on account of race. Under federal troops, Black men voted and held office across the South; some 2,000 served, including 16 in Congress. But white resistance was fierce and often violent, led by groups such as the Ku Klux Klan. In 1877, in a deal to settle a disputed presidential election, the federal government withdrew its troops." },
+        { type: "section", head: "Jim Crow", md:
+          "Southern states then stripped most Black citizens of the vote through poll taxes, literacy tests and intimidation, and imposed segregation by law, known as Jim Crow. The Supreme Court upheld 'separate but equal' in 1896. Thousands of Black Americans were lynched over the following decades. Millions moved north in the Great Migration. Undoing this system took the civil rights movement of the 1950s and 1960s, the subject of the next briefing." },
+        { type: "compare", head: "How Americans remember it",
+          left: { head: "The consensus of historians", md:
+            "The war was fought over slavery. Its outcome freed four million people, and Reconstruction was a bold, unfinished attempt at multiracial democracy." },
+          right: { head: "The 'Lost Cause' myth", md:
+            "For a century many white southerners taught that the war was about states' rights and honour. That view shaped monuments, textbooks and politics long after it was discredited." } },
+        { type: "section", head: "Why it still matters", md:
+          "The 14th Amendment is the basis of much of modern American law, from desegregation to same-sex marriage, and its promise of birthright citizenship is now contested in the courts. Battles over Confederate monuments, voting rules in the South and the [[voting-rights-act|Voting Rights Act]] all echo this era. Political scientists also trace today's party map, with the South solidly Republican, to the long aftermath of the war." }
+      ],
+      takeaways: [
+        "Slavery divided the country until eleven southern states seceded after Lincoln's election in 1860.",
+        "The Civil War killed about 620,000 soldiers and ended slavery; three amendments promised equal citizenship.",
+        "Reconstruction was abandoned in 1877, and Jim Crow segregation lasted into the 1960s."
+      ],
+      check: { q: "What did the 14th Amendment do?",
+        choices: ["Abolished slavery", "Made everyone born in the US a citizen and promised equal protection of the laws", "Gave women the vote"], answer: 1,
+        explain: "The 13th Amendment abolished slavery; the 14th, ratified in 1868, established birthright citizenship and equal protection." },
+      sources: [
+        { title: "American Civil War", publisher: "Britannica", url: "https://www.britannica.com/event/American-Civil-War", date: "n.d." },
+        { title: "Reconstruction", publisher: "History.com", url: "https://www.history.com/topics/american-civil-war/reconstruction", date: "n.d." },
+        { title: "The Civil War: Facts", publisher: "American Battlefield Trust", url: "https://www.battlefields.org/learn/articles/civil-war-facts", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "us-11", kind: "past", asOf: "2026-09-28",
+      title: "The civil rights movement",
+      dek: "In the 1950s and 1960s, Black Americans and their allies dismantled legal segregation through courts, boycotts, marches and new federal laws.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/us/us-11-hero.webp",
+          alt: "Illustration of a long line of marchers seen from behind crossing a steel arch bridge over a river under a grey sky.",
+          caption: "The march from Selma to Montgomery, Alabama, in 1965 helped win the Voting Rights Act.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long column of marchers in 1960s coats and hats seen from behind, walking across a steel arch bridge over a wide river under a grey overcast sky, determined and peaceful, no faces visible, no flags, no legible text or signs." },
+        { type: "timeline", head: "Key moments", items: [
+          ["1954", "Brown v. Board of Education ends school segregation in law"],
+          ["1955–56", "Montgomery bus boycott"],
+          ["1963", "March on Washington: 'I have a dream'"],
+          ["1964", "Civil Rights Act"],
+          ["1965", "Selma marches; Voting Rights Act"],
+          ["1968", "Martin Luther King Jr. assassinated; Fair Housing Act"]
+        ] },
+        { type: "section", head: "Segregation and its challengers", md:
+          "In the 1950s the South was still segregated by law: separate schools, buses, restaurants and even drinking fountains, and most Black southerners could not vote. The NAACP, founded in 1909, fought segregation in court. In 1954, in Brown v. Board of Education, the Supreme Court unanimously ruled that segregated public schools were unconstitutional. Many southern states resisted; in 1957 President Eisenhower sent troops to escort nine Black students into a high school in Little Rock, Arkansas." },
+        { type: "section", head: "Nonviolent protest", md:
+          "In 1955 Rosa Parks was arrested in Montgomery, Alabama, for refusing to give up her bus seat to a white man. A year-long boycott, led by a young pastor, Martin Luther King Jr., ended with the buses desegregated. The movement spread through sit-ins at lunch counters, 'freedom rides' on interstate buses and mass marches, met often by police dogs, fire hoses, bombings and murders. Television carried the violence into homes across the country and the world, turning public opinion." },
+        { type: "section", head: "The great laws", md:
+          "In August 1963 about 250,000 people joined the March on Washington, where King gave his 'I have a dream' speech. After President Kennedy's assassination, Lyndon Johnson pushed the Civil Rights Act of 1964 through Congress, banning discrimination in public places and employment. After state troopers attacked peaceful marchers at Selma in March 1965, Congress passed the [[voting-rights-act|Voting Rights Act]], which suspended literacy tests and required southern states to get federal approval before changing voting rules. Black voter registration in the South soared." },
+        { type: "section", head: "Beyond the South", md:
+          "Legal equality did not end discrimination in housing, jobs and policing, in the North as much as the South. Riots broke out in many cities in the mid-1960s. Malcolm X and the Black Power movement rejected King's integrationist approach. King himself turned to poverty and the Vietnam War before he was assassinated in Memphis in April 1968. The movement inspired others: for women's rights, for Latino farmworkers, for Native Americans and later for gay rights." },
+        { type: "compare", head: "Debates that continue",
+          left: { head: "A movement completed?", md:
+            "The legal pillars of segregation fell, Black political representation grew, and the country elected a Black president in 2008." },
+          right: { head: "A movement unfinished", md:
+            "Large gaps in wealth, health and incarceration remain, and courts have narrowed the Voting Rights Act and ended race-conscious admissions." } },
+        { type: "section", head: "Why it still matters", md:
+          "Many of today's fights are about the movement's legacy. In 2013 the Supreme Court struck down the part of the Voting Rights Act requiring federal approval of changes, in 2023 it ended affirmative action in university admissions, and in 2026 it narrowed the law further in Louisiana v. Callais. Debates over policing, voting rules and diversity programmes, and over how schools teach this history, all run back to the 1960s." }
+      ],
+      takeaways: [
+        "Brown v. Board of Education (1954) ruled school segregation unconstitutional.",
+        "Nonviolent protest led by figures such as Rosa Parks and Martin Luther King Jr. won the Civil Rights Act (1964) and Voting Rights Act (1965).",
+        "The movement's legacy, from voting rules to affirmative action, is still contested in courts and politics."
+      ],
+      check: { q: "What did the Voting Rights Act of 1965 do?",
+        choices: ["Gave women the vote", "Suspended literacy tests and required southern states to get federal approval for voting changes", "Lowered the voting age to 18"], answer: 1,
+        explain: "It attacked the tools used to keep Black southerners from voting, including literacy tests, and placed changes under federal review." },
+      sources: [
+        { title: "American civil rights movement", publisher: "Britannica", url: "https://www.britannica.com/event/American-civil-rights-movement", date: "n.d." },
+        { title: "Civil Rights Act (1964)", publisher: "National Archives", url: "https://www.archives.gov/milestone-documents/civil-rights-act", date: "n.d." },
+        { title: "Voting Rights Act (1965)", publisher: "National Archives", url: "https://www.archives.gov/milestone-documents/voting-rights-act", date: "n.d." }
       ]
     },
 
@@ -369,6 +521,55 @@ window.POLITICS.addUnit("us", {
         { title: "High Court Narrows Voting Rights Act in Louisiana v. Callais", publisher: "Congressional Research Service", url: "https://www.congress.gov/crs-product/LSB11431", date: "2026" },
         { title: "Redistricting ahead of the 2026 elections", publisher: "Ballotpedia", url: "https://ballotpedia.org/Redistricting_ahead_of_the_2026_elections", date: "2026" },
         { title: "The longest federal government shutdown in history ends", publisher: "NPR", url: "https://www.npr.org/2025/11/12/g-s1-97607/house-vote-shutdown-end", date: "2025-11-12" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "us-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "A nation of immigrants, divided",
+      dek: "Immigration built the United States. Who gets to come, and what to do about millions living there without papers, now divides it.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/us/us-12-hero.webp",
+          alt: "Illustration of a large red-brick immigration hall with arched windows on an island in a harbour, with a city skyline across the water.",
+          caption: "Ellis Island in New York harbour processed some 12 million immigrants between 1892 and 1954.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A grand red-brick and limestone immigration building with four copper-domed towers and tall arched windows on a small island in a harbour, a city skyline across the water, soft morning light and calm water, historic and hopeful, no people close up, no flags, no legible text." },
+        { type: "facts", head: "Immigration today", rows: [
+          ["Foreign-born residents", "About 50 million, roughly 14% of the population (2024–25)"],
+          ["Unauthorised immigrants", "Estimated 11–14 million before 2025"],
+          ["Largest country of origin", "Mexico"],
+          ["Main law", "Immigration and Nationality Act of 1965"],
+          ["Children born in the US", "Citizens under the 14th Amendment, a rule now being litigated"]
+        ] },
+        { type: "section", head: "Waves of newcomers", md:
+          "Apart from Native Americans and the descendants of enslaved Africans, nearly all Americans descend from immigrants. The Irish and Germans came in the mid-1800s; Italians, Poles, Jews and others from southern and eastern Europe around 1900. Each wave met hostility. The Chinese Exclusion Act of 1882 barred Chinese workers, and in 1924 Congress imposed quotas that favoured northern Europeans and nearly shut the door for decades." },
+        { type: "section", head: "The 1965 turning point", md:
+          "The Immigration and Nationality Act of 1965, passed in the civil rights era, abolished the national-origin quotas and favoured family ties and skills. Few expected its effect: immigration rose sharply and shifted to Latin America and Asia. Since then the foreign-born share has climbed from about 5% to around 14%, close to its peak of the early 1900s. In 1986 Ronald Reagan signed a law that gave legal status to about 3 million unauthorised immigrants while promising tougher enforcement." },
+        { type: "section", head: "The unresolved question", md:
+          "Since then Congress has repeatedly failed to pass a comprehensive reform, in 2006, 2007 and 2013. Millions of people, many of whom have lived in the country for decades and have American-born children, have no path to legal status. Presidents have acted on their own: Barack Obama protected people brought as children, the 'Dreamers', through a programme called DACA in 2012, while border arrivals and asylum claims surged in the late 2010s and again after 2021." },
+        { type: "section", head: "Trump's second term", md:
+          "Donald Trump returned in 2025 promising the largest deportation operation in American history. His administration expanded detention, deployed troops to the border, closed most asylum routes, sought to end temporary protected status for hundreds of thousands of people, and signed an order to end birthright citizenship for some children of immigrants, which courts blocked. Border crossings fell to their lowest levels in decades. Large-scale raids on workplaces and cities, including a 2025 raid on a Hyundai battery plant in Georgia that detained hundreds of South Korean workers, provoked protests and legal fights." },
+        { type: "compare", head: "Two views",
+          left: { head: "Restrictionists", md:
+            "A country must control its borders. Illegal immigration undercuts wages, strains services and rewards lawbreaking; enforcement comes first." },
+          right: { head: "Advocates of openness", md:
+            "Immigrants fill jobs, start businesses and pay taxes. Mass deportation is cruel and costly, and long-settled people deserve a path to citizenship." } },
+        { type: "section", head: "Why it matters", md:
+          "Immigration reshapes American politics. It helped drive Trump's victories, and Latino voters, once solidly Democratic, shifted toward Republicans in 2024. It affects relations with [[unit:mx|Mexico]] and [[unit:ve|Venezuela]], and it sits at the heart of the 2026 midterm campaign." }
+      ],
+      takeaways: [
+        "Immigration built the US, but each wave met hostility, and quotas nearly shut the door from 1924 to 1965.",
+        "The 1965 law opened immigration to Latin America and Asia; the foreign-born share is now about 14%.",
+        "Congress has failed to settle the status of millions of unauthorised immigrants; Trump's second term brought mass deportation."
+      ],
+      check: { q: "What did the 1965 Immigration and Nationality Act do?",
+        choices: ["Banned all immigration", "Abolished national-origin quotas that favoured northern Europeans", "Built a border wall"], answer: 1,
+        explain: "The law replaced the 1924 quota system with preferences for family ties and skills, opening the way to immigration from Latin America and Asia." },
+      sources: [
+        { title: "Key facts about U.S. immigrants", publisher: "Pew Research Center", url: "https://www.pewresearch.org/short-reads/2024/09/27/key-findings-about-us-immigrants/", date: "2024-09-27" },
+        { title: "Immigration and Nationality Act of 1965", publisher: "Britannica", url: "https://www.britannica.com/topic/Immigration-and-Nationality-Act-of-1965", date: "n.d." },
+        { title: "U.S. Immigration Policy Under Trump", publisher: "Council on Foreign Relations", url: "https://www.cfr.org/backgrounder/us-immigration-debate-0", date: "2025" }
       ]
     },
 

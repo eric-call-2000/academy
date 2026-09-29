@@ -30,16 +30,31 @@
     { id: 6, title: "Africa" }
   ];
 
-  /* The standard arc of an 8-briefing unit (see politics-curriculum.md). */
+  /* The standard arc of a unit (see politics-curriculum.md). Units began
+     with 8 briefings; four more were added later as ids 9-12, slotted into
+     the reading order without renumbering, because ids are progress keys. */
   P.KINDS = {
     snapshot: "Snapshot",
     power: "How power works",
+    founding: "How it began",
     history: "The road here",
+    past: "From the past",
     players: "The players",
     story: "Story",
+    spotlight: "Spotlight",
     now: "Where things stand"
   };
-  P.ARC = ["snapshot", "power", "history", "players", "story", "story", "story", "now"];
+  P.ARC8 = ["snapshot", "power", "history", "players", "story", "story", "story", "now"];
+  P.ARC = ["snapshot", "power", "founding", "history", "past", "past", "players", "story", "story", "story", "spotlight", "now"];
+  /* Briefing numbers (the n in "<unit>-n") in reading order. */
+  P.ORDER12 = [1, 2, 9, 3, 10, 11, 4, 5, 6, 7, 12, 8];
+  P.readingOrder = function (count) {
+    if (count === P.ORDER12.length) return P.ORDER12.slice();
+    var out = [];
+    for (var n = 1; n <= count; n++) out.push(n);
+    return out;
+  };
+  P.arcFor = function (count) { return count === P.ARC.length ? P.ARC : count === P.ARC8.length ? P.ARC8 : null; };
 
   P.XP_PER_BRIEFING = 10;
   P.XP_PER_COUNTRY = 20;
@@ -75,6 +90,13 @@
   };
   P.unitIdOf = function (lessonId) { return String(lessonId || "").split("-")[0]; };
   P.lessonNum = function (lessonId) { return parseInt(String(lessonId || "").split("-")[1], 10) || 0; };
+  /* A briefing's place in its unit's reading order (1-based), which can
+     differ from the number in its id. */
+  P.lessonPos = function (unit, lessonId) {
+    var ls = (unit && unit.lessons) || [];
+    for (var i = 0; i < ls.length; i++) if (ls[i].id === lessonId) return i + 1;
+    return P.lessonNum(lessonId);
+  };
 
   /* ---------- markup ----------
      A deliberately tiny grammar, so unit files stay readable and the
@@ -290,7 +312,8 @@
   P.nextLessonId = function (profile, countries) {
     countries = (countries || P.countries).filter(function (c) { return (c.lessons || 0) > 0; });
     function firstUnread(c) {
-      for (var n = 1; n <= c.lessons; n++) if (!profile.read[c.id + "-" + n]) return c.id + "-" + n;
+      var order = P.readingOrder(c.lessons);
+      for (var i = 0; i < order.length; i++) if (!profile.read[c.id + "-" + order[i]]) return c.id + "-" + order[i];
       return null;
     }
     if (profile.last) {

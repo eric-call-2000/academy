@@ -150,7 +150,7 @@ function check(name, ok, detail) {
   /* 5. Country page, Atlas, glossary. */
   await page.goto(base + "/politics/#/c/us");
   await page.waitForSelector(".lesson-row");
-  check("the US page lists 8 briefings", (await page.$$(".lesson-row")).length === 8);
+  check("the US page lists 12 briefings", (await page.$$(".lesson-row")).length === 12);
   check("briefing 1 is marked read", (await page.textContent(".lesson-row >> nth=0")).indexOf("✓") > -1);
   await shot(page, "phone-unit");
   await page.goto(base + "/politics/#/atlas");

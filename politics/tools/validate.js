@@ -8,7 +8,7 @@
 
    - the 30-country manifest is complete and consistent
    - each written unit matches its manifest entry and the standard
-     8-briefing arc, with stable ids <unit>-1 … <unit>-N
+     8- or 12-briefing arc, with stable ids <unit>-1 … <unit>-N in reading order
    - every briefing has a date, a dek, 3 takeaways, at least 2
      sources, 500–900 words, and no section over 180 words
    - every picture has alt text, a caption and a credit; AI
@@ -110,16 +110,19 @@ P.countries.forEach((c) => {
   if (!DATE.test(unit.asOf || "")) err(w0, "unit asOf must be YYYY-MM-DD");
   const ls = unit.lessons || [];
   if (ls.length !== c.lessons) err(w0, "has " + ls.length + " briefings; countries.js says " + c.lessons);
-  if (ls.length === P.ARC.length) {
+  const arc = P.arcFor(ls.length);
+  if (!arc) err(w0, "has " + ls.length + " briefings; units have " + P.ARC8.length + " or " + P.ARC.length);
+  else {
     const kinds = ls.map((l) => l.kind).join(",");
-    if (kinds !== P.ARC.join(",")) err(w0, "briefing kinds " + kinds + " don't follow the standard arc " + P.ARC.join(","));
+    if (kinds !== arc.join(",")) err(w0, "briefing kinds " + kinds + " don't follow the standard arc " + arc.join(","));
   }
+  const order = P.readingOrder(ls.length);
   if (!exists("maps/" + c.id + ".svg")) err(w0, "maps/" + c.id + ".svg is missing (node tools/build-maps.js " + c.id + ")");
 
   ls.forEach((l, i) => {
     const w = c.id + "/" + (l.id || "#" + (i + 1));
     totals.lessons++;
-    if (l.id !== c.id + "-" + (i + 1)) err(w, "id should be '" + c.id + "-" + (i + 1) + "' (ids are stable progress keys: never renumber)");
+    if (l.id !== c.id + "-" + order[i]) err(w, "id should be '" + c.id + "-" + order[i] + "' (ids are stable progress keys: never renumber; briefings 9-12 slot into the reading order)");
     if (!P.KINDS[l.kind]) err(w, "unknown kind '" + l.kind + "'");
     ["title", "dek"].forEach((k) => { if (!l[k]) err(w, "missing " + k); });
     if (!DATE.test(l.asOf || "")) err(w, "asOf must be YYYY-MM-DD");

@@ -14,7 +14,7 @@
   var C = window.POLITICS.defineCountry;
 
   /* Part 1 — The Big Four */
-  C({ id: "us", iso: "840", part: 1, name: "United States", flag: "🇺🇸", color: "#1f4e79", lessons: 8,
+  C({ id: "us", iso: "840", part: 1, name: "United States", flag: "🇺🇸", color: "#1f4e79", lessons: 12,
       blurb: "The largest economy and military. Its tariffs, wars and alliances set the agenda everywhere else.",
       related: ["cn", "ir", "ve", "ca", "mx"] });
   C({ id: "cn", iso: "156", part: 1, name: "China", flag: "🇨🇳", color: "#a8322d", lessons: 8,

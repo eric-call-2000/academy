@@ -78,9 +78,17 @@ test("streak ignores order and duplicates", () => {
 
 /* ---------- progress ---------- */
 const unit = P.units.us;
-test("the US unit is registered with eight briefings", () => {
+test("the US unit is registered with twelve briefings in reading order", () => {
   assert.ok(unit, "units/us.js did not register");
-  assert.strictEqual(unit.lessons.length, 8);
+  assert.strictEqual(unit.lessons.length, 12);
+  same(unit.lessons.map((l) => P.lessonNum(l.id)), JSON.parse(JSON.stringify(P.ORDER12)));
+  same(unit.lessons.map((l) => l.kind), JSON.parse(JSON.stringify(P.ARC)));
+});
+test("briefings 9-12 slot into the reading order without renumbering", () => {
+  same(P.readingOrder(8), [1, 2, 3, 4, 5, 6, 7, 8]);
+  same(P.readingOrder(12), [1, 2, 9, 3, 10, 11, 4, 5, 6, 7, 12, 8]);
+  assert.strictEqual(P.lessonPos(unit, "us-9"), 3);
+  assert.strictEqual(P.lessonPos(unit, "us-8"), 12);
 });
 test("normalizeProfile repairs junk without losing good fields", () => {
   const p = P.normalizeProfile({ read: { "us-1": "2026-09-28" }, goal: 7, days: "nope" });
@@ -106,10 +114,10 @@ test("finishing a country pays the bonus exactly once", () => {
   unit.lessons.forEach((l, i) => { last = P.markRead(p, unit, l.id, P.addDays("2026-09-20", i)); });
   assert.strictEqual(last.unitDone, true);
   assert.strictEqual(last.xpGained, 10 + 20);
-  assert.strictEqual(P.xp(p), 8 * 10 + 20);
+  assert.strictEqual(P.xp(p), 12 * 10 + 20);
   const again = P.markRead(p, unit, "us-3", "2026-10-10");
   assert.strictEqual(again.unitDone, false);
-  assert.strictEqual(P.xp(p), 100);
+  assert.strictEqual(P.xp(p), 140);
 });
 test("days stay sorted and unique however reads arrive", () => {
   const p = P.freshProfile();
@@ -131,9 +139,9 @@ test("a new reader starts at the first briefing of the path", () => {
 });
 test("next is the first unread briefing of the country you're in", () => {
   const p = P.freshProfile();
-  ["us-1", "us-2", "us-3", "us-5"].forEach((id) => P.markRead(p, unit, id, "2026-09-28"));
+  ["us-1", "us-2", "us-9", "us-3", "us-5"].forEach((id) => P.markRead(p, unit, id, "2026-09-28"));
   p.last = "us-5";
-  assert.strictEqual(P.nextLessonId(p), "us-4");
+  assert.strictEqual(P.nextLessonId(p), "us-10");
 });
 test("finishing a country walks on to the next written one in path order", () => {
   const p = P.freshProfile();

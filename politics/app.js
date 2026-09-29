@@ -162,14 +162,16 @@
     for (var i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
     return AVATAR_COLORS[h % AVATAR_COLORS.length];
   }
+  /* Kinds that repeat in a unit are numbered: "Story 2", "From the past 1". */
   function kindLabel(unit, lesson) {
-    if (lesson.kind !== "story") return P.KINDS[lesson.kind] || lesson.kind;
+    var label = P.KINDS[lesson.kind] || lesson.kind;
+    if (lesson.kind !== "story" && lesson.kind !== "past") return label;
     var n = 0;
     for (var i = 0; i < unit.lessons.length; i++) {
-      if (unit.lessons[i].kind === "story") n++;
+      if (unit.lessons[i].kind === lesson.kind) n++;
       if (unit.lessons[i].id === lesson.id) break;
     }
-    return "Story " + n;
+    return label + " " + n;
   }
   function ring(done, total, size, color) {
     var r = (size / 2) - 3, c = 2 * Math.PI * r, f = total ? Math.min(1, done / total) : 0;
@@ -473,7 +475,7 @@
     a.appendChild(picture(hero && hero.src, hero && hero.alt, c, hero, true));
     var body = el("div", "lesson-card-body");
     body.innerHTML =
-      '<div class="kicker">' + c.flag + " " + esc(c.name) + " · " + P.lessonNum(lesson.id) + " of " + unit.lessons.length + " · " + esc(kindLabel(unit, lesson)) + "</div>" +
+      '<div class="kicker">' + c.flag + " " + esc(c.name) + " · " + P.lessonPos(unit, lesson.id) + " of " + unit.lessons.length + " · " + esc(kindLabel(unit, lesson)) + "</div>" +
       '<div class="lesson-card-title">' + esc(lesson.title) + "</div>" +
       '<div class="lesson-card-dek">' + esc(lesson.dek) + "</div>" +
       '<div class="lesson-card-meta">⏱ ' + P.readMins(lesson) + ' min read<span class="go">Start reading →</span></div>';
@@ -607,7 +609,7 @@
     var c = P.country(unit.id);
     a.style.setProperty("--c", c.color);
     a.innerHTML =
-      '<span class="row-num">' + (readOn && !updated ? "✓" : P.lessonNum(lesson.id)) + "</span>" +
+      '<span class="row-num">' + (readOn && !updated ? "✓" : P.lessonPos(unit, lesson.id)) + "</span>" +
       '<span class="row-main"><span class="row-kicker">' + (showFlag ? c.flag + " " + esc(c.name) + " · " : "") + esc(kindLabel(unit, lesson)) + " · " + P.readMins(lesson) + " min</span>" +
       '<span class="row-title">' + esc(lesson.title) + "</span>" +
       (updated ? '<span class="badge badge-upd">Updated since you read it</span>' : isNext ? '<span class="badge badge-next">Up next</span>' : "") +
@@ -671,7 +673,7 @@
     var updated = P.isUpdatedSince(lesson, readOn);
     var head = el("header", "reader-head");
     head.innerHTML =
-      '<div class="kicker">' + c.flag + " " + esc(c.name) + " · Briefing " + P.lessonNum(lesson.id) + " of " + unit.lessons.length + " · " + esc(kindLabel(unit, lesson)) + "</div>" +
+      '<div class="kicker">' + c.flag + " " + esc(c.name) + " · Briefing " + P.lessonPos(unit, lesson.id) + " of " + unit.lessons.length + " · " + esc(kindLabel(unit, lesson)) + "</div>" +
       "<h1>" + esc(lesson.title) + "</h1>" +
       '<p class="dek">' + esc(lesson.dek) + "</p>" +
       '<div class="reader-meta">⏱ ' + P.readMins(lesson) + " min read · Current as of " + esc(P.formatDate(lesson.asOf)) +
@@ -818,8 +820,8 @@
     return ol;
   }
   function nextAfter(unit, lesson) {
-    var n = P.lessonNum(lesson.id);
-    if (n < unit.lessons.length) return unit.id + "-" + (n + 1);
+    var n = P.lessonPos(unit, lesson.id);
+    if (n < unit.lessons.length) return unit.lessons[n].id;
     return P.nextLessonId(me());
   }
   function finishArea(unit, lesson, c) {
