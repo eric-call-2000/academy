@@ -17,15 +17,15 @@
   C({ id: "us", iso: "840", part: 1, name: "United States", flag: "🇺🇸", color: "#1f4e79", lessons: 12,
       blurb: "The largest economy and military. Its tariffs, wars and alliances set the agenda everywhere else.",
       related: ["cn", "ir", "ve", "ca", "mx"] });
-  C({ id: "cn", iso: "156", part: 1, name: "China", flag: "🇨🇳", color: "#a8322d", lessons: 8,
+  C({ id: "cn", iso: "156", part: 1, name: "China", flag: "🇨🇳", color: "#a8322d", lessons: 12,
       blurb: "The other superpower: the world's factory, the Taiwan question and the race for technology." });
-  C({ id: "ru", iso: "643", part: 1, name: "Russia", flag: "🇷🇺", color: "#4a4e69", lessons: 8,
+  C({ id: "ru", iso: "643", part: 1, name: "Russia", flag: "🇷🇺", color: "#4a4e69", lessons: 12,
       blurb: "The largest nuclear arsenal, the war in Ukraine, and a bloc with China, Iran and North Korea." });
-  C({ id: "in", iso: "356", part: 1, name: "India", flag: "🇮🇳", color: "#c26a1b", lessons: 8,
+  C({ id: "in", iso: "356", part: 1, name: "India", flag: "🇮🇳", color: "#c26a1b", lessons: 12,
       blurb: "The most populous country and the swing state between Washington, Moscow and Beijing." });
 
   /* Part 2 — Europe */
-  C({ id: "ua", iso: "804", part: 2, name: "Ukraine", flag: "🇺🇦", color: "#2b6cb0", lessons: 8,
+  C({ id: "ua", iso: "804", part: 2, name: "Ukraine", flag: "🇺🇦", color: "#2b6cb0", lessons: 12,
       blurb: "The largest war in Europe since 1945 — and the security order it will decide." });
   C({ id: "de", iso: "276", part: 2, name: "Germany", flag: "🇩🇪", color: "#8a6b12", lessons: 8,
       blurb: "Europe's biggest economy is rearming, stalling, and watching the far right surge." });

@@ -101,6 +101,57 @@ window.POLITICS.addUnit("ru", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "ru-9", kind: "founding", asOf: "2026-09-28",
+      title: "From Rus to empire",
+      dek: "A medieval state around Kyiv, two centuries of Mongol rule, and the rise of Moscow into the world's largest empire.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ru/ru-9-hero.webp",
+          alt: "Illustration of a red-brick fortress wall with pointed towers beside a river in winter, with golden onion domes of cathedrals rising behind it.",
+          caption: "The Moscow Kremlin, fortress of the grand princes and tsars who built the Russian state.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long red-brick medieval fortress wall with tall pointed towers beside a frozen river in winter, golden onion domes of cathedrals rising behind, snow on the battlements, pale winter sun, historic and imposing, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "The short version", items: [
+          ["c. 882", "Kyivan Rus founded around Kyiv"],
+          ["988", "Prince Volodymyr (Vladimir) converts to Orthodox Christianity"],
+          ["1240", "Mongols sack Kyiv; two centuries of Mongol overlordship"],
+          ["1480", "Moscow throws off Mongol rule under Ivan III"],
+          ["1547", "Ivan IV, 'the Terrible', crowned first tsar"],
+          ["1613", "The Romanov dynasty begins"],
+          ["1721", "Peter the Great proclaims the Russian Empire"]
+        ] },
+        { type: "section", head: "Kyivan Rus", md:
+          "The first East Slavic state, Kyivan Rus, emerged in the late 9th century around Kyiv, today the capital of [[unit:ua|Ukraine]], ruled by a dynasty of Scandinavian origin. In 988 Prince Volodymyr, known in Russian as Vladimir, adopted Orthodox Christianity from Byzantium, tying the region's culture to the Eastern church. Russians, Ukrainians and Belarusians all trace their origins to Rus, and who is its true heir is now a question of war: Vladimir Putin argues that Russians and Ukrainians are 'one people', which Ukrainians reject." },
+        { type: "section", head: "The Mongols and the rise of Moscow", md:
+          "Mongol armies destroyed Kyiv in 1240, and for two centuries the Russian principalities paid tribute to the Golden Horde. Moscow, a minor town, rose by collecting that tribute for the khans and absorbing its neighbours. In 1480 Grand Prince Ivan III stopped paying and ended Mongol overlordship. His grandson Ivan IV, 'the Terrible', crowned himself tsar, from 'caesar', in 1547, conquered the Volga khanates and began the expansion into Siberia, but also terrorised his own nobles through a secret police force." },
+        { type: "section", head: "Autocracy and expansion", md:
+          "After a 'Time of Troubles' of famine, civil war and Polish occupation, the Romanov dynasty was installed in 1613 and ruled for three centuries. Russia expanded relentlessly: across Siberia to the Pacific by the 1640s, into Ukraine, the Baltic, Poland, the Caucasus and Central Asia. Most peasants were serfs, bound to landowners, until 1861. Power rested on an absolute monarch, the Orthodox Church and the army, a model later summed up in the slogan 'Orthodoxy, autocracy, nationality'." },
+        { type: "section", head: "Peter and Catherine", md:
+          "Peter the Great (1682–1725) forced Western ways on the nobility, built a navy, defeated Sweden and founded St Petersburg as a 'window on Europe', proclaiming the Russian Empire in 1721. Catherine the Great (1762–96) seized Crimea from the Ottomans in 1783, took most of Poland in its partitions, and expanded Russian control over what is now southern Ukraine, which she called 'New Russia'. Both are heroes of the modern Russian state; Putin has compared himself to Peter, returning lands to Russia." },
+        { type: "compare", head: "Two ways to read the story",
+          left: { head: "The Kremlin's history", md:
+            "A thousand years of one Russian nation, repeatedly invaded, that gathered its lands and brought civilisation to vast territories." },
+          right: { head: "Critics and neighbours", md:
+            "A story of imperial conquest in which Ukrainians, Poles, Caucasians, Central Asians and Siberian peoples were subjugated, and still are." } },
+        { type: "section", head: "Why it still matters", md:
+          "Russia is the only European empire that never really gave up its imperial identity, and debates about its history are about its borders today. The claim that Kyiv is the 'mother of Russian cities', and that Crimea and 'New Russia' are Russian land, underpins the war in Ukraine. The tradition of a strong ruler above the law, rather than institutions that bind him, is also centuries old." }
+      ],
+      takeaways: [
+        "Russians, Ukrainians and Belarusians all trace their roots to Kyivan Rus, which adopted Orthodox Christianity in 988.",
+        "Moscow rose under Mongol overlordship and became the centre of an autocratic, expanding tsardom.",
+        "Peter and Catherine the Great built an empire that took Crimea and southern Ukraine, claims Putin invokes today."
+      ],
+      check: { q: "Where was the capital of Kyivan Rus?",
+        choices: ["Moscow", "Kyiv", "St Petersburg"], answer: 1,
+        explain: "Kyiv, today Ukraine's capital, was the centre of the first East Slavic state; Moscow rose centuries later." },
+      sources: [
+        { title: "Kyivan Rus", publisher: "Britannica", url: "https://www.britannica.com/topic/Kyivan-Rus", date: "n.d." },
+        { title: "Russia: History", publisher: "Britannica", url: "https://www.britannica.com/place/Russia/History", date: "n.d." },
+        { title: "Article by Vladimir Putin 'On the Historical Unity of Russians and Ukrainians'", publisher: "President of Russia", url: "https://en.kremlin.ru/events/president/news/66181", date: "2021-07-12" }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "ru-3", kind: "history", asOf: "2026-09-28",
@@ -145,6 +196,105 @@ window.POLITICS.addUnit("ru", {
         { title: "Russia profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-europe-17840446", date: "n.d." },
         { title: "War in Ukraine (Global Conflict Tracker)", publisher: "Council on Foreign Relations", url: "https://www.cfr.org/global-conflict-tracker/conflict/conflict-ukraine", date: "2026-09" },
         { title: "Collapse of the Soviet Union, 1991", publisher: "Office of the Historian, U.S. Department of State", url: "https://history.state.gov/milestones/1989-1992/collapse-soviet-union", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "ru-10", kind: "past", asOf: "2026-09-28",
+      title: "Revolution and terror",
+      dek: "In 1917 the tsar fell and the Bolsheviks seized power. Under Stalin, millions died in famines, purges and the Gulag.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ru/ru-10-hero.webp",
+          alt: "Illustration of rows of wooden barracks behind barbed wire in a snowy forest clearing under a grey sky, with a watchtower.",
+          caption: "The Gulag: a network of labour camps through which about 18 million people passed.",
+          credit: "AI illustration — not a photograph",
+          prompt: "Rows of low wooden barracks behind a double barbed-wire fence in a snowy forest clearing, a wooden watchtower, a grey heavy sky, dark pine trees, bleak and silent, no people close up, no legible text." },
+        { type: "facts", head: "The Soviet toll", rows: [
+          ["Revolution", "February and October 1917"],
+          ["Civil war", "1918–21; millions dead from fighting, famine and disease"],
+          ["Famine of 1932–33", "Millions dead, about 3.5–5 million of them in Ukraine"],
+          ["Great Terror", "1937–38; about 680,000 executed, per NKVD records"],
+          ["Gulag", "About 18 million people passed through the camps, 1930–53"]
+        ] },
+        { type: "section", head: "1917", md:
+          "The First World War broke the Russian Empire. Millions of soldiers died, food ran short, and in February 1917 strikes and mutinies in Petrograd forced Tsar Nicholas II to abdicate. A liberal Provisional Government promised elections but kept fighting the war. In October the Bolsheviks, a disciplined Marxist party led by Vladimir Lenin, seized power in a near-bloodless coup, promising 'peace, land and bread'. When they lost the elections to a constituent assembly, they dissolved it after one day." },
+        { type: "section", head: "Civil war and the Soviet Union", md:
+          "A brutal civil war followed between the Bolsheviks' Red Army, led by Leon Trotsky, and the anti-communist Whites, backed briefly by foreign troops. Both sides committed atrocities; the Bolsheviks' secret police, the Cheka, waged a 'Red Terror'. The royal family was shot in 1918. By 1922 the Bolsheviks had won and founded the Union of Soviet Socialist Republics, including Ukraine, Belarus and the Caucasus, under one-party rule." },
+        { type: "section", head: "Stalin's revolution", md:
+          "After Lenin's death in 1924, Joseph Stalin outmanoeuvred his rivals. From 1929 he forced peasants into collective farms and drove industrialisation at breakneck speed. Resistance and grain requisitions caused the famine of 1932–33, which killed millions, most in Ukraine and Kazakhstan; Ukraine calls it the Holodomor and many countries recognise it as genocide, which Russia rejects. The USSR became an industrial power, but at enormous human cost." },
+        { type: "section", head: "The Great Terror and the Gulag", md:
+          "In 1937–38 Stalin's secret police, the NKVD, arrested well over a million people: party leaders, army officers, engineers, ordinary workers and whole ethnic groups. Soviet records show about 680,000 were shot. Show trials made old Bolsheviks confess to absurd crimes. Millions more were sent to the Gulag, a vast system of labour camps in Siberia and the Arctic, where they mined gold, cut timber and built canals; about 18 million passed through it between 1930 and Stalin's death in 1953, and more than a million and a half died there." },
+        { type: "compare", head: "Remembering Stalin",
+          left: { head: "Admirers", md:
+            "Stalin industrialised a backward country and led it to victory over Nazi Germany. Harsh times required harsh measures." },
+          right: { head: "Historians and victims' families", md:
+            "Stalin's rule killed millions of innocent people. No victory justifies the famine, the Terror and the camps." } },
+        { type: "section", head: "Why it still matters", md:
+          "Nikita Khrushchev denounced Stalin in 1956, and in the 1990s the human rights group Memorial documented millions of victims. Under Putin, Stalin's reputation has been partly restored as a wartime leader, and in 2021 Russia's Supreme Court ordered Memorial to close. How Russia remembers its past is closely tied to how it is governed now." }
+      ],
+      takeaways: [
+        "The Bolsheviks seized power in October 1917 and won a brutal civil war, founding the Soviet Union in 1922.",
+        "Stalin's forced collectivisation caused the famine of 1932–33; his Great Terror executed about 680,000 people in two years.",
+        "Russia's courts closed Memorial, the group that documented Soviet repression, in 2021."
+      ],
+      check: { q: "What was the Gulag?",
+        choices: ["The Soviet parliament", "A network of forced labour camps", "Stalin's secret police"], answer: 1,
+        explain: "The Gulag was the system of labour camps through which about 18 million people passed; the secret police was the NKVD." },
+      sources: [
+        { title: "Russian Revolution", publisher: "Britannica", url: "https://www.britannica.com/event/Russian-Revolution", date: "n.d." },
+        { title: "Great Purge", publisher: "Britannica", url: "https://www.britannica.com/event/Great-Purge", date: "n.d." },
+        { title: "Gulag", publisher: "Britannica", url: "https://www.britannica.com/topic/Gulag", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "ru-11", kind: "past", asOf: "2026-09-28",
+      title: "The Great Patriotic War",
+      dek: "The Soviet Union lost about 27 million people defeating Nazi Germany. The memory of that victory is now the foundation of Russian identity.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ru/ru-11-hero.webp",
+          alt: "Illustration of a ruined city on a wide river in winter, with shattered factory buildings and smoke rising into a grey sky.",
+          caption: "Stalingrad, where the Red Army destroyed a German army in the winter of 1942–43.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A ruined industrial city on the bank of a wide frozen river in winter, shattered factory buildings and chimneys, smoke rising into a grey sky, snow over rubble, desolate and epic, no people, no flags, no legible text." },
+        { type: "timeline", head: "1939–45", items: [
+          ["Aug 1939", "Nazi–Soviet pact divides eastern Europe"],
+          ["22 June 1941", "Germany invades the Soviet Union"],
+          ["1941–44", "Siege of Leningrad; about 1 million civilians die"],
+          ["1942–43", "Battle of Stalingrad"],
+          ["July 1943", "Battle of Kursk"],
+          ["May 1945", "The Red Army takes Berlin; Victory Day, 9 May"]
+        ] },
+        { type: "section", head: "The pact and the invasion", md:
+          "In August 1939 Stalin signed a non-aggression pact with Hitler, with a secret protocol dividing eastern Europe. The Soviet Union took eastern Poland, the Baltic states and part of Romania, and in 1940 its secret police shot about 22,000 Polish officers and others at Katyn and other sites. On 22 June 1941 Hitler broke the pact and invaded with more than three million troops. The Red Army, weakened by Stalin's purges of its officers, collapsed; within months the Germans were at the gates of Moscow and had surrounded Leningrad." },
+        { type: "section", head: "The turning of the tide", md:
+          "The Soviet Union survived by moving factories east of the Urals, mobilising its whole population and absorbing staggering losses. Leningrad endured a siege of nearly 900 days in which about a million civilians died, mostly of hunger. At Stalingrad in the winter of 1942–43, the Red Army encircled and destroyed a German army of about 300,000, the turning point of the war. After the tank battle of Kursk in 1943, Soviet forces drove west, reaching Berlin in April 1945. American aid under Lend-Lease supplied trucks, food and equipment." },
+        { type: "section", head: "The cost", md:
+          "About 27 million Soviet citizens died, soldiers and civilians, far more than any other country in the war; Ukraine and Belarus, occupied for years, suffered especially. The Nazis murdered Jews across the occupied territories in mass shootings, part of the Holocaust. The Red Army also committed mass rapes and reprisals as it advanced, and Stalin deported whole peoples, including the Chechens and Crimean Tatars, whom he accused of collaboration." },
+        { type: "section", head: "Victory and empire", md:
+          "Victory made the Soviet Union a superpower. It kept the Baltic states and installed communist governments across eastern Europe, dividing the continent for four decades, the start of the [[cold-war|Cold War]]. For Soviet citizens, the war was the one unambiguous triumph of their state, and families across the country still keep photographs of relatives who fought." },
+        { type: "compare", head: "Two memories of the war",
+          left: { head: "Russia's official memory", md:
+            "The Soviet people saved the world from fascism at a terrible price. Questioning that memory is an insult to the dead and is now a crime." },
+          right: { head: "Neighbours' memory", md:
+            "For Poles, Balts and many Ukrainians, 1945 replaced one occupation with another, and the Nazi–Soviet pact is part of the story too." } },
+        { type: "section", head: "Why it still matters", md:
+          "Under Putin, Victory Day on 9 May has become the country's main holiday, with military parades and marches of millions carrying portraits of veterans. The Kremlin presents its invasion of Ukraine as a new fight against 'Nazis', and Russian law punishes 'rehabilitating Nazism' or 'falsifying' the Soviet role in the war, which critics say is used to silence debate about Stalin's crimes." }
+      ],
+      takeaways: [
+        "Germany invaded the Soviet Union in June 1941; Stalingrad in 1942–43 turned the tide.",
+        "About 27 million Soviet citizens died, more than any other country in the war.",
+        "Victory Day is now the core of Russian national identity and is invoked to justify the war in Ukraine."
+      ],
+      check: { q: "Which battle is seen as the turning point of the war on the Eastern Front?",
+        choices: ["Moscow, 1941", "Stalingrad, 1942–43", "Berlin, 1945"], answer: 1,
+        explain: "At Stalingrad the Red Army surrounded and destroyed a whole German army, and never lost the initiative afterwards." },
+      sources: [
+        { title: "Operation Barbarossa", publisher: "Britannica", url: "https://www.britannica.com/event/Operation-Barbarossa", date: "n.d." },
+        { title: "Battle of Stalingrad", publisher: "Britannica", url: "https://www.britannica.com/event/Battle-of-Stalingrad", date: "n.d." },
+        { title: "The History Behind Victory Day, May 9, in Russia", publisher: "Time", url: "https://time.com/6173515/russia-victory-day-history/", date: "2022-05" }
       ]
     },
 
@@ -347,6 +497,54 @@ window.POLITICS.addUnit("ru", {
         { title: "Russia election results show Putin's party winning: What we know", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/9/21/russia-election-results-show-putins-party-winning-what-we-know", date: "2026-09-21" },
         { title: "Russia's internet censorship in 2026: VPN crackdowns, mobile shutdowns, Telegram blocks and the state messenger Max", publisher: "Mediazona", url: "https://en.zona.media/article/2026/04/07/russian_internet_censorship_2026", date: "2026-04-07" },
         { title: "Russia: Digital Iron Curtain Falls on Internet Freedom Protection Day", publisher: "Human Rights Watch", url: "https://www.hrw.org/news/2026/03/12/russia-digital-iron-curtain-falls-on-internet-freedom-protection-day", date: "2026-03-12" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "ru-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "Chechnya and the making of Putin",
+      dek: "Two wars in the North Caucasus shaped modern Russia, and a second one made Vladimir Putin.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ru/ru-12-hero.webp",
+          alt: "Illustration of a city of new glass towers and a large mosque with tall minarets, set against green mountains in the Caucasus.",
+          caption: "Grozny, the Chechen capital, destroyed in the 1990s and rebuilt with Moscow's money.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A rebuilt city of shiny new glass towers and a large white mosque with four tall minarets, green Caucasus mountains rising behind, bright clear light, orderly and strangely new, no people close up, no flags, no legible text." },
+        { type: "facts", head: "Two wars", rows: [
+          ["First Chechen war", "1994–96; ended in de facto Chechen independence"],
+          ["Second Chechen war", "1999–2009, officially"],
+          ["Deaths", "Tens of thousands, most of them civilians; estimates vary widely"],
+          ["Ruler of Chechnya", "Ramzan Kadyrov, since 2007"]
+        ] },
+        { type: "section", head: "The first war", md:
+          "Chechnya, a mostly Muslim region in the North Caucasus, was conquered by the Russian Empire in the 19th century after decades of resistance, and its whole population was deported to Central Asia by Stalin in 1944. As the Soviet Union collapsed, Chechnya declared independence. In December 1994 Boris Yeltsin sent in the army, expecting a quick victory. Instead, Grozny was reduced to ruins, tens of thousands of civilians died, and a humiliated Russian army withdrew in 1996, leaving Chechnya de facto independent and lawless." },
+        { type: "section", head: "Putin's war", md:
+          "In August 1999 Chechen-based Islamist fighters invaded neighbouring Dagestan, and in September bombs destroyed apartment blocks in Moscow and other cities, killing about 300 people. The government blamed Chechen terrorists; critics, including journalists and a former security officer, alleged involvement by the FSB security service, which it denies. Yeltsin's new prime minister, Vladimir Putin, promised to 'wipe out' the terrorists and launched a second war. His popularity soared, Yeltsin resigned in his favour on 31 December 1999, and Putin won the presidency in March 2000." },
+        { type: "section", head: "Terror and victory", md:
+          "The second war was even more brutal, with widespread reports of torture, disappearances and filtration camps from rights groups. Chechen militants struck back with terror attacks, including the siege of a Moscow theatre in 2002, in which about 130 hostages died, mostly from the gas used by special forces, and the Beslan school siege of 2004, in which 334 hostages, 186 of them children, were killed. Putin used Beslan to end the direct election of regional governors." },
+        { type: "section", head: "Kadyrov's Chechnya", md:
+          "Moscow's solution was to hand Chechnya to a former rebel family. Akhmad Kadyrov switched sides and was assassinated in 2004; his son Ramzan has ruled since 2007. Grozny was rebuilt with federal money, and Kadyrov runs the region as a personal fief, enforcing his version of Islamic morality and loyalty to Putin. Rights groups have documented abductions, torture and a 2017 campaign against gay men, which he denies. His forces have fought in Ukraine." },
+        { type: "compare", head: "Two views",
+          left: { head: "The Kremlin", md:
+            "Russia defeated terrorism and separatism, restored order, and kept the country from breaking apart." },
+          right: { head: "Critics", md:
+            "The wars killed tens of thousands of civilians, and 'peace' was bought by handing a region to an unaccountable strongman." } },
+        { type: "section", head: "Why it matters", md:
+          "Chechnya was where Putin built his image as a strong leader, where the security services gained their dominance, and where Russia first practised the tactics of devastating cities that it later used in Syria and [[unit:ua|Ukraine]]. Kadyrov's health and succession are now a worry for the Kremlin, which depends on his loyalty to keep the region quiet." }
+      ],
+      takeaways: [
+        "Russia's first war in Chechnya (1994–96) ended in humiliation and de facto Chechen independence.",
+        "The second war, launched by Putin in 1999 after apartment bombings, made him president.",
+        "Ramzan Kadyrov has ruled Chechnya since 2007 as a loyal but unaccountable strongman."
+      ],
+      check: { q: "What event did Putin use to end the direct election of regional governors?",
+        choices: ["The Moscow theatre siege", "The Beslan school siege of 2004", "The fall of Grozny"], answer: 1,
+        explain: "After Beslan, in which 334 hostages died, Putin centralised power, including the appointment of governors." },
+      sources: [
+        { title: "Chechnya", publisher: "Britannica", url: "https://www.britannica.com/place/Chechnya", date: "n.d." },
+        { title: "Beslan school siege", publisher: "Britannica", url: "https://www.britannica.com/event/Beslan-school-attack", date: "n.d." },
+        { title: "Chechen-Russian conflict", publisher: "Encyclopedia.com", url: "https://www.encyclopedia.com/politics/encyclopedias-almanacs-transcripts-and-maps/chechen-russian-conflict", date: "n.d." }
       ]
     },
 

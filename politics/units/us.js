@@ -254,7 +254,7 @@ window.POLITICS.addUnit("us", {
         explain: "The 13th Amendment abolished slavery; the 14th, ratified in 1868, established birthright citizenship and equal protection." },
       sources: [
         { title: "American Civil War", publisher: "Britannica", url: "https://www.britannica.com/event/American-Civil-War", date: "n.d." },
-        { title: "Reconstruction", publisher: "History.com", url: "https://www.history.com/topics/american-civil-war/reconstruction", date: "n.d." },
+        { title: "Reconstruction", publisher: "History.com", url: "https://www.history.com/articles/reconstruction", date: "n.d." },
         { title: "The Civil War: Facts", publisher: "American Battlefield Trust", url: "https://www.battlefields.org/learn/articles/civil-war-facts", date: "n.d." }
       ]
     },
@@ -536,7 +536,7 @@ window.POLITICS.addUnit("us", {
           credit: "AI illustration — not a photograph",
           prompt: "A grand red-brick and limestone immigration building with four copper-domed towers and tall arched windows on a small island in a harbour, a city skyline across the water, soft morning light and calm water, historic and hopeful, no people close up, no flags, no legible text." },
         { type: "facts", head: "Immigration today", rows: [
-          ["Foreign-born residents", "About 50 million, roughly 14% of the population (2024–25)"],
+          ["Foreign-born residents", "About 52 million, 15.4% of residents (2025), now declining"],
           ["Unauthorised immigrants", "Estimated 11–14 million before 2025"],
           ["Largest country of origin", "Mexico"],
           ["Main law", "Immigration and Nationality Act of 1965"],
@@ -545,7 +545,7 @@ window.POLITICS.addUnit("us", {
         { type: "section", head: "Waves of newcomers", md:
           "Apart from Native Americans and the descendants of enslaved Africans, nearly all Americans descend from immigrants. The Irish and Germans came in the mid-1800s; Italians, Poles, Jews and others from southern and eastern Europe around 1900. Each wave met hostility. The Chinese Exclusion Act of 1882 barred Chinese workers, and in 1924 Congress imposed quotas that favoured northern Europeans and nearly shut the door for decades." },
         { type: "section", head: "The 1965 turning point", md:
-          "The Immigration and Nationality Act of 1965, passed in the civil rights era, abolished the national-origin quotas and favoured family ties and skills. Few expected its effect: immigration rose sharply and shifted to Latin America and Asia. Since then the foreign-born share has climbed from about 5% to around 14%, close to its peak of the early 1900s. In 1986 Ronald Reagan signed a law that gave legal status to about 3 million unauthorised immigrants while promising tougher enforcement." },
+          "The Immigration and Nationality Act of 1965, passed in the civil rights era, abolished the national-origin quotas and favoured family ties and skills. Few expected its effect: immigration rose sharply and shifted to Latin America and Asia. Since then the foreign-born share has climbed from about 5% to a record of nearly 16% in early 2025, before falling slightly under Trump. In 1986 Ronald Reagan signed a law that gave legal status to about 3 million unauthorised immigrants while promising tougher enforcement." },
         { type: "section", head: "The unresolved question", md:
           "Since then Congress has repeatedly failed to pass a comprehensive reform, in 2006, 2007 and 2013. Millions of people, many of whom have lived in the country for decades and have American-born children, have no path to legal status. Presidents have acted on their own: Barack Obama protected people brought as children, the 'Dreamers', through a programme called DACA in 2012, while border arrivals and asylum claims surged in the late 2010s and again after 2021." },
         { type: "section", head: "Trump's second term", md:
@@ -560,15 +560,15 @@ window.POLITICS.addUnit("us", {
       ],
       takeaways: [
         "Immigration built the US, but each wave met hostility, and quotas nearly shut the door from 1924 to 1965.",
-        "The 1965 law opened immigration to Latin America and Asia; the foreign-born share is now about 14%.",
+        "The 1965 law opened immigration to Latin America and Asia; the foreign-born share is now about 15%.",
         "Congress has failed to settle the status of millions of unauthorised immigrants; Trump's second term brought mass deportation."
       ],
       check: { q: "What did the 1965 Immigration and Nationality Act do?",
         choices: ["Banned all immigration", "Abolished national-origin quotas that favoured northern Europeans", "Built a border wall"], answer: 1,
         explain: "The law replaced the 1924 quota system with preferences for family ties and skills, opening the way to immigration from Latin America and Asia." },
       sources: [
-        { title: "Key facts about U.S. immigrants", publisher: "Pew Research Center", url: "https://www.pewresearch.org/short-reads/2024/09/27/key-findings-about-us-immigrants/", date: "2024-09-27" },
-        { title: "Immigration and Nationality Act of 1965", publisher: "Britannica", url: "https://www.britannica.com/topic/Immigration-and-Nationality-Act-of-1965", date: "n.d." },
+        { title: "Key findings about U.S. immigrants", publisher: "Pew Research Center", url: "https://www.pewresearch.org/short-reads/2025/08/21/key-findings-about-us-immigrants/", date: "2025-08-21" },
+        { title: "Immigration and Nationality Act of 1965", publisher: "US House of Representatives: History, Art & Archives", url: "https://history.house.gov/Historical-Highlights/1951-2000/Immigration-and-Nationality-Act-of-1965/", date: "n.d." },
         { title: "U.S. Immigration Policy Under Trump", publisher: "Council on Foreign Relations", url: "https://www.cfr.org/backgrounder/us-immigration-debate-0", date: "2025" }
       ]
     },

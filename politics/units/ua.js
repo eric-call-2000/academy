@@ -103,6 +103,57 @@ window.POLITICS.addUnit("ua", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "ua-9", kind: "founding", asOf: "2026-09-28",
+      title: "1991: independence",
+      dek: "A nation with a thousand-year history and centuries of foreign rule voted overwhelmingly to leave the Soviet Union.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ua/ua-9-hero.webp",
+          alt: "Illustration of a golden-domed monastery on a green hill above a wide river, with a city beyond, in soft summer light.",
+          caption: "Kyiv, on the Dnipro, capital of medieval Rus and of independent Ukraine.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A white monastery with gleaming golden domes on a wooded hill above a wide river, a city spreading beyond, soft summer evening light, peaceful and historic, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "The long road to 1991", items: [
+          ["988", "Kyivan Rus adopts Christianity"],
+          ["1648", "Cossack uprising under Bohdan Khmelnytsky"],
+          ["1917–21", "A short-lived Ukrainian People's Republic"],
+          ["1922", "Ukraine becomes a Soviet republic"],
+          ["24 Aug 1991", "Parliament declares independence"],
+          ["1 Dec 1991", "92% vote for independence in a referendum"],
+          ["1994", "Budapest Memorandum: Ukraine gives up nuclear weapons"]
+        ] },
+        { type: "section", head: "Between empires", md:
+          "Ukrainians trace their state to Kyivan Rus, the medieval realm centred on Kyiv. After the Mongol conquest, Ukrainian lands were ruled for centuries by Lithuania, Poland, the Ottoman-backed Crimean Khanate, Russia and Austria. In the 17th century Cossacks, free warrior communities on the steppe, rose against Poland and built their own 'Hetmanate', which later fell under Russian control. The Russian Empire called Ukrainians 'Little Russians' and restricted publishing in the Ukrainian language in the 19th century." },
+        { type: "section", head: "Soviet Ukraine", md:
+          "After the 1917 revolution, a Ukrainian People's Republic declared independence but was overrun in a chaotic civil war, and in 1922 Ukraine became a founding republic of the Soviet Union. Soviet rule brought industrialisation, but also the famine of 1932–33, the Holodomor (see the next briefing), the Great Terror, and the devastation of the Second World War, when Ukraine was a main battlefield and much of its Jewish population was murdered in the Holocaust. Stalin annexed western Ukraine from Poland in 1939, and in 1954 Crimea was transferred from Russia to Ukraine within the USSR." },
+        { type: "section", head: "Independence", md:
+          "Under Gorbachev's reforms, Ukrainians organised a national movement, Rukh. After a failed hardline coup in Moscow in August 1991, Ukraine's parliament declared independence on 24 August. On 1 December, 92% of voters approved it in a referendum, including majorities in every region, among them Crimea and the Russian-speaking east. A week later the leaders of Russia, Ukraine and Belarus agreed to dissolve the Soviet Union. Leonid Kravchuk, a former Communist official, became the first president." },
+        { type: "section", head: "Nuclear weapons and borders", md:
+          "Ukraine inherited the world's third-largest nuclear arsenal, about 1,900 strategic warheads. In the 1994 Budapest Memorandum it agreed to hand them to Russia in exchange for assurances from Russia, the US and the UK to respect its independence and borders. A friendship treaty with Russia in 1997 recognised those borders. Many Ukrainians now see the disarmament as a historic mistake, because the assurances did not prevent Russia's seizure of Crimea in 2014 and full invasion in 2022." },
+        { type: "compare", head: "Two stories of Ukraine",
+          left: { head: "Ukraine's view", md:
+            "A distinct nation with its own language, culture and history of struggle for freedom, which chose independence democratically in 1991." },
+          right: { head: "The Kremlin's view", md:
+            "Putin argues Ukrainians and Russians are 'one people' and that modern Ukraine is an artificial creation; historians overwhelmingly reject this." } },
+        { type: "section", head: "Why it still matters", md:
+          "The war is, at root, about whether the 1991 independence and borders stand. The Budapest Memorandum's failure also shapes debates worldwide about nuclear weapons and security guarantees, including what guarantees Ukraine should get in any peace deal." }
+      ],
+      takeaways: [
+        "Ukrainians trace their history to Kyivan Rus and spent centuries under Polish, Russian and other rule.",
+        "On 1 December 1991, 92% voted for independence, with majorities in every region.",
+        "In 1994 Ukraine gave up the world's third-largest nuclear arsenal for security assurances that failed."
+      ],
+      check: { q: "What did Ukraine get in exchange for giving up its nuclear weapons in 1994?",
+        choices: ["NATO membership", "Assurances from Russia, the US and the UK to respect its borders", "Nothing"], answer: 1,
+        explain: "The Budapest Memorandum gave security assurances, not binding guarantees; Russia later violated them." },
+      sources: [
+        { title: "Ukraine: History", publisher: "Britannica", url: "https://www.britannica.com/place/Ukraine/History", date: "n.d." },
+        { title: "Ukraine, Nuclear Weapons, and Security Assurances at a Glance", publisher: "Arms Control Association", url: "https://www.armscontrol.org/factsheets/ukraine-nuclear-weapons-and-security-assurances-glance", date: "n.d." },
+        { title: "The Budapest Memorandum 1994 After 30 Years", publisher: "National Security Archive", url: "https://nsarchive.gwu.edu/briefing-book/nato-75-russia-programs/2024-12-05/budapest-memorandum-1994-after-30-years-non", date: "2024-12-05" }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "ua-3", kind: "history", asOf: "2026-09-28",
@@ -146,6 +197,107 @@ window.POLITICS.addUnit("ua", {
         { title: "Ukraine profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-europe-18010123", date: "n.d." },
         { title: "War in Ukraine (Global Conflict Tracker)", publisher: "Council on Foreign Relations", url: "https://www.cfr.org/global-conflict-tracker/conflict/conflict-ukraine", date: "2026-09" },
         { title: "Budapest Memorandum on Security Assurances", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Budapest_Memorandum_on_Security_Assurances", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "ua-10", kind: "past", asOf: "2026-09-28",
+      title: "The Holodomor",
+      dek: "In 1932–33 millions of Ukrainians starved in a famine caused by Stalin's policies. Ukraine and many countries call it genocide.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ua/ua-10-hero.webp",
+          alt: "Illustration of a bare, empty wheat field under a leaden sky with a lone abandoned wooden house and a leafless tree.",
+          caption: "Ukraine, the Soviet 'breadbasket', starved while grain was taken away.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A vast bare harvested field under a heavy leaden sky, a lone abandoned whitewashed village house with a thatched roof and an empty doorway, a leafless tree, cold and desolate, no people, no legible text." },
+        { type: "facts", head: "The famine", rows: [
+          ["Years", "1932–33"],
+          ["Deaths in Ukraine", "About 3.5 to 5 million, by most scholarly estimates"],
+          ["Cause", "Forced collectivisation, grain requisitions, blacklists and a ban on leaving"],
+          ["Remembrance day", "Fourth Saturday of November"],
+          ["Recognition as genocide", "Ukraine (2006) and over 30 countries, including the US and Germany"]
+        ] },
+        { type: "section", head: "Collectivisation", md:
+          "From 1929 Stalin forced peasants across the Soviet Union into collective farms, seizing land, livestock and tools. Better-off farmers, labelled 'kulaks', were deported or shot. Peasants resisted, slaughtering animals rather than hand them over, and harvests fell. In Ukraine, the country's richest farming region and a centre of national feeling, Moscow set grain quotas that could not be met." },
+        { type: "section", head: "Starvation by policy", md:
+          "When villages failed to deliver, the authorities took everything. Brigades searched homes and confiscated food; villages were 'blacklisted' and cut off from supplies; a 1932 law made the theft of even a handful of grain from collective fields punishable by death. In January 1933 peasants were forbidden to leave Ukraine and the Kuban region to look for food. Meanwhile the Soviet Union continued to export grain. People ate grass, bark and pets, and there were cases of cannibalism. By most estimates, between 3.5 and 5 million people died in Ukraine." },
+        { type: "section", head: "Silence and denial", md:
+          "The Soviet government denied the famine for decades, and some Western journalists, notably Walter Duranty of The New York Times, played it down, while the Welsh reporter Gareth Jones described it. Ukrainians could not speak of it openly until the late 1980s. At the same time, Stalin purged Ukraine's Communist leaders and cultural figures, which many historians see as part of an assault on Ukrainian national identity." },
+        { type: "section", head: "Was it genocide?", md:
+          "Ukraine's parliament declared the Holodomor, meaning 'death by hunger', a genocide in 2006, and more than 30 countries, including the United States, Germany, Canada and Poland, have done so, several since Russia's 2022 invasion. Some historians argue that Stalin deliberately targeted Ukrainians as a nation; others see a catastrophe caused by brutal policies that also devastated Kazakhstan, where a larger share of the population died, and parts of Russia. Russia rejects the genocide label." },
+        { type: "compare", head: "Two interpretations",
+          left: { head: "A genocide", md:
+            "Measures such as blacklists and the ban on leaving were aimed specifically at Ukraine, alongside the destruction of its elite, showing intent to break the Ukrainian nation." },
+          right: { head: "A Soviet-wide crime", md:
+            "Collectivisation killed millions across the USSR; the famine was a crime against humanity but not aimed at Ukrainians as such, some historians argue." } },
+        { type: "section", head: "Why it still matters", md:
+          "For Ukrainians, the Holodomor is a founding trauma and a warning about Russian rule, one invoked often since 2022, when Russian forces blockaded Ukrainian grain exports. Each November, Ukrainians light candles in their windows in remembrance, and a national museum of the Holodomor stands on a hill above the Dnipro in Kyiv." }
+      ],
+      takeaways: [
+        "Stalin's collectivisation and grain seizures caused a famine that killed about 3.5 to 5 million people in Ukraine in 1932–33.",
+        "Villages were blacklisted and peasants barred from leaving to find food.",
+        "Ukraine and more than 30 countries recognise the Holodomor as genocide; Russia rejects the term."
+      ],
+      check: { q: "What does 'Holodomor' mean?",
+        choices: ["Great revolution", "Death by hunger", "Collective farm"], answer: 1,
+        explain: "The word combines the Ukrainian for hunger and for killing or death." },
+      sources: [
+        { title: "Holodomor", publisher: "Britannica", url: "https://www.britannica.com/event/Holodomor", date: "n.d." },
+        { title: "Holodomor Basic Facts", publisher: "Holodomor Research and Education Consortium", url: "https://holodomor.ca/resource/holodomor-basic-facts/", date: "n.d." },
+        { title: "Germany recognizes Holodomor as genocide against Ukrainian people", publisher: "The Kyiv Independent", url: "https://kyivindependent.com/germany-recognizes-holodomor-as-genocide-against-ukrainian-people/", date: "2022-11-30" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "ua-11", kind: "past", asOf: "2026-09-28",
+      title: "Chernobyl",
+      dek: "In April 1986 a reactor near Kyiv exploded. The disaster, and the lies about it, helped bring down the Soviet Union.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ua/ua-11-hero.webp",
+          alt: "Illustration of an abandoned city of concrete apartment blocks overgrown with trees, with a rusting Ferris wheel in the foreground.",
+          caption: "Pripyat, the city of 49,000 evacuated after the Chernobyl explosion, has stood empty ever since.",
+          credit: "AI illustration — not a photograph",
+          prompt: "An abandoned Soviet city of concrete apartment blocks overgrown with birch trees, a rusting yellow Ferris wheel in the foreground, empty streets, overcast light, eerie silence, no people, no legible text." },
+        { type: "timeline", head: "The disaster", items: [
+          ["26 Apr 1986, 01:23", "Reactor No. 4 explodes during a safety test"],
+          ["27 Apr", "Pripyat evacuated, 36 hours later"],
+          ["28 Apr", "Sweden detects radiation; Moscow admits an accident"],
+          ["1 May", "May Day parades go ahead in Kyiv"],
+          ["2000", "The last reactor shuts down"],
+          ["2022", "Russian troops occupy the site for five weeks"]
+        ] },
+        { type: "section", head: "The explosion", md:
+          "In the early hours of 26 April 1986, operators at the Chernobyl nuclear power plant, about 100 kilometres north of Kyiv, ran a poorly designed safety test on reactor No. 4. A flawed reactor design and breaches of procedure caused a power surge; the reactor exploded and its graphite core burned for days, releasing radioactive material across Ukraine, Belarus, Russia and much of Europe. Two workers died that night; 28 plant staff and firefighters died of acute radiation sickness within months." },
+        { type: "section", head: "Secrecy", md:
+          "The authorities evacuated the nearby city of Pripyat only 36 hours later, telling residents they would be away for three days. Moscow admitted an accident only after Swedish monitors detected radiation on 28 April. Days later, May Day parades went ahead in Kyiv, with children marching as radiation drifted over the city. Eventually about 350,000 people were resettled, and a 30-kilometre exclusion zone remains. Hundreds of thousands of 'liquidators' were sent to clean up, many with little protection." },
+        { type: "section", head: "The toll", md:
+          "The long-term death toll is disputed. A UN-led study in 2005 projected up to about 4,000 eventual cancer deaths among the most exposed people; other scientists and groups estimate tens of thousands across Europe. Thousands of thyroid cancers in children who drank contaminated milk are clearly linked to the disaster. Belarus, downwind, received much of the fallout." },
+        { type: "section", head: "Glasnost and independence", md:
+          "Mikhail Gorbachev later said Chernobyl was perhaps the real cause of the Soviet Union's collapse. The cover-up discredited the system, and his policy of glasnost, openness, gained force as people demanded the truth. In Ukraine, anger at Moscow's handling of the disaster helped feed the environmental and national movement that led to independence in 1991." },
+        { type: "section", head: "The zone today", md:
+          "The exclusion zone has become an accidental wildlife reserve, home to wolves, elk and rare wild horses, and a site for scientists and, before 2022, tourists. A giant steel arch, completed in 2016 with international funding, covers the ruined reactor." },
+        { type: "compare", head: "Lessons drawn",
+          left: { head: "A failure of the Soviet system", md:
+            "Secrecy, fear of reporting bad news and disregard for human life turned an accident into a catastrophe." },
+          right: { head: "A warning about nuclear power", md:
+            "Some see Chernobyl, with Fukushima in 2011, as proof that nuclear power is too dangerous; others note that modern reactors are far safer." } },
+        { type: "section", head: "Why it still matters", md:
+          "Chernobyl returned to the news in 2022, when Russian troops occupied the site for five weeks, digging trenches in contaminated soil, and in February 2025, when a drone struck the giant shelter over the ruined reactor, which Ukraine blamed on Russia. Russia's occupation of the Zaporizhzhia nuclear plant, Europe's largest, keeps the fear of another disaster alive, and international inspectors remain stationed there to monitor it." }
+      ],
+      takeaways: [
+        "Reactor No. 4 at Chernobyl exploded on 26 April 1986, spreading radiation across Europe.",
+        "Soviet secrecy delayed evacuation and warnings; about 350,000 people were eventually resettled.",
+        "The cover-up discredited Soviet rule and fed Ukraine's independence movement."
+      ],
+      check: { q: "How did the world first learn of the Chernobyl disaster?",
+        choices: ["A Soviet announcement that night", "Swedish monitors detected radiation", "A leak to the press in Kyiv"], answer: 1,
+        explain: "Moscow admitted an accident only after radiation was detected at a Swedish nuclear plant on 28 April." },
+      sources: [
+        { title: "Chernobyl disaster", publisher: "Britannica", url: "https://www.britannica.com/event/Chernobyl-disaster", date: "n.d." },
+        { title: "Chernobyl Accident 1986", publisher: "World Nuclear Association", url: "https://world-nuclear.org/information-library/safety-and-security/safety-of-plants/chernobyl-accident", date: "2022" },
+        { title: "Chernobyl: the true scale of the accident", publisher: "World Health Organization", url: "https://www.who.int/news/item/05-09-2005-chernobyl-the-true-scale-of-the-accident", date: "2005-09-05" }
       ]
     },
 
@@ -355,6 +507,57 @@ window.POLITICS.addUnit("ua", {
         { title: "Zelensky's chief of staff resigns amid corruption probe", publisher: "Axios", url: "https://www.axios.com/2025/11/28/zelensky-chief-staff-yermak-resign-scandal-corruption", date: "2025-11-28" },
         { title: "Government reshuffle in Ukraine: Parliament dismisses Prime Minister Yulia Svyrydenko", publisher: "Euronews", url: "https://www.euronews.com/my-europe/2026/07/14/government-reshuffle-in-ukraine-parliament-dismisses-prime-minister-yulia-svyrydenko", date: "2026-07-14" },
         { title: "A 'Tsunami' for Ukraine: Zelensky Rejects Wartime Elections", publisher: "TIME", url: "https://time.com/article/2026/08/24/volodymyr-zelensky-elections-ukraine-wartime-mykhailo-fedorov/", date: "2026-08-24" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "ua-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "Corruption and the road to Europe",
+      dek: "Ukraine wants to join the EU. To get there, it must beat the oligarchs and graft that have plagued it since independence.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ua/ua-12-hero.webp",
+          alt: "Illustration of a modern courtroom with a long bench and empty chairs, papers stacked on tables, and tall windows looking out on a city.",
+          caption: "Ukraine built new anti-corruption courts and agencies after 2014.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A modern courtroom with a long pale-wood judges' bench, empty chairs, stacks of case files on tables, tall windows looking out over a city of old and new buildings, clean daylight, serious and hopeful, no people, no flags, no legible text." },
+        { type: "facts", head: "The fight in brief", rows: [
+          ["EU candidate status", "June 2022"],
+          ["EU accession talks opened", "June 2024"],
+          ["Anti-corruption bureau (NABU)", "Created 2015"],
+          ["High Anti-Corruption Court", "Operating since 2019"],
+          ["Transparency International index (2024)", "105th of 180 countries"]
+        ] },
+        { type: "section", head: "The oligarchs", md:
+          "In the 1990s, as state industries were privatised, a handful of businessmen gained control of steel, coal, gas, media and banks, and with them influence over parliament and governments. These oligarchs, such as Rinat Akhmetov, Ihor Kolomoisky and Viktor Pinchuk, funded parties and owned TV channels. Bribery was routine in courts, customs, police and hospitals. President Viktor Yanukovych, overthrown in 2014, left behind a lavish estate that became a symbol of looting." },
+        { type: "section", head: "Reform after Maidan", md:
+          "The 2014 revolution brought pressure from voters, the EU and the IMF for change. Ukraine created an independent [[nabu|National Anti-Corruption Bureau]], a special prosecutor's office and later a High Anti-Corruption Court; introduced an electronic public procurement system, ProZorro; required officials to declare their assets online; and ended opaque gas deals. In 2021 a law on 'de-oligarchisation' sought to curb oligarchs' political influence. Kolomoisky was arrested in 2023 on fraud charges, which he denies." },
+        { type: "section", head: "Graft in wartime", md:
+          "The war raised the stakes: billions of dollars of Western aid flow through Ukraine's institutions, and donors watch closely. Scandals over overpriced army food and equipment led to the dismissal of officials and a defence minister in 2023. In July 2025 parliament voted to curb the independence of NABU and the anti-corruption prosecutor, setting off the largest street protests since the invasion; within days President Zelensky reversed course and restored their powers. In November 2025 NABU exposed an alleged kickback scheme at the state nuclear company, Energoatom, which led to the resignation of two ministers." },
+        { type: "section", head: "The EU prize", md:
+          "Ukraine applied to join the EU days after the 2022 invasion, won candidate status that June, and opened accession talks in 2024. Membership requires reforms to the courts, the rule of law and the fight against corruption, as well as agreement from every member state; Hungary has repeatedly blocked progress. For many Ukrainians, joining the EU is the reward that makes the sacrifices of the war and the reforms worthwhile." },
+        { type: "section", head: "Zelensky and the oligarchs", md:
+          "Volodymyr Zelensky, a comedian who had played an honest president on television, won in 2019 promising to 'break the system'. Martial law and wartime unity have since strengthened the presidency, and critics say his office has become too powerful." },
+        { type: "compare", head: "Two views",
+          left: { head: "Optimists", md:
+            "Ukraine has built some of the strongest anti-corruption institutions in the region, and a vigilant public and press defended them in 2025." },
+          right: { head: "Sceptics", md:
+            "Graft remains widespread, powerful people keep trying to capture the watchdogs, and wartime centralisation of power makes abuse easier." } },
+        { type: "section", head: "Why it matters", md:
+          "Corruption is Russia's most effective argument against aid to Ukraine, and the EU's main condition for membership. How Ukraine handles it will shape both its reconstruction, which the World Bank and others estimate will cost hundreds of billions of dollars, and its future in Europe." }
+      ],
+      takeaways: [
+        "After 1991, oligarchs gained control of much of Ukraine's economy and politics.",
+        "After 2014 Ukraine built anti-corruption institutions such as NABU and a special court.",
+        "In 2025 protests forced the reversal of a law curbing NABU; EU membership depends on reform."
+      ],
+      check: { q: "What happened after parliament voted to curb NABU's independence in July 2025?",
+        choices: ["NABU was abolished", "Mass protests led Zelensky to restore its powers within days", "The EU admitted Ukraine"], answer: 1,
+        explain: "Street protests and pressure from the EU led to a new law restoring the bureau's independence." },
+      sources: [
+        { title: "EU welcomes Ukrainian law restoring independence to anti-corruption agencies", publisher: "CNN", url: "https://www.cnn.com/2025/07/31/europe/ukraine-anti-corruption-agencies-law-latam-intl", date: "2025-07-31" },
+        { title: "Corruption Perceptions Index 2024", publisher: "Transparency International Ukraine", url: "https://ti-ukraine.org/en/research/corruption-perceptions-index-2024/", date: "2025-02" },
+        { title: "EU enlargement: Ukraine", publisher: "European Commission", url: "https://enlargement.ec.europa.eu/european-neighbourhood-policy/countries-region/ukraine_en", date: "n.d." }
       ]
     },
 
