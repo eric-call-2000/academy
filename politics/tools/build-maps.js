@@ -23,8 +23,10 @@
    gives to Russia). Lines of control that run through a polygon, such
    as Kashmir's, are drawn as the data has them, and the caption says so.
 
-   Reviewed with --reviewed on 2026-09-28: us, cn, ru, in, ua, il (Golan
-   overlay; West Bank and Gaza hatched as contested on every map).
+   Reviewed with --reviewed: us, cn, ru, in, ua (2026-09-28); il, with
+   the Golan overlay and the West Bank and Gaza hatched as contested on
+   every map (2026-09-28); kr, kp, tw, pk and jp, with the southern
+   Kurils hatched (2026-09-29).
    ============================================================ */
 const fs = require("fs");
 const path = require("path");
@@ -41,8 +43,16 @@ const W = 1200, H = 750;
    `holder` is the ISO code the data assigns it to; `claimant` the country
    most states recognise; `point` any spot inside it. */
 const DISPUTED_AREAS = [
-  { name: "Crimea", holder: "643", claimant: "804", point: [34.1, 44.95] }
+  { name: "Crimea", holder: "643", claimant: "804", point: [34.1, 44.95] },
+  /* The southern Kurils, held by Russia since 1945, claimed by Japan as its Northern Territories. */
+  { name: "Iturup", holder: "643", claimant: "392", point: [147.9, 45.0] },
+  { name: "Kunashir", holder: "643", claimant: "392", point: [145.9, 44.1] },
+  { name: "Shikotan", holder: "643", claimant: "392", point: [146.75, 43.8] }
 ];
+/* Archipelagos framed on all their major islands (any polygon at least
+   FIT_SHARE of the largest), not just the biggest one. */
+const FIT_ALL = new Set(["jp", "id"]);
+const FIT_SHARE = 0.05;
 /* Areas the data folds into the holder's single polygon, so they can't be
    split out: an outline is drawn hatched on top, clipped to the holder's
    shape. The Golan Heights' eastern edge follows the data's 1974 ceasefire
@@ -92,8 +102,13 @@ const coarseDisputed = splitDisputed(coarseFeatures);
 
 /* The largest single polygon of a (multi)polygon feature: the mainland,
    so the frame isn't stretched across an ocean to fit far islands. */
-function mainland(f) {
+function mainland(f, all) {
   if (f.geometry.type === "Polygon") return f;
+  if (all) {
+    const polys = f.geometry.coordinates.map((coords) => ({ coords, a: d3.geoArea({ type: "Feature", geometry: { type: "Polygon", coordinates: coords } }) }));
+    const max = Math.max.apply(null, polys.map((x) => x.a));
+    return { type: "Feature", geometry: { type: "MultiPolygon", coordinates: polys.filter((x) => x.a >= max * FIT_SHARE).map((x) => x.coords) } };
+  }
   let best = null, bestArea = -1;
   f.geometry.coordinates.forEach((coords) => {
     const poly = { type: "Feature", geometry: { type: "Polygon", coordinates: coords } };
@@ -112,7 +127,7 @@ function darker(hex, k) {
 function build(c) {
   const f = features.find((x) => x.id === c.iso);
   if (!f) throw new Error(c.id + ": no Natural Earth feature with ISO numeric id " + c.iso);
-  const main = mainland(f);
+  const main = mainland(f, FIT_ALL.has(c.id));
   const [lon, lat] = d3.geoCentroid(main);
 
   const proj = d3.geoAzimuthalEqualArea().rotate([-lon, -lat])

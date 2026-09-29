@@ -8,10 +8,14 @@
    neutral: describe what a thing is, not whether it is good.
    ============================================================ */
 window.POLITICS.addTerms([
+  { id: "1992-consensus", term: "1992 Consensus",
+    def: "A formula said to come from 1992 talks between Beijing and Taipei, under which both sides accept there is 'one China' but differ on what it means. Taiwan's KMT accepts it; the DPP rejects it, and Beijing treats acceptance as a condition for dialogue." },
   { id: "abraham-accords", term: "Abraham Accords",
     def: "Agreements brokered by the United States in 2020 under which the UAE, Bahrain, Morocco and later Sudan normalised relations with Israel. Saudi Arabia has said it could join if there is a credible path to a Palestinian state." },
   { id: "article-49-3", term: "Article 49.3",
     def: "A clause of France's constitution that lets the government declare a bill adopted without a vote. Deputies can stop it only by passing a motion of no confidence within 48 hours, which brings the government down." },
+  { id: "aukus", term: "AUKUS",
+    def: "A 2021 security pact between Australia, the UK and the US. Its main project gives Australia nuclear-powered (not nuclear-armed) submarines: at least three US Virginia-class boats from the 2030s, then a new class built with Britain. It also covers advanced technologies." },
   { id: "blockade", term: "Blockade",
     def: "Using naval or military force to stop ships or goods from entering or leaving a country's ports. Under international law a blockade is generally treated as an act of war." },
   { id: "brics", term: "BRICS",
@@ -100,8 +104,12 @@ window.POLITICS.addTerms([
     def: "The Kurdistan Workers' Party, a Kurdish militant group founded by Abdullah Öcalan that waged an armed insurgency against Turkey from 1984. Turkey, the US and the EU list it as a terrorist organisation. It announced its dissolution in May 2025." },
   { id: "polarization", term: "Polarization",
     def: "The drifting apart of political camps, so that people's views on many issues, and their party, line up together and the two sides trust each other less." },
+  { id: "preferential-voting", term: "Preferential voting",
+    def: "A system in which voters rank candidates in order. If no one wins a majority of first preferences, the last-placed candidate is eliminated and their ballots pass to the next preference, until someone passes 50%. Used for Australia's House of Representatives; also called ranked-choice or instant-runoff voting." },
   { id: "primary-election", term: "Primary election",
     def: "An election within a party to choose its candidate for a later general election. Turnout is usually lower and more partisan, which pulls candidates toward their base." },
+  { id: "quad", term: "Quad",
+    def: "The Quadrilateral Security Dialogue: an informal grouping of Australia, India, Japan and the United States that meets at leader and minister level on maritime security, technology, health and supply chains. It is not a military alliance; China sees it as aimed at containing it." },
   { id: "rare-earths", term: "Rare earths",
     def: "A group of 17 metals used in powerful magnets, electronics, electric cars and weapons. They are not especially rare in the ground, but China mines most of them and refines the large majority of the world's supply, which gives it leverage in trade disputes." },
   { id: "redistricting", term: "Redistricting",

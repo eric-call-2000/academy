@@ -53,19 +53,19 @@
       blurb: "The Suez Canal, the Gaza border and the Nile — with an economy on the edge." });
 
   /* Part 4 — The Indo-Pacific */
-  C({ id: "jp", iso: "392", part: 4, name: "Japan", flag: "🇯🇵", color: "#bc2f45", lessons: 0,
+  C({ id: "jp", iso: "392", part: 4, name: "Japan", flag: "🇯🇵", color: "#bc2f45", lessons: 8,
       blurb: "America's key Asian ally, rearming under a prime minister with a historic mandate." });
-  C({ id: "kr", iso: "410", part: 4, name: "South Korea", flag: "🇰🇷", color: "#3a5f8f", lessons: 0,
+  C({ id: "kr", iso: "410", part: 4, name: "South Korea", flag: "🇰🇷", color: "#3a5f8f", lessons: 8,
       blurb: "A chip and shipbuilding power whose democracy survived a martial-law attempt." });
-  C({ id: "kp", iso: "408", part: 4, name: "North Korea", flag: "🇰🇵", color: "#6b2737", lessons: 0,
+  C({ id: "kp", iso: "408", part: 4, name: "North Korea", flag: "🇰🇵", color: "#6b2737", lessons: 8,
       blurb: "A nuclear dynasty whose soldiers and shells now fight for Russia." });
-  C({ id: "tw", iso: "158", part: 4, name: "Taiwan", flag: "🇹🇼", color: "#3c4f9e", lessons: 0,
+  C({ id: "tw", iso: "158", part: 4, name: "Taiwan", flag: "🇹🇼", color: "#3c4f9e", lessons: 8,
       blurb: "Self-governed and claimed by Beijing; maker of the chips the world runs on." });
-  C({ id: "pk", iso: "586", part: 4, name: "Pakistan", flag: "🇵🇰", color: "#2f6f4f", lessons: 0,
+  C({ id: "pk", iso: "586", part: 4, name: "Pakistan", flag: "🇵🇰", color: "#2f6f4f", lessons: 8,
       blurb: "A nuclear, army-run state of 250 million that became the Iran war's peacemaker." });
-  C({ id: "id", iso: "360", part: 4, name: "Indonesia", flag: "🇮🇩", color: "#b8363f", lessons: 0,
+  C({ id: "id", iso: "360", part: 4, name: "Indonesia", flag: "🇮🇩", color: "#b8363f", lessons: 8,
       blurb: "The largest Muslim-majority democracy, ASEAN's anchor and the nickel behind EV batteries." });
-  C({ id: "au", iso: "036", part: 4, name: "Australia", flag: "🇦🇺", color: "#2a4d7a", lessons: 0,
+  C({ id: "au", iso: "036", part: 4, name: "Australia", flag: "🇦🇺", color: "#2a4d7a", lessons: 8,
       blurb: "AUKUS submarines, China trade and a populist surge at home." });
 
   /* Part 5 — The Americas */

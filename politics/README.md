@@ -28,7 +28,14 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 14 | 🇸🇦 Saudi Arabia | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
 | 15 | 🇦🇪 United Arab Emirates | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
 | 16 | 🇪🇬 Egypt | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 17–30 | everyone else | coming in waves (see the plan's build order) | | |
+| 17 | 🇯🇵 Japan | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 18 | 🇰🇷 South Korea | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 19 | 🇰🇵 North Korea | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 20 | 🇹🇼 Taiwan | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 21 | 🇵🇰 Pakistan | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 22 | 🇮🇩 Indonesia | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 23 | 🇦🇺 Australia | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 24–30 | everyone else | coming in waves (see the plan's build order) | | |
 
 ## Run it
 

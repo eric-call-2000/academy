@@ -227,6 +227,104 @@ const SPECS = {
       { head: "PARLIAMENT", tag: "pro-Sisi majority", color: "#1f4e79", lines: ["House and Senate dominated by", "parties loyal to the president"] }
     ],
     bottom: ["NEXT PRESIDENTIAL ELECTION", "due 2029–30"]
+  },
+  jp: {
+    title: "How power works in Japan",
+    top: ["THE VOTERS", "elect both houses of the Diet"],
+    boxes: [
+      { head: "HOUSE OF REPRESENTATIVES", tag: "465 seats", color: "#1f4e79", lines: ["The stronger chamber; picks the PM", "LDP holds 316 seats since February 2026"] },
+      { arrow: "elects" },
+      { head: "PRIME MINISTER", tag: "Sanae Takaichi", color: "#bc2f45", lines: ["Leads the cabinet and the LDP", "Can dissolve the lower house"] },
+      { arrow: "needs" },
+      { head: "HOUSE OF COUNCILLORS", tag: "248 seats", color: "#5b6270", lines: ["Six-year terms; half elected every 3 years", "LDP and allies lack a majority here"] },
+      { arrow: "checked by" },
+      { head: "CONSTITUTION", tag: "unchanged since 1947", color: "#6b4f8a", lines: ["Article 9 renounces war", "Amending it needs 2/3 of both houses", "and a referendum"] }
+    ],
+    bottom: ["THE EMPEROR", "Naruhito: a symbol of the state, with no political powers"]
+  },
+  kr: {
+    title: "How power works in South Korea",
+    top: ["THE VOTERS", "elect a president and a 300-seat National Assembly"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Lee Jae-myung", color: "#3a5f8f", lines: ["One five-year term, no re-election", "Commands the military; appoints the PM"] },
+      { arrow: "works with" },
+      { head: "NATIONAL ASSEMBLY", tag: "300 seats", color: "#1f4e79", lines: ["Democratic Party majority", "Can impeach with a two-thirds vote"] },
+      { arrow: "checked by" },
+      { head: "CONSTITUTIONAL COURT", tag: "9 justices", color: "#6b4f8a", lines: ["Rules on impeachments", "Removed Park (2017) and Yoon (2025)"] },
+      { arrow: "and" },
+      { head: "PROSECUTORS AND COURTS", tag: "powerful", color: "#5b6270", lines: ["Have jailed several ex-presidents", "Prosecution reform under way"] }
+    ],
+    bottom: ["NEXT ELECTIONS", "legislative in 2028; presidential in 2030"]
+  },
+  kp: {
+    title: "How power works in North Korea",
+    top: ["THE LEADER", "Kim Jong Un, third of the Kim dynasty, since 2011"],
+    boxes: [
+      { head: "WORKERS' PARTY OF KOREA", tag: "the only party", color: "#6b2737", lines: ["General secretary: Kim Jong Un", "Congress every five years sets the line"] },
+      { arrow: "commands" },
+      { head: "KOREAN PEOPLE'S ARMY", tag: "about 1.3 million", color: "#8a3b2e", lines: ["Nuclear forces answer to Kim", "Troops sent to fight for Russia"] },
+      { arrow: "and" },
+      { head: "STATE AFFAIRS COMMISSION", tag: "the state", color: "#5b6270", lines: ["Chaired by Kim as 'president'", "Cabinet runs the economy"] },
+      { arrow: "controls" },
+      { head: "SECURITY SERVICES", tag: "surveillance", color: "#1f4e79", lines: ["Watch every citizen", "Political prison camps"] }
+    ],
+    bottom: ["SUPREME PEOPLE'S ASSEMBLY", "a rubber-stamp parliament with single-candidate elections"]
+  },
+  tw: {
+    title: "How power works in Taiwan",
+    top: ["THE VOTERS", "elect a president and a 113-seat Legislative Yuan"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Lai Ching-te (DPP)", color: "#3c4f9e", lines: ["Four-year term, two-term limit", "Defence, foreign and China policy", "Appoints the premier"] },
+      { arrow: "appoints" },
+      { head: "EXECUTIVE YUAN", tag: "the cabinet", color: "#2b6cb0", lines: ["Premier Cho Jung-tai", "Proposes budgets and laws"] },
+      { arrow: "answers to" },
+      { head: "LEGISLATIVE YUAN", tag: "113 seats", color: "#1f4e79", lines: ["KMT and TPP hold a majority", "Can cut budgets and pass laws"] },
+      { arrow: "checked by" },
+      { head: "CONSTITUTIONAL COURT", tag: "disputed", color: "#6b4f8a", lines: ["Reviews laws", "Its quorum became a political fight"] }
+    ],
+    bottom: ["NEXT ELECTIONS", "local elections 28 Nov 2026; presidential in 2028"]
+  },
+  pk: {
+    title: "How power works in Pakistan",
+    top: ["THE VOTERS", "elect the National Assembly and provincial assemblies"],
+    boxes: [
+      { head: "ARMY", tag: "Field Marshal Asim Munir", color: "#2f6f4f", lines: ["Chief of Defence Forces since 2025", "Commands the nuclear arsenal", "Final say on security and foreign policy"] },
+      { arrow: "backs" },
+      { head: "PRIME MINISTER", tag: "Shehbaz Sharif", color: "#2b6cb0", lines: ["Leads a PML-N-led coalition", "Runs the economy and the IMF deal"] },
+      { arrow: "with" },
+      { head: "PRESIDENT", tag: "Asif Ali Zardari", color: "#5b6270", lines: ["Largely ceremonial", "Signs laws and amendments"] },
+      { arrow: "reshaped" },
+      { head: "COURTS", tag: "reshaped in 2024-25", color: "#6b4f8a", lines: ["A new Federal Constitutional Court", "Government controls appointments"] }
+    ],
+    bottom: ["THE OPPOSITION", "Imran Khan's PTI; its leader in jail since 2023"]
+  },
+  id: {
+    title: "How power works in Indonesia",
+    top: ["THE VOTERS", "about 200 million directly elect the president"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Prabowo Subianto", color: "#b8363f", lines: ["Head of state and government", "Five-year term, two-term limit"] },
+      { arrow: "backed by" },
+      { head: "HOUSE OF REPRESENTATIVES", tag: "DPR, 580 seats", color: "#1f4e79", lines: ["Nearly every party in the coalition", "Passes laws and the budget"] },
+      { arrow: "shares power with" },
+      { head: "PROVINCES AND REGIONS", tag: "decentralised", color: "#5b6270", lines: ["38 provinces, over 500 districts", "Elected governors and mayors"] },
+      { arrow: "watched by" },
+      { head: "MILITARY", tag: "TNI", color: "#6b4f8a", lines: ["A 2025 law widened its civilian roles", "Critics fear a return to the past"] }
+    ],
+    bottom: ["NEXT ELECTIONS", "president and parliament in 2029"]
+  },
+  au: {
+    title: "How power works in Australia",
+    top: ["THE VOTERS", "compulsory, preferential voting"],
+    boxes: [
+      { head: "HOUSE OF REPRESENTATIVES", tag: "150 seats", color: "#1f4e79", lines: ["Labor won 94 seats in 2025", "Majority forms the government"] },
+      { arrow: "forms" },
+      { head: "PRIME MINISTER AND CABINET", tag: "Anthony Albanese", color: "#2a4d7a", lines: ["Leader of the Labor Party", "Party can replace its leader"] },
+      { arrow: "checked by" },
+      { head: "SENATE", tag: "76 seats", color: "#5b6270", lines: ["12 per state, 2 per territory", "Greens and crossbench hold the balance"] },
+      { arrow: "shares power with" },
+      { head: "SIX STATES", tag: "federal", color: "#6b4f8a", lines: ["Run hospitals, schools, police", "High Court settles disputes"] }
+    ],
+    bottom: ["THE MONARCH", "King Charles III, represented by the governor-general"]
   }
 };
 

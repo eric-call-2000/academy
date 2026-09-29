@@ -28,7 +28,7 @@ window.POLITICS.addUnit("in", {
           ["Next national vote", "General election due by 2029"]
         ] },
         { type: "section", head: "Why it's in the top 30", md:
-          "India has more people than any other country, one of the fastest-growing large economies, nuclear weapons and a navy that dominates the Indian Ocean. It is also the one big power that every camp wants on its side. It buys arms and, until 2026, oil from [[unit:ru]]; it sits with [[unit:cn]] and Russia in clubs such as [[BRICS]]; and it works with the [[unit:us]], [[unit:jp]] and [[unit:au]] in the Quad.\n\n" +
+          "India has more people than any other country, one of the fastest-growing large economies, nuclear weapons and a navy that dominates the Indian Ocean. It is also the one big power that every camp wants on its side. It buys arms and, until 2026, oil from [[unit:ru]]; it sits with [[unit:cn]] and Russia in clubs such as [[BRICS]]; and it works with the [[unit:us]], [[unit:jp]] and [[unit:au]] in the [[Quad]].\n\n" +
           "India calls this 'strategic autonomy': keeping good relations with everyone and signing up to no one's bloc." },
         { type: "section", head: "The world's largest democracy", md:
           "Nearly a billion people were registered to vote in the 2024 general election, which was held over six weeks. India's democracy is noisy, federal and fiercely competitive: states have their own governments, regional parties rule many of them, and incumbents regularly lose.\n\n" +

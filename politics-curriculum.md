@@ -1,8 +1,8 @@
 # Political Academy — Plan (30 countries)
 
 Design doc for a new reading-first app that lives under Academy the way CodeLab does.
-Written 2026-09-28. **Status: Phase 1 and Waves A, B and C are built:** the app in [`politics/`](politics/) and
-sixteen units (US, China, Russia, India, Ukraine, Germany, UK, France, Italy, Poland, Turkey, Israel, Iran, Saudi Arabia, UAE, Egypt) (see [`politics/README.md`](politics/README.md)). The rest of this doc
+Written 2026-09-28. **Status: Phase 1 and Waves A, B, C and D are built:** the app in [`politics/`](politics/) and
+23 units (US, China, Russia, India, Ukraine, Germany, UK, France, Italy, Poland, Turkey, Israel, Iran, Saudi Arabia, UAE, Egypt, Japan, South Korea, North Korea, Taiwan, Pakistan, Indonesia, Australia) (see [`politics/README.md`](politics/README.md)). The rest of this doc
 is the plan for all 30 countries. Facts below were checked against
 news coverage on the date above (sources at the end); every lesson still gets a fresh
 fact-check when it is written.
@@ -952,7 +952,7 @@ without touching anything else.
 | **2. Wave A** ✅ | China, Russia, India, Ukraine, each with a map (disputed areas hatched) and a power diagram | Finishes Part 1, and Ukraine anchors Part 2 |
 | **3. Wave B** ✅ | Germany, UK, France, Italy, Poland, Turkey, each with a map and a power diagram | Europe |
 | **4. Wave C** ✅ | Israel, Iran, Saudi Arabia, UAE, Egypt, each with a map (Golan, West Bank and Gaza hatched) and a power diagram | The Middle East; Israel's is timed against its election |
-| **5. Wave D** | Japan, South Korea, North Korea, Taiwan, Pakistan, Indonesia, Australia | The Indo-Pacific |
+| **5. Wave D** ✅ | Japan, South Korea, North Korea, Taiwan, Pakistan, Indonesia, Australia, each with a map (southern Kurils hatched) and a power diagram | The Indo-Pacific |
 | **6. Wave E** | Canada, Mexico, Brazil, Argentina, Venezuela, South Africa, Nigeria | The Americas and Africa |
 | **7. Upkeep** | Dispatches after each dated event, the 120-day refreshes, Handoff sync, the world map | Keeps it current |
 
