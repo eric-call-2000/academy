@@ -57,9 +57,9 @@
       blurb: "America's key Asian ally, rearming under a prime minister with a historic mandate." });
   C({ id: "kr", iso: "410", part: 4, name: "South Korea", flag: "🇰🇷", color: "#3a5f8f", lessons: 12,
       blurb: "A chip and shipbuilding power whose democracy survived a martial-law attempt." });
-  C({ id: "kp", iso: "408", part: 4, name: "North Korea", flag: "🇰🇵", color: "#6b2737", lessons: 8,
+  C({ id: "kp", iso: "408", part: 4, name: "North Korea", flag: "🇰🇵", color: "#6b2737", lessons: 12,
       blurb: "A nuclear dynasty whose soldiers and shells now fight for Russia." });
-  C({ id: "tw", iso: "158", part: 4, name: "Taiwan", flag: "🇹🇼", color: "#3c4f9e", lessons: 8,
+  C({ id: "tw", iso: "158", part: 4, name: "Taiwan", flag: "🇹🇼", color: "#3c4f9e", lessons: 12,
       blurb: "Self-governed and claimed by Beijing; maker of the chips the world runs on." });
   C({ id: "pk", iso: "586", part: 4, name: "Pakistan", flag: "🇵🇰", color: "#2f6f4f", lessons: 8,
       blurb: "A nuclear, army-run state of 250 million that became the Iran war's peacemaker." });

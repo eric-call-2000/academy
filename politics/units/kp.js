@@ -101,6 +101,59 @@ window.POLITICS.addUnit("kp", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "kp-9", kind: "founding", asOf: "2026-09-29",
+      title: "Kim Il Sung builds a state",
+      dek: "Between 1945 and 1950, under Soviet occupation, a young guerrilla leader turned the northern half of Korea into a one-party state built around himself.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/kp/kp-9-hero.webp",
+          alt: "Illustration of a crowd in 1940s clothing seen from behind in a square in a northern Korean city, facing a wooden stage decorated with plain red banners.",
+          caption: "The Democratic People's Republic of Korea was proclaimed in Pyongyang on 9 September 1948.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A 1940s city square in northern Korea, a crowd in period clothing seen from behind facing a simple wooden stage hung with plain red banners, low mountains in the distance, overcast autumn light, historical and solemn, no faces, no legible text, no flags." },
+        { type: "timeline", head: "From liberation to war", items: [
+          ["Aug 1945", "Soviet troops enter northern Korea; Japan surrenders"],
+          ["Oct 1945", "Kim Il Sung presented to a crowd in Pyongyang"],
+          ["Mar 1946", "Land reform takes estates without compensation"],
+          ["1946", "Workers' Party of North Korea formed"],
+          ["9 Sep 1948", "Democratic People's Republic of Korea proclaimed"],
+          ["Dec 1948", "Soviet troops withdraw"],
+          ["25 Jun 1950", "The North invades the South"]
+        ] },
+        { type: "section", head: "Soviet occupation", md:
+          "When Japan surrendered in August 1945, Soviet troops occupied Korea north of the 38th parallel, while American troops took the south (see [[unit:kr]]). The line was meant to be temporary. In the north, Soviet officers worked through local 'people's committees', but kept the final say. They needed a Korean leader they could trust, and they chose a 33-year-old captain in the Soviet army, Kim Il Sung." },
+        { type: "section", head: "Who was Kim Il Sung?", md:
+          "Born Kim Song Ju in 1912 near Pyongyang, he grew up largely in Manchuria, where he joined Chinese-led communist guerrillas fighting Japan in the 1930s. He became known for a 1937 raid on the border town of Pochonbo. Pursued by the Japanese, he fled to the Soviet Union in 1940–41. Official North Korean history later rewrote this story: it claims he liberated Korea almost single-handedly, and says his son Kim Jong Il was born on sacred Mount Paektu rather than in a Soviet camp." },
+        { type: "section", head: "Revolution from above", md:
+          "Change came fast. A 1946 land reform seized land from Japanese owners and Korean landlords and handed it to peasants, which won real support. Major industries, most of them Japanese-built, were nationalised. New laws declared equality between men and women. At the same time, the new authorities crushed opponents: Christians, landlords, businessmen and nationalists were arrested, and hundreds of thousands of people fled south before the border closed." },
+        { type: "section", head: "Two states", md:
+          "As the Cold War set in, US–Soviet talks on a single Korean government failed. The south held a UN-supervised election in May 1948 and founded the Republic of Korea in August. The north answered on 9 September 1948 by proclaiming the Democratic People's Republic of Korea, with Kim Il Sung as premier. Each state claimed to be the only legitimate government of all Korea. Soviet troops left at the end of 1948, leaving behind a well-armed Korean People's Army." },
+        { type: "section", head: "One man above the rest", md:
+          "The ruling party was at first a coalition of rival groups: guerrillas who had fought with Kim in Manchuria, Koreans who had lived in the Soviet Union, communists who had fought alongside Mao in China, and communists from the south. Over the next decade Kim purged all of them, often after blaming them for failures. By the late 1950s only his own faction remained, and a personality cult had begun that would later extend to his son and grandson." },
+        { type: "compare", head: "Two views of the founding",
+          left: { head: "Pyongyang's account", md:
+            "Kim Il Sung defeated Japan, freed Korea and founded an independent socialist state, while the south became an American colony." },
+          right: { head: "Historians", md:
+            "The state was created under Soviet direction; Kim was picked by Moscow, and his rule quickly became a one-man dictatorship." } },
+        { type: "section", head: "Why it still matters", md:
+          "Everything in North Korea's official identity goes back to these years: the Kim family's claim to rule, the idea of self-reliance later called *Juche*, and the enmity with the south. Kim Il Sung is still the 'eternal president' more than thirty years after his death, and his birthday, 15 April, is the country's biggest holiday. The war he started in 1950 is the subject of briefing 10." }
+      ],
+      takeaways: [
+        "Soviet forces occupied northern Korea in 1945 and chose Kim Il Sung, a former guerrilla, to lead it.",
+        "The Democratic People's Republic of Korea was proclaimed on 9 September 1948, weeks after the South's founding.",
+        "Kim purged every rival faction and built a personality cult that his family still relies on."
+      ],
+      check: { q: "Which power occupied northern Korea in 1945 and chose Kim Il Sung to lead it?",
+        choices: ["China", "The Soviet Union", "Japan"], answer: 1,
+        explain: "Soviet troops occupied Korea north of the 38th parallel and backed Kim, then a captain in the Soviet army." },
+      sources: [
+        { title: "Kim Il-Sung", publisher: "Britannica", url: "https://www.britannica.com/biography/Kim-Il-Sung", date: "n.d." },
+        { title: "North Korea", publisher: "Britannica", url: "https://www.britannica.com/place/North-Korea", date: "n.d." },
+        { title: "The Korean War, 1950–1953", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/milestones/1945-1952/korean-war", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "kp-3", kind: "history", asOf: "2026-09-29",
@@ -144,6 +197,106 @@ window.POLITICS.addUnit("kp", {
         { title: "North Korea profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-asia-pacific-15258068", date: "n.d." },
         { title: "North Korea", publisher: "Britannica", url: "https://www.britannica.com/place/North-Korea", date: "n.d." },
         { title: "Previewing North Korea's Grand Strategy for 2026", publisher: "The Diplomat", url: "https://thediplomat.com/2025/12/previewing-north-koreas-grand-strategy-for-2026/", date: "2025-12" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "kp-10", kind: "past", asOf: "2026-09-29",
+      title: "The Korean War",
+      dek: "Kim Il Sung's 1950 invasion drew in the United States and China. Three years and millions of deaths later, the war ended in a truce that still has not become a peace.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/kp/kp-10-hero.webp",
+          alt: "Illustration of a snowy mountain road in Korea in winter, with a long line of refugees in 1950s clothing carrying bundles, seen from behind.",
+          caption: "Millions of Koreans were displaced as the front moved up and down the peninsula.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A snowy mountain road in Korea in winter, a long line of refugees in early-1950s clothing seen from behind carrying bundles and children on their backs, grey sky, bare trees, muted cold colours, historical and sorrowful, no faces, no weapons, no legible text." },
+        { type: "timeline", head: "The war in brief", items: [
+          ["25 Jun 1950", "North Korea invades; Seoul falls in three days"],
+          ["Sep 1950", "US-led UN forces land at Incheon"],
+          ["Oct 1950", "UN forces take Pyongyang and push toward China"],
+          ["Oct–Nov 1950", "China enters the war"],
+          ["1951", "Front stabilises near the 38th parallel"],
+          ["27 Jul 1953", "Armistice signed at Panmunjom"]
+        ] },
+        { type: "section", head: "The invasion", md:
+          "Kim Il Sung wanted to unify Korea by force and lobbied Stalin for months. In 1950 Stalin agreed, on condition that Mao would help if needed. At dawn on 25 June 1950, the Korean People's Army crossed the 38th parallel with Soviet tanks and took Seoul within days. By August the South's army and the first American troops were pinned into a small corner around the port of Busan." },
+        { type: "section", head: "A war that swung back and forth", md:
+          "The UN Security Council, which the Soviet Union was boycotting, authorised a US-led force. In September General Douglas MacArthur landed behind the lines at Incheon, and the North's army collapsed. UN forces took Pyongyang in October and advanced toward the Yalu River border with China. Mao then sent hundreds of thousands of 'volunteers', who drove the UN forces back south of Seoul. By mid-1951 the front had settled near where the war began, and two more years of bloody fighting changed little." },
+        { type: "section", head: "The cost", md:
+          "Estimates of the dead run to around three million, most of them Korean civilians. Both sides massacred suspected enemies. American bombing flattened the North's cities and dams; the US dropped about 635,000 tons of bombs in Korea, more than in the whole Pacific war. Millions fled south, and families were separated by the new front line. Of more than 130,000 South Koreans who registered to find relatives in the North, about three-quarters had died by the end of 2025 without seeing them again." },
+        { type: "section", head: "A truce, not a peace", md:
+          "Talks dragged on for two years, largely over whether prisoners should be forced to go home. The armistice signed on 27 July 1953 by the UN Command, North Korea and China, but not by South Korea's President Syngman Rhee, created a four-kilometre-wide Demilitarized Zone (DMZ) along the front. No peace treaty has ever been signed, so technically the war has never ended." },
+        { type: "compare", head: "Two versions of the war",
+          left: { head: "Pyongyang's version", md:
+            "The South and the United States attacked first; the North won a great victory in the 'Fatherland Liberation War', celebrated each 27 July." },
+          right: { head: "The historical record", md:
+            "Soviet archives opened in the 1990s show Kim planned the invasion and won Stalin's and Mao's approval in advance." } },
+        { type: "section", head: "Why it still matters", md:
+          "The war shaped North Korea more than anything else. Its memory of American bombing is used to justify the nuclear programme and constant mobilisation, and every citizen learns to hate the 'US imperialists'. China's intervention created an alliance, sealed in a 1961 treaty, that still keeps the regime alive. And the unfinished war is why tens of thousands of US troops remain in South Korea (see [[unit:kr]] and [[unit:us]])." }
+      ],
+      takeaways: [
+        "North Korea invaded the South on 25 June 1950 with Stalin's and Mao's approval.",
+        "US-led UN forces and Chinese 'volunteers' fought to a stalemate near the 38th parallel.",
+        "The 1953 armistice created the DMZ, but no peace treaty has ever been signed."
+      ],
+      check: { q: "Why is the Korean War sometimes said never to have ended?",
+        choices: ["Fighting continues along the DMZ every day", "The 1953 armistice was a ceasefire and no peace treaty was signed", "China never withdrew its troops"], answer: 1,
+        explain: "The armistice stopped the fighting, but the two sides never concluded a peace treaty." },
+      sources: [
+        { title: "Korean War", publisher: "Britannica", url: "https://www.britannica.com/event/Korean-War", date: "n.d." },
+        { title: "The Korean War, 1950–1953", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/milestones/1945-1952/korean-war", date: "n.d." },
+        { title: "Armistice Agreement for the Restoration of the South Korean State (1953)", publisher: "US National Archives", url: "https://www.archives.gov/milestone-documents/armistice-agreement-restoration-south-korean-state", date: "n.d." },
+        { title: "75% of registered S. Koreans separated from family in North have died", publisher: "UPI", url: "https://www.upi.com/Top_News/World-News/2026/01/15/separated-familes-north-korea-75-percent-have-died-unification-ministry/1171768462506/", date: "2026-01-15" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "kp-11", kind: "past", asOf: "2026-09-29",
+      title: "The Arduous March",
+      dek: "In the 1990s North Korea's planned economy collapsed and famine killed hundreds of thousands of people. It changed how ordinary North Koreans survive to this day.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/kp/kp-11-hero.webp",
+          alt: "Illustration of an informal market on a dirt street in a North Korean town, with women seen from behind selling vegetables from cloths on the ground.",
+          caption: "As the state stopped handing out food, markets run mostly by women kept people alive.",
+          credit: "AI illustration — not a photograph",
+          prompt: "An informal street market on a dusty dirt road in a small North Korean town in the 1990s, women in plain padded jackets seen from behind selling a few vegetables and corn laid on cloths on the ground, bare hills and grey concrete buildings, pale winter light, muted colours, no faces, no legible text." },
+        { type: "facts", head: "The famine in numbers", rows: [
+          ["When", "Roughly 1994–1998"],
+          ["Deaths", "Estimates range from about 600,000 to 1 million (Haggard and Noland); others go higher"],
+          ["Share of population", "About 3–5%"],
+          ["Main causes", "Loss of Soviet aid, a failed farm system, floods, a slow and secretive response"],
+          ["Official name", "The 'Arduous March'"]
+        ] },
+        { type: "section", head: "A system runs out", md:
+          "North Korea's economy depended on the Soviet Union and China selling it oil, fertiliser and food on friendly terms. When the Soviet Union collapsed in 1991, that support stopped almost overnight. Collective farms that relied on chemical fertiliser, tractors and electric pumps began to fail, and factories closed for lack of fuel and spare parts. The state's Public Distribution System, which rationed food to most of the population, handed out less and less." },
+        { type: "section", head: "Floods and famine", md:
+          "Kim Il Sung died in July 1994 and his son Kim Jong Il took over. In 1995 and 1996 severe floods destroyed crops and farmland. Rations stopped entirely in many areas, first in the northeast, far from Pyongyang, where the regime gave the lowest priority. Families ate grass, bark and wild plants; children were left orphaned or wandered as homeless 'kotjebi'. The regime called the crisis the 'Arduous March', after a hardship campaign in Kim Il Sung's guerrilla past, and told people to endure." },
+        { type: "section", head: "Aid, and how it was used", md:
+          "In 1995 North Korea asked the outside world for help for the first time. The UN World Food Programme ran one of its largest operations, and the United States, South Korea, Japan and China sent food. But the government restricted where aid workers could go, and some groups withdrew, saying they could not verify that food reached the hungriest. Meanwhile the regime put the army first under Kim Jong Il's 'military-first' policy, and kept spending on missiles." },
+        { type: "section", head: "Markets from below", md:
+          "The most lasting change came from ordinary people. With no rations, they traded whatever they had, grew food on private plots and smuggled goods from China. Women, less tied to official workplaces than men, became the main traders. These markets, called *jangmadang*, spread across the country. The regime has alternately tolerated and cracked down on them, but it has never been able to abolish them, and most households now depend on them." },
+        { type: "compare", head: "Who was to blame?",
+          left: { head: "Pyongyang's account", md:
+            "Natural disasters and hostile American sanctions caused the hardship, and the people overcame it under Kim Jong Il's leadership." },
+          right: { head: "Researchers and survivors", md:
+            "The floods struck an already failing system; the regime's choices, secrecy and priorities turned shortage into mass death." } },
+        { type: "section", head: "Why it still matters", md:
+          "The famine broke the idea that the state would provide, and many North Koreans who later escaped cite it as the moment they stopped believing. It also produced the first large wave of people crossing into China, the start of the defector story in briefing 12. Food remains short: UN agencies estimate that a large share of the population lacks enough to eat, and rumours of hunger followed the border closures of the pandemic years." }
+      ],
+      takeaways: [
+        "The loss of Soviet aid after 1991, a failing farm system and floods led to famine in the mid-1990s.",
+        "Estimates of the dead range from about 600,000 to 1 million or more.",
+        "As rations collapsed, informal markets run largely by women spread, and they still sustain most households."
+      ],
+      check: { q: "What was one lasting effect of the 1990s famine?",
+        choices: ["North Korea ended its nuclear programme", "Informal markets spread and became central to daily life", "The Public Distribution System was restored nationwide"], answer: 1,
+        explain: "People turned to private trade to survive, and the jangmadang markets have remained ever since." },
+      sources: [
+        { title: "Famine in North Korea: Markets, Aid, and Reform", publisher: "Columbia University Press (Haggard and Noland)", url: "https://cup.columbia.edu/book/famine-in-north-korea/9780231140003/", date: "2007" },
+        { title: "An Interview with Stephan Haggard and Marcus Noland", publisher: "Columbia University Press", url: "https://cup.columbia.edu/author-interviews/haggard-noland-famine-north-korea/", date: "n.d." },
+        { title: "North Korea", publisher: "Britannica", url: "https://www.britannica.com/place/North-Korea", date: "n.d." }
       ]
     },
 
@@ -350,6 +503,55 @@ window.POLITICS.addUnit("kp", {
         { title: "North Korea Codifies Nuclear Statehood and Hostile 'Two-State' Relations at 9th Party Congress", publisher: "The Diplomat", url: "https://thediplomat.com/2026/02/north-korea-codifies-nuclear-statehood-and-hostile-two-state-relations-at-9th-party-congress/", date: "2026-02" },
         { title: "What the Ninth Party Congress Tells Us About Where North Korea Is Headed", publisher: "Korea Economic Institute of America", url: "https://keia.org/analysis/what-the-ninth-party-congress-tells-us-about-where-north-korea-is-headed/", date: "2026" },
         { title: "Kim Jong Un opens North Korea's 9th party congress, highlights economic gains", publisher: "France 24", url: "https://www.france24.com/en/asia-pacific/20260219-kim-jong-un-north-korea-9th-party-congress-economic-gains", date: "2026-02-19" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "kp-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "Escape: the defectors",
+      dek: "More than 34,000 North Koreans have reached South Korea since 1998. Today only a couple of hundred make it each year, and their journey has never been harder.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/kp/kp-12-hero.webp",
+          alt: "Illustration of a wide frozen river at dusk between two wooded banks, with a single figure in a padded coat seen from far behind on the far shore.",
+          caption: "Most escapees cross the Tumen or Yalu rivers into China before a long journey south.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A wide frozen river at dusk between two low wooded banks in northeast Asia, a single small figure in a padded coat seen from far behind on the far bank, dark blue evening light, snow, quiet and tense atmosphere, no faces, no legible text." },
+        { type: "facts", head: "Arrivals in South Korea", rows: [
+          ["Total since 1998", "About 34,500"],
+          ["Peak year", "More than 2,900 (2009)"],
+          ["2024", "236"],
+          ["2025", "224, of whom 198 were women"],
+          ["Women", "About 72% of all arrivals"]
+        ] },
+        { type: "section", head: "The route", md:
+          "Few escape across the heavily mined DMZ. Most cross the Tumen or Yalu rivers into China, often after bribing border guards. China treats them as illegal economic migrants, not refugees, and sends those it catches back, where they face interrogation, prison camps and sometimes worse. To reach safety they travel thousands of kilometres, usually with paid brokers, through China to Southeast Asian countries such as Laos and Thailand, and on to a South Korean embassy." },
+        { type: "section", head: "Who leaves", md:
+          "About seven in ten arrivals are women. Many were trafficked in China as brides or into the sex trade, and some spent years there before moving on. A small number of elite defectors, diplomats, officials and soldiers, have made headlines: Thae Yong Ho, deputy ambassador in London, escaped in 2016 and was later elected to South Korea's parliament. Soldiers occasionally dash across the DMZ, as one did in 2017 under fire, and fishermen sometimes drift south by sea." },
+        { type: "section", head: "Why the numbers fell", md:
+          "Arrivals averaged well over 1,000 a year in the 2000s and 2010s. They fell after Kim Jong Un tightened the border, and collapsed to a few dozen during the pandemic, when North Korea sealed its frontier with fences and shoot-on-sight orders. Surveillance cameras on the Chinese side, digital payment and ID checks in China, and higher broker fees have made the journey more expensive and dangerous. Many recent arrivals left the North years ago and had been living in hiding in China." },
+        { type: "section", head: "A new life", md:
+          "In the South, arrivals spend about three months at a resettlement centre called Hanawon, learning everything from banking to how to use the subway, and receive housing and support. Many struggle. They face discrimination, a very different education system and a southern accent they lack, and their incomes and employment rates lag behind other South Koreans. A few have been caught spying, and a handful have even returned north. Seoul has debated replacing the word 'defector' with a less political term." },
+        { type: "compare", head: "Two views of those who leave",
+          left: { head: "Pyongyang", md:
+            "They are 'human scum' and traitors, lured by South Korean propaganda; their families at home may be punished." },
+          right: { head: "Seoul and rights groups", md:
+            "They are citizens of the Republic of Korea by law and refugees from persecution; forced return by China violates international law." } },
+        { type: "section", head: "Why it matters", md:
+          "Defectors are the main source of what the outside world knows about life in North Korea, from the prison camps documented by the UN in 2014 to prices in local markets. Their small numbers now show how tightly the regime controls its people. Their stories also test South Korea's promise that unification would welcome northerners as fellow citizens, at a time when Kim calls the South a separate, hostile state (briefing 7)." }
+      ],
+      takeaways: [
+        "About 34,500 North Koreans have reached South Korea since 1998, most of them women.",
+        "Most escape through China, which sends back those it catches.",
+        "Arrivals fell from over 1,000 a year to about 200 after tighter border control and the pandemic."
+      ],
+      check: { q: "How do most North Korean escapees leave the country?",
+        choices: ["Across the DMZ into South Korea", "Across the Tumen or Yalu rivers into China", "By sea to Japan"], answer: 1,
+        explain: "Most cross into China and travel via Southeast Asia to South Korea; crossing the DMZ is rare." },
+      sources: [
+        { title: "224 N. Korean defectors enter S. Korea in 2025", publisher: "The Korea Times", url: "https://www.koreatimes.co.kr/foreignaffairs/northkorea/20260120/224-n-korean-defectors-enter-s-korea-in-2025", date: "2026-01-20" },
+        { title: "North Korean defections to South Korea remain low years after pandemic", publisher: "Stars and Stripes", url: "https://www.stripes.com/theaters/asia_pacific/2026-01-21/north-korea-defector-numbers-decline-20483197.html", date: "2026-01-21" },
+        { title: "Slipping through the Cracks in South Korea: The Uncertain Futures of North Korean Defector Children", publisher: "Migration Policy Institute", url: "https://www.migrationpolicy.org/article/north-korean-defector-children", date: "n.d." }
       ]
     },
 
