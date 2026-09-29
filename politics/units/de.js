@@ -103,6 +103,57 @@ window.POLITICS.addUnit("de", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "de-9", kind: "founding", asOf: "2026-09-28",
+      title: "1949: the Basic Law",
+      dek: "From the ruins of the Third Reich, West Germans wrote a constitution designed above all to make dictatorship impossible.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/de/de-9-hero.webp",
+          alt: "Illustration of a modest white modernist building on the bank of a wide river lined with trees, in soft spring light.",
+          caption: "Bonn, on the Rhine, where the Basic Law was drafted in 1948–49 and which served as West Germany's capital until 1990.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A modest white modernist government building with large windows beside a wide river lined with trees, soft spring light, a small ferry on the water, calm and unassuming, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "From one Germany to two, and back", items: [
+          ["1871", "Germany unified as an empire under Prussia"],
+          ["1919", "The Weimar Republic, Germany's first democracy"],
+          ["1933", "Hitler takes power"],
+          ["1945", "Defeat; Germany divided into four occupation zones"],
+          ["23 May 1949", "The Basic Law takes effect in the West"],
+          ["7 Oct 1949", "The communist German Democratic Republic founded in the East"],
+          ["3 Oct 1990", "Reunification under the Basic Law"]
+        ] },
+        { type: "section", head: "A late nation", md:
+          "For most of its history 'Germany' was a patchwork of kingdoms, duchies and free cities. It was unified only in 1871, when the Prussian chancellor Otto von Bismarck, after wars with Denmark, Austria and France, proclaimed the German Empire. That empire ended in defeat in 1918. The Weimar Republic that followed was Germany's first democracy, but it was undermined by hyperinflation, the Depression, street violence and a constitution that let the president rule by decree. In 1933 Adolf Hitler was appointed chancellor and destroyed it within months." },
+        { type: "section", head: "Zero hour", md:
+          "In May 1945 Germany surrendered unconditionally. Its cities lay in ruins, millions were dead, and some 12 million Germans had fled or been expelled from the east. The victorious Allies divided the country into American, British, French and Soviet zones, and Berlin likewise. As the Cold War began, the Western Allies merged their zones, introduced a new currency in 1948, and asked the West German states to write a constitution. The Soviet Union responded by blockading West Berlin, which was supplied for almost a year by the Berlin Airlift." },
+        { type: "section", head: "Writing the Basic Law", md:
+          "A Parliamentary Council of 65 delegates, chaired by Konrad Adenauer, met in Bonn from September 1948. They deliberately called their text a 'Basic Law', not a constitution, because they regarded it as provisional until Germany could be reunified. It took effect on 23 May 1949. Adenauer became the Federal Republic's first chancellor. In October the Soviet zone became the German Democratic Republic, a communist state." },
+        { type: "section", head: "Lessons from Weimar", md:
+          "Every major feature was designed to avoid Weimar's fate. Human dignity is 'inviolable' in Article 1, and basic rights cannot be abolished. A 'constructive vote of no confidence' means parliament can remove a chancellor only by electing a successor (see [[constructive-vote-of-no-confidence]]). The president is largely ceremonial. A 5% threshold keeps tiny parties out of the Bundestag. A powerful Constitutional Court can strike down laws and ban parties that seek to abolish democracy, and the federal states share power through the [[Bundesrat]]. The principle is called 'militant democracy'." },
+        { type: "compare", head: "Two views of the Basic Law",
+          left: { head: "Its admirers", md:
+            "A model constitution that turned a defeated dictatorship into one of the world's most stable democracies, and was copied widely." },
+          right: { head: "Its critics", md:
+            "Written under Allied supervision and never put to a popular vote; some East Germans in 1990 wanted a new, jointly written constitution instead." } },
+        { type: "section", head: "Why it still matters", md:
+          "The debate over whether to ban the far-right AfD, and the domestic intelligence agency's classification of it as extremist, flow directly from the Basic Law's idea of a democracy that defends itself. So does Germany's 'debt brake', a later amendment that has shaped every recent budget fight." }
+      ],
+      takeaways: [
+        "Germany was unified only in 1871; its first democracy, the Weimar Republic, collapsed into Nazi rule in 1933.",
+        "After defeat in 1945, West Germany adopted the Basic Law in 1949, while the East became a communist state.",
+        "The Basic Law was built to prevent another Weimar: inviolable rights, a constructive no-confidence vote, a 5% threshold and a strong Constitutional Court."
+      ],
+      check: { q: "Why was West Germany's constitution called a 'Basic Law'?",
+        choices: ["It was very short", "It was seen as provisional until Germany could be reunified", "It only covered the economy"], answer: 1,
+        explain: "The drafters meant it as temporary; in 1990 East Germany joined under it, and it became the constitution of united Germany." },
+      sources: [
+        { title: "Basic Law for the Federal Republic of Germany (English translation)", publisher: "Federal Ministry of Justice", url: "https://www.gesetze-im-internet.de/englisch_gg/", date: "n.d." },
+        { title: "Germany: History", publisher: "Britannica", url: "https://www.britannica.com/place/Germany/History", date: "n.d." },
+        { title: "Konrad Adenauer", publisher: "Britannica", url: "https://www.britannica.com/biography/Konrad-Adenauer", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "de-3", kind: "history", asOf: "2026-09-28",
@@ -146,6 +197,105 @@ window.POLITICS.addUnit("de", {
         { title: "2025 German federal election", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2025_German_federal_election", date: "2025" },
         { title: "2024 German government crisis", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2024_German_government_crisis", date: "2024" },
         { title: "Germany update: breaking from the brake", publisher: "Deutsche Bank", url: "https://flow.db.com/topics/macro-and-markets/germany-update-breaking-from-the-brake", date: "2025" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "de-10", kind: "past", asOf: "2026-09-28",
+      title: "The Nazi dictatorship and the Holocaust",
+      dek: "Between 1933 and 1945, Hitler's regime launched a world war and murdered six million Jews. Germany's democracy was built on confronting that past.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/de/de-10-hero.webp",
+          alt: "Illustration of a field of grey concrete slabs of different heights in rows, seen at dusk with long shadows.",
+          caption: "Berlin's Memorial to the Murdered Jews of Europe, opened in 2005 near the Brandenburg Gate.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A vast field of grey concrete slabs of varying heights arranged in a tight grid on undulating ground, seen at dusk with long shadows, a few bare trees at the edge, solemn and disorienting, no people, no legible text." },
+        { type: "facts", head: "The toll", rows: [
+          ["Jews murdered in the Holocaust", "About 6 million"],
+          ["Roma and Sinti killed", "Estimated 200,000 to 500,000"],
+          ["Deaths in the Second World War", "Estimated 70–85 million worldwide"],
+          ["Auschwitz liberated", "27 January 1945, now Holocaust Remembrance Day"],
+          ["Nuremberg trials", "1945–46"]
+        ] },
+        { type: "section", head: "Seizing power", md:
+          "Hitler's National Socialist party rose on anger at the 1919 peace treaty, the Depression and fear of communism, winning 37% of the vote in July 1932. Appointed chancellor in January 1933, Hitler used a fire at the Reichstag to suspend civil liberties, and an Enabling Act let him rule by decree. Within months other parties were banned, trade unions dissolved, political opponents sent to concentration camps, and the press and culture placed under the party's control." },
+        { type: "section", head: "Persecution", md:
+          "From the start the regime persecuted Germany's Jews. They were boycotted, dismissed from public jobs, stripped of citizenship under the 1935 Nuremberg Laws, and attacked in the November 1938 pogrom known as Kristallnacht, when synagogues burned across the country. Roma and Sinti, gay men, people with disabilities, Jehovah's Witnesses and political opponents were also persecuted; some 70,000 disabled people were murdered in a 'euthanasia' programme from 1939." },
+        { type: "section", head: "War and genocide", md:
+          "Hitler invaded Poland on 1 September 1939, starting the Second World War in Europe. As German armies conquered much of the continent, the regime moved to the systematic murder of Europe's Jews: mass shootings in the occupied Soviet Union from 1941, then death camps in occupied Poland, including Auschwitz-Birkenau, Treblinka and Sobibor, where people were killed in gas chambers. About six million Jews, two-thirds of Europe's Jewish population, were murdered, alongside hundreds of thousands of Roma and millions of Soviet prisoners of war and civilians." },
+        { type: "section", head: "Reckoning", md:
+          "After Germany's defeat in May 1945, Allied tribunals at Nuremberg tried leading Nazis. West Germany at first preferred to look away, and many former Nazis kept jobs in the civil service and judiciary. That changed from the 1960s, with the Frankfurt Auschwitz trials and a younger generation's questions. In 1970 Chancellor Willy Brandt knelt at the memorial to the Warsaw Ghetto. Germany paid reparations to survivors and to Israel, and 'Vergangenheitsbewältigung', working through the past, became part of national identity; Holocaust denial is a crime." },
+        { type: "compare", head: "Debates about memory",
+          left: { head: "A model of remembrance", md:
+            "Germany's memorials, education and laws show how a nation can take responsibility for its crimes, and underpin its commitment to Israel's security." },
+          right: { head: "Contested memory", md:
+            "Some on the far right call for an end to 'guilt culture', while others argue Germany's stance on Israel limits criticism of the war in Gaza." } },
+        { type: "section", head: "Why it still matters", md:
+          "The Nazi past explains why Germany long hesitated to use military force, why it treats Israel's security as a 'reason of state', and why the rise of the AfD alarms so many Germans. An AfD leader's description of the Nazi era as a 'speck of bird muck' in German history caused outrage in 2018." }
+      ],
+      takeaways: [
+        "Hitler took power in 1933 and destroyed democracy within months.",
+        "The Nazi regime launched the Second World War and murdered about six million Jews in the Holocaust.",
+        "Confronting that past became central to German democracy, from memorials to its support for Israel."
+      ],
+      check: { q: "What was Kristallnacht?",
+        choices: ["The Reichstag fire", "A nationwide pogrom against Jews in November 1938", "The liberation of Auschwitz"], answer: 1,
+        explain: "On 9–10 November 1938, synagogues, Jewish homes and shops were attacked across Germany and Austria." },
+      sources: [
+        { title: "Introduction to the Holocaust", publisher: "United States Holocaust Memorial Museum", url: "https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust", date: "n.d." },
+        { title: "Nazism", publisher: "Britannica", url: "https://www.britannica.com/event/Nazism", date: "n.d." },
+        { title: "Holocaust", publisher: "Britannica", url: "https://www.britannica.com/event/Holocaust", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "de-11", kind: "past", asOf: "2026-09-28",
+      title: "The Wall and reunification",
+      dek: "For 28 years a wall divided Berlin. When it fell in 1989, Germany reunited within a year, but the East still feels different.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/de/de-11-hero.webp",
+          alt: "Illustration of a long concrete wall covered in faded colourful murals beside a river in a city, with a watchtower in the distance.",
+          caption: "A surviving stretch of the Berlin Wall, now covered in murals.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long stretch of concrete wall covered in faded colourful abstract murals beside a river in a city, a concrete watchtower in the distance, autumn trees, soft afternoon light, historic and reflective, no people close up, no legible text or recognisable artworks." },
+        { type: "timeline", head: "Division and unity", items: [
+          ["13 Aug 1961", "East Germany seals the border in Berlin"],
+          ["1963", "Kennedy in Berlin: 'Ich bin ein Berliner'"],
+          ["Autumn 1989", "Mass protests in Leipzig and other cities"],
+          ["9 Nov 1989", "The Wall opens"],
+          ["18 Mar 1990", "East Germany's first free election"],
+          ["3 Oct 1990", "Reunification"]
+        ] },
+        { type: "section", head: "Two Germanys", md:
+          "After 1949 West Germany became a prosperous democracy anchored in NATO and the European Community, its 'economic miracle' built on the social market economy. East Germany, the GDR, was a one-party communist state under Soviet protection, with a vast secret police, the Stasi, which kept files on millions of citizens using a network of informers. By 1961 about 2.7 million East Germans had fled west, many through Berlin." },
+        { type: "section", head: "The Wall", md:
+          "On the night of 13 August 1961 the GDR sealed the border through Berlin with barbed wire, then a concrete wall, calling it an 'anti-fascist protection rampart'. It became the Cold War's starkest symbol. At least 140 people were killed trying to cross it, and hundreds more along the inner German border. Families were separated for decades, and West Berlin became an island of the West inside East Germany, supplied by road, rail and air corridors." },
+        { type: "section", head: "1989", md:
+          "In 1989 reforms in the Soviet Union under Mikhail Gorbachev, and Hungary's opening of its border with Austria, set off an exodus of East Germans. Hundreds of thousands marched in Leipzig and elsewhere chanting 'We are the people'. On 9 November a confused official announced at a press conference that border crossings were open, effective 'immediately'. Crowds surged to the checkpoints, the guards gave way, and Berliners climbed the Wall and began hacking at it." },
+        { type: "section", head: "Unity in eleven months", md:
+          "Chancellor Helmut Kohl seized the moment. East Germany held its first free election in March 1990, won by parties favouring rapid unity; a currency union in July gave East Germans the Deutsche Mark. The two Germanys and the four wartime Allies signed a treaty settling Germany's borders, and Kohl persuaded Gorbachev to accept a united Germany in NATO in return for financial aid. On 3 October 1990 the GDR's five states joined the Federal Republic under the Basic Law." },
+        { type: "compare", head: "Two views of reunification",
+          left: { head: "A success", md:
+            "Peaceful revolution and swift unity brought freedom and prosperity to East Germans; living standards have converged a long way." },
+          right: { head: "A takeover", md:
+            "Many East Germans felt absorbed rather than united: industries collapsed, millions lost jobs, and westerners took the top posts." } },
+        { type: "section", head: "Why it still matters", md:
+          "Three decades on, the east is still poorer, older and less diverse than the west, and few easterners hold top jobs in business or government. Voting patterns differ sharply: the AfD won the most votes in eastern states in 2024, and the BSW, a left-populist party, also did best there. Understanding German politics today means understanding the legacy of 1990." }
+      ],
+      takeaways: [
+        "East Germany built the Berlin Wall in 1961 after millions fled west; at least 140 people died trying to cross it.",
+        "Peaceful protests and Soviet reforms led to the Wall's opening on 9 November 1989.",
+        "Germany reunited on 3 October 1990, but the east remains poorer and votes differently."
+      ],
+      check: { q: "When did Germany reunify?",
+        choices: ["9 November 1989", "3 October 1990", "1 January 1991"], answer: 1,
+        explain: "The Wall opened in November 1989; formal reunification came on 3 October 1990, now German Unity Day." },
+      sources: [
+        { title: "Berlin Wall", publisher: "Britannica", url: "https://www.britannica.com/topic/Berlin-Wall", date: "n.d." },
+        { title: "German reunification", publisher: "Britannica", url: "https://www.britannica.com/topic/German-reunification", date: "n.d." },
+        { title: "Germany: The reunification of Germany", publisher: "Britannica", url: "https://www.britannica.com/place/Germany/The-reunification-of-Germany", date: "n.d." }
       ]
     },
 
@@ -353,6 +503,55 @@ window.POLITICS.addUnit("de", {
         { title: "Germany's Economy Is Forecast to Outperform in 2026", publisher: "Goldman Sachs", url: "https://www.goldmansachs.com/insights/articles/germanys-economy-is-forecast-to-outperform-in-2026", date: "2026" },
         { title: "Germany: the 2026 budget and rising debt", publisher: "OSW Centre for Eastern Studies", url: "https://www.osw.waw.pl/en/publikacje/analyses/2025-12-05/germany-2026-budget-and-rising-debt", date: "2025-12-05" },
         { title: "What Happened to Germany's Spending Boom?", publisher: "Charles Schwab", url: "https://www.schwab.com/learn/story/what-happened-to-germanys-spending-boom", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "de-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "'We can do this': 2015 and after",
+      dek: "Angela Merkel let in about a million refugees. The decision reshaped Germany and helped make the AfD a major force.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/de/de-12-hero.webp",
+          alt: "Illustration of a busy railway station hall with arched iron roof, travellers with backpacks and bags seen from behind, and volunteers at tables.",
+          caption: "In September 2015 volunteers welcomed arrivals at stations such as Munich's.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A large railway station hall with a high arched iron-and-glass roof, travellers with backpacks and bags seen from behind walking along the platform, volunteers at tables with water and food, warm light, hopeful and crowded, no faces, no legible text." },
+        { type: "facts", head: "The numbers", rows: [
+          ["Asylum seekers arriving 2015–16", "About 1.2 million"],
+          ["Largest group", "Syrians, followed by Afghans and Iraqis"],
+          ["In work by 2025", "About two-thirds of the 2015 arrivals"],
+          ["Poll: Germany should take fewer refugees", "38% in July 2015; 68% ten years later"],
+          ["Ukrainian refugees since 2022", "More than 1 million"]
+        ] },
+        { type: "section", head: "The decision", md:
+          "In the summer of 2015, hundreds of thousands of people fleeing the war in Syria and conflicts in Afghanistan and Iraq were crossing the Balkans toward Germany. On 31 August Chancellor Angela Merkel told reporters: 'Wir schaffen das', 'We can do this'. Days later, with thousands stranded in Hungary, she decided not to close Germany's border. Crowds applauded arrivals at Munich station, and a 'welcome culture' took hold. About 1.2 million people applied for asylum in 2015–16." },
+        { type: "section", head: "The backlash", md:
+          "The mood soured. On New Year's Eve 2015–16 hundreds of women reported sexual assaults and robberies by groups of men, many from North Africa, outside Cologne's cathedral. Islamist attacks followed, including a truck attack on a Berlin Christmas market in December 2016 that killed 12 people (13 counting a victim who died later). Merkel's conservative allies in Bavaria demanded limits. The EU struck a deal in 2016 paying Turkey to hold back migrants, and arrivals fell." },
+        { type: "section", head: "Integration", md:
+          "Ten years on, the picture is mixed. About two-thirds of those who arrived in 2015 are in paid work, and many of their children speak fluent German. But employment rates among refugee women remain low, and Germany's gap between citizens and non-EU residents in work is nearly double the EU average. More than a million Ukrainians arrived after 2022, and asylum applications rose again in 2023 before falling." },
+        { type: "section", head: "The political shock", md:
+          "The AfD, founded in 2013 as a party opposed to euro bailouts, turned into an anti-immigration party and entered the Bundestag in 2017 with 12.6%. After further attacks by asylum seekers in 2024–25, it won 20.8% in February 2025, its best result. Friedrich Merz's government has since tightened the border, turning back some asylum seekers, and suspended family reunification for some refugees." },
+        { type: "compare", head: "Two verdicts",
+          left: { head: "Defenders", md:
+            "Germany did the humane thing in an emergency, and most refugees have built new lives, filling jobs in an ageing workforce." },
+          right: { head: "Critics", md:
+            "Opening the border without limits overwhelmed towns and services, fuelled crime fears and handed the far right its breakthrough." } },
+        { type: "section", head: "Why it matters", md:
+          "Migration remains the issue driving German politics, and 2015 is the reference point in every debate. Polls show that the share of Germans wanting fewer refugees has risen from 38% in 2015 to 68% ten years later. The mainstream parties, including Merkel's own Christian Democrats, have moved toward tighter controls, while Germany's ageing workforce still needs hundreds of thousands of immigrants a year, a tension no government has resolved." }
+      ],
+      takeaways: [
+        "In 2015 Merkel kept Germany's border open; about 1.2 million people sought asylum in 2015–16.",
+        "Attacks and fears about integration turned opinion; about two-thirds of the 2015 arrivals now work.",
+        "The backlash helped the AfD grow from a fringe party to about a fifth of the vote in 2025."
+      ],
+      check: { q: "What did Merkel mean by 'Wir schaffen das'?",
+        choices: ["'We will close the border'", "'We can do this', about taking in refugees", "'We will leave the EU'"], answer: 1,
+        explain: "On 31 August 2015 Merkel said Germany could cope with the arrival of refugees, a phrase that came to define her policy." },
+      sources: [
+        { title: "Germany opened its doors to 1 million refugees a decade ago. Here's how sentiment has changed", publisher: "CNN", url: "https://www.cnn.com/2025/09/05/europe/germany-refugees-migration-changed-sentiment-intl-cmd", date: "2025-09-05" },
+        { title: "Angela Merkel says 'Wir schaffen das' on accepting refugees", publisher: "History.com", url: "https://www.history.com/this-day-in-history/august-31/angela-merkel-says-wir-schaffen-das-on-accepting-refugees", date: "n.d." },
+        { title: "Integrating refugees: Lessons from Germany since 2015–16", publisher: "World Bank", url: "https://thedocs.worldbank.org/en/doc/d3bf052f21b05b8b5f87f38b921dfd7e-0050062023/original/WDR-German-case-study-FINAL.pdf", date: "2023" }
       ]
     },
 

@@ -99,6 +99,57 @@ window.POLITICS.addUnit("gb", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "gb-9", kind: "founding", asOf: "2026-09-28",
+      title: "Making the United Kingdom",
+      dek: "England absorbed Wales, joined with Scotland in 1707 and with Ireland in 1801, then lost most of Ireland in 1922. The union has never stopped evolving.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/gb/gb-9-hero.webp",
+          alt: "Illustration of a medieval stone castle on a rock above a city of old grey tenements and spires, under a moody sky.",
+          caption: "Edinburgh Castle. Scotland kept its own law, church and schools after the 1707 union with England.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A medieval stone castle on top of a steep volcanic rock above an old city of tall grey stone tenements and church spires, dramatic moody sky with a shaft of sunlight, historic and proud, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "How the union was built", items: [
+          ["1284–1542", "England conquers and annexes Wales"],
+          ["1603", "Union of the Crowns: James VI of Scotland becomes James I of England"],
+          ["1689", "Bill of Rights after the 'Glorious Revolution'"],
+          ["1707", "Acts of Union create Great Britain"],
+          ["1801", "Union with Ireland creates the United Kingdom"],
+          ["1922", "Most of Ireland leaves; Northern Ireland stays"],
+          ["1999", "Devolved parliaments for Scotland and Wales"]
+        ] },
+        { type: "section", head: "England and Wales", md:
+          "The Kingdom of England took shape before the Norman Conquest of 1066. Edward I conquered Wales in the 1280s, and Henry VIII's Laws in Wales Acts of 1535–42 formally annexed it, imposing English law and administration. Wales kept its language, spoken today by nearly a third of its people, and a strong identity, but for centuries its politics were England's." },
+        { type: "section", head: "Crown and Parliament", md:
+          "England's defining political struggle was between monarch and Parliament. It ran from Magna Carta in 1215, which first limited royal power, to the civil wars of the 1640s, when Parliament executed King Charles I and briefly abolished the monarchy. After the 'Glorious Revolution' of 1688, Parliament invited William and Mary to take the throne on its terms, and the 1689 Bill of Rights established that the monarch could not tax, keep an army or suspend laws without Parliament. The principle of parliamentary sovereignty dates from here." },
+        { type: "section", head: "Scotland joins", md:
+          "Scotland was an independent kingdom that shared a monarch with England from 1603. Its parliament agreed to a full union in 1707, partly because of financial ruin after a failed colonial venture in Panama, the Darien scheme, and partly under English pressure; the poet Robert Burns later wrote that Scotland was 'bought and sold for English gold'. The Acts of Union created the Kingdom of Great Britain with one parliament at Westminster, but Scotland kept its own legal system, church and schools." },
+        { type: "section", head: "Ireland in and out", md:
+          "England had ruled Ireland in varying degrees since the 12th century, and Protestant settlers were planted in Ulster in the 1600s. After a rebellion in 1798, the Act of Union of 1801 abolished Dublin's parliament and created the United Kingdom of Great Britain and Ireland. Catholic grievances, the famine of the 1840s, which killed about a million people, and a century of campaigns for home rule led to the Easter Rising of 1916 and a war of independence. In 1922 the Irish Free State left, while six mostly Protestant counties of Ulster remained as Northern Ireland." },
+        { type: "compare", head: "Two views of the union",
+          left: { head: "Unionists", md:
+            "A partnership that pooled resources, created one of the world's most successful states and allowed distinct nations to flourish together." },
+          right: { head: "Nationalists", md:
+            "A union built by conquest, pressure and English dominance, in which smaller nations are routinely outvoted." } },
+        { type: "section", head: "Why it still matters", md:
+          "The UK has no single written constitution; its arrangements have grown piece by piece, most recently with the devolved parliaments of 1999. That flexibility lets the union change without revolution, but it also means its future is always open: Scotland's independence movement (briefing 12) and the question of Irish unity (briefing 11) are live debates." }
+      ],
+      takeaways: [
+        "England annexed Wales in the 16th century and joined with Scotland in 1707 to form Great Britain.",
+        "Parliament's victory over the monarchy, sealed in 1689, is the root of parliamentary sovereignty.",
+        "Ireland joined the union in 1801; most of it left in 1922, leaving Northern Ireland in the UK."
+      ],
+      check: { q: "What did the Acts of Union of 1707 do?",
+        choices: ["Joined Ireland to Britain", "Joined England and Scotland into Great Britain with one parliament", "Abolished the monarchy"], answer: 1,
+        explain: "The 1707 Acts created the Kingdom of Great Britain; Ireland was added in 1801 to form the United Kingdom." },
+      sources: [
+        { title: "Act of Union (1707)", publisher: "Britannica", url: "https://www.britannica.com/event/Act-of-Union-Great-Britain-1707", date: "n.d." },
+        { title: "United Kingdom: History", publisher: "Britannica", url: "https://www.britannica.com/place/United-Kingdom/History", date: "n.d." },
+        { title: "Bill of Rights 1689", publisher: "UK Parliament", url: "https://www.parliament.uk/about/living-heritage/evolutionofparliament/parliamentaryauthority/revolution/collections1/collections-glorious-revolution/billofrights/", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "gb-3", kind: "history", asOf: "2026-09-28",
@@ -144,6 +195,104 @@ window.POLITICS.addUnit("gb", {
         { title: "United Kingdom profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/uk-18028620", date: "n.d." },
         { title: "Premiership of Keir Starmer", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Premiership_of_Keir_Starmer", date: "2026" },
         { title: "Keir Starmer: Resignation, Biography", publisher: "Britannica", url: "https://www.britannica.com/biography/Keir-Starmer", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "gb-10", kind: "past", asOf: "2026-09-28",
+      title: "Thatcher and the miners",
+      dek: "In the 1980s Margaret Thatcher broke the unions, sold state industries and remade Britain's economy. The country still divides over her legacy.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/gb/gb-10-hero.webp",
+          alt: "Illustration of a coal mine's winding tower silhouetted against a grey sky above rows of terraced houses in a valley.",
+          caption: "Mining towns were at the centre of the 1984–85 strike.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A tall iron colliery winding tower silhouetted against a heavy grey sky above rows of brick terraced houses climbing a valley side, chimney smoke, damp and working-class, no people close up, no legible text." },
+        { type: "facts", head: "The Thatcher years", rows: [
+          ["Prime minister", "1979–1990, the longest continuous term of the 20th century"],
+          ["Miners' strike", "March 1984 – March 1985"],
+          ["Union membership", "About 13 million in 1979; about 10 million by 1990"],
+          ["Privatised", "British Telecom, British Gas, British Airways, water, electricity and more"],
+          ["Council homes sold", "Over 1 million under 'Right to Buy' by 1990"]
+        ] },
+        { type: "section", head: "The 'sick man of Europe'", md:
+          "By the 1970s Britain was struggling with high inflation, weak growth and frequent strikes. In the 'Winter of Discontent' of 1978–79, public-sector strikes left rubbish uncollected and, in some places, the dead unburied. Margaret Thatcher, a grocer's daughter who led the Conservatives, won the 1979 election promising to restore order, curb the unions and roll back the state. She became Britain's first woman prime minister." },
+        { type: "section", head: "Monetarism and the Falklands", md:
+          "Her government raised interest rates to squeeze inflation, and unemployment rose above three million, the highest since the 1930s, as old industries closed. Riots broke out in cities in 1981. Her fortunes were transformed in 1982, when she sent a task force to retake the Falkland Islands after Argentina invaded (see [[unit:ar]]), and she won a landslide in 1983." },
+        { type: "section", head: "The miners' strike", md:
+          "In March 1984 the National Coal Board announced pit closures, and the National Union of Mineworkers, led by Arthur Scargill, went on strike without a national ballot, which split the union. The government had stockpiled coal and was determined to win. The year-long strike brought violent clashes between pickets and police, most famously at Orgreave in South Yorkshire, and deep hardship in mining communities. The miners returned to work in March 1985, defeated. Most pits closed within a decade, and many mining towns have never recovered. Campaigners still seek an inquiry into policing at Orgreave." },
+        { type: "section", head: "Remaking the economy", md:
+          "Thatcher's governments passed laws requiring secret ballots before strikes and limiting picketing. They privatised state-owned companies, from British Telecom to gas, water and electricity, and sold more than a million council houses to their tenants. The 'Big Bang' of 1986 deregulated the City of London, which boomed. Critics point to soaring inequality and the destruction of industrial communities, especially in the north, Scotland and Wales." },
+        { type: "compare", head: "Two verdicts",
+          left: { head: "Admirers", md:
+            "She rescued a declining country, tamed inflation and the unions, spread home and share ownership, and helped win the Cold War." },
+          right: { head: "Critics", md:
+            "She destroyed industries and communities, widened inequality and left regions that still vote against the Conservatives decades later." } },
+        { type: "section", head: "Her fall and legacy", md:
+          "Thatcher fell in 1990 after a revolt by her own MPs over a hugely unpopular 'poll tax' and her growing hostility to European integration. Labour's Tony Blair kept most of her reforms. Her Euroscepticism shaped the road to Brexit, and the lost industries of the 'red wall' towns explain much of their later swing to Brexit and to Reform UK." }
+      ],
+      takeaways: [
+        "Margaret Thatcher (1979–90) curbed the unions, privatised state industries and deregulated the City.",
+        "The miners' strike of 1984–85 ended in defeat for the union, and most pits closed.",
+        "Her legacy still divides Britain, especially in former industrial regions."
+      ],
+      check: { q: "What was 'Right to Buy'?",
+        choices: ["A shares scheme", "A policy letting council tenants buy their homes", "A trade deal"], answer: 1,
+        explain: "Over a million council homes were sold to tenants during the 1980s, a flagship Thatcher policy." },
+      sources: [
+        { title: "Margaret Thatcher", publisher: "Britannica", url: "https://www.britannica.com/biography/Margaret-Thatcher", date: "n.d." },
+        { title: "On 40th anniversary of UK miners' strike, can Labour win back the north?", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2024/3/8/on-40th-anniversary-of-uk-miners-strike-can-labour-win-back-the-north", date: "2024-03-08" },
+        { title: "Margaret Thatcher", publisher: "Margaret Thatcher Foundation", url: "https://www.margaretthatcher.org/", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "gb-11", kind: "past", asOf: "2026-09-28",
+      title: "The Troubles",
+      dek: "For three decades Northern Ireland was torn by violence between those who wanted to stay British and those who wanted a united Ireland. The 1998 peace deal still holds.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/gb/gb-11-hero.webp",
+          alt: "Illustration of a tall wall of corrugated steel and brick separating two rows of terraced houses in a city, under a grey sky.",
+          caption: "'Peace walls' still separate some Catholic and Protestant neighbourhoods in Belfast.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A tall wall of brick topped with high steel mesh fencing running between two rows of red-brick terraced houses in a city, a grey sky, a gate in the wall, quiet and divided, no people, no flags, no murals, no legible text." },
+        { type: "facts", head: "The Troubles", rows: [
+          ["Years", "Late 1960s to 1998"],
+          ["Deaths", "About 3,500"],
+          ["Bloody Sunday", "30 January 1972; 13 killed on the day, another died later"],
+          ["Good Friday Agreement", "10 April 1998"],
+          ["Approved by referendum", "71% in Northern Ireland, 94% in the Republic"]
+        ] },
+        { type: "section", head: "A divided province", md:
+          "Northern Ireland was created in 1921 with a Protestant, unionist majority that wanted to remain British and a Catholic, nationalist minority that mostly wanted a united Ireland. For decades unionists ran it as a one-party state; Catholics faced discrimination in housing, jobs and voting, with electoral boundaries drawn to favour unionists. Inspired by the US civil rights movement, Catholics began marching for equal rights in 1968, and some marches were attacked by loyalists and the police." },
+        { type: "section", head: "Descent into violence", md:
+          "In 1969 rioting broke out in Derry and Belfast, and the British army was sent in, at first welcomed by many Catholics as protectors. A revived Provisional IRA launched an armed campaign to force Britain out, while loyalist paramilitaries such as the UVF and UDA targeted Catholics. On Bloody Sunday, 30 January 1972, British soldiers shot dead 13 unarmed civil rights marchers in Derry, and another died later, a turning point that drove recruits to the IRA. Britain imposed direct rule from London that year." },
+        { type: "section", head: "Thirty years of conflict", md:
+          "About 3,500 people were killed, more than half of them civilians. The IRA bombed pubs, shops and cities in England as well as Northern Ireland, and in 1984 almost killed Margaret Thatcher in a hotel bombing in Brighton. Loyalists carried out sectarian murders, and some members of the security forces colluded with them. Internment without trial and the deaths of ten republican hunger strikers in 1981, including Bobby Sands, who was elected an MP while starving, deepened the divide." },
+        { type: "section", head: "The peace process", md:
+          "Secret talks led to ceasefires in 1994. On Good Friday, 10 April 1998, the British and Irish governments and most parties signed an agreement: Northern Ireland would stay in the UK as long as a majority wished, with the possibility of a referendum on Irish unity; a devolved government would share power between unionists and nationalists; paramilitary prisoners would be released; and the Republic dropped its constitutional claim to the North. Voters on both sides of the border approved it. The IRA completed its disarmament in 2005." },
+        { type: "compare", head: "Two perspectives",
+          left: { head: "Unionists", md:
+            "Northern Ireland is British by the consent of its majority. Republican violence was terrorism, and it failed." },
+          right: { head: "Nationalists", md:
+            "Partition and discrimination caused the conflict, and a peaceful, democratic route to Irish unity is now open." } },
+        { type: "section", head: "Why it still matters", md:
+          "The power-sharing government has collapsed several times, most recently in 2022–24 over post-Brexit trade rules, since the peace deal depends on an open border with the Republic. In 2024 Sinn Féin's Michelle O'Neill became the first nationalist first minister. Demographic change has made Catholics the largest group, and debate about a future referendum on Irish unity is growing, while a 2023 law limiting prosecutions for Troubles-era killings angered victims' families." }
+      ],
+      takeaways: [
+        "Discrimination against Catholics in Northern Ireland led to civil rights marches and, from 1969, three decades of violence.",
+        "About 3,500 people died in the Troubles, including 14 after Bloody Sunday in 1972.",
+        "The 1998 Good Friday Agreement created power-sharing and still underpins peace."
+      ],
+      check: { q: "What did the Good Friday Agreement say about Northern Ireland's future?",
+        choices: ["It would join Ireland immediately", "It stays in the UK as long as a majority wishes, with a possible referendum on unity", "It becomes independent"], answer: 1,
+        explain: "The principle of consent keeps Northern Ireland in the UK unless a majority votes for a united Ireland." },
+      sources: [
+        { title: "The Troubles", publisher: "Britannica", url: "https://www.britannica.com/event/The-Troubles-Northern-Ireland-history", date: "n.d." },
+        { title: "The Belfast Agreement", publisher: "UK Government", url: "https://www.gov.uk/government/publications/the-belfast-agreement", date: "1998" },
+        { title: "Bloody Sunday Inquiry report", publisher: "UK Government", url: "https://www.gov.uk/government/publications/report-of-the-bloody-sunday-inquiry", date: "2010-06-15" }
       ]
     },
 
@@ -356,6 +505,55 @@ window.POLITICS.addUnit("gb", {
         { title: "Burnham's Budget bind", publisher: "LabourList", url: "https://labourlist.org/2026/09/burnhams-budget-bind/", date: "2026-09" },
         { title: "Labour conference is the easy bit — Burnham's real test comes in a month", publisher: "Hyphen", url: "https://hyphenonline.com/2026/09/25/andy-burnham-labour-conference-2026-budget-john-healey/", date: "2026-09-25" },
         { title: "Premiership of Andy Burnham", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Premiership_of_Andy_Burnham", date: "2026-09" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "gb-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "Scotland's question",
+      dek: "Scotland voted to stay in the UK in 2014, then voted against Brexit in 2016. Whether it should be independent still dominates its politics.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/gb/gb-12-hero.webp",
+          alt: "Illustration of a modern parliament building with unusual angled roofs and wooden details at the foot of a green hill, beside an old palace.",
+          caption: "The Scottish Parliament at Holyrood in Edinburgh, reopened in 1999 after almost three centuries.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A striking modern parliament building with leaf-shaped roofs, angular windows and wooden trellis details at the foot of a steep green hill with rocky crags, an old stone palace nearby, bright changeable sky, no people close up, no flags, no legible text." },
+        { type: "facts", head: "Scotland in numbers", rows: [
+          ["Population", "About 5.5 million"],
+          ["2014 independence referendum", "No 55%, Yes 45%"],
+          ["2016 Brexit vote in Scotland", "Remain 62%, Leave 38%"],
+          ["Scottish Parliament election, May 2026", "SNP largest party with 57 of 129 seats"],
+          ["2022 Supreme Court ruling", "Holyrood cannot call a referendum without Westminster's consent"]
+        ] },
+        { type: "section", head: "Home rule", md:
+          "Scotland kept its own legal system, church and schools after 1707, and a distinct identity. The Scottish National Party (SNP), founded in 1934, won its first seat in 1945. Resentment grew in the 1980s, when Scotland voted Labour but was governed by Margaret Thatcher's Conservatives, who introduced the unpopular poll tax there a year before England. In a 1997 referendum Scots voted overwhelmingly for a parliament of their own, which opened in 1999 with powers over health, education, justice and some taxes." },
+        { type: "section", head: "The 2014 referendum", md:
+          "The SNP won a majority at Holyrood in 2011, and David Cameron's government agreed to a referendum. On 18 September 2014, with a turnout of 85%, Scots voted 55% to 45% to stay in the UK. The 'No' campaign argued that independence was an economic risk, with uncertainty over the currency, oil revenues and EU membership. The debate energised Scottish politics, and in the 2015 general election the SNP won 56 of Scotland's 59 Westminster seats." },
+        { type: "section", head: "Brexit changes the argument", md:
+          "In the 2016 EU referendum, Scotland voted 62% to Remain, while the UK as a whole voted to Leave. The SNP argued this was a 'material change' justifying a new independence vote. But London refused, and in 2022 the UK Supreme Court ruled that the Scottish Parliament could not hold a referendum without Westminster's consent. For some voters Brexit strengthened the case for independence; for others it showed how painful separating from a union can be." },
+        { type: "section", head: "Scandal and recovery", md:
+          "Nicola Sturgeon, the SNP's long-serving first minister, resigned in 2023; a police investigation into party finances followed, and her husband, a former party chief executive, was charged with embezzlement. The SNP lost heavily to Labour in the 2024 general election, falling to 9 seats. Under John Swinney it recovered to remain the largest party in the Scottish Parliament in May 2026, with 57 of 129 seats, short of a majority, while Reform UK and Labour each won 17." },
+        { type: "compare", head: "Two cases",
+          left: { head: "For independence", md:
+            "Scotland is a nation that keeps getting governments it didn't vote for, and was taken out of the EU against its will. It could thrive like other small European states." },
+          right: { head: "For the union", md:
+            "The UK shares a currency, market, defence and public spending that benefit Scotland; separation would mean a hard border with England, its biggest market." } },
+        { type: "section", head: "Why it matters", md:
+          "Polls have shown Scots roughly evenly split on independence for most of the past decade. Without Westminster's consent there is no legal route to a new referendum, so the question is political: whether a future UK government would agree, and whether Scottish voters give the SNP a mandate strong enough to force the issue." }
+      ],
+      takeaways: [
+        "Scotland has had its own parliament since 1999 and voted 55% to 45% against independence in 2014.",
+        "Scotland voted 62% to remain in the EU, reviving the independence debate.",
+        "The SNP remains the largest party at Holyrood, but a referendum needs Westminster's consent."
+      ],
+      check: { q: "What did the UK Supreme Court rule in 2022?",
+        choices: ["Scotland is independent", "The Scottish Parliament cannot hold an independence referendum without Westminster's consent", "Brexit does not apply to Scotland"], answer: 1,
+        explain: "The court found that a referendum on independence relates to matters reserved to the UK Parliament." },
+      sources: [
+        { title: "Scottish independence referendum 2014", publisher: "Britannica", url: "https://www.britannica.com/topic/Scottish-independence-referendum-of-2014", date: "n.d." },
+        { title: "Reference by the Lord Advocate of devolution issues (UKSC 2022/0098)", publisher: "UK Supreme Court", url: "https://www.supremecourt.uk/cases/uksc-2022-0098", date: "2022-11-23" },
+        { title: "Scottish Parliament elections 2026", publisher: "House of Commons Library", url: "https://commonslibrary.parliament.uk/research-briefings/cbp-10843/", date: "2026" }
       ]
     },
 

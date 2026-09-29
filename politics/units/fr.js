@@ -100,6 +100,57 @@ window.POLITICS.addUnit("fr", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "fr-9", kind: "founding", asOf: "2026-09-28",
+      title: "1789: the Revolution",
+      dek: "The French Revolution overthrew an absolute monarchy, proclaimed the rights of man, and gave the world the idea of left and right.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/fr/fr-9-hero.webp",
+          alt: "Illustration of a crowd seen from behind surging toward a massive medieval stone fortress with round towers, under smoke and a summer sky.",
+          caption: "The storming of the Bastille on 14 July 1789, now France's national day.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A huge crowd in 18th-century clothes seen from behind surging toward a massive medieval stone fortress with round towers, smoke drifting across a bright summer sky, dramatic painterly style, no faces visible, no flags, no legible text." },
+        { type: "timeline", head: "From monarchy to republic", items: [
+          ["May 1789", "Estates-General meets at Versailles"],
+          ["14 July 1789", "Storming of the Bastille"],
+          ["Aug 1789", "Declaration of the Rights of Man and of the Citizen"],
+          ["1792", "Monarchy abolished; the First Republic"],
+          ["1793–94", "The Terror; Louis XVI executed"],
+          ["1799", "Napoleon Bonaparte seizes power"],
+          ["1958", "The Fifth Republic, France's current regime"]
+        ] },
+        { type: "section", head: "The old regime", md:
+          "In the 18th century France was Europe's most populous and powerful kingdom, ruled by an absolute monarch at Versailles. Society was divided into three 'estates': the clergy, the nobility, and everyone else, who paid most of the taxes. Wars, including support for the American Revolution, had bankrupted the state, and bad harvests sent bread prices soaring. Enlightenment thinkers such as Voltaire and Rousseau had spread ideas of reason, rights and popular sovereignty." },
+        { type: "section", head: "1789", md:
+          "To raise money, Louis XVI summoned the Estates-General in May 1789 for the first time since 1614. The Third Estate declared itself a National Assembly and swore not to disband until France had a constitution. When the king massed troops, Parisians stormed the Bastille prison on 14 July, and peasants rose against their lords across the country. In August the Assembly abolished feudal privileges and adopted the Declaration of the Rights of Man and of the Citizen: 'Men are born and remain free and equal in rights'." },
+        { type: "section", head: "Republic and Terror", md:
+          "The revolution radicalised as war broke out with Austria and Prussia in 1792. The monarchy was abolished that September and Louis XVI was guillotined in January 1793. Seats in the assembly gave us our political vocabulary: radicals sat on the left, moderates and royalists on the right. Under Robespierre's Committee of Public Safety, the Terror of 1793–94 executed about 17,000 people after trials and killed many more without them, while a royalist revolt in the Vendée was crushed with mass killings. Robespierre was himself guillotined in July 1794." },
+        { type: "section", head: "Napoleon and after", md:
+          "In 1799 General Napoleon Bonaparte seized power and in 1804 crowned himself emperor. His Civil Code, centralised administration and education system outlasted his conquests. Over the next century and a half France swung between monarchies, empires and republics, five republics in all; the Third lasted from 1870 to 1940. The current Fifth Republic, created by Charles de Gaulle in 1958, is the second-longest-lasting regime since 1789." },
+        { type: "compare", head: "Two readings of the Revolution",
+          left: { head: "The republican tradition", md:
+            "1789 founded modern democracy: equality before the law, rights for citizens and the end of hereditary privilege, ideas that spread worldwide." },
+          right: { head: "Its critics", md:
+            "From Edmund Burke onward, critics have argued that tearing down every institution led to terror, war and dictatorship." } },
+        { type: "section", head: "Why it still matters", md:
+          "The Republic's motto, 'Liberty, equality, fraternity', its tricolour flag, its anthem, the Marseillaise, and its insistence on a secular, centralised state all come from the Revolution. French politicians still invoke 1789, and French citizens still take to the streets to defend their rights, from the 1968 protests to the gilets jaunes and the pension strikes." }
+      ],
+      takeaways: [
+        "A bankrupt monarchy summoned the Estates-General in 1789, setting off a revolution that stormed the Bastille on 14 July.",
+        "The Declaration of the Rights of Man proclaimed equality; the monarchy fell in 1792 and the Terror followed.",
+        "France has since had five republics; the Fifth, de Gaulle's, dates from 1958."
+      ],
+      check: { q: "Where do the political terms 'left' and 'right' come from?",
+        choices: ["The British Parliament", "Where factions sat in France's revolutionary assembly", "The US Congress"], answer: 1,
+        explain: "In the revolutionary assemblies, radicals sat to the president's left and conservatives to the right." },
+      sources: [
+        { title: "French Revolution", publisher: "Britannica", url: "https://www.britannica.com/event/French-Revolution", date: "n.d." },
+        { title: "Declaration of the Rights of Man and of the Citizen", publisher: "Conseil constitutionnel", url: "https://www.conseil-constitutionnel.fr/en/declaration-of-human-and-civic-rights-of-26-august-1789", date: "1789" },
+        { title: "Reign of Terror", publisher: "Britannica", url: "https://www.britannica.com/event/Reign-of-Terror", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "fr-3", kind: "history", asOf: "2026-09-28",
@@ -144,6 +195,106 @@ window.POLITICS.addUnit("fr", {
         { title: "France profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-europe-17299010", date: "n.d." },
         { title: "Sébastien Lecornu", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/S%C3%A9bastien_Lecornu", date: "2026" },
         { title: "France's Macron reappoints Sebastien Lecornu as prime minister", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2025/10/10/frances-macron-re-appoints-sebastien-lecornu-as-prime-minister", date: "2025-10-10" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "fr-10", kind: "past", asOf: "2026-09-28",
+      title: "The Algerian War",
+      dek: "France fought a brutal eight-year war to keep Algeria. It lost, the Fourth Republic collapsed, and the wounds shape French politics today.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/fr/fr-10-hero.webp",
+          alt: "Illustration of a whitewashed Mediterranean city climbing a hillside above a harbour, with a casbah of narrow streets and a large colonial boulevard.",
+          caption: "Algiers, where the Battle of Algiers was fought in 1957.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A whitewashed Mediterranean city climbing steeply above a harbour, a dense casbah of narrow alleys and flat roofs beside grand colonial arcaded boulevards, bright hard sunlight and deep blue sea, tense stillness, no people close up, no flags, no legible text." },
+        { type: "facts", head: "The war", rows: [
+          ["Years", "1954–1962"],
+          ["French colonial rule", "1830–1962"],
+          ["European settlers ('pieds-noirs')", "About 1 million"],
+          ["Algerian deaths", "Estimates range from about 300,000 to 1.5 million (the Algerian government's figure)"],
+          ["Independence", "5 July 1962, after the Évian Accords"]
+        ] },
+        { type: "section", head: "French Algeria", md:
+          "France invaded Algeria in 1830 and, unlike its other colonies, made it part of France itself, divided into French departments. About a million European settlers, known as pieds-noirs, lived there, with full rights, while most of the nine million Muslim Algerians were subjects without equal citizenship. Nationalist demands grew after the Second World War; in May 1945 protests at Sétif were put down with massacres that killed thousands of Algerians." },
+        { type: "section", head: "The war", md:
+          "On 1 November 1954 the National Liberation Front (FLN) launched an armed uprising. France sent hundreds of thousands of conscripts. The FLN used bombings against civilians and killed rival nationalists and Algerians who sided with France; the French army used torture systematically, forced about two million villagers into camps, and in the 1957 Battle of Algiers broke the FLN's network in the capital. Algerians who fought for France, the harkis, were left to reprisals after independence." },
+        { type: "section", head: "The Republic falls", md:
+          "The war destroyed France's Fourth Republic. In May 1958, fearing that Paris would negotiate, settlers and generals seized power in Algiers and threatened to take Paris. Parliament called back Charles de Gaulle, who wrote a new constitution with a strong presidency, founding the Fifth Republic. To the fury of the settlers, he concluded that Algeria must be independent. Generals attempted a putsch in 1961, and a settler terrorist group, the OAS, tried to assassinate him. The Évian Accords of March 1962 ended the war; Algeria became independent in July, and nearly all the pieds-noirs fled to France." },
+        { type: "section", head: "Violence in Paris", md:
+          "The war came to France itself. On 17 October 1961, police in Paris attacked a peaceful demonstration of Algerians against a curfew; dozens were killed, by Macron's own account, with some historians putting the toll above a hundred, and bodies were thrown into the Seine. The massacre was covered up for decades. In 2021 President Macron called it 'inexcusable'." },
+        { type: "compare", head: "Memories in conflict",
+          left: { head: "Calls for recognition", md:
+            "France should fully acknowledge torture, massacres and colonial injustice, as Macron has begun to do, to heal relations with Algeria and with French citizens of Algerian descent." },
+          right: { head: "Resistance to 'repentance'", md:
+            "Many pieds-noirs, harkis and veterans resent a one-sided account that ignores FLN atrocities and the suffering of those who lost their homes." } },
+        { type: "section", head: "Why it still matters", md:
+          "Several million French citizens have Algerian roots, making Algeria's history part of France's. Relations with Algiers swing between rapprochement and crisis, including a sharp downturn in 2024–25 after France backed Morocco's position on Western Sahara. The far right's founder, Jean-Marie Le Pen, served in Algeria, and debates over immigration, national identity and colonial memory continue to echo the war." }
+      ],
+      takeaways: [
+        "France ruled Algeria from 1830 as part of France itself, with a million European settlers.",
+        "The 1954–62 war of independence involved terrorism, systematic torture and hundreds of thousands of deaths.",
+        "The crisis brought de Gaulle back and created the Fifth Republic; Algeria became independent in 1962."
+      ],
+      check: { q: "What political change did the Algerian crisis bring about in France?",
+        choices: ["The end of the monarchy", "The collapse of the Fourth Republic and the founding of the Fifth under de Gaulle", "France leaving NATO"], answer: 1,
+        explain: "The May 1958 crisis in Algiers led parliament to recall de Gaulle, who created the Fifth Republic." },
+      sources: [
+        { title: "Algerian War", publisher: "Britannica", url: "https://www.britannica.com/event/Algerian-War", date: "n.d." },
+        { title: "Macron condemns 'inexcusable' police crackdown on 1961 Paris protest", publisher: "France 24", url: "https://www.france24.com/en/europe/20211016-macron-to-participate-in-commemorations-of-paris-algeria-protest-massacre", date: "2021-10-16" },
+        { title: "Algeria: History", publisher: "Britannica", url: "https://www.britannica.com/place/Algeria/History", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "fr-11", kind: "past", asOf: "2026-09-28",
+      title: "May 1968",
+      dek: "A student revolt turned into the largest general strike in French history. De Gaulle survived, but France changed.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/fr/fr-11-hero.webp",
+          alt: "Illustration of a narrow Paris street with cobblestones piled into a barricade, overturned chairs and smoke, below tall stone apartment buildings.",
+          caption: "Barricades in the Latin Quarter of Paris, May 1968.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A narrow Parisian street of tall cream stone apartment buildings with wrought-iron balconies, cobblestones piled into a makeshift barricade with overturned chairs and a toppled car, drifting smoke, early morning light, rebellious and tense, no people, no legible text or graffiti." },
+        { type: "timeline", head: "Spring 1968", items: [
+          ["22 March", "Students occupy a building at Nanterre university"],
+          ["3 May", "Police clear the Sorbonne"],
+          ["10–11 May", "'Night of the barricades' in the Latin Quarter"],
+          ["13 May onward", "General strike; about 10 million workers stop"],
+          ["27 May", "Grenelle agreements raise the minimum wage by about a third"],
+          ["30 May", "De Gaulle dissolves the Assembly; huge rally in his support"],
+          ["June", "Gaullists win a landslide"]
+        ] },
+        { type: "section", head: "A society in a hurry", md:
+          "France in the 1960s was booming, modernising fast, and governed by Charles de Gaulle, a war hero then in his late seventies whose style struck many young people as authoritarian and paternalistic. Universities were overcrowded and old-fashioned; state television was controlled by the government; and a baby-boom generation, influenced by opposition to the Vietnam War and new ideas about sex and authority, was restless." },
+        { type: "section", head: "The student revolt", md:
+          "Protests began at the new suburban university of Nanterre, where students occupied buildings in March. When police cleared the Sorbonne in central Paris on 3 May, students fought back. On the 'night of the barricades', 10–11 May, they tore up cobblestones and built barricades in the Latin Quarter; riot police charged, and hundreds were injured. Slogans such as 'Be realistic, demand the impossible' and 'Beneath the paving stones, the beach!' became famous." },
+        { type: "section", head: "The general strike", md:
+          "Outraged by the police violence, unions called a general strike on 13 May. Workers occupied factories across the country, and within days about 10 million people, over a fifth of the population, were on strike: the largest general strike in French history. Transport, post and fuel supplies stopped. On 27 May the government and unions agreed the Grenelle accords, raising the minimum wage by about a third, but many strikers rejected them. For a few days the regime looked as if it might fall." },
+        { type: "section", head: "De Gaulle's comeback", md:
+          "On 29 May de Gaulle secretly flew to a French army base in Germany, apparently to ensure the military's support. The next day he returned, dissolved the National Assembly and called elections, warning of communist subversion. Hundreds of thousands of his supporters marched on the Champs-Élysées. In June the Gaullists won a landslide. But de Gaulle had been shaken; he resigned in 1969 after losing a referendum on regional reform." },
+        { type: "compare", head: "Two legacies",
+          left: { head: "Liberation", md:
+            "1968 swept away stuffy hierarchies in universities, workplaces and families, and opened the way for feminism, gay rights and a freer culture." },
+          right: { head: "Its critics", md:
+            "Nicolas Sarkozy called for 'liquidating' its legacy, blaming it for undermining authority, respect and the value of work." } },
+        { type: "section", head: "Why it still matters", md:
+          "May 1968 set a template: in France, big change often comes from the street. The strikes against pension reform in 1995, 2019 and 2023, and the gilets jaunes of 2018–19, all drew comparisons with 1968, as has every standoff between a determined president and mass protest." }
+      ],
+      takeaways: [
+        "In May 1968 a student revolt in Paris spread into a general strike of about 10 million workers.",
+        "The Grenelle accords raised the minimum wage by about a third, and de Gaulle called elections, which he won.",
+        "May 1968 transformed French society and remains a template for protest."
+      ],
+      check: { q: "How did de Gaulle respond at the height of the crisis?",
+        choices: ["He resigned at once", "He dissolved the National Assembly and called elections, which his party won", "He imposed martial law"], answer: 1,
+        explain: "De Gaulle called snap elections on 30 May and won a landslide in June, though he resigned the following year." },
+      sources: [
+        { title: "Events of May 1968", publisher: "Britannica", url: "https://www.britannica.com/event/events-of-May-1968", date: "n.d." },
+        { title: "Charles de Gaulle", publisher: "Britannica", url: "https://www.britannica.com/biography/Charles-de-Gaulle", date: "n.d." },
+        { title: "May 1968, France in revolt", publisher: "France 24", url: "https://www.france24.com/en/20180320-may-1968-france-revolt", date: "2018-03-20" }
       ]
     },
 
@@ -349,6 +500,55 @@ window.POLITICS.addUnit("fr", {
         { title: "France appeals court opens door for Le Pen presidential run, with ankle tag", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/7/7/france-appeals-court-opens-door-for-le-pen-presidential-run-with-ankle-tag", date: "2026-07-07" },
         { title: "As French far-right leader Marine Le Pen's appeal trial ends, her presidential bid is at stake", publisher: "AP via Barchart", url: "https://www.barchart.com/story/news/162218/as-french-far-right-leader-marine-le-pen-s-appeal-trial-ends-her-presidential-bid-is-at-stake", date: "2026" },
         { title: "France's fresh budget battle threatens to topple another government", publisher: "CNBC", url: "https://www.cnbc.com/2026/09/24/france-budget-debt-deficit-government.html", date: "2026-09-24" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "fr-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "Laïcité, Islam and the banlieues",
+      dek: "France's strict secularism was designed to keep the Church out of the state. Today it is at the centre of fierce debates about Islam, identity and the suburbs.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/fr/fr-12-hero.webp",
+          alt: "Illustration of large concrete housing towers in a suburb at dusk, with a tram line in front and a small mosque with a green dome between the blocks.",
+          caption: "The banlieues around Paris and other cities, built in the 1960s and 1970s, are home to many families of immigrant origin.",
+          credit: "AI illustration — not a photograph",
+          prompt: "Large concrete housing tower blocks in a French suburb at dusk, a modern tram line passing in front, a small mosque with a modest green dome between the blocks, lit windows, a mix of hope and neglect, no people close up, no legible text or graffiti." },
+        { type: "facts", head: "Key facts", rows: [
+          ["Law separating churches and state", "1905"],
+          ["Muslims in France", "Estimated 5–6 million, the largest Muslim population in western Europe"],
+          ["Headscarf ban in state schools", "2004"],
+          ["Face-covering ban in public", "2010"],
+          ["'Separatism' law", "2021"]
+        ] },
+        { type: "section", head: "What laïcité means", md:
+          "After a long struggle between republicans and the Catholic Church, the law of 1905 separated churches and state: the Republic recognises and funds no religion and guarantees freedom of conscience. Laïcité means the state is neutral, and its agents, from teachers to judges, may not display their faith at work. Most French people across the spectrum see it as a founding value of the Republic, as important as liberty and equality." },
+        { type: "section", head: "Islam in France", md:
+          "Immigration from France's former colonies in North and West Africa after the Second World War made Islam France's second religion. Many immigrant families settled in the banlieues, large housing estates on city outskirts, where unemployment is often high and public services weak. In 2005, after two teenagers died fleeing police in Clichy-sous-Bois, riots spread across the country for three weeks. In 2023 the police killing of a 17-year-old, Nahel Merzouk, set off another week of riots." },
+        { type: "section", head: "Headscarves and burkinis", md:
+          "Since the 1980s arguments over Muslim dress have repeatedly divided France. A 2004 law banned conspicuous religious symbols, including headscarves, in state schools; a 2010 law banned face coverings such as the niqab in public. Towns tried to ban the 'burkini' on beaches in 2016, until courts stepped in, and in 2023 the government banned the abaya, a long robe, in schools. Supporters see these measures as protecting laïcité and women's equality; critics say they single out Muslims." },
+        { type: "section", head: "Terror and 'separatism'", md:
+          "France suffered a wave of jihadist attacks: on the satirical magazine Charlie Hebdo in January 2015, on the Bataclan concert hall and other sites in Paris in November 2015, killing 130, and in Nice in 2016, killing 86. In 2020 a teacher, Samuel Paty, was beheaded after showing cartoons of the Prophet Muhammad in a class on free speech. President Macron responded with a 2021 law against 'Islamist separatism', tightening control over home schooling, associations and foreign funding of mosques." },
+        { type: "compare", head: "Two views",
+          left: { head: "Defenders of strict laïcité", md:
+            "A shared secular public space is what holds a diverse nation together, and it must be defended against Islamist pressure." },
+          right: { head: "Critics", md:
+            "Laïcité has been turned from state neutrality into a tool to police Muslims, deepening their sense of exclusion." } },
+        { type: "section", head: "Why it matters", md:
+          "These debates feed the rise of the National Rally, shape the 2027 presidential race, and test whether France's model of integration, which recognises citizens, not communities, can work for millions of French Muslims. The 1905 law bound the state to neutrality; the argument now is how far that neutrality should extend to what citizens themselves wear and do in public." }
+      ],
+      takeaways: [
+        "Laïcité, founded in the 1905 law separating churches and state, keeps religion out of public institutions.",
+        "France has western Europe's largest Muslim population, concentrated in often deprived suburbs.",
+        "Bans on headscarves in schools and face coverings, and responses to terror attacks, fuel debate about Islam and identity."
+      ],
+      check: { q: "What did France's 2004 law ban?",
+        choices: ["All mosques", "Conspicuous religious symbols, including headscarves, in state schools", "Religious marriage"], answer: 1,
+        explain: "The law applies to pupils in state schools and covers all conspicuous religious symbols, though headscarves were its focus." },
+      sources: [
+        { title: "100th Anniversary of Secularism in France", publisher: "Pew Research Center", url: "https://www.pewresearch.org/religion/2005/12/09/100th-anniversary-of-secularism-in-france/", date: "2005-12-09" },
+        { title: "France's 1905 Law of Separation of Church and State", publisher: "World History Encyclopedia", url: "https://www.worldhistory.org/article/2094/frances-1905-law-of-separation-of-church-and-state/", date: "n.d." },
+        { title: "Eight sentenced in France in connection with murder of teacher Samuel Paty", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2024/12/21/french-court-jails-eight-people-involved-in-beheading-of-teacher", date: "2024-12-21" }
       ]
     },
 
