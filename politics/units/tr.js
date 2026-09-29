@@ -531,7 +531,7 @@ window.POLITICS.addUnit("tr", {
         { type: "section", head: "1974", md:
           "In July 1974 the military junta then ruling Greece backed a coup in Cyprus aimed at union with Greece. Turkey invaded five days later, citing its role as guarantor, and in a second offensive took about 37% of the island. Around 160,000 Greek Cypriots fled or were expelled south, and about 45,000 Turkish Cypriots moved north. Thousands were killed or went missing. The coup's failure also brought down the junta in Athens." },
         { type: "section", head: "Failed reunification", md:
-          "In 1983 the north declared itself the Turkish Republic of Northern Cyprus, recognised only by Turkey, which keeps tens of thousands of troops there. The most serious attempt at a settlement, the UN's Annan Plan for a federation, was put to referendums in 2004: Turkish Cypriots backed it, but Greek Cypriots rejected it by three to one. Days later the Republic of Cyprus joined the EU, with EU law suspended in the north. Talks collapsed again at Crans-Montana in 2017." },
+          "In 1983 the north declared itself the Turkish Republic of Northern Cyprus, recognised only by Turkey, which keeps tens of thousands of troops there. The most serious attempt at a settlement, the UN's Annan Plan for a federation, was put to referendums in 2004: Turkish Cypriots backed it, but Greek Cypriots rejected it by three to one. Days later the Republic of Cyprus joined the EU, with EU law suspended in the north. Talks collapsed again at Crans-Montana in Switzerland in 2017." },
         { type: "section", head: "Two states or one?", md:
           "Turkey and the north's leadership have since argued for a two-state solution, which the UN, EU and Greek Cypriots reject. In October 2025 Turkish Cypriots elected Tufan Erhürman, a centre-left supporter of a federal settlement, as their leader with 62.8% of the vote, defeating the Ankara-backed incumbent, Ersin Tatar, and reviving hopes of talks. Gas discoveries off the island have added disputes over maritime boundaries between Cyprus, Greece and Turkey." },
         { type: "compare", head: "Two narratives",
@@ -540,7 +540,7 @@ window.POLITICS.addUnit("tr", {
           right: { head: "Turkish Cypriots and Turkey", md:
             "Turkey's intervention saved Turkish Cypriots from violence and annexation by Greece; any deal must guarantee their political equality." } },
         { type: "section", head: "Why it matters", md:
-          "Cyprus is a major obstacle in Turkey's stalled bid to join the EU, a source of tension with Greece, a fellow NATO member, and a test of whether frozen conflicts can ever be resolved. Crossing points opened in 2003 let Cypriots visit the other side for the first time in decades, and many returned to see the homes they had fled." }
+          "Cyprus is a major obstacle in Turkey's stalled bid to join the EU, a source of tension with Greece, a fellow NATO member, and a test of whether frozen conflicts can ever be resolved. Crossing points opened in 2003 let Cypriots visit the other side for the first time in decades, and many returned to see the homes they had fled, now lived in by others." }
       ],
       takeaways: [
         "Cyprus has been divided since Turkey invaded in 1974 after a Greek-backed coup.",
