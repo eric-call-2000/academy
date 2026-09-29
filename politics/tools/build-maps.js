@@ -26,7 +26,9 @@
    Reviewed with --reviewed: us, cn, ru, in, ua (2026-09-28); il, with
    the Golan overlay and the West Bank and Gaza hatched as contested on
    every map (2026-09-28); kr, kp, tw, pk and jp, with the southern
-   Kurils hatched (2026-09-29).
+   Kurils hatched (2026-09-29); ar, with the Falklands hatched as
+   contested, and ve, with the Essequibo claim drawn as the data has it
+   (Guyana's) and explained in the caption (2026-09-29).
    ============================================================ */
 const fs = require("fs");
 const path = require("path");
@@ -37,7 +39,7 @@ const coarse = require("world-atlas/countries-110m.json");
 const { load, ROOT } = require("./load");
 
 const { P } = load({ units: false });
-const DISPUTED = new Set(["ua", "ru", "cn", "tw", "in", "pk", "il", "kr", "kp", "ma"]);
+const DISPUTED = new Set(["ua", "ru", "cn", "tw", "in", "pk", "il", "kr", "kp", "ma", "ar", "ve"]);
 const W = 1200, H = 750;
 /* Whole polygons held by one country but not recognised as its territory.
    `holder` is the ISO code the data assigns it to; `claimant` the country
@@ -50,9 +52,9 @@ const DISPUTED_AREAS = [
   { name: "Shikotan", holder: "643", claimant: "392", point: [146.75, 43.8] }
 ];
 /* Archipelagos framed on all their major islands (any polygon at least
-   FIT_SHARE of the largest), not just the biggest one. */
-const FIT_ALL = new Set(["jp", "id"]);
-const FIT_SHARE = 0.05;
+   this share of the largest), not just the biggest one. Canada's share is
+   lower so the frame reaches Ellesmere Island. */
+const FIT_ALL = { jp: 0.05, id: 0.05, ca: 0.02 };
 /* Areas the data folds into the holder's single polygon, so they can't be
    split out: an outline is drawn hatched on top, clipped to the holder's
    shape. The Golan Heights' eastern edge follows the data's 1974 ceasefire
@@ -70,8 +72,10 @@ const DISPUTED_OVERLAYS = [
   ] }
 ];
 /* Features drawn hatched in neutral grey on every map: territories whose
-   status is itself the dispute. Palestine here is the West Bank and Gaza. */
-const CONTESTED_FEATURES = ["275"];
+   status is itself the dispute. Palestine here is the West Bank and Gaza;
+   238 is the Falkland Islands (Malvinas), British-administered and claimed
+   by Argentina. */
+const CONTESTED_FEATURES = ["275", "238"];
 const COLORS = { ocean: "#dbe7f0", grat: "#c9d9e6", land: "#f1ede4", border: "#ffffff", globeLand: "#e2ddd1", globeRim: "#9fb3c4" };
 
 /* Pull each disputed polygon out of its holder's geometry, so it can be
@@ -102,12 +106,12 @@ const coarseDisputed = splitDisputed(coarseFeatures);
 
 /* The largest single polygon of a (multi)polygon feature: the mainland,
    so the frame isn't stretched across an ocean to fit far islands. */
-function mainland(f, all) {
+function mainland(f, share) {
   if (f.geometry.type === "Polygon") return f;
-  if (all) {
+  if (share) {
     const polys = f.geometry.coordinates.map((coords) => ({ coords, a: d3.geoArea({ type: "Feature", geometry: { type: "Polygon", coordinates: coords } }) }));
     const max = Math.max.apply(null, polys.map((x) => x.a));
-    return { type: "Feature", geometry: { type: "MultiPolygon", coordinates: polys.filter((x) => x.a >= max * FIT_SHARE).map((x) => x.coords) } };
+    return { type: "Feature", geometry: { type: "MultiPolygon", coordinates: polys.filter((x) => x.a >= max * share).map((x) => x.coords) } };
   }
   let best = null, bestArea = -1;
   f.geometry.coordinates.forEach((coords) => {
@@ -127,7 +131,7 @@ function darker(hex, k) {
 function build(c) {
   const f = features.find((x) => x.id === c.iso);
   if (!f) throw new Error(c.id + ": no Natural Earth feature with ISO numeric id " + c.iso);
-  const main = mainland(f, FIT_ALL.has(c.id));
+  const main = mainland(f, FIT_ALL[c.id]);
   const [lon, lat] = d3.geoCentroid(main);
 
   const proj = d3.geoAzimuthalEqualArea().rotate([-lon, -lat])

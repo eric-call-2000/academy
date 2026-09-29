@@ -69,20 +69,20 @@
       blurb: "AUKUS submarines, China trade and a populist surge at home." });
 
   /* Part 5 — The Americas */
-  C({ id: "ca", iso: "124", part: 5, name: "Canada", flag: "🇨🇦", color: "#b3332c", lessons: 0,
+  C({ id: "ca", iso: "124", part: 5, name: "Canada", flag: "🇨🇦", color: "#b3332c", lessons: 8,
       blurb: "America's biggest trading partner, told to be the '51st state', facing a separatism vote." });
-  C({ id: "mx", iso: "484", part: 5, name: "Mexico", flag: "🇲🇽", color: "#22704a", lessons: 0,
+  C({ id: "mx", iso: "484", part: 5, name: "Mexico", flag: "🇲🇽", color: "#22704a", lessons: 8,
       blurb: "America's top trading partner: cartels, migration, nearshoring and steady US pressure." });
-  C({ id: "br", iso: "076", part: 5, name: "Brazil", flag: "🇧🇷", color: "#3a8d3f", lessons: 0,
+  C({ id: "br", iso: "076", part: 5, name: "Brazil", flag: "🇧🇷", color: "#3a8d3f", lessons: 8,
       blurb: "Latin America's giant, which jailed an ex-president and votes on 4 October 2026." });
-  C({ id: "ar", iso: "032", part: 5, name: "Argentina", flag: "🇦🇷", color: "#4a8ec2", lessons: 0,
+  C({ id: "ar", iso: "032", part: 5, name: "Argentina", flag: "🇦🇷", color: "#4a8ec2", lessons: 8,
       blurb: "Milei's libertarian 'chainsaw' experiment, watched by the whole world." });
-  C({ id: "ve", iso: "862", part: 5, name: "Venezuela", flag: "🇻🇪", color: "#c79a1a", lessons: 0,
+  C({ id: "ve", iso: "862", part: 5, name: "Venezuela", flag: "🇻🇪", color: "#c79a1a", lessons: 8,
       blurb: "The largest oil reserves, and the leader the US seized in January 2026." });
 
   /* Part 6 — Africa */
-  C({ id: "za", iso: "710", part: 6, name: "South Africa", flag: "🇿🇦", color: "#1f7a6a", lessons: 0,
+  C({ id: "za", iso: "710", part: 6, name: "South Africa", flag: "🇿🇦", color: "#1f7a6a", lessons: 8,
       blurb: "Africa's most industrialized economy, run by a ten-party coalition about to be tested." });
-  C({ id: "ng", iso: "566", part: 6, name: "Nigeria", flag: "🇳🇬", color: "#4d7c29", lessons: 0,
+  C({ id: "ng", iso: "566", part: 6, name: "Nigeria", flag: "🇳🇬", color: "#4d7c29", lessons: 8,
       blurb: "Africa's most populous country, in a security crisis, voting in January 2027." });
 })();

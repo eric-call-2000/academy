@@ -325,6 +325,104 @@ const SPECS = {
       { head: "SIX STATES", tag: "federal", color: "#6b4f8a", lines: ["Run hospitals, schools, police", "High Court settles disputes"] }
     ],
     bottom: ["THE MONARCH", "King Charles III, represented by the governor-general"]
+  },
+  ca: {
+    title: "How power works in Canada",
+    top: ["THE VOTERS", "first-past-the-post, 343 districts"],
+    boxes: [
+      { head: "HOUSE OF COMMONS", tag: "343 seats", color: "#1f4e79", lines: ["Liberals hold 174 seats", "Majority forms the government"] },
+      { arrow: "forms" },
+      { head: "PRIME MINISTER", tag: "Mark Carney", color: "#b3332c", lines: ["Leads the cabinet", "Appoints senators and judges"] },
+      { arrow: "reviewed by" },
+      { head: "SENATE", tag: "105 appointed", color: "#5b6270", lines: ["Amends bills, rarely blocks them"] },
+      { arrow: "shares power with" },
+      { head: "TEN PROVINCES", tag: "federal", color: "#6b4f8a", lines: ["Run health, schools, resources", "Supreme Court enforces the Charter"] }
+    ],
+    bottom: ["THE MONARCH", "King Charles III, represented by the governor general"]
+  },
+  mx: {
+    title: "How power works in Mexico",
+    top: ["THE VOTERS", "elect the president, Congress and judges"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Claudia Sheinbaum", color: "#22704a", lines: ["One six-year term, no re-election", "Daily press conference sets agenda"] },
+      { arrow: "backed by" },
+      { head: "CONGRESS", tag: "500 + 128 seats", color: "#1f4e79", lines: ["Morena and allies hold two-thirds", "Enough to amend the constitution"] },
+      { arrow: "elected since 2025" },
+      { head: "JUDGES", tag: "chosen by vote", color: "#5b6270", lines: ["All nine Supreme Court justices", "13% turnout in June 2025"] },
+      { arrow: "alongside" },
+      { head: "STATES AND MILITARY", tag: "32 entities", color: "#6b4f8a", lines: ["Most governors are from Morena", "Army runs the National Guard,", "ports, customs and big projects"] }
+    ],
+    bottom: ["NEXT TEST", "Midterms and judicial elections, June 2027"]
+  },
+  br: {
+    title: "How power works in Brazil",
+    top: ["THE VOTERS", "compulsory voting; two-round presidency"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Lula da Silva", color: "#3a8d3f", lines: ["Four-year term, one re-election", "Governs through a coalition"] },
+      { arrow: "bargains with" },
+      { head: "CONGRESS", tag: "513 + 81 seats", color: "#1f4e79", lines: ["About 20 parties; Centrão and right", "Controls budget amendments"] },
+      { arrow: "checked by" },
+      { head: "SUPREME FEDERAL COURT", tag: "11 justices", color: "#5b6270", lines: ["Tries politicians; strikes down laws", "Convicted Bolsonaro in 2025"] },
+      { arrow: "shares power with" },
+      { head: "STATES", tag: "26 + Federal District", color: "#6b4f8a", lines: ["Elected governors run police,", "schools and hospitals"] }
+    ],
+    bottom: ["ELECTION", "4 October 2026; runoff 25 October if needed"]
+  },
+  ar: {
+    title: "How power works in Argentina",
+    top: ["THE VOTERS", "compulsory voting; 45% or 40%+10 to win"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Javier Milei", color: "#4a8ec2", lines: ["Four-year term, one re-election", "Governs partly by decree"] },
+      { arrow: "needs" },
+      { head: "CONGRESS", tag: "257 + 72 seats", color: "#1f4e79", lines: ["Renewed by halves and thirds", "Milei's bloc holds over a third"] },
+      { arrow: "bargains with" },
+      { head: "GOVERNORS", tag: "23 provinces + city", color: "#6b4f8a", lines: ["Trade votes in Congress for funds", "Buenos Aires is Peronist-run"] },
+      { arrow: "checked by" },
+      { head: "SUPREME COURT", tag: "5 seats, vacancies", color: "#5b6270", lines: ["Upheld Cristina Kirchner's", "corruption conviction in 2025"] }
+    ],
+    bottom: ["NEXT ELECTION", "President and Congress, October 2027"]
+  },
+  ve: {
+    title: "How power works in Venezuela",
+    top: ["THE UNITED STATES", "captured Maduro; buys much of the oil"],
+    boxes: [
+      { head: "ACTING PRESIDENT", tag: "Delcy Rodríguez", color: "#c79a1a", lines: ["Since January 2026", "Leads the ruling PSUV machine"] },
+      { arrow: "controls" },
+      { head: "NATIONAL ASSEMBLY", tag: "277 seats", color: "#1f4e79", lines: ["Ruling party majority", "Led by Jorge Rodríguez"] },
+      { arrow: "backed by" },
+      { head: "COURTS AND CNE", tag: "loyalists", color: "#5b6270", lines: ["Supreme Court and electoral council", "answer to the government"] },
+      { arrow: "held up by" },
+      { head: "ARMY AND POLICE", tag: "Cabello at interior", color: "#6b4f8a", lines: ["Generals, security services", "and armed colectivos"] }
+    ],
+    bottom: ["PDVSA", "State oil company; output about 1.25m barrels a day"]
+  },
+  za: {
+    title: "How power works in South Africa",
+    top: ["THE VOTERS", "pure proportional representation"],
+    boxes: [
+      { head: "NATIONAL ASSEMBLY", tag: "400 seats", color: "#1f4e79", lines: ["ANC won 159 seats in 2024", "Elects the president"] },
+      { arrow: "elects" },
+      { head: "PRESIDENT", tag: "Cyril Ramaphosa", color: "#1f7a6a", lines: ["Heads a 10-party unity government", "led by the ANC and the DA"] },
+      { arrow: "checked by" },
+      { head: "CONSTITUTIONAL COURT", tag: "1996 constitution", color: "#5b6270", lines: ["Strikes down laws", "Has ruled against presidents"] },
+      { arrow: "shares power with" },
+      { head: "NINE PROVINCES", tag: "and 257 councils", color: "#6b4f8a", lines: ["DA runs the Western Cape", "Local elections 4 November 2026"] }
+    ],
+    bottom: ["WATCHDOGS", "Chapter 9 bodies such as the Public Protector"]
+  },
+  ng: {
+    title: "How power works in Nigeria",
+    top: ["THE VOTERS", "most votes + 25% in two-thirds of states"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Bola Tinubu", color: "#4d7c29", lines: ["Four-year term, two at most", "Presidency rotates north-south"] },
+      { arrow: "works with" },
+      { head: "NATIONAL ASSEMBLY", tag: "109 + 360 seats", color: "#1f4e79", lines: ["Senate and House of Representatives", "APC holds majorities"] },
+      { arrow: "shares power with" },
+      { head: "36 GOVERNORS", tag: "federal", color: "#6b4f8a", lines: ["Control big oil-funded budgets", "and their state parties"] },
+      { arrow: "disputes go to" },
+      { head: "COURTS", tag: "Supreme Court", color: "#5b6270", lines: ["Decide election challenges", "Upheld Tinubu's 2023 win"] }
+    ],
+    bottom: ["THE MILITARY", "Under civilian rule since 1999; alleged coup plot in 2025"]
   }
 };
 

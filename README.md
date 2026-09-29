@@ -8,7 +8,7 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | Track | Units | Lessons | What it covers |
 |-------|-------|---------|----------------|
 | 🧑‍💻 Full-Stack Coding Lab ↗ | 8 courses | 205 items | **Interactive coding** in [CodeLab](codelab/) — write real HTML/CSS/JS/APIs in a browser sandbox; shares this app's profiles & XP |
-| 🗳️ Political Academy ↗ | 30 countries (23 written) | 184 briefings so far | **Daily reading** in [Political Academy](politics/) — illustrated briefings on the world's 30 most important countries; shares this app's profiles & XP |
+| 🗳️ Political Academy ↗ | 30 countries | 240 briefings | **Daily reading** in [Political Academy](politics/) — illustrated briefings on the world's 30 most important countries; shares this app's profiles & XP |
 | 🤖 AI & Coding | 16 | 128 | Using AI well — Claude, prompting, models, capabilities, coding, agents, safety |
 | 🏛️ System Design | 25 | 200 | Architecting at scale — distributed systems, trade-offs, and running agents at the max level |
 | 📣 Marketing | 8 | 64 | Brand, audience, content, channels, metrics, growth, and marketing with AI |
@@ -97,9 +97,8 @@ power works, the road here, the players, three stories and where things stand. T
 quizzes to pass; you read and tap **Finish briefing**. Like CodeLab, it shares profiles
 through this app's store and mirrors its progress as track `politics`, so the card shows
 live "N done · XP". The plan is in [`politics-curriculum.md`](politics-curriculum.md), and
-how it works is in [`politics/README.md`](politics/README.md). The United States, China, Russia,
-India, Ukraine, Germany, the UK, France, Italy, Poland, Turkey, Israel, Iran, Saudi Arabia, the UAE,
-Egypt, Japan, South Korea, North Korea, Taiwan, Pakistan, Indonesia and Australia are written so far; the other 7 countries arrive in waves.
+how it works is in [`politics/README.md`](politics/README.md). All 30 countries are written,
+from the United States to Nigeria; dispatches and refreshes keep them current.
 
 External cards take a `cta` in `tracks.js` for the text shown before any progress
 ("Write real code", "Read today's briefing").
