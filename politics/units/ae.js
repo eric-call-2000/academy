@@ -101,6 +101,56 @@ window.POLITICS.addUnit("ae", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "ae-9", kind: "founding", asOf: "2026-09-28",
+      title: "1971: seven emirates unite",
+      dek: "When Britain left the Gulf, Sheikh Zayed of Abu Dhabi and Sheikh Rashid of Dubai persuaded a group of small sheikhdoms to form one country.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ae/ae-9-hero.webp",
+          alt: "Illustration of a low white guesthouse with a colonnade on a sandy shore beside a calm creek, with palm trees, under a hazy sky.",
+          caption: "Union House in Dubai, where the rulers signed the founding agreement on 2 December 1971.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A low white 1960s guesthouse with a shaded colonnade on a sandy shore beside a calm turquoise creek, a few palm trees, a hazy pale sky, simple and historic, no people, no flags, no legible text." },
+        { type: "timeline", head: "From Trucial States to federation", items: [
+          ["1820", "First British treaty with the Gulf sheikhdoms"],
+          ["1853", "Perpetual Maritime Truce: the 'Trucial States'"],
+          ["1892", "Exclusive agreements make them British protectorates"],
+          ["1968", "Britain announces withdrawal from east of Suez"],
+          ["2 Dec 1971", "Six emirates form the United Arab Emirates"],
+          ["Feb 1972", "Ras al-Khaimah joins as the seventh"]
+        ] },
+        { type: "section", head: "The Trucial States", md:
+          "The coast of the lower Gulf was home to small sheikhdoms ruled by tribal families: the Al Nahyan in Abu Dhabi, the Al Maktoum in Dubai, the Al Qasimi in Sharjah and Ras al-Khaimah, and others. They lived from pearling, fishing, date farming and trade. After clashes with the Qasimi fleets, which Britain called piracy, Britain signed truces with the rulers from 1820, and the coast became known as the Trucial States. From 1892 Britain controlled their foreign affairs and defence, while leaving the rulers to govern at home." },
+        { type: "section", head: "Britain leaves", md:
+          "The pearling industry collapsed in the 1930s, after the Depression and the invention of cultured pearls, bringing hardship. Then oil was found offshore in Abu Dhabi in 1958 and exported from 1962, followed by Dubai in 1966. In January 1968 Britain, short of money, announced it would withdraw all its forces from east of Suez by the end of 1971. The small sheikhdoms, with a total population of perhaps 200,000, faced independence surrounded by larger neighbours, Iran and Saudi Arabia, with claims on their territory." },
+        { type: "section", head: "Zayed and Rashid", md:
+          "Sheikh Zayed bin Sultan Al Nahyan, ruler of Abu Dhabi since 1966, and Sheikh Rashid bin Saeed Al Maktoum of Dubai met at a desert camp in February 1968 and agreed to form a union. Talks to include Bahrain and Qatar failed; both chose independence in 1971. On 2 December 1971, six emirates, Abu Dhabi, Dubai, Sharjah, Ajman, Umm al-Quwain and Fujairah, declared the United Arab Emirates, with Zayed as president and Rashid as vice-president. Ras al-Khaimah joined in February 1972." },
+        { type: "section", head: "Iran and the islands", md:
+          "On 30 November 1971, the day before Britain's protection ended, Iran seized the islands of Greater and Lesser Tunb, claimed by Ras al-Khaimah, and landed on Abu Musa under an agreement with Sharjah. The UAE has demanded their return ever since, a dispute still raised in every Gulf summit communiqué, which Iran rejects." },
+        { type: "compare", head: "Two views of the union",
+          left: { head: "A success", md:
+            "Zayed's patient diplomacy and Abu Dhabi's oil money built the Arab world's most successful federation from scratch." },
+          right: { head: "An unequal partnership", md:
+            "Power has always rested with Abu Dhabi and Dubai; the poorer northern emirates depend on federal money and have little say." } },
+        { type: "section", head: "Why it still matters", md:
+          "Zayed, who ruled until his death in 2004, is revered as the father of the nation; his son Mohamed bin Zayed is now president. The federation's structure, with Abu Dhabi as the dominant power and Dubai as the commercial hub, still shapes the country, and 2 December is National Day." }
+      ],
+      takeaways: [
+        "The Gulf sheikhdoms were British protectorates, the 'Trucial States', until 1971.",
+        "When Britain left, Sheikh Zayed of Abu Dhabi and Sheikh Rashid of Dubai led seven emirates into a federation.",
+        "Iran seized three islands on the eve of independence, a dispute that continues."
+      ],
+      check: { q: "Which two emirates were invited to join the UAE but chose independence?",
+        choices: ["Oman and Kuwait", "Bahrain and Qatar", "Sharjah and Ajman"], answer: 1,
+        explain: "Bahrain and Qatar took part in talks but became independent separately in 1971." },
+      sources: [
+        { title: "United Arab Emirates: History", publisher: "Britannica", url: "https://www.britannica.com/place/United-Arab-Emirates/History", date: "n.d." },
+        { title: "Zayed bin Sultan Al Nahyan", publisher: "Britannica", url: "https://www.britannica.com/biography/Zayed-bin-Sultan-Al-Nahyan", date: "n.d." },
+        { title: "History of the UAE", publisher: "UAE Government portal", url: "https://u.ae/en/about-the-uae/history", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "ae-3", kind: "history", asOf: "2026-09-28",
@@ -146,6 +196,106 @@ window.POLITICS.addUnit("ae", {
         { title: "United Arab Emirates profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-middle-east-14704414", date: "n.d." },
         { title: "United Arab Emirates", publisher: "Britannica", url: "https://www.britannica.com/place/United-Arab-Emirates", date: "n.d." },
         { title: "Abraham Accords", publisher: "US Department of State", url: "https://www.state.gov/the-abraham-accords", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "ae-10", kind: "past", asOf: "2026-09-28",
+      title: "Building Dubai",
+      dek: "Without much oil, Dubai's rulers bet on trade, a giant port, an airline and tourism, and built one of the world's great hubs in a generation.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ae/ae-10-hero.webp",
+          alt: "Illustration of a creek lined with wooden dhows loaded with goods, and glass towers rising behind the old trading district.",
+          caption: "Dubai Creek, where traders' dhows still dock beneath the towers of the modern city.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A creek lined with traditional wooden dhows loaded with sacks and boxes, old low trading houses with wind towers along the bank, gleaming glass skyscrapers rising behind, golden afternoon light, old and new together, no people close up, no legible text or logos." },
+        { type: "facts", head: "The Dubai model", rows: [
+          ["Jebel Ali port", "Opened 1979; among the world's largest container ports"],
+          ["Emirates airline", "Founded 1985"],
+          ["Dubai International", "The world's busiest airport for international passengers"],
+          ["Burj Khalifa", "The world's tallest building, opened 2010"],
+          ["Oil's share of Dubai's economy", "Only a small fraction today"]
+        ] },
+        { type: "section", head: "A trading town", md:
+          "Dubai grew as a trading port in the early 20th century, when merchants from Persia and India settled there attracted by low taxes. Sheikh Rashid, ruler from 1958, dredged the creek, built an airport, a port and the World Trade Centre tower in the 1970s, and knew that Dubai's modest oil reserves, far smaller than Abu Dhabi's, would not last." },
+        { type: "section", head: "Port, airline, free zones", md:
+          "In 1979 Dubai opened the Jebel Ali port, then a vast gamble in empty desert, alongside a free zone where foreign companies could operate with full ownership and no taxes. In 1985 it founded Emirates airline, which became one of the world's largest, turning Dubai's airport into a global crossroads between Europe, Asia and Africa. Under Sheikh Mohammed bin Rashid, ruler since 2006, the city added financial and media free zones, luxury tourism, and landmarks such as the palm-shaped islands and the Burj Khalifa." },
+        { type: "section", head: "The 2009 crash", md:
+          "The model depended on debt and property speculation. When the global financial crisis hit, property prices in Dubai fell by about half, and in November 2009 the state conglomerate Dubai World asked to delay payments on about $26 billion of debt, shocking markets. Abu Dhabi stepped in with a $10 billion bailout; the tallest tower, due to be named Burj Dubai, opened in January 2010 as the Burj Khalifa, after Abu Dhabi's ruler. The episode confirmed Abu Dhabi's dominance within the federation." },
+        { type: "section", head: "Recovery and reinvention", md:
+          "Dubai recovered and reinvented itself again: it hosted the Expo 2020 world fair, delayed to 2021 by the pandemic, attracted wealthy migrants and businesses fleeing Russia after 2022, and saw record property prices. It has drawn criticism as a haven for illicit money, and was on the Financial Action Task Force's grey list from 2022 to 2024 over weaknesses in anti-money-laundering controls." },
+        { type: "section", head: "A different kind of emirate", md:
+          "Dubai's rulers have run the city almost like a company, through state-owned groups such as Dubai World, Emirates and the port operator DP World, which now runs terminals on six continents. Dubai has no income tax, and its openness, from alcohol in hotels to relaxed dress codes, sets it apart from its conservative neighbours." },
+        { type: "compare", head: "Two views of Dubai",
+          left: { head: "Admirers", md:
+            "A visionary city-state that turned a desert creek into a global hub and showed the Gulf how to prosper beyond oil." },
+          right: { head: "Critics", md:
+            "A city built on migrant labour and debt, attractive to dirty money, and dependent on a stability it cannot guarantee." } },
+        { type: "section", head: "Why it matters", md:
+          "Dubai's success inspired Saudi Arabia's Vision 2030 and Qatar's ambitions. Its dependence on openness also made it vulnerable when Iranian attacks and the 2026 war disrupted Gulf shipping and flights." }
+      ],
+      takeaways: [
+        "Dubai's rulers built a hub on trade, the Jebel Ali port, Emirates airline and free zones.",
+        "In 2009 Dubai World's debt crisis forced a $10 billion rescue by Abu Dhabi.",
+        "Dubai recovered as a magnet for money and people, but critics point to migrant labour and illicit finance."
+      ],
+      check: { q: "Why is the world's tallest building called the Burj Khalifa?",
+        choices: ["After Dubai's founder", "After Abu Dhabi's ruler, who bailed Dubai out in 2009", "After a sponsor company"], answer: 1,
+        explain: "Named for Sheikh Khalifa bin Zayed, it opened weeks after Abu Dhabi's $10 billion rescue of Dubai." },
+      sources: [
+        { title: "Dubai", publisher: "Britannica", url: "https://www.britannica.com/place/Dubai-United-Arab-Emirates", date: "n.d." },
+        { title: "Burj Khalifa", publisher: "Britannica", url: "https://www.britannica.com/topic/Burj-Khalifa", date: "n.d." },
+        { title: "Jurisdictions no longer subject to increased monitoring: United Arab Emirates", publisher: "Financial Action Task Force", url: "https://www.fatf-gafi.org/en/publications/High-risk-and-other-monitored-jurisdictions/increased-monitoring-february-2024.html", date: "2024-02" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "ae-11", kind: "past", asOf: "2026-09-28",
+      title: "The Arab Spring and the Brotherhood",
+      dek: "When revolts swept the Arab world in 2011, the UAE saw the Muslim Brotherhood as its greatest threat and set out to defeat it at home and abroad.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ae/ae-11-hero.webp",
+          alt: "Illustration of an imposing modern courthouse with tall columns in a desert city at midday, with an empty plaza in front.",
+          caption: "In 2013 dozens of Emiratis were convicted in a mass trial of alleged Brotherhood members.",
+          credit: "AI illustration — not a photograph",
+          prompt: "An imposing modern courthouse with tall slender columns and a vast empty plaza in a desert city at midday, harsh white sunlight, palm trees, stern and silent, no people, no flags, no legible text." },
+        { type: "facts", head: "The campaign", rows: [
+          ["Petition for reform", "March 2011, signed by 133 Emiratis"],
+          ["'UAE 94' trial", "2013: 69 convicted of plotting against the state"],
+          ["Brotherhood designated terrorist", "2014"],
+          ["Mass trial", "July 2024: 43 given life sentences"],
+          ["Qatar blockade", "2017–2021, with Saudi Arabia, Bahrain and Egypt"]
+        ] },
+        { type: "section", head: "Revolts next door", md:
+          "In 2011 uprisings toppled leaders in Tunisia, Egypt, Libya and Yemen, and shook Bahrain and Syria. In the UAE, a wealthy state with few protests, 133 citizens signed a petition in March 2011 calling for an elected parliament. The authorities responded with arrests. Mohamed bin Zayed, then crown prince of Abu Dhabi, concluded that the biggest danger was not democracy protesters but political Islam, and specifically the Muslim Brotherhood, which won elections in Egypt and Tunisia." },
+        { type: "section", head: "Crackdown at home", md:
+          "The UAE had a local Brotherhood-linked group, al-Islah. In 2013, 94 people, many of them teachers, lawyers and academics, were tried together; 69 were convicted of plotting to seize power and given long sentences, in a trial that human rights groups called grossly unfair. In 2014 the UAE designated the Brotherhood a terrorist organisation. Critics, such as the human rights activist Ahmed Mansoor, have also been jailed. In 2024, many of those already imprisoned were convicted again in a new mass trial, with dozens sentenced to life." },
+        { type: "section", head: "Counter-revolution abroad", md:
+          "The UAE turned its money and power outward. It strongly supported the Egyptian army's overthrow of President Mohamed Morsi, a Brotherhood leader, in 2013 and funded the new government. It backed the Libyan commander Khalifa Haftar against Islamist-aligned forces, joined the Saudi-led war in Yemen from 2015, and in 2017 joined Saudi Arabia, Bahrain and Egypt in cutting ties with and blockading Qatar, accused of backing the Brotherhood and being too close to Iran. The blockade ended in 2021." },
+        { type: "section", head: "Normalisation with Israel", md:
+          "The same outlook, hostility to political Islam and to Iran, helped lead the UAE to sign the [[Abraham Accords]] with Israel in 2020, the first Gulf state to establish full relations. Trade, tourism and defence ties followed, and the UAE kept them through the Gaza war despite public criticism." },
+        { type: "compare", head: "Two views",
+          left: { head: "The UAE's case", md:
+            "Islamist movements threaten stability and the modern, tolerant society the UAE is building; firm action prevented chaos." },
+          right: { head: "Critics' case", md:
+            "The UAE crushed peaceful dissent at home and fuelled wars abroad, from Yemen to Libya and Sudan, in the name of fighting Islamists." } },
+        { type: "section", head: "Why it still matters", md:
+          "This strategy explains the UAE's assertive foreign policy today: its partnerships with strongmen, its role in the Horn of Africa and Sudan, and its close ties to Israel. At home, there is no organised opposition, and political criticism can lead to long prison terms. In March 2025 an appeals court upheld most of the 2024 convictions, and in June 2025 24 more defendants were sentenced to life, according to Human Rights Watch." }
+      ],
+      takeaways: [
+        "After the 2011 Arab Spring, the UAE saw the Muslim Brotherhood as its main threat.",
+        "It jailed dozens of alleged Islah members in mass trials and designated the Brotherhood a terrorist group in 2014.",
+        "Abroad it backed Egypt's 2013 coup, Haftar in Libya and the Qatar blockade, and signed the Abraham Accords."
+      ],
+      check: { q: "What was the 'UAE 94' trial?",
+        choices: ["A football tournament", "A 2013 mass trial of alleged members of a Brotherhood-linked group", "An oil contract dispute"], answer: 1,
+        explain: "94 people were tried together; 69 were convicted of plotting to seize power." },
+      sources: [
+        { title: "UAE: Unfair Trial, Unjust Sentences", publisher: "Human Rights Watch", url: "https://www.hrw.org/news/2024/07/10/uae-unfair-trial-unjust-sentences", date: "2024-07-10" },
+        { title: "United Arab Emirates", publisher: "Amnesty International", url: "https://www.amnesty.org/en/location/middle-east-and-north-africa/middle-east/united-arab-emirates/", date: "n.d." },
+        { title: "Qatar diplomatic crisis", publisher: "Britannica", url: "https://www.britannica.com/event/Qatar-diplomatic-crisis", date: "n.d." }
       ]
     },
 
@@ -345,6 +495,55 @@ window.POLITICS.addUnit("ae", {
         { title: "UAE accuses Iran of attacks as 'large fire' breaks out at oil refinery", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/5/4/uae-reports-missile-and-drone-strikes-incoming-from-iran", date: "2026-05-04" },
         { title: "UAE intercepts drone after US and Iran exchange attacks", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/8/31/uae-intercepts-drone-after-us-and-iran-exchange-attacks", date: "2026-08-31" },
         { title: "2026 Lavan Island attack", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2026_Lavan_Island_attack", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "ae-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "A country of migrants",
+      dek: "Nearly nine in ten people living in the UAE are foreigners. Their work built the country; their rights are limited.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ae/ae-12-hero.webp",
+          alt: "Illustration of construction workers in blue overalls and helmets seen from behind walking toward a bus at dawn, with cranes and half-built towers behind.",
+          caption: "Millions of South Asian workers have built the UAE's cities.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A group of construction workers in blue overalls and hard hats seen from behind walking toward a white bus at dawn, tall cranes and half-built skyscrapers behind them, dusty golden light, weary and dignified, no faces, no legible text or logos." },
+        { type: "facts", head: "Who lives in the UAE", rows: [
+          ["Population", "About 11 million (2024)"],
+          ["Emirati citizens", "About 11–12% of residents"],
+          ["Largest foreign groups", "Indians, Pakistanis, Bangladeshis, Filipinos, Egyptians"],
+          ["Midday work ban", "12:30–3pm in summer for outdoor workers"],
+          ["Golden visa", "Long-term residency for investors and professionals since 2019"]
+        ] },
+        { type: "section", head: "Built by foreigners", md:
+          "When the UAE was founded in 1971 it had perhaps a quarter of a million people. Oil wealth brought an enormous demand for workers of every kind: labourers, domestic workers, drivers, nurses, engineers, bankers. Today the population is about 11 million, and Emirati citizens are only about 11–12% of it. Most migrants come from South Asia, particularly India, whose citizens make up more than a third of residents, as well as from the Philippines, Egypt and elsewhere. Citizenship is almost impossible to obtain." },
+        { type: "section", head: "Kafala", md:
+          "Most foreign workers have been tied to their employer through the kafala sponsorship system, which links a worker's visa and legal status to one sponsor. Rights groups have documented abuses: recruitment fees that leave workers in debt, confiscated passports, unpaid wages, crowded labour camps, and dangerous heat. Trade unions and strikes are banned. Domestic workers, mostly women, were long excluded from labour law altogether." },
+        { type: "section", head: "Reforms", md:
+          "The UAE has introduced reforms: a wage protection system requiring salaries to be paid through banks, a midday outdoor work ban in summer, a 2017 law giving domestic workers basic rights, and changes letting workers switch employers more easily. It has also courted the wealthy with long-term 'golden visas' and ended the requirement for a local partner in many businesses. Rights groups say enforcement remains weak and that workers still cannot organise or speak out." },
+        { type: "section", head: "Life at the top and bottom", md:
+          "Migrants' experiences differ enormously. A European banker or Indian doctor may enjoy tax-free salaries and a comfortable life; a Nepali labourer may earn a few hundred dollars a month and send most of it home. Remittances from the UAE are a lifeline for families across South Asia, and for the economies of Kerala, Nepal and Bangladesh. Emiratis, meanwhile, enjoy generous state benefits and public-sector jobs, and the government is pushing companies to hire more citizens." },
+        { type: "compare", head: "Two views",
+          left: { head: "The UAE's view", md:
+            "Migrants come voluntarily for opportunities unavailable at home, and the UAE has led the Gulf in labour reforms." },
+          right: { head: "Rights groups' view", md:
+            "The system still gives employers too much power, heat deaths go uninvestigated, and workers have no voice." } },
+        { type: "section", head: "Why it matters", md:
+          "The UAE's prosperity rests on migration, which also shapes its politics: a small citizen population ruled by a monarchy, with most residents having no political rights at all. Its treatment of workers affects its reputation, from hosting global events such as the COP28 climate summit in 2023 to relations with India and Pakistan, whose governments press for better protection of their citizens." }
+      ],
+      takeaways: [
+        "Emirati citizens are only about 11–12% of the UAE's 11 million residents.",
+        "The kafala system tied workers to employers; rights groups document abuses and weak enforcement.",
+        "The UAE has introduced reforms and golden visas, but workers still cannot unionise or strike."
+      ],
+      check: { q: "What share of UAE residents are Emirati citizens?",
+        choices: ["About half", "About one in nine", "About three-quarters"], answer: 1,
+        explain: "Citizens are about 11–12% of residents; foreigners make up the rest, one of the highest proportions in the world." },
+      sources: [
+        { title: "United Arab Emirates: Events of 2024", publisher: "Human Rights Watch", url: "https://www.hrw.org/world-report/2025/country-chapters/united-arab-emirates", date: "2025" },
+        { title: "Golden visa", publisher: "UAE Government portal", url: "https://u.ae/en/information-and-services/visa-and-emirates-id/residence-visas/golden-visa", date: "n.d." },
+        { title: "Indian Community in UAE", publisher: "Embassy of India, Abu Dhabi", url: "https://www.indembassyuae.gov.in/page/indian-community-in-uae/", date: "n.d." }
       ]
     },
 

@@ -45,9 +45,9 @@
       blurb: "At the centre of Gaza, Iran, Lebanon and Syria, with an election on 27 October 2026." });
   C({ id: "ir", iso: "364", part: 3, name: "Iran", flag: "🇮🇷", color: "#2e7d5b", lessons: 12,
       blurb: "At war with the US and Israel, beside the Strait of Hormuz, under a new Supreme Leader." });
-  C({ id: "sa", iso: "682", part: 3, name: "Saudi Arabia", flag: "🇸🇦", color: "#1c5e38", lessons: 8,
+  C({ id: "sa", iso: "682", part: 3, name: "Saudi Arabia", flag: "🇸🇦", color: "#1c5e38", lessons: 12,
       blurb: "The oil superpower of OPEC+, Vision 2030, and a front-row seat in the Iran war." });
-  C({ id: "ae", iso: "784", part: 3, name: "United Arab Emirates", flag: "🇦🇪", color: "#5a6b2e", lessons: 8,
+  C({ id: "ae", iso: "784", part: 3, name: "United Arab Emirates", flag: "🇦🇪", color: "#5a6b2e", lessons: 12,
       blurb: "A small federation with outsized reach: finance, AI, Sudan — and Iran's missiles." });
   C({ id: "eg", iso: "818", part: 3, name: "Egypt", flag: "🇪🇬", color: "#a0782b", lessons: 8,
       blurb: "The Suez Canal, the Gaza border and the Nile — with an economy on the edge." });

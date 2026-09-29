@@ -100,6 +100,57 @@ window.POLITICS.addUnit("sa", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "sa-9", kind: "founding", asOf: "2026-09-28",
+      title: "Ibn Saud and the kingdom",
+      dek: "An 18th-century pact between a desert ruler and a religious reformer, and the conquests of Ibn Saud, created the only country named after its ruling family.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/sa/sa-9-hero.webp",
+          alt: "Illustration of the ruins of a mud-brick desert town with towers and walls on a rocky outcrop above a dry valley with palm groves, at sunset.",
+          caption: "Diriyah, near Riyadh, the first capital of the Saudi state, founded in the 18th century.",
+          credit: "AI illustration — not a photograph",
+          prompt: "The ruins of a mud-brick desert town with tall crenellated towers and walls on a rocky outcrop above a dry valley with palm groves, warm sunset light, golden and ancient, no people, no flags, no legible text." },
+        { type: "timeline", head: "Three Saudi states", items: [
+          ["1744", "Pact between Muhammad ibn Saud and Muhammad ibn Abd al-Wahhab"],
+          ["1818", "Ottoman-Egyptian forces destroy the first Saudi state"],
+          ["1891", "The second Saudi state falls; the family goes into exile in Kuwait"],
+          ["1902", "Abdulaziz ibn Saud retakes Riyadh"],
+          ["1925", "Conquest of Mecca and the Hejaz"],
+          ["1932", "The Kingdom of Saudi Arabia proclaimed"],
+          ["1938", "Oil discovered at Dammam"]
+        ] },
+        { type: "section", head: "The pact of 1744", md:
+          "In the 18th century central Arabia was a land of small towns and Bedouin tribes. In 1744 Muhammad ibn Saud, ruler of the oasis of Diriyah, allied with Muhammad ibn Abd al-Wahhab, a preacher who called for a return to what he saw as pure Islam, rejecting the veneration of saints and shrines. The ruler would spread the preacher's doctrine; the preacher would legitimise the ruler. That alliance between the Al Saud family and the Wahhabi religious establishment has underpinned every Saudi state since." },
+        { type: "section", head: "Rise and fall", md:
+          "The first Saudi state expanded across Arabia, taking Mecca and Medina in the early 1800s, until the Ottoman Empire sent an Egyptian army that destroyed Diriyah in 1818. A second, smaller state rose and fell by 1891, when a rival dynasty drove the Al Saud into exile in Kuwait." },
+        { type: "section", head: "Abdulaziz", md:
+          "In 1902 a young member of the family, Abdulaziz ibn Abdul Rahman, known in the West as Ibn Saud, led a small band of men to recapture Riyadh in a night raid. Over three decades he conquered most of the peninsula, using the Ikhwan, zealous tribal warriors, and marriage alliances with tribes across the country; he fathered dozens of sons. In 1924–25 he took Mecca and the Hejaz from the Hashemite family, making him guardian of Islam's holiest sites. When the Ikhwan rebelled against his restraint, he crushed them in 1929. In 1932 he proclaimed the Kingdom of Saudi Arabia." },
+        { type: "section", head: "Oil and America", md:
+          "The kingdom was poor until American geologists struck oil at Dammam in 1938. The concession went to a US company that became Aramco, later nationalised as Saudi Aramco, now one of the world's most valuable companies. In February 1945 Abdulaziz met President Franklin Roosevelt aboard a US warship in the Suez Canal, beginning the bargain at the heart of US–Saudi relations: oil for security. Abdulaziz died in 1953, and his sons have ruled ever since." },
+        { type: "compare", head: "Two views of the founding",
+          left: { head: "The official story", md:
+            "A unifier who brought security and faith to a divided land, and whose family protects Islam's holiest places." },
+          right: { head: "Critics", md:
+            "A kingdom built by conquest, ruled by one family, and wedded to an intolerant religious doctrine it later exported worldwide." } },
+        { type: "section", head: "Why it still matters", md:
+          "The throne has passed among Abdulaziz's sons for seven decades; Crown Prince Mohammed bin Salman is the first of the next generation set to rule. His reforms have loosened the clergy's grip on social life, reshaping the 1744 bargain, and the kingdom now celebrates a Founding Day, marking 1727, when the first Saudi state began, rather than the Wahhabi alliance." }
+      ],
+      takeaways: [
+        "The Al Saud allied with the preacher Muhammad ibn Abd al-Wahhab in 1744, founding the first Saudi state.",
+        "Abdulaziz ibn Saud recaptured Riyadh in 1902, conquered Mecca in 1925 and proclaimed the kingdom in 1932.",
+        "Oil, found in 1938, and a 1945 bargain with the US transformed the kingdom."
+      ],
+      check: { q: "What was the 1744 pact?",
+        choices: ["A treaty with Britain", "An alliance between the Al Saud ruler and the Wahhabi religious reformer", "An oil concession"], answer: 1,
+        explain: "Muhammad ibn Saud and Muhammad ibn Abd al-Wahhab joined political and religious authority, a bargain behind every Saudi state." },
+      sources: [
+        { title: "Ibn Saud", publisher: "Britannica", url: "https://www.britannica.com/biography/Ibn-Saud", date: "n.d." },
+        { title: "Saudi Arabia: History", publisher: "Britannica", url: "https://www.britannica.com/place/Saudi-Arabia/History", date: "n.d." },
+        { title: "Wahhabi", publisher: "Britannica", url: "https://www.britannica.com/topic/Wahhabi", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "sa-3", kind: "history", asOf: "2026-09-28",
@@ -145,6 +196,108 @@ window.POLITICS.addUnit("sa", {
         { title: "Saudi Arabia profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-middle-east-14703523", date: "n.d." },
         { title: "Saudi Arabia", publisher: "Britannica", url: "https://www.britannica.com/place/Saudi-Arabia", date: "n.d." },
         { title: "MBS Wanted Status. Trump Wanted Deals.", publisher: "Carnegie Endowment for International Peace", url: "https://carnegieendowment.org/emissary/2025/11/mbs-saudi-arabia-trump-washington-visit-ai-f35-status?lang=en", date: "2025-11" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "sa-10", kind: "past", asOf: "2026-09-28",
+      title: "1973: the oil weapon",
+      dek: "When Arab producers cut oil supplies during the 1973 war, prices quadrupled and the world learned how much power Saudi Arabia held.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/sa/sa-10-hero.webp",
+          alt: "Illustration of a long line of 1970s cars queued at a petrol station with a hand-painted sign reading nothing legible, on a grey winter day.",
+          caption: "The 1973 embargo brought petrol queues and rationing to the United States and Europe.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long line of large 1970s cars queued along a road to a small petrol station with old pumps on a grey winter day, bare trees, a sense of scarcity and frustration, no people close up, no legible text or logos." },
+        { type: "facts", head: "The oil shock", rows: [
+          ["Embargo", "October 1973 – March 1974"],
+          ["Targets", "The US, the Netherlands and others that backed Israel"],
+          ["Oil price", "Roughly quadrupled, from about $3 to about $12 a barrel"],
+          ["OPEC founded", "1960, with Saudi Arabia among its founders"],
+          ["Aramco", "Fully Saudi-owned by 1980"]
+        ] },
+        { type: "section", head: "OPEC and the war", md:
+          "In 1960 Saudi Arabia, Iran, Iraq, Kuwait and Venezuela founded the Organization of the Petroleum Exporting Countries (OPEC) to win more control over prices set by Western oil companies. On 6 October 1973 Egypt and Syria attacked Israel. When the United States airlifted weapons to Israel, Arab oil producers, led by Saudi Arabia under King Faisal, cut production and imposed an embargo on the US and other countries seen as supporting Israel." },
+        { type: "section", head: "The shock", md:
+          "Within months the price of oil roughly quadrupled. Western economies, which had grown on cheap oil, suffered petrol queues, rationing, 'car-free Sundays' and a deep recession combined with inflation, 'stagflation'. The embargo was lifted in March 1974 after US-led disengagement talks between Israel and Egypt and Syria, but prices stayed high, and a second shock followed the Iranian revolution in 1979." },
+        { type: "section", head: "Petrodollars", md:
+          "The price rise transformed Saudi Arabia. Revenues exploded, paying for roads, hospitals, universities and subsidies, and for a generous welfare state for Saudi citizens. The kingdom bought full ownership of Aramco by 1980. Saudi Arabia agreed to price its oil in dollars and invest heavily in US Treasury bonds, recycling 'petrodollars' into the American economy, and bought American weapons on a vast scale. King Faisal was assassinated by a nephew in 1975." },
+        { type: "section", head: "The swing producer", md:
+          "With the world's largest spare capacity, Saudi Arabia became OPEC's 'swing producer', able to raise or cut output to move prices. It has used that power repeatedly: flooding the market in 1985–86 and 2014, and cutting production with Russia in the OPEC Plus alliance since 2016 (see [[opec-plus|OPEC+]]). Its decisions still move petrol prices, inflation and politics worldwide." },
+        { type: "section", head: "Oil and foreign policy", md:
+          "Oil wealth also bought influence. Saudi Arabia funded allies and causes across the Arab and Muslim world, bankrolled Iraq in its war with Iran in the 1980s, and paid much of the cost of the 1991 Gulf War, when US-led forces based in the kingdom expelled Iraq from Kuwait. The presence of American troops on Saudi soil became a grievance exploited by Osama bin Laden." },
+        { type: "compare", head: "Two lessons of 1973",
+          left: { head: "Producers", md:
+            "Oil states finally took control of their own resource and forced the world to take Arab concerns seriously." },
+          right: { head: "Consumers", md:
+            "Dependence on Gulf oil is a strategic weakness, which is why the West built strategic reserves, drilled at home and later turned to renewables." } },
+        { type: "section", head: "Why it still matters", md:
+          "Fifty years on, Saudi Arabia is trying to escape the dependence the oil boom created, under Vision 2030, while still using oil output as leverage with Washington and Moscow. The world's energy transition threatens the bargain that 1973 built." }
+      ],
+      takeaways: [
+        "In the 1973 war Arab producers led by Saudi Arabia cut output and embargoed the US, quadrupling oil prices.",
+        "The boom made Saudi Arabia rich and bound it to the dollar and US weapons.",
+        "As OPEC's swing producer, the kingdom still shapes world oil prices."
+      ],
+      check: { q: "What triggered the 1973 oil embargo?",
+        choices: ["The Iranian revolution", "US military support for Israel in the October 1973 war", "The Gulf War"], answer: 1,
+        explain: "Arab producers retaliated against countries seen as backing Israel after the US airlifted arms during the war." },
+      sources: [
+        { title: "Oil Embargo, 1973–1974", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/milestones/1969-1976/oil-embargo", date: "n.d." },
+        { title: "OPEC", publisher: "Britannica", url: "https://www.britannica.com/topic/OPEC", date: "n.d." },
+        { title: "Faisal", publisher: "Britannica", url: "https://www.britannica.com/biography/Faisal-king-of-Saudi-Arabia", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "sa-11", kind: "past", asOf: "2026-09-28",
+      title: "1979: the siege of the Grand Mosque",
+      dek: "Armed militants seized Islam's holiest site in Mecca. The monarchy retook it, then gave the clergy more power for four decades.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/sa/sa-11-hero.webp",
+          alt: "Illustration of a vast mosque courtyard with arcades and tall minarets at dawn, with a column of smoke rising in the distance.",
+          caption: "Mecca's Grand Mosque, seized by militants on 20 November 1979.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A vast marble mosque courtyard surrounded by arched arcades and tall slender minarets at dawn, a column of dark smoke rising from one side, empty and ominous, no people, no legible text." },
+        { type: "facts", head: "The siege", rows: [
+          ["Began", "20 November 1979, the first day of the Islamic year 1400"],
+          ["Leader", "Juhayman al-Otaybi"],
+          ["Duration", "About two weeks"],
+          ["Deaths", "Officially over 250, including militants and security forces; some estimates are higher"],
+          ["Aftermath", "63 captured militants executed in January 1980"]
+        ] },
+        { type: "section", head: "The seizure", md:
+          "At dawn prayers on 20 November 1979, the first day of a new Islamic century, several hundred armed men seized the Grand Mosque in Mecca, taking thousands of pilgrims hostage. Their leader, Juhayman al-Otaybi, a former National Guard corporal, proclaimed his brother-in-law the Mahdi, the redeemer expected at the end of time, and denounced the royal family as corrupt and Westernised." },
+        { type: "section", head: "Retaking the mosque", md:
+          "Fighting inside Islam's holiest site required the approval of senior clerics, who issued a fatwa allowing force. Saudi forces struggled for two weeks against militants entrenched in the mosque's basements, with advice from French and Pakistani special forces. Officially more than 250 people died; other estimates are higher. The self-proclaimed Mahdi was killed, and Juhayman and 62 others were publicly beheaded in cities across the kingdom in January 1980." },
+        { type: "section", head: "A fateful bargain", md:
+          "The rebels were defeated, but their ideas prevailed. Shaken, and alarmed by Iran's revolution the same year, the royal family concluded that it needed more religious legitimacy, not less. It gave the clerics wider power over society: cinemas closed, the religious police enforced strict segregation of men and women, women vanished from television, and school curricula became more conservative. Saudi money spread Wahhabi teachings abroad through mosques and schools, and Saudi volunteers joined the jihad against the Soviets in Afghanistan, among them Osama bin Laden." },
+        { type: "section", head: "Why 1979 shook the kingdom", md:
+          "The siege came in a year of shocks: Iran's Islamic revolution overthrew the Shah across the Gulf, Shia protests broke out in Saudi Arabia's own Eastern Province that same month, and in December the Soviet Union invaded Afghanistan. The royal family felt threatened from every direction, and religion seemed its strongest shield." },
+        { type: "compare", head: "Two readings",
+          left: { head: "The monarchy's view then", md:
+            "Embracing religious conservatism was the way to deny extremists their argument and secure the kingdom against revolution." },
+          right: { head: "Critics and later MBS", md:
+            "The turn after 1979 empowered extremism at home and abroad, contributing to al-Qaeda and holding Saudi society back for decades." } },
+        { type: "section", head: "Undoing 1979", md:
+          "In 2017 Crown Prince Mohammed bin Salman said the country would 'return to what we were before 1979: a country of moderate Islam', blaming the post-1979 turn for extremism. Since then the religious police have lost their powers of arrest, cinemas and concerts have returned, and women can drive and attend sporting events. Critics note that social liberalisation has come with tighter political control, including the jailing of some clerics." },
+        { type: "section", head: "Why it still matters", md:
+          "The siege of 1979 explains the religious conservatism that shaped Saudi Arabia for 40 years, its role in spreading Wahhabism worldwide, and why MBS frames his reforms as a return to an earlier, more open kingdom." }
+      ],
+      takeaways: [
+        "In November 1979 militants seized Mecca's Grand Mosque; the siege lasted about two weeks.",
+        "After retaking it, the monarchy gave the clergy wider control over society and funded Wahhabism abroad.",
+        "Crown Prince Mohammed bin Salman has promised to 'return to before 1979', loosening religious rules."
+      ],
+      check: { q: "How did the monarchy respond to the 1979 siege in the long run?",
+        choices: ["It secularised the country", "It gave the conservative clergy more power over society", "It abdicated"], answer: 1,
+        explain: "To shore up its religious legitimacy, the royal family expanded the clergy's role, a policy MBS has since reversed in part." },
+      sources: [
+        { title: "Saudi Arabia Beheads Sixty-Three Persons for Attack on Mecca", publisher: "EBSCO Research Starters", url: "https://www.ebsco.com/research-starters/ethnic-and-cultural-studies/saudi-arabia-beheads-sixty-three-persons-attack-mecca", date: "n.d." },
+        { title: "Saudi Arabia: History", publisher: "Britannica", url: "https://www.britannica.com/place/Saudi-Arabia/History", date: "n.d." },
+        { title: "Saudi crown prince promises 'return to moderate Islam'", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2017/10/25/saudi-crown-prince-promises-return-to-moderate-islam", date: "2017-10-25" }
       ]
     },
 
@@ -356,6 +509,55 @@ window.POLITICS.addUnit("sa", {
         { title: "Trump hosts Saudi Arabia's Mohammed bin Salman: Five key takeaways", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2025/11/18/trump-hosts-saudi-arabias-mohammed-bin-salman-five-key-takeaways", date: "2025-11-18" },
         { title: "Trump welcomes MBS for White House visit with fanfare", publisher: "CBS News", url: "https://www.cbsnews.com/news/trump-welcomes-mbs-saudi-crown-prince-white-house/", date: "2025-11-18" },
         { title: "MBS Returns to Washington: Re-Assessing US-Saudi Relations", publisher: "Arab Center Washington DC", url: "https://arabcenterdc.org/resource/mbs-returns-to-washington-re-assessing-us-saudi-relations/", date: "2025-11" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "sa-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "Women and the new Saudi Arabia",
+      dek: "In a few years Saudi women won the right to drive, travel and work in jobs once closed to them. The activists who campaigned for it went to prison.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/sa/sa-12-hero.webp",
+          alt: "Illustration of a woman in a black abaya seen from behind driving a car along a wide highway into a modern city skyline at dusk.",
+          caption: "Saudi women were allowed to drive from June 2018.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A woman in a black abaya and headscarf seen from behind at the wheel of a car on a wide desert highway leading into a modern city skyline at dusk, warm pink sky, a sense of freedom, no face visible, no legible text or logos." },
+        { type: "facts", head: "A changing kingdom", rows: [
+          ["Women allowed to drive", "June 2018"],
+          ["Guardianship rules eased", "2019: women over 21 can travel and get passports without permission"],
+          ["Saudi women's labour force participation", "36.2% in Q3 2024, official figures"],
+          ["Activist Loujain al-Hathloul", "Arrested 2018, released 2021, still under a travel ban"],
+          ["Personal Status Law", "2022: codified family law, criticised for keeping male guardianship in marriage"]
+        ] },
+        { type: "section", head: "Before the reforms", md:
+          "For decades Saudi Arabia was one of the most restrictive countries in the world for women. Under the male guardianship system, a woman needed a male relative's permission to travel, marry, get a passport or, in practice, work or receive some medical treatment. Women could not drive. Public spaces, from restaurants to universities, were strictly segregated, enforced by the religious police. Activists who drove in protest, in 1990 and again in 2011 and 2013, were arrested or lost their jobs." },
+        { type: "section", head: "The reforms", md:
+          "Under Crown Prince Mohammed bin Salman, change came fast. The religious police lost their powers of arrest in 2016. Women were allowed into football stadiums in 2018 and to drive from June that year. In 2019 women over 21 were allowed to get passports and travel without a guardian's permission, and to register births and marriages. Concerts, cinemas and mixed-gender entertainment returned. Vision 2030 aims to bring women into the workforce, and official figures put their labour force participation at 36% in 2024, far above pre-reform levels." },
+        { type: "section", head: "The activists", md:
+          "Weeks before the driving ban was lifted, the authorities arrested the women who had campaigned for it. Loujain al-Hathloul and others were detained; rights groups and several of the women reported torture and sexual harassment in detention, which the authorities denied. Al-Hathloul was sentenced under a counter-terrorism law to nearly six years, released conditionally in February 2021, and given a five-year travel ban. Others, including women who posted about their rights on social media, have received long sentences." },
+        { type: "section", head: "Limits", md:
+          "Guardianship has not disappeared: a 2022 family law still requires a woman to have a male guardian's consent to marry and says she should obey her husband 'in a reasonable manner'. Critics note that reforms were granted from above, not won, and can be withdrawn; the government says it is moving as fast as a conservative society allows." },
+        { type: "compare", head: "Two views",
+          left: { head: "The government and supporters", md:
+            "The reforms are historic, transforming millions of women's lives in a few years, and are central to building a modern economy." },
+          right: { head: "Rights groups", md:
+            "The changes are real, but the crown prince punished the women who asked for them, and no independent voice is tolerated." } },
+        { type: "section", head: "Why it matters", md:
+          "Women's rights are at the heart of Saudi Arabia's efforts to rebrand itself, attract tourists and investors, and host events from Formula 1 to the 2034 football World Cup. They also show the model of MBS's rule: social openness combined with political control." }
+      ],
+      takeaways: [
+        "Until recently Saudi women needed a male guardian's permission for travel, marriage and more, and could not drive.",
+        "Since 2017 women have won the right to drive, travel independently and join the workforce in large numbers.",
+        "The activists who campaigned for these rights were imprisoned; guardianship in marriage remains."
+      ],
+      check: { q: "What happened to Loujain al-Hathloul in 2018?",
+        choices: ["She became a minister", "She was arrested weeks before the driving ban she had campaigned against was lifted", "She won an election"], answer: 1,
+        explain: "Al-Hathloul was detained in May 2018, sentenced under a counter-terrorism law and released in 2021 with a travel ban." },
+      sources: [
+        { title: "Saudi Arabia: Prominent Women's Rights Activist Released", publisher: "Human Rights Watch", url: "https://www.hrw.org/news/2021/02/10/saudi-arabia-prominent-womens-rights-activist-released", date: "2021-02-10" },
+        { title: "You can't leave and we won't tell you why: travel bans in Saudi Arabia", publisher: "Amnesty International", url: "https://www.amnesty.org/en/latest/campaigns/2022/05/you-cant-leave-and-we-wont-tell-you-why-travel-bans-in-saudi-arabia/", date: "2022-05" },
+        { title: "GASTAT: Saudi women's participation in the labor force reaches 36.2%", publisher: "Saudi Press Agency", url: "https://www.spa.gov.sa/en/N2235680", date: "2024" }
       ]
     },
 
