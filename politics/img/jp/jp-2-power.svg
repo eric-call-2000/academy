@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1010" role="img" aria-labelledby="t">
+<title id="t">How power works in Japan</title>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5b6270"/></marker>
+<style>text{font-family:"Nunito","Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#1c1d20}.h{font-size:27px;font-weight:900;fill:#fff;letter-spacing:1px}.hs{font-size:20px;font-weight:700;fill:#fff;opacity:.92}.li{font-size:23px;font-weight:600}.lab{font-size:19px;font-weight:800;fill:#5b6270}.band{font-size:25px;font-weight:900;letter-spacing:1px}.bands{font-size:19px;font-weight:700;fill:#3f4148}</style>
+</defs>
+<rect width="760" height="1010" fill="#ffffff"/>
+<rect x="40" y="22" width="680" height="72" rx="36" fill="#eef1f5" stroke="#cfd6df" stroke-width="2"/>
+<text x="380" y="54" text-anchor="middle" class="band">THE VOTERS</text>
+<text x="380" y="80" text-anchor="middle" class="bands">elect both houses of the Diet</text>
+<line x1="170" y1="96" x2="170" y2="144" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="40" y="148" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#1f4e79" stroke-width="3"/>
+<path d="M40 166 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#1f4e79"/>
+<text x="62" y="186" class="h">HOUSE OF REPRESENTATIVES</text>
+<text x="700" y="186" text-anchor="end" class="hs">465 seats</text>
+<text x="62" y="236" class="li">The stronger chamber; picks the PM</text>
+<text x="62" y="270" class="li">LDP holds 316 seats since February 2026</text>
+<line x1="170" y1="288" x2="170" y2="336" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="320" class="lab">elects</text>
+<rect x="40" y="340" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#bc2f45" stroke-width="3"/>
+<path d="M40 358 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#bc2f45"/>
+<text x="62" y="378" class="h">PRIME MINISTER</text>
+<text x="700" y="378" text-anchor="end" class="hs">Sanae Takaichi</text>
+<text x="62" y="428" class="li">Leads the cabinet and the LDP</text>
+<text x="62" y="462" class="li">Can dissolve the lower house</text>
+<line x1="170" y1="480" x2="170" y2="528" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="512" class="lab">needs</text>
+<rect x="40" y="532" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#5b6270" stroke-width="3"/>
+<path d="M40 550 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#5b6270"/>
+<text x="62" y="570" class="h">HOUSE OF COUNCILLORS</text>
+<text x="700" y="570" text-anchor="end" class="hs">248 seats</text>
+<text x="62" y="620" class="li">Six-year terms; half elected every 3 years</text>
+<text x="62" y="654" class="li">LDP and allies lack a majority here</text>
+<line x1="170" y1="672" x2="170" y2="720" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="704" class="lab">checked by</text>
+<rect x="40" y="724" width="680" height="172" rx="18" fill="#f7f8fa" stroke="#6b4f8a" stroke-width="3"/>
+<path d="M40 742 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#6b4f8a"/>
+<text x="62" y="762" class="h">CONSTITUTION</text>
+<text x="700" y="762" text-anchor="end" class="hs">unchanged since 1947</text>
+<text x="62" y="812" class="li">Article 9 renounces war</text>
+<text x="62" y="846" class="li">Amending it needs 2/3 of both houses</text>
+<text x="62" y="880" class="li">and a referendum</text>
+<rect x="40" y="916" width="680" height="72" rx="36" fill="#f7f4ec" stroke="#d8cfb8" stroke-width="2"/>
+<text x="380" y="948" text-anchor="middle" class="band">THE EMPEROR</text>
+<text x="380" y="974" text-anchor="middle" class="bands">Naruhito: a symbol of the state, with no political powers</text>
+</svg>

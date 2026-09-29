@@ -1,0 +1,13 @@
+# Research note — Turkey (unit 11)
+
+Checked 2026-09-28. Every fact in `units/tr.js` and the Turkey diagram traces here.
+
+- İmamoğlu: degree annulled 18 Mar 2025; detained 19 Mar; jailed 23 Mar and named CHP candidate; main trial opened 9 Mar 2026 (400+ defendants; prosecutors seek 2,352, later ≈2,430 years); ≈2-year sentence in an insult case Sep 2026. — [Al Jazeera](https://www.aljazeera.com/news/2025/3/23/turkish-court-orders-istanbul-mayor-jailed-pending-trial), [France 24](https://www.france24.com/en/live-news/20260309-one-year-after-arrest-turkey-opposition-champion-imamoglu-goes-on-trial), [HRW](https://www.hrw.org/news/2026/03/03/turkiye-leading-opponent-of-erdogan-on-trial), [Turkish Minute](https://www.turkishminute.com/2026/09/11/jailed-istanbul-mayor-imamoglu-sentenced-to-2-years-in-insult-case/)
+- Erdoğan's adviser Mehmet Uçum (Sep 2026): elections due May 2028 could be brought forward, allowing another run; constitution-drafting team. — [Algemeiner](https://www.algemeiner.com/2026/09/17/turkeys-erdogan-seek-reelection-circumvent-constitutional-term-limits-adviser-says/), [Times of Israel/AP](https://www.timesofisrael.com/turkeys-erdogan-appoints-team-to-draft-new-constitution-drawing-fear-of-power-grab/)
+- Inflation 31.51% (Aug 2026); peak ≈85% (Oct 2022). — [Trading Economics](https://tradingeconomics.com/turkey/inflation-cpi)
+- PKK process: Bahçeli Oct 2024; Öcalan's call Feb 2025; dissolution May 2025; weapons burned Jul 2025. Syria–SDF integration deal backed by Turkey (Jan 2026). — [Wikipedia](https://en.wikipedia.org/wiki/2025_PKK%E2%80%93Turkey_peace_process), [Bianet](https://bianet.org/haber/turkey-backs-syria-sdf-integration-deal-315737), [Foreign Policy](https://foreignpolicy.com/2026/09/03/turkey-erdogan-israel-ocalan-kurds-peace-israel-iran-syria/)
+- Gaza: joined the Board of Peace (Jan 2026); left out of the stabilisation force (Feb 2026). Iran war: opposed, offered mediation; NATO intercepted Iranian missiles over Turkey. — [Al-Monitor](https://www.al-monitor.com/originals/2026/01/turkey-israel-pakistan-join-trumps-board-peace-italy-hedges-what-know), [FDD](https://www.fdd.org/analysis/2026/02/20/turkey-leaves-gaza-peace-board-summit-empty-handed/), [Arab Center DC](https://arabcenterdc.org/resource/turkey-and-the-war-on-iran-between-opportunity-and-catastrophe/)
+- Background: 2017 referendum 51.4%; 2023 run-off 52.2%; 2024 local elections CHP 37.8% vs AKP 35.5%. — [HRW World Report 2026](https://www.hrw.org/world-report/2026/country-chapters/turkiye)
+
+## Open items
+- Rulings in the İmamoğlu cases; whether parliament moves to call an early election.

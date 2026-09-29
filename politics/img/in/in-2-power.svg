@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1010" role="img" aria-labelledby="t">
+<title id="t">How power works in India</title>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5b6270"/></marker>
+<style>text{font-family:"Nunito","Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#1c1d20}.h{font-size:27px;font-weight:900;fill:#fff;letter-spacing:1px}.hs{font-size:20px;font-weight:700;fill:#fff;opacity:.92}.li{font-size:23px;font-weight:600}.lab{font-size:19px;font-weight:800;fill:#5b6270}.band{font-size:25px;font-weight:900;letter-spacing:1px}.bands{font-size:19px;font-weight:700;fill:#3f4148}</style>
+</defs>
+<rect width="760" height="1010" fill="#ffffff"/>
+<rect x="40" y="22" width="680" height="72" rx="36" fill="#eef1f5" stroke="#cfd6df" stroke-width="2"/>
+<text x="380" y="54" text-anchor="middle" class="band">THE VOTERS</text>
+<text x="380" y="80" text-anchor="middle" class="bands">nearly a billion registered, the world's largest electorate</text>
+<line x1="170" y1="96" x2="170" y2="144" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="40" y="148" width="680" height="172" rx="18" fill="#f7f8fa" stroke="#c26a1b" stroke-width="3"/>
+<path d="M40 166 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#c26a1b"/>
+<text x="62" y="186" class="h">LOK SABHA</text>
+<text x="700" y="186" text-anchor="end" class="hs">the lower house</text>
+<text x="62" y="236" class="li">543 elected seats, five-year terms</text>
+<text x="62" y="270" class="li">First past the post in each seat</text>
+<text x="62" y="304" class="li">272 seats for a majority</text>
+<line x1="170" y1="322" x2="170" y2="370" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="354" class="lab">majority chooses</text>
+<rect x="40" y="374" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#8a4a12" stroke-width="3"/>
+<path d="M40 392 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#8a4a12"/>
+<text x="62" y="412" class="h">PRIME MINISTER</text>
+<text x="700" y="412" text-anchor="end" class="hs">and cabinet</text>
+<text x="62" y="462" class="li">Narendra Modi, since 2014</text>
+<text x="62" y="496" class="li">Leads the NDA coalition (293 seats)</text>
+<line x1="170" y1="514" x2="170" y2="562" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="546" class="lab">checked by</text>
+<rect x="40" y="566" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#5b6270" stroke-width="3"/>
+<path d="M40 584 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#5b6270"/>
+<text x="62" y="604" class="h">SUPREME COURT</text>
+<text x="700" y="604" text-anchor="end" class="hs">and the Constitution</text>
+<text x="62" y="654" class="li">Can strike down laws and orders</text>
+<text x="62" y="688" class="li">President: head of state, mostly formal</text>
+<line x1="170" y1="706" x2="170" y2="754" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+<text x="184" y="738" class="lab">shares power with</text>
+<rect x="40" y="758" width="680" height="138" rx="18" fill="#f7f8fa" stroke="#2f7d4f" stroke-width="3"/>
+<path d="M40 776 a18 18 0 0 1 18 -18 h644 a18 18 0 0 1 18 18 v38 h-680 z" fill="#2f7d4f"/>
+<text x="62" y="796" class="h">THE STATES</text>
+<text x="700" y="796" text-anchor="end" class="hs">28 of them</text>
+<text x="62" y="846" class="li">Own elected governments and chief ministers</text>
+<text x="62" y="880" class="li">Run police, land, health, schools</text>
+<rect x="40" y="916" width="680" height="72" rx="36" fill="#f7f4ec" stroke="#d8cfb8" stroke-width="2"/>
+<text x="380" y="948" text-anchor="middle" class="band">ELECTION COMMISSION</text>
+<text x="380" y="974" text-anchor="middle" class="bands">independent body that runs every national and state vote</text>
+</svg>

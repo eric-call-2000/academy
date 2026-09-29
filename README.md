@@ -8,6 +8,7 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | Track | Units | Lessons | What it covers |
 |-------|-------|---------|----------------|
 | 🧑‍💻 Full-Stack Coding Lab ↗ | 8 courses | 205 items | **Interactive coding** in [CodeLab](codelab/) — write real HTML/CSS/JS/APIs in a browser sandbox; shares this app's profiles & XP |
+| 🗳️ Political Academy ↗ | 30 countries | 240 briefings | **Daily reading** in [Political Academy](politics/) — illustrated briefings on the world's 30 most important countries; shares this app's profiles & XP |
 | 🤖 AI & Coding | 16 | 128 | Using AI well — Claude, prompting, models, capabilities, coding, agents, safety |
 | 🏛️ System Design | 25 | 200 | Architecting at scale — distributed systems, trade-offs, and running agents at the max level |
 | 📣 Marketing | 8 | 64 | Brand, audience, content, channels, metrics, growth, and marketing with AI |
@@ -27,7 +28,8 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | ♟️ Evolutionary Game Theory | 25 | 192 | The math of cooperation and conflict — ESS, Hawk-Dove, the evolution of strategy |
 
 **14,235 quiz questions across 2,056 lessons in 261 units, over 17 quiz tracks** — plus
-CodeLab's 205 interactive coding items as an eighteenth, external track.
+CodeLab's 205 interactive coding items as an eighteenth, external track, and Political
+Academy's reading briefings (40 written so far, of a planned 240) as a nineteenth.
 
 *(Counted from the unit files on 2026-09-19. If you add units, recount rather than
 guessing — this table was wrong by more than double before it was last checked.)*
@@ -75,16 +77,31 @@ academy/
 ├── attachment-unit1.js … attachment-unit25.js
 ├── egt-unit1.js … egt-unit25.js
 ├── codelab/                # the external Full-Stack Coding Lab app
+├── politics/               # the external Political Academy app (daily briefings)
 └── obs/                     # overlay assets the OBS Overlays track teaches
 ```
 261 unit files, all flat at the root — no subfolders — so uploading to a static host is
-drag-and-drop simple. Two folders are the exceptions: `codelab/` is a whole second app,
+drag-and-drop simple. Three folders are the exceptions: `codelab/` and `politics/` are whole apps of their own,
 and `obs/` holds the stream-overlay assets (standby, facecam, alerts, goal bar, stinger)
 that the OBS Overlays track is built around — hosted alongside Academy so the course can
 link to the live demos.
 
 ## The Full-Stack Coding Lab card
 The 🧑‍💻 card on the picker is an **external track**: it opens the CodeLab app (a Codecademy-style sandbox course) instead of a quiz path. CodeLab ships in this repo under `codelab/`, so the card's relative link works wherever Academy is hosted (e.g. `https://<user>.github.io/academy/codelab/`). Because both apps share the same origin, they **share profiles automatically** — CodeLab records completed lessons, XP and streaks into this app's store as track `fullstack`, so they count toward each profile's totals here. Defined in `tracks.js` via the `link` property (any track with `link` becomes an open-this-URL card). The folder can also be mirrored to its own repo (`codelab`) for a standalone URL — sync still works, same origin.
+
+## The Political Academy card
+The 🗳️ card is a second external track. It opens **Political Academy**
+([`politics/`](politics/)), a reading-first app of short daily briefings on the world's 30
+most important countries. Each country is a unit of 8 illustrated briefings: a snapshot, how
+power works, the road here, the players, three stories and where things stand. There are no
+quizzes to pass; you read and tap **Finish briefing**. Like CodeLab, it shares profiles
+through this app's store and mirrors its progress as track `politics`, so the card shows
+live "N done · XP". The plan is in [`politics-curriculum.md`](politics-curriculum.md), and
+how it works is in [`politics/README.md`](politics/README.md). All 30 countries are written,
+from the United States to Nigeria; dispatches and refreshes keep them current.
+
+External cards take a `cta` in `tracks.js` for the text shown before any progress
+("Write real code", "Read today's briefing").
 
 ## Adding content
 - **Add a unit to a track:** drop in `<track>-unitN.js` (next number) and bump that track's `count` in `tracks.js`. See `unit-template.txt` for the shape.

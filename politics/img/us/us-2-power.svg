@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 900" role="img" aria-labelledby="t d">
+  <title id="t">How power is split in the United States</title>
+  <desc id="d">Voters elect Congress and the President. Congress passes bills; the President signs or vetoes them, and Congress can override a veto with two-thirds. The President nominates Supreme Court justices and the Senate confirms them. The Court can strike down laws and actions. The 50 states run elections and draw House districts.</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5b6270"/>
+    </marker>
+    <style>
+      text { font-family: "Nunito", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #1c1d20; }
+      .h { font-size: 30px; font-weight: 900; fill: #fff; letter-spacing: 1px; }
+      .hs { font-size: 21px; font-weight: 700; fill: #fff; opacity: .92; }
+      .li { font-size: 23px; font-weight: 600; }
+      .lab { font-size: 19px; font-weight: 800; fill: #5b6270; }
+      .band { font-size: 25px; font-weight: 900; letter-spacing: 1px; }
+      .bands { font-size: 20px; font-weight: 700; fill: #3f4148; }
+    </style>
+  </defs>
+  <rect width="760" height="900" fill="#ffffff"/>
+
+  <!-- voters -->
+  <rect x="40" y="22" width="660" height="72" rx="36" fill="#eef1f5" stroke="#cfd6df" stroke-width="2"/>
+  <text x="370" y="56" text-anchor="middle" class="band">THE VOTERS</text>
+  <text x="370" y="82" text-anchor="middle" class="bands">elect Congress and, via the Electoral College, the President</text>
+  <line x1="200" y1="96" x2="200" y2="128" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+  <path d="M40 58 H18 V470 H34" fill="none" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+
+  <!-- Congress -->
+  <rect x="40" y="132" width="660" height="206" rx="18" fill="#f3f8f7" stroke="#1f7a6a" stroke-width="3"/>
+  <path d="M40 150 a18 18 0 0 1 18 -18 h624 a18 18 0 0 1 18 18 v44 h-660 z" fill="#1f7a6a"/>
+  <text x="62" y="174" class="h">CONGRESS</text>
+  <text x="680" y="174" text-anchor="end" class="hs">makes the laws</text>
+  <text x="62" y="228" class="li">House: 435 seats, two-year terms</text>
+  <text x="62" y="262" class="li">Senate: 100 seats, six-year terms</text>
+  <text x="62" y="296" class="li">Taxes, tariffs, spending and war</text>
+  <text x="62" y="328" class="li">Can override a veto with two-thirds</text>
+
+  <!-- bills and vetoes -->
+  <line x1="170" y1="340" x2="170" y2="394" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+  <text x="182" y="374" class="lab">passes bills</text>
+  <line x1="420" y1="394" x2="420" y2="340" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+  <text x="432" y="374" class="lab">signs or vetoes</text>
+
+  <!-- President -->
+  <rect x="40" y="398" width="660" height="206" rx="18" fill="#f2f5f9" stroke="#1f4e79" stroke-width="3"/>
+  <path d="M40 416 a18 18 0 0 1 18 -18 h624 a18 18 0 0 1 18 18 v44 h-660 z" fill="#1f4e79"/>
+  <text x="62" y="440" class="h">PRESIDENT</text>
+  <text x="680" y="440" text-anchor="end" class="hs">carries out the laws</text>
+  <text x="62" y="494" class="li">Commands the armed forces</text>
+  <text x="62" y="528" class="li">Signs or vetoes bills</text>
+  <text x="62" y="562" class="li">Issues executive orders</text>
+  <text x="62" y="594" class="li">Nominates judges and officials</text>
+
+  <!-- nominations -->
+  <line x1="170" y1="606" x2="170" y2="660" stroke="#5b6270" stroke-width="3" marker-end="url(#ah)"/>
+  <text x="182" y="640" class="lab">nominates justices; the Senate confirms</text>
+
+  <!-- Supreme Court -->
+  <rect x="40" y="664" width="660" height="140" rx="18" fill="#f6f3f9" stroke="#6b4f8a" stroke-width="3"/>
+  <path d="M40 682 a18 18 0 0 1 18 -18 h624 a18 18 0 0 1 18 18 v44 h-660 z" fill="#6b4f8a"/>
+  <text x="62" y="706" class="h">SUPREME COURT</text>
+  <text x="680" y="706" text-anchor="end" class="hs">interprets the laws</text>
+  <text x="62" y="760" class="li">Nine justices, appointed for life</text>
+  <text x="62" y="794" class="li">Can strike down laws and actions</text>
+
+  <!-- judicial review bracket -->
+  <path d="M704 730 H736 V236 H708" fill="none" stroke="#6b4f8a" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#ah)"/>
+  <path d="M736 500 H708" fill="none" stroke="#6b4f8a" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#ah)"/>
+  <text transform="translate(754 560) rotate(-90)" class="lab" style="fill:#6b4f8a">judicial review</text>
+
+  <!-- states -->
+  <rect x="40" y="824" width="660" height="66" rx="16" fill="#f7f4ec" stroke="#d8cfb8" stroke-width="2"/>
+  <text x="370" y="853" text-anchor="middle" class="band">THE 50 STATES</text>
+  <text x="370" y="879" text-anchor="middle" class="bands">run elections · draw House districts · police · schools</text>
+</svg>
