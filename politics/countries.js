@@ -53,9 +53,9 @@
       blurb: "The Suez Canal, the Gaza border and the Nile — with an economy on the edge." });
 
   /* Part 4 — The Indo-Pacific */
-  C({ id: "jp", iso: "392", part: 4, name: "Japan", flag: "🇯🇵", color: "#bc2f45", lessons: 8,
+  C({ id: "jp", iso: "392", part: 4, name: "Japan", flag: "🇯🇵", color: "#bc2f45", lessons: 12,
       blurb: "America's key Asian ally, rearming under a prime minister with a historic mandate." });
-  C({ id: "kr", iso: "410", part: 4, name: "South Korea", flag: "🇰🇷", color: "#3a5f8f", lessons: 8,
+  C({ id: "kr", iso: "410", part: 4, name: "South Korea", flag: "🇰🇷", color: "#3a5f8f", lessons: 12,
       blurb: "A chip and shipbuilding power whose democracy survived a martial-law attempt." });
   C({ id: "kp", iso: "408", part: 4, name: "North Korea", flag: "🇰🇵", color: "#6b2737", lessons: 8,
       blurb: "A nuclear dynasty whose soldiers and shells now fight for Russia." });

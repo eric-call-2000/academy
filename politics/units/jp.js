@@ -101,6 +101,57 @@ window.POLITICS.addUnit("jp", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "jp-9", kind: "founding", asOf: "2026-09-29",
+      title: "The Meiji Restoration",
+      dek: "Forced open by American warships, Japan overthrew its shoguns in 1868 and transformed itself into a modern industrial power in a single generation.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/jp/jp-9-hero.webp",
+          alt: "Illustration of black-hulled steamships with tall funnels anchored in a calm bay, with wooded hills and a small Japanese fishing village on the shore.",
+          caption: "Commodore Perry's 'black ships' arrived in 1853, forcing Japan to open to the world.",
+          credit: "AI illustration — not a photograph",
+          prompt: "Several black-hulled 19th-century steamships with tall funnels and masts anchored in a calm bay, wooded green hills and a small traditional fishing village with thatched roofs on the shore, misty morning light, woodblock-print-inspired style, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "From shogunate to empire", items: [
+          ["1603", "The Tokugawa shogunate begins"],
+          ["1639", "Japan largely closes itself to foreigners"],
+          ["1853–54", "Commodore Perry's 'black ships' force Japan open"],
+          ["1868", "Meiji Restoration: the emperor restored to power"],
+          ["1889", "Meiji Constitution, Asia's first modern constitution"],
+          ["1895", "Victory over China; Taiwan becomes a colony"],
+          ["1905", "Victory over Russia"]
+        ] },
+        { type: "section", head: "The closed country", md:
+          "For two and a half centuries Japan was ruled by the Tokugawa shoguns, military rulers in Edo (today's Tokyo), while the emperor in Kyoto had a ceremonial role. Society was divided into classes, with the samurai warrior class at the top. From 1639 Japan largely shut itself off from the outside world, allowing only limited trade with the Dutch and Chinese at Nagasaki." },
+        { type: "section", head: "The black ships", md:
+          "In 1853 the American Commodore Matthew Perry sailed into Edo Bay with steam-powered warships and demanded that Japan open its ports. Unable to resist, the shogunate signed treaties with the US and European powers that gave them trading rights and put foreigners beyond Japanese law, 'unequal treaties' like those imposed on China. Many samurai, especially from the south-western domains of Satsuma and Chōshū, blamed the shogunate for the humiliation, rallying under the slogan 'Revere the emperor, expel the barbarians'." },
+        { type: "section", head: "Restoration", md:
+          "In 1868 a coalition of these domains overthrew the shogunate in a short civil war and 'restored' power to the teenage Emperor Meiji. In reality a small group of former samurai ran the new government. Rather than expel the foreigners, they decided to learn from them, to become strong enough to resist them. The capital moved to Edo, renamed Tokyo. Feudal domains were abolished, the samurai class dissolved, conscription introduced and universal education created." },
+        { type: "section", head: "Rich country, strong army", md:
+          "Under the slogan 'rich country, strong army', Japan sent missions to study Western governments, factories and armies, built railways, shipyards and textile mills, and adopted a constitution in 1889 modelled on Prussia's, with an elected lower house but great power for the emperor and army. By 1900 Japan had renegotiated the unequal treaties. It defeated China in 1895, taking Taiwan, and Russia in 1905, the first Asian victory over a European great power, and annexed Korea in 1910." },
+        { type: "compare", head: "Two legacies",
+          left: { head: "A model of modernisation", md:
+            "Japan showed that a non-Western country could modernise on its own terms and stand as an equal among great powers." },
+          right: { head: "The road to empire", md:
+            "The Meiji state glorified the emperor and the army, and its expansion into Korea and China led toward the catastrophe of 1937–45." } },
+        { type: "section", head: "Why it still matters", md:
+          "The Meiji era is still celebrated as Japan's great leap forward, and its reformers are national heroes. Japanese conservatives, including the late Shinzo Abe, who came from the old Chōshū region, have drawn on its spirit. But its imperial expansion is the root of lasting grievances in [[unit:kr|Korea]] and [[unit:cn|China]]." }
+      ],
+      takeaways: [
+        "Japan was largely closed to the world under the Tokugawa shoguns until US warships forced it open in 1853.",
+        "The 1868 Meiji Restoration overthrew the shogunate and launched rapid Western-style modernisation.",
+        "By 1910 Japan had defeated China and Russia and annexed Korea, becoming Asia's first modern great power."
+      ],
+      check: { q: "What was the Meiji Restoration?",
+        choices: ["A return to isolation", "The 1868 overthrow of the shogunate and restoration of the emperor, launching modernisation", "Japan's postwar constitution"], answer: 1,
+        explain: "Reformist samurai restored the emperor's authority and used it to transform Japan into a modern state." },
+      sources: [
+        { title: "Meiji Restoration", publisher: "Britannica", url: "https://www.britannica.com/event/Meiji-Restoration", date: "n.d." },
+        { title: "Japan: History", publisher: "Britannica", url: "https://www.britannica.com/place/Japan/History", date: "n.d." },
+        { title: "The United States and the Opening to Japan, 1853", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/milestones/1830-1860/opening-to-japan", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "jp-3", kind: "history", asOf: "2026-09-29",
@@ -146,6 +197,105 @@ window.POLITICS.addUnit("jp", {
         { title: "Japan profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-asia-pacific-15219730", date: "n.d." },
         { title: "Japan", publisher: "Britannica", url: "https://www.britannica.com/place/Japan", date: "n.d." },
         { title: "Premiership of Shigeru Ishiba", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Premiership_of_Shigeru_Ishiba", date: "2025" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "jp-10", kind: "past", asOf: "2026-09-29",
+      title: "Empire, war and Hiroshima",
+      dek: "Japan's empire expanded across Asia from 1931, attacked the United States in 1941, and ended in 1945 with two atomic bombs and surrender.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/jp/jp-10-hero.webp",
+          alt: "Illustration of the skeletal ruin of a domed building beside a river, with a quiet park and paper lanterns floating on the water at dusk.",
+          caption: "The Atomic Bomb Dome in Hiroshima, preserved as a memorial; lanterns are floated on the river every 6 August.",
+          credit: "AI illustration — not a photograph",
+          prompt: "The skeletal ruin of a domed brick building beside a calm river at dusk, a quiet green park, many small glowing paper lanterns floating on the water, peaceful and mournful, no people close up, no legible text." },
+        { type: "facts", head: "The war", rows: [
+          ["Manchuria seized", "1931"],
+          ["War with China", "From 1937; Nanjing massacre, December 1937"],
+          ["Pearl Harbor", "7 December 1941"],
+          ["Hiroshima and Nagasaki", "6 and 9 August 1945; over 200,000 dead by the end of 1945"],
+          ["Surrender", "Announced 15 August, signed 2 September 1945"],
+          ["Japanese war dead", "About 3 million"]
+        ] },
+        { type: "section", head: "Militarism", md:
+          "In the 1920s Japan had party governments and a growing democracy, but the Depression, rising nationalism and assassinations of politicians gave the army power. In 1931 officers staged an incident in Manchuria as a pretext to seize it. Japan left the League of Nations, and in 1937 began a full-scale war with China. In December 1937 Japanese troops massacred civilians and prisoners and committed mass rapes in Nanjing; Chinese estimates put the dead at 300,000, others lower." },
+        { type: "section", head: "War with America", md:
+          "Japan allied with Nazi Germany and Italy and moved into French Indochina. When the United States cut off oil exports, Japan's leaders chose war. On 7 December 1941 they attacked the US fleet at Pearl Harbor, and within months Japan conquered the Philippines, Malaya, Singapore, the Dutch East Indies and Burma, proclaiming a 'Greater East Asia Co-Prosperity Sphere'. Its occupation was brutal: forced labour, massacres, and hundreds of thousands of women, many Korean, coerced into sexual slavery as so-called 'comfort women'." },
+        { type: "section", head: "Defeat", md:
+          "After Midway in June 1942, the US advanced island by island. American bombing destroyed Japanese cities; a single firebombing raid on Tokyo in March 1945 killed about 100,000 people. On 6 August 1945 the US dropped an atomic bomb on Hiroshima, and on 9 August on Nagasaki; the Soviet Union also declared war. By the end of 1945 more than 200,000 people had died from the bombs. On 15 August Emperor Hirohito announced Japan's surrender by radio, the first time most Japanese had heard his voice." },
+        { type: "section", head: "Occupation", md:
+          "US forces under General Douglas MacArthur occupied Japan until 1952. They disbanded the army, tried war leaders, and wrote a new constitution in 1947 that made the emperor a symbol, guaranteed rights and, in Article 9, renounced war. Hirohito kept his throne and was never tried. Japan became a close US ally." },
+        { type: "compare", head: "Memory and apology",
+          left: { head: "Japan's official apologies", md:
+            "Japanese governments have repeatedly expressed 'deep remorse' and apologised, notably in the 1995 Murayama statement, and paid reparations." },
+          right: { head: "Neighbours' view", md:
+            "China and South Korea say visits by politicians to the Yasukuni Shrine, which honours war criminals among the dead, show apologies are not sincere." } },
+        { type: "section", head: "Why it still matters", md:
+          "The war shapes Japan's pacifism, its alliance with the US, and its relations with [[unit:cn|China]] and [[unit:kr|South Korea]]. Hiroshima made Japan the leading voice against nuclear weapons; in 2024 the survivors' group Nihon Hidankyo won the Nobel Peace Prize. Prime Minister Takaichi's views on history are closely watched by Beijing and Seoul." }
+      ],
+      takeaways: [
+        "Japan seized Manchuria in 1931, invaded China in 1937 and attacked Pearl Harbor in 1941.",
+        "Its wartime occupation of Asia was brutal; the atomic bombs of August 1945 killed over 200,000 people.",
+        "US occupation brought a pacifist constitution; wartime memory still strains ties with China and Korea."
+      ],
+      check: { q: "What does Article 9 of Japan's 1947 constitution do?",
+        choices: ["Restores the emperor's power", "Renounces war as a sovereign right", "Creates the Diet"], answer: 1,
+        explain: "Article 9 renounces war and, literally read, the maintenance of armed forces; Japan interprets it to allow self-defence forces." },
+      sources: [
+        { title: "Atomic bombings of Hiroshima and Nagasaki", publisher: "Britannica", url: "https://www.britannica.com/event/atomic-bombings-of-Hiroshima-and-Nagasaki", date: "n.d." },
+        { title: "Statement by Prime Minister Tomiichi Murayama", publisher: "Ministry of Foreign Affairs of Japan", url: "https://www.mofa.go.jp/announce/press/pm/murayama/9508.html", date: "1995-08-15" },
+        { title: "The Nobel Peace Prize 2024: Nihon Hidankyo", publisher: "The Nobel Prize", url: "https://www.nobelprize.org/prizes/peace/2024/nihon-hidankyo/facts/", date: "2024" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "jp-11", kind: "past", asOf: "2026-09-29",
+      title: "Miracle, bubble and the lost decades",
+      dek: "Japan rose from ruins to become the world's second-largest economy, then a spectacular bubble burst and growth stalled for thirty years.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/jp/jp-11-hero.webp",
+          alt: "Illustration of a sleek white bullet train speeding past rice fields with a snow-capped volcano in the background.",
+          caption: "The Shinkansen bullet train, launched in 1964, symbolised Japan's postwar boom.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A sleek white bullet train speeding across a viaduct past green rice paddies, a snow-capped symmetrical volcano in the background under a clear blue sky, dynamic and optimistic, no people, no legible text or logos." },
+        { type: "facts", head: "Boom and bust", rows: [
+          ["Average growth, 1956–73", "About 9% a year"],
+          ["Tokyo Olympics and bullet train", "1964"],
+          ["Nikkei peak", "38,916 on 29 December 1989"],
+          ["Nikkei regains its 1989 peak", "February 2024"],
+          ["Largest economy after the US", "From 1968 until China overtook it in 2010"]
+        ] },
+        { type: "section", head: "The miracle", md:
+          "From the ruins of 1945, Japan grew faster than any major economy in history. Protected by the US alliance and freed from military spending, it poured investment into steel, ships, cars and electronics. The powerful trade ministry, MITI, guided industry; banks and companies were bound together in groups called keiretsu; workers enjoyed lifetime employment. Growth averaged about 9% a year from the mid-1950s to 1973. The 1964 Tokyo Olympics and the new bullet train announced Japan's return, and by 1968 it was the world's second-largest economy." },
+        { type: "section", head: "Japan as Number One", md:
+          "In the 1970s and 1980s Toyota, Sony and Honda conquered world markets, and American politicians accused Japan of unfair trade. In 1985 the Plaza Accord pushed up the yen; to cushion exporters, the Bank of Japan cut interest rates, and cheap money flowed into shares and land. By 1989 the grounds of the Imperial Palace in Tokyo were said, by one popular estimate, to be worth more than all the real estate in California, and the Nikkei stock index peaked at nearly 39,000 at the end of 1989." },
+        { type: "section", head: "The bust", md:
+          "The Bank of Japan raised rates, and the bubble burst. Shares fell by more than half within three years and land prices kept falling for over a decade. Banks were saddled with bad loans that governments were slow to clean up, keeping zombie companies alive. Growth slumped, prices began to fall, and the 1990s became the 'lost decade', stretching into two and then three." },
+        { type: "section", head: "Abenomics and after", md:
+          "Shinzo Abe's 'Abenomics' from 2012 combined massive money-printing, government spending and reforms. It weakened the yen, lifted share prices and employment, but failed to generate lasting inflation or higher wages. Only after the pandemic did prices and wages start rising steadily, and in 2024 the Nikkei finally surpassed its 1989 peak and the Bank of Japan ended negative interest rates." },
+        { type: "compare", head: "Two readings of the lost decades",
+          left: { head: "Pessimists", md:
+            "Japan stagnated for a generation, lost its technological edge and was overtaken by China, a warning of debt and deflation." },
+          right: { head: "Optimists", md:
+            "Measured per working-age person, Japan grew respectably while keeping unemployment low and society stable, despite a shrinking population." } },
+        { type: "section", head: "Why it still matters", md:
+          "Japan's government debt, at over 200% of GDP, is the highest of any rich country, a legacy of decades of stimulus. Rising prices after years of deflation fuelled voters' anger at the cost of living, which shaped the 2025–26 elections described in this unit." }
+      ],
+      takeaways: [
+        "Japan grew about 9% a year from the mid-1950s to 1973, becoming the world's second-largest economy by 1968.",
+        "A share and property bubble peaked in 1989 and then burst, followed by decades of slow growth and deflation.",
+        "The Nikkei regained its 1989 peak only in 2024; government debt exceeds 200% of GDP."
+      ],
+      check: { q: "When did the Nikkei stock index finally regain its 1989 peak?",
+        choices: ["1999", "2012", "2024"], answer: 2,
+        explain: "It took 34 years; the index passed its December 1989 record in February 2024." },
+      sources: [
+        { title: "Japan: Economy", publisher: "Britannica", url: "https://www.britannica.com/place/Japan/Economy", date: "n.d." },
+        { title: "Japan's Nikkei 225 surpasses all-time high reached in 1989", publisher: "CNN", url: "https://www.cnn.com/2024/02/22/business/japan-nikkei-225-record-high-intl-hnk/index.html", date: "2024-02-22" },
+        { title: "Bank of Japan ends the world's only negative rates regime", publisher: "CNBC", url: "https://www.cnbc.com/2024/03/19/bank-of-japan-boj-march-2024-policy-decision-mpm-meeting.html", date: "2024-03-19" }
       ]
     },
 
@@ -359,6 +509,57 @@ window.POLITICS.addUnit("jp", {
         { title: "A Landslide for Takaichi's LDP: House of Representatives Election Results", publisher: "Nippon.com", url: "https://www.nippon.com/en/japan-data/h02703/", date: "2026-02" },
         { title: "Japan's thunderbolt election: Takaichi resets politics, economics, and diplomacy", publisher: "Brookings", url: "https://www.brookings.edu/articles/japans-thunderbolt-election-takaichi-resets-politics-economics-and-diplomacy/", date: "2026-02" },
         { title: "Ahead of reshuffle, approval rate for Takaichi Cabinet fell to 44.1%", publisher: "The Japan Times", url: "https://www.japantimes.co.jp/news/2026/09/18/japan/politics/poll-takaichi-approval-rate/", date: "2026-09-18" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "jp-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "An ageing nation",
+      dek: "Japan has the world's oldest population and is shrinking by nearly a million people a year. It is slowly opening its doors to foreign workers.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/jp/jp-12-hero.webp",
+          alt: "Illustration of an empty rural village street with old wooden houses, shuttered shops and an elderly person walking slowly in the distance, with mountains behind.",
+          caption: "Across rural Japan, millions of homes stand empty as villages age and shrink.",
+          credit: "AI illustration — not a photograph",
+          prompt: "An empty rural Japanese village street with old wooden houses and tiled roofs, shuttered shops, an elderly figure far in the distance walking slowly, green forested mountains behind, soft autumn light, quiet and melancholy, no face visible, no legible text." },
+        { type: "facts", head: "Demography", rows: [
+          ["Population", "About 124 million, falling"],
+          ["Aged 65 or over", "About 29%, the highest share in the world"],
+          ["Births in 2024", "About 686,000 Japanese nationals, a record low"],
+          ["Fertility rate", "About 1.15 children per woman (2024)"],
+          ["Foreign residents", "A record 3.95 million by mid-2025, about 3% of the population"]
+        ] },
+        { type: "section", head: "Fewer babies, longer lives", md:
+          "Japanese people live longer than almost anyone else, and have far fewer children than they used to. The fertility rate has been below the replacement level of 2.1 since the 1970s and fell to about 1.15 in 2024. Fewer than 700,000 Japanese babies were born that year, the lowest since records began. The population peaked around 2008 and is now falling by roughly 900,000 a year. Nearly three in ten Japanese are 65 or older." },
+        { type: "section", head: "Why", md:
+          "Young Japanese are marrying later or not at all, and few children are born outside marriage. Long working hours, insecure jobs for young people, high education costs, cramped city housing and traditional expectations that women handle childcare while working have all been blamed. Successive governments have expanded childcare, parental leave and child allowances, with limited effect so far." },
+        { type: "section", head: "The consequences", md:
+          "A shrinking workforce means labour shortages in care homes, construction, farming, transport and shops. Rural towns are emptying: millions of houses stand abandoned, and schools close every year. Pension and health costs strain the budget. Robots, automation and older people working longer have filled some gaps; about a quarter of people aged 65 and over still work." },
+        { type: "section", head: "Opening the door", md:
+          "Japan long resisted immigration, prizing social cohesion. That has changed quietly: foreign residents have risen to a record of about 3.95 million, led by people from China, Vietnam and South Korea, with fast growth from Nepal and the Philippines; many work through trainee and 'specified skilled worker' visas. The old technical-intern programme, criticised for abuse, is being replaced from 2027. The influx has also fed a backlash: the anti-immigration Sanseito party made big gains in 2025 with a 'Japanese first' message, and the government has pledged tougher rules on foreigners." },
+        { type: "section", head: "Tokyo and the rest", md:
+          "The decline is uneven. Young people keep moving to Tokyo and a few other big cities, whose populations have held up, while the countryside empties. In 2024 Tokyo's fertility rate fell below one child per woman, the lowest in the country, a sign that city life itself makes raising children harder." },
+        { type: "compare", head: "Two answers",
+          left: { head: "Open up", md:
+            "Japan cannot sustain its economy and care for its elderly without many more foreign workers, and should welcome them as permanent residents." },
+          right: { head: "Stay cautious", md:
+            "Technology, higher productivity and getting more women and older people into work are better answers than large-scale immigration." } },
+        { type: "section", head: "Why it matters", md:
+          "Japan is the first major economy to face deep population decline, and its choices on work, welfare and immigration are being watched by [[unit:kr|South Korea]], [[unit:cn|China]] and Europe, which face the same future." }
+      ],
+      takeaways: [
+        "Japan has the world's oldest population; about 29% are 65 or over.",
+        "Births hit a record low in 2024 and the population is falling by nearly a million a year.",
+        "Foreign residents have reached a record of nearly 4 million, easing labour shortages but fuelling a political backlash."
+      ],
+      check: { q: "About how much is Japan's population falling each year?",
+        choices: ["10,000", "Nearly 1 million", "10 million"], answer: 1,
+        explain: "With deaths far outnumbering births, Japan's population is shrinking by roughly 900,000 a year." },
+      sources: [
+        { title: "Births in Japan Fall Below 700,000 for the First Time in 2024", publisher: "Nippon.com", url: "https://www.nippon.com/en/japan-data/h02429/", date: "2025-06" },
+        { title: "Statistical Handbook of Japan", publisher: "Statistics Bureau of Japan", url: "https://www.stat.go.jp/english/data/handbook/index.html", date: "2025" },
+        { title: "Foreign residents in Japan hit record 3.95 million", publisher: "The Japan Times", url: "https://www.japantimes.co.jp/news/2025/10/10/japan/foreign-residents-record/", date: "2025-10-10" }
       ]
     },
 
