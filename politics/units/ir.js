@@ -98,6 +98,57 @@ window.POLITICS.addUnit("ir", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "ir-9", kind: "founding", asOf: "2026-09-28",
+      title: "1979: the Islamic Revolution",
+      dek: "Millions of Iranians rose against the Shah. Within months Ayatollah Khomeini had founded the world's first modern theocracy.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ir/ir-9-hero.webp",
+          alt: "Illustration of a vast crowd seen from behind filling a wide boulevard toward a tall white arched monument, under a grey winter sky.",
+          caption: "Tehran's Azadi (Freedom) Tower, built by the Shah in 1971, became a gathering point for the crowds of 1978–79.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A vast crowd seen from behind filling a wide boulevard toward a tall white inverted-Y shaped arched monument, a grey winter sky, snow-capped mountains faint in the distance, overwhelming and historic, no faces, no flags, no portraits, no legible text." },
+        { type: "timeline", head: "From Shah to Leader", items: [
+          ["1925", "Reza Khan founds the Pahlavi dynasty"],
+          ["1963", "The Shah's 'White Revolution'; Khomeini exiled a year later"],
+          ["1978", "Mass protests and strikes"],
+          ["16 Jan 1979", "The Shah leaves Iran"],
+          ["1 Feb 1979", "Khomeini returns from exile"],
+          ["1 Apr 1979", "Islamic Republic proclaimed after a referendum"],
+          ["Nov 1979", "US embassy seized; 52 Americans held for 444 days"]
+        ] },
+        { type: "section", head: "The Shah's Iran", md:
+          "Mohammad Reza Pahlavi, Shah from 1941, was restored to full power by a US- and British-backed coup in 1953 (see the next briefing). With oil money he drove a rapid modernisation, the 'White Revolution' of land reform, industrialisation and women's suffrage, and became America's main ally in the Gulf. But he ruled as an autocrat: political parties were suppressed, and his secret police, SAVAK, was notorious for torture. Wealth flowed to a narrow elite, while inflation and migration to the cities left many behind, and the clergy resented his secular reforms." },
+        { type: "section", head: "Revolution", md:
+          "Ayatollah Ruhollah Khomeini, a senior cleric exiled in 1964 for opposing the Shah, became the voice of opposition from Iraq and later France, his sermons smuggled into Iran on cassette tapes. Through 1978 protests grew, each round of killings producing new mourning processions forty days later. Strikes shut down the oil industry. A coalition of clerics, bazaar merchants, students, leftists and liberals united against the Shah. He left Iran on 16 January 1979; Khomeini returned on 1 February to a welcome by millions, and the army declared neutrality ten days later." },
+        { type: "section", head: "Building a theocracy", md:
+          "In a referendum on 30–31 March 1979, Iranians approved an Islamic Republic. A new constitution was built on Khomeini's doctrine of velayat-e faqih, 'guardianship of the jurist', which placed a senior cleric, the Supreme Leader, above elected institutions. Khomeini's followers then turned on their former allies: liberals were sidelined, leftists and other opponents were imprisoned or executed, the Revolutionary Guards ([[IRGC]]) were founded to protect the revolution, and the hijab became compulsory for women." },
+        { type: "section", head: "Confronting America", md:
+          "In November 1979 students loyal to Khomeini seized the US embassy in Tehran and held 52 Americans hostage for 444 days, until January 1981. The crisis destroyed US–Iranian relations, which have never been restored, and helped cost President Jimmy Carter re-election. 'Death to America' became a revolutionary slogan, and exporting the revolution a goal, starting with support for Shia groups such as Lebanon's Hezbollah." },
+        { type: "compare", head: "Two views of 1979",
+          left: { head: "The regime's view", md:
+            "The people overthrew a corrupt, US-backed tyrant and won independence, dignity and an Islamic government." },
+          right: { head: "Critics' view", md:
+            "A broad popular uprising for freedom was hijacked by clerics who built a harsher dictatorship than the one they replaced." } },
+        { type: "section", head: "Why it still matters", md:
+          "The system Khomeini built, a Supreme Leader above the vote, the Revolutionary Guards and hostility to the United States and Israel, has survived war, sanctions and waves of protest, and even the killing of Khomeini's successor, Ali Khamenei, in 2026. The revolution's legitimacy is what today's protesters challenge." }
+      ],
+      takeaways: [
+        "The Shah modernised Iran with oil money but ruled as an autocrat with a feared secret police.",
+        "A broad uprising in 1978 forced the Shah out; Ayatollah Khomeini returned on 1 February 1979.",
+        "The Islamic Republic placed a Supreme Leader above elected institutions and broke with the US."
+      ],
+      check: { q: "What is velayat-e faqih?",
+        choices: ["Iran's parliament", "The doctrine of 'guardianship of the jurist' that puts a senior cleric above elected bodies", "The Shah's secret police"], answer: 1,
+        explain: "Khomeini's doctrine gives the Supreme Leader, a senior cleric, ultimate authority in the Islamic Republic." },
+      sources: [
+        { title: "Iranian Revolution of 1978–79", publisher: "Britannica", url: "https://www.britannica.com/event/Iranian-Revolution-of-1978-1979", date: "n.d." },
+        { title: "Ruhollah Khomeini", publisher: "Britannica", url: "https://www.britannica.com/biography/Ruhollah-Khomeini", date: "n.d." },
+        { title: "The Iranian Hostage Crisis", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/departmenthistory/short-history/iraniancrises", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "ir-3", kind: "history", asOf: "2026-09-28",
@@ -143,6 +194,104 @@ window.POLITICS.addUnit("ir", {
         { title: "Iran profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-middle-east-14542438", date: "n.d." },
         { title: "Prelude to the 2026 Iran war", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Prelude_to_the_2026_Iran_war", date: "2026" },
         { title: "US-Iran ceasefire and nuclear talks in 2026", publisher: "House of Commons Library", url: "https://commonslibrary.parliament.uk/research-briefings/cbp-10637/", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "ir-10", kind: "past", asOf: "2026-09-28",
+      title: "1953: the coup against Mosaddegh",
+      dek: "When Iran's elected prime minister nationalised its oil, Britain and the United States helped overthrow him. Iranians have never forgotten.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ir/ir-10-hero.webp",
+          alt: "Illustration of a mid-century oil refinery with towers and storage tanks beside a river at dusk, with flares burning.",
+          caption: "The Abadan refinery, once the world's largest, at the heart of the 1951 oil nationalisation.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A large mid-20th-century oil refinery with distillation towers, pipes and storage tanks beside a wide river at dusk, gas flares burning orange, palm trees, industrial and historic, no people close up, no flags, no legible text or logos." },
+        { type: "facts", head: "The coup", rows: [
+          ["Oil nationalised", "March 1951"],
+          ["Prime minister", "Mohammad Mosaddegh, 1951–53"],
+          ["Coup", "19 August 1953 (28 Mordad in the Iranian calendar)"],
+          ["Organised by", "The CIA and British intelligence, with royalist officers and clergy"],
+          ["CIA acknowledgement", "Documents released in 2013"]
+        ] },
+        { type: "section", head: "Oil and Britain", md:
+          "Since 1909 Iran's oil had been controlled by the Anglo-Iranian Oil Company, forerunner of BP, which was majority-owned by the British government. It paid Iran a small share of the profits, and Iranian workers at the vast Abadan refinery lived in poor conditions while British staff enjoyed segregated privileges. After the Second World War, as other countries won better terms, Iranian nationalists demanded control of their own resource." },
+        { type: "section", head: "Mosaddegh", md:
+          "Mohammad Mosaddegh, an aristocratic lawyer and nationalist, led the campaign. In March 1951 the parliament voted to nationalise the oil industry, and soon after he became prime minister, enormously popular. Britain withdrew its technicians, responded with a naval blockade of Iranian oil exports and took the dispute to the UN and the International Court of Justice, which ruled that it had no jurisdiction. As the economy suffered, Mosaddegh's coalition frayed, and he clashed with the Shah and parts of the clergy." },
+        { type: "section", head: "Operation Ajax", md:
+          "Britain persuaded the Eisenhower administration, fearful that Iran might drift toward the Soviet Union, to act. The CIA, with British intelligence, organised a coup, known in Washington as Operation Ajax: it bribed officers, politicians and newspapers, paid crowds to riot, and persuaded the hesitant Shah to dismiss Mosaddegh. A first attempt on 15 August failed, and the Shah fled to Rome. On 19 August royalist troops and mobs overthrew the government. Mosaddegh was tried and spent the rest of his life under house arrest." },
+        { type: "section", head: "Aftermath", md:
+          "The Shah returned with his power greatly increased, and a new oil consortium gave American companies a large share of Iranian oil. For the next 25 years the Shah ruled as an American ally, increasingly autocratic. In 2013 the CIA released documents acknowledging that the coup was carried out 'under CIA direction'. The US Secretary of State Madeleine Albright had acknowledged America's role in 2000." },
+        { type: "compare", head: "How it is remembered",
+          left: { head: "Iranian nationalists and the regime", md:
+            "Foreign powers destroyed Iran's democracy to take its oil, proof that America cannot be trusted." },
+          right: { head: "Some historians", md:
+            "Foreign plotting mattered, but Mosaddegh's own isolation, the economic crisis and domestic royalists and clerics also brought him down." } },
+        { type: "section", head: "Why it still matters", md:
+          "The coup is central to Iranian suspicion of the United States and Britain, and the Islamic Republic cites it constantly. It also fed the revolution of 1979, which many Iranians saw as ending the order imposed in 1953. Mosaddegh remains a hero to secular nationalists who oppose both the Shah's legacy and the clerics, and the episode is often cited in debates about Western intervention elsewhere." }
+      ],
+      takeaways: [
+        "Prime Minister Mohammad Mosaddegh nationalised Iran's British-controlled oil industry in 1951.",
+        "In August 1953 a coup organised by the CIA and British intelligence overthrew him and restored the Shah's power.",
+        "The coup deepened Iranian distrust of the West and helped set the stage for 1979."
+      ],
+      check: { q: "What did Mosaddegh do that provoked Britain?",
+        choices: ["Declared war", "Nationalised the Anglo-Iranian Oil Company", "Joined the Soviet bloc"], answer: 1,
+        explain: "Iran's parliament nationalised the oil industry in 1951, ending British control of Iran's oil." },
+      sources: [
+        { title: "Mohammad Mosaddegh", publisher: "Britannica", url: "https://www.britannica.com/biography/Mohammad-Mosaddegh", date: "n.d." },
+        { title: "CIA Confirms Role in 1953 Iran Coup", publisher: "National Security Archive", url: "https://nsarchive2.gwu.edu/NSAEBB/NSAEBB435/", date: "2013-08-19" },
+        { title: "Foreign Relations of the United States, 1952–1954, Iran", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/historicaldocuments/frus1951-54Iran", date: "2017" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "ir-11", kind: "past", asOf: "2026-09-28",
+      title: "The Iran–Iraq War",
+      dek: "Saddam Hussein invaded in 1980. Eight years of trench warfare, missile strikes and chemical weapons killed hundreds of thousands and forged the Islamic Republic.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ir/ir-11-hero.webp",
+          alt: "Illustration of a flat marshland battlefield with trenches, barbed wire and burned-out palm trees under a hazy orange sky.",
+          caption: "The southern front, where much of the fighting took place in marshes and deserts.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A flat marshland battlefield with muddy trenches, coils of barbed wire and burned-out palm tree trunks under a hazy orange sky, distant smoke, desolate and haunting, no people, no flags, no legible text." },
+        { type: "facts", head: "The war", rows: [
+          ["Dates", "September 1980 – August 1988"],
+          ["Deaths", "Estimates range from about 500,000 to over 1 million on both sides"],
+          ["Chemical weapons", "Used by Iraq against Iranian troops and Iraqi Kurds"],
+          ["Outcome", "Ceasefire under UN Resolution 598; borders unchanged"],
+          ["Known in Iran as", "The 'Sacred Defence'"]
+        ] },
+        { type: "section", head: "The invasion", md:
+          "Saddam Hussein, Iraq's dictator, saw revolutionary Iran as both a threat and an opportunity: its army had been purged, and Khomeini was calling on Iraq's Shia majority to rise up. On 22 September 1980 Iraq invaded, aiming to seize the oil-rich province of Khuzestan and control the Shatt al-Arab waterway. Instead of collapsing, Iran rallied. Volunteers, including teenage members of the Basij militia, flooded to the front, and by 1982 Iran had driven the Iraqis back." },
+        { type: "section", head: "Stalemate", md:
+          "Khomeini then chose to carry the war into Iraq, aiming to topple Saddam. The fighting became a war of attrition resembling the First World War, with trenches, human-wave assaults across minefields, and huge casualties. Iraq, backed by money from Gulf states and weapons and intelligence from the Soviet Union, France and, increasingly, the United States, used chemical weapons, including mustard gas and nerve agents, on a massive scale. Both sides fired missiles at each other's cities." },
+        { type: "section", head: "The tanker war and the end", md:
+          "Both sides attacked oil tankers in the Gulf, drawing in the US navy to escort Kuwaiti shipping. In July 1988 a US warship, the Vincennes, shot down an Iranian passenger jet, Iran Air Flight 655, killing all 290 on board; the US said it had mistaken it for a fighter. Exhausted, Iran accepted a UN ceasefire in August 1988. Khomeini compared it to 'drinking a cup of poison'. The borders were unchanged. That summer, the regime executed thousands of political prisoners." },
+        { type: "section", head: "Forged in war", md:
+          "The war consolidated the revolution. It justified repression, built the Revolutionary Guards into Iran's most powerful institution, and created a generation of commanders who would later lead the regime, among them Qassem Soleimani, who went on to build Iran's network of allied militias across the region. The experience of being attacked with chemical weapons while much of the world looked away shaped Iran's belief that it must rely on itself, including in missiles and nuclear technology." },
+        { type: "compare", head: "Two lessons",
+          left: { head: "The regime's lesson", md:
+            "Iran stood alone against an aggressor backed by the world and survived through faith and sacrifice; it must never be defenceless again." },
+          right: { head: "Critics' lesson", md:
+            "Prolonging the war after 1982 cost hundreds of thousands of lives for a revolutionary dream, and the regime used it to crush dissent." } },
+        { type: "section", head: "Why it still matters", md:
+          "Martyrs' murals from the war still cover Iran's cities. Its memory shaped Iran's response to the wars of 2025 and 2026 with Israel and the United States, and the regime's insistence on its missile programme, which it sees as its insurance against another invasion." }
+      ],
+      takeaways: [
+        "Iraq invaded Iran in 1980; the war lasted eight years and killed hundreds of thousands.",
+        "Iraq used chemical weapons on a massive scale; Iran accepted a ceasefire in 1988 with borders unchanged.",
+        "The war built up the Revolutionary Guards and shaped Iran's doctrine of self-reliance."
+      ],
+      check: { q: "Who started the Iran–Iraq War?",
+        choices: ["Iran, to export its revolution", "Iraq, under Saddam Hussein, which invaded in September 1980", "The United States"], answer: 1,
+        explain: "Iraq invaded on 22 September 1980; Iran later took the war into Iraq." },
+      sources: [
+        { title: "Iran-Iraq War", publisher: "Britannica", url: "https://www.britannica.com/event/Iran-Iraq-War", date: "n.d." },
+        { title: "The Origins, Conduct, and Impact of the Iran-Iraq War, 1980-1988", publisher: "Wilson Center", url: "https://www.wilsoncenter.org/publication/the-origins-conduct-and-impact-the-iran-iraq-war-1980-1988", date: "n.d." },
+        { title: "Iran Air flight 655", publisher: "Britannica", url: "https://www.britannica.com/event/Iran-Air-flight-655", date: "n.d." }
       ]
     },
 
@@ -344,6 +493,55 @@ window.POLITICS.addUnit("ir", {
         { title: "US-Iran Memorandum of Understanding expires: How and why it fell apart", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/8/17/us-iran-memorandum-of-understanding-expires-how-and-why-it-fell-apart", date: "2026-08-17" },
         { title: "US strikes five Iranian oil tankers, as Iran attacks 10 ships, Jordan base", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/9/9/us-destroys-five-iranian-tankers-iran-retaliates-with-attacks-on-jordan-base", date: "2026-09-09" },
         { title: "U.S.-Iran Ceasefire and Negotiations: Assessment and Issues for Congress", publisher: "Congressional Research Service", url: "https://www.congress.gov/crs-product/IN12678", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "ir-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "Woman, Life, Freedom",
+      dek: "In 2022 the death of a young woman in police custody set off Iran's biggest challenge to clerical rule in decades, led by women removing their headscarves.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ir/ir-12-hero.webp",
+          alt: "Illustration of a young woman seen from behind with long uncovered hair walking down a busy city street at dusk, among other pedestrians.",
+          caption: "Since 2022 many Iranian women have stopped wearing the compulsory hijab in public.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A young woman seen from behind with long dark uncovered hair walking down a busy city street at dusk among other pedestrians, shop lights and traffic, a mountain range faint in the distance, quiet defiance, no faces, no legible text or signs." },
+        { type: "facts", head: "The protests", rows: [
+          ["Trigger", "Death of Mahsa (Jina) Amini, 22, on 16 September 2022"],
+          ["Slogan", "'Woman, life, freedom' (Zan, zendegi, azadi)"],
+          ["Killed", "More than 500 protesters, according to human rights groups"],
+          ["Executions", "At least 12 people executed over the protests by September 2025, per rights groups"],
+          ["Nobel Peace Prize 2023", "Narges Mohammadi, jailed activist"]
+        ] },
+        { type: "section", head: "The hijab law", md:
+          "Soon after the revolution, the hijab became compulsory for all women in public, enforced by morality police. For decades, many women pushed the limits with loose scarves and colourful coats, and crackdowns rose and fell with politics. Women in Iran are highly educated, a majority of university students in many years, but face legal discrimination in divorce, inheritance, travel and testimony." },
+        { type: "section", head: "Mahsa Amini", md:
+          "In September 2022 Mahsa Amini, a 22-year-old Kurdish woman visiting Tehran, was arrested by the morality police for allegedly wearing her hijab improperly. She collapsed in custody and died on 16 September. Her family said she had been beaten; officials said she had a medical condition. Protests erupted at her funeral in Kurdistan and spread nationwide, with women burning headscarves and cutting their hair, and crowds chanting 'Woman, life, freedom' and slogans against the Supreme Leader." },
+        { type: "section", head: "Crackdown", md:
+          "The protests lasted months, spreading to universities, schools and the bazaars, and were strongest in Kurdish and Baluch regions. Security forces responded with live fire; human rights groups counted more than 500 people killed, including dozens of children, and about 20,000 arrested. By September 2025 at least 12 people had been executed in connection with the protests, after trials that rights groups say relied on confessions extracted under torture. A UN fact-finding mission concluded in 2024 that the crackdown amounted to crimes against humanity." },
+        { type: "section", head: "A quiet revolution", md:
+          "The street protests faded by early 2023, but something changed: in Tehran and other cities many women simply stopped covering their hair. The authorities installed cameras, fined drivers and closed businesses, and in 2024 parliament passed a harsh new hijab law, which the president, Masoud Pezeshkian, later declined to enforce. The jailed activist Narges Mohammadi won the Nobel Peace Prize in 2023 for her campaign against the oppression of women." },
+        { type: "compare", head: "Two views",
+          left: { head: "The authorities", md:
+            "The hijab is a religious and legal duty, and the unrest was stoked by foreign enemies seeking to destabilise Iran." },
+          right: { head: "Protesters and their supporters", md:
+            "Women's control over their own bodies is the frontline of a wider demand for freedom and the end of clerical rule." } },
+        { type: "section", head: "Why it matters", md:
+          "The movement showed the gap between the regime and much of Iran's young, urban population, and it foreshadowed the larger unrest of the winter of 2025–26 described in this unit's stories. Whatever the fate of the Islamic Republic after the 2026 war, the question of women's freedom will be at its centre." }
+      ],
+      takeaways: [
+        "The death of Mahsa Amini in morality-police custody in September 2022 set off nationwide protests.",
+        "Security forces killed more than 500 protesters, and at least 12 people were later executed.",
+        "Many women have since stopped wearing the compulsory hijab, a quiet act of defiance."
+      ],
+      check: { q: "What was the slogan of the 2022 protests?",
+        choices: ["'Bread, work, freedom'", "'Woman, life, freedom'", "'Death to America'"], answer: 1,
+        explain: "'Zan, zendegi, azadi', a Kurdish-origin slogan, became the movement's rallying cry." },
+      sources: [
+        { title: "Iran: Institutional discrimination against women and girls enabled human rights violations and crimes against humanity", publisher: "UN Human Rights Council", url: "https://www.ohchr.org/en/press-releases/2024/03/iran-institutional-discrimination-against-women-and-girls-enabled-human", date: "2024-03-08" },
+        { title: "The Nobel Peace Prize 2023: Narges Mohammadi", publisher: "The Nobel Prize", url: "https://www.nobelprize.org/prizes/peace/2023/mohammadi/facts/", date: "2023" },
+        { title: "Iran: Impunity Reigns 3 Years After Crackdown on Protests", publisher: "Human Rights Watch", url: "https://www.hrw.org/news/2025/09/16/iran-impunity-reigns-3-years-after-crackdown-on-protests", date: "2025-09-16" }
       ]
     },
 

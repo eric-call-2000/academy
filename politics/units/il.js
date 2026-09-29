@@ -100,6 +100,57 @@ window.POLITICS.addUnit("il", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "il-9", kind: "founding", asOf: "2026-09-28",
+      title: "Zionism and 1948",
+      dek: "A movement for a Jewish homeland, the Holocaust and a UN vote led to Israel's founding in 1948. For Palestinians, the same war was the Nakba, the catastrophe.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/il/il-9-hero.webp",
+          alt: "Illustration of a modest whitewashed Bauhaus-style building on a tree-lined boulevard in a Mediterranean city, in bright afternoon light.",
+          caption: "Independence Hall on Rothschild Boulevard in Tel Aviv, where David Ben-Gurion declared the State of Israel on 14 May 1948.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A modest two-storey whitewashed building on a wide tree-lined boulevard in a Mediterranean city, Bauhaus-style buildings around it, bright afternoon light through the trees, calm and historic, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "From idea to state", items: [
+          ["1897", "First Zionist Congress in Basel"],
+          ["1917", "Balfour Declaration backs a 'national home for the Jewish people'"],
+          ["1920–48", "British Mandate for Palestine"],
+          ["1939–45", "The Holocaust"],
+          ["29 Nov 1947", "UN votes to partition Palestine"],
+          ["14 May 1948", "Israel declares independence"],
+          ["1948–49", "War; about 700,000 Palestinians flee or are expelled"]
+        ] },
+        { type: "section", head: "Zionism", md:
+          "Jews had lived in the Land of Israel in ancient times and maintained a small presence there ever since, and a religious longing for Zion ran through centuries of exile. In the late 19th century, faced with pogroms in the Russian Empire and antisemitism in Western Europe, a modern national movement, Zionism, argued that Jews needed a state of their own. Theodor Herzl convened the first Zionist Congress in 1897. Waves of Jewish immigrants began building farms and towns in Ottoman Palestine, where Arabs were the large majority." },
+        { type: "section", head: "The British Mandate", md:
+          "In 1917 Britain's Balfour Declaration promised to support 'a national home for the Jewish people' in Palestine without prejudicing the rights of its non-Jewish communities. After the First World War Britain governed Palestine under a League of Nations mandate. Jewish immigration grew, especially after Hitler came to power, and Arab opposition turned to revolt in 1936–39. Britain then sharply limited Jewish immigration just as European Jews were being murdered in the Holocaust." },
+        { type: "section", head: "Partition and war", md:
+          "After the Holocaust, pressure for a Jewish state became overwhelming. Britain handed the problem to the UN, which on 29 November 1947 voted to partition Palestine into Jewish and Arab states, with Jerusalem under international control. Jewish leaders accepted; Arab leaders rejected it. Civil war broke out. On 14 May 1948, as the British left, David Ben-Gurion declared the State of Israel, and armies from Egypt, Jordan, Syria and Iraq invaded. By 1949 Israel held about 78% of the former mandate; Jordan held the West Bank and East Jerusalem, and Egypt the Gaza Strip." },
+        { type: "section", head: "Independence and the Nakba", md:
+          "For Israelis, 1948 was a war of survival and independence, won at the cost of about 6,000 dead, around 1% of the Jewish population. For Palestinians, it was the Nakba, 'catastrophe': about 700,000 Arabs fled or were expelled, and Israel did not let them return. Historians still debate how much of the exodus resulted from deliberate expulsion and how much from flight in wartime. In the following years hundreds of thousands of Jews left or were driven out of Arab countries, most settling in Israel." },
+        { type: "compare", head: "Two narratives of 1948",
+          left: { head: "Israel's War of Independence", md:
+            "A persecuted people, just after the Holocaust, accepted a UN compromise and defended its new state against invading armies." },
+          right: { head: "The Palestinian Nakba", md:
+            "A people was dispossessed of its homeland, its villages destroyed, and its refugees denied return to this day." } },
+        { type: "section", head: "Why it still matters", md:
+          "The refugees of 1948 and their descendants, now millions, remain at the heart of the conflict; their 'right of return' is one of its hardest issues. Israel's Declaration of Independence promised equality for all citizens regardless of religion or race, and its Arab citizens, about a fifth of the population, are descendants of those who stayed. Both peoples' founding stories are still told against each other." }
+      ],
+      takeaways: [
+        "Zionism, founded as a political movement in 1897, sought a Jewish state in the historic Land of Israel.",
+        "After the Holocaust the UN voted in 1947 to partition Palestine; Israel declared independence on 14 May 1948.",
+        "For Palestinians, the 1948 war was the Nakba: about 700,000 fled or were expelled."
+      ],
+      check: { q: "What did the UN vote for on 29 November 1947?",
+        choices: ["A single Arab state", "Partition of Palestine into Jewish and Arab states", "Continued British rule"], answer: 1,
+        explain: "Resolution 181 proposed separate Jewish and Arab states with an international Jerusalem; Arab leaders rejected it." },
+      sources: [
+        { title: "Zionism", publisher: "Britannica", url: "https://www.britannica.com/topic/Zionism", date: "n.d." },
+        { title: "Arab-Israeli wars: 1948–49", publisher: "Britannica", url: "https://www.britannica.com/event/Arab-Israeli-wars", date: "n.d." },
+        { title: "Declaration of Establishment of State of Israel", publisher: "Israel Ministry of Foreign Affairs", url: "https://www.gov.il/en/departments/general/declaration-of-establishment-state-of-israel", date: "1948-05-14" }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "il-3", kind: "history", asOf: "2026-09-28",
@@ -142,6 +193,105 @@ window.POLITICS.addUnit("il", {
         { title: "Israel profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-middle-east-29123668", date: "n.d." },
         { title: "Israel-Hamas War", publisher: "Britannica", url: "https://www.britannica.com/event/Israel-Hamas-War", date: "2026" },
         { title: "Gaza war hostage crisis", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Gaza_war_hostage_crisis", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "il-10", kind: "past", asOf: "2026-09-28",
+      title: "1967: six days and the occupation",
+      dek: "In June 1967 Israel defeated three Arab armies in six days and took the West Bank, Gaza, East Jerusalem, Sinai and the Golan. The questions it opened are still unresolved.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/il/il-10-hero.webp",
+          alt: "Illustration of the golden-domed shrine and the ancient stone wall of Jerusalem's Old City at dawn, seen from a hillside.",
+          caption: "Jerusalem's Old City, divided until 1967, when Israel captured the east of the city.",
+          credit: "AI illustration — not a photograph",
+          prompt: "The Old City of Jerusalem at dawn seen from a hillside, a golden dome and ancient pale stone walls and gates, cypress trees, soft golden light over the domes and rooftops, timeless and contested, no people close up, no flags, no legible text." },
+        { type: "facts", head: "The Six-Day War", rows: [
+          ["Dates", "5–10 June 1967"],
+          ["Against", "Egypt, Jordan and Syria"],
+          ["Territory captured", "Sinai, Gaza, the West Bank, East Jerusalem, the Golan Heights"],
+          ["UN Resolution 242", "'Land for peace' formula, November 1967"],
+          ["Israeli settlers today", "About 500,000 in the West Bank and about 230,000 in East Jerusalem"]
+        ] },
+        { type: "section", head: "Six days", md:
+          "In May 1967 Egypt's President Nasser expelled UN peacekeepers from Sinai, closed the Straits of Tiran to Israeli shipping and massed troops, while Arab leaders spoke of destroying Israel. On 5 June Israel launched a pre-emptive strike that destroyed most of Egypt's air force on the ground. In six days it captured Sinai and Gaza from Egypt, the West Bank and East Jerusalem from Jordan, and the Golan Heights from Syria, tripling the territory it controlled. Some 300,000 Palestinians fled, many for the second time." },
+        { type: "section", head: "Land for peace", md:
+          "In November the UN Security Council passed Resolution 242, calling for Israel to withdraw 'from territories occupied' in exchange for peace and recognition, the 'land for peace' formula behind all later diplomacy. Arab leaders meeting in Khartoum replied with 'three noes': no peace, no recognition, no negotiations. Israel annexed East Jerusalem and, in 1981, the Golan Heights, moves not recognised by most of the world. After the 1973 war, Egypt made peace and recovered Sinai in 1982." },
+        { type: "section", head: "Settlements", md:
+          "In the West Bank and Gaza, Israel imposed military rule over more than a million Palestinians. From the late 1960s, and especially after 1977, Israeli governments encouraged Jewish settlements, driven by security arguments and by a religious-nationalist movement that saw the West Bank, biblical Judea and Samaria, as Jewish patrimony. Most countries and the International Court of Justice regard the settlements as illegal under international law; Israel disputes this. Israel withdrew its settlers from Gaza in 2005." },
+        { type: "section", head: "Life under occupation", md:
+          "Palestinians in the West Bank live under a mix of Israeli military rule and, since the 1990s, limited self-government by the Palestinian Authority, with checkpoints, a separation barrier built after 2002, and restrictions on movement and building. Israelis argue these measures prevent terrorism; Palestinians and human rights groups describe systematic discrimination, and some call it apartheid, a term Israel rejects. Two Palestinian uprisings, or intifadas, broke out in 1987 and 2000." },
+        { type: "compare", head: "Two views of the territories",
+          left: { head: "Israeli right", md:
+            "Judea and Samaria are the heart of the Jewish homeland and essential for security; they were never a sovereign Palestinian state." },
+          right: { head: "Palestinians and most of the world", md:
+            "The territories are occupied land for a Palestinian state; settlements violate international law and block peace." } },
+        { type: "section", head: "Why it still matters", md:
+          "Almost six decades on, the territories captured in 1967 remain the core of the conflict. In 2024 the International Court of Justice advised that Israel's occupation was unlawful; Israel rejected the opinion. Settlement expansion and settler violence surged after 7 October 2023, and the far-right parties in Israel's government openly advocate annexation." }
+      ],
+      takeaways: [
+        "In the June 1967 war Israel captured Sinai, Gaza, the West Bank, East Jerusalem and the Golan Heights.",
+        "UN Resolution 242 set the 'land for peace' formula; Egypt later regained Sinai by making peace.",
+        "Israeli settlement of the West Bank, which most of the world considers illegal, remains central to the conflict."
+      ],
+      check: { q: "What formula did UN Resolution 242 establish?",
+        choices: ["Two states immediately", "'Land for peace': withdrawal in exchange for recognition and peace", "International control of all Jerusalem"], answer: 1,
+        explain: "Resolution 242 called for Israeli withdrawal from occupied territories and for recognition of every state's right to live in peace." },
+      sources: [
+        { title: "Six-Day War", publisher: "Britannica", url: "https://www.britannica.com/event/Six-Day-War", date: "n.d." },
+        { title: "Resolution 242 (1967)", publisher: "United Nations", url: "https://digitallibrary.un.org/record/90717?ln=en", date: "1967-11-22" },
+        { title: "Legal Consequences arising from the Policies and Practices of Israel in the Occupied Palestinian Territory", publisher: "International Court of Justice", url: "https://www.icj-cij.org/case/186", date: "2024-07-19" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "il-11", kind: "past", asOf: "2026-09-28",
+      title: "Oslo and the assassination of Rabin",
+      dek: "In 1993 Israel and the PLO recognised each other and set out a path to peace. Two years later an Israeli extremist killed the prime minister who signed it.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/il/il-11-hero.webp",
+          alt: "Illustration of a large city square at night with a memorial of stones and flickering candles in the foreground and apartment buildings around.",
+          caption: "Rabin Square in Tel Aviv, renamed after the prime minister was shot there on 4 November 1995.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A large city square at night surrounded by modernist apartment buildings, in the foreground a simple memorial of dark basalt stones with many flickering candles, quiet grief, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "Hope and violence", items: [
+          ["1987", "First intifada begins"],
+          ["13 Sep 1993", "Oslo Accords signed at the White House"],
+          ["1994", "Palestinian Authority created; peace with Jordan"],
+          ["4 Nov 1995", "Yitzhak Rabin assassinated"],
+          ["2000", "Camp David summit fails; second intifada"],
+          ["2006–07", "Hamas wins elections and takes Gaza"]
+        ] },
+        { type: "section", head: "The handshake", md:
+          "After the first Palestinian intifada and the end of the Cold War, Israel and the Palestine Liberation Organization (PLO), long enemies, held secret talks in Norway. On 13 September 1993, on the White House lawn, Prime Minister Yitzhak Rabin, a former army chief, and PLO chairman Yasser Arafat shook hands. In the Oslo Accords the PLO recognised Israel's right to exist and renounced terrorism, and Israel recognised the PLO as the representative of the Palestinians. Rabin, Arafat and Shimon Peres shared the Nobel Peace Prize in 1994." },
+        { type: "section", head: "An interim deal", md:
+          "Oslo created a Palestinian Authority with limited self-rule in parts of the West Bank and Gaza, divided into areas under Palestinian, joint and Israeli control. The hardest questions, borders, Jerusalem, refugees, settlements and security, were left for 'final status' talks within five years. Both sides' opponents attacked the process: Hamas and Islamic Jihad carried out suicide bombings in Israeli cities, and in 1994 a Jewish extremist, Baruch Goldstein, murdered 29 Palestinian worshippers in Hebron." },
+        { type: "section", head: "The assassination", md:
+          "Israel's right accused Rabin of betrayal; at rallies he was depicted in Nazi uniform. On 4 November 1995, as he left a peace rally in Tel Aviv, Rabin was shot dead by Yigal Amir, a Jewish religious nationalist who opposed giving up land. Seven months later Benjamin Netanyahu, who had led opposition to Oslo, narrowly won the election for prime minister." },
+        { type: "section", head: "Collapse", md:
+          "Talks continued fitfully. At Camp David in 2000, Prime Minister Ehud Barak and Arafat failed to reach a final deal, each side blaming the other. A second intifada followed, with suicide bombings in Israel and a massive Israeli military response; over 4,000 people died. Israel withdrew from Gaza in 2005, but Hamas won Palestinian elections in 2006 and seized Gaza from the Palestinian Authority in 2007. Later negotiations, in 2008 and 2013–14, also failed." },
+        { type: "compare", head: "Why did Oslo fail?",
+          left: { head: "Israeli explanations", md:
+            "Palestinian leaders never truly accepted Israel, rejected generous offers, and tolerated terror; withdrawals brought rockets, not peace." },
+          right: { head: "Palestinian explanations", md:
+            "Israel kept expanding settlements during the talks, offered less than a viable state, and used Oslo to manage the occupation rather than end it." } },
+        { type: "section", head: "Why it still matters", md:
+          "The Palestinian Authority created by Oslo still governs parts of the West Bank, and Oslo's two-state idea remains the official goal of most of the world, including in the plans for Gaza after the 2025 ceasefire. But for many Israelis, Rabin's murder and the violence that followed ended faith in a peace deal, and for many Palestinians, Oslo is remembered as a trap." }
+      ],
+      takeaways: [
+        "In the 1993 Oslo Accords Israel and the PLO recognised each other and created the Palestinian Authority.",
+        "A Jewish extremist assassinated Prime Minister Yitzhak Rabin on 4 November 1995.",
+        "Final-status talks failed in 2000, followed by the second intifada; the two-state idea remains unrealised."
+      ],
+      check: { q: "Who assassinated Yitzhak Rabin?",
+        choices: ["A Hamas militant", "An Israeli Jewish extremist opposed to giving up land", "A foreign agent"], answer: 1,
+        explain: "Yigal Amir, a religious nationalist, shot Rabin after a peace rally in Tel Aviv." },
+      sources: [
+        { title: "Oslo Accords", publisher: "Britannica", url: "https://www.britannica.com/topic/Oslo-Accords", date: "n.d." },
+        { title: "Yitzhak Rabin", publisher: "Britannica", url: "https://www.britannica.com/biography/Yitzhak-Rabin", date: "n.d." },
+        { title: "The Oslo Accords and the Arab-Israeli Peace Process", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/milestones/1993-2000/oslo", date: "n.d." }
       ]
     },
 
@@ -349,6 +499,55 @@ window.POLITICS.addUnit("il", {
         { title: "U.S. says officials reached roadmap for Hamas disarmament in Gaza", publisher: "The Washington Post", url: "https://www.washingtonpost.com/politics/2026/07/30/us-says-officials-reached-roadmap-hamas-disarmament-gaza/", date: "2026-07-30" },
         { title: "Gaza's Rafah border crossing with Egypt reopens for limited traffic", publisher: "NPR", url: "https://www.npr.org/2026/02/02/g-s1-108287/gaza-rafah-border-crossing-reopens", date: "2026-02-02" },
         { title: "A Guide to the Gaza Peace Deal", publisher: "Council on Foreign Relations", url: "https://www.cfr.org/articles/guide-trumps-twenty-point-gaza-peace-deal", date: "2025" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "il-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "Religion and state",
+      dek: "Israel is a Jewish and democratic state. Who decides what 'Jewish' means, and whether ultra-Orthodox men should serve in the army, divides Israelis bitterly.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/il/il-12-hero.webp",
+          alt: "Illustration of a narrow stone-paved street in an old Jerusalem neighbourhood at dusk, with men in black coats and hats seen from behind walking away.",
+          caption: "The ultra-Orthodox, or Haredim, are about 14% of Israel's population and growing fast.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A narrow stone-paved street in an old Jerusalem neighbourhood at dusk, pale stone buildings with wrought-iron balconies, several men in long black coats and wide black hats seen from behind walking away, warm streetlamps, quiet and devout, no faces, no legible text." },
+        { type: "facts", head: "Religion in Israel", rows: [
+          ["Jewish Israelis", "About three-quarters of the population"],
+          ["Ultra-Orthodox (Haredim)", "About 14% of the population"],
+          ["Arab citizens", "About 21%, mostly Muslim"],
+          ["Civil marriage in Israel", "Not available; couples often marry abroad"],
+          ["Supreme Court ruling on the draft", "June 2024: yeshiva students must be conscripted"]
+        ] },
+        { type: "section", head: "The status quo", md:
+          "Before independence, David Ben-Gurion made a deal with religious parties, the 'status quo', that shaped the state: Shabbat as the official day of rest, kosher food in state kitchens, religious control over marriage and divorce, and autonomy for religious schools. He also exempted a few hundred students of religious seminaries, yeshivas, from military service, to rebuild Torah study destroyed in the Holocaust. Israel has no written constitution, partly because secular and religious Israelis could not agree on one." },
+        { type: "section", head: "Marriage and 'who is a Jew'", md:
+          "Marriage and divorce are governed by religious courts: rabbinical courts for Jews, and Muslim, Christian and Druze courts for others. There is no civil marriage, so Israelis who cannot or will not marry religiously, including many immigrants from the former Soviet Union whom the rabbinate does not recognise as Jewish, marry abroad, often in Cyprus. The Orthodox rabbinate's monopoly also angers Reform and Conservative Jews, especially in the United States." },
+        { type: "section", head: "The draft", md:
+          "The exemption for yeshiva students grew with the ultra-Orthodox population: by the 2020s more than 60,000 men of military age were exempt. Many Haredim see Torah study as their contribution to the nation and fear that army service would erode their way of life. Secular and religious-Zionist Israelis, who serve and died in large numbers in the war after 7 October 2023, see the exemption as unjust. In June 2024 the Supreme Court ruled there was no legal basis for it and ordered conscription; the ultra-Orthodox parties later quit Netanyahu's government over the issue." },
+        { type: "section", head: "Demography and the economy", md:
+          "Ultra-Orthodox families have about six children on average, and they could be a quarter of the population by 2050. Many men study rather than work, and schools often teach little maths or English, which economists warn threatens Israel's prosperity and tax base. At the same time, a growing religious-nationalist movement, distinct from the ultra-Orthodox, has gained power, with leaders such as Itamar Ben-Gvir and Bezalel Smotrich." },
+        { type: "compare", head: "Two views of the draft",
+          left: { head: "Supporters of conscription", md:
+            "Equal duty is basic fairness, especially in wartime. The army needs more soldiers and the economy needs more workers." },
+          right: { head: "Ultra-Orthodox leaders", md:
+            "Torah study protects the Jewish people as much as soldiers do; forcing yeshiva students into the army threatens a way of life." } },
+        { type: "section", head: "Why it matters", md:
+          "Religion and state cut across Israel's left–right divide and shape its coalitions: ultra-Orthodox parties have been kingmakers for decades. The draft dispute helped bring down Netanyahu's coalition and is a central issue in the October 2026 election." }
+      ],
+      takeaways: [
+        "Since 1948 a 'status quo' deal has given religious authorities control of marriage and exempted yeshiva students from the army.",
+        "The ultra-Orthodox are about 14% of Israelis and growing fast; many men study rather than work or serve.",
+        "The Supreme Court ordered their conscription in 2024, a dispute central to Israeli politics."
+      ],
+      check: { q: "Why do many Israeli couples marry abroad?",
+        choices: ["It is cheaper", "Israel has no civil marriage; marriage is controlled by religious courts", "Israeli law requires it"], answer: 1,
+        explain: "Only religious marriages can be performed in Israel, so mixed or secular couples often marry in Cyprus or elsewhere." },
+      sources: [
+        { title: "In historic ruling, High Court says government must draft Haredi men into IDF", publisher: "The Times of Israel", url: "https://www.timesofisrael.com/in-historic-ruling-high-court-says-government-must-begin-drafting-haredi-men-into-idf/", date: "2024-06-25" },
+        { title: "The Israel Democracy Institute releases its 2024 Statistical Report on Ultra-Orthodox Society", publisher: "Israel Democracy Institute", url: "https://en.idi.org.il/articles/58484", date: "2024" },
+        { title: "Israel: Religion", publisher: "Britannica", url: "https://www.britannica.com/place/Israel/Religion", date: "n.d." }
       ]
     },
 

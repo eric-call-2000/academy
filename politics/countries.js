@@ -41,9 +41,9 @@
       blurb: "Holder of the Bosphorus and broker on Ukraine, Gaza and Syria — the bridge to Part 3." });
 
   /* Part 3 — The Middle East */
-  C({ id: "il", iso: "376", part: 3, name: "Israel", flag: "🇮🇱", color: "#2c6e9b", lessons: 8,
+  C({ id: "il", iso: "376", part: 3, name: "Israel", flag: "🇮🇱", color: "#2c6e9b", lessons: 12,
       blurb: "At the centre of Gaza, Iran, Lebanon and Syria, with an election on 27 October 2026." });
-  C({ id: "ir", iso: "364", part: 3, name: "Iran", flag: "🇮🇷", color: "#2e7d5b", lessons: 8,
+  C({ id: "ir", iso: "364", part: 3, name: "Iran", flag: "🇮🇷", color: "#2e7d5b", lessons: 12,
       blurb: "At war with the US and Israel, beside the Strait of Hormuz, under a new Supreme Leader." });
   C({ id: "sa", iso: "682", part: 3, name: "Saudi Arabia", flag: "🇸🇦", color: "#1c5e38", lessons: 8,
       blurb: "The oil superpower of OPEC+, Vision 2030, and a front-row seat in the Iran war." });
