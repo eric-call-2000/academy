@@ -187,4 +187,7 @@
   L({ id: "us_tr", a: "us", b: "tr", lessons: 3, color: "#2a3a6a",
       title: "Allies, missiles and F-35s",
       blurb: "NATO allies since 1952 who fell out over the Kurds, a failed coup and Russian S-400s, now bargaining over F-35s." });
+  L({ id: "us_eg", a: "us", b: "eg", lessons: 3, color: "#8a6a2a",
+      title: "Aid, a coup and the canal",
+      blurb: "Rivals over Suez in 1956, partners after Camp David, strained by a coup and Gaza, and bound by .3 billion a year." });
 })();
