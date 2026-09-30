@@ -84,6 +84,18 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇺🇸🇮🇱 United States & Israel | Recognition, aid and a divided public | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇨🇦🇨🇳 Canada & China | Head tax, hostages and canola | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇺🇸🇹🇼 United States & Taiwan | Ambiguity, arms and bargaining | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇸🇦 United States & Saudi Arabia | Oil, terror and a crown prince | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇬🇧 United States & United Kingdom | Special, unequal and tested | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇩🇪🇨🇳 Germany & China | Cars, rivals and a deficit | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇯🇵🇷🇺 Japan & Russia | Four islands and no peace | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇳🇷🇺 India & Russia | Old friends, arms and oil | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇧🇷🇨🇳 Brazil & China | Soybeans, vaccines and BRICS | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇪🇬🇸🇦 Egypt & Saudi Arabia | Rivals, patrons and partners | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇿🇦🇷🇺 South Africa & Russia | Comrades, drills and recruits | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇦🇺 United States & Australia | ANZUS, AUKUS and minerals | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇰🇷 United States & South Korea | Troops, subs and a snub | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇨🇳🇰🇵 China & North Korea | Lips, teeth and a parade | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇺🇦 United States & Ukraine | Assurances, arms and a deal | 3 of 3 | 30 Sep 2026 | illustrations pending |
 
 ## Run it
 
