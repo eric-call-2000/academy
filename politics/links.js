@@ -181,4 +181,7 @@
   L({ id: "jp_in", a: "jp", b: "in", lessons: 3, color: "#9a5a2a",
       title: "Goodwill, trains and the Quad",
       blurb: "Wartime links through Bose and Justice Pal, Japanese cars, loans and a bullet train, and a partnership in the Quad." });
+  L({ id: "pl_ru", a: "pl", b: "ru", lessons: 3, color: "#8a2a4a",
+      title: "Partitions, Katyń and drones",
+      blurb: "Centuries of partitions and uprisings, Katyń and the Smolensk crash, and drones and sabotage on NATO's front line." });
 })();
