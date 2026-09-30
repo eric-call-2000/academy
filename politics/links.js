@@ -133,4 +133,7 @@
   L({ id: "de_cn", a: "de", b: "cn", lessons: 3, color: "#6a4a2a",
       title: "Cars, rivals and a deficit",
       blurb: "Volkswagen in Shanghai and change through trade, a turn to 'systemic rival', and Chinese cars, chips and a record trade deficit." });
+  L({ id: "jp_ru", a: "jp", b: "ru", lessons: 3, color: "#4a3a6a",
+      title: "Four islands and no peace",
+      blurb: "Two wars and four islands with no peace treaty since 1945, Abe's failed courtship of Putin, and sanctions, Sakhalin gas and a provocative visit." });
 })();
