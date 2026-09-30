@@ -99,6 +99,58 @@ window.POLITICS.addUnit("au", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "au-9", kind: "founding", asOf: "2026-09-29",
+      title: "Federation, 1901",
+      dek: "Six British colonies voted themselves into one country on 1 January 1901. The deal they struck, and the questions it left out, still shape Australian politics.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/au/au-9-hero.webp",
+          alt: "Illustration of a large crowd in Edwardian clothing seen from behind in a Sydney park in 1901, facing a white domed pavilion decorated for a ceremony.",
+          caption: "The Commonwealth was proclaimed in Sydney's Centennial Park on 1 January 1901.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A large crowd in Edwardian clothing with hats and parasols seen from behind in a green Sydney park in 1901, facing an ornate white domed pavilion decorated with garlands for a ceremony, summer sunshine, eucalyptus trees, festive and historic, no faces, no flags, no legible text." },
+        { type: "timeline", head: "The road to federation", items: [
+          ["1788", "British First Fleet arrives at Sydney Cove"],
+          ["1889", "Henry Parkes calls for federation at Tenterfield"],
+          ["1891, 1897–98", "Constitutional conventions draft a constitution"],
+          ["1898–1900", "Voters in each colony approve it in referendums"],
+          ["1900", "British parliament passes the Constitution Act"],
+          ["1 Jan 1901", "Commonwealth of Australia proclaimed"],
+          ["1927", "Parliament moves to Canberra"],
+          ["1986", "Australia Act ends remaining British legal links"]
+        ] },
+        { type: "section", head: "Six colonies", md:
+          "After 1788 Britain founded separate colonies around the continent: New South Wales, Tasmania, Western Australia, South Australia, Victoria and Queensland. Each had its own government, tariffs, defence and even railway gauges. By the 1880s many colonists felt Australian as well as British, and worried about foreign powers in the Pacific, the costs of trade barriers between colonies and, openly, about non-white immigration." },
+        { type: "section", head: "A constitution by the people", md:
+          "Henry Parkes, premier of New South Wales and the 'father of federation', launched the campaign in 1889. Delegates from the colonies drafted a constitution at conventions in the 1890s, borrowing from Britain's parliamentary system and the United States' federal model, with a Senate giving each state equal representation. Unusually for the time, it was put to voters in referendums in each colony between 1898 and 1900, after changes to win over New South Wales and Queensland, including a promise of a new capital between Sydney and Melbourne." },
+        { type: "section", head: "Birth of a nation", md:
+          "The British parliament passed the constitution into law in 1900, and the Commonwealth of Australia was proclaimed on 1 January 1901, with Edmund Barton as the first prime minister. Parliament sat in Melbourne until Canberra was ready in 1927. The King remained head of state, represented by a governor-general, and Britain kept control of foreign policy for decades. Full legal independence came in stages: the Statute of Westminster in 1942 and the Australia Act of 1986, which ended appeals to London's courts." },
+        { type: "section", head: "Who was left out", md:
+          "Aboriginal and Torres Strait Islander peoples had no say in federation. The constitution excluded 'aboriginal natives' from being counted in the population and barred the Commonwealth from making laws for them; both clauses were removed in the 1967 referendum, approved by 90.8% of voters. One of the new parliament's first acts, in 1901, restricted immigration through a dictation test, the basis of the 'White Australia' policy ([[lesson:au-3]]). Women won the federal vote in 1902, among the first in the world, though Aboriginal people in several states were denied it until 1962." },
+        { type: "compare", head: "Two views of the founding",
+          left: { head: "A democratic achievement", md:
+            "Australia was founded peacefully, by votes rather than war, with a stable constitution that has lasted more than 125 years." },
+          right: { head: "An incomplete founding", md:
+            "It was built on the dispossession of First Nations peoples and a racial immigration policy, and has never been reckoned with in the constitution." } },
+        { type: "section", head: "Why it still matters", md:
+          "The federal bargain of 1901 explains why the states still run hospitals, schools and police, and why the Senate gives Tasmania as many senators as New South Wales ([[lesson:au-2]]). The constitution is very hard to change: only 8 of 45 referendums have passed, the latest defeats being the republic in 1999 and the Indigenous Voice in 2023. And the national day is not 1 January but 26 January, the anniversary of the First Fleet, which many Indigenous Australians mark as Invasion Day." }
+      ],
+      takeaways: [
+        "Six British colonies united as the Commonwealth of Australia on 1 January 1901, after referendums approved a constitution.",
+        "The constitution combined British parliamentary government with a US-style federal Senate.",
+        "Indigenous peoples were excluded from the founding; the 1967 referendum removed the discriminatory clauses."
+      ],
+      check: { q: "How was Australia's constitution approved?",
+        choices: ["By the British parliament alone", "By referendums in each colony, then an act of the British parliament", "By a war of independence"], answer: 1,
+        explain: "Voters approved it in colonial referendums between 1898 and 1900, and Westminster then passed it into law." },
+      sources: [
+        { title: "The Federation of Australia", publisher: "Parliamentary Education Office", url: "https://peo.gov.au/understand-our-parliament/history-of-parliament/federation/the-federation-of-australia", date: "n.d." },
+        { title: "Federation referendum", publisher: "Parliamentary Education Office", url: "https://peo.gov.au/understand-our-parliament/history-of-parliament/history-milestones/australian-parliament-history-timeline/events/federation-referendum", date: "n.d." },
+        { title: "Federation Fact Sheet 2: First Commonwealth Parliament 1901", publisher: "Australian Electoral Commission", url: "https://www.aec.gov.au/about_aec/Publications/Fact_Sheets/factsheet2.htm", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "au-3", kind: "history", asOf: "2026-09-29",
@@ -144,6 +196,105 @@ window.POLITICS.addUnit("au", {
         { title: "Australia profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-asia-15675556", date: "n.d." },
         { title: "Australia", publisher: "Britannica", url: "https://www.britannica.com/place/Australia", date: "n.d." },
         { title: "2025 Australian federal election debates and forums", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2025_Australian_federal_election_debates_and_forums", date: "2025" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "au-10", kind: "past", asOf: "2026-09-29",
+      title: "The Stolen Generations",
+      dek: "For six decades Australian governments took Aboriginal and Torres Strait Islander children from their families. The nation apologised in 2008; the consequences are still felt.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/au/au-10-hero.webp",
+          alt: "Illustration of a red dirt road across the Australian outback leading to a distant, lonely brick building, with an empty child's shoe in the foreground.",
+          caption: "Many children were sent to institutions or missions far from their communities.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long red dirt road across the flat Australian outback leading to a distant, lonely old brick institutional building, spinifex and a single gum tree, an empty small child's shoe on the road in the foreground, vast blue sky, melancholy, no people, no legible text." },
+        { type: "timeline", head: "Removal and recognition", items: [
+          ["1910–1970", "Peak period of forced removals"],
+          ["1937", "Governments endorse 'assimilation' of Aboriginal people"],
+          ["1995", "National inquiry begins"],
+          ["26 May 1997", "Bringing Them Home report tabled"],
+          ["1998", "First National Sorry Day"],
+          ["13 Feb 2008", "Prime Minister Kevin Rudd's National Apology"]
+        ] },
+        { type: "section", head: "What happened", md:
+          "From the late nineteenth century until the 1970s, state and federal authorities, churches and welfare bodies removed Aboriginal and Torres Strait Islander children from their families, often by force and without court orders. The aim was to 'absorb' or 'assimilate' them into white society, especially children of mixed descent. They were placed in institutions, missions, foster homes or as domestic servants and labourers, frequently given new names, forbidden to speak their languages and told their parents did not want them." },
+        { type: "section", head: "Bringing Them Home", md:
+          "A national inquiry by the Human Rights and Equal Opportunity Commission, which heard from hundreds of witnesses, reported in May 1997. Bringing Them Home concluded that between one in ten and one in three Indigenous children were forcibly removed between 1910 and 1970, and that not one Indigenous family had escaped the effects. Many children suffered physical and sexual abuse. The report found that the policy met the definition of genocide in international law, a conclusion that was fiercely disputed." },
+        { type: "section", head: "Sorry", md:
+          "The report asked for an apology. Prime Minister John Howard expressed personal regret but refused a formal apology, arguing that the present generation should not be held responsible for the past. Hundreds of thousands of people walked across Sydney Harbour Bridge in 2000 in support of reconciliation. On 13 February 2008, as his government's first act in parliament, Kevin Rudd apologised to the Stolen Generations, their families and communities, 'for the pain, suffering and hurt'. The Opposition supported the motion." },
+        { type: "section", head: "Compensation", md:
+          "The apology did not include a national compensation scheme, a deliberate choice at the time. Some states created their own. In 2021 the federal government launched a redress scheme for survivors removed in the territories it ran, the Northern Territory, the ACT and Jervis Bay, paying A$75,000 each plus a healing payment. Survivors elsewhere depend on state schemes or the courts, and many have died waiting." },
+        { type: "compare", head: "Two views of the history",
+          left: { head: "Most historians and Indigenous organisations", md:
+            "Removals were a deliberate policy to erase Aboriginal identity, causing trauma that passes from generation to generation." },
+          right: { head: "Conservative critics", md:
+            "Many removals were motivated by concern for children's welfare, and the word 'genocide' distorts the history." } },
+        { type: "section", head: "Why it still matters", md:
+          "The trauma of removal is linked to higher rates of poor health, imprisonment and family breakdown among descendants. Today Indigenous children are far more likely than other children to be placed in out-of-home care, which leads activists to warn of a new stolen generation. The history also shaped the 2023 referendum on an Indigenous Voice to Parliament, whose defeat many Indigenous leaders saw as a setback for reconciliation ([[lesson:au-3]])." }
+      ],
+      takeaways: [
+        "From about 1910 to 1970, between one in ten and one in three Indigenous children were forcibly removed from their families.",
+        "The 1997 Bringing Them Home report documented the policy and called for an apology.",
+        "Kevin Rudd delivered the National Apology on 13 February 2008."
+      ],
+      check: { q: "What was the 1997 Bringing Them Home report about?",
+        choices: ["Soldiers returning from Vietnam", "The forced removal of Indigenous children from their families", "Refugees arriving by boat"], answer: 1,
+        explain: "The national inquiry documented the Stolen Generations and recommended an apology." },
+      sources: [
+        { title: "1997: Bringing Them Home report", publisher: "National Museum of Australia", url: "https://digital-classroom.nma.gov.au/learning-modules/rights-and-freedoms-defining-moments-1945-present/121-1997-bringing-them-home-report-stolen-generations", date: "n.d." },
+        { title: "National Apology", publisher: "National Museum of Australia", url: "https://www.nma.gov.au/defining-moments/resources/national-apology", date: "n.d." },
+        { title: "Bringing Them Home: news stories", publisher: "Australian Human Rights Commission", url: "https://humanrights.gov.au/bringing-them-home/media/news-stories.html", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "au-11", kind: "past", asOf: "2026-09-29",
+      title: "Anzac: war and the nation",
+      dek: "A failed landing at Gallipoli in 1915 became Australia's founding legend. The wars since have tied the country first to Britain and then to America.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/au/au-11-hero.webp",
+          alt: "Illustration of a steep scrubby hillside above a narrow beach at dawn, with small wooden boats approaching over calm water.",
+          caption: "Australian and New Zealand troops landed at Gallipoli at dawn on 25 April 1915.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A steep scrub-covered hillside rising above a narrow pebbly beach at dawn on the Gallipoli peninsula, a few small wooden rowing boats approaching over calm grey-blue water, soft pink sky, solemn and historical, no people visible up close, no weapons, no legible text." },
+        { type: "facts", head: "The First World War", rows: [
+          ["Enlisted", "About 417,000, all volunteers"],
+          ["Killed", "More than 61,500"],
+          ["Killed at Gallipoli", "8,709"],
+          ["Population in 1914", "Under 5 million"],
+          ["Conscription", "Rejected in referendums in 1916 and 1917"]
+        ] },
+        { type: "section", head: "Gallipoli", md:
+          "When Britain went to war in 1914, Australia went too, without debate. On 25 April 1915 the Australian and New Zealand Army Corps (Anzac) landed on the Gallipoli peninsula in Ottoman Turkey, part of a British plan to knock the Ottomans out of the war. The campaign was a failure; the troops were evacuated in December after eight months. But the courage, endurance and humour attributed to the 'diggers' became a national legend, and 25 April, Anzac Day, grew into the most important day in Australia's calendar." },
+        { type: "section", head: "A divided home front", md:
+          "The war's losses on the Western Front were far greater than at Gallipoli. Prime Minister Billy Hughes twice asked voters to approve conscription for overseas service, in 1916 and 1917, and was twice narrowly refused, after bitter campaigns that split the Labor Party and pitted Irish Catholics against Protestants. Australia remained one of the few combatants whose army was made up only of volunteers." },
+        { type: "section", head: "Turning to America", md:
+          "The Second World War changed Australia's alliances. When Singapore fell to Japan in February 1942 and Japanese aircraft bombed Darwin, Britain could not defend Australia. Prime Minister John Curtin had already written that Australia 'looks to America', and US forces under General MacArthur made Australia their base. Australian troops halted the Japanese on the Kokoda Track in New Guinea. In 1951 the ANZUS treaty with the United States and New Zealand became the foundation of Australian security." },
+        { type: "section", head: "Vietnam to Afghanistan", md:
+          "Australia fought alongside the United States in Korea, Vietnam, the Gulf, Iraq and Afghanistan. In Vietnam, conscripts chosen by a birthday ballot were sent from 1966, 521 Australians died, and huge protests followed. In Afghanistan, 41 Australians died. In 2020 the Brereton report found credible information that special forces had unlawfully killed 39 Afghan prisoners and civilians; in 2023 a court found, on the balance of probabilities, that the decorated soldier Ben Roberts-Smith had been involved in murders, in a defamation case he brought and lost." },
+        { type: "compare", head: "Two views of the Anzac tradition",
+          left: { head: "Celebrants", md:
+            "Anzac honours sacrifice and the values of mateship and courage that bind Australians together across generations." },
+          right: { head: "Critics", md:
+            "The legend glorifies wars fought for others, overshadows the frontier wars against Aboriginal people, and is used to discourage questioning." } },
+        { type: "section", head: "Why it still matters", md:
+          "Anzac Day dawn services draw huge crowds, and the Australian War Memorial in Canberra is a national shrine. The instinct to fight alongside a great ally runs from Gallipoli to AUKUS, the submarine pact with the US and Britain ([[lesson:au-7]]). The debate over whether Australia's wars serve its own interests, or those of its allies, returns whenever Washington asks for support, most recently over a possible conflict with China over Taiwan (see [[unit:tw|Taiwan]])." }
+      ],
+      takeaways: [
+        "The failed 1915 landing at Gallipoli became the founding legend of Anzac Day.",
+        "Voters twice rejected conscription in the First World War; Australia's army remained all-volunteer.",
+        "After 1942 Australia turned from Britain to the United States, sealed in the 1951 ANZUS treaty."
+      ],
+      check: { q: "What is commemorated on 25 April, Anzac Day?",
+        choices: ["Federation in 1901", "The landing at Gallipoli in 1915", "The end of the Second World War"], answer: 1,
+        explain: "Anzac Day marks the landing of Australian and New Zealand troops at Gallipoli on 25 April 1915." },
+      sources: [
+        { title: "Conscription during the First World War, 1914–1918", publisher: "Australian War Memorial", url: "https://www.awm.gov.au/articles/encyclopedia/conscription/ww1", date: "n.d." },
+        { title: "Conscription referendums", publisher: "National Museum of Australia", url: "https://digital-classroom.nma.gov.au/defining-moments/conscription-referendums", date: "n.d." },
+        { title: "Australia", publisher: "1914-1918-online: International Encyclopedia of the First World War", url: "https://encyclopedia.1914-1918-online.net/article/australia/", date: "n.d." }
       ]
     },
 
@@ -232,7 +383,7 @@ window.POLITICS.addUnit("au", {
         { type: "section", head: "The aftermath", md:
           "The defeat set off a crisis on the right. The Liberals chose Sussan Ley as their first woman leader within days. Soon afterwards the Nationals announced they would leave the Coalition, citing disagreements over policy, before reuniting with the Liberals about a week later. The Coalition then spent months arguing over whether to keep the net-zero emissions target, while Albanese used his majority to pass his agenda with the help of the Greens in the Senate." },
         { type: "section", head: "Why it matters", md:
-          "The landslide gave Albanese a huge majority, but the low first-preference vote for both big parties signalled a fragmenting electorate. Within a year the Coalition would lose ground not to Labor but to One Nation, as briefing 7 explains." },
+          "The landslide gave Albanese a huge majority, but the low first-preference vote for both big parties signalled a fragmenting electorate. Within a year the Coalition would lose ground not to Labor but to One Nation, as [[lesson:au-7]] explains." },
         { type: "section", head: "What's next", md:
           "The next federal election is due by 2028. The question is whether Labor can hold its gains while its opponents reorganise on the right, and whether the voters who deserted both big parties in 2025 come back or keep drifting to independents and One Nation." }
       ],
@@ -349,6 +500,58 @@ window.POLITICS.addUnit("au", {
         { title: "One Nation migration plan to cut students and migrant worker families", publisher: "ABC News (Australia)", url: "https://www.abc.net.au/news/2026-09-14/750k-visas-cut-under-one-nation-plan/107149702", date: "2026-09-14" },
         { title: "'Dangerous': PM takes aim at One Nation amid latest polls", publisher: "The New Daily", url: "https://www.thenewdaily.com.au/news/politics/australian-politics/2026/08/31/newspoll-one-nation", date: "2026-08-31" },
         { title: "Pentagon's AUKUS review finds areas to put nuclear submarine pact on 'strongest possible footing'", publisher: "ABC News (Australia)", url: "https://www.abc.net.au/news/2025-12-05/aukus-review-pentagon-donald-trump-administration/105588512", date: "2025-12-05" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "au-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "Boats and borders",
+      dek: "Since 2001 Australia has sent asylum seekers who arrive by boat to camps on Pacific islands and turned boats back at sea. It is one of the world's toughest border policies, and one of its most copied.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/au/au-12-hero.webp",
+          alt: "Illustration of a grey patrol ship on a wide open ocean under a heavy sky, with a small wooden fishing boat far in the distance.",
+          caption: "Under Operation Sovereign Borders, the navy turns back boats heading for Australia.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A grey naval patrol ship on a wide open tropical ocean under a heavy overcast sky, a small old wooden fishing boat far in the distance on the horizon, long swell, tense and lonely mood, no people visible, no flags, no legible text." },
+        { type: "timeline", head: "Two decades of policy", items: [
+          ["Aug 2001", "Tampa affair; the 'Pacific Solution' begins"],
+          ["2008", "Labor closes the offshore camps"],
+          ["2012", "Offshore processing resumes as arrivals rise"],
+          ["Jul 2013", "No boat arrivals to be resettled in Australia"],
+          ["Sep 2013", "Operation Sovereign Borders: boat turnbacks"],
+          ["2017", "Manus Island centre closes"],
+          ["Nov 2023", "High Court rules indefinite detention unlawful (NZYQ)"],
+          ["Aug 2025", "Deal to send some non-citizens to Nauru"]
+        ] },
+        { type: "section", head: "Tampa", md:
+          "In August 2001 a Norwegian freighter, the MV Tampa, rescued 433 mostly Afghan asylum seekers from a sinking boat and tried to bring them to Australian territory. John Howard's government refused and sent special forces to board the ship. It then began the 'Pacific Solution': people arriving by boat would be taken to camps on Nauru and on Manus Island in Papua New Guinea. After the 9/11 attacks weeks later, Howard campaigned on the line 'we will decide who comes to this country', and won that November's election." },
+        { type: "section", head: "Stop the boats", md:
+          "Kevin Rudd's Labor government closed the camps in 2008. Boat arrivals rose sharply, to more than 20,000 people in 2012–13, and more than a thousand people drowned on the journey between 2008 and 2013. Labor reopened Nauru and Manus, and in July 2013 Rudd declared that no one arriving by boat would ever be settled in Australia. Tony Abbott's Coalition then launched Operation Sovereign Borders, a military-led operation that turns boats back to Indonesia or Sri Lanka. Arrivals almost stopped." },
+        { type: "section", head: "The human cost", md:
+          "Thousands of people were held for years on Nauru and Manus. Doctors, the UN and whistleblowers reported self-harm, child mental illness and deaths; an asylum seeker, Reza Barati, was killed in a riot on Manus in 2014. PNG's Supreme Court ruled the Manus detention illegal in 2016, and the centre closed in 2017. Many detainees were resettled in the United States under a 2016 deal, and others in New Zealand. A small number of people remain on Nauru, which Australia still pays to keep its facility open." },
+        { type: "section", head: "Detention at home", md:
+          "In November 2023, in the NZYQ case, the High Court ruled that non-citizens who cannot be deported cannot be detained indefinitely. About 150 people, some with serious criminal records, were released, and the Albanese government faced a political storm. It passed new laws, and in August 2025 signed a deal with Nauru to take some of those released, paying for long-term visas there." },
+        { type: "compare", head: "Two views of the policy",
+          left: { head: "Supporters (both major parties)", md:
+            "Tough deterrence stopped the drownings and the people-smuggling trade and keeps public support for a large legal migration programme." },
+          right: { head: "Critics (Greens, rights groups, the UN)", md:
+            "It punishes people with valid refugee claims to deter others, breaches international obligations and costs billions." } },
+        { type: "section", head: "Why it matters", md:
+          "Offshore processing is now bipartisan, and 'stop the boats' remains a political touchstone; One Nation and parts of the Coalition campaign for lower migration overall ([[lesson:au-7]]). Governments in Europe, including Britain and Italy, have studied or copied the model (see [[unit:gb|the UK]] and [[unit:it|Italy]]). Australia still accepts refugees through its humanitarian programme, about 20,000 places a year, but only those it chooses from abroad." }
+      ],
+      takeaways: [
+        "Since the 2001 Tampa affair, Australia has sent people arriving by boat to offshore camps on Nauru and Manus Island.",
+        "Since 2013 the navy has turned boats back, and no boat arrival may settle in Australia.",
+        "Both major parties support the policy; critics say it causes great harm and breaches refugee law."
+      ],
+      check: { q: "What was the 'Pacific Solution'?",
+        choices: ["A trade deal with Pacific island states", "Sending asylum seekers who came by boat to camps on Nauru and Manus Island", "A climate agreement"], answer: 1,
+        explain: "From 2001 Australia held boat arrivals in offshore camps rather than on the mainland." },
+      sources: [
+        { title: "Offshore processing statistics", publisher: "Refugee Council of Australia", url: "https://www.refugeecouncil.org.au/operation-sovereign-borders-offshore-detention-statistics/", date: "2025" },
+        { title: "Operation Sovereign Borders Monthly Update: August 2025", publisher: "Australian Border Force", url: "https://www.abf.gov.au/newsroom-subsite/Pages/Operation-Sovereign-Borders-Monthly-Update-August-2025.aspx", date: "2025-09" },
+        { title: "Multibillion-dollar strategy with no end in sight: Australia's enduring offshore processing deal with Nauru", publisher: "The Conversation", url: "https://theconversation.com/multibillion-dollar-strategy-with-no-end-in-sight-australias-enduring-offshore-processing-deal-with-nauru-168941", date: "n.d." }
       ]
     },
 

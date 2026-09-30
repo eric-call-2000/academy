@@ -102,6 +102,59 @@ window.POLITICS.addUnit("tw", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "tw-9", kind: "founding", asOf: "2026-09-29",
+      title: "How the Republic of China came to Taiwan",
+      dek: "The state that governs Taiwan was founded in mainland China in 1912 and arrived on the island only after 1945. How it got there shapes every argument about Taiwan's status.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/tw/tw-9-hero.webp",
+          alt: "Illustration of a crowded harbour quay in 1949 with steamships and people in period clothing seen from behind carrying luggage down gangplanks.",
+          caption: "About two million soldiers and civilians followed the Nationalist government to Taiwan around 1949.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A crowded harbour quay in southern Taiwan in 1949, large steamships moored, soldiers and civilians in late-1940s clothing seen from behind carrying suitcases and bundles down gangplanks, subtropical hills in the background, humid hazy light, historical and uncertain mood, no faces, no flags, no legible text." },
+        { type: "timeline", head: "Three founding moments", items: [
+          ["1 Jan 1912", "Republic of China founded in Nanjing after the 1911 revolution"],
+          ["1895–1945", "Taiwan is a Japanese colony"],
+          ["25 Oct 1945", "ROC takes over Taiwan from Japan"],
+          ["1947", "ROC constitution adopted in Nanjing"],
+          ["1 Oct 1949", "Mao proclaims the People's Republic in Beijing"],
+          ["Dec 1949", "ROC government moves to Taipei"],
+          ["1952", "Japan renounces Taiwan in a peace treaty without naming a recipient"]
+        ] },
+        { type: "section", head: "A republic born in China", md:
+          "The Republic of China (ROC) was founded on 1 January 1912, after a revolution toppled the Qing dynasty. Its founding father, Sun Yat-sen, is honoured on both sides of the Taiwan Strait. Sun's Nationalist Party, the Kuomintang (KMT), later led by Chiang Kai-shek, fought warlords, the Japanese and the Chinese Communist Party for control of the country. At the time, Taiwan was not part of it: the Qing had ceded the island to Japan in 1895." },
+        { type: "section", head: "1945: a handover", md:
+          "In the 1943 Cairo Declaration, the United States, Britain and the ROC said Taiwan should be 'restored' to China after the war. When Japan surrendered, ROC forces took over the island on 25 October 1945. Many Taiwanese first welcomed them, but corruption, inflation and discrimination by the new officials quickly bred anger, which exploded in February 1947 ([[lesson:tw-10]]). That same year the ROC adopted a constitution in Nanjing, the one Taiwan still uses, much amended." },
+        { type: "section", head: "1949: the retreat", md:
+          "The civil war turned decisively against Chiang in 1948–49. Mao Zedong proclaimed the People's Republic of China (PRC) in Beijing on 1 October 1949, and in December the ROC government moved to Taipei, bringing troops, officials, the national treasury and the imperial art collection now in the National Palace Museum. About two million mainlanders arrived on an island of six million. Chiang expected to retake the mainland; instead, the US Navy's protection from 1950 froze the division." },
+        { type: "section", head: "A question left open", md:
+          "In the San Francisco peace treaty, signed in 1951 and in force from 1952, Japan renounced Taiwan without saying to whom; neither Chinese government was invited to sign. That wording is the basis of several competing positions. Beijing says Taiwan was returned to China in 1945 and the PRC succeeded the ROC as China's government in 1949. The ROC government says it has been a sovereign state continuously since 1912. Some supporters of independence argue that Taiwan's status was never settled at all, and that its people should decide it." },
+        { type: "section", head: "Remaking the ROC", md:
+          "For decades the ROC in Taipei still claimed all of China, and legislators elected on the mainland in 1947 kept their seats until 1991. Democratisation changed that: in 1991 Taipei formally ended its state of civil war with the Communists, and constitutional amendments limited elections to 'the free area', Taiwan and a few small islands. Today the ROC flag and the Double Ten national day on 10 October, the anniversary of the 1911 uprising, are used by governments of both main parties." },
+        { type: "compare", head: "Two founding stories",
+          left: { head: "The KMT tradition", md:
+            "Taiwan is part of the Republic of China, founded in 1912; its history runs from Sun Yat-sen through the war against Japan." },
+          right: { head: "The DPP tradition", md:
+            "Taiwan's story is that of its people, from Indigenous peoples to Japanese rule and democracy; the ROC arrived from outside." } },
+        { type: "section", head: "Why it still matters", md:
+          "Lai Ching-te says the ROC and the PRC are 'not subordinate to each other'; the KMT stresses that both sides belong to one China, though it disagrees with Beijing about what that means. These arguments about 1912, 1945 and 1949 are why Taiwan has not changed its official name, and why Beijing reacts so strongly to anything that looks like a formal declaration (see [[unit:cn]])." }
+      ],
+      takeaways: [
+        "The Republic of China was founded in mainland China in 1912; Taiwan was then a Japanese colony.",
+        "The ROC took over Taiwan in 1945 and moved its government there in 1949 after losing the civil war.",
+        "Beijing, the KMT and the DPP tell different stories about what this history means for Taiwan's status."
+      ],
+      check: { q: "When did the Republic of China government move to Taipei?",
+        choices: ["1912", "1945", "1949"], answer: 2,
+        explain: "After losing the civil war to Mao's Communists, the ROC government relocated to Taipei in December 1949." },
+      sources: [
+        { title: "Taiwan: History", publisher: "Britannica", url: "https://www.britannica.com/place/Taiwan/History", date: "n.d." },
+        { title: "Chiang Kai-shek", publisher: "Britannica", url: "https://www.britannica.com/biography/Chiang-Kai-shek", date: "n.d." },
+        { title: "History", publisher: "Government Portal of the Republic of China (Taiwan)", url: "https://www.taiwan.gov.tw/content_3.php", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "tw-3", kind: "history", asOf: "2026-09-29",
@@ -147,6 +200,116 @@ window.POLITICS.addUnit("tw", {
         { title: "Taiwan profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-asia-16178545", date: "n.d." },
         { title: "Taiwan", publisher: "Britannica", url: "https://www.britannica.com/place/Taiwan", date: "n.d." },
         { title: "Confrontation Over Taiwan", publisher: "Council on Foreign Relations", url: "https://www.cfr.org/global-conflict-tracker/conflict/confrontation-over-taiwan", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "tw-10", kind: "past", asOf: "2026-09-29",
+      title: "28 February and the White Terror",
+      dek: "A 1947 uprising was crushed at the cost of many thousands of lives, and decades of political persecution followed. Taiwan has spent thirty years trying to come to terms with it.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/tw/tw-10-hero.webp",
+          alt: "Illustration of a quiet memorial park in Taipei with a tall modern monument, trees and people seen from behind laying white flowers.",
+          caption: "28 February is now a national day of remembrance in Taiwan.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A quiet memorial park in Taipei with a tall abstract modern monument among tropical trees, a few people seen from behind laying white lilies on a low stone ledge, soft overcast light, calm and mournful, no faces, no legible text, no flags." },
+        { type: "timeline", head: "From massacre to reckoning", items: [
+          ["27 Feb 1947", "Officials beat a cigarette seller in Taipei; a bystander is shot"],
+          ["Mar 1947", "Troops from the mainland crush the uprising"],
+          ["1949", "Martial law declared"],
+          ["1949–1987", "The White Terror"],
+          ["1987", "Martial law lifted"],
+          ["1995", "President Lee Teng-hui apologises for 28 February"],
+          ["2018–2022", "Transitional Justice Commission"]
+        ] },
+        { type: "section", head: "The spark", md:
+          "On the evening of 27 February 1947, agents of the government tobacco monopoly in Taipei beat a widow selling untaxed cigarettes and fired into the angry crowd, killing a bystander. The next day, 28 February, protesters marched on government offices and were shot at. Anger at the new administration from the mainland, over corruption, food shortages and the treatment of Taiwanese as second-class citizens, spread across the island within days. Local leaders formed committees and demanded reforms." },
+        { type: "section", head: "The crackdown", md:
+          "The governor, Chen Yi, played for time while asking Chiang Kai-shek for troops. When reinforcements landed in early March, they killed indiscriminately, and then hunted down the island's educated elite: lawyers, doctors, teachers, journalists and local politicians. Estimates of the dead vary widely; a government-commissioned report in the 1990s put the likely toll at 18,000 to 28,000, though other historians give lower figures. For forty years the event could not be discussed in public." },
+        { type: "section", head: "The White Terror", md:
+          "Martial law was declared in 1949 and lasted until 1987. In what became known as the White Terror, military courts tried people for suspected communist sympathies, support for Taiwanese independence or simple criticism of the government. Scholars estimate that at least 140,000 people were imprisoned and 3,000 to 4,000 executed, many on Green Island, off the east coast. Mainlanders as well as Taiwanese were victims. Families of the accused were watched and shut out of jobs for years." },
+        { type: "section", head: "Facing the past", md:
+          "As Taiwan democratised, the silence broke. In 1995 President Lee Teng-hui, of the KMT, formally apologised, and 28 February became a public holiday of remembrance. Compensation was paid to victims and families. In 2018 Tsai Ing-wen's government created a Transitional Justice Commission, which cleared thousands of people wrongly convicted and opened political archives. Its work was controversial: critics said it targeted the KMT, and one of its members resigned in 2018 after appearing to discuss using it against a KMT candidate." },
+        { type: "compare", head: "Two views of transitional justice",
+          left: { head: "Supporters", md:
+            "A democracy must tell the truth about state crimes, restore victims' names and remove symbols that honour dictators." },
+          right: { head: "Critics", md:
+            "The process has been used to attack the KMT for past wrongs; reconciliation needs less politics and more shared history." } },
+        { type: "section", head: "The Chiang question", md:
+          "The hardest argument is about Chiang Kai-shek himself. Hundreds of his statues have been removed from schools and parks, many to a park in Taoyuan. The huge Chiang Kai-shek Memorial Hall in Taipei, once the site of the 1990 Wild Lily student protests, remains, and governments have debated for years how to change its purpose. To many older KMT supporters Chiang saved Taiwan from communism; to many others he presided over its darkest years." },
+        { type: "section", head: "Why it still matters", md:
+          "28 February and the White Terror are a key reason why many Taiwanese came to see themselves as distinct from China, and why the democracy movement of the 1970s and 1980s demanded both freedom and a Taiwanese identity ([[lesson:tw-3]]). Families still ask where victims were buried, and each 28 February leaders of every party attend memorial services." }
+      ],
+      takeaways: [
+        "A protest on 28 February 1947 grew into an island-wide uprising that troops crushed, killing many thousands.",
+        "Under martial law (1949–1987), the White Terror imprisoned at least 140,000 people and executed thousands.",
+        "Since the 1990s Taiwan has apologised, compensated victims and argued over how to remember Chiang Kai-shek."
+      ],
+      check: { q: "What was the White Terror?",
+        choices: ["Chinese missile tests in 1996", "Political persecution under martial law from 1949 to 1987", "A 1947 tax on cigarettes"], answer: 1,
+        explain: "Under martial law, military courts imprisoned and executed people suspected of disloyalty." },
+      sources: [
+        { title: "The 228 Incident", publisher: "Memorial Foundation of 228", url: "https://www.228.org.tw/en/the228incident", date: "n.d." },
+        { title: "White Terror", publisher: "Britannica", url: "https://www.britannica.com/event/White-Terror-Taiwan", date: "n.d." },
+        { title: "Taiwan's White Terror: Remembering the 228 Incident", publisher: "Foreign Policy Research Institute", url: "https://www.fpri.org/article/2017/02/taiwans-white-terror-remembering-228-incident/", date: "2017-02" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "tw-11", kind: "past", asOf: "2026-09-29",
+      title: "1971 and 1979: losing the world's recognition",
+      dek: "In eight years Taipei lost China's seat at the United Nations and then its alliance with Washington. The decisions of those years still define Taiwan's place in the world.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/tw/tw-11-hero.webp",
+          alt: "Illustration of a large assembly hall with rows of delegates' desks seen from the back of the room, with a vote tally board glowing at the front.",
+          caption: "The UN General Assembly voted on 25 October 1971 to seat the People's Republic of China.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A large 1970s international assembly hall with curved rows of delegates' desks seen from the back of the room, silhouettes of delegates, a glowing electronic vote tally board at the front with abstract lights, dramatic lighting, historical diplomatic mood, no faces, no legible text, no flags." },
+        { type: "timeline", head: "The diplomatic slide", items: [
+          ["1945", "ROC a founding member of the UN, with a Security Council seat"],
+          ["Jul 1971", "Kissinger's secret trip to Beijing"],
+          ["25 Oct 1971", "UN Resolution 2758 seats the PRC; the ROC leaves"],
+          ["Feb 1972", "Nixon visits China; Shanghai Communiqué"],
+          ["Sep 1972", "Japan switches recognition to Beijing"],
+          ["1 Jan 1979", "The US recognises the PRC and cuts formal ties with Taipei"],
+          ["Apr 1979", "Congress passes the Taiwan Relations Act"]
+        ] },
+        { type: "section", head: "One seat, two claimants", md:
+          "The Republic of China was a founding member of the United Nations in 1945 and one of the five permanent members of the Security Council. After 1949 it kept China's seat, backed by the United States, even though it governed only Taiwan and a few islands. Every year, a growing number of countries, especially newly independent ones in Africa and Asia, voted to give the seat to the People's Republic in Beijing instead." },
+        { type: "section", head: "Resolution 2758", md:
+          "By 1971 Washington, now seeking better relations with Beijing against the Soviet Union, proposed that both governments be represented. It was too late. On 25 October 1971 the General Assembly voted 76 to 35, with 17 abstentions, for Resolution 2758, which recognised the PRC's representatives as 'the only lawful representatives of China' and expelled 'the representatives of Chiang Kai-shek'. The ROC delegation walked out before the vote. The resolution does not mention Taiwan." },
+        { type: "section", head: "Washington changes sides", md:
+          "President Richard Nixon visited Beijing in February 1972. In the Shanghai Communiqué the United States 'acknowledged' that Chinese on both sides of the Strait held there was one China, and did not challenge that position, carefully avoiding saying it agreed. Japan and many others switched recognition that year. On 1 January 1979 President Jimmy Carter established full relations with the PRC, ended official ties with Taipei and gave notice ending the mutual defence treaty." },
+        { type: "section", head: "The Taiwan Relations Act", md:
+          "Congress, angry at being sidelined, passed the Taiwan Relations Act in April 1979. It keeps unofficial relations through the American Institute in Taiwan, commits the US to provide Taiwan with defensive arms, and says any attempt to decide Taiwan's future by other than peaceful means is of 'grave concern'. It does not promise to defend Taiwan. Together with the 'Six Assurances' of 1982, it still frames US policy (see [[unit:us]])." },
+        { type: "facts", head: "Taiwan's recognition today", rows: [
+          ["Diplomatic allies", "12 (plus the Holy See among them)"],
+          ["UN membership", "None; observer bids to UN agencies blocked"],
+          ["Olympic name", "'Chinese Taipei'"],
+          ["US ties", "Unofficial, under the Taiwan Relations Act"]
+        ] },
+        { type: "compare", head: "Two readings of Resolution 2758",
+          left: { head: "Beijing", md:
+            "The resolution settled that there is one China, that Taiwan is part of it, and that only the PRC can represent Taiwan internationally." },
+          right: { head: "Taipei, Washington and others", md:
+            "It decided only who holds China's seat; it says nothing on Taiwan's status and does not bar Taiwan from UN bodies." } },
+        { type: "section", head: "Why it still matters", md:
+          "Beijing uses its reading of Resolution 2758 to keep Taiwan out of bodies like the World Health Organization and to pressure the dozen countries that still recognise Taipei; since 2016 it has won over ten of them. Several parliaments, including the European Parliament and Australia's Senate, have passed motions rejecting that reading. The compromises of 1972–79, deliberately vague, remain the basis of the status quo (see [[unit:cn]])." }
+      ],
+      takeaways: [
+        "In 1971 UN Resolution 2758 gave China's seat to the People's Republic; the ROC left the UN.",
+        "The US recognised Beijing in 1979, but the Taiwan Relations Act kept unofficial ties and arms sales.",
+        "Beijing and Taipei still disagree over whether Resolution 2758 decided Taiwan's status."
+      ],
+      check: { q: "What did UN Resolution 2758 (1971) do?",
+        choices: ["Recognised Taiwan as an independent state", "Gave China's UN seat to the People's Republic of China", "Created the Taiwan Relations Act"], answer: 1,
+        explain: "It seated the PRC's representatives as China's and expelled Chiang Kai-shek's; it does not mention Taiwan." },
+      sources: [
+        { title: "United Nations General Assembly Resolution 2758 (XXVI)", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/United_Nations_General_Assembly_Resolution_2758_(XXVI)", date: "n.d." },
+        { title: "Why UN General Assembly Resolution 2758 Does Not Establish Beijing's 'One China' Principle", publisher: "German Marshall Fund", url: "https://www.gmfus.org/sites/default/files/2024-04/GMF_UNGA%20Res.%202758_April%202024%20Report.pdf", date: "2024-04" },
+        { title: "Factbox: Taiwan's 12 remaining diplomatic allies", publisher: "US News (Reuters)", url: "https://www.usnews.com/news/world/articles/2026-05-02/factbox-taiwans-12-remaining-diplomatic-allies", date: "2026-05-02" }
       ]
     },
 
@@ -356,6 +519,54 @@ window.POLITICS.addUnit("tw", {
         { title: "As Taiwan's Drone Budget Debate Drags on, Time Is Running out", publisher: "The Diplomat", url: "https://thediplomat.com/2026/08/as-taiwans-drone-budget-debate-drags-on-time-is-running-out/", date: "2026-08" },
         { title: "The PLA's 'Justice Mission-2025' Exercise Around Taiwan", publisher: "Global Taiwan Institute", url: "https://globaltaiwan.org/2026/01/pla-justice-mission-2025/", date: "2026-01" },
         { title: "Lai unveils plan to budget US$40 billion to bolster Taiwan's defense", publisher: "CNA via GlobalSecurity", url: "https://www.globalsecurity.org/wmd/library/news/taiwan/2025/taiwan-251126-cna03.htm", date: "2025-11-26" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "tw-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "The first Taiwanese",
+      dek: "Long before Chinese settlers arrived, Taiwan belonged to Austronesian peoples. Their revival has become part of how Taiwan tells its story as a nation.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/tw/tw-12-hero.webp",
+          alt: "Illustration of green mountain terraces in eastern Taiwan with a village of low houses and people in woven red and white clothing seen from behind at a harvest gathering.",
+          caption: "Many Indigenous communities hold harvest festivals each summer.",
+          credit: "AI illustration — not a photograph",
+          prompt: "Lush green mountains and terraced fields in eastern Taiwan near the Pacific coast, a small village of low houses, a group of people seen from behind in traditional red, white and black woven clothing gathered in a circle at a summer harvest festival, warm golden light, joyful, no faces, no legible text." },
+        { type: "facts", head: "Indigenous Taiwan today", rows: [
+          ["Population", "About 629,000 (2.7%), end of 2025"],
+          ["Recognised peoples", "16, including the Amis, Atayal, Paiwan and Bunun"],
+          ["Seats in the legislature", "6 of 113 reserved"],
+          ["Lowland (Pingpu) peoples", "A 2025 law opened a path to recognition"]
+        ] },
+        { type: "section", head: "The Austronesian homeland", md:
+          "People have lived on Taiwan for thousands of years. Its Indigenous peoples speak Austronesian languages, a family that stretches from Madagascar to Hawaii and New Zealand, and many linguists and archaeologists believe Taiwan is where that family began, before seafarers spread south through the Philippines and across the Pacific. That makes the island, in one scholar's phrase, the ancestral homeland of hundreds of millions of people." },
+        { type: "section", head: "Centuries of colonisation", md:
+          "From the 1600s Dutch and Spanish traders, then Chinese settlers from Fujian and Guangdong, took over the western plains. Many lowland peoples, the Pingpu, intermarried and were absorbed, losing their languages. Mountain peoples resisted longer. Under Japanese rule they were subjected to military campaigns; in the 1930 Wushe uprising, Seediq fighters killed more than a hundred Japanese, and the reprisals killed hundreds of Seediq. After 1945 the ROC pursued assimilation, giving Indigenous people Chinese names and teaching only Mandarin in schools." },
+        { type: "section", head: "Revival", md:
+          "An Indigenous rights movement grew with democracy in the 1980s, winning a change in the constitution in 1994 from 'mountain compatriots' to 'Indigenous peoples'. A Council of Indigenous Peoples was set up in 1996, Indigenous languages became official national languages in 2017, and people may now register their names in their own languages. On 1 August 2016 President Tsai Ing-wen, who has Paiwan ancestry, formally apologised to Indigenous peoples on behalf of the government for centuries of suffering." },
+        { type: "section", head: "Unfinished business", md:
+          "Many issues remain. Indigenous people earn less and live shorter lives than other Taiwanese on average. Land rights are contested, as traditional territories overlap with national parks, mines and tourist developments, and a nuclear waste store on Orchid Island has angered the Tao (Yami) people for decades. Several Indigenous languages have only a few hundred speakers left. The recognition of Pingpu peoples, long excluded, is a new front after a 2025 law set criteria for registering them." },
+        { type: "compare", head: "Two views of Indigenous identity and the nation",
+          left: { head: "A Taiwanese nation", md:
+            "Indigenous history shows Taiwan has its own story, much older than China's claim, and its Pacific links deserve emphasis." },
+          right: { head: "Caution", md:
+            "Indigenous peoples have their own claims and should not become symbols in the argument between Taipei and Beijing." } },
+        { type: "section", head: "Why it matters", md:
+          "Indigenous peoples are a small minority, but their place in Taiwan's story has grown along with Taiwanese identity. Governments of both parties now celebrate them, and Taiwan uses its Austronesian heritage in diplomacy with Pacific island states, three of which, the Marshall Islands, Palau and Tuvalu, still recognise Taipei ([[lesson:tw-11]]). In elections, Indigenous voters have tended to back the KMT, which built strong local networks in their townships." }
+      ],
+      takeaways: [
+        "Taiwan's Indigenous peoples speak Austronesian languages, and many scholars see the island as that family's homeland.",
+        "They make up about 2.7% of the population, with 16 officially recognised peoples.",
+        "Democracy brought recognition, an official apology in 2016 and language rights, but land and inequality remain issues."
+      ],
+      check: { q: "Which language family do Taiwan's Indigenous peoples speak?",
+        choices: ["Sino-Tibetan", "Austronesian", "Japonic"], answer: 1,
+        explain: "They speak Austronesian languages, related to those from Madagascar to Hawaii." },
+      sources: [
+        { title: "Taiwan's Indigenous population surpassed 620,000 in 2025", publisher: "Taiwan News", url: "https://www.taiwannews.com.tw/news/6311367", date: "2026" },
+        { title: "The Indigenous World 2025: Taiwan", publisher: "IWGIA", url: "https://iwgia.org/en/taiwan/5676-iw-2025-taiwan.html", date: "2025" },
+        { title: "Taiwan - Minority Rights Group", publisher: "Minority Rights Group", url: "https://minorityrights.org/country/taiwan/", date: "n.d." }
       ]
     },
 

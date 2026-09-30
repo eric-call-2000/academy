@@ -79,7 +79,7 @@ window.POLITICS.addUnit("in", {
           "A national election is a logistical marvel. The 2024 vote ran in seven phases over six weeks, with about a million polling stations, some reached by boat, elephant or on foot, so that no voter lives more than two kilometres from one. Indians vote on electronic machines, and a paper slip lets each voter check their choice. Turnout is usually around two-thirds, higher than in many richer democracies." },
         { type: "section", head: "Referees", md:
           "Two institutions hold the ring. The Supreme Court can strike down laws and has ruled on everything from privacy to temples. The Election Commission, independent under the constitution, runs national and state elections, with electronic voting machines, for nearly a billion voters.\n\n" +
-          "Both are now at the centre of political fights. The opposition accuses the Election Commission of favouring the BJP in its revision of voter lists, which the commission denies, as briefing 7 explains." },
+          "Both are now at the centre of political fights. The opposition accuses the Election Commission of favouring the BJP in its revision of voter lists, which the commission denies, as [[lesson:in-7]] explains." },
         { type: "compare", head: "Two views of India's democracy",
           left: { head: "The government's view", md:
             "India holds huge, free elections that the BJP keeps winning; opposition parties won Kerala and Tamil Nadu in 2026. Criticism from abroad misreads a vibrant, self-correcting democracy." },
@@ -98,6 +98,57 @@ window.POLITICS.addUnit("in", {
         { title: "2026 State Legislative Assembly Elections in India", publisher: "Britannica", url: "https://www.britannica.com/topic/2026-State-Elections-in-India", date: "2026-05" },
         { title: "Bihar 2025 election result: Who won, who lost, why it matters", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2025/11/14/bihar-2025-election-result-who-won-who-lost-why-it-matters", date: "2025-11-14" },
         { title: "The Delimitation Bill, 2026", publisher: "PRS Legislative Research", url: "https://prsindia.org/billtrack/the-delimitation-bill-2026", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "in-9", kind: "founding", asOf: "2026-09-28",
+      title: "Freedom and the Constitution",
+      dek: "A mass movement won independence from Britain, and a remarkable constitution turned the world's poorest large country into its biggest democracy.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/in/in-9-hero.webp",
+          alt: "Illustration of a large circular colonnaded parliament building of red sandstone in morning light, with lawns and trees in front.",
+          caption: "The old circular Parliament House in New Delhi, where the Constituent Assembly met from 1946 to 1949.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A large circular colonial-era parliament building ringed with pale sandstone columns and a red sandstone base, green lawns and trees in front, soft morning light, dignified and historic, no people close up, no flags, no legible text." },
+        { type: "timeline", head: "From Raj to republic", items: [
+          ["1857", "Rebellion against the East India Company; Britain takes direct rule"],
+          ["1885", "Indian National Congress founded"],
+          ["1930", "Gandhi's Salt March"],
+          ["1942", "'Quit India' movement"],
+          ["15 Aug 1947", "Independence and partition"],
+          ["26 Jan 1950", "The Constitution takes effect; India becomes a republic"],
+          ["1951–52", "First general election"]
+        ] },
+        { type: "section", head: "The Raj", md:
+          "The British East India Company conquered much of the subcontinent in the 18th and 19th centuries. After a great rebellion in 1857, the British crown took direct control. The Raj built railways, universities and a civil service, but also drained wealth to Britain and presided over famines that killed millions, including in Bengal in 1943. Educated Indians founded the Indian National Congress in 1885, first to seek a greater say, then self-rule." },
+        { type: "section", head: "Gandhi and the national movement", md:
+          "Mohandas Gandhi, a lawyer who had fought discrimination in South Africa, turned Congress into a mass movement from 1920. His method was nonviolent civil disobedience, satyagraha: boycotts of British cloth, refusal to pay unjust taxes, and the 1930 Salt March to the sea to defy the salt monopoly. Jawaharlal Nehru led its modernising, secular wing. The Muslim League, led by Muhammad Ali Jinnah, came to argue that Muslims needed a state of their own, which led to [[unit:pk|Pakistan]]." },
+        { type: "section", head: "Independence and partition", md:
+          "Exhausted by the Second World War, Britain agreed to leave. On 15 August 1947 India became independent, and Pakistan was carved out of its Muslim-majority north-west and east. Partition set off a catastrophe: some 15 million people crossed the new borders, and between several hundred thousand and two million were killed in religious violence. Gandhi, who had campaigned against the division, was assassinated by a Hindu nationalist in January 1948. More than 500 princely states were persuaded or forced to join India; Kashmir's accession led to the first war with Pakistan." },
+        { type: "section", head: "The Constitution", md:
+          "A Constituent Assembly spent three years drafting the world's longest national constitution, guided by B. R. Ambedkar, a lawyer and economist born into an 'untouchable' Dalit caste. It took effect on 26 January 1950, now Republic Day. It gave every adult the vote at once, in a country where most people could not read; abolished untouchability; reserved seats and jobs for historically oppressed castes and tribes; guaranteed fundamental rights enforceable by the courts; and created a federal parliamentary system. The first election, in 1951–52, involved 173 million voters." },
+        { type: "compare", head: "Two readings of the founding",
+          left: { head: "Nehru's vision", md:
+            "A secular, democratic republic in which all religions are equal and the state stays neutral, the foundation of Congress's long rule." },
+          right: { head: "Hindu nationalists' vision", md:
+            "India is at heart a Hindu civilisation; Nehruvian secularism appeased minorities. This view, long marginal, underpins the BJP." } },
+        { type: "section", head: "Why it still matters", md:
+          "Almost every big argument in Indian politics goes back to the founding: the place of religion in public life, caste reservations, the power of the centre over the states, and Kashmir. The Constitution itself became a campaign issue in 2024, when the opposition accused Narendra Modi's BJP of wanting to change it, which the BJP denied." }
+      ],
+      takeaways: [
+        "Gandhi's mass nonviolent movement and Nehru's Congress led India to independence in 1947.",
+        "Partition into India and Pakistan displaced about 15 million people and killed hundreds of thousands or more.",
+        "The 1950 Constitution, shaped by B. R. Ambedkar, gave every adult the vote and abolished untouchability."
+      ],
+      check: { q: "Who chaired the committee that drafted India's Constitution?",
+        choices: ["Mahatma Gandhi", "B. R. Ambedkar", "Muhammad Ali Jinnah"], answer: 1,
+        explain: "Ambedkar, a Dalit lawyer and economist, chaired the drafting committee; Jinnah founded Pakistan." },
+      sources: [
+        { title: "Indian independence movement", publisher: "Britannica", url: "https://www.britannica.com/topic/Indian-independence-movement", date: "n.d." },
+        { title: "Partition of India", publisher: "Britannica", url: "https://www.britannica.com/event/Partition-of-India", date: "n.d." },
+        { title: "Constitution of India", publisher: "Legislative Department, Government of India", url: "https://legislative.gov.in/constitution-of-india/", date: "n.d." }
       ]
     },
 
@@ -144,6 +195,104 @@ window.POLITICS.addUnit("in", {
       sources: [
         { title: "India profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-south-asia-12641776", date: "n.d." },
         { title: "Partition of India", publisher: "The National Archives (UK)", url: "https://www.nationalarchives.gov.uk/education/resources/the-partition-of-india/", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "in-10", kind: "past", asOf: "2026-09-28",
+      title: "The Emergency",
+      dek: "From 1975 to 1977 Indira Gandhi suspended democracy. Voters threw her out when she called an election, a lesson India still argues about.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/in/in-10-hero.webp",
+          alt: "Illustration of a printing press room at night with a newspaper page left blank on the press and papers scattered on the floor.",
+          caption: "During the Emergency, newspapers were censored; some printed blank editorials in protest.",
+          credit: "AI illustration — not a photograph",
+          prompt: "An old newspaper printing room at night, a large press with a blank white page on it, stacks of paper and scattered sheets on the floor, a single hanging lamp, silence and suppression, no people, no legible text." },
+        { type: "facts", head: "The Emergency", rows: [
+          ["Declared", "25 June 1975"],
+          ["Ended", "March 1977"],
+          ["Detained", "Well over 100,000 people, including opposition leaders"],
+          ["Sterilisations", "About 8 million in 1976, many coerced"],
+          ["Result", "Congress lost power for the first time in 1977"]
+        ] },
+        { type: "section", head: "Indira's India", md:
+          "Indira Gandhi, Nehru's daughter, became prime minister in 1966. She split the Congress party, nationalised banks, won a landslide in 1971 on the slogan 'Garibi hatao' ('remove poverty'), and the same year led India to victory over Pakistan in the war that created Bangladesh. But by 1974 inflation, shortages and corruption fuelled a protest movement led by the veteran socialist Jayaprakash Narayan, who called for 'total revolution' and urged police and soldiers not to obey illegal orders." },
+        { type: "section", head: "The court ruling and the Emergency", md:
+          "On 12 June 1975 the Allahabad High Court found Indira Gandhi guilty of electoral malpractice in her 1971 campaign and barred her from office for six years. Rather than resign, she had the president declare a state of emergency on 25 June, citing threats to internal security. Opposition leaders, including Narayan and future prime ministers such as Morarji Desai and Atal Bihari Vajpayee, were arrested overnight. Parliament, packed with her supporters, amended the constitution to shield her election from the courts." },
+        { type: "section", head: "Twenty-one months", md:
+          "The press was censored, some newspapers printing blank spaces in protest. Civil liberties were suspended, and well over 100,000 people were detained without trial, including members of the Hindu nationalist RSS, which was banned. Her son Sanjay, who held no office, drove a programme of slum clearance and mass sterilisation to curb population growth: about 8 million people were sterilised in 1976, many under coercion. In 1976 the Supreme Court ruled that detainees could not even challenge their detention, a decision later widely regarded as its darkest hour." },
+        { type: "section", head: "The people's verdict", md:
+          "In January 1977, apparently confident of winning, Indira Gandhi called an election and released her opponents. They united in the Janata Party and routed Congress in March; she and Sanjay both lost their seats. The Janata government restored freedoms and amended the constitution to make a future emergency harder. But it collapsed in infighting, and Indira Gandhi returned to power in 1980. She was assassinated by her Sikh bodyguards in 1984." },
+        { type: "compare", head: "Two lessons",
+          left: { head: "Democracy's resilience", md:
+            "Even after 21 months of dictatorship, Indians voted out a powerful prime minister peacefully, proving the strength of the ballot box." },
+          right: { head: "Democracy's fragility", md:
+            "A popular leader suspended rights with the help of Parliament and a compliant court; institutions failed and only her own miscalculation ended it." } },
+        { type: "section", head: "Why it still matters", md:
+          "The Emergency is a weapon in today's politics. The BJP, many of whose leaders were jailed in 1975, marks 25 June as 'Samvidhan Hatya Diwas' ('Day of the Murder of the Constitution') and cites it against Congress. Congress and critics of the Modi government reply that India now faces an 'undeclared emergency' of pressure on the press, opposition and courts." }
+      ],
+      takeaways: [
+        "After a court voided her election, Indira Gandhi declared an emergency on 25 June 1975.",
+        "For 21 months the press was censored, over 100,000 people were detained, and millions were sterilised.",
+        "Voters threw her out in 1977; both main parties now invoke the Emergency against each other."
+      ],
+      check: { q: "How did the Emergency end?",
+        choices: ["A military coup", "Indira Gandhi called an election in 1977 and lost", "The Supreme Court ended it"], answer: 1,
+        explain: "She called elections for March 1977, and the opposition Janata Party routed Congress." },
+      sources: [
+        { title: "The Emergency", publisher: "Britannica", url: "https://www.britannica.com/event/the-Emergency-India", date: "n.d." },
+        { title: "Indira Gandhi", publisher: "Britannica", url: "https://www.britannica.com/biography/Indira-Gandhi", date: "n.d." },
+        { title: "The Emergency in India", publisher: "Press Information Bureau, Government of India", url: "https://www.pib.gov.in/FactsheetDetails.aspx?Id=149224&reg=48&lang=2", date: "2025-06" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "in-11", kind: "past", asOf: "2026-09-28",
+      title: "1991: the economy opens",
+      dek: "With India weeks from default, a new government tore up four decades of planning and unleashed the growth that made it a global power.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/in/in-11-hero.webp",
+          alt: "Illustration of a modern glass office campus with palm trees and a busy road in front, under a bright sky, in an Indian tech city.",
+          caption: "Bengaluru's technology parks grew out of the reforms of the 1990s.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A modern glass-and-steel office campus with palm trees and flowering bougainvillea, a busy road with auto-rickshaws and motorbikes in front, bright tropical light, energetic and prosperous, no people close up, no logos, no legible text." },
+        { type: "facts", head: "Before and after", rows: [
+          ["Foreign reserves, mid-1991", "About three weeks of imports"],
+          ["Gold pledged abroad", "About 67 tonnes, to raise emergency loans"],
+          ["Average growth, 1950–80", "About 3.5% a year (the 'Hindu rate of growth')"],
+          ["Average growth, 1992–2019", "About 6–7% a year"],
+          ["Architects", "PM P. V. Narasimha Rao and finance minister Manmohan Singh"]
+        ] },
+        { type: "section", head: "The licence raj", md:
+          "After independence, Nehru's India followed a mixed economy inspired partly by the Soviet Union: five-year plans, big state-owned industries, high tariffs and a system of permits so tight that businesses needed government licences to expand, change products or import machinery. Critics called it the 'licence raj'. It built steel mills and dams, but growth averaged only about 3.5% a year for three decades, derided as the 'Hindu rate of growth', while countries such as South Korea raced ahead." },
+        { type: "section", head: "The crisis", md:
+          "By 1991 India was in deep trouble. Deficits had ballooned in the 1980s, the Gulf War sent oil prices soaring and cut off remittances from Indian workers in Kuwait, and the collapse of the Soviet Union removed a key trading partner. Political turmoil, including Rajiv Gandhi's assassination in May 1991, scared lenders. Foreign reserves fell to about $1.2 billion, barely three weeks of imports. To avoid default, the government flew about 67 tonnes of gold to London and elsewhere as collateral for loans, a national humiliation." },
+        { type: "section", head: "The reforms", md:
+          "The new Congress prime minister, P. V. Narasimha Rao, appointed an economist, Manmohan Singh, as finance minister. In July 1991 they devalued the rupee, abolished most industrial licensing, slashed tariffs, opened sectors to foreign investment and began to shrink the role of the state. Singh quoted Victor Hugo in his budget speech: 'No power on earth can stop an idea whose time has come.' Later governments of different parties continued the reforms, opening telecoms, aviation and insurance." },
+        { type: "section", head: "The results", md:
+          "Growth accelerated to 6–7% a year for most of the next three decades. Hundreds of millions of people rose out of extreme poverty; an IT and outsourcing industry grew around Bengaluru and Hyderabad; and India became the world's fifth-largest economy by the 2020s. But manufacturing lagged, farming remained a trap for hundreds of millions, and inequality grew. Singh went on to serve as prime minister from 2004 to 2014." },
+        { type: "compare", head: "Two views of 1991",
+          left: { head: "Reformers", md:
+            "1991 freed India's entrepreneurs, created a middle class of hundreds of millions, and made India a global economic power." },
+          right: { head: "Critics", md:
+            "The gains went mostly to cities and the educated; farmers, workers and the informal sector were left behind, and reform stalled on land and labour." } },
+        { type: "section", head: "Why it still matters", md:
+          "Every Indian government since has claimed the mantle of reform while arguing about its limits. Modi's governments have pushed infrastructure, a national goods and services tax and 'Make in India' manufacturing, but farm reforms in 2020 were repealed after a year of protests. India's economic weight, the reason it matters to [[unit:us]] and [[unit:cn]], rests on the turn taken in 1991." }
+      ],
+      takeaways: [
+        "India's planned economy grew slowly under the 'licence raj' of permits and tariffs.",
+        "In 1991, near default, P. V. Narasimha Rao and Manmohan Singh devalued the rupee and dismantled licensing.",
+        "Growth of 6–7% a year followed, lifting hundreds of millions from poverty but leaving farming and manufacturing behind."
+      ],
+      check: { q: "What did India do in 1991 to avoid defaulting on its debts?",
+        choices: ["Nationalised banks", "Pledged gold abroad and launched sweeping market reforms", "Joined the Soviet bloc"], answer: 1,
+        explain: "It flew gold abroad as collateral for loans, then devalued the rupee and dismantled the licence raj." },
+      sources: [
+        { title: "35 years of liberalisation: How the 1991 BoP crisis forced historic reforms", publisher: "Business Standard", url: "https://www.business-standard.com/economy/news/35-years-of-liberalisation-how-the-1991-bop-crisis-forced-historic-reforms-126072800191_1.html", date: "2026-07-28" },
+        { title: "Manmohan Singh", publisher: "Britannica", url: "https://www.britannica.com/biography/Manmohan-Singh", date: "n.d." },
+        { title: "Has India ever faced bankruptcy? How gold & reforms saved the economy during 1991 crisis", publisher: "Business Today", url: "https://www.businesstoday.in/india/story/has-india-ever-faced-bankruptcy-how-gold-reforms-saved-the-economy-during-1991-crisis-549436-2026-08-16", date: "2026-08-16" }
       ]
     },
 
@@ -350,6 +499,55 @@ window.POLITICS.addUnit("in", {
         { title: "Indian Film Star Vijay Sworn In as Tamil Nadu Chief Minister", publisher: "Variety", url: "https://variety.com/2026/politics/news/vijay-sworn-in-tamil-nadu-chief-minister-1236742532/", date: "2026-05-10" },
         { title: "Assembly Elections 2026 Results", publisher: "Outlook India", url: "https://www.outlookindia.com/elections/assembly-elections-2026-results-live-updates-kerala-west-bengal-tamil-nadu-assam-puducherry-2", date: "2026-05-04" },
         { title: "Rahul Gandhi Links 'Vote Chori' To 'Kanoon Chori'", publisher: "The Hans India", url: "https://www.thehansindia.com/news/national/rahul-gandhi-links-vote-chori-to-kanoon-chori-demands-cecs-resignation-1125313", date: "2026-09" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "in-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "Caste and reservations",
+      dek: "An ancient hierarchy still shapes marriage, jobs and votes. India's answer, quotas for disadvantaged groups, is among the largest affirmative-action systems in the world.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/in/in-12-hero.webp",
+          alt: "Illustration of a long queue of students seen from behind outside a university building with arches, holding folders, in bright morning light.",
+          caption: "Places in universities and government jobs are allocated partly by caste-based quotas.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long queue of young students seen from behind holding folders outside a colonial-style university building with arches and a clock tower, bright morning light, hopeful and crowded, no faces, no legible text." },
+        { type: "facts", head: "Reservations in brief", rows: [
+          ["Scheduled Castes (Dalits)", "About 17% of the population; 15% quota"],
+          ["Scheduled Tribes (Adivasis)", "About 9%; 7.5% quota"],
+          ["Other Backward Classes", "27% quota since the Mandal reforms (1990s)"],
+          ["Economically weaker sections", "10% quota for poorer upper castes (2019)"],
+          ["Supreme Court cap", "Generally 50% overall, with exceptions"]
+        ] },
+        { type: "section", head: "What caste is", md:
+          "Caste is a system of hereditary social groups, thousands of jatis loosely grouped under four varnas, with Dalits, once called 'untouchables', treated as outside and beneath them. For centuries it governed whom people could marry, what work they could do and even where they could draw water. It is rooted in Hindu tradition but is found among Muslims, Christians and Sikhs in India too. The Constitution abolished untouchability in 1950, but caste identity remains powerful: most marriages are still within caste, and violence against Dalits is regularly reported." },
+        { type: "section", head: "Quotas from the start", md:
+          "The Constitution's framers, led by the Dalit leader B. R. Ambedkar, built in 'reservations': shares of seats in legislatures, government jobs and public universities for Scheduled Castes and Scheduled Tribes. It was one of the earliest affirmative-action systems anywhere. Over the decades it created a Dalit and tribal middle class and a generation of political leaders, including presidents of India." },
+        { type: "section", head: "Mandal and the backward classes", md:
+          "In 1990 Prime Minister V. P. Singh implemented the recommendations of the Mandal Commission, reserving 27% of central government jobs for 'Other Backward Classes', a large set of intermediate castes. Upper-caste students protested furiously, and some set themselves on fire. The Supreme Court upheld the quotas but capped total reservations at 50%. 'Mandal politics' transformed northern India, lifting parties built on backward-caste votes, while the BJP's Ayodhya temple campaign of the same years mobilised Hindus across castes." },
+        { type: "section", head: "Today's battles", md:
+          "Caste is now at the centre of politics again. Groups such as the Marathas and Jats have demanded to be classified as backward; in 2019 the Modi government added a 10% quota for poorer members of upper castes. The opposition has called for a national caste census, the first since 1931, to redistribute quotas by population, and in 2025 the government agreed to count caste in the next census, due to begin in 2026–27." },
+        { type: "compare", head: "Two views",
+          left: { head: "Supporters", md:
+            "Reservations are essential redress for centuries of exclusion, and they have worked: representation of Dalits and tribal groups has risen sharply." },
+          right: { head: "Critics", md:
+            "Quotas entrench caste identity, benefit a better-off 'creamy layer' within each group, and should be based on income instead." } },
+        { type: "section", head: "Why it matters", md:
+          "Caste arithmetic decides elections in states such as Uttar Pradesh and Bihar, and the coming caste count could reopen fights over how opportunity is shared in a country of 1.4 billion people. If the count shows backward castes are far more numerous than their quotas suggest, pressure to break the 50% cap will grow." }
+      ],
+      takeaways: [
+        "Caste is a hereditary social hierarchy that still shapes marriage, work and politics despite being outlawed in 1950.",
+        "India reserves seats, jobs and university places for Dalits, tribal groups and other backward classes.",
+        "The next census, due to begin in 2026–27, will count caste for the first time since 1931."
+      ],
+      check: { q: "What did the Mandal Commission reforms of 1990 do?",
+        choices: ["Abolished caste", "Reserved 27% of central government jobs for 'Other Backward Classes'", "Ended all quotas"], answer: 1,
+        explain: "V. P. Singh's government extended reservations to intermediate castes, setting off protests and reshaping politics." },
+      sources: [
+        { title: "Caste", publisher: "Britannica", url: "https://www.britannica.com/topic/caste-social-differentiation", date: "n.d." },
+        { title: "Dalit", publisher: "Britannica", url: "https://www.britannica.com/topic/Dalit", date: "n.d." },
+        { title: "Cabinet approves caste enumeration in the upcoming Census", publisher: "Press Information Bureau, Government of India", url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2125526&reg=48&lang=2", date: "2025-04-30" }
       ]
     },
 

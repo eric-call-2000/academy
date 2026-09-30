@@ -97,6 +97,58 @@ window.POLITICS.addUnit("za", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "za-9", kind: "founding", asOf: "2026-09-29",
+      title: "War and Union, 1899–1910",
+      dek: "South Africa was created in 1910 from four British colonies, eight years after a brutal war between Britain and the Boers. The deal united white South Africans and shut out the Black majority.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/za/za-9-hero.webp",
+          alt: "Illustration of a grand sandstone government building with colonnades on a hill above Pretoria, with terraced gardens and jacaranda trees.",
+          caption: "The Union Buildings in Pretoria, completed in 1913, became the seat of government.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A grand sandstone government building with long curved colonnades and two domed towers on a hill above a city, terraced gardens with purple jacaranda trees in bloom, clear highveld sky, stately and historic, a few small figures seen from behind, no faces, no flags, no legible text." },
+        { type: "timeline", head: "From colonies to Union", items: [
+          ["1652", "Dutch station at the Cape"],
+          ["1806", "Britain takes the Cape"],
+          ["1830s", "Boer 'Great Trek' inland"],
+          ["1886", "Gold discovered on the Witwatersrand"],
+          ["1899–1902", "South African (Anglo-Boer) War"],
+          ["31 May 1910", "Union of South Africa created"],
+          ["1912", "South African Native National Congress (later ANC) founded"],
+          ["1913", "Natives Land Act"]
+        ] },
+        { type: "section", head: "Gold and empire", md:
+          "By the late nineteenth century southern Africa was divided among two British colonies, the Cape and Natal, two independent Boer republics, the Transvaal and the Orange Free State, and African kingdoms that were being conquered one by one. Diamonds were found at Kimberley in 1867 and, in 1886, the world's richest gold deposits on the Witwatersrand in the Transvaal. Johannesburg sprang up almost overnight, and Britain and mining magnates such as Cecil Rhodes wanted control of the gold." },
+        { type: "section", head: "The war", md:
+          "Tensions over the rights of foreign miners in the Transvaal led to war in October 1899. Britain expected a quick victory but faced skilled Boer commandos and needed nearly 450,000 troops. To defeat the guerrillas, it burned farms and herded Boer women and children, and Black Africans, into concentration camps. About 26,000 Boer women and children died in the camps, most of them children, and at least 15,000 Black people. The Boers surrendered in May 1902." },
+        { type: "section", head: "Reconciliation among whites", md:
+          "Britain quickly sought to reconcile with the defeated Boers, now increasingly called Afrikaners. The peace treaty postponed any decision on votes for Black Africans until after self-government, effectively handing the question to white voters. Negotiations among the four colonies produced the South Africa Act, passed in London, and on 31 May 1910 the Union of South Africa was born as a self-governing dominion of the British Empire, with Louis Botha, a former Boer general, as prime minister." },
+        { type: "section", head: "A union for whites", md:
+          "The Union's constitution kept the limited, property-based vote for some Black and Coloured men in the Cape but denied it everywhere else, and only whites could sit in parliament. Black leaders protested in London in vain, and in 1912 founded the South African Native National Congress, later the ANC. The 1913 Natives Land Act reserved about 7% of the land, later 13%, for the Black majority and barred them from buying land elsewhere, laying foundations for apartheid decades before 1948." },
+        { type: "compare", head: "Two views of 1910",
+          left: { head: "At the time, for many whites", md:
+            "Union healed the wounds of war between English and Afrikaners and built a modern, unified state." },
+          right: { head: "For Black South Africans, then and now", md:
+            "Union was a pact between white groups at the expense of the Black majority, whose dispossession it made law." } },
+        { type: "section", head: "Why it still matters", md:
+          "The pattern set in 1910, and above all the 1913 Land Act, explains why land ownership is still so unequal and so politically charged ([[lesson:za-12]]). The memory of the camps shaped Afrikaner nationalism and the National Party that built apartheid ([[lesson:za-3]]). The Union Buildings remain the seat of the presidency, and 31 May, once a national day, is no longer celebrated." }
+      ],
+      takeaways: [
+        "Britain defeated the Boer republics in the war of 1899–1902, in which tens of thousands died in concentration camps.",
+        "The Union of South Africa was created on 31 May 1910, uniting four colonies under white rule.",
+        "The 1913 Natives Land Act confined the Black majority to a small fraction of the land."
+      ],
+      check: { q: "What did the 1913 Natives Land Act do?",
+        choices: ["Gave all South Africans the vote", "Restricted Black land ownership to a small share of the country", "Created the ANC"], answer: 1,
+        explain: "It reserved about 7% of the land (later 13%) for Black South Africans and barred them from buying elsewhere." },
+      sources: [
+        { title: "South Africa: Reconstruction, union, and segregation, 1902–29", publisher: "Britannica", url: "https://www.britannica.com/place/South-Africa/Reconstruction-union-and-segregation-1902-29", date: "n.d." },
+        { title: "The Union of South Africa 1910", publisher: "South African History Online", url: "https://sahistory.org.za/article/union-south-africa-1910", date: "n.d." },
+        { title: "Women and Children in White Concentration Camps during the Anglo-Boer War", publisher: "South African History Online", url: "https://sahistory.org.za/article/women-and-children-white-concentration-camps-during-anglo-boer-war-1900-1902", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "za-3", kind: "history", asOf: "2026-09-29",
@@ -141,6 +193,108 @@ window.POLITICS.addUnit("za", {
         { title: "South Africa: History", publisher: "Britannica", url: "https://www.britannica.com/place/South-Africa/History", date: "n.d." },
         { title: "2024 South African general election", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2024_South_African_general_election", date: "2024" },
         { title: "South Africa profile: Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-africa-14094918", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "za-10", kind: "past", asOf: "2026-09-29",
+      title: "Sharpeville to Soweto",
+      dek: "Two massacres, in 1960 and 1976, changed the struggle against apartheid: the first drove the ANC to armed struggle, the second brought a new generation into the streets.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/za/za-10-hero.webp",
+          alt: "Illustration of schoolchildren in 1970s school uniforms seen from behind marching down a dusty township street lined with small brick houses.",
+          caption: "Soweto's students marched against Afrikaans-language teaching on 16 June 1976.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A large group of teenage schoolchildren in 1970s school uniforms seen from behind marching down a wide dusty township street lined with small matchbox brick houses, raised fists and plain cardboard signs without text, winter morning light, courageous and tense mood, no faces, no legible text." },
+        { type: "timeline", head: "The resistance", items: [
+          ["1955", "Freedom Charter adopted"],
+          ["21 Mar 1960", "Sharpeville massacre"],
+          ["1960", "ANC and PAC banned"],
+          ["1961", "Armed struggle begins (Umkhonto we Sizwe)"],
+          ["1964", "Mandela sentenced to life at the Rivonia Trial"],
+          ["16 Jun 1976", "Soweto uprising"],
+          ["1977", "Steve Biko dies in police custody"]
+        ] },
+        { type: "section", head: "Sharpeville", md:
+          "The pass laws forced Black South Africans to carry documents controlling where they could live and work. On 21 March 1960 the Pan Africanist Congress (PAC), a breakaway from the ANC, called on people to leave their passes at home and present themselves for arrest. At Sharpeville, south of Johannesburg, police opened fire on a crowd of several thousand, killing at least 69 people, many shot in the back. The world was shocked. The government declared a state of emergency and banned the ANC and PAC." },
+        { type: "section", head: "Underground", md:
+          "With peaceful protest outlawed, Nelson Mandela and others founded an armed wing, Umkhonto we Sizwe ('Spear of the Nation'), which began sabotage attacks in 1961. In 1964 Mandela and other leaders were sentenced to life imprisonment at the Rivonia Trial. Mandela told the court that he was prepared to die for the ideal of a democratic and free society. For the next decade, repression largely silenced open opposition inside the country." },
+        { type: "section", head: "Soweto", md:
+          "A new generation revived the struggle. Influenced by Steve Biko's Black Consciousness movement, students in Soweto rebelled against a decree forcing half of their lessons to be taught in Afrikaans, the language of the government. On 16 June 1976 thousands marched; police fired, and 12-year-old Hector Pieterson was among the first killed. A photograph of his body being carried went around the world. Protests spread nationwide, and estimates of those killed over the following months range from 176 to 700." },
+        { type: "section", head: "Consequences", md:
+          "Thousands of young people fled into exile to join the ANC's armed wing, reviving it. In 1977 Biko died of head injuries in police custody, and the UN imposed a mandatory arms embargo. Inside the country, a mass movement of unions, churches and civic groups grew through the 1980s, making the townships ungovernable and, together with sanctions, forcing the government to negotiate ([[lesson:za-3]])." },
+        { type: "compare", head: "Two debates about the struggle",
+          left: { head: "The ANC's account", md:
+            "The ANC led the liberation struggle, from the Freedom Charter to armed struggle, which is why it earned the right to govern." },
+          right: { head: "Other traditions", md:
+            "The PAC, Black Consciousness, trade unions and ordinary people played roles the ANC's story often overshadows." } },
+        { type: "section", head: "Why it still matters", md:
+          "21 March is Human Rights Day in South Africa, and the UN marks it as the International Day for the Elimination of Racial Discrimination. 16 June is Youth Day, a reminder of young people's power at a time when youth unemployment is above 45% and turnout among the young is low. The ANC's claim to authority as the liberation movement has weakened as a generation born after 1994, the 'born frees', votes on jobs and services instead ([[lesson:za-7]])." }
+      ],
+      takeaways: [
+        "Police killed at least 69 anti-pass protesters at Sharpeville on 21 March 1960; the ANC was banned and turned to armed struggle.",
+        "On 16 June 1976 police fired on Soweto students protesting against Afrikaans-language teaching.",
+        "The Soweto uprising sent thousands into exile and revived the resistance that ended apartheid."
+      ],
+      check: { q: "What were the Soweto students protesting against in 1976?",
+        choices: ["The pass laws", "Being forced to learn in Afrikaans", "The arrest of Mandela"], answer: 1,
+        explain: "They marched against a decree requiring half of school subjects to be taught in Afrikaans." },
+      sources: [
+        { title: "Sharpeville Massacre, 21 March 1960", publisher: "South African History Online", url: "https://sahistory.org.za/article/sharpeville-massacre-21-march-1960", date: "n.d." },
+        { title: "Hector Pieterson", publisher: "Britannica", url: "https://www.britannica.com/biography/Hector-Pieterson", date: "n.d." },
+        { title: "Hector Pieterson", publisher: "South African History Online", url: "https://sahistory.org.za/people/hector-pieterson", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "za-11", kind: "past", asOf: "2026-09-29",
+      title: "The Truth and Reconciliation Commission",
+      dek: "Instead of trials or blanket amnesty, South Africa offered perpetrators amnesty in exchange for the truth. The commission became a global model; many victims feel justice never came.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/za/za-11-hero.webp",
+          alt: "Illustration of a simple community hall with a long table covered in a white cloth, microphones and headphones, and rows of chairs with people seen from behind.",
+          caption: "Commission hearings were held in town halls and churches across the country, and broadcast live.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A simple community hall in 1990s South Africa with a long table covered in a white cloth, microphones and translation headphones, rows of plastic chairs with people seen from behind listening intently, afternoon light from high windows, solemn and hopeful mood, no faces, no legible text, no flags." },
+        { type: "facts", head: "The commission", rows: [
+          ["Chair", "Archbishop Desmond Tutu"],
+          ["Hearings", "1996–1998 (amnesty cases continued to 2001)"],
+          ["Victim statements", "More than 21,000"],
+          ["Amnesty applications", "About 7,100; around 850 granted"],
+          ["Final report", "October 1998 (with later volumes in 2003)"]
+        ] },
+        { type: "section", head: "A compromise", md:
+          "The negotiated end of apartheid required a deal. The outgoing government and security forces wanted amnesty; the liberation movements wanted justice. The interim constitution of 1993 promised amnesty for politically motivated acts, and the new parliament created the Truth and Reconciliation Commission in 1995. Its unusual bargain: individuals could win amnesty, but only by applying and making full disclosure of their crimes in public, and only if the acts were political and proportionate." },
+        { type: "section", head: "The hearings", md:
+          "Chaired by Archbishop Desmond Tutu, the commission heard victims in public hearings across the country, broadcast on radio and television. Families learned for the first time how relatives had been tortured and killed. Security police confessed to murders, such as those of the 'Cradock Four' activists in 1985. The commission also examined abuses by the ANC in its exile camps, and violence between the ANC and the Inkatha Freedom Party that killed thousands in the early 1990s." },
+        { type: "section", head: "The report", md:
+          "The 1998 report found the apartheid state primarily responsible for gross human rights violations, and also found that the ANC and other groups had committed abuses. The ANC went to court to try to block its publication; the former president, P. W. Botha, refused to appear, and F. W. de Klerk successfully challenged findings against him. Of about 7,100 amnesty applicants, around 850 received amnesty; most applications were refused, often because they concerned ordinary crimes." },
+        { type: "section", head: "Unfinished justice", md:
+          "Those who were refused amnesty, or never applied, were supposed to be prosecuted. Almost none were. Victims' reparations were far smaller and slower than the commission recommended. Families spent decades pressing for new inquests: in 2025 Ramaphosa appointed a commission of inquiry, led by retired judge Sisi Khampepe, into allegations that past governments deliberately suppressed TRC-related prosecutions, and several families have sued the state for damages." },
+        { type: "section", head: "Voices", md:
+          "Some moments became part of the national memory. Mothers of murdered activists faced the policemen who killed their sons; some forgave, others refused. Eugene de Kock, commander of a police death squad at Vlakplaas, confessed to dozens of crimes; he received amnesty for some but served a long prison sentence for others, and was paroled in 2015. Tutu himself was sometimes seen weeping at the hearings." },
+        { type: "compare", head: "Two verdicts",
+          left: { head: "Admirers", md:
+            "The TRC helped a divided country avoid civil war and revenge, created an undeniable record of apartheid's crimes and inspired truth commissions worldwide." },
+          right: { head: "Critics", md:
+            "It asked victims to forgive while perpetrators kept their freedom and wealth; 'reconciliation' left economic injustice untouched." } },
+        { type: "section", head: "Why it still matters", md:
+          "The TRC shaped South Africa's founding story as the 'rainbow nation', and its record makes denying apartheid's crimes impossible. But anger that reconciliation came without economic justice now drives politics: the EFF and MK parties campaign on land and wealth, arguing the 1994 settlement was too generous to white South Africans (briefings [[lesson:za-4|#]] and [[lesson:za-12|#]])." }
+      ],
+      takeaways: [
+        "The TRC, chaired by Desmond Tutu, offered amnesty in exchange for full public disclosure of political crimes.",
+        "Its 1998 report found the apartheid state chiefly responsible for gross violations, while also criticising the ANC.",
+        "Few of those denied amnesty were ever prosecuted; a 2025 inquiry is examining why."
+      ],
+      check: { q: "What did perpetrators have to do to receive amnesty from the TRC?",
+        choices: ["Pay a fine", "Fully disclose their politically motivated crimes in public", "Leave the country"], answer: 1,
+        explain: "Amnesty required full disclosure and a political motive; about 850 of some 7,100 applicants received it." },
+      sources: [
+        { title: "Truth and Reconciliation Commission, South Africa (TRC)", publisher: "Britannica", url: "https://www.britannica.com/topic/Truth-and-Reconciliation-Commission-South-Africa", date: "n.d." },
+        { title: "Truth and Reconciliation Commission (TRC)", publisher: "South African History Online", url: "https://sahistory.org.za/article/truth-and-reconciliation-commission-trc-0", date: "n.d." },
+        { title: "Legal hurdles plague Khampepe Commission Inquiry", publisher: "Cape Argus", url: "https://sundaytribune.co.za/capeargus/opinion/2026-04-14-legal-hurdles-plague-khampepe-commission-inquiry/", date: "2026-04-14" }
       ]
     },
 
@@ -346,6 +500,55 @@ window.POLITICS.addUnit("za", {
         { title: "ANC and DA in dead heat across key metros as MK dominates eThekwini", publisher: "Daily Maverick", url: "https://www.dailymaverick.co.za/article/2026-09-04-anc-and-da-in-dead-heat-across-key-metros-as-mk-dominates-ethekwini/", date: "2026-09-04" },
         { title: "Voters splinter among parties as support for the ANC plunges", publisher: "Daily Maverick", url: "https://www.dailymaverick.co.za/article/2026-09-13-voters-splinter-among-parties-as-support-for-the-anc-plunges/", date: "2026-09-13" },
         { title: "South Africa Local Elections Set for 4 November 2026", publisher: "The Rio Times", url: "https://www.riotimesonline.com/south-africa-local-elections-november-2026/", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "za-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "The land question",
+      dek: "Three decades after apartheid, most privately owned farmland is still in white hands. A 2025 law allowing expropriation without compensation in some cases is now before the courts, and in Washington.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/za/za-12-hero.webp",
+          alt: "Illustration of wide farmland in the Free State with fenced fields, a farmhouse and, in the distance, a cluster of small houses of an informal settlement.",
+          caption: "Land ownership remains one of the starkest markers of apartheid's legacy.",
+          credit: "AI illustration — not a photograph",
+          prompt: "Wide golden farmland in the Free State of South Africa with fenced maize fields and a farmhouse among trees, and in the far distance a cluster of small tin-roofed informal houses, big sky with afternoon clouds, contrasting and reflective mood, no people up close, no legible text." },
+        { type: "facts", head: "Land in numbers", rows: [
+          ["1913 Land Act", "About 7% (later 13%) of land reserved for Black South Africans"],
+          ["Farmland held by individuals", "About 72% owned by white people (2017 land audit)"],
+          ["White share of population", "About 7%"],
+          ["Redistribution target", "30% by 1999, later 2014, never met"],
+          ["Expropriation Act", "Signed January 2025; challenged in court"]
+        ] },
+        { type: "section", head: "The legacy", md:
+          "Colonial conquest, the 1913 Land Act and apartheid's forced removals, which moved about 3.5 million people from the 1960s to the 1980s, left land ownership overwhelmingly white. The 1996 constitution protects property but also commits the state to land reform, and allows expropriation in the public interest with 'just and equitable' compensation. Governments have pursued three routes: restitution of land lost after 1913, redistribution, and securing the tenure of people on communal land." },
+        { type: "section", head: "Slow progress", md:
+          "Progress has been slow. For years the state bought land on a 'willing buyer, willing seller' basis, which was expensive. Much of the land transferred has been leased by the state rather than given to beneficiaries, and many projects failed for lack of support, finance and skills. Critics also point to corruption, with politically connected people benefiting. Hundreds of thousands of restitution claims remain unresolved." },
+        { type: "section", head: "The Expropriation Act", md:
+          "After a push to amend the constitution failed in 2021, parliament passed the Expropriation Act, which Ramaphosa signed in January 2025. It replaces an apartheid-era law and sets out when the state may expropriate property, including cases where 'nil compensation' may be just and equitable, such as abandoned land or land held purely for speculation. The government says it will be used rarely. The DA, a partner in the unity government, AfriForum and others challenged it; the high court heard the case in August 2026." },
+        { type: "section", head: "Trump and the Afrikaners", md:
+          "The law became an international issue. Donald Trump claimed that South Africa was confiscating white farmers' land and that Afrikaners faced 'genocide', claims rejected by Pretoria and by the data on farm murders, which are part of the country's general violent crime. In 2025 he cut aid, expelled South Africa's ambassador and admitted Afrikaners as refugees while largely closing the US refugee programme to others ([[lesson:za-5]]). Some Afrikaner groups welcomed his support; others rejected the refugee offer." },
+        { type: "compare", head: "Two views of the Act",
+          left: { head: "Supporters (ANC, EFF, MK)", md:
+            "Land reform is essential to undo apartheid, and a sovereign state must be able to expropriate without paying inflated prices." },
+          right: { head: "Critics (DA, AfriForum, business groups)", md:
+            "Nil compensation threatens property rights and investment; the state should first use the land it already owns." } },
+        { type: "section", head: "Why it matters", md:
+          "Land is where South Africa's past and its politics meet. It divides the unity government, fuels the EFF's and MK's appeal to young and poor voters, and shapes relations with the United States. Most urban South Africans say they care more about jobs, housing and crime than farms, yet the land question carries a weight of history that no party can ignore, especially before the November local elections ([[lesson:za-7]])." }
+      ],
+      takeaways: [
+        "Colonial laws and apartheid left most privately owned farmland in white hands; about 72% in a 2017 audit.",
+        "Land reform since 1994 has been slow, and redistribution targets have never been met.",
+        "The 2025 Expropriation Act allows nil compensation in some cases; it faces court challenges and US anger."
+      ],
+      check: { q: "What does the 2025 Expropriation Act allow in some circumstances?",
+        choices: ["Seizing any farm owned by a white person", "Expropriation with 'nil compensation' when just and equitable", "Selling state land to foreign buyers"], answer: 1,
+        explain: "It sets out limited cases, such as abandoned land, where no compensation may be just and equitable." },
+      sources: [
+        { title: "Expropriation Act, 2024", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Expropriation_Act,_2024", date: "n.d." },
+        { title: "Unpacked: Each party's arguments in the Expropriation Act case", publisher: "Daily Maverick", url: "https://www.dailymaverick.co.za/article/2026-08-05-unpacked-each-partys-arguments-in-the-expropriation-act-case/", date: "2026-08-05" },
+        { title: "Land seizure and South Africa's new expropriation law: scholar weighs up the Act", publisher: "The Conversation", url: "https://theconversation.com/land-seizure-and-south-africas-new-expropriation-law-scholar-weighs-up-the-act-244697", date: "2025" }
       ]
     },
 

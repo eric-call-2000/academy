@@ -100,6 +100,57 @@ window.POLITICS.addUnit("kr", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "kr-9", kind: "founding", asOf: "2026-09-29",
+      title: "Liberation and division",
+      dek: "Freed from Japanese rule in 1945, Korea was split between American and Soviet forces. In 1948 two rival states were born.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/kr/kr-9-hero.webp",
+          alt: "Illustration of a traditional Korean palace gate with curved tiled roofs in Seoul, with a crowd seen from behind gathered in front, in 1940s clothing.",
+          caption: "Crowds celebrated liberation from Japan on 15 August 1945, now Korea's national day.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A grand traditional Korean palace gate with sweeping curved tiled roofs and painted wooden eaves, a large crowd in 1940s clothing seen from behind gathered in front, bright August sun, joyful and historic, no faces, no flags, no legible text." },
+        { type: "timeline", head: "From colony to republic", items: [
+          ["1910", "Japan annexes Korea"],
+          ["1 March 1919", "Independence protests across Korea"],
+          ["15 Aug 1945", "Japan surrenders; Korea liberated"],
+          ["1945", "US and Soviet forces divide Korea at the 38th parallel"],
+          ["10 May 1948", "UN-supervised election in the South"],
+          ["15 Aug 1948", "Republic of Korea founded; Syngman Rhee president"],
+          ["9 Sep 1948", "North Korea founded under Kim Il Sung"]
+        ] },
+        { type: "section", head: "Colonial rule", md:
+          "For five centuries Korea was ruled by the Joseon dynasty. Japan made it a protectorate in 1905 and annexed it in 1910. Colonial rule brought railways, factories and schools, but also land seizures, harsh policing and, from the late 1930s, attempts to erase Korean identity: Koreans were forced to take Japanese names and worship at Shinto shrines, the Korean language was banned in schools, and hundreds of thousands were mobilised as labourers, soldiers and, in the case of many women, as 'comfort women' for the Japanese army. On 1 March 1919 mass peaceful protests for independence were brutally suppressed." },
+        { type: "section", head: "A line on a map", md:
+          "When Japan surrendered in August 1945, two young American officers, working overnight with a map, proposed dividing Korea at the 38th parallel: Soviet troops would accept the Japanese surrender in the north, American troops in the south. The division was meant to be temporary. As the Cold War set in, talks on a unified government failed, and each occupier backed its own side." },
+        { type: "section", head: "Two states", md:
+          "In May 1948 the South held an election under UN supervision, which the North refused. On 15 August 1948 the Republic of Korea was proclaimed in Seoul, with Syngman Rhee, a US-educated nationalist who had spent decades in exile, as president. In September the North proclaimed the Democratic People's Republic of Korea under Kim Il Sung (see [[unit:kp]]). Each claimed to be the only legitimate government of all Korea. Rhee ruled in an increasingly authoritarian way, and a leftist uprising on Jeju Island in 1948 was crushed with the killing of tens of thousands of islanders." },
+        { type: "section", head: "Rhee's fall", md:
+          "After the Korean War (1950–53), Rhee rigged elections to stay in power. In April 1960 student-led protests after a fraudulent election forced him to resign and flee to Hawaii, the April Revolution. A brief democratic government followed, until General Park Chung-hee seized power in a military coup in May 1961 ([[lesson:kr-10]])." },
+        { type: "compare", head: "Two views of the founding",
+          left: { head: "The conservative view", md:
+            "The 1948 founding of a free, anti-communist republic, backed by the US and the UN, laid the foundation of today's prosperity." },
+          right: { head: "Critics", md:
+            "The division was imposed by outsiders, Rhee's state relied on former collaborators with Japan, and it began with massacres such as Jeju." } },
+        { type: "section", head: "Why it still matters", md:
+          "Korea is still divided at roughly the line drawn in 1945. The colonial period remains the root of South Korea's complicated relationship with Japan, and arguments over whether to celebrate 1948 as the founding, or the provisional government in exile of 1919, still divide left and right." }
+      ],
+      takeaways: [
+        "Japan ruled Korea as a colony from 1910 to 1945, suppressing Korean identity.",
+        "In 1945 US and Soviet forces divided Korea at the 38th parallel.",
+        "Two rival states were founded in 1948: the Republic of Korea in the South and the DPRK in the North."
+      ],
+      check: { q: "Where was Korea divided in 1945?",
+        choices: ["The Han River", "The 38th parallel", "The Yalu River"], answer: 1,
+        explain: "US officers proposed the 38th parallel as a temporary line between Soviet and American occupation zones." },
+      sources: [
+        { title: "Korea: History", publisher: "Britannica", url: "https://www.britannica.com/place/Korea/History", date: "n.d." },
+        { title: "Syngman Rhee", publisher: "Britannica", url: "https://www.britannica.com/biography/Syngman-Rhee", date: "n.d." },
+        { title: "The Korean War, 1950–1953", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/milestones/1945-1952/korean-war", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "kr-3", kind: "history", asOf: "2026-09-29",
@@ -145,6 +196,107 @@ window.POLITICS.addUnit("kr", {
         { title: "South Korea profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-asia-pacific-15292674", date: "n.d." },
         { title: "South Korea", publisher: "Britannica", url: "https://www.britannica.com/place/South-Korea", date: "n.d." },
         { title: "Korean War", publisher: "Britannica", url: "https://www.britannica.com/event/Korean-War", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "kr-10", kind: "past", asOf: "2026-09-29",
+      title: "Park Chung-hee and the Miracle on the Han",
+      dek: "A general who seized power in 1961 turned one of the world's poorest countries into an industrial power, and ruled as a dictator until he was shot by his own spy chief.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/kr/kr-10-hero.webp",
+          alt: "Illustration of a vast shipyard with giant cranes and a half-built ship's hull on a coast at dawn.",
+          caption: "Shipyards and steel mills built under Park turned South Korea into an industrial power.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A vast shipyard on a coast at dawn, giant red and white gantry cranes towering over a half-built ship's hull, calm sea, orange sunrise, industrial and ambitious, no people close up, no legible text or logos." },
+        { type: "facts", head: "The miracle", rows: [
+          ["GDP per person, 1960", "About $160, less than many African countries"],
+          ["GDP per person, 2024", "About $36,000"],
+          ["Park Chung-hee in power", "1961–1979"],
+          ["Yushin constitution", "1972, giving Park near-unlimited power"],
+          ["Assassinated", "26 October 1979, by his intelligence chief"]
+        ] },
+        { type: "section", head: "A poor country", md:
+          "After the Korean War, South Korea was among the poorest countries on earth, dependent on American aid, with few natural resources. In May 1961 Major General Park Chung-hee seized power in a coup, promising to fight corruption and communism and to modernise the economy. He was later elected president in 1963, 1967 and 1971, in increasingly unfair contests." },
+        { type: "section", head: "State-led growth", md:
+          "Park's government directed the economy through five-year plans, cheap loans and export targets. It chose a few family-run conglomerates, the chaebol, such as Hyundai, Samsung and LG, and gave them credit and protection in return for meeting goals. It built motorways, steel mills (POSCO), shipyards and, from the 1970s, heavy and chemical industries. Normalising relations with Japan in 1965 brought compensation money and investment, and sending troops to the Vietnam War brought American payments. Growth averaged close to 10% a year." },
+        { type: "section", head: "Dictatorship", md:
+          "Growth came with repression. After nearly losing the 1971 election to Kim Dae-jung, Park declared martial law and imposed the 1972 Yushin constitution, which let him rule indefinitely, appoint a third of the legislature and issue emergency decrees. The KCIA, his intelligence agency, kidnapped Kim Dae-jung from a Tokyo hotel in 1973. Labour unions were suppressed, and workers, many of them young women in textile factories, endured long hours and low pay." },
+        { type: "section", head: "The end", md:
+          "In October 1979 protests broke out in Busan and Masan. On 26 October, during a dinner at a safe house, Park was shot dead by his own intelligence chief, Kim Jae-gyu, after an argument over how to handle them. A brief opening followed, but in December General Chun Doo-hwan seized control of the army, and in 1980 crushed the uprising in Gwangju ([[lesson:kr-11]])." },
+        { type: "section", head: "The price paid", md:
+          "The pace was punishing. In November 1970 a 22-year-old garment worker, Jeon Tae-il, set himself on fire in Seoul's Pyeonghwa Market, shouting that workers were not machines and that the labour law should be obeyed. His death inspired a generation of students and trade unionists. Rural villages were remade too, through the Saemaul (New Village) movement, which paired government materials with local labour to build roads, roofs and wells." },
+        { type: "compare", head: "Two views of Park",
+          left: { head: "Admirers", md:
+            "Park lifted South Korea out of poverty, built its industries and made it strong enough to resist the North; his record justifies his methods." },
+          right: { head: "Critics", md:
+            "He was a dictator who tortured opponents and exploited workers; South Korea's prosperity owed as much to its people as to him." } },
+        { type: "section", head: "Why it still matters", md:
+          "Park remains the most divisive figure in South Korean politics. Conservatives revere him; his daughter, Park Geun-hye, was elected president in 2012 and impeached in 2017. The chaebol he built still dominate the economy (see [[lesson:kr-12]])." }
+      ],
+      takeaways: [
+        "General Park Chung-hee seized power in 1961 and ruled until 1979.",
+        "His state-led, export-driven industrialisation, working through the chaebol, produced near-10% growth.",
+        "He ruled as a dictator under the 1972 Yushin constitution and was assassinated by his spy chief in 1979."
+      ],
+      check: { q: "What happened to Park Chung-hee in October 1979?",
+        choices: ["He retired", "He was shot dead by his own intelligence chief", "He was impeached"], answer: 1,
+        explain: "KCIA director Kim Jae-gyu killed Park at a private dinner on 26 October 1979." },
+      sources: [
+        { title: "Park Chung-hee", publisher: "Britannica", url: "https://www.britannica.com/biography/Park-Chung-Hee", date: "n.d." },
+        { title: "South Korea: Economy", publisher: "Britannica", url: "https://www.britannica.com/place/South-Korea/Economy", date: "n.d." },
+        { title: "GDP per capita (current US$): Korea, Rep.", publisher: "World Bank", url: "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=KR", date: "2025" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "kr-11", kind: "past", asOf: "2026-09-29",
+      title: "Gwangju and the road to democracy",
+      dek: "In May 1980 soldiers massacred protesters in the city of Gwangju. Seven years later, mass protests forced the generals to allow free elections.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/kr/kr-11-hero.webp",
+          alt: "Illustration of a wide city street filled with young protesters seen from behind, many wearing white headbands, with office buildings and clouds of white smoke.",
+          caption: "Mass protests in June 1987 forced South Korea's military government to accept direct presidential elections.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A wide city street filled with young protesters in 1980s clothes seen from behind, many wearing white headbands, office buildings on both sides, drifting clouds of white smoke, determined and historic, no faces, no flags, no legible text." },
+        { type: "timeline", head: "From massacre to democracy", items: [
+          ["Dec 1979", "General Chun Doo-hwan seizes control of the army"],
+          ["18–27 May 1980", "Gwangju uprising crushed"],
+          ["June 1987", "Nationwide 'June Democratic Struggle'"],
+          ["29 June 1987", "Regime agrees to direct presidential elections"],
+          ["1996", "Chun and Roh Tae-woo convicted"],
+          ["1997", "Kim Dae-jung elected, the first opposition victory"]
+        ] },
+        { type: "section", head: "Gwangju, May 1980", md:
+          "After Park's assassination, General Chun Doo-hwan seized power and in May 1980 extended martial law nationwide, arresting opposition leaders including Kim Dae-jung, who came from the south-western Jeolla region. In the city of Gwangju, students protested; special forces paratroopers beat and bayoneted them and bystanders. Citizens armed themselves, drove the troops out and ran the city for several days. On 27 May the army retook Gwangju. The official death toll is about 200, but many historians and victims' groups believe it was higher, with hundreds more missing." },
+        { type: "section", head: "Chun's rule", md:
+          "Chun became president and ruled harshly through the 1980s, while the economy boomed. News of Gwangju was suppressed, and the government called the uprising a communist-inspired riot. Many South Koreans also blamed the United States, which had operational control of Korean forces, for allowing troops to be moved to the city. Student activism, often anti-American, grew." },
+        { type: "section", head: "June 1987", md:
+          "In early 1987 a student, Park Jong-chul, died under police torture, and the government's cover-up was exposed. In June, when Chun named a fellow general, Roh Tae-woo, as his successor under the indirect election system, and a student, Lee Han-yeol, was fatally hit by a tear-gas canister, millions of students, workers and office workers joined protests across the country. With the Seoul Olympics approaching in 1988 and Washington urging restraint, Roh announced on 29 June that the regime would accept direct presidential elections and free political prisoners." },
+        { type: "section", head: "Democracy and accountability", md:
+          "A new constitution was adopted in 1987 and is still in force. Roh won the December election because the opposition split between Kim Young-sam and Kim Dae-jung. Kim Young-sam won in 1992, the first civilian president in three decades, and in 1996 Chun and Roh were convicted of mutiny, treason and corruption; Chun was sentenced to death, commuted, and both were pardoned in 1997. That year Kim Dae-jung, once sentenced to death himself, won the presidency." },
+        { type: "compare", head: "Two lessons",
+          left: { head: "People power", md:
+            "South Korea shows that mass, peaceful protest can force a dictatorship to give way, and that coup leaders can be held accountable." },
+          right: { head: "Unfinished business", md:
+            "Victims of Gwangju still seek the full truth, and some on the far right continue to spread claims that North Korean agents were behind the uprising." } },
+        { type: "section", head: "Why it still matters", md:
+          "When President Yoon Suk Yeol declared martial law in December 2024, many South Koreans immediately thought of 1980, and crowds and lawmakers rushed to the National Assembly to stop it (see this unit's stories). The novelist Han Kang, who won the 2024 Nobel Prize in Literature, wrote about Gwangju in 'Human Acts'." }
+      ],
+      takeaways: [
+        "In May 1980 General Chun Doo-hwan's troops crushed the Gwangju uprising, killing hundreds.",
+        "Mass protests in June 1987 forced the regime to accept direct presidential elections.",
+        "Chun and Roh were later convicted; the memory of Gwangju shaped resistance to martial law in 2024."
+      ],
+      check: { q: "What did the June 1987 protests achieve?",
+        choices: ["Reunification", "Direct presidential elections and a new democratic constitution", "The end of the US alliance"], answer: 1,
+        explain: "On 29 June 1987 the regime agreed to direct elections; the constitution adopted that year is still in force." },
+      sources: [
+        { title: "Gwangju Uprising", publisher: "Britannica", url: "https://www.britannica.com/event/Gwangju-Uprising", date: "n.d." },
+        { title: "Chun Doo-hwan", publisher: "Britannica", url: "https://www.britannica.com/biography/Chun-Doo-Hwan", date: "n.d." },
+        { title: "The Nobel Prize in Literature 2024: Han Kang", publisher: "The Nobel Prize", url: "https://www.nobelprize.org/prizes/literature/2024/han/facts/", date: "2024" }
       ]
     },
 
@@ -359,6 +511,57 @@ window.POLITICS.addUnit("kr", {
         { title: "Surprising Results of the 2026 Local Elections in South Korea", publisher: "Institute for Security and Development Policy", url: "https://www.isdp.eu/surprising-results-of-the-2026-local-elections-in-south-korea/", date: "2026-06" },
         { title: "Why Is Lee Jae-myung's Approval Rating Dropping?", publisher: "The Diplomat", url: "https://thediplomat.com/2026/09/why-is-lee-jae-myungs-approval-rating-dropping/", date: "2026-09" },
         { title: "Lee's approval rating rises for 2nd straight week to 37.9%: poll", publisher: "The Korea Herald", url: "https://www.koreaherald.com/article/10885801", date: "2026-09-28" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "kr-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "The chaebol",
+      dek: "A handful of family-run conglomerates, led by Samsung and Hyundai, dominate South Korea's economy. Their power, and their founders' heirs, are never far from politics.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/kr/kr-12-hero.webp",
+          alt: "Illustration of a cluster of gleaming corporate towers in Seoul at night, with busy streets and neon lights below.",
+          caption: "The headquarters of South Korea's biggest conglomerates tower over Seoul.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A cluster of gleaming glass corporate skyscrapers in a dense Asian city at night, busy streets with light trails and colourful neon below, a river reflecting the lights, powerful and modern, no people close up, no legible text or logos." },
+        { type: "facts", head: "The big groups", rows: [
+          ["Largest", "Samsung, SK, Hyundai Motor, LG, Lotte"],
+          ["Samsung Electronics", "Around a fifth of South Korea's exports"],
+          ["Ownership", "Founding families control groups through cross-shareholdings"],
+          ["Lee Jae-yong (Samsung)", "Jailed in 2017 for bribery; pardoned in 2022; cleared in a separate case in 2025"],
+          ["Pardons", "Presidents have repeatedly pardoned convicted chaebol leaders"]
+        ] },
+        { type: "section", head: "Built with the state", md:
+          "The chaebol, literally 'wealthy families', grew up under Park Chung-hee, who gave favoured groups cheap loans and licences in exchange for building industries and meeting export targets. By the 1980s they spanned everything from ships and cars to insurance and department stores. Their global brands, from Samsung phones and memory chips to Hyundai cars and LG appliances, made South Korea an exporting giant." },
+        { type: "section", head: "Too big to fail", md:
+          "The Asian financial crisis of 1997 exposed their debts: Daewoo, then the second-largest group, collapsed, and South Korea needed a record IMF bailout. Reforms followed, but the biggest groups emerged stronger. Families typically control their empires with small stakes through webs of cross-shareholdings, and succession has repeatedly led to scandals over tax evasion, bribery and complex restructurings designed to pass control to heirs." },
+        { type: "section", head: "Scandals and politics", md:
+          "Chaebol leaders have regularly been convicted, and then pardoned by presidents citing the economy. In 2017 Samsung's heir, Lee Jae-yong, was jailed for bribing President Park Geun-hye's confidante, a scandal that helped bring about her impeachment. He was released, returned to prison in 2021 and pardoned in 2022; in 2025 the Supreme Court upheld his acquittal in a separate case over a 2015 merger. Critics call this 'too big to jail'." },
+        { type: "section", head: "In the Trump era", md:
+          "The chaebol are now central to South Korea's diplomacy. Under the 2025 trade deal with Washington, they pledged huge investments in American factories for cars, batteries, chips and ships. The immigration raid on a Hyundai–LG battery plant in Georgia in September 2025, in which hundreds of Korean workers were detained, became a diplomatic crisis. At home, President Lee Jae-myung's government has pushed reforms to strengthen minority shareholders' rights, aiming to end the 'Korea discount' on company valuations." },
+        { type: "section", head: "How big is big?", md:
+          "The top five groups, Samsung, SK, Hyundai Motor, LG and Lotte, account for a very large share of the stock market and of exports; Samsung Electronics alone is often worth around a fifth of the main KOSPI index. Families usually own only a few percent directly, but control the whole group through holding companies and affiliates that own each other. Supporters see scale and long-term planning; critics see governance that serves the family first." },
+        { type: "compare", head: "Two views",
+          left: { head: "Defenders", md:
+            "The chaebol built South Korea's prosperity and remain its global champions; they need scale to compete with China and Japan." },
+          right: { head: "Critics", md:
+            "They crowd out smaller firms, dominate politics and the media, and treat laws as optional, entrenching inequality." } },
+        { type: "section", head: "Why it matters", md:
+          "For young South Koreans, a job at a big conglomerate is the gold standard, which fuels an intensely competitive education system. The chaebol's fortunes, especially Samsung's in the global chip race, largely determine the country's." }
+      ],
+      takeaways: [
+        "The chaebol, family-run conglomerates such as Samsung and Hyundai, were built with state support under Park.",
+        "Their leaders have often been convicted of corruption and then pardoned.",
+        "They are central to South Korea's economy and to its 2025 investment deal with the US."
+      ],
+      check: { q: "What does 'chaebol' mean?",
+        choices: ["State company", "Wealthy family, the name for family-run conglomerates", "Trade union"], answer: 1,
+        explain: "The word combines 'wealth' and 'clan'; it refers to the family-controlled groups that dominate the economy." },
+      sources: [
+        { title: "Chaebol", publisher: "Britannica", url: "https://www.britannica.com/money/chaebol", date: "n.d." },
+        { title: "South Korea's top court acquits Samsung chief of fraud charges", publisher: "UPI", url: "https://www.upi.com/Top_News/World-News/2025/07/17/korea-Lee-Jae-yong-Samsung-chairman-acquitted-fraud-South-Korea-Supreme-Court/5441752737307/", date: "2025-07-17" },
+        { title: "Samsung Electronics' Lee Jae-yong granted special pardon by South Korea", publisher: "CNN", url: "https://www.cnn.com/2022/08/12/tech/samsung-lee-jae-yong-pardon-south-korea-hnk-intl", date: "2022-08-12" }
       ]
     },
 

@@ -99,6 +99,58 @@ window.POLITICS.addUnit("ca", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "ca-9", kind: "founding", asOf: "2026-09-29",
+      title: "Confederation, 1867",
+      dek: "On 1 July 1867 three British colonies joined to form the Dominion of Canada. It was a practical bargain between English and French, made partly out of fear of the United States.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ca/ca-9-hero.webp",
+          alt: "Illustration of a Victorian meeting room with a long table covered in papers, tall windows looking onto a harbour, and men in 1860s frock coats seen from behind.",
+          caption: "Delegates met at Charlottetown and Quebec City in 1864 to design the union.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A Victorian meeting room with a long wooden table covered in papers and inkwells, tall windows looking out onto a harbour with sailing ships, men in 1860s frock coats seen from behind standing in discussion, warm lamplight mixed with daylight, historical and deliberate mood, no faces, no flags, no legible text." },
+        { type: "timeline", head: "Building a country", items: [
+          ["1763", "Britain takes New France"],
+          ["Sep 1864", "Charlottetown Conference"],
+          ["Oct 1864", "Quebec Conference: the 72 Resolutions"],
+          ["1 Jul 1867", "British North America Act; Dominion of Canada"],
+          ["1870", "Manitoba joins after the Red River resistance"],
+          ["1871", "British Columbia joins, promised a railway"],
+          ["1885", "Railway completed; Riel hanged"],
+          ["1949", "Newfoundland joins"]
+        ] },
+        { type: "section", head: "Why unite?", md:
+          "By the 1860s British North America was a string of separate colonies. The Province of Canada, joining today's Ontario and Quebec, was deadlocked between English- and French-speaking members. The Maritime colonies were considering their own union. Britain wanted its colonies to pay for their own defence. And the United States, emerging from its civil war with a huge army, and angry at Britain's sympathy for the South, looked like a threat; Irish-American Fenian raiders attacked across the border in 1866." },
+        { type: "section", head: "The bargain", md:
+          "At conferences in Charlottetown and Quebec City in 1864, delegates designed a federation. John A. Macdonald, who wanted a strong central government, allied with George-Étienne Cartier, leader of the French Canadians, who insisted that Quebec keep control of its language, civil law, religion and education. George Brown of Upper Canada won representation by population in the House of Commons. The result gave Ottawa the big powers, such as trade, defence and criminal law, and the provinces the matters closest to daily life." },
+        { type: "section", head: "1 July 1867", md:
+          "The British parliament passed the British North America Act, and on 1 July 1867 Ontario, Quebec, Nova Scotia and New Brunswick became the Dominion of Canada, with Macdonald as prime minister. Many Nova Scotians opposed the union and elected anti-Confederation members. The new country was still part of the British Empire, with the Queen as head of state, and Britain kept control of foreign policy. The word 'Dominion' was chosen to avoid 'Kingdom', which might provoke the Americans." },
+        { type: "section", head: "Sea to sea", md:
+          "Canada then expanded fast. It bought the vast Hudson's Bay Company lands in 1869–70, over the heads of the Indigenous and Métis peoples who lived there; the Métis leader Louis Riel led a resistance that won the creation of Manitoba in 1870. British Columbia joined in 1871 on the promise of a railway to the Pacific, completed in 1885, the same year Riel was hanged after a second, armed rebellion. Treaties with First Nations opened the prairies to settlement. Newfoundland joined last, in 1949." },
+        { type: "compare", head: "Two views of Confederation",
+          left: { head: "A pact between two peoples", md:
+            "Many Quebecers see 1867 as a compact between English and French nations, which later constitutional changes broke." },
+          right: { head: "A union of provinces", md:
+            "Others see it as a federation of equal provinces, with a strong central government, open to all Canadians." } },
+        { type: "section", head: "Why it still matters", md:
+          "The division of powers written in 1867 is behind today's quarrels between Ottawa and the provinces over energy, health and trade (briefings [[lesson:ca-2|#]] and [[lesson:ca-7|#]]). Quebec's special status in 1867 underpins its demands to be recognised as a nation ([[lesson:ca-11]]). Indigenous peoples, not consulted in 1867, now hold constitutionally protected treaty rights. And Canada Day, 1 July, marks not independence, which came gradually, but a deal struck by colonial politicians." }
+      ],
+      takeaways: [
+        "Canada was created on 1 July 1867 when four provinces united under the British North America Act.",
+        "The deal balanced a strong central government with provincial control of language, education and civil law for Quebec.",
+        "Canada expanded to the Pacific by 1871, over the objections of Métis and First Nations peoples."
+      ],
+      check: { q: "Which provinces formed Canada in 1867?",
+        choices: ["Ontario, Quebec, Nova Scotia and New Brunswick", "All ten current provinces", "Ontario, Quebec and British Columbia"], answer: 0,
+        explain: "The first four provinces were Ontario, Quebec, Nova Scotia and New Brunswick; the others joined later." },
+      sources: [
+        { title: "Confederation, 1867", publisher: "The Canadian Encyclopedia", url: "https://thecanadianencyclopedia.ca/en/article/confederation-1867", date: "n.d." },
+        { title: "Charlottetown Conference", publisher: "The Canadian Encyclopedia", url: "https://thecanadianencyclopedia.ca/en/article/charlottetown-conference", date: "n.d." },
+        { title: "Constitutional History of Canada", publisher: "The Canadian Encyclopedia", url: "https://www.thecanadianencyclopedia.ca/en/article/constitutional-history", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "ca-3", kind: "history", asOf: "2026-09-29",
@@ -144,6 +196,109 @@ window.POLITICS.addUnit("ca", {
         { title: "Canada: History", publisher: "Britannica", url: "https://www.britannica.com/place/Canada/History", date: "n.d." },
         { title: "Quebec Referendum (1995)", publisher: "The Canadian Encyclopedia", url: "https://www.thecanadianencyclopedia.ca/en/article/quebec-referendum-1995", date: "n.d." },
         { title: "Canada: 2025 federal election", publisher: "House of Commons Library (UK)", url: "https://commonslibrary.parliament.uk/research-briefings/cbp-10244/", date: "2025" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "ca-10", kind: "past", asOf: "2026-09-29",
+      title: "The residential schools",
+      dek: "For more than a century, Canada sent Indigenous children to church-run boarding schools designed to erase their cultures. Thousands never came home.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ca/ca-10-hero.webp",
+          alt: "Illustration of rows of small orange t-shirts hanging on a fence in front of a field with autumn trees.",
+          caption: "Orange shirts mark 30 September, the National Day for Truth and Reconciliation.",
+          credit: "AI illustration — not a photograph",
+          prompt: "Rows of small plain orange children's t-shirts hanging on a simple wooden fence in front of a quiet prairie field with autumn birch trees, soft overcast light, solemn and respectful mood, no people, no legible text or logos." },
+        { type: "facts", head: "The system", rows: [
+          ["Years", "1880s to 1996 (last federally funded school closed)"],
+          ["Children", "At least 150,000 First Nations, Inuit and Métis"],
+          ["Schools", "139 recognised in the 2006 settlement"],
+          ["Deaths documented", "About 3,200 by the TRC; the chair later spoke of over 6,000"],
+          ["Calls to Action", "94 (2015)"]
+        ] },
+        { type: "section", head: "'Kill the Indian in the child'", md:
+          "From the 1880s the federal government, working with the Catholic, Anglican, Methodist and Presbyterian churches, ran boarding schools for Indigenous children. From 1920 attendance was compulsory for many. The aim, officials said openly, was assimilation. Children were taken far from home, given numbers or new names, and punished for speaking their languages. Many schools were underfunded, overcrowded and cold, and diseases such as tuberculosis spread quickly." },
+        { type: "section", head: "Abuse and death", md:
+          "Survivors described hunger, beatings and widespread sexual abuse. Parents were often not told when their children died, and many were buried in unmarked graves near the schools. The Truth and Reconciliation Commission (TRC) found that children in the schools died at far higher rates than other Canadian children. The damage carried on: survivors who grew up without their families often struggled to raise their own, and the removal of children continued through the 'Sixties Scoop' into foster care and adoption." },
+        { type: "section", head: "Settlement and apology", md:
+          "Survivors' lawsuits led to the 2006 Indian Residential Schools Settlement Agreement, the largest class-action settlement in Canadian history, with payments to former students. Prime Minister Stephen Harper apologised in the House of Commons in June 2008. The TRC heard from more than 6,000 witnesses and in 2015 concluded that the schools were part of a policy of 'cultural genocide'. Its 94 Calls to Action cover child welfare, education, language, health and justice." },
+        { type: "section", head: "Kamloops and after", md:
+          "In May 2021 the Tk'emlúps te Secwépemc First Nation announced that ground-penetrating radar had found what it believed were about 215 unmarked graves at the former Kamloops school. Other nations reported similar findings. The news shocked the country: flags flew at half-mast for months, and several churches were burned. Parliament made 30 September a federal holiday, and in July 2022 Pope Francis came to Canada to apologise for the role of Catholics. Excavations have been rare, and a vocal minority now disputes the findings, which Indigenous leaders call denialism." },
+        { type: "compare", head: "Two debates today",
+          left: { head: "Survivors and Indigenous leaders", md:
+            "Canada has made symbolic gestures but has fully implemented only a small share of the 94 Calls to Action." },
+          right: { head: "Some commentators", md:
+            "The history is real, but claims about mass graves have outrun the evidence, and the focus on the past can crowd out present problems." } },
+        { type: "section", head: "Why it matters", md:
+          "Reconciliation is now a core part of Canadian politics. It shapes debates over Indigenous rights on pipelines and mines, including the major projects Carney's government is fast-tracking ([[lesson:ca-4]]), over child welfare, where Indigenous children remain heavily over-represented in care, and over Canada's image of itself as a tolerant country. Today, 30 September, is the National Day for Truth and Reconciliation." }
+      ],
+      takeaways: [
+        "At least 150,000 Indigenous children were sent to residential schools designed to assimilate them.",
+        "The TRC in 2015 called the system 'cultural genocide' and issued 94 Calls to Action.",
+        "The 2021 findings at Kamloops led to a new national holiday on 30 September and a papal apology."
+      ],
+      check: { q: "What did the Truth and Reconciliation Commission conclude in 2015?",
+        choices: ["The schools were mostly beneficial", "The system was part of a policy of 'cultural genocide'", "No children died at the schools"], answer: 1,
+        explain: "The TRC found the schools aimed to destroy Indigenous cultures, and issued 94 Calls to Action." },
+      sources: [
+        { title: "Truth and Reconciliation Commission of Canada: Calls to Action", publisher: "National Centre for Truth and Reconciliation", url: "https://nctr.ca/about/truth-and-reconciliation-commission-of-canada-calls-to-action/", date: "2015" },
+        { title: "Canada's residential schools", publisher: "Canadian Museum for Human Rights", url: "https://humanrights.ca/resource-guide/canadas-residential-schools", date: "n.d." },
+        { title: "Residential school students had same odds of dying as soldiers in WW II", publisher: "CBC News", url: "https://www.cbc.ca/news/indigenous/truth-and-reconciliation-commission-by-the-numbers-1.3096185", date: "2015" },
+        { title: "'Denying our truth': Fighting residential school denialism in Canada", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/longform/2025/2/7/denying-our-truth-fighting-residential-school-denialism-in-canada", date: "2025-02-07" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "ca-11", kind: "past", asOf: "2026-09-29",
+      title: "Quebec: from the October Crisis to 1995",
+      dek: "In a quarter century Quebec went from terrorist bombings to two referendums on leaving Canada, the second lost by fewer than 55,000 votes. The question is back in 2026.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ca/ca-11-hero.webp",
+          alt: "Illustration of a huge crowd seen from behind filling a square in Montreal in autumn, with old stone buildings and church towers behind.",
+          caption: "Huge rallies on both sides marked the last days of the 1995 referendum campaign.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A huge crowd in 1990s autumn jackets seen from behind filling a public square in Montreal, old grey stone buildings and church spires behind, blue and white balloons and plain banners without text, cool October light, tense and emotional, no faces, no legible text, no flags." },
+        { type: "timeline", head: "The sovereignty question", items: [
+          ["1960s", "The Quiet Revolution"],
+          ["Oct 1970", "FLQ kidnappings; War Measures Act"],
+          ["1976", "Parti Québécois wins power"],
+          ["1977", "Bill 101 makes French the language of work and school"],
+          ["20 May 1980", "First referendum: 59.6% No"],
+          ["1982", "Constitution patriated without Quebec's signature"],
+          ["1990", "Meech Lake Accord fails"],
+          ["30 Oct 1995", "Second referendum: 50.6% No"],
+          ["2000", "Clarity Act"]
+        ] },
+        { type: "section", head: "Quiet Revolution, loud crisis", md:
+          "In the 1960s Quebec rapidly secularised, took schools and hospitals from the Catholic Church, nationalised hydroelectricity and built a French-speaking business class. A small radical group, the Front de libération du Québec (FLQ), set off bombs. In October 1970 it kidnapped a British diplomat, James Cross, and a Quebec minister, Pierre Laporte, who was later murdered. Prime Minister Pierre Trudeau invoked the War Measures Act, sent troops to Montreal and allowed nearly 500 people to be detained without charge. The FLQ collapsed." },
+        { type: "section", head: "The PQ and the first referendum", md:
+          "In 1976 René Lévesque's Parti Québécois (PQ) won Quebec's election. Its Bill 101 made French the only official language of the province, required most immigrants' children to attend French schools and regulated signs. In 1980 it asked voters for a mandate to negotiate 'sovereignty-association', political independence with an economic partnership. Trudeau, himself a Quebecer, promised a renewed federation. On 20 May 1980 59.6% voted No." },
+        { type: "section", head: "Promises broken?", md:
+          "Trudeau's renewal was the 1982 constitution with its Charter of Rights, agreed with every province except Quebec, whose government refused to sign; Quebec nationalists call it a betrayal. Brian Mulroney's Meech Lake Accord tried to win Quebec's approval by recognising it as a 'distinct society', but it died in 1990 when two provinces failed to ratify it. Support for independence surged, and a new party, the Bloc Québécois, went to Ottawa." },
+        { type: "section", head: "1995", md:
+          "On 30 October 1995 the PQ government of Jacques Parizeau held a second referendum, with the popular Bloc leader Lucien Bouchard as the campaign's star. Turnout was 93.5%. No won by 50.58% to 49.42%, a margin of about 54,000 votes. That night Parizeau blamed 'money and the ethnic vote', remarks that caused outrage, and resigned. The Supreme Court ruled in 1998 that Quebec could not secede unilaterally, but that a clear majority on a clear question would oblige Canada to negotiate; the 2000 Clarity Act set those terms in law." },
+        { type: "compare", head: "Two views of the referendums",
+          left: { head: "Sovereigntists", md:
+            "Quebec is a nation with the right to decide its future; federalist spending rules and last-minute promises tilted the 1995 vote." },
+          right: { head: "Federalists", md:
+            "Quebecers twice chose Canada; confusing questions and the damage of uncertainty show why clear rules are needed." } },
+        { type: "section", head: "Why it matters now", md:
+          "For two decades separatism faded, but the PQ has led the polls ahead of Quebec's 5 October 2026 election, promising a referendum on independence after January 2029 (briefings [[lesson:ca-4|#]] and [[lesson:ca-8|#]]). Trump's threats have pushed many Quebecers toward Canada, while others see a chance. Language laws remain a flashpoint: Bill 96 in 2022 tightened French requirements, and Quebec has used the constitution's 'notwithstanding clause' to shield laws on language and religious symbols from court challenges." }
+      ],
+      takeaways: [
+        "Quebec's modernisation in the 1960s produced a strong independence movement, and a violent fringe in the 1970 October Crisis.",
+        "Quebecers rejected sovereignty in 1980 (59.6% No) and, very narrowly, in 1995 (50.58% No).",
+        "The Clarity Act requires a clear question and majority; the Parti Québécois promises a new referendum if it wins in 2026."
+      ],
+      check: { q: "What was the result of Quebec's 1995 referendum?",
+        choices: ["A large Yes majority", "No won with about 50.6%", "It was cancelled"], answer: 1,
+        explain: "No won by 50.58% to 49.42%, a margin of about 54,000 votes." },
+      sources: [
+        { title: "Québec Referendum (1995)", publisher: "The Canadian Encyclopedia", url: "https://thecanadianencyclopedia.ca/en/article/quebec-referendum-1995", date: "n.d." },
+        { title: "Québec Referendum (1980)", publisher: "The Canadian Encyclopedia", url: "https://www.thecanadianencyclopedia.ca/en/article/quebec-referendum-1980", date: "n.d." },
+        { title: "Referendum on the 1980 sovereignty-association proposal for Québec", publisher: "Élections Québec", url: "https://www.electionsquebec.qc.ca/en/results-and-statistics/referendum-on-the-1980-sovereignty-association-proposal-for-quebec/", date: "n.d." }
       ]
     },
 
@@ -342,6 +497,55 @@ window.POLITICS.addUnit("ca", {
         { title: "Referendum", publisher: "Elections Alberta", url: "https://www.elections.ab.ca/elections/referendum/", date: "2026" },
         { title: "Here's what to know about Canada's landmark energy agreement with Alberta", publisher: "CBC News", url: "https://www.cbc.ca/news/politics/ottawa-alberta-energy-agreement-pipeline-9.6994715", date: "2025-11" },
         { title: "Reference re Secession of Quebec", publisher: "Supreme Court of Canada", url: "https://scc-csc.lexum.com/scc-csc/scc-csc/en/item/1643/index.do", date: "1998-08-20" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "ca-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "The true North",
+      dek: "Canada's Arctic is vast, thinly populated and warming fast. With Russia, China and now the United States taking an interest, defending it has become a national priority.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ca/ca-12-hero.webp",
+          alt: "Illustration of a small Arctic town of colourful houses on a rocky shore beside sea ice, with a grey ship offshore under a low sun.",
+          caption: "Iqaluit, capital of Nunavut, where Carney announced new Arctic defences in March 2025.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A small Arctic town of brightly coloured houses on a rocky treeless shore beside broken sea ice, a grey coast guard ship offshore, low golden sun on the horizon, vast pale sky, cold and beautiful, no people up close, no flags, no legible text." },
+        { type: "facts", head: "The Canadian North", rows: [
+          ["Share of Canada's land", "About 40% (the three territories)"],
+          ["People", "Roughly 130,000"],
+          ["Nunavut", "Created 1999; about 85% Inuit"],
+          ["Arctic radar", "Over C$6 billion, bought from Australia"],
+          ["Disputes", "Northwest Passage (US); Hans Island settled with Denmark, 2022"]
+        ] },
+        { type: "section", head: "Sovereignty by presence", md:
+          "Canada's Arctic islands and waters make up a huge share of its territory, but few people live there, mostly Inuit, First Nations and Métis. Canada has long asserted sovereignty by using the land: in the 1950s the government relocated Inuit families to the High Arctic, a move for which it apologised in 2010. The creation of Nunavut in 1999, the largest Indigenous land-claim settlement in Canadian history, gave the Inuit their own territory and government." },
+        { type: "section", head: "Who owns the passage?", md:
+          "Canada says the Northwest Passage, the sea route through its Arctic islands, is Canadian internal waters. The United States and the European Union say it is an international strait open to all ships. The two allies agreed to disagree in 1988. As the ice melts and the passage becomes more usable in summer, the dispute matters more. A friendlier quarrel, over tiny Hans Island between Canada and Greenland, known as the 'Whisky War', ended in 2022 when the island was split in two." },
+        { type: "section", head: "New threats", md:
+          "Russia has rebuilt Arctic bases and tested new missiles, and Chinese research ships and 'near-Arctic state' ambitions worry Ottawa. Then Donald Trump talked of making Canada the 51st state and of taking Greenland, Canada's neighbour across Baffin Bay. In March 2025, in Iqaluit, Carney announced a C$6 billion over-the-horizon radar system from Australia to watch the northern approaches, alongside the modernisation of NORAD, the joint air defence command Canada runs with the United States." },
+        { type: "section", head: "Paying for defence", md:
+          "For years Canada spent well below NATO's target of 2% of GDP on defence, to its allies' frustration. Carney's government pledged to reach 2% in 2025–26 and signed up to NATO's new goal of 5% by 2035, including infrastructure. Plans include new submarines able to operate under ice, more icebreakers, northern bases and all-weather roads and ports that Northern leaders say their communities also badly need. Critics question whether Canada can build and staff so much quickly." },
+        { type: "compare", head: "Two views of Arctic policy",
+          left: { head: "The government's case", md:
+            "Canada must be able to see, reach and defend its North itself, both to deter rivals and to avoid depending on Washington." },
+          right: { head: "Northern voices", md:
+            "Defence spending is welcome only if it brings housing, health care and infrastructure to Northerners and respects Inuit rights." } },
+        { type: "section", head: "Why it matters", md:
+          "The Arctic has become a test of Canada's sovereignty and of its place between an unpredictable United States and hostile powers. Climate change is also transforming the North faster than anywhere else in the country, threatening permafrost, wildlife and the way of life of Northern communities. For Carney, who has made standing up to Trump central to his leadership ([[lesson:ca-5]]), Arctic defence is a way to show that Canada can take care of itself." }
+      ],
+      takeaways: [
+        "Canada's Arctic covers about 40% of its land but has only about 130,000 people.",
+        "Canada claims the Northwest Passage as internal waters; the United States says it is an international strait.",
+        "Russia, China and Trump's ambitions have pushed Canada to spend billions on Arctic radar and defence."
+      ],
+      check: { q: "What is Canada's disagreement with the US over the Northwest Passage?",
+        choices: ["Who owns Hans Island", "Whether the passage is Canadian internal waters or an international strait", "Whether Nunavut is part of Canada"], answer: 1,
+        explain: "Canada says the waters are internal; the US says ships have a right of transit through an international strait." },
+      sources: [
+        { title: "Reinforcing Canada's security and sovereignty in the Arctic", publisher: "Prime Minister of Canada", url: "https://www.pm.gc.ca/en/news/backgrounders/2025/03/18/reinforcing-canadas-security-and-sovereignty-arctic", date: "2025-03-18" },
+        { title: "Canada advances Arctic defence on Over-the-Horizon Radar capability through partnership with Australia", publisher: "Government of Canada", url: "https://www.canada.ca/en/defence-investment-agency/news/2026/06/canada-advances-arctic-defence-on-over-the-horizon-radar-capability-through-partnership-with-australia.html", date: "2026-06" },
+        { title: "Why it took 50 years to resolve Canada and Denmark's dispute over Hans Island", publisher: "National Geographic", url: "https://www.nationalgeographic.com/history/article/how-hans-island-sparked-whisky-war-between-canada-denmark", date: "2022" }
       ]
     },
 

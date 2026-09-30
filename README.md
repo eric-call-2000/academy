@@ -8,7 +8,7 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | Track | Units | Lessons | What it covers |
 |-------|-------|---------|----------------|
 | 🧑‍💻 Full-Stack Coding Lab ↗ | 8 courses | 205 items | **Interactive coding** in [CodeLab](codelab/) — write real HTML/CSS/JS/APIs in a browser sandbox; shares this app's profiles & XP |
-| 🗳️ Political Academy ↗ | 30 countries | 240 briefings | **Daily reading** in [Political Academy](politics/) — illustrated briefings on the world's 30 most important countries; shares this app's profiles & XP |
+| 🗳️ Political Academy ↗ | 30 countries + 7 relationships | 381 briefings | **Daily reading** in [Political Academy](politics/) — illustrated briefings on the world's 30 most important countries; shares this app's profiles & XP |
 | 🤖 AI & Coding | 16 | 128 | Using AI well — Claude, prompting, models, capabilities, coding, agents, safety |
 | 🏛️ System Design | 25 | 200 | Architecting at scale — distributed systems, trade-offs, and running agents at the max level |
 | 📣 Marketing | 8 | 64 | Brand, audience, content, channels, metrics, growth, and marketing with AI |
@@ -29,7 +29,7 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 
 **14,235 quiz questions across 2,056 lessons in 261 units, over 17 quiz tracks** — plus
 CodeLab's 205 interactive coding items as an eighteenth, external track, and Political
-Academy's reading briefings (40 written so far, of a planned 240) as a nineteenth.
+Academy's 381 reading briefings as a nineteenth.
 
 *(Counted from the unit files on 2026-09-19. If you add units, recount rather than
 guessing — this table was wrong by more than double before it was last checked.)*
@@ -92,8 +92,12 @@ The 🧑‍💻 card on the picker is an **external track**: it opens the CodeLa
 ## The Political Academy card
 The 🗳️ card is a second external track. It opens **Political Academy**
 ([`politics/`](politics/)), a reading-first app of short daily briefings on the world's 30
-most important countries. Each country is a unit of 8 illustrated briefings: a snapshot, how
-power works, the road here, the players, three stories and where things stand. There are no
+most important countries. Each country is a unit of 12 illustrated briefings: a snapshot, how
+power works, how it began, the road here, two issues from its past, the players, three
+stories, a spotlight and where things stand. A **world map** shows every
+country with its number of briefings, and the relationships between countries, starting
+with three briefings each on seven of them: the US and China (steel, tariffs and soybeans),
+Mexico and Canada, Russia–Ukraine, Israel–Iran, India–Pakistan and China–Taiwan. There are no
 quizzes to pass; you read and tap **Finish briefing**. Like CodeLab, it shares profiles
 through this app's store and mirrors its progress as track `politics`, so the card shows
 live "N done · XP". The plan is in [`politics-curriculum.md`](politics-curriculum.md), and

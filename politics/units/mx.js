@@ -71,7 +71,7 @@ window.POLITICS.addUnit("mx", {
         { type: "section", head: "Congress and the constitution", md:
           "Congress has a 500-seat Chamber of Deputies, elected every three years, and a 128-seat Senate, elected every six. Changing the constitution needs two-thirds of both houses and a majority of state legislatures. After the 2024 election, Morena and its allies, the Greens (PVEM) and the Labour Party (PT), reached two-thirds in both, partly thanks to a disputed reading of rules on seats allocated by proportional representation. Since then the constitution has been amended dozens of times." },
         { type: "section", head: "Elected judges", md:
-          "In September 2024, days before leaving office, López Obrador's Congress passed a reform replacing appointed judges with elected ones. In June 2025 voters chose all nine Supreme Court justices and hundreds of other judges. Only about 13% of voters took part, and candidates backed by Morena won every Supreme Court seat. Briefing 5 tells that story." },
+          "In September 2024, days before leaving office, López Obrador's Congress passed a reform replacing appointed judges with elected ones. In June 2025 voters chose all nine Supreme Court justices and hundreds of other judges. Only about 13% of voters took part, and candidates backed by Morena won every Supreme Court seat. [[lesson:mx-5|Briefing #]] tells that story." },
         { type: "section", head: "The states and the military", md:
           "Mexico is a federation of 31 states and Mexico City, each with an elected governor; Morena holds most of them. The armed forces have gained a far bigger role than in most democracies: they run the National Guard, which polices the country, as well as customs, ports, airports and major infrastructure projects. The independent watchdogs created after 2000, for transparency, competition and energy regulation, were abolished in 2024–25 and their work handed to ministries." },
         { type: "section", head: "How elections work", md:
@@ -96,6 +96,57 @@ window.POLITICS.addUnit("mx", {
         { title: "Six Facts to Understand Mexico's 2025 Judicial Elections", publisher: "AS/COA", url: "https://www.as-coa.org/articles/six-facts-understand-mexicos-2025-judicial-elections", date: "2025" },
         { title: "Mexico's Constitutional Reforms Series: Electoral Reform", publisher: "Wilson Center", url: "https://www.wilsoncenter.org/article/mexicos-constitutional-reforms-series-electoral-reform", date: "2026" },
         { title: "Mexico", publisher: "Britannica", url: "https://www.britannica.com/place/Mexico", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "mx-9", kind: "founding", asOf: "2026-09-29",
+      title: "Independence: from Hidalgo to the republic",
+      dek: "A village priest's call to revolt in 1810 began Mexico's war of independence. It took eleven years, an unlikely alliance and a short-lived emperor before a republic emerged.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/mx/mx-9-hero.webp",
+          alt: "Illustration of a colonial stone church with a bell tower in a small Mexican town at dawn, with a crowd of villagers in early-19th-century clothing gathered in front, seen from behind.",
+          caption: "Miguel Hidalgo rang the church bell in Dolores on 16 September 1810 to call his parishioners to revolt.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A colonial stone church with a tall bell tower in a small Mexican town at dawn, a crowd of villagers in early-19th-century clothing with sombreros and rebozos seen from behind gathered in the plaza, some carrying farm tools, warm orange sky, dramatic and historic, no faces, no flags, no legible text." },
+        { type: "timeline", head: "From New Spain to Mexico", items: [
+          ["1521", "Spanish conquest of the Aztec capital"],
+          ["16 Sep 1810", "Hidalgo's 'Grito de Dolores'"],
+          ["1811", "Hidalgo captured and executed"],
+          ["1815", "Morelos executed"],
+          ["1821", "Plan of Iguala; Spain accepts independence"],
+          ["1822–23", "Iturbide rules as Emperor Agustín I"],
+          ["1824", "First federal republican constitution"]
+        ] },
+        { type: "section", head: "New Spain", md:
+          "For three centuries after Hernán Cortés conquered the Aztec capital, Tenochtitlan, in 1521, Mexico was New Spain, the richest part of Spain's empire, its wealth built on silver and on Indigenous labour. Society was a strict hierarchy. At the top were officials born in Spain, the *peninsulares*; below them American-born Spaniards, the *criollos*, who resented being shut out of high office; then people of mixed descent, the *mestizos*; and at the bottom Indigenous and African people." },
+        { type: "section", head: "The Grito", md:
+          "In 1808 Napoleon invaded Spain and deposed its king, throwing the empire into confusion. Criollo conspirators in Mexico plotted to take control. When their plot was discovered, one of them, Father Miguel Hidalgo, parish priest of the town of Dolores, rang his church bell before dawn on 16 September 1810 and called on his parishioners to rise up against bad government. Tens of thousands of peasants and Indigenous people joined his march, and the violence against Spaniards frightened the criollo elite. Hidalgo was captured and executed in 1811." },
+        { type: "section", head: "Morelos and the long war", md:
+          "Another priest, José María Morelos, turned the rebellion into a disciplined army and a political programme. In 1813 a congress he called declared independence and demanded the abolition of slavery and of distinctions of caste. He was captured and executed in 1815. Afterwards only guerrilla bands, led by figures such as Vicente Guerrero in the southern mountains, kept the cause alive." },
+        { type: "section", head: "Independence by alliance", md:
+          "Independence came from an unexpected direction. In 1820 a liberal revolution in Spain alarmed Mexico's conservatives and the Church. Agustín de Iturbide, a royalist officer who had fought the rebels, switched sides and allied with Guerrero. Their 1821 Plan of Iguala promised independence, the Catholic religion and equality between Spaniards and Mexicans. The Spanish viceroy accepted it, and Iturbide's army entered Mexico City in September 1821. In 1822 Iturbide had himself crowned Emperor Agustín I; he was overthrown within a year, and a federal republic was proclaimed with the 1824 constitution." },
+        { type: "compare", head: "Two founding stories",
+          left: { head: "The popular revolution", md:
+            "Independence began with Hidalgo and Morelos, champions of the poor, which is why Mexico celebrates 16 September." },
+          right: { head: "The elite settlement", md:
+            "Independence was actually won in 1821 by conservative officers and the Church, who kept the old social order." } },
+        { type: "section", head: "Why it still matters", md:
+          "Every 15 September at night, Mexico's president rings the bell from the balcony of the National Palace and repeats the Grito, a ritual Sheinbaum performed in 2025 as the first woman to do so. The struggles of independence, between federalists and centralists, liberals and conservatives, Church and state, dominated the nineteenth century. The weak, divided republic that emerged was soon to lose half its territory to the United States ([[lesson:mx-10]])." }
+      ],
+      takeaways: [
+        "Father Miguel Hidalgo's call to revolt on 16 September 1810 began the war of independence.",
+        "Independence was achieved in 1821 when the royalist officer Iturbide allied with the rebel Guerrero.",
+        "After a brief empire, Mexico became a federal republic with the 1824 constitution."
+      ],
+      check: { q: "What is commemorated by the 'Grito' each September?",
+        choices: ["The 1917 constitution", "Hidalgo's 1810 call to revolt against Spanish rule", "The end of the Mexican Revolution"], answer: 1,
+        explain: "Hidalgo's 'Grito de Dolores' on 16 September 1810 began the independence struggle." },
+      sources: [
+        { title: "Grito de Dolores", publisher: "Britannica", url: "https://www.britannica.com/event/Grito-de-Dolores", date: "n.d." },
+        { title: "Miguel Hidalgo y Costilla", publisher: "Britannica", url: "https://www.britannica.com/biography/Miguel-Hidalgo-y-Costilla", date: "n.d." },
+        { title: "Mexico: Independence", publisher: "Britannica", url: "https://www.britannica.com/place/Mexico/Independence", date: "n.d." }
       ]
     },
 
@@ -144,6 +195,114 @@ window.POLITICS.addUnit("mx", {
         { title: "Mexico: History", publisher: "Britannica", url: "https://www.britannica.com/place/Mexico/History", date: "n.d." },
         { title: "Mexico profile", publisher: "BBC News", url: "https://www.bbc.com/news/world-latin-america-18095241", date: "n.d." },
         { title: "Sheinbaum announces new report on Ayotzinapa ahead of 12th anniversary of mass kidnapping", publisher: "Mexico News Daily", url: "https://mexiconewsdaily.com/politics/sheinbaum-report-ayotzinapa-mananera-monday/", date: "2026-09" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "mx-10", kind: "past", asOf: "2026-09-29",
+      title: "The war of 1846–48",
+      dek: "In two years of war the United States took more than half of Mexico's territory. Americans have largely forgotten it; Mexicans have not.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/mx/mx-10-hero.webp",
+          alt: "Illustration of a hilltop castle above a green park in Mexico City, with a stone monument of tall columns in the foreground.",
+          caption: "Chapultepec Castle, where young cadets died defending Mexico City in September 1847.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A historic castle on a wooded hilltop above a green park in Mexico City, a white marble monument of six tall columns in the foreground, clear afternoon light, solemn and dignified mood, a few people seen from far behind walking, no faces, no flags, no legible text." },
+        { type: "timeline", head: "Losing the north", items: [
+          ["1836", "Texas breaks away from Mexico"],
+          ["1845", "The United States annexes Texas"],
+          ["Apr 1846", "Clash on the disputed Texas border; war declared"],
+          ["Mar 1847", "US forces land at Veracruz"],
+          ["13 Sep 1847", "Chapultepec falls; Mexico City occupied"],
+          ["2 Feb 1848", "Treaty of Guadalupe Hidalgo"],
+          ["1853", "Gadsden Purchase"]
+        ] },
+        { type: "section", head: "Texas", md:
+          "Newly independent Mexico invited American settlers into its thinly populated province of Texas. By the 1830s they far outnumbered Mexicans there, and many had brought enslaved people, though Mexico had abolished slavery in 1829. When President Antonio López de Santa Anna centralised power, the Texans revolted and, after defeating him in 1836, declared independence. Mexico never recognised it, and warned that annexation by the United States would mean war. In 1845 Washington annexed Texas." },
+        { type: "section", head: "Polk's war", md:
+          "President James K. Polk, a believer in 'manifest destiny', wanted California and the lands between. After Mexico refused to sell, he sent troops into territory between the Nueces River and the Rio Grande that both countries claimed. When Mexican forces attacked a patrol in April 1846, Polk told Congress that Mexico had 'shed American blood upon American soil'. A young congressman, Abraham Lincoln, challenged him to name the spot. US armies took California and New Mexico, and in 1847 General Winfield Scott landed at Veracruz and marched on the capital." },
+        { type: "section", head: "Defeat", md:
+          "Mexico was divided and nearly bankrupt, and its armies were beaten repeatedly. On 13 September 1847 US troops stormed Chapultepec Castle, the military academy above Mexico City; according to Mexican tradition, six young cadets, the Niños Héroes, died rather than surrender, one wrapping himself in the flag. The capital was occupied. Around 25,000 Mexicans and 13,000 Americans died, most of them Americans from disease." },
+        { type: "facts", head: "What Mexico lost", rows: [
+          ["Treaty", "Guadalupe Hidalgo, 2 February 1848"],
+          ["Territory", "More than half of Mexico, about 1.36 million km²"],
+          ["Now part of", "California, Nevada, Utah, Arizona, New Mexico and parts of five other US states, plus Texas"],
+          ["Payment", "$15 million, plus about $3 million in debts assumed"],
+          ["Later", "Gadsden Purchase of 1853 sold another strip"]
+        ] },
+        { type: "compare", head: "Two memories",
+          left: { head: "In Mexico", md:
+            "An unjust war of conquest, the 'American intervention', taught in every school; the Niños Héroes are national heroes." },
+          right: { head: "In the United States", md:
+            "Often a brief chapter of westward expansion, though historians, like Lincoln and Grant at the time, now largely see it as a war of aggression." } },
+        { type: "section", head: "Why it still matters", md:
+          "The war is why Mexican governments of all colours guard their sovereignty so fiercely, and why US threats to send troops or drones against cartels on Mexican soil touch a raw nerve ([[lesson:mx-7]]). Tens of thousands of Mexicans living in the ceded lands became Americans overnight; their descendants and later migrants make the border region deeply Mexican in culture. Trump's renaming of the Gulf of Mexico as the 'Gulf of America' in 2025 was received in Mexico as the latest in a long history of slights." }
+      ],
+      takeaways: [
+        "After Texas broke away and was annexed by the US, the two countries went to war in 1846.",
+        "US forces occupied Mexico City, and in 1848 Mexico ceded more than half its territory.",
+        "The war is central to Mexico's defence of its sovereignty against the United States."
+      ],
+      check: { q: "What did the Treaty of Guadalupe Hidalgo (1848) do?",
+        choices: ["Gave Mexico independence from Spain", "Transferred more than half of Mexico's territory to the United States", "Created NAFTA"], answer: 1,
+        explain: "Mexico ceded California and much of today's US Southwest in exchange for $15 million." },
+      sources: [
+        { title: "Mexican-American War", publisher: "Britannica", url: "https://www.britannica.com/event/Mexican-American-War", date: "n.d." },
+        { title: "Mexican Cession", publisher: "Britannica", url: "https://www.britannica.com/event/Mexican-Cession", date: "n.d." },
+        { title: "Treaty of Guadalupe Hidalgo", publisher: "Britannica", url: "https://www.britannica.com/event/Treaty-of-Guadalupe-Hidalgo", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "mx-11", kind: "past", asOf: "2026-09-29",
+      title: "The Revolution and the 1917 Constitution",
+      dek: "The revolution that began in 1910 killed perhaps a million people and produced a constitution promising land, labour rights and national control of oil. Its promises still shape Mexican politics.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/mx/mx-11-hero.webp",
+          alt: "Illustration of revolutionary horsemen in wide sombreros and bandoliers riding across a dusty plain toward distant mountains, seen from behind.",
+          caption: "Peasant armies led by Emiliano Zapata and Pancho Villa fought for land and power.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A group of revolutionary horsemen in wide straw sombreros and cotton clothing with bandoliers riding across a dusty Mexican plain toward distant blue mountains, seen from behind, agave plants, golden late afternoon light and dust, epic historical mood, no faces, no flags, no legible text." },
+        { type: "timeline", head: "Revolution and after", items: [
+          ["1876–1911", "Porfirio Díaz rules"],
+          ["Nov 1910", "Madero calls for revolt"],
+          ["1913", "Madero murdered in General Huerta's coup"],
+          ["1914–15", "Revolutionaries fight each other"],
+          ["5 Feb 1917", "New constitution adopted at Querétaro"],
+          ["1919", "Zapata assassinated"],
+          ["1929", "Ruling party founded"],
+          ["18 Mar 1938", "Cárdenas nationalises oil"]
+        ] },
+        { type: "section", head: "Order and progress", md:
+          "Porfirio Díaz ruled Mexico for more than three decades, an era known as the Porfiriato. He brought stability, railways and foreign investment, much of it American and British, in mining and oil. But by 1910 a tiny elite owned most of the land, many peasants were landless labourers tied to haciendas by debt, and elections were a sham. When the 80-year-old Díaz claimed yet another victory in 1910, Francisco Madero, a wealthy liberal he had jailed, called for revolt." },
+        { type: "section", head: "A decade of war", md:
+          "Díaz fled in 1911 and Madero became president, but in 1913 he was overthrown and murdered in a coup by General Victoriano Huerta, with the encouragement of the US ambassador. Revolutionary armies rose against Huerta: Emiliano Zapata's peasants in the south demanding 'land and liberty', Pancho Villa's cavalry in the north, and the 'Constitutionalists' of Venustiano Carranza and Álvaro Obregón. After Huerta fell in 1914 the victors turned on each other. Carranza's side won, but Zapata was killed in 1919 and Carranza himself in 1920." },
+        { type: "section", head: "The 1917 Constitution", md:
+          "Carranza's constitution, drafted at Querétaro in 1917 and still in force though amended hundreds of times, was among the most radical of its time. Article 27 declared that land, water and subsoil resources belong to the nation, allowing land to be redistributed and foreign-owned mines and oil fields to be claimed. Article 123 guaranteed an eight-hour day, the right to strike and a minimum wage. Article 3 made education secular, and other articles sharply limited the Catholic Church, provoking the Cristero War of 1926–29." },
+        { type: "section", head: "Cárdenas", md:
+          "The revolution's promises were largely fulfilled by President Lázaro Cárdenas (1934–40). He distributed millions of hectares to peasant communities as *ejidos*, communal farms, organised workers and peasants into the ruling party, and on 18 March 1938 nationalised the oil industry after foreign companies defied a court ruling on wages, creating Pemex. Mexicans celebrated with mass donations to pay the compensation, and 18 March is still commemorated." },
+        { type: "compare", head: "Two views of the Revolution's legacy",
+          left: { head: "A social revolution", md:
+            "It broke the old landowning class, gave land and rights to peasants and workers and built a national identity celebrated in murals and schools." },
+          right: { head: "A new elite", md:
+            "Its winners became a ruling party that held power for 71 years through patronage and fraud, using revolutionary slogans to justify control." } },
+        { type: "section", head: "Why it still matters", md:
+          "The revolution's symbols are everywhere. Morena, founded by López Obrador, presents itself as the 'Fourth Transformation', after independence, the liberal Reform of the 1850s and the Revolution. Its defence of Pemex and national energy sovereignty echoes Cárdenas, and its judicial and constitutional reforms are fought over in the language of 1917 (briefings [[lesson:mx-2|#]] and [[lesson:mx-5|#]]). The party that grew out of the revolution, the PRI, now a small opposition force, ruled until 2000 ([[lesson:mx-3]])." }
+      ],
+      takeaways: [
+        "The revolution of 1910–20 overthrew Porfirio Díaz and cost perhaps a million lives.",
+        "The 1917 Constitution gave the nation ownership of land and subsoil and guaranteed labour rights.",
+        "Lázaro Cárdenas redistributed land and nationalised oil in 1938, founding Pemex."
+      ],
+      check: { q: "What did President Cárdenas do on 18 March 1938?",
+        choices: ["Signed NAFTA", "Nationalised the oil industry", "Overthrew Porfirio Díaz"], answer: 1,
+        explain: "He expropriated foreign oil companies, creating the state oil company Pemex." },
+      sources: [
+        { title: "Mexico: The Mexican Revolution and its aftermath, 1910–40", publisher: "Britannica", url: "https://www.britannica.com/place/Mexico/The-Mexican-Revolution-and-its-aftermath-1910-40", date: "n.d." },
+        { title: "Constitution of 1917", publisher: "Britannica", url: "https://www.britannica.com/topic/Constitution-of-1917", date: "n.d." },
+        { title: "Emiliano Zapata", publisher: "Britannica", url: "https://www.britannica.com/biography/Emiliano-Zapata", date: "n.d." }
       ]
     },
 
@@ -346,6 +505,55 @@ window.POLITICS.addUnit("mx", {
         { title: "Mexico Says US Demands in USMCA Review Fall From 54 to 14", publisher: "Mexico Business News", url: "https://mexicobusiness.news/trade-and-investment/news/mexico-says-us-demands-usmca-review-fall-54-14", date: "2026" },
         { title: "The U.S. and Mexico aren't breaking up over cartels. They're arguing over who's to blame.", publisher: "Houston Public Media", url: "https://www.houstonpublicmedia.org/articles/news/texas/2026/09/28/563004/the-u-s-and-mexico-arent-breaking-up-over-cartels-theyre-arguing-over-whos-to-blame/", date: "2026-09-28" },
         { title: "Mexico's Sheinbaum Says Agreements Reached With Trump, as Washington Races Toward Trade Deal", publisher: "Reuters via US News", url: "https://www.usnews.com/news/top-news/articles/2026-09-18/mexicos-sheinbaum-says-agreements-reached-with-trump-as-washington-races-toward-trade-deal", date: "2026-09-18" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "mx-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "The disappeared",
+      dek: "More than 130,000 people are registered as missing in Mexico. Their families, most often mothers, search the countryside themselves, digging for remains the state has not found.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/mx/mx-12-hero.webp",
+          alt: "Illustration of a group of women in wide hats seen from behind walking across dry scrubland with shovels and long metal rods, under a hot sky.",
+          caption: "Searching mothers probe the ground with metal rods to detect the smell of graves.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A small group of women in wide-brimmed hats and long sleeves seen from behind walking across dry desert scrubland in northern Mexico carrying shovels and long thin metal rods, hot hazy sky, cacti, determined and sorrowful mood, no faces, no legible text." },
+        { type: "facts", head: "The crisis in numbers", rows: [
+          ["Registered missing", "About 134,000"],
+          ["Since", "Most since 2006, when the drug war began"],
+          ["Possibly alive", "About 40,000 entries show later activity, a 2026 review found"],
+          ["Ayotzinapa", "43 students missing since 2014"],
+          ["Teuchitlán", "Ranch found by searchers in Jalisco, March 2025"]
+        ] },
+        { type: "section", head: "How people disappear", md:
+          "Since the government sent the army against the drug cartels in 2006, violence has made disappearance a mass phenomenon. Cartels kidnap rivals, forcibly recruit young men, extort migrants and dispose of bodies in hidden graves, acid or ovens; police and soldiers have also been involved in many cases. Most victims are young men, but women and children disappear too. Very few cases are solved; most families say prosecutors did little until they pushed." },
+        { type: "section", head: "Searching mothers", md:
+          "In response, families formed search collectives, the *madres buscadoras*. They share tips, probe the ground with metal rods and sniff them for the smell of decomposition, and dig up clandestine graves. Their work has uncovered thousands of bodies. It is dangerous: several searchers have been murdered or have themselves disappeared, and many receive threats. Their slogan, 'Because they took them alive, we want them back alive', is painted on walls across the country." },
+        { type: "section", head: "Teuchitlán", md:
+          "In March 2025 a search group in Jalisco entered a ranch at Teuchitlán, outside Guadalajara, and found crematoriums, bone fragments and hundreds of shoes and items of clothing. Prosecutors said the cartel used it to recruit and train young men lured by fake job offers. The images caused national outrage; officials initially disputed the collective's account, deepening families' mistrust. The case became a symbol of the state's failure, and the missing were a theme of protests during the 2026 World Cup that Mexico co-hosted." },
+        { type: "section", head: "Counting the missing", md:
+          "President Sheinbaum's government strengthened the national search commission and the registry and passed laws in 2025 linking it to a biometric identity database. In 2026 it reported that about 40,000 of the registered cases showed signs of life in other official records, such as tax filings. Families and experts welcomed checking but warned against using it to shrink the problem, noting that thousands of unidentified bodies lie in morgues and that many disappearances are never reported." },
+        { type: "compare", head: "Two views",
+          left: { head: "The government", md:
+            "The state is modernising search and identification, and a cleaner registry will focus resources on real cases." },
+          right: { head: "Families and rights groups", md:
+            "Authorities minimise the crisis, protect local officials tied to cartels and leave mothers to do the state's job." } },
+        { type: "section", head: "Why it matters", md:
+          "Disappearances measure the reach of organised crime and the weakness of justice more starkly than murder rates. They are also a political test for Morena, which promised to resolve the Ayotzinapa case and has not, and a source of friction with the United States, which cites them in pressing Mexico to act against cartels ([[lesson:mx-6]]). For thousands of families, there is no ending, only the search." }
+      ],
+      takeaways: [
+        "About 134,000 people are registered as missing in Mexico, most since the drug war began in 2006.",
+        "Families, mostly mothers, organise their own searches, often at great risk.",
+        "The Teuchitlán ranch discovered in 2025 became a symbol of the state's failure to find the missing."
+      ],
+      check: { q: "Who are the 'madres buscadoras'?",
+        choices: ["A cartel", "Mothers who search for their missing relatives", "A government agency"], answer: 1,
+        explain: "They are collectives of relatives, mostly mothers, who search for the disappeared and their remains." },
+      sources: [
+        { title: "Mexico says 40,000 of country's 130,000 disappeared people may be locatable", publisher: "The Spokesman-Review (AP)", url: "https://www.spokesman.com/stories/2026/mar/27/mexico-says-40000-of-countrys-130000-disappeared-p/", date: "2026-03-27" },
+        { title: "Mexico's 'missing persons' crisis takes centre stage at the World Cup", publisher: "Euronews", url: "https://www.euronews.com/2026/06/12/mexicos-missing-persons-crisis-takes-centre-stage-at-the-world-cup", date: "2026-06-12" },
+        { title: "Madres buscadoras", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Madres_buscadoras", date: "n.d." }
       ]
     },
 

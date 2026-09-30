@@ -2,7 +2,8 @@
    Political Academy — registry + pure helpers
    ------------------------------------------------------------
    Loaded FIRST. countries.js declares the 30 countries (in path
-   order), glossary.js adds terms, updates.js adds dated dispatches,
+   order), links.js the relationships between pairs of them,
+   glossary.js adds terms, updates.js adds dated dispatches,
    and each unit file (units/<id>.js) registers its briefings with
    addUnit() when app.js lazy-loads it.
 
@@ -20,6 +21,8 @@
   P.units = P.units || {};
   P.glossary = P.glossary || {};
   P.updates = P.updates || [];
+  P.links = P.links || [];
+  P._linkById = P._linkById || {};
 
   P.PARTS = [
     { id: 1, title: "The Big Four" },
@@ -30,16 +33,36 @@
     { id: 6, title: "Africa" }
   ];
 
-  /* The standard arc of an 8-briefing unit (see politics-curriculum.md). */
+  /* The standard arc of a unit (see politics-curriculum.md). Units began
+     with 8 briefings; four more were added later as ids 9-12, slotted into
+     the reading order without renumbering, because ids are progress keys. */
   P.KINDS = {
     snapshot: "Snapshot",
     power: "How power works",
+    founding: "How it began",
     history: "The road here",
+    past: "From the past",
     players: "The players",
     story: "Story",
-    now: "Where things stand"
+    spotlight: "Spotlight",
+    now: "Where things stand",
+    relation: "Relationship"
   };
-  P.ARC = ["snapshot", "power", "history", "players", "story", "story", "story", "now"];
+  /* A relationship ("link") unit covers two countries in 2-3 briefings,
+     all of kind "relation", with ids <link>-1 … <link>-N in order. */
+  P.LINK_MIN = 2;
+  P.LINK_MAX = 3;
+  P.ARC8 = ["snapshot", "power", "history", "players", "story", "story", "story", "now"];
+  P.ARC = ["snapshot", "power", "founding", "history", "past", "past", "players", "story", "story", "story", "spotlight", "now"];
+  /* Briefing numbers (the n in "<unit>-n") in reading order. */
+  P.ORDER12 = [1, 2, 9, 3, 10, 11, 4, 5, 6, 7, 12, 8];
+  P.readingOrder = function (count) {
+    if (count === P.ORDER12.length) return P.ORDER12.slice();
+    var out = [];
+    for (var n = 1; n <= count; n++) out.push(n);
+    return out;
+  };
+  P.arcFor = function (count) { return count === P.ARC.length ? P.ARC : count === P.ARC8.length ? P.ARC8 : null; };
 
   P.XP_PER_BRIEFING = 10;
   P.XP_PER_COUNTRY = 20;
@@ -62,6 +85,34 @@
     P._byId[c.id] = c;
   };
   P.country = function (id) { return P._byId[id] || null; };
+
+  /* Relationships between two countries (links.js). A link's id joins its
+     two country ids with "_" (never "-", which separates the briefing
+     number), so "us_cn-2" is the second US–China briefing. Links are
+     not part of the 30-country path; the world map and each country's
+     page lead to them. */
+  P.defineLink = function (l) {
+    if (P._linkById[l.id]) return;
+    P.links.push(l);
+    P._linkById[l.id] = l;
+  };
+  P.link = function (id) { return P._linkById[id] || null; };
+  P.linksOf = function (countryId) {
+    return P.links.filter(function (l) { return l.a === countryId || l.b === countryId; });
+  };
+  /* Anything with briefings: a country, or a link dressed like one
+     (name, flag and colour) so pages, rows and the reader can draw it. */
+  P.subject = function (id) {
+    if (P._byId[id]) return P._byId[id];
+    var l = P._linkById[id];
+    if (!l) return null;
+    var a = P._byId[l.a], b = P._byId[l.b];
+    if (!a || !b) return null;
+    return {
+      id: l.id, isLink: true, a: l.a, b: l.b, title: l.title, blurb: l.blurb, lessons: l.lessons || 0,
+      name: a.name + " & " + b.name, flag: a.flag + b.flag, color: l.color || a.color
+    };
+  };
   P.addUnit = function (id, unit) { P.units[id] = unit; };
   P.addTerms = function (list) {
     (list || []).forEach(function (t) { P.glossary[t.id] = t; });
@@ -75,6 +126,13 @@
   };
   P.unitIdOf = function (lessonId) { return String(lessonId || "").split("-")[0]; };
   P.lessonNum = function (lessonId) { return parseInt(String(lessonId || "").split("-")[1], 10) || 0; };
+  /* A briefing's place in its unit's reading order (1-based), which can
+     differ from the number in its id. */
+  P.lessonPos = function (unit, lessonId) {
+    var ls = (unit && unit.lessons) || [];
+    for (var i = 0; i < ls.length; i++) if (ls[i].id === lessonId) return i + 1;
+    return P.lessonNum(lessonId);
+  };
 
   /* ---------- markup ----------
      A deliberately tiny grammar, so unit files stay readable and the
@@ -82,6 +140,9 @@
        **bold**   *italic*   [label](https://…)
        [[term]]  or  [[term-id|label]]         glossary chip
        [[unit:ir]]  or  [[unit:ir|Iran]]        link to another country
+       [[lesson:mx-10]] or [[lesson:mx-10|Briefing #]]   link to a briefing;
+            "#" becomes its place in the reading order ("briefing 5"),
+            so references stay right whatever the id number
        blank line = new paragraph;  "- " at line start = bullet            */
   P.slug = function (s) {
     return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -92,19 +153,30 @@
     });
   };
   var REF = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
-  /* Every [[…]] in a string, split into glossary and unit references. */
+  /* A [[lesson:<id>]] reference: the briefing it points to, its place in
+     its unit's reading order (from the manifest, so no unit file needs to
+     be loaded) and the label with "#" filled in. pos is 0 if the unit or
+     briefing doesn't exist. */
+  P.lessonRef = function (lessonId, label) {
+    var s = P.subject(P.unitIdOf(lessonId)), n = P.lessonNum(lessonId);
+    var pos = s && n >= 1 && n <= (s.lessons || 0) ? P.readingOrder(s.lessons).indexOf(n) + 1 : 0;
+    return { id: lessonId, pos: pos, label: String(label || "briefing #").replace(/#/g, pos || "?") };
+  };
+  /* Every [[…]] in a string, split into glossary, unit and lesson references. */
   P.scanRefs = function (md) {
-    var out = { terms: [], units: [] };
+    var out = { terms: [], units: [], lessons: [] };
     String(md || "").replace(REF, function (_, target) {
       target = target.trim();
       if (target.indexOf("unit:") === 0) out.units.push(target.slice(5).trim());
+      else if (target.indexOf("lesson:") === 0) out.lessons.push(target.slice(7).trim());
       else out.terms.push(P.slug(target));
       return "";
     });
     return out;
   };
-  /* Inline markup → HTML. opts.term(id, label) and opts.unit(id, label)
-     return the HTML for a reference; defaults render plain spans. */
+  /* Inline markup → HTML. opts.term(id, label), opts.unit(id, label) and
+     opts.lesson(id, label) return the HTML for a reference; defaults
+     render plain spans. */
   P.inline = function (text, opts) {
     opts = opts || {};
     var html = P.esc(text);
@@ -115,6 +187,10 @@
         var c = P._byId[uid];
         var ulabel = label ? label.trim() : (c ? P.esc(c.name) : uid);
         return opts.unit ? opts.unit(uid, ulabel) : '<span class="unit-ref">' + ulabel + "</span>";
+      }
+      if (target.indexOf("lesson:") === 0) {
+        var ref = P.lessonRef(target.slice(7).trim(), label && label.trim());
+        return opts.lesson ? opts.lesson(ref.id, ref.label) : '<span class="lesson-ref">' + ref.label + "</span>";
       }
       var tid = P.slug(target);
       var tlabel = label ? label.trim() : target;
@@ -144,7 +220,10 @@
   /* Readable words in a markup string (references count as their label). */
   P.words = function (md) {
     var t = String(md || "")
-      .replace(REF, function (_, target, label) { return label || target.replace(/^unit:/, ""); })
+      .replace(REF, function (_, target, label) {
+        if (target.indexOf("lesson:") === 0) return P.lessonRef(target.slice(7).trim(), label).label;
+        return label || target.replace(/^unit:/, "");
+      })
       .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
       .replace(/[*#>_`]/g, " ");
     var m = t.match(/[A-Za-z0-9À-ɏ][A-Za-z0-9À-ɏ'’.,%$€£:\/-]*/g);
@@ -290,7 +369,8 @@
   P.nextLessonId = function (profile, countries) {
     countries = (countries || P.countries).filter(function (c) { return (c.lessons || 0) > 0; });
     function firstUnread(c) {
-      for (var n = 1; n <= c.lessons; n++) if (!profile.read[c.id + "-" + n]) return c.id + "-" + n;
+      var order = P.readingOrder(c.lessons);
+      for (var i = 0; i < order.length; i++) if (!profile.read[c.id + "-" + order[i]]) return c.id + "-" + order[i];
       return null;
     }
     if (profile.last) {

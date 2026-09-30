@@ -21,7 +21,7 @@ function load(opts) {
   ctx.window = ctx;
   vm.createContext(ctx);
   if (opts.seed) opts.seed(ctx);
-  ["core.js", "countries.js", "glossary.js", "updates.js"].forEach((f) => run(ctx, f));
+  ["core.js", "countries.js", "links.js", "glossary.js", "updates.js"].forEach((f) => run(ctx, f));
   const P = ctx.POLITICS;
   const unitFiles = [];
   if (opts.units !== false) {

@@ -5,7 +5,7 @@
 
      node tools/image-manifest.js           readable list
      node tools/image-manifest.js --json    machine-readable
-     node tools/image-manifest.js us        one country
+     node tools/image-manifest.js us        one country (or relationship, e.g. us_cn)
 
    Illustrations: paste the full prompt (house style + scene) into
    any image generator, export 1600x900, save as WebP (~150 KB) at
@@ -24,7 +24,8 @@ const only = process.argv.slice(2).filter((a) => !a.startsWith("--"));
 const asJson = process.argv.includes("--json");
 const out = [];
 
-P.countries.forEach((c) => {
+/* Countries first, then relationships (links.js), which keep their pictures in img/<link id>/. */
+P.countries.concat(P.links).forEach((c) => {
   const unit = P.units[c.id];
   if (!unit || (only.length && only.indexOf(c.id) === -1)) return;
   unit.lessons.forEach((l) => {

@@ -98,6 +98,57 @@ window.POLITICS.addUnit("br", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "br-9", kind: "founding", asOf: "2026-09-29",
+      title: "Independence or death: 1822",
+      dek: "Brazil broke from Portugal not through a long revolutionary war but when the Portuguese king's own son declared it independent. It became an empire, and only in 1889 a republic.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/br/br-9-hero.webp",
+          alt: "Illustration of horsemen in early-19th-century uniforms on a grassy riverbank near São Paulo, seen from behind, with one rider raising a hat.",
+          caption: "Prince Pedro declared independence beside the Ipiranga stream on 7 September 1822.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A group of horsemen in early-19th-century military uniforms on a grassy riverbank beside a small stream near São Paulo, seen from behind, the leading rider raising his hat in the air, tropical trees and rolling hills, bright afternoon light, heroic historical painting style, no faces, no flags, no legible text." },
+        { type: "timeline", head: "Colony to republic", items: [
+          ["1500", "Portuguese fleet reaches Brazil"],
+          ["1808", "Portuguese royal court arrives in Rio"],
+          ["1815", "Brazil raised to a kingdom alongside Portugal"],
+          ["7 Sep 1822", "Pedro declares independence"],
+          ["1825", "Portugal recognises Brazil"],
+          ["1831–1889", "Reign of Pedro II (from 1840 in person)"],
+          ["15 Nov 1889", "The army proclaims a republic"]
+        ] },
+        { type: "section", head: "A court in the tropics", md:
+          "In 1807 Napoleon's armies invaded Portugal. The royal family and some 10,000 courtiers fled to Rio de Janeiro under British naval escort, making Brazil the only colony in history to become the seat of its empire. The prince regent, later King João VI, opened Brazil's ports to foreign trade, founded a bank, a press and schools, and in 1815 raised Brazil to a kingdom equal to Portugal. When João returned to Lisbon in 1821, he left his son Pedro in charge." },
+        { type: "section", head: "The cry of Ipiranga", md:
+          "Portugal's parliament then tried to reduce Brazil to a colony again and ordered Pedro home. Encouraged by Brazilian elites and advisers such as José Bonifácio, he refused. On 7 September 1822, beside the Ipiranga stream near São Paulo, he is said to have drawn his sword and cried 'Independence or death!'. He was crowned Emperor Pedro I in December. Portuguese troops held out in some provinces into 1823, and Portugal recognised independence in 1825, after Britain mediated and Brazil agreed to pay compensation." },
+        { type: "section", head: "One empire, not many republics", md:
+          "Spain's American empire broke into many republics after long wars. Brazil stayed a single country, and a monarchy. Historians credit the continuity of the crown, a landowning elite united by fear of slave revolts, and the suppression of regional rebellions in the 1830s and 1840s. Pedro I, unpopular and autocratic, abdicated in 1831 in favour of his five-year-old son. Pedro II ruled for nearly half a century, a stable if slave-based parliamentary monarchy that fought the devastating Paraguayan War of 1864–70." },
+        { type: "section", head: "The republic", md:
+          "The monarchy fell soon after it abolished slavery in 1888 ([[lesson:br-10]]), losing the support of planters, while army officers influenced by positivism wanted a modern republic. On 15 November 1889 Marshal Deodoro da Fonseca led a bloodless coup, and the imperial family went into exile. The motto on the new flag, 'Order and Progress', comes from that positivist movement. The 1891 constitution created a federal republic, dominated by the coffee and dairy elites of São Paulo and Minas Gerais." },
+        { type: "compare", head: "Two readings of 1822",
+          left: { head: "A national achievement", md:
+            "Brazil won independence with little bloodshed and kept its vast territory whole, the base of today's continental country." },
+          right: { head: "A change at the top", md:
+            "Independence was arranged by elites to keep power and slavery intact; ordinary Brazilians had little say." } },
+        { type: "section", head: "Why it still matters", md:
+          "Brazil's size, its single language and its sense of being a nation apart from Spanish-speaking neighbours go back to this peaceful, top-down independence. So does a political tradition in which change is often negotiated among elites, and in which the army sees itself as the guardian of the republic it founded in 1889, a self-image that shaped the 1964 coup and the 2022–23 plot (briefings [[lesson:br-11|#]] and [[lesson:br-5|#]]). 7 September remains Independence Day, marked with military parades." }
+      ],
+      takeaways: [
+        "The Portuguese court moved to Rio in 1808, and Brazil became a kingdom equal to Portugal.",
+        "Prince Pedro declared independence on 7 September 1822 and became emperor.",
+        "Brazil stayed a united monarchy until the army proclaimed a republic on 15 November 1889."
+      ],
+      check: { q: "Who declared Brazil's independence in 1822?",
+        choices: ["A slave rebellion", "Pedro, son of the Portuguese king", "Marshal Deodoro da Fonseca"], answer: 1,
+        explain: "Pedro, left in charge by his father João VI, declared independence and became Emperor Pedro I." },
+      sources: [
+        { title: "Brazil: Independence", publisher: "Britannica", url: "https://www.britannica.com/place/Brazil/Independence", date: "n.d." },
+        { title: "Pedro I", publisher: "Britannica", url: "https://www.britannica.com/biography/Pedro-I", date: "n.d." },
+        { title: "Proclamation of the Republic (Brazil)", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Proclamation_of_the_Republic_(Brazil)", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "br-3", kind: "history", asOf: "2026-09-29",
@@ -128,7 +179,7 @@ window.POLITICS.addUnit("br", {
         { type: "section", head: "4. Impeachment and the rise of Bolsonaro", md:
           "Rousseff was impeached and removed in 2016 over budget manipulation, which her supporters call a parliamentary coup. Lula was convicted of corruption in 2017 and jailed in 2018, which kept him out of that year's election; the Supreme Court later annulled his convictions on procedural grounds. Jair Bolsonaro, a former army captain and fringe congressman who praised the dictatorship, won in 2018 on anger at crime and corruption." },
         { type: "section", head: "5. 2022 and 8 January", md:
-          "In 2022 Lula beat Bolsonaro in the runoff by 50.9% to 49.1%, the closest result since democracy returned. Bolsonaro never clearly conceded. On 8 January 2023, a week after Lula took office, thousands of his supporters stormed and ransacked Congress, the Supreme Court and the presidential palace in Brasília, demanding military intervention. Investigators later uncovered a wider plot, which briefing 5 explains. More than a thousand rioters were charged, and hundreds were convicted by the Supreme Court, some to sentences of more than a decade; those sentences, and calls for an amnesty, became a rallying cause for the right." }
+          "In 2022 Lula beat Bolsonaro in the runoff by 50.9% to 49.1%, the closest result since democracy returned. Bolsonaro never clearly conceded. On 8 January 2023, a week after Lula took office, thousands of his supporters stormed and ransacked Congress, the Supreme Court and the presidential palace in Brasília, demanding military intervention. Investigators later uncovered a wider plot, which [[lesson:br-5]] explains. More than a thousand rioters were charged, and hundreds were convicted by the Supreme Court, some to sentences of more than a decade; those sentences, and calls for an amnesty, became a rallying cause for the right." }
       ],
       takeaways: [
         "Brazil was a Portuguese colony and an empire, and the last country in the Americas to abolish slavery.",
@@ -142,6 +193,107 @@ window.POLITICS.addUnit("br", {
         { title: "Brazil: History", publisher: "Britannica", url: "https://www.britannica.com/place/Brazil/History", date: "n.d." },
         { title: "Brazil profile: Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-latin-america-19359111", date: "n.d." },
         { title: "Jair Bolsonaro", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Jair_Bolsonaro", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "br-10", kind: "past", asOf: "2026-09-29",
+      title: "Slavery and its legacy",
+      dek: "Brazil received more enslaved Africans than any other country and was the last in the Americas to abolish slavery, in 1888. The inequalities it created are still visible.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/br/br-10-hero.webp",
+          alt: "Illustration of the old colonial centre of Salvador, Bahia, with pastel houses and cobbled streets climbing a hill, and a church at the top.",
+          caption: "Salvador, Bahia, was a centre of the slave trade and is now the heart of Afro-Brazilian culture.",
+          credit: "AI illustration — not a photograph",
+          prompt: "The historic colonial centre of Salvador, Bahia, with pastel-coloured baroque houses and steep cobbled streets climbing a hill toward a church, a few people seen from behind walking, warm tropical afternoon light, dignified and reflective mood, no faces, no legible text." },
+        { type: "facts", head: "By the numbers", rows: [
+          ["Enslaved Africans brought to Brazil", "About 4 to 5 million, around 40% of all brought to the Americas"],
+          ["Slave trade banned", "1850 (effectively)"],
+          ["Abolition", "13 May 1888, the 'Golden Law'"],
+          ["Freed in 1888", "More than 700,000 people"],
+          ["Black or mixed-race today", "55.5% of Brazilians (2022 census)"]
+        ] },
+        { type: "section", head: "Built on slavery", md:
+          "From the 1500s, Portuguese settlers brought enslaved Africans to work sugar plantations in the northeast, then gold mines in Minas Gerais in the 1700s and coffee farms in the southeast in the 1800s. Brazil received about 4 to 5 million people, far more than the United States. Conditions were brutal, and it was often cheaper for owners to buy new captives than to keep people alive. Enslaved people resisted: escaped communities called *quilombos* formed in the interior, the largest, Palmares, holding out for most of the 1600s under leaders such as Zumbi." },
+        { type: "section", head: "Slow abolition", md:
+          "Under British pressure, Brazil banned the Atlantic slave trade in 1831, but the law was ignored and hundreds of thousands more were brought in until the trade was effectively ended in 1850. Abolition came step by step: the 1871 'Law of the Free Womb' freed children born to enslaved mothers, and an 1885 law freed those over 60. A mass abolitionist movement grew, and enslaved people fled plantations in large numbers. On 13 May 1888 Princess Isabel signed the Golden Law, abolishing slavery without compensation to owners, or to the freed." },
+        { type: "section", head: "Freedom without land", md:
+          "The freed received no land, education or support. Governments instead encouraged European immigration, partly with the declared aim of 'whitening' the population. Many former slaves and their descendants moved to the edges of cities, the start of the favelas. For much of the twentieth century Brazil called itself a 'racial democracy', where mixing had made racism irrelevant; activists argued that this myth hid deep discrimination." },
+        { type: "section", head: "Race today", md:
+          "In the 2022 census, 45.3% of Brazilians identified as *pardo* (mixed) and 10.2% as *preto* (Black): together a majority. Black and mixed-race Brazilians earn much less on average, are over-represented in prisons, and make up most of the victims of homicide and of police killings ([[lesson:br-12]]). Since 2012 a quota law has reserved half of the places at federal universities for public-school students, with shares for Black, mixed-race and Indigenous students, transforming campuses. 20 November, the anniversary of Zumbi's death, became a national holiday in 2024." },
+        { type: "compare", head: "Two views of affirmative action",
+          left: { head: "Supporters", md:
+            "Quotas are a modest correction to centuries of exclusion, and have opened universities and the civil service to Black Brazilians." },
+          right: { head: "Critics", md:
+            "In a deeply mixed country, racial categories are hard to define; help should be based on income, not colour." } },
+        { type: "section", head: "Why it matters", md:
+          "Brazil has the largest population of African descent outside Africa, and race shapes its politics: Lula's coalition is strongest among poorer, darker-skinned voters, especially in the northeast, while Bolsonaro's movement has opposed quotas. Debates over reparations, the recognition of quilombo communities' land and the representation of Black Brazilians in politics, where they remain under-represented, are all legacies of 1888." }
+      ],
+      takeaways: [
+        "Brazil received about 4 to 5 million enslaved Africans, more than any other country.",
+        "It was the last country in the Americas to abolish slavery, on 13 May 1888, with no help for the freed.",
+        "Black and mixed-race Brazilians are now a majority but face deep inequality; university quotas began in 2012."
+      ],
+      check: { q: "When did Brazil abolish slavery?",
+        choices: ["1822", "1850", "1888"], answer: 2,
+        explain: "Princess Isabel signed the Golden Law on 13 May 1888, making Brazil the last country in the Americas to abolish slavery." },
+      sources: [
+        { title: "Lei Áurea", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Lei_%C3%81urea", date: "n.d." },
+        { title: "Afro-Brazilians in Brazil", publisher: "Minority Rights Group", url: "https://minorityrights.org/communities/afro-brazilians/", date: "n.d." },
+        { title: "Affirmative action in Brazil: global lessons on racial justice", publisher: "Oxford Review of Economic Policy", url: "https://academic.oup.com/oxrep/article/40/3/642/7907282", date: "2024" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "br-11", kind: "past", asOf: "2026-09-29",
+      title: "The dictatorship, 1964–1985",
+      dek: "For 21 years generals ruled Brazil, torturing opponents and presiding over an economic boom. An amnesty let everyone move on without trials, which is why the past keeps returning.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/br/br-11-hero.webp",
+          alt: "Illustration of a huge crowd seen from behind filling a wide avenue in São Paulo in 1984, holding plain yellow banners.",
+          caption: "Millions rallied for direct presidential elections, the 'Diretas Já' campaign, in 1984.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A huge crowd in 1980s clothing seen from behind filling a wide city avenue in São Paulo lined with modernist buildings, many holding plain yellow banners and balloons without text, evening light, hopeful and massive, no faces, no legible text, no flags." },
+        { type: "timeline", head: "The military years", items: [
+          ["31 Mar–1 Apr 1964", "Coup against President João Goulart"],
+          ["13 Dec 1968", "Institutional Act No. 5 (AI-5)"],
+          ["1968–73", "The 'economic miracle'"],
+          ["1979", "Amnesty law; exiles return"],
+          ["1984", "Diretas Já protests"],
+          ["1985", "Civilian president chosen"],
+          ["1988", "New democratic constitution"],
+          ["2014", "National Truth Commission reports"]
+        ] },
+        { type: "section", head: "The coup", md:
+          "In the early 1960s, amid high inflation and Cold War fears, President João Goulart promised land reform and reached out to unions and the left. Conservatives, business leaders, the Church hierarchy and much of the press feared a communist takeover. On 31 March 1964 the army moved against him, and he fled to Uruguay without a fight. The United States, which had prepared naval support in case of resistance, recognised the new regime at once. Many Brazilians expected a brief intervention; the generals stayed 21 years." },
+        { type: "section", head: "Years of lead", md:
+          "The regime kept a tame Congress and held elections for some posts, but chose presidents itself. In December 1968, facing student protests and armed left-wing groups, it issued Institutional Act No. 5, which closed Congress, suspended habeas corpus and imposed censorship. The 'years of lead' followed: the 2014 National Truth Commission confirmed 434 people killed or disappeared, and found torture was systematic, with estimates of 20,000 victims. Among the tortured was a young guerrilla, Dilma Rousseff, later president." },
+        { type: "section", head: "Miracle and debt", md:
+          "The regime delivered spectacular growth, over 10% a year between 1968 and 1973, the 'Brazilian miracle', along with dams, highways into the Amazon and big state companies. But the gains went mostly to the better-off, and growth was financed by foreign borrowing. When oil prices and interest rates soared, Brazil was left with huge debts and inflation that would plague the 1980s." },
+        { type: "section", head: "Slow opening", md:
+          "From the mid-1970s the generals began a slow 'opening'. The 1979 amnesty let exiles return and freed political prisoners, but also protected soldiers and police from prosecution; the Supreme Court upheld it in 2010. Strikes led by a union leader named Lula shook the car factories of São Paulo. In 1984 millions rallied for direct elections, the Diretas Já campaign; Congress refused, but in 1985 its electoral college chose an opposition civilian. The 1988 constitution restored full democracy." },
+        { type: "compare", head: "Two views of 1964",
+          left: { head: "Defenders", md:
+            "The armed forces saved Brazil from communism and modernised the economy; abuses were limited and answered by left-wing violence." },
+          right: { head: "Most historians and victims", md:
+            "It was a coup that destroyed democracy, tortured thousands and left its crimes unpunished, a lesson for 2023." } },
+        { type: "section", head: "Why it still matters", md:
+          "Jair Bolsonaro, a former army captain, praised the dictatorship and a notorious torturer throughout his career. His conviction in 2025 for plotting a coup after the 2022 election was the first time senior military officers were convicted of attacking democracy, something the 1979 amnesty had prevented for the dictatorship's crimes ([[lesson:br-5]]). The Oscar-winning 2024 film I'm Still Here, about the family of a congressman who disappeared in 1971, brought the era to a new generation." }
+      ],
+      takeaways: [
+        "The military overthrew President Goulart in 1964 and ruled until 1985.",
+        "Under AI-5 from 1968, torture was systematic; a truth commission confirmed 434 killed or disappeared.",
+        "A 1979 amnesty protected the torturers, and debate over the dictatorship shaped reactions to Bolsonaro's coup plot."
+      ],
+      check: { q: "What did the 1979 amnesty law do?",
+        choices: ["Punished the military's crimes", "Freed political prisoners and also protected state agents from prosecution", "Created direct presidential elections"], answer: 1,
+        explain: "It allowed exiles to return but also shielded soldiers and police accused of torture and killings." },
+      sources: [
+        { title: "Brazil: Panel Details 'Dirty War' Atrocities", publisher: "Human Rights Watch", url: "https://www.hrw.org/news/2014/12/10/brazil-panel-details-dirty-war-atrocities", date: "2014-12-10" },
+        { title: "Brazil panel details dictatorship's brutality", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2014/12/11/brazil-panel-details-dictatorships-brutality", date: "2014-12-11" },
+        { title: "ICTJ Welcomes the Historic Final Report from Brazil's National Truth Commission", publisher: "International Center for Transitional Justice", url: "https://www.ictj.org/latest-news/ictj-welcomes-historic-final-report-brazil%E2%80%99s-national-truth-commission", date: "2014" }
       ]
     },
 
@@ -226,7 +378,7 @@ window.POLITICS.addUnit("br", {
           right: { head: "Bolsonaro's supporters", md:
             "The trial was political persecution by a biased court that also acted as investigator and victim. Bolsonaro never carried out a coup, and he should be free to run." } },
         { type: "section", head: "Why it matters", md:
-          "The case split Brazil and drew in Washington: Donald Trump called the trial a 'witch hunt' and cited it when imposing 50% tariffs on Brazil in 2025 (briefing 6). An amnesty or pardon for Bolsonaro is now a central issue in the election: Flávio Bolsonaro has promised one if he wins." },
+          "The case split Brazil and drew in Washington: Donald Trump called the trial a 'witch hunt' and cited it when imposing 50% tariffs on Brazil in 2025 ([[lesson:br-6]]). An amnesty or pardon for Bolsonaro is now a central issue in the election: Flávio Bolsonaro has promised one if he wins." },
         { type: "section", head: "What's next", md:
           "The Supreme Court still has to rule on the sentence-cutting law, and the next president's stance on a pardon could decide how long Bolsonaro stays in prison. His lawyers have repeatedly sought house arrest on health grounds, and he has left prison for hospital treatment, then returned. Whether he stays behind bars could depend on the vote." }
       ],
@@ -343,6 +495,55 @@ window.POLITICS.addUnit("br", {
         { title: "Brazil election: Lula and Flavio Bolsonaro tied in latest polls", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/9/22/brazil-election-lula-and-flavio-bolsonaro-tied-in-latest-polls", date: "2026-09-22" },
         { title: "Lula Holds Lead Over Flavio Bolsonaro Ahead of Brazil Election, Datafolha Poll Shows", publisher: "Reuters via US News", url: "https://www.usnews.com/news/world/articles/2026-09-24/lula-holds-lead-over-flavio-bolsonaro-ahead-of-brazil-election-datafolha-poll-shows", date: "2026-09-24" },
         { title: "Quaest Poll Shows Lula and Flávio Bolsonaro Tied at 41 in the Runoff a Week Before Brazil Votes", publisher: "The Rio Times", url: "https://www.riotimesonline.com/quaest-poll-lula-flavio-tied-41-runoff-september-28-2026/", date: "2026-09-28" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "br-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "Crime, police and the favelas",
+      dek: "Brazil has one of the world's highest numbers of murders and of killings by police. Organised crime has spread nationwide, and security is a top issue in the 2026 election.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/br/br-12-hero.webp",
+          alt: "Illustration of a Rio de Janeiro favela of brick houses stacked up a steep green hillside at dusk, with lights coming on and the city below.",
+          caption: "About a fifth of Rio's population lives in favelas, many controlled by gangs or militias.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A Rio de Janeiro favela of unpainted brick and colourful houses stacked densely up a steep green hillside at dusk, small lights coming on, the city and the sea below, purple sky, atmospheric and complex mood, no people visible up close, no legible text." },
+        { type: "facts", head: "Violence in numbers", rows: [
+          ["Killings by police, 2024", "6,243, more than 17 a day"],
+          ["Deadliest police raid", "At least 121 dead, Rio, 28 October 2025"],
+          ["Biggest gangs", "PCC (São Paulo), Comando Vermelho (Rio)"],
+          ["Victims", "Mostly young, Black and poor men"]
+        ] },
+        { type: "section", head: "Gangs from the prisons", md:
+          "Brazil's biggest criminal organisations were born in its overcrowded prisons: the Comando Vermelho (Red Command) in Rio in the 1970s and the Primeiro Comando da Capital (PCC) in São Paulo in 1993. They grew rich from cocaine passing from the Andes to Europe and Africa, and have since spread across the country and into fuel, gold mining in the Amazon and even financial markets. In Rio, 'militias' of former and serving police control whole neighbourhoods, charging for security, gas and internet." },
+        { type: "section", head: "The raid", md:
+          "On 28 October 2025 about 2,500 police entered the Alemão and Penha favela complexes in Rio to target the Comando Vermelho. At least 121 people were killed, including four police officers, making it the deadliest police operation in the city's history. Residents laid dozens of bodies in a square. The state's governor called it a success against 'narco-terrorists'; the UN and the Inter-American Commission on Human Rights condemned it and called for investigations. Polls suggested many Rio residents supported the operation." },
+        { type: "section", head: "Police who kill", md:
+          "Brazilian police killed 6,243 people in 2024, according to the Brazilian Public Security Forum, more than 17 a day; most were young Black men. Some states, such as São Paulo, cut killings for a time by giving officers body cameras, while others, like Bahia, now record the most. At the same time, dozens of police officers are killed each year, and many Brazilians support tough tactics, summed up in the slogan 'a good criminal is a dead criminal'." },
+        { type: "section", head: "Falling murders", md:
+          "Overall, murders have fallen in recent years from their peak in 2017, when more than 60,000 people were killed. Experts credit demographic change, better policing in some states and truces between gangs, which can break down at any time. Lula's government has proposed a constitutional amendment giving the federal government a bigger role in public security, traditionally run by the states, and laws to seize organised crime's money." },
+        { type: "compare", head: "Two approaches",
+          left: { head: "The right", md:
+            "Treat the gangs as terrorists, back the police, build more prisons and lower the age of criminal responsibility." },
+          right: { head: "The left and many experts", md:
+            "Raids kill many but change little; follow the money, reform the prisons and bring services to the favelas." } },
+        { type: "section", head: "Why it matters", md:
+          "Security is one of voters' top concerns and favours the right, whose candidates promise to confront the gangs head on ([[lesson:br-7]]). It also affects Brazil's foreign relations: the Trump administration has discussed designating the PCC and Comando Vermelho as terrorist organisations, which Brasília fears could justify foreign interference. And it lies at the root of deep inequalities of race and place ([[lesson:br-10]])." }
+      ],
+      takeaways: [
+        "Gangs born in prisons, the PCC and the Comando Vermelho, now operate nationwide and abroad.",
+        "Police killed more than 6,000 people in 2024; a Rio raid in October 2025 left at least 121 dead.",
+        "Murders have fallen since 2017, but security remains a central election issue."
+      ],
+      check: { q: "What happened in Rio de Janeiro on 28 October 2025?",
+        choices: ["A peace deal with gangs", "The deadliest police raid in the city's history", "The COP30 climate summit"], answer: 1,
+        explain: "At least 121 people, including four police officers, were killed in an operation against the Comando Vermelho." },
+      sources: [
+        { title: "At least 121 dead in Brazil after largest and most lethal police raid", publisher: "ABC News", url: "https://abcnews.com/International/121-dead-brazil-after-largest-lethal-police-raid/story?id=126983426", date: "2025-10-30" },
+        { title: "Behind Rio's deadly raid: Brazil's billion-dollar criminal gangs", publisher: "CNN", url: "https://www.cnn.com/2025/11/09/americas/brazil-rio-deadly-raid-criminal-gangs-latam-intl", date: "2025-11-09" },
+        { title: "Polícia matou mais de 17 pessoas por dia no Brasil em 2024, diz estudo", publisher: "CNN Brasil", url: "https://www.cnnbrasil.com.br/nacional/brasil/policia-matou-mais-de-17-pessoas-por-dia-no-brasil-em-2024-diz-estudo/", date: "2025" },
+        { title: "IACHR strongly condemns police raid that left 121 people dead in Rio de Janeiro", publisher: "Inter-American Commission on Human Rights", url: "https://www.oas.org/en/iachr/jsForm/?File=%2Fen%2Fiachr%2Fmedia_center%2Fpreleases%2F2025%2F221.asp", date: "2025" }
       ]
     },
 

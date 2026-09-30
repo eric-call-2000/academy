@@ -75,7 +75,7 @@ window.POLITICS.addUnit("it", {
         { type: "section", head: "The president", md:
           "The president is elected by parliament and regional delegates for seven years. In calm times the job is ceremonial. When a government falls, the president becomes the kingmaker: consulting parties, choosing whom to ask to form a government, and deciding whether to call an election. Presidents have used that power to install [[technocratic government|technocratic governments]] led by non-politicians, such as Mario Monti in 2011 and Mario Draghi in 2021." },
         { type: "section", head: "The electoral system", md:
-          "Italy's electoral law has changed often, usually to suit whoever was in power. The current system, from 2017, elects about a third of seats in single-member constituencies and the rest proportionally. It rewards parties that form pre-election coalitions, which is how the right won clear majorities in 2022 with about 44% of the vote. Meloni's government is now trying to replace it, as briefing 7 explains." },
+          "Italy's electoral law has changed often, usually to suit whoever was in power. The current system, from 2017, elects about a third of seats in single-member constituencies and the rest proportionally. It rewards parties that form pre-election coalitions, which is how the right won clear majorities in 2022 with about 44% of the vote. Meloni's government is now trying to replace it, as [[lesson:it-7]] explains." },
         { type: "section", head: "Regions and Europe", md:
           "Italy's 20 regions run health care, which takes most of their budgets, and five of them have special autonomy. The north is much richer than the south, a divide as old as the unified state. And Brussels matters: as a large debtor in the euro, Italy must follow EU budget rules, and it is the largest beneficiary of the EU's post-pandemic recovery fund." },
         { type: "section", head: "Referendums", md:
@@ -98,6 +98,57 @@ window.POLITICS.addUnit("it", {
         { title: "Constitution of the Italian Republic", publisher: "Senato della Repubblica", url: "https://www.senato.it/documenti/repository/istituzione/costituzione_inglese.pdf", date: "n.d." },
         { title: "Elections in Italy", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Elections_in_Italy", date: "n.d." },
         { title: "Italian electoral law of 2017", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Italian_electoral_law_of_2017", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "it-9", kind: "founding", asOf: "2026-09-28",
+      title: "The Risorgimento",
+      dek: "Italy was a patchwork of states until 1861. Its unification, by diplomacy and war, created a nation whose regions still feel very different.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/it/it-9-hero.webp",
+          alt: "Illustration of a line of volunteers in red shirts seen from behind marching along a dusty Sicilian road toward a hill town at sunset.",
+          caption: "Garibaldi's 'Thousand' landed in Sicily in 1860 and conquered the south for the new Italy.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long line of 19th-century volunteers in red shirts seen from behind marching along a dusty road through olive groves toward a hilltop town in Sicily at sunset, warm golden light, heroic and romantic, no faces visible, no flags, no legible text." },
+        { type: "timeline", head: "Making Italy", items: [
+          ["1815", "Congress of Vienna restores a divided Italy"],
+          ["1848", "Revolutions across Italy fail"],
+          ["1859", "Piedmont and France defeat Austria"],
+          ["1860", "Garibaldi's Thousand conquer Sicily and Naples"],
+          ["17 Mar 1861", "Kingdom of Italy proclaimed"],
+          ["1870", "Rome captured and made the capital"],
+          ["2 June 1946", "Italians vote to become a republic"]
+        ] },
+        { type: "section", head: "A geographical expression", md:
+          "After the fall of Rome, Italy was divided for more than a thousand years among city-states, kingdoms, the Papal States and foreign powers. In 1815 the Austrian statesman Metternich dismissed it as 'a geographical expression': Austria ruled Lombardy and Venetia, the Pope governed central Italy, a Bourbon king ruled Naples and Sicily, and the Kingdom of Piedmont-Sardinia, based in Turin, was the only independent Italian state of weight." },
+        { type: "section", head: "Three founding fathers", md:
+          "The Risorgimento, or 'resurgence', had three famous leaders with very different ideas. Giuseppe Mazzini, a revolutionary, dreamed of a democratic republic built by the people. Count Camillo Cavour, Piedmont's prime minister, was a liberal pragmatist who used diplomacy and alliances. Giuseppe Garibaldi was a guerrilla fighter and popular hero. After the revolutions of 1848 failed, Cavour's approach prevailed: Piedmont joined with France to defeat Austria in 1859 and annexed much of the north and centre." },
+        { type: "section", head: "Unification", md:
+          "In May 1860 Garibaldi sailed from Genoa with about a thousand volunteers, the 'Redshirts', landed in Sicily and, amid popular uprisings, conquered the Bourbon kingdom of Naples. Rather than found a republic, he handed his conquests to Piedmont's king, Victor Emmanuel II. The Kingdom of Italy was proclaimed on 17 March 1861. Venice followed in 1866, and in 1870, when French troops protecting the Pope withdrew, Italian forces took Rome, which became the capital. The Pope refused to recognise the new state until 1929." },
+        { type: "section", head: "Making Italians", md:
+          "'We have made Italy; now we must make Italians,' a Piedmontese statesman is said to have remarked. Only a few per cent of the population spoke standard Italian in 1861. The new state imposed Piedmont's laws and taxes on the south, where a violent rebellion, called 'brigandage' by the government, was crushed in the 1860s. Millions of southerners emigrated to the Americas over the following decades. The gap between the industrial north and the poorer south, the Mezzogiorno, has never closed." },
+        { type: "compare", head: "Two views of the Risorgimento",
+          left: { head: "The national epic", md:
+            "Heroic patriots freed Italy from foreign rule and united a people divided for centuries." },
+          right: { head: "Southern and critical views", md:
+            "Unification was a conquest by the north that impoverished the south, a grievance that still feeds regional resentment." } },
+        { type: "section", head: "From kingdom to republic", md:
+          "The monarchy led Italy through the First World War and then allowed Benito Mussolini to take power (see the next briefing). In a referendum on 2 June 1946, Italians voted 54% to 46% to abolish the monarchy, and a new constitution took effect in 1948. The north–south divide, regional identities and the Northern League's campaigns for autonomy all trace back to how Italy was made." }
+      ],
+      takeaways: [
+        "Italy was divided among many states until the Risorgimento unified it between 1859 and 1870.",
+        "Cavour's diplomacy and Garibaldi's Thousand created the Kingdom of Italy, proclaimed in 1861.",
+        "Italy became a republic by referendum in 1946; the north–south divide dates from unification."
+      ],
+      check: { q: "Who led the 'Thousand' that conquered Sicily and Naples in 1860?",
+        choices: ["Cavour", "Garibaldi", "Mazzini"], answer: 1,
+        explain: "Giuseppe Garibaldi's Redshirts conquered the south and handed it to King Victor Emmanuel II." },
+      sources: [
+        { title: "Risorgimento", publisher: "Britannica", url: "https://www.britannica.com/event/Risorgimento", date: "n.d." },
+        { title: "Giuseppe Garibaldi", publisher: "Britannica", url: "https://www.britannica.com/biography/Giuseppe-Garibaldi", date: "n.d." },
+        { title: "Italy: History", publisher: "Britannica", url: "https://www.britannica.com/place/Italy/History", date: "n.d." }
       ]
     },
 
@@ -146,6 +197,108 @@ window.POLITICS.addUnit("it", {
         { title: "Italy profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-europe-17435616", date: "n.d." },
         { title: "2022 Italian general election", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2022_Italian_general_election", date: "2022" },
         { title: "Results of the 2022 Italian general election", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Results_of_the_2022_Italian_general_election", date: "2022" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "it-10", kind: "past", asOf: "2026-09-28",
+      title: "Mussolini and Fascism",
+      dek: "Italy invented fascism. Mussolini ruled for two decades, allied with Hitler and led the country to defeat, and his shadow still falls on its politics.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/it/it-10-hero.webp",
+          alt: "Illustration of a stark white marble building with rows of identical arches in a severe geometric style, under a clear blue sky.",
+          caption: "Fascist architecture in Rome's EUR district, built for a world's fair planned for 1942.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A stark white travertine building with many rows of identical arches in a severe geometric rationalist style, under a clear deep blue sky, long shadows, empty square in front, imposing and cold, no people, no legible text." },
+        { type: "facts", head: "The Fascist era", rows: [
+          ["March on Rome", "October 1922"],
+          ["Dictatorship declared", "1925"],
+          ["Racial laws against Jews", "1938"],
+          ["Italy enters the war", "June 1940, as Germany's ally"],
+          ["Mussolini overthrown", "July 1943"],
+          ["Mussolini killed by partisans", "28 April 1945"]
+        ] },
+        { type: "section", head: "The rise", md:
+          "Italy emerged from the First World War on the winning side but felt cheated of territory, with 600,000 dead, a shattered economy, and strikes and factory occupations that frightened landowners and industrialists. Benito Mussolini, a former socialist journalist, founded the Fascist movement in 1919. His blackshirt squads beat and killed socialists and trade unionists. In October 1922, as Fascists marched on Rome, King Victor Emmanuel III refused to declare martial law and instead appointed Mussolini prime minister." },
+        { type: "section", head: "The regime", md:
+          "After his militia murdered the socialist deputy Giacomo Matteotti in 1924, Mussolini declared a dictatorship in 1925: other parties were banned, the press was controlled, and opponents were jailed or exiled. The regime built roads, drained marshes and promoted a cult of the Duce. In 1929 it signed the Lateran Pacts with the Church, creating Vatican City. In 1935–36 Italy conquered Ethiopia, using poison gas." },
+        { type: "section", head: "Alliance with Hitler", md:
+          "Mussolini allied with Nazi Germany, and in 1938 his regime passed racial laws excluding Jews from schools, jobs and public life. Italy entered the Second World War in June 1940, suffering defeats in Greece and North Africa. After the Allies landed in Sicily in July 1943, the Fascist Grand Council and the king deposed Mussolini. Germany occupied the north, rescued him and installed him as head of a puppet state; about 7,500 Jews were deported from Italy, most to Auschwitz." },
+        { type: "section", head: "Resistance and republic", md:
+          "From 1943 to 1945 Italy suffered a civil war as well as the Allied campaign. Partisans, many of them communists, fought the Germans and Fascists. In April 1945 partisans caught Mussolini trying to flee, shot him and hung his body upside down in Milan. The Resistance became a founding myth of the new republic, whose 1948 constitution bans the reorganisation of the Fascist party." },
+        { type: "section", head: "Life under Fascism", md:
+          "The regime sought to control every part of life. Children joined Fascist youth groups, workers belonged to state-run corporations instead of free unions, and propaganda glorified Mussolini as a man of action. Critics were sent into internal exile on remote islands; the Marxist thinker Antonio Gramsci died after years in prison. Many Italians conformed; others quietly resisted." },
+        { type: "compare", head: "Two memories",
+          left: { head: "The anti-fascist republic", md:
+            "Italy's democracy was born from the Resistance; Fascism was a criminal dictatorship that led the country to ruin." },
+          right: { head: "Nostalgia and ambiguity", md:
+            "A minority has long seen Mussolini as a strong leader who 'did good things' before the war, a view that persists in parts of the right." } },
+        { type: "section", head: "Why it still matters", md:
+          "Giorgia Meloni's Brothers of Italy traces its roots to the Italian Social Movement, founded by Mussolini loyalists in 1946. Meloni has condemned the racial laws and says her party has left fascism behind; critics point to the flame in its logo and to members' nostalgia. Every 25 April, Liberation Day, the debate returns." }
+      ],
+      takeaways: [
+        "Mussolini came to power in 1922 and declared a dictatorship in 1925.",
+        "Fascist Italy conquered Ethiopia, passed racial laws in 1938 and fought alongside Hitler.",
+        "The Resistance founded the republic; the Fascist legacy still shapes debates about Meloni's party."
+      ],
+      check: { q: "How did Mussolini become prime minister in 1922?",
+        choices: ["He won an election", "The king appointed him during the Fascist March on Rome", "He led a military coup"], answer: 1,
+        explain: "Victor Emmanuel III refused to use the army against the Fascist marchers and appointed Mussolini instead." },
+      sources: [
+        { title: "Benito Mussolini", publisher: "Britannica", url: "https://www.britannica.com/biography/Benito-Mussolini", date: "n.d." },
+        { title: "Fascism", publisher: "Britannica", url: "https://www.britannica.com/topic/fascism", date: "n.d." },
+        { title: "Italy", publisher: "United States Holocaust Memorial Museum", url: "https://encyclopedia.ushmm.org/content/en/article/italy", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "it-11", kind: "past", asOf: "2026-09-28",
+      title: "The Mafia and 'Clean Hands'",
+      dek: "In the early 1990s the Mafia murdered Italy's top anti-Mafia judges, and a corruption investigation destroyed the parties that had ruled since 1945.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/it/it-11-hero.webp",
+          alt: "Illustration of a motorway through dry Sicilian hills with a simple memorial of two columns beside the road and flowers at their base.",
+          caption: "Near Capaci in Sicily, where Judge Giovanni Falcone was killed by a bomb under the motorway in May 1992.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A motorway through dry golden Sicilian hills near the sea, a simple memorial of two tall red columns beside the road with flowers at their base, bright afternoon light, solemn and quiet, no people, no legible text." },
+        { type: "timeline", head: "A decade of upheaval", items: [
+          ["1986–87", "The Maxi Trial convicts 338 mafiosi"],
+          ["Feb 1992", "Mani Pulite ('Clean Hands') begins in Milan"],
+          ["23 May 1992", "Judge Giovanni Falcone killed at Capaci"],
+          ["19 July 1992", "Judge Paolo Borsellino killed in Palermo"],
+          ["1993", "Toto Riina arrested; bombs in Rome, Florence and Milan"],
+          ["1994", "The old parties collapse; Berlusconi wins power"]
+        ] },
+        { type: "section", head: "Cosa Nostra", md:
+          "The Sicilian Mafia, Cosa Nostra, grew in the 19th century as a network of 'men of honour' who controlled land, protection rackets and politics. After 1945 it expanded into construction and, from the 1970s, the global heroin trade. It was one of several crime syndicates, alongside the 'Ndrangheta of Calabria and the Camorra of Naples. Politicians, especially in Sicily's Christian Democrat machine, often protected it in exchange for votes." },
+        { type: "section", head: "The Maxi Trial and the judges' murders", md:
+          "In the 1980s two Palermo judges, Giovanni Falcone and Paolo Borsellino, persuaded mafiosi to testify for the first time. The resulting Maxi Trial of 1986–87 convicted 338 defendants, and in January 1992 the Supreme Court upheld the verdicts. The Mafia, led by Toto Riina, took revenge. On 23 May 1992 a huge bomb under the motorway near Capaci killed Falcone, his wife and three bodyguards; on 19 July a car bomb in Palermo killed Borsellino and five bodyguards. Public outrage led to a crackdown: Riina was arrested in 1993 after 23 years on the run." },
+        { type: "section", head: "Clean Hands", md:
+          "In February 1992 Milan prosecutors arrested a Socialist official taking a bribe. The investigation, Mani Pulite ('Clean Hands'), uncovered a vast system of kickbacks, known as Tangentopoli ('Bribesville'), through which businesses paid parties for public contracts. Within two years thousands of politicians and businessmen were investigated, the Christian Democrats and Socialists that had governed since the war collapsed, and former Socialist prime minister Bettino Craxi fled to Tunisia to avoid prison." },
+        { type: "section", head: "The Second Republic", md:
+          "Into the vacuum stepped Silvio Berlusconi, a media tycoon who founded a party, Forza Italia, and won the 1994 election. He dominated politics for two decades, repeatedly clashing with prosecutors he accused of political bias. Investigations continued into alleged negotiations between the state and the Mafia during the bombing season of 1992–93, a case that ended in acquittals on appeal. Matteo Messina Denaro, the last of the bombing-era bosses, was arrested in 2023 after 30 years in hiding." },
+        { type: "compare", head: "Two views",
+          left: { head: "A cleansing", md:
+            "Brave judges broke the Mafia's code of silence and exposed a corrupt political class, showing the power of an independent judiciary." },
+          right: { head: "Judges in politics", md:
+            "Some argue that prosecutors became too powerful, destroying parties and careers, a grievance behind today's reforms of the judiciary." } },
+        { type: "section", head: "Why it still matters", md:
+          "Falcone and Borsellino are national heroes; Palermo's airport bears their names. Organised crime has shifted from bombs to business, with the 'Ndrangheta now among Europe's biggest cocaine traffickers. And the long battle between politicians and magistrates continues: the justice reform that Meloni's government put to a referendum in 2026 grew out of it." }
+      ],
+      takeaways: [
+        "The Maxi Trial convicted 338 mafiosi; in 1992 the Mafia murdered judges Falcone and Borsellino.",
+        "The 'Clean Hands' investigation exposed systemic bribery and destroyed the parties that had ruled since 1945.",
+        "Berlusconi's rise and the long feud between politicians and judges followed."
+      ],
+      check: { q: "What was 'Clean Hands' (Mani Pulite)?",
+        choices: ["An anti-Mafia law", "A corruption investigation that brought down Italy's governing parties in the 1990s", "A public health campaign"], answer: 1,
+        explain: "Milan prosecutors uncovered a system of kickbacks, 'Tangentopoli', that implicated much of the political class." },
+      sources: [
+        { title: "Mafia", publisher: "Britannica", url: "https://www.britannica.com/topic/Mafia", date: "n.d." },
+        { title: "Giovanni Falcone", publisher: "Britannica", url: "https://www.britannica.com/biography/Giovanni-Falcone", date: "n.d." },
+        { title: "Matteo Messina Denaro: Italian mafia boss arrested in Sicily", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2023/1/16/italian-police-arrest-fugitive-mafia-boss-in-sicily", date: "2023-01-16" }
       ]
     },
 
@@ -348,6 +501,55 @@ window.POLITICS.addUnit("it", {
         { title: "Italian Senate clears Meloni's electoral reform amid opposition resistance", publisher: "Internazionale / Reuters", url: "https://www.internazionale.it/ultime-notizie-reuters/2026/09/15/italian-senate-clears-meloni-s-electoral-reform-amid-opposition-resistance", date: "2026-09-15" },
         { title: "Italy is changing its electoral system (again)", publisher: "Fruits and Votes", url: "https://fruitsandvotes.wordpress.com/2026/07/27/italy-is-changing-its-electoral-system-again/", date: "2026-07-27" },
         { title: "Italy senate passes electoral reform bill amid backlash from opposition", publisher: "Wanted in Rome", url: "https://www.wantedinrome.com/news/italy-senate-passes-new-electoral-bill-amid-backlash-from-opposition.html", date: "2026-09" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "it-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "The Mediterranean crossing",
+      dek: "For a decade Italy has been Europe's front door for migrants crossing the sea from Africa. How to handle them has made and broken governments.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/it/it-12-hero.webp",
+          alt: "Illustration of a small island harbour with fishing boats and a coast guard vessel at dawn, a lighthouse on the rocks and calm sea.",
+          caption: "Lampedusa, an Italian island closer to Tunisia than to Sicily, where many migrant boats land.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A small island harbour at dawn with colourful fishing boats and a grey coast guard vessel moored, a white lighthouse on pale rocks, calm turquoise sea, soft pink light, quiet and poignant, no people close up, no legible text." },
+        { type: "facts", head: "The crossing", rows: [
+          ["Peak arrivals by sea", "About 181,000 in 2016"],
+          ["Arrivals in 2023", "About 158,000"],
+          ["Arrivals in 2024", "About 66,000"],
+          ["Deaths in the central Mediterranean since 2014", "Over 20,000 recorded, per the UN's IOM"],
+          ["Italy–Albania deal", "Processing centres in Albania, opened 2024"]
+        ] },
+        { type: "section", head: "Why Italy", md:
+          "Italy's long coastline and southern islands lie a short sail from Libya and Tunisia, making the central Mediterranean one of the world's busiest and deadliest migration routes. Arrivals surged after the fall of Muammar Gaddafi in Libya in 2011, when smuggling networks flourished. Most people come from sub-Saharan Africa, North Africa and South Asia, fleeing war, poverty or persecution, and many hope to move on to northern Europe." },
+        { type: "section", head: "Tragedies at sea", md:
+          "In October 2013 a boat sank off Lampedusa, killing more than 360 people. Italy launched a large search-and-rescue mission, Mare Nostrum, which saved tens of thousands before it ended in 2014 over costs and claims that it encouraged crossings. Since then, charity rescue ships have filled much of the gap. The UN's migration agency has recorded more than 20,000 deaths and disappearances on the central Mediterranean route since 2014." },
+        { type: "section", head: "Politics of the ports", md:
+          "Under EU rules, migrants must usually seek asylum in the first country they reach, leaving Italy and Greece with most of the burden. Anger at other EU states helped Matteo Salvini's League rise; as interior minister in 2018–19 he closed ports to charity rescue ships, and was later tried for keeping 147 rescued migrants on a ship off Lampedusa, and acquitted in 2024. Italy has also paid and trained the Libyan coast guard to intercept boats, a policy that human rights groups say returns people to abuse in Libyan detention centres." },
+        { type: "section", head: "Meloni's approach", md:
+          "Giorgia Meloni came to power in 2022 promising to stop the boats. Her government restricted charity ships, struck deals with Tunisia and Libya, and in 2024 opened centres in Albania to process asylum claims offshore; Italian courts repeatedly blocked transfers there, and the centres were repurposed as holding facilities. Arrivals fell by more than half in 2024. Meloni also created legal work routes for hundreds of thousands of foreign workers, whom Italy's ageing economy needs." },
+        { type: "compare", head: "Two views",
+          left: { head: "Meloni and supporters", md:
+            "Europe cannot let smugglers decide who enters. Deals with transit countries save lives by stopping dangerous crossings." },
+          right: { head: "Critics and rights groups", md:
+            "Outsourcing migration control to Libya and Tunisia funds abuse, and offshore centres undermine the right to asylum." } },
+        { type: "section", head: "Why it matters", md:
+          "Italy's policies, from the Albania model to deals with North African governments, have become a template that other EU governments are studying, and the EU's new migration pact, due to apply from 2026, reflects many of Rome's demands, including faster border procedures and returns of rejected applicants." }
+      ],
+      takeaways: [
+        "Italy is the main landing point for migrants crossing the central Mediterranean, one of the world's deadliest routes.",
+        "EU rules leave most responsibility with arrival countries, fuelling the rise of Salvini's League and Meloni's party.",
+        "Meloni's deals with North Africa and offshore centres in Albania coincided with a sharp fall in arrivals."
+      ],
+      check: { q: "What did Italy's government set up in Albania in 2024?",
+        choices: ["A military base", "Centres to process asylum claims offshore", "A new port"], answer: 1,
+        explain: "The centres were meant to process some asylum seekers outside Italy; courts blocked many transfers." },
+      sources: [
+        { title: "Missing Migrants Project: Mediterranean", publisher: "International Organization for Migration", url: "https://missingmigrants.iom.int/region/mediterranean", date: "2026" },
+        { title: "Italy – Mediterranean situation", publisher: "UNHCR Operational Data Portal", url: "https://data.unhcr.org/en/situations/mediterranean/location/5205", date: "2026" },
+        { title: "Salvini acquitted in Open Arms case", publisher: "ANSA", url: "https://www.ansa.it/english/news/general_news/2024/12/21/salvini-acquitted-in-open-arms-case_7715b50e-1695-425e-93ad-b4262a7b7f85.html", date: "2024-12-21" }
       ]
     },
 

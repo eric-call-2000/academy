@@ -13,7 +13,9 @@
    - lesson ids are stable progress keys, and "next" stays in the
      country you were reading before walking the path in order;
    - the Academy mirror has exactly the shape Academy's tracks use;
-   - markup escapes HTML and resolves every reference.
+   - markup escapes HTML and resolves every reference;
+   - relationships (links.js) resolve as subjects but never join the
+     30-country path, and their reads pay XP like any briefing.
    ============================================================ */
 const assert = require("assert");
 const { load } = require("./load");
@@ -78,9 +80,17 @@ test("streak ignores order and duplicates", () => {
 
 /* ---------- progress ---------- */
 const unit = P.units.us;
-test("the US unit is registered with eight briefings", () => {
+test("the US unit is registered with twelve briefings in reading order", () => {
   assert.ok(unit, "units/us.js did not register");
-  assert.strictEqual(unit.lessons.length, 8);
+  assert.strictEqual(unit.lessons.length, 12);
+  same(unit.lessons.map((l) => P.lessonNum(l.id)), JSON.parse(JSON.stringify(P.ORDER12)));
+  same(unit.lessons.map((l) => l.kind), JSON.parse(JSON.stringify(P.ARC)));
+});
+test("briefings 9-12 slot into the reading order without renumbering", () => {
+  same(P.readingOrder(8), [1, 2, 3, 4, 5, 6, 7, 8]);
+  same(P.readingOrder(12), [1, 2, 9, 3, 10, 11, 4, 5, 6, 7, 12, 8]);
+  assert.strictEqual(P.lessonPos(unit, "us-9"), 3);
+  assert.strictEqual(P.lessonPos(unit, "us-8"), 12);
 });
 test("normalizeProfile repairs junk without losing good fields", () => {
   const p = P.normalizeProfile({ read: { "us-1": "2026-09-28" }, goal: 7, days: "nope" });
@@ -106,10 +116,10 @@ test("finishing a country pays the bonus exactly once", () => {
   unit.lessons.forEach((l, i) => { last = P.markRead(p, unit, l.id, P.addDays("2026-09-20", i)); });
   assert.strictEqual(last.unitDone, true);
   assert.strictEqual(last.xpGained, 10 + 20);
-  assert.strictEqual(P.xp(p), 8 * 10 + 20);
+  assert.strictEqual(P.xp(p), 12 * 10 + 20);
   const again = P.markRead(p, unit, "us-3", "2026-10-10");
   assert.strictEqual(again.unitDone, false);
-  assert.strictEqual(P.xp(p), 100);
+  assert.strictEqual(P.xp(p), 140);
 });
 test("days stay sorted and unique however reads arrive", () => {
   const p = P.freshProfile();
@@ -131,9 +141,9 @@ test("a new reader starts at the first briefing of the path", () => {
 });
 test("next is the first unread briefing of the country you're in", () => {
   const p = P.freshProfile();
-  ["us-1", "us-2", "us-3", "us-5"].forEach((id) => P.markRead(p, unit, id, "2026-09-28"));
+  ["us-1", "us-2", "us-9", "us-3", "us-5"].forEach((id) => P.markRead(p, unit, id, "2026-09-28"));
   p.last = "us-5";
-  assert.strictEqual(P.nextLessonId(p), "us-4");
+  assert.strictEqual(P.nextLessonId(p), "us-10");
 });
 test("finishing a country walks on to the next written one in path order", () => {
   const p = P.freshProfile();
@@ -199,8 +209,8 @@ test("glossary and unit references render through the hooks", () => {
   assert.strictEqual(P.inline("see [[unit:ir]] or [[unit:cn|Beijing]]", opts), "see [U:ir:Iran] or [U:cn:Beijing]");
 });
 test("scanRefs finds every reference", () => {
-  same(P.scanRefs("[[NATO]], [[unit:ua]], [[primary election|primaries]]"),
-    { terms: ["nato", "primary-election"], units: ["ua"] });
+  same(P.scanRefs("[[NATO]], [[unit:ua]], [[primary election|primaries]], [[lesson:ua-10]]"),
+    { terms: ["nato", "primary-election"], units: ["ua"], lessons: ["ua-10"] });
 });
 test("bold, italic, links and bullets", () => {
   assert.strictEqual(P.inline("**a** and *b*"), "<strong>a</strong> and <em>b</em>");
@@ -216,6 +226,48 @@ test("word counts read references as their labels", () => {
 });
 test("every US briefing has a picture for its card", () => {
   unit.lessons.forEach((l) => assert.ok(P.heroOf(l), l.id + " has no hero"));
+});
+
+/* ---------- briefing references ---------- */
+test("[[lesson:…]] shows a briefing's place in the reading order, not its id", () => {
+  assert.strictEqual(P.lessonRef("mx-10").pos, 5, "mx-10 is fifth in the 12-briefing order");
+  assert.strictEqual(P.lessonRef("us-8").label, "briefing 12");
+  assert.strictEqual(P.lessonRef("us_cn-2", "Briefing #").label, "Briefing 2");
+  assert.strictEqual(P.lessonRef("us-13").pos, 0, "no such briefing");
+  assert.strictEqual(P.inline("see [[lesson:mx-10]]"), 'see <span class="lesson-ref">briefing 5</span>');
+  assert.strictEqual(P.inline("[[lesson:ar-4|#]]", { lesson: (id, label) => "[L:" + id + ":" + label + "]" }), "[L:ar-4:7]");
+  assert.strictEqual(P.words("see [[lesson:mx-10]]"), 3, "counts as 'see briefing 5'");
+});
+
+/* ---------- relationships ---------- */
+test("a relationship is a subject dressed like a country", () => {
+  const s = P.subject("us_cn");
+  assert.ok(s && s.isLink, "us_cn should resolve");
+  assert.strictEqual(s.name, "United States & China");
+  assert.strictEqual(s.flag, P.country("us").flag + P.country("cn").flag);
+  assert.strictEqual(P.subject("us"), P.country("us"));
+  assert.strictEqual(P.subject("nope"), null);
+  assert.strictEqual(P.country("us_cn"), null, "links are not countries");
+});
+test("links are found from either country, and stay off the 30-country path", () => {
+  assert.ok(P.linksOf("cn").some((l) => l.id === "us_cn"), "China lists US–China");
+  assert.ok(P.linksOf("us").some((l) => l.id === "us_cn"), "the US lists US–China");
+  assert.ok(P.linksOf("us").every((l) => l.a === "us" || l.b === "us"), "only links that include the US");
+  same(P.linksOf("fr"), []);
+  assert.strictEqual(P.countries.length, 30);
+  assert.strictEqual(P.unitIdOf("us_cn-2"), "us_cn");
+  assert.strictEqual(P.lessonNum("us_cn-2"), 2);
+});
+test("reading a relationship counts, pays XP once and a completion bonus", () => {
+  const prof = P.freshProfile();
+  const link = P.units.us_cn;
+  assert.ok(link, "units/us_cn.js should be loaded");
+  link.lessons.forEach((l) => P.markRead(prof, link, l.id, "2026-09-30"));
+  assert.strictEqual(P.readCount(prof, "us_cn"), link.lessons.length);
+  assert.strictEqual(P.readCount(prof, "us"), 0, "link reads don't count toward the US unit");
+  assert.strictEqual(P.xp(prof), link.lessons.length * P.XP_PER_BRIEFING + P.XP_PER_COUNTRY);
+  prof.last = "us_cn-3";
+  assert.strictEqual(P.nextLessonId(prof), "us-1", "after a link, next walks the country path");
 });
 
 console.log(passed + " passed" + (process.exitCode ? ", some FAILED" : ""));

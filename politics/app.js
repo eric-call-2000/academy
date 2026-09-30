@@ -3,8 +3,11 @@
    ------------------------------------------------------------
    Screens (hash routes, so the phone's back button works):
      #/            Today — the next briefing, daily goal, what's new
+     #/map         the world map: every country, its briefing count, and
+                   the relationships between countries
      #/atlas       the 30 countries by region
-     #/c/<id>      a country: its briefings, map and dispatches
+     #/c/<id>      a country: its briefings, map and dispatches — or a
+                   relationship between two (ids like "us_cn", links.js)
      #/read/<id>   the reader
      #/glossary    every term, searchable
      #/profiles    who's reading
@@ -101,7 +104,7 @@
   /* ---------- unit loading (lazy, one script per country) ---------- */
   var unitLoads = {};
   function loadUnit(id) {
-    var c = P.country(id);
+    var c = P.subject(id);
     if (!c || !(c.lessons > 0)) return Promise.resolve(null);
     if (P.units[id]) return Promise.resolve(P.units[id]);
     if (unitLoads[id]) return unitLoads[id];
@@ -141,9 +144,14 @@
       return '<button type="button" class="term" data-term="' + id + '">' + label + "</button>";
     },
     unit: function (id, label) {
-      var c = P.country(id);
+      var c = P.subject(id);
       if (c && c.lessons > 0) return '<a class="unit-link" href="#/c/' + id + '">' + label + "</a>";
       return '<span class="unit-ref" title="' + esc((c ? c.name : id) + " — coming soon") + '">' + label + "</span>";
+    },
+    lesson: function (id, label) {
+      var s = P.subject(P.unitIdOf(id));
+      if (s && s.lessons > 0) return '<a class="unit-link" href="#/read/' + id + '">' + label + "</a>";
+      return '<span class="unit-ref">' + label + "</span>";
     }
   };
   function md(s) { return P.md(s, mdOpts); }
@@ -162,14 +170,16 @@
     for (var i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
     return AVATAR_COLORS[h % AVATAR_COLORS.length];
   }
+  /* Kinds that repeat in a unit are numbered: "Story 2", "From the past 1". */
   function kindLabel(unit, lesson) {
-    if (lesson.kind !== "story") return P.KINDS[lesson.kind] || lesson.kind;
+    var label = P.KINDS[lesson.kind] || lesson.kind;
+    if (lesson.kind !== "story" && lesson.kind !== "past" && lesson.kind !== "relation") return label;
     var n = 0;
     for (var i = 0; i < unit.lessons.length; i++) {
-      if (unit.lessons[i].kind === "story") n++;
+      if (unit.lessons[i].kind === lesson.kind) n++;
       if (unit.lessons[i].id === lesson.id) break;
     }
-    return "Story " + n;
+    return label + " " + n;
   }
   function ring(done, total, size, color) {
     var r = (size / 2) - 3, c = 2 * Math.PI * r, f = total ? Math.min(1, done / total) : 0;
@@ -267,7 +277,7 @@
     }, t.term);
   }
   function openDispatch(u) {
-    var c = P.country(u.unit);
+    var c = P.subject(u.unit);
     var prof = me();
     if (prof && !prof.seen[u.id]) { prof.seen[u.id] = 1; saveStore(); }
     openSheet(function (s) {
@@ -350,7 +360,7 @@
     bar.appendChild(inner);
     var nav = el("nav", "tabs");
     nav.setAttribute("aria-label", "Sections");
-    [["today", "#/", "Today"], ["atlas", "#/atlas", "Atlas"], ["glossary", "#/glossary", "Glossary"]].forEach(function (x) {
+    [["today", "#/", "Today"], ["map", "#/map", "Map"], ["atlas", "#/atlas", "Atlas"], ["glossary", "#/glossary", "Glossary"]].forEach(function (x) {
       var a = el("a", "tab" + (active === x[0] ? " on" : ""), x[2]);
       a.href = x[1];
       if (active === x[0]) a.setAttribute("aria-current", "page");
@@ -465,7 +475,7 @@
     main.appendChild(path);
   }
   function lessonCard(unit, lesson, big) {
-    var c = P.country(unit.id);
+    var c = P.subject(unit.id);
     var a = el("a", "card lesson-card" + (big ? " big" : ""));
     a.href = "#/read/" + lesson.id;
     a.style.setProperty("--c", c.color);
@@ -473,7 +483,7 @@
     a.appendChild(picture(hero && hero.src, hero && hero.alt, c, hero, true));
     var body = el("div", "lesson-card-body");
     body.innerHTML =
-      '<div class="kicker">' + c.flag + " " + esc(c.name) + " · " + P.lessonNum(lesson.id) + " of " + unit.lessons.length + " · " + esc(kindLabel(unit, lesson)) + "</div>" +
+      '<div class="kicker">' + c.flag + " " + esc(c.name) + " · " + P.lessonPos(unit, lesson.id) + " of " + unit.lessons.length + " · " + esc(kindLabel(unit, lesson)) + "</div>" +
       '<div class="lesson-card-title">' + esc(lesson.title) + "</div>" +
       '<div class="lesson-card-dek">' + esc(lesson.dek) + "</div>" +
       '<div class="lesson-card-meta">⏱ ' + P.readMins(lesson) + ' min read<span class="go">Start reading →</span></div>';
@@ -481,7 +491,7 @@
     return a;
   }
   function dispatchRow(u) {
-    var c = P.country(u.unit);
+    var c = P.subject(u.unit);
     var b = el("button", "row dispatch");
     b.type = "button";
     b.innerHTML = '<span class="row-ic">' + (c ? c.flag : "📰") + '</span><span class="row-main"><span class="row-title">' + esc(u.title) +
@@ -509,8 +519,13 @@
     var prof = me();
     var built = P.builtCountries();
     main.appendChild(el("h1", "page-title", "Atlas"));
-    main.appendChild(el("p", "page-sub", "Thirty countries, one unit each, grouped by region. A briefing a day covers a country in about eight days. " +
+    main.appendChild(el("p", "page-sub", "Thirty countries, one unit each, grouped by region. A briefing a day covers a country in about twelve days. " +
       built.length + " of 30 " + (built.length === 1 ? "is" : "are") + " written so far; the rest arrive in waves."));
+    var mapRow = el("a", "row atlas-map");
+    mapRow.href = "#/map";
+    mapRow.innerHTML = '<span class="row-ic">🗺️</span><span class="row-main"><span class="row-title">See them on the world map</span>' +
+      '<span class="row-sub">Every country with its briefing count, and the relationships between them</span></span><span class="row-go">›</span>';
+    main.appendChild(mapRow);
     P.PARTS.forEach(function (part) {
       var sec = el("section", "part");
       sec.appendChild(el("h2", "part-title", '<span class="part-num">Part ' + part.id + "</span> " + esc(part.title)));
@@ -538,8 +553,8 @@
      COUNTRY (unit page)
      ============================================================ */
   function renderUnit(id) {
-    var c = P.country(id);
-    var main = shell("atlas");
+    var c = P.subject(id);
+    var main = shell(c && c.isLink ? "map" : "atlas");
     if (!c) { errorCard(main, "There's no country called \"" + id + "\"."); return; }
     if (!(c.lessons > 0)) {
       main.appendChild(el("div", "card soon-card", '<div class="big-emoji">' + c.flag + "</div><h1>" + esc(c.name) + "</h1><p>" + esc(c.blurb) +
@@ -549,7 +564,8 @@
     main.appendChild(el("div", "card loading", "Loading " + esc(c.name) + "…"));
     loadUnit(id).then(function (unit) {
       main.innerHTML = "";
-      drawUnit(main, c, unit);
+      if (c.isLink) drawLink(main, c, unit);
+      else drawUnit(main, c, unit);
     }).catch(function (e) { main.innerHTML = ""; errorCard(main, e.message); });
   }
   function drawUnit(main, c, unit) {
@@ -588,6 +604,14 @@
       main.appendChild(el("div", "card done-card", "✓ You've read all " + unit.lessons.length + " briefings on " + esc(c.name) + "."));
     }
 
+    var links = P.linksOf(c.id);
+    if (links.length) {
+      var lsec = el("section", "related");
+      lsec.appendChild(el("h2", "section-title", "Relationships"));
+      links.forEach(function (l) { lsec.appendChild(linkRow(l)); });
+      main.appendChild(lsec);
+    }
+
     var related = (c.related || []).map(P.country).filter(Boolean);
     if (related.length) {
       var rel = el("section", "related");
@@ -598,16 +622,327 @@
       main.appendChild(rel);
     }
   }
+  /* ============================================================
+     RELATIONSHIPS (links.js)
+     ============================================================ */
+  function linkRow(l) {
+    var s = P.subject(l.id), prof = me();
+    var ok = s.lessons > 0;
+    var done = ok ? P.readCount(prof, l.id) : 0;
+    var a = el(ok ? "a" : "div", "row link-row" + (ok ? "" : " soon"));
+    if (ok) a.href = "#/c/" + l.id;
+    a.style.setProperty("--c", s.color);
+    a.innerHTML =
+      '<span class="row-ic link-flags">' + s.flag + "</span>" +
+      '<span class="row-main"><span class="row-kicker">' + esc(s.name) + " · " +
+      (ok ? plural(s.lessons, "briefing") + " · " + done + " read" : "Coming soon") + "</span>" +
+      '<span class="row-title">' + esc(s.title) + "</span></span>" +
+      (ok ? '<span class="row-go">›</span>' : "");
+    return a;
+  }
+  function drawLink(main, c, unit) {
+    var prof = me(), t = today();
+    var done = P.readCount(prof, c.id);
+    var a = P.country(c.a), b = P.country(c.b);
+    var hero = el("section", "unit-hero link-hero");
+    hero.style.setProperty("--c", c.color);
+    hero.innerHTML =
+      '<div class="unit-flag">' + c.flag + "</div>" +
+      '<div class="unit-head"><div class="kicker">Relationship · ' + plural(unit.lessons.length, "briefing") + "</div>" +
+      "<h1>" + esc(c.name) + "</h1>" +
+      '<p class="unit-blurb"><b>' + esc(c.title) + ".</b> " + esc(c.blurb) + "</p>" +
+      '<div class="unit-meta">' + done + " of " + unit.lessons.length + " read · Current as of " + esc(P.formatDate(unit.asOf)) +
+      (P.isStale(unit.asOf, t) ? ' · <span class="stale">may be out of date</span>' : "") +
+      ' · <a href="#/map/' + c.id + '">See it on the map</a></div></div>';
+    main.appendChild(hero);
+
+    var nextId = P.nextLessonId({ read: prof.read, last: c.id + "-1" }, [c]);
+    var list = el("section", "lesson-list");
+    list.appendChild(el("h2", "section-title", "Briefings"));
+    unit.lessons.forEach(function (l) { list.appendChild(lessonRow(unit, l, l.id === nextId)); });
+    main.appendChild(list);
+    if (nextId) {
+      var go = el("a", "btn btn-wide", done ? "Continue: " + esc(lessonIn(unit, nextId).title) + " →" : "Start with briefing 1 →");
+      go.href = "#/read/" + nextId;
+      main.appendChild(go);
+    } else {
+      main.appendChild(el("div", "card done-card", "✓ You've read all " + unit.lessons.length + " briefings on " + esc(c.name) + "."));
+    }
+    var rel = el("section", "related");
+    rel.appendChild(el("h2", "section-title", "The two countries"));
+    var row = el("div", "path-row");
+    [a, b].forEach(function (x) { row.appendChild(countryChip(x)); });
+    rel.appendChild(row);
+    main.appendChild(rel);
+  }
+
+  /* ============================================================
+     WORLD MAP
+     ------------------------------------------------------------
+     maps/world.js (tools/build-world.js) holds the projected shapes
+     and badge positions; this draws them with the reader's progress.
+     Each badge shows how many briefings a country has, with a gold
+     ring for how many are read. Relationships (links.js) are arcs
+     between two badges, with their own count. Tap anything to see it
+     in the panel under the map; nothing navigates until you choose.
+     ============================================================ */
+  var worldLoad = null;
+  function loadWorld() {
+    if (P.world) return Promise.resolve(P.world);
+    if (worldLoad) return worldLoad;
+    worldLoad = new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = "maps/world.js";
+      s.onload = function () { P.world ? resolve(P.world) : reject(new Error("maps/world.js did not register")); };
+      s.onerror = function () { worldLoad = null; reject(new Error("Could not load maps/world.js")); };
+      document.head.appendChild(s);
+    });
+    return worldLoad;
+  }
+  /* A gentle arc from a to b that bows toward the top of the map.
+     `at` is the point a share t of the way along it (for its badge). */
+  function arcPath(a, b, bow, t) {
+    var mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+    var dx = b[0] - a[0], dy = b[1] - a[1], len = Math.sqrt(dx * dx + dy * dy) || 1;
+    var nx = dy / len, ny = -dx / len;
+    if (ny > 0) { nx = -nx; ny = -ny; }                 // always bow upward
+    var qx = mx + nx * len * bow, qy = my + ny * len * bow;
+    var minQ = (28 - a[1] - b[1]) / 2;                  // keep the apex on the map
+    if (qy < minQ) qy = minQ;
+    t = t == null ? 0.5 : t;
+    var u = 1 - t;
+    var at = [u * u * a[0] + 2 * u * t * qx + t * t * b[0], u * u * a[1] + 2 * u * t * qy + t * t * b[1]];
+    return { d: "M" + a[0] + "," + a[1] + " Q" + qx.toFixed(1) + "," + qy.toFixed(1) + " " + b[0] + "," + b[1], at: at };
+  }
+  function renderMap(focus) {
+    var main = shell("map");
+    main.classList.add("wrap-wide");
+    main.appendChild(el("h1", "page-title", "World map"));
+    main.appendChild(el("p", "page-sub", "All 30 countries, each with its number of briefings. The lines join countries that have " +
+      "relationship briefings of their own. Tap a country or a line."));
+    var box = el("div", "wmap-box");
+    box.appendChild(el("div", "card loading", "Drawing the map…"));
+    main.appendChild(box);
+    var panel = el("section", "wmap-panel");
+    panel.setAttribute("aria-live", "polite");
+    main.appendChild(panel);
+    loadWorld().then(function (W) { drawMap(box, panel, W, focus); })
+      .catch(function (e) { box.innerHTML = ""; errorCard(box, e.message); });
+  }
+  function drawMap(box, panel, W, focus) {
+    var prof = me();
+    var ns = "http://www.w3.org/2000/svg";
+    function pos(id) { var k = W.countries[id]; return [k.lx, k.ly]; }
+    /* A link's badge sits 30% of the way along its arc from the first
+       country, clear of the badges it joins; a link in links.js can set
+       its own `bow` (how high the arc climbs) and `at`. Links between near
+       neighbours get a fixed badge position from tools/build-world.js
+       (maps/world.js "links"), and their arc bends through it. */
+    function linkArc(l) {
+      var via = W.links && W.links[l.id];
+      if (!via) return arcPath(pos(l.a), pos(l.b), l.bow || 0.45, l.at || 0.3);
+      /* A curve through the badge's set position: the control point that
+         puts a quadratic's midpoint at (x, y). */
+      var a = pos(l.a), b = pos(l.b);
+      var qx = 2 * via.x - (a[0] + b[0]) / 2, qy = 2 * via.y - (a[1] + b[1]) / 2;
+      return { d: "M" + a[0] + "," + a[1] + " Q" + qx.toFixed(1) + "," + qy.toFixed(1) + " " + b[0] + "," + b[1], at: [via.x, via.y] };
+    }
+    function each(sel, fn) { Array.prototype.forEach.call(root.querySelectorAll(sel), fn); }
+    var svg = ['<svg class="wmap" viewBox="0 0 ' + W.w + " " + W.h + '" role="group" aria-label="World map of the 30 countries and their relationships">',
+      '<defs><pattern id="wm-hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
+      '<rect width="4" height="4" class="wm-hatch-bg"/><rect width="1.6" height="4" class="wm-hatch-fg"/></pattern></defs>',
+      '<rect class="wm-ocean" width="' + W.w + '" height="' + W.h + '"/>',
+      '<path class="wm-land" d="' + W.land + '"/>'];
+    P.countries.forEach(function (c) {
+      var k = W.countries[c.id];
+      if (!k) return;
+      svg.push('<path class="wm-c" data-id="' + c.id + '" style="--c:' + c.color + '" d="' + k.d + '"><title>' + esc(c.name) + "</title></path>");
+    });
+    W.hatched.concat(W.contested.map(function (d) { return { d: d }; })).forEach(function (x) {
+      svg.push('<path class="wm-disputed" d="' + x.d + '"><title>' + esc(x.name ? x.name + " (disputed)" : "Disputed territory") + "</title></path>");
+    });
+    svg.push('<path class="wm-borders" d="' + W.borders + '"/>');
+    svg.push('<g class="wm-rel-layer"></g>');
+    /* Leader lines for badges moved off a crowded country. */
+    P.countries.forEach(function (c) {
+      var k = W.countries[c.id];
+      if (!k) return;
+      var dx = k.lx - k.cx, dy = k.ly - k.cy;
+      if (dx * dx + dy * dy > 150) svg.push('<line class="wm-leader" x1="' + k.cx + '" y1="' + k.cy + '" x2="' + k.lx + '" y2="' + k.ly + '"/><circle class="wm-dot" cx="' + k.cx + '" cy="' + k.cy + '" r="1.8"/>');
+    });
+    P.links.forEach(function (l) {
+      if (!W.countries[l.a] || !W.countries[l.b]) return;
+      var d = linkArc(l).d, s = P.subject(l.id);
+      svg.push('<path class="wm-link-hit" data-link="' + l.id + '" d="' + d + '"/>' +
+        '<path class="wm-link' + (s.lessons > 0 ? "" : " soon") + '" data-link="' + l.id + '" style="--c:' + s.color + '" d="' + d + '"/>');
+    });
+    /* Badges on top: countries, then relationships. */
+    P.countries.forEach(function (c) {
+      var k = W.countries[c.id];
+      if (!k) return;
+      var n = c.lessons || 0, done = n ? P.readCount(prof, c.id) : 0;
+      var r = 15.5, circ = 2 * Math.PI * r, f = n ? Math.min(1, done / n) : 0;
+      svg.push('<g class="wm-b" data-id="' + c.id + '" transform="translate(' + k.lx + "," + k.ly + ')" tabindex="0" role="button" aria-label="' +
+        esc(c.name + ": " + plural(n, "briefing") + ", " + done + " read") + '" style="--c:' + c.color + '">' +
+        "<title>" + esc(c.name + " · " + plural(n, "briefing") + " · " + done + " read") + "</title>" +
+        '<circle class="wm-b-ring" r="' + r + '"/>' +
+        (f > 0 ? '<circle class="wm-b-prog" r="' + r + '" stroke-dasharray="' + (circ * f).toFixed(1) + " " + circ.toFixed(1) + '" transform="rotate(-90)"/>' : "") +
+        '<circle class="wm-b-disc" r="12"/><text class="wm-b-num" dy="0.36em">' + n + "</text></g>");
+    });
+    P.links.forEach(function (l) {
+      if (!W.countries[l.a] || !W.countries[l.b]) return;
+      var s = P.subject(l.id), spot = linkArc(l).at;
+      var done = P.readCount(prof, l.id);
+      svg.push('<g class="wm-lb" data-link="' + l.id + '" transform="translate(' + spot[0].toFixed(1) + "," + spot[1].toFixed(1) + ')" tabindex="0" role="button" aria-label="' +
+        esc(s.name + ": " + s.title + ", " + plural(s.lessons, "briefing") + ", " + done + " read") + '" style="--c:' + s.color + '">' +
+        "<title>" + esc(s.name + " · " + s.title) + "</title>" +
+        '<rect class="wm-lb-pill" x="-24" y="-11" width="48" height="22" rx="11"/>' +
+        '<text class="wm-lb-txt" dy="0.36em">⇄ ' + s.lessons + "</text></g>");
+    });
+    svg.push("</svg>");
+    box.innerHTML = "";
+    var scroller = el("div", "wmap-scroll");
+    scroller.innerHTML = svg.join("");
+    box.appendChild(scroller);
+    box.appendChild(el("div", "wmap-legend",
+      '<span><i class="lg-badge">12</i> briefings on a country</span>' +
+      '<span><i class="lg-ring"></i> fills gold as you read</span>' +
+      '<span><i class="lg-link">⇄ 3</i> briefings on a relationship</span>' +
+      '<span><i class="lg-hatch"></i> disputed territory</span>'));
+    var root = scroller.querySelector("svg");
+    var relLayer = root.querySelector(".wm-rel-layer");
+
+    function mark(sel) {
+      each(".on", function (x) { x.classList.remove("on"); });
+      relLayer.innerHTML = "";
+      root.classList.toggle("has-sel", !!sel);
+      if (!sel) return;
+      if (sel.link) {
+        var l = P.link(sel.link);
+        [l.a, l.b].forEach(function (id) { each('[data-id="' + id + '"]', function (x) { x.classList.add("on"); }); });
+        each('[data-link="' + sel.link + '"]', function (x) { x.classList.add("on"); });
+        return;
+      }
+      var c = P.country(sel.id);
+      each('[data-id="' + c.id + '"]', function (x) { x.classList.add("on"); });
+      /* Dashed lines to the countries its briefings connect it with. */
+      (c.related || []).forEach(function (r) {
+        if (!W.countries[r]) return;
+        var p = document.createElementNS(ns, "path");
+        p.setAttribute("class", "wm-rel");
+        p.setAttribute("d", arcPath(pos(c.id), pos(r), 0.18).d);
+        relLayer.appendChild(p);
+        each('.wm-b[data-id="' + r + '"]', function (x) { x.classList.add("on"); });
+      });
+      P.linksOf(c.id).forEach(function (l) {
+        each('[data-link="' + l.id + '"]', function (x) { x.classList.add("on"); });
+        [l.a, l.b].forEach(function (id) { each('.wm-b[data-id="' + id + '"]', function (x) { x.classList.add("on"); }); });
+      });
+    }
+    function select(sel, fromUser) {
+      mark(sel);
+      drawPanel(sel);
+      if (fromUser && history.replaceState) history.replaceState(null, "", "#/map" + (sel ? "/" + (sel.link || sel.id) : ""));
+    }
+    function drawPanel(sel) {
+      panel.innerHTML = "";
+      if (!sel) {
+        panel.appendChild(el("p", "wmap-hint", "Tap a country to see its briefings and connections, or a ⇄ line for the briefings on a relationship."));
+        if (P.links.length) {
+          panel.appendChild(el("h2", "section-title", "Relationships"));
+          P.links.forEach(function (l) { panel.appendChild(linkRow(l)); });
+        }
+        return;
+      }
+      var card = el("div", "card wmap-card");
+      var actions = el("div", "finish-row");
+      if (sel.link) {
+        var s = P.subject(sel.link);
+        var done = P.readCount(prof, s.id);
+        card.style.setProperty("--c", s.color);
+        card.innerHTML = '<div class="wmap-card-head"><span class="wmap-card-flag">' + s.flag + '</span><div class="wmap-card-titles"><div class="kicker">Relationship · ' +
+          plural(s.lessons, "briefing") + " · " + done + " read</div><h2>" + esc(s.name) + "</h2></div></div>" +
+          '<p class="wmap-card-blurb"><b>' + esc(s.title) + ".</b> " + esc(s.blurb) + "</p>";
+        if (s.lessons > 0) {
+          var go = el("a", "btn", "Open the " + plural(s.lessons, "briefing") + " →");
+          go.href = "#/c/" + s.id;
+          actions.appendChild(go);
+        }
+        card.appendChild(actions);
+        card.appendChild(el("h3", "wmap-sub", "The two countries"));
+        var row = el("div", "path-row");
+        [P.country(s.a), P.country(s.b)].forEach(function (x) { row.appendChild(countryChip(x)); });
+        card.appendChild(row);
+      } else {
+        var c = P.country(sel.id);
+        var n = c.lessons || 0, read = n ? P.readCount(prof, c.id) : 0;
+        card.style.setProperty("--c", c.color);
+        card.innerHTML = '<div class="wmap-card-head"><span class="wmap-card-flag">' + c.flag + '</span><div class="wmap-card-titles"><div class="kicker">Part ' + c.part + " · " +
+          esc(P.PARTS[c.part - 1].title) + " · " + plural(n, "briefing") + " · " + read + " read</div><h2>" + esc(c.name) + "</h2></div></div>" +
+          '<p class="wmap-card-blurb">' + esc(c.blurb) + "</p>";
+        if (n > 0) {
+          var open = el("a", "btn", "Open " + esc(c.name) + " →");
+          open.href = "#/c/" + c.id;
+          actions.appendChild(open);
+        }
+        card.appendChild(actions);
+        var links = P.linksOf(c.id);
+        if (links.length) {
+          card.appendChild(el("h3", "wmap-sub", "Relationships"));
+          links.forEach(function (l) { card.appendChild(linkRow(l)); });
+        }
+        var related = (c.related || []).map(P.country).filter(Boolean);
+        if (related.length) {
+          card.appendChild(el("h3", "wmap-sub", "Connected countries"));
+          var rrow = el("div", "path-row");
+          related.forEach(function (r) { rrow.appendChild(countryChip(r)); });
+          card.appendChild(rrow);
+        }
+      }
+      var all = el("button", "wmap-clear", "✕ Show the whole map");
+      all.type = "button";
+      all.onclick = function () { select(null, true); };
+      card.appendChild(all);
+      panel.appendChild(card);
+    }
+    function pick(target) {
+      var b = target.closest ? target.closest("[data-link], [data-id]") : null;
+      if (!b) return null;
+      return b.hasAttribute("data-link") ? { link: b.getAttribute("data-link") } : { id: b.getAttribute("data-id") };
+    }
+    root.addEventListener("click", function (e) {
+      var sel = pick(e.target);
+      select(sel, true);
+      if (sel && window.innerWidth < 900) panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    });
+    root.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      var sel = pick(e.target);
+      if (!sel) return;
+      e.preventDefault();
+      select(sel, true);
+    });
+    var start = null;
+    if (focus && P.link(focus)) start = { link: focus };
+    else if (focus && P.country(focus)) start = { id: focus };
+    select(start, false);
+    /* On a phone the map scrolls sideways: start with the selection (or the Atlantic) in view. */
+    if (scroller.scrollWidth > scroller.clientWidth) {
+      var at = start ? (start.link ? linkArc(P.link(start.link)).at : pos(start.id)) : [W.w * 0.42, 0];
+      scroller.scrollLeft = Math.max(0, at[0] / W.w * scroller.scrollWidth - scroller.clientWidth / 2);
+    }
+  }
+
   function lessonRow(unit, lesson, isNext, showFlag) {
     var prof = me();
     var readOn = prof.read[lesson.id];
     var updated = P.isUpdatedSince(lesson, readOn);
     var a = el("a", "row lesson-row" + (readOn ? " read" : "") + (isNext ? " next" : ""));
     a.href = "#/read/" + lesson.id;
-    var c = P.country(unit.id);
+    var c = P.subject(unit.id);
     a.style.setProperty("--c", c.color);
     a.innerHTML =
-      '<span class="row-num">' + (readOn && !updated ? "✓" : P.lessonNum(lesson.id)) + "</span>" +
+      '<span class="row-num">' + (readOn && !updated ? "✓" : P.lessonPos(unit, lesson.id)) + "</span>" +
       '<span class="row-main"><span class="row-kicker">' + (showFlag ? c.flag + " " + esc(c.name) + " · " : "") + esc(kindLabel(unit, lesson)) + " · " + P.readMins(lesson) + " min</span>" +
       '<span class="row-title">' + esc(lesson.title) + "</span>" +
       (updated ? '<span class="badge badge-upd">Updated since you read it</span>' : isNext ? '<span class="badge badge-next">Up next</span>' : "") +
@@ -620,7 +955,7 @@
      ============================================================ */
   function renderReader(lessonId) {
     var id = P.unitIdOf(lessonId);
-    var c = P.country(id);
+    var c = P.subject(id);
     clear();
     if (!c) { var m0 = shell("today"); errorCard(m0, "There's no briefing called \"" + lessonId + "\"."); return; }
     app.appendChild(el("div", "card loading reader-loading", "Loading…"));
@@ -671,7 +1006,7 @@
     var updated = P.isUpdatedSince(lesson, readOn);
     var head = el("header", "reader-head");
     head.innerHTML =
-      '<div class="kicker">' + c.flag + " " + esc(c.name) + " · Briefing " + P.lessonNum(lesson.id) + " of " + unit.lessons.length + " · " + esc(kindLabel(unit, lesson)) + "</div>" +
+      '<div class="kicker">' + c.flag + " " + esc(c.name) + " · Briefing " + P.lessonPos(unit, lesson.id) + " of " + unit.lessons.length + " · " + esc(kindLabel(unit, lesson)) + "</div>" +
       "<h1>" + esc(lesson.title) + "</h1>" +
       '<p class="dek">' + esc(lesson.dek) + "</p>" +
       '<div class="reader-meta">⏱ ' + P.readMins(lesson) + " min read · Current as of " + esc(P.formatDate(lesson.asOf)) +
@@ -818,8 +1153,8 @@
     return ol;
   }
   function nextAfter(unit, lesson) {
-    var n = P.lessonNum(lesson.id);
-    if (n < unit.lessons.length) return unit.id + "-" + (n + 1);
+    var n = P.lessonPos(unit, lesson.id);
+    if (n < unit.lessons.length) return unit.lessons[n].id;
     return P.nextLessonId(me());
   }
   function finishArea(unit, lesson, c) {
@@ -831,7 +1166,7 @@
       var nid = nextAfter(unit, lesson);
       var row = el("div", "finish-row");
       if (nid) {
-        var nu = P.country(P.unitIdOf(nid));
+        var nu = P.subject(P.unitIdOf(nid));
         var a = el("a", "btn", (P.unitIdOf(nid) === unit.id ? "Next briefing" : "Next: " + nu.flag + " " + esc(nu.name)) + " →");
         a.href = "#/read/" + nid;
         row.appendChild(a);
@@ -857,7 +1192,7 @@
       var n = P.todayCount(prof, t);
       var cel = el("div", "celebrate");
       cel.innerHTML =
-        '<div class="celebrate-big">' + (res.unitDone ? c.flag + " Country complete!" : "Briefing done!") + "</div>" +
+        '<div class="celebrate-big">' + (res.unitDone ? c.flag + (c.isLink ? " Relationship complete!" : " Country complete!") : "Briefing done!") + "</div>" +
         '<div class="celebrate-stats">' +
         (res.xpGained ? '<span class="pill pill-xp">+' + res.xpGained + " XP</span>" : '<span class="pill">Updated ✓</span>') +
         '<span class="pill pill-streak">🔥 ' + P.streak(prof.days, t) + "-day streak</span>" +
@@ -962,6 +1297,7 @@
     if (!me() || parts[0] === "profiles") return renderProfiles();
     switch (parts[0]) {
       case "atlas": return renderAtlas();
+      case "map": return renderMap(parts[1] || "");
       case "c": return renderUnit(parts[1]);
       case "read": return renderReader(parts[1]);
       case "glossary": return renderGlossary(decodeURIComponent(parts[1] || ""));

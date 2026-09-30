@@ -77,7 +77,7 @@ window.POLITICS.addUnit("cn", {
           "Big choices are made behind closed doors and announced at set-piece meetings. The Central Committee meets in plenary sessions, or 'plenums'; the Fourth Plenum of October 2025, for example, set the outline of the next five-year plan and removed purged generals. Day-to-day policy runs through Party commissions on finance, foreign affairs and security, most of them chaired by Xi himself.\n\n" +
           "The National People's Congress then meets each March to pass laws and plans that have already been decided. It has never voted down a major government proposal." },
         { type: "section", head: "The army belongs to the Party", md:
-          "The People's Liberation Army is not the country's army in the Western sense but the Party's. It answers to the [[Central Military Commission]], which Xi chairs. Mao's line that 'political power grows out of the barrel of a gun' is still taught, and it explains why Xi treats loyalty in the army as a top priority, a point that matters for the purges in briefing 7." },
+          "The People's Liberation Army is not the country's army in the Western sense but the Party's. It answers to the [[Central Military Commission]], which Xi chairs. Mao's line that 'political power grows out of the barrel of a gun' is still taught, and it explains why Xi treats loyalty in the army as a top priority, a point that matters for the purges in [[lesson:cn-7]]." },
         { type: "section", head: "Control at home", md:
           "The Party does not allow organised opposition, a free press or independent courts. The internet sits behind the 'Great Firewall', which blocks many foreign sites. In Xinjiang, the mass detention of Uyghurs and other Muslims led the UN human rights office in 2022 to report serious human rights violations; Beijing calls its policies counter-terrorism and job training. In Hong Kong, a 2020 national security law ended most open protest and opposition politics." },
         { type: "compare", head: "Two ways of seeing the system",
@@ -98,6 +98,57 @@ window.POLITICS.addUnit("cn", {
         { title: "\"We Must Depend Entirely on Ourselves\": Policy, Politics, and U.S.–China Relations at the Fourth Plenum", publisher: "Asia Society", url: "https://asiasociety.org/policy-institute/we-must-depend-entirely-ourselves-policy-politics-and-us-china-relations-fourth-plenum", date: "2025-10" },
         { title: "OHCHR Assessment of human rights concerns in the Xinjiang Uyghur Autonomous Region", publisher: "UN Office of the High Commissioner for Human Rights", url: "https://www.ohchr.org/en/documents/country-reports/ohchr-assessment-human-rights-concerns-xinjiang-uyghur-autonomous-region", date: "2022-08-31" },
         { title: "China's top general under investigation in latest military purge", publisher: "NPR", url: "https://www.npr.org/2026/01/24/g-s1-107210/chinas-top-general-under-investigation-in-latest-military-purge", date: "2026-01-24" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "cn-9", kind: "founding", asOf: "2026-09-28",
+      title: "1949: the People's Republic is born",
+      dek: "After a century of humiliation, revolution and civil war, Mao Zedong proclaimed a new China from the gate of the Forbidden City.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/cn/cn-9-hero.webp",
+          alt: "Illustration of a vast red gate tower with golden roofs above a huge empty square in autumn light.",
+          caption: "Tiananmen, the Gate of Heavenly Peace, where Mao proclaimed the People's Republic on 1 October 1949.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A vast red imperial gate tower with sweeping golden-tiled roofs above a huge empty stone square, autumn morning light, a few distant figures, monumental and solemn, no portraits, no flags, no legible text." },
+        { type: "timeline", head: "From empire to People's Republic", items: [
+          ["1839–42", "First Opium War with Britain"],
+          ["1911", "Revolution ends 2,000 years of imperial rule"],
+          ["1921", "Chinese Communist Party founded in Shanghai"],
+          ["1934–35", "The Long March"],
+          ["1937–45", "War with Japan"],
+          ["1946–49", "Civil war between Communists and Nationalists"],
+          ["1 Oct 1949", "Mao proclaims the People's Republic"]
+        ] },
+        { type: "section", head: "The century of humiliation", md:
+          "For most of history China saw itself as the centre of the world, ruled by emperors. In the 19th century that order collapsed. Britain defeated the Qing dynasty in the Opium Wars of 1839–42 and 1856–60, forcing it to open ports and hand over Hong Kong. Other powers, and later Japan, carved out privileges. Rebellions such as the Taiping, which cost perhaps 20 million lives, shook the country. Chinese nationalists call this period the 'century of humiliation', and the Communist Party still describes its rule as ending it." },
+        { type: "section", head: "Republic and chaos", md:
+          "In 1911 revolutionaries overthrew the last emperor, and Sun Yat-sen proclaimed a republic. It soon fragmented into territories ruled by warlords. Sun's Nationalist Party, the Kuomintang (KMT), later led by Chiang Kai-shek, reunified much of the country by 1928, but turned on its former allies, the Communists, founded in 1921. Driven from their bases, the Communists made the Long March of 1934–35, a 10,000-kilometre retreat to the north-west during which Mao Zedong became their leader." },
+        { type: "section", head: "War and revolution", md:
+          "Japan invaded in 1937, occupying the coast and major cities; the war killed an estimated 14 million or more Chinese. The Nationalists bore the brunt of the conventional fighting and were exhausted by it, while the Communists expanded behind Japanese lines through guerrilla warfare and land reform that won peasant support. After Japan's defeat in 1945, civil war resumed. Better organised and more motivated, the Communists won decisive battles in 1948–49." },
+        { type: "section", head: "'The Chinese people have stood up'", md:
+          "On 1 October 1949 Mao proclaimed the People's Republic of China from Tiananmen gate in Beijing. Chiang Kai-shek fled with about two million followers to the island of Taiwan, where the Republic of China survives to this day (see [[unit:tw]]). The new state was modelled on the Soviet Union: one party, state ownership, and the army loyal to the Party. Landlords were dispossessed and hundreds of thousands, perhaps more, were killed in land reform and campaigns against 'counter-revolutionaries'. China entered the Korean War in 1950 against the US-led UN forces." },
+        { type: "compare", head: "Two views of 1949",
+          left: { head: "The Party's account", md:
+            "The Communists united China, ended foreign domination, freed peasants from landlords and laid the foundation for today's revival." },
+          right: { head: "Critics' account", md:
+            "The revolution replaced one dictatorship with a harsher one, and the campaigns that followed cost tens of millions of lives." } },
+        { type: "section", head: "Why it still matters", md:
+          "Xi Jinping's slogan, the 'great rejuvenation of the Chinese nation', draws directly on the memory of humiliation and revolution. The unfinished civil war explains why Beijing claims Taiwan, and the Party's legitimacy still rests on the claim that only it could make China strong and united." }
+      ],
+      takeaways: [
+        "Foreign defeats and internal rebellions in the 19th century are remembered as the 'century of humiliation'.",
+        "After the fall of the empire in 1911, Nationalists and Communists fought for control, interrupted by war with Japan.",
+        "Mao proclaimed the People's Republic on 1 October 1949; the Nationalists fled to Taiwan."
+      ],
+      check: { q: "Where did Chiang Kai-shek's Nationalists go after losing the civil war?",
+        choices: ["Hong Kong", "Taiwan", "Japan"], answer: 1,
+        explain: "Chiang and about two million followers retreated to Taiwan, where the Republic of China continues." },
+      sources: [
+        { title: "Mao Zedong", publisher: "Britannica", url: "https://www.britannica.com/biography/Mao-Zedong", date: "n.d." },
+        { title: "Chinese Civil War", publisher: "Britannica", url: "https://www.britannica.com/event/Chinese-Civil-War", date: "n.d." },
+        { title: "The Chinese Revolution of 1949", publisher: "US Department of State, Office of the Historian", url: "https://history.state.gov/milestones/1945-1952/chinese-rev", date: "n.d." }
       ]
     },
 
@@ -146,6 +197,106 @@ window.POLITICS.addUnit("cn", {
         { title: "China profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-asia-pacific-13017882", date: "n.d." },
         { title: "China's WTO accession", publisher: "World Trade Organization", url: "https://www.wto.org/english/thewto_e/countries_e/china_e.htm", date: "n.d." },
         { title: "U.S.-China Relations timeline", publisher: "Council on Foreign Relations", url: "https://www.cfr.org/timeline/us-relations-china", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "cn-10", kind: "past", asOf: "2026-09-28",
+      title: "The Great Leap and the Cultural Revolution",
+      dek: "Mao's campaigns to transform China caused one of history's worst famines and a decade of political terror.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/cn/cn-10-hero.webp",
+          alt: "Illustration of a row of small clay backyard furnaces glowing in a bare village at dusk, with leafless trees.",
+          caption: "During the Great Leap Forward, villages melted down pots and tools in backyard furnaces to meet steel quotas.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A bare rural village at dusk, a row of small crude clay backyard furnaces glowing orange with smoke rising, leafless trees, empty dry fields beyond, a sense of desperation and waste, figures only in the far distance, no legible text." },
+        { type: "facts", head: "Two catastrophes", rows: [
+          ["Great Leap Forward", "1958–62"],
+          ["Famine deaths", "Estimated 15 to 45 million, depending on the study"],
+          ["Cultural Revolution", "1966–76"],
+          ["Deaths", "Estimates range from hundreds of thousands to about 2 million"],
+          ["Party verdict (1981)", "Mao's rule '70% right, 30% wrong'"]
+        ] },
+        { type: "section", head: "The Great Leap Forward", md:
+          "In 1958 Mao launched the Great Leap Forward to overtake Britain's industrial output within 15 years. Peasants were herded into vast communes, private plots were abolished, and millions were sent to build dams or to melt down pots and tools in backyard furnaces to produce steel, much of it useless. Officials, afraid to report failure, inflated harvest figures, and the state requisitioned grain on the basis of those false numbers, even exporting it." },
+        { type: "section", head: "The famine", md:
+          "The result was the deadliest famine in recorded history. Between 1959 and 1961 tens of millions starved; historians' estimates range from about 15 million to 45 million deaths. When the defence minister, Peng Dehuai, criticised the policies in 1959, Mao purged him. The disaster weakened Mao, and other leaders, including Liu Shaoqi and Deng Xiaoping, quietly reversed some policies." },
+        { type: "section", head: "The Cultural Revolution", md:
+          "In 1966 Mao struck back. He called on young 'Red Guards' to attack 'capitalist roaders' and the 'four olds': old customs, culture, habits and ideas. Teachers, intellectuals and officials were beaten, humiliated at 'struggle sessions', imprisoned or killed; temples and books were destroyed. Liu Shaoqi died in detention, and Deng was purged. Schools and universities closed, and some 17 million urban youths were 'sent down' to the countryside, among them a teenage Xi Jinping. Violence between factions verged on civil war in places." },
+        { type: "section", head: "The end and the verdict", md:
+          "The chaos subsided after 1969 but lasted until Mao's death in 1976, when his widow and three allies, the 'Gang of Four', were arrested. Deng Xiaoping returned and launched 'reform and opening'. In 1981 the Party issued its verdict: Mao had made 'gross mistakes' in his later years, but his contributions outweighed them. Open discussion remains restricted; the anniversaries pass largely unmarked in China." },
+        { type: "section", head: "Life in the Cultural Revolution", md:
+          "For ordinary people the decade meant fear. Neighbours, colleagues and even children denounced one another; 'class enemies' and their families lost jobs and homes; and a single wrong word about Mao could bring ruin. Mao's Little Red Book of quotations was carried everywhere. The 'lost generation' of sent-down youth missed years of schooling, and many later wrote about the experience in a genre known as 'scar literature'." },
+        { type: "compare", head: "Remembering Mao",
+          left: { head: "The official line", md:
+            "Mao founded the new China. His late errors were serious but have been corrected, and dwelling on them weakens the nation." },
+          right: { head: "Historians and survivors", md:
+            "Unaccountable power caused both catastrophes. Silence about them makes it harder to prevent a return to one-man rule." } },
+        { type: "section", head: "Why it still matters", md:
+          "Deng's reforms, including collective leadership and term limits, were designed to stop another Mao. Xi Jinping's abolition of presidential term limits in 2018 and the personality cult around him have revived those fears among critics. The period also shaped Xi personally and a generation of leaders who lived through it." }
+      ],
+      takeaways: [
+        "The Great Leap Forward (1958–62) caused a famine that killed tens of millions.",
+        "The Cultural Revolution (1966–76) unleashed Red Guards against teachers, officials and tradition.",
+        "The Party judged Mao's record '70% right, 30% wrong'; open debate remains restricted."
+      ],
+      check: { q: "What were the Red Guards?",
+        choices: ["Soviet advisers", "Young militants Mao mobilised against 'capitalist roaders' during the Cultural Revolution", "The palace guard"], answer: 1,
+        explain: "Mao called on students and young people to attack officials, intellectuals and traditions from 1966." },
+      sources: [
+        { title: "Great Leap Forward", publisher: "Britannica", url: "https://www.britannica.com/event/Great-Leap-Forward", date: "n.d." },
+        { title: "Cultural Revolution", publisher: "Britannica", url: "https://www.britannica.com/event/Cultural-Revolution", date: "n.d." },
+        { title: "Resolution on certain questions in the history of our Party (1981)", publisher: "Wilson Center Digital Archive", url: "https://digitalarchive.wilsoncenter.org/document/resolution-certain-questions-history-our-party-founding-peoples-republic-china", date: "1981-06-27" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "cn-11", kind: "past", asOf: "2026-09-28",
+      title: "Tiananmen, 1989",
+      dek: "Weeks of protest for reform ended when the army cleared Beijing on 4 June. China has been silent about it ever since.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/cn/cn-11-hero.webp",
+          alt: "Illustration of a wide empty avenue at night with streetlights, a line of bicycles abandoned by the kerb and scattered papers blowing in the wind.",
+          caption: "Chang'an Avenue, Beijing's main boulevard, where troops advanced on the night of 3–4 June 1989.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A very wide empty city avenue at night under orange streetlights, a row of abandoned bicycles by the kerb, scattered leaflets blowing across the asphalt, dark buildings, eerie and sorrowful, no people, no vehicles, no legible text." },
+        { type: "timeline", head: "Spring 1989", items: [
+          ["15 April", "Death of the reformist leader Hu Yaobang; students gather"],
+          ["13 May", "Hunger strike begins in Tiananmen Square"],
+          ["20 May", "Martial law declared in Beijing"],
+          ["3–4 June", "Troops and tanks clear the square and surrounding streets"],
+          ["5 June", "A lone man blocks a column of tanks"]
+        ] },
+        { type: "section", head: "Reform and discontent", md:
+          "A decade after Deng Xiaoping's reforms began, China was changing fast. Markets were growing, but so were inflation, which hit about 18% in 1988, and corruption among officials' families. Students and intellectuals, exposed to new ideas, wanted political change too: a free press, dialogue with leaders and an end to privilege. When Hu Yaobang, a former Party chief ousted for being too liberal, died in April 1989, students gathered in Tiananmen Square to mourn him and to press their demands." },
+        { type: "section", head: "The protests", md:
+          "The protests grew into the largest in Communist China's history, drawing workers and residents as well as students, and spreading to dozens of cities. In May, thousands of students began a hunger strike, just as Soviet leader Mikhail Gorbachev arrived for a state visit, embarrassing the leadership in front of the world's press. The Party chief, Zhao Ziyang, favoured dialogue; Premier Li Peng and the elders around Deng wanted a crackdown. Zhao visited the students, telling them 'we came too late', and was then purged." },
+        { type: "section", head: "The crackdown", md:
+          "Martial law was declared on 20 May, but crowds blocked the army from entering Beijing. On the night of 3–4 June, troops with orders to clear the square by morning opened fire on crowds in the streets leading to it. The death toll has never been officially disclosed. The government's count was 241, including soldiers; the Chinese Red Cross briefly cited about 2,700; other estimates run from several hundred to, in one British diplomatic cable, 10,000. The next day an unidentified man stood before a column of tanks, an image seen around the world." },
+        { type: "section", head: "The aftermath", md:
+          "Protest leaders fled abroad or were jailed, and thousands were arrested. Zhao spent his last 15 years under house arrest. Western countries imposed arms embargoes, which the EU still maintains. Within China, the Party chose a new bargain: rapid economic growth and rising living standards in exchange for political obedience, which Deng relaunched in 1992. The events are censored online, and the 'Tiananmen Mothers', relatives of those killed, have been harassed for seeking accountability." },
+        { type: "compare", head: "Two narratives",
+          left: { head: "The Party", md:
+            "Decisive action stopped 'turmoil' that would have plunged China into chaos, and made the decades of stability and growth that followed possible." },
+          right: { head: "Critics and families of victims", md:
+            "The army killed unarmed citizens in the streets of the capital. The truth, the death toll and justice are still denied." } },
+        { type: "section", head: "Why it still matters", md:
+          "Tiananmen shapes how the Party sees threats to its rule: it studies the fall of the Soviet Union and the 'colour revolutions' closely, and treats any mass movement, from Hong Kong's protests in 2019 to criticism online, as potential turmoil. For many outside China, 4 June remains the defining image of the regime." }
+      ],
+      takeaways: [
+        "In spring 1989 students and workers protested in Tiananmen Square and across China for political reform.",
+        "On 3–4 June the army cleared Beijing, killing hundreds, possibly thousands; the toll has never been officially disclosed.",
+        "The Party then traded growth for obedience; the events remain censored in China."
+      ],
+      check: { q: "What happened to Party chief Zhao Ziyang after he sympathised with the protesters?",
+        choices: ["He became president", "He was purged and spent his last 15 years under house arrest", "He fled abroad"], answer: 1,
+        explain: "Zhao opposed martial law, was removed from power and lived under house arrest until his death in 2005." },
+      sources: [
+        { title: "Tiananmen Square incident", publisher: "Britannica", url: "https://www.britannica.com/event/Tiananmen-Square-incident", date: "n.d." },
+        { title: "The 1989 Tiananmen crackdown", publisher: "Amnesty International", url: "https://www.amnesty.org/en/projects/the-1989-tiananmen-crackdown/", date: "n.d." },
+        { title: "What the Tiananmen Square crackdown on June 4, 1989 was about", publisher: "South China Morning Post", url: "https://www.scmp.com/news/china/politics/article/3135075/tiananmen-square-crackdown-what-june-fourth-incident-1989-was", date: "2021" }
       ]
     },
 
@@ -352,6 +503,54 @@ window.POLITICS.addUnit("cn", {
         { title: "The PLA's \"Justice Mission-2025\" Exercise Around Taiwan", publisher: "Global Taiwan Institute", url: "https://globaltaiwan.org/2026/01/pla-justice-mission-2025/", date: "2026-01" },
         { title: "Japanese PM's Taiwan comments prompt China to ban certain exports to Japan", publisher: "CNN", url: "https://www.cnn.com/2026/01/06/business/china-japan-export-controls-intl-hnk", date: "2026-01-06" },
         { title: "China & Taiwan Update, September 1, 2026", publisher: "American Enterprise Institute", url: "https://www.aei.org/commentary/china-taiwan-update-september-1-2026/", date: "2026-09-01" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "cn-12", kind: "spotlight", asOf: "2026-09-28",
+      title: "Tibet, Xinjiang and Hong Kong",
+      dek: "On China's frontiers, Beijing has imposed tight control in the name of unity and security. Its critics call it repression.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/cn/cn-12-hero.webp",
+          alt: "Illustration of a high mountain plateau with a white-walled monastery on a hillside, prayer flags fluttering and snow peaks behind.",
+          caption: "The Tibetan plateau, where China has ruled since 1950.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A vast high mountain plateau under a deep blue sky, a white-walled monastery with dark red trim on a hillside, strings of faded prayer flags fluttering in the wind, snow-capped peaks beyond, serene and remote, no people close up, no legible text." },
+        { type: "facts", head: "Three frontiers", rows: [
+          ["Tibet", "Under Chinese rule since 1950; the Dalai Lama in exile in India since 1959"],
+          ["Xinjiang", "About 12 million Uyghurs, mostly Muslim; mass detention reported from 2017"],
+          ["Hong Kong", "Returned by Britain in 1997 under 'one country, two systems'"],
+          ["National security law", "Imposed on Hong Kong in June 2020"]
+        ] },
+        { type: "section", head: "Why the frontiers matter to Beijing", md:
+          "Han Chinese make up over 90% of China's population, but the regions on its edges are home to peoples with their own languages, religions and histories. The Party sees any separatism there as a mortal threat to national unity, the lesson it draws from the breakup of the Soviet Union, and it has invested heavily in development, migration of Han settlers and security. Human rights groups, the UN and many Western governments accuse it of systematic abuses." },
+        { type: "section", head: "Tibet", md:
+          "China's army entered Tibet in 1950; Beijing says it 'peacefully liberated' a region that had long been part of China, while Tibetan exiles say an independent country was occupied. After a failed uprising in 1959, the Dalai Lama, Tibet's spiritual leader, fled to India, where he still lives. Protests in 2008 were crushed, and more than 150 Tibetans have set themselves on fire since 2009. Beijing insists it will choose his successor; the Dalai Lama, who turned 90 in 2025, has said his reincarnation will be recognised by his own office, setting up a future confrontation." },
+        { type: "section", head: "Xinjiang", md:
+          "After deadly attacks blamed on Uyghur militants in 2013–14, Beijing launched a campaign against 'extremism' in Xinjiang. Researchers and leaked documents indicate that from 2017 up to a million or more Uyghurs and other Muslims were held in camps, alongside mass surveillance, forced labour programmes and measures that sharply cut birth rates. In 2022 the UN human rights office said the abuses 'may constitute crimes against humanity'; the US calls them genocide. China says the facilities were voluntary vocational schools that have closed, and that it defeated terrorism." },
+        { type: "section", head: "Hong Kong", md:
+          "Britain handed Hong Kong back in 1997 on the promise of 'one country, two systems': a high degree of autonomy and freedoms for 50 years. Mass protests in 2014, and much larger ones in 2019 against a bill allowing extradition to the mainland, challenged Beijing. In 2020 it imposed a national security law criminalising secession, subversion and collusion with foreign forces. Opposition figures were jailed, independent newspapers closed, and elections were redesigned so that only 'patriots' could stand; the pro-democracy media owner Jimmy Lai was convicted in 2025." },
+        { type: "compare", head: "Two views",
+          left: { head: "Beijing", md:
+            "These are internal affairs. China has brought stability, growth and security to regions threatened by separatism, terrorism and foreign interference." },
+          right: { head: "Critics", md:
+            "China is erasing distinct cultures and freedoms by force, and punishing anyone, at home or abroad, who speaks out." } },
+        { type: "section", head: "Why it matters", md:
+          "These frontiers shape China's relations with the world: sanctions over Xinjiang, bans on goods made with forced labour, and the collapse of Western faith that China would liberalise as it grew richer. They also show how the Party would like to handle [[unit:tw|Taiwan]], a prospect Taiwanese voters watched closely in Hong Kong." }
+      ],
+      takeaways: [
+        "Beijing treats its frontier regions as matters of national unity and security.",
+        "The UN human rights office said abuses in Xinjiang 'may constitute crimes against humanity'; China denies wrongdoing.",
+        "A 2020 national security law ended Hong Kong's political freedoms under 'one country, two systems'."
+      ],
+      check: { q: "What was promised to Hong Kong in 1997?",
+        choices: ["Independence", "'One country, two systems': autonomy and freedoms for 50 years", "Full integration with the mainland"], answer: 1,
+        explain: "The handover agreement promised Hong Kong a high degree of autonomy until 2047; the 2020 security law curtailed it." },
+      sources: [
+        { title: "OHCHR Assessment of human rights concerns in the Xinjiang Uyghur Autonomous Region", publisher: "UN Human Rights Office", url: "https://www.ohchr.org/en/documents/country-reports/ohchr-assessment-human-rights-concerns-xinjiang-uyghur-autonomous-region", date: "2022-08-31" },
+        { title: "Tibet", publisher: "Britannica", url: "https://www.britannica.com/place/Tibet", date: "n.d." },
+        { title: "Hong Kong: National Security Law and recent events", publisher: "House of Commons Library (UK)", url: "https://commonslibrary.parliament.uk/research-briefings/cbp-9318/", date: "2021" }
       ]
     },
 
