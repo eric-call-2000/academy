@@ -257,8 +257,25 @@ A fourth set of twelve followed:
 | 🇺🇸🇻🇪 US & Venezuela | The Monroe Doctrine's test case | Citgo: Venezuela's American refineries | Deported to a mega-prison |
 | 🇪🇬🇮🇱 Egypt & Israel | A cold peace | Gas flows the other way | Rafah: Gaza's southern gate |
 
-Candidates for later relationships: Japan–US, France–Germany, Turkey–Israel, Saudi Arabia–UAE,
-India–US, Pakistan–China, Ukraine–Poland, Italy–France, Iran–Pakistan.
+A fifth set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇺🇸🇯🇵 US & Japan | From enemies to allies | Okinawa carries the bases | From car quotas to $550 billion |
+| 🇫🇷🇩🇪 France & Germany | Hereditary enemies, then friends | The engine of Europe | A fighter jet dies, a nuclear talk begins |
+| 🇹🇷🇮🇱 Turkey & Israel | From allies to adversaries | Gaza, trade bans and closed skies | Rivals over Syria |
+| 🇸🇦🇦🇪 Saudi Arabia & UAE | The two Mohammeds | Yemen: the rupture | Oil, money and the OPEC exit |
+| 🇺🇸🇮🇳 US & India | Estranged democracies | The nuclear deal and after | Visas, diaspora and deportations |
+| 🇵🇰🇨🇳 Pakistan & China | Iron brothers | The corridor under fire | Chinese weapons, tested in battle |
+| 🇺🇦🇵🇱 Ukraine & Poland | A hard shared past | Refugees, grain and trucks | The 2026 crisis over the past |
+| 🇮🇹🇫🇷 Italy & France | Latin sisters | Migrants, ships and envoys | The Quirinal Treaty and big business |
+| 🇮🇷🇵🇰 Iran & Pakistan | Brothers, then rivals | The Baloch borderland | A pipeline, a war and a mediator |
+| 🇺🇸🇮🇱 US & Israel | Eleven minutes to a special relationship | Aid, arms and the end of aid | Allies at war, a public divided |
+| 🇨🇦🇨🇳 Canada & China | Railways, wheat and recognition | Meng Wanzhou and the two Michaels | Interference, canola and a reset |
+| 🇺🇸🇹🇼 US & Taiwan | From treaty ally to unofficial friend | Strategic ambiguity and the porcupine | A bargaining chip? |
+
+Candidates for later relationships: US–Saudi Arabia, UK–US, Germany–China, Japan–Russia,
+India–Russia, Brazil–China, Egypt–Saudi Arabia, South Africa–Russia, Australia–US.
 
 ---
 

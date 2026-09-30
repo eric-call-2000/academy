@@ -88,4 +88,40 @@
   L({ id: "eg_il", a: "eg", b: "il", lessons: 3, color: "#8a6a2a",
       title: "Cold peace, gas and Rafah",
       blurb: "The first Arab–Israeli peace and why it stayed cold, Israeli gas that keeps Egypt's lights on, and Gaza's southern border." });
+  L({ id: "us_jp", a: "us", b: "jp", lessons: 3, color: "#2a4a7a",
+      title: "Alliance, Okinawa and trade",
+      blurb: "From occupation to the alliance anchoring US power in Asia, the island that carries the bases, and trade fights." });
+  L({ id: "fr_de", a: "fr", b: "de", lessons: 3, color: "#4a4a8a",
+      title: "Enemies, engine and the bomb",
+      blurb: "Three wars turned into Europe's central friendship, the engine that drives the EU, and a failed jet beside new nuclear talks." });
+  L({ id: "tr_il", a: "tr", b: "il", lessons: 3, color: "#8a3a5a",
+      title: "Allies to rivals",
+      blurb: "Quiet military partners turned bitter enemies, Turkey's trade and airspace bans over Gaza, and a new contest over Syria's skies." });
+  L({ id: "sa_ae", a: "sa", b: "ae", lessons: 3, color: "#4a7a3a",
+      title: "Mentor, rival, OPEC exit",
+      blurb: "Two Gulf princes who went to war together, a clash in Yemen that broke into the open, and the UAE's exit from OPEC." });
+  L({ id: "us_in", a: "us", b: "in", lessons: 3, color: "#2a6a6a",
+      title: "Estrangement, nukes and visas",
+      blurb: "Cold War distance, a nuclear deal that built a strategic partnership, and the visas, deportations and tariffs now testing it." });
+  L({ id: "pk_cn", a: "pk", b: "cn", lessons: 3, color: "#2a6a3a",
+      title: "Iron brothers, corridor, jets",
+      blurb: "An 'all-weather' friendship built on rivalry with India, a corridor under militant attack, and Chinese jets tested in battle." });
+  L({ id: "ua_pl", a: "ua", b: "pl", lessons: 3, color: "#3a5a8a",
+      title: "Volhynia, refugees and grain",
+      blurb: "A painful shared past, refugees and grain disputes in wartime, and a 2026 crisis over how history is honoured." });
+  L({ id: "it_fr", a: "it", b: "fr", lessons: 3, color: "#6a3a6a",
+      title: "Latin sisters, migrants and a treaty",
+      blurb: "Neighbours who helped make each other, quarrel over migrants and ambassadors, and are bound by a friendship treaty and big business." });
+  L({ id: "ir_pk", a: "ir", b: "pk", lessons: 3, color: "#5a6a2a",
+      title: "Brothers, borders and a pipeline",
+      blurb: "The first country to recognise Pakistan, a Baloch border that erupted into missile strikes, and a pipeline stuck by sanctions." });
+  L({ id: "us_il", a: "us", b: "il", lessons: 3, color: "#2a5a8a",
+      title: "Recognition, aid and a divided public",
+      blurb: "Recognised in eleven minutes, armed for decades with record aid, now fighting Iran side by side while American opinion shifts." });
+  L({ id: "ca_cn", a: "ca", b: "cn", lessons: 3, color: "#8a3a2a",
+      title: "Head tax, hostages and canola",
+      blurb: "An early recognition, a Huawei arrest answered by two detained Canadians, and a 2026 canola-for-cars deal that angered Trump." });
+  L({ id: "us_tw", a: "us", b: "tw", lessons: 3, color: "#3a6a8a",
+      title: "Ambiguity, arms and bargaining",
+      blurb: "A treaty ally dropped in 1979 but armed by law, a deliberately vague promise, and arms sales that became a bargaining chip." });
 })();
