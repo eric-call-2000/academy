@@ -160,4 +160,7 @@
   L({ id: "us_ua", a: "us", b: "ua", lessons: 3, color: "#3a5a9a",
       title: "Assurances, arms and a deal",
       blurb: "Nuclear weapons given up for promises in 1994, the largest US war aid in decades, and Trump's minerals deal and push for peace." });
+  L({ id: "mx_cn", a: "mx", b: "cn", lessons: 3, color: "#8a4a2a",
+      title: "Silver, chemicals and tariffs",
+      blurb: "Galleons, migrants and the Torreón massacre, the Chinese chemicals behind Mexican fentanyl, and tariffs imposed under US pressure." });
 })();
