@@ -81,8 +81,8 @@
       blurb: "The largest oil reserves, and the leader the US seized in January 2026." });
 
   /* Part 6 — Africa */
-  C({ id: "za", iso: "710", part: 6, name: "South Africa", flag: "🇿🇦", color: "#1f7a6a", lessons: 8,
+  C({ id: "za", iso: "710", part: 6, name: "South Africa", flag: "🇿🇦", color: "#1f7a6a", lessons: 12,
       blurb: "Africa's most industrialized economy, run by a ten-party coalition about to be tested." });
-  C({ id: "ng", iso: "566", part: 6, name: "Nigeria", flag: "🇳🇬", color: "#4d7c29", lessons: 8,
+  C({ id: "ng", iso: "566", part: 6, name: "Nigeria", flag: "🇳🇬", color: "#4d7c29", lessons: 12,
       blurb: "Africa's most populous country, in a security crisis, voting in January 2027." });
 })();

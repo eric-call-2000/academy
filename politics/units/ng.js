@@ -99,6 +99,57 @@ window.POLITICS.addUnit("ng", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "ng-9", kind: "founding", asOf: "2026-09-29",
+      title: "Amalgamation to independence, 1914–1960",
+      dek: "Britain created Nigeria in 1914 by joining two colonies with very different peoples. Nigerians won independence in 1960, but the question of how to hold the country together was never settled.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ng/ng-9-hero.webp",
+          alt: "Illustration of a crowd in colourful 1960 clothing, agbadas and wrappers, seen from behind in a stadium at night, with fireworks overhead.",
+          caption: "Nigeria celebrated independence at midnight on 1 October 1960 in Lagos.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A large festive crowd in colourful 1960 West African clothing, flowing agbadas, wrappers and head ties, seen from behind in an open stadium at night, fireworks bursting in the sky, joyful and historic, no faces, no flags, no legible text." },
+        { type: "timeline", head: "Making Nigeria", items: [
+          ["1861", "Britain annexes Lagos"],
+          ["1900", "Northern and Southern protectorates"],
+          ["1 Jan 1914", "Lugard amalgamates them into one colony"],
+          ["1946–54", "Constitutions create regional governments and a federation"],
+          ["1 Oct 1960", "Independence; Balewa prime minister"],
+          ["1963", "Nigeria becomes a republic"],
+          ["Jan 1966", "First military coup"]
+        ] },
+        { type: "section", head: "A British creation", md:
+          "Britain expanded from Lagos, annexed in 1861, and the trading posts of the Niger Delta, and conquered the Sokoto Caliphate in the north by 1903. The name 'Nigeria', after the Niger River, was suggested by the journalist Flora Shaw in 1897. On 1 January 1914 Frederick Lugard merged the Northern and Southern Protectorates into a single colony, mainly to use the richer south's revenues to fund the north. Nigerians still debate the 'mistake of 1914'." },
+        { type: "section", head: "Indirect rule", md:
+          "Lugard governed the Muslim north through its emirs, a system called indirect rule, and kept Christian missionaries and Western schools largely out. The south, especially Lagos and the Yoruba and Igbo areas, gained schools, newspapers and a Western-educated elite much earlier. The result was a colony of very unequal regions, with the north much larger in population but behind in education, a gap that shaped politics for decades." },
+        { type: "section", head: "The road to independence", md:
+          "After the Second World War nationalists such as Nnamdi Azikiwe, Obafemi Awolowo and Ahmadu Bello pushed for self-rule. But their parties were rooted in the three big regions: the Northern People's Congress in the Hausa-Fulani north, the Action Group in the Yoruba west and the NCNC in the Igbo-led east. Britain granted a federal constitution in 1954, giving each region wide powers. Northern leaders, worried about southern dominance, asked to delay independence until their region was ready." },
+        { type: "section", head: "Independence", md:
+          "Nigeria became independent on 1 October 1960, with Abubakar Tafawa Balewa, a northerner, as prime minister and Azikiwe as governor-general, then president when Nigeria became a republic in 1963. The new federation was fragile: the north held more than half the seats in parliament, disputed censuses and elections inflamed rivalries, and violence in the west in 1964–65 led to the coup of January 1966 that ended the First Republic (briefing 3)." },
+        { type: "compare", head: "Two views of 1914",
+          left: { head: "A nation in the making", md:
+            "Amalgamation created a large, diverse country with the size and resources to be a leading power in Africa." },
+          right: { head: "A forced marriage", md:
+            "Britain joined peoples who never chose to live together, and the imbalance it built in has fuelled conflict ever since." } },
+        { type: "section", head: "Why it still matters", md:
+          "Nigeria's politics still turns on balancing north and south, Muslims and Christians, and the major ethnic groups. The unwritten rule of rotating the presidency between north and south (briefing 2), demands for 'restructuring' to give states more power and control over resources, and separatist movements all go back to the way the country was created and to the regional rivalries of the 1950s." }
+      ],
+      takeaways: [
+        "Britain created Nigeria on 1 January 1914 by merging its northern and southern protectorates.",
+        "Indirect rule in the north and faster Western education in the south left the regions deeply unequal.",
+        "Nigeria won independence on 1 October 1960 as a federation of three powerful regions."
+      ],
+      check: { q: "What did Frederick Lugard do in 1914?",
+        choices: ["Granted Nigeria independence", "Merged the Northern and Southern Protectorates into one colony", "Founded Lagos"], answer: 1,
+        explain: "The amalgamation of 1 January 1914 created a single colony called Nigeria." },
+      sources: [
+        { title: "History of Nigeria: Nigeria as a colony", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Nigeria/Nigeria-as-a-colony", date: "n.d." },
+        { title: "Frederick Lugard", publisher: "Britannica", url: "https://www.britannica.com/biography/Frederick-Lugard", date: "n.d." },
+        { title: "Nigeria: Independent Nigeria", publisher: "Britannica", url: "https://www.britannica.com/place/Nigeria/Independent-Nigeria", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "ng-3", kind: "history", asOf: "2026-09-29",
@@ -145,6 +196,109 @@ window.POLITICS.addUnit("ng", {
         { title: "Nigeria: History", publisher: "Britannica", url: "https://www.britannica.com/place/Nigeria/History", date: "n.d." },
         { title: "Biafra", publisher: "Britannica", url: "https://www.britannica.com/place/Biafra", date: "n.d." },
         { title: "Nigeria profile: Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-africa-13951696", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "ng-10", kind: "past", asOf: "2026-09-29",
+      title: "Biafra: the civil war, 1967–70",
+      dek: "When Nigeria's south-east broke away as Biafra, the war and blockade that followed killed between half a million and three million people, most of them from starvation.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ng/ng-10-hero.webp",
+          alt: "Illustration of a small rural airstrip at night in dense palm forest, lit by lanterns, with an old propeller cargo plane landing.",
+          caption: "Relief flights landed at night on a road turned airstrip at Uli, Biafra's lifeline.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A narrow road used as an airstrip at night in dense palm forest in south-eastern Nigeria, lined with dim lanterns, an old four-engine propeller cargo plane landing with its lights on, a few figures seen from far behind waiting with carts, tense and dramatic, no faces, no legible text, no flags." },
+        { type: "timeline", head: "The war", items: [
+          ["Jan 1966", "Coup by mostly Igbo officers"],
+          ["Jul 1966", "Northern counter-coup"],
+          ["1966", "Massacres of Igbo people in the north"],
+          ["30 May 1967", "Ojukwu declares the Republic of Biafra"],
+          ["Jul 1967", "Federal offensive begins"],
+          ["1968–69", "Blockade and famine"],
+          ["15 Jan 1970", "Biafra surrenders"]
+        ] },
+        { type: "section", head: "Coups and massacres", md:
+          "In January 1966 a group of mostly Igbo army majors killed the prime minister, the premier of the north, Ahmadu Bello, and other leaders. Many northerners saw it as an Igbo plot. In July northern officers staged a counter-coup, killed the military head of state, and installed Lieutenant Colonel Yakubu Gowon. That year mobs in the north killed thousands of Igbo people, and more than a million fled back to the east." },
+        { type: "section", head: "Secession", md:
+          "The eastern military governor, Lieutenant Colonel Chukwuemeka Odumegwu Ojukwu, argued that Igbo people were no longer safe in Nigeria. Talks in Ghana failed, and Gowon split the regions into twelve states, cutting off the east from much of the oil in its south. On 30 May 1967 Ojukwu declared the independent Republic of Biafra. Federal forces attacked in July. Britain and the Soviet Union armed Nigeria; France gave Biafra covert help, and only five countries recognised it." },
+        { type: "section", head: "Starvation", md:
+          "Federal forces surrounded Biafra and blockaded it. By 1968 images of starving children with swollen bellies shocked the world; the Biafran government used them to win sympathy, while federal leaders called starvation a legitimate weapon of war. Church groups and the Red Cross flew in food at night to an improvised airstrip at Uli. Estimates of the dead range from 500,000 to 3 million, mostly civilians who died of hunger and disease. Massacres also took place, such as at Asaba in 1967." },
+        { type: "section", head: "'No victor, no vanquished'", md:
+          "Biafra collapsed in January 1970; Ojukwu fled to Côte d'Ivoire. Gowon declared that there was 'no victor, no vanquished' and offered reconciliation, and there were no mass reprisals. But Igbo people who returned found their property in other regions seized, and each was given only £20 regardless of their bank savings. Many Igbo still feel excluded from power: no Igbo has been elected president since the war." },
+        { type: "compare", head: "Two memories of the war",
+          left: { head: "Many in the south-east", md:
+            "Biafra was a fight for survival after massacres; the blockade was a genocide, and marginalisation continues." },
+          right: { head: "The federal view", md:
+            "The war preserved Nigeria's unity against an illegal secession, and reconciliation afterwards was generous." } },
+        { type: "section", head: "Why it still matters", md:
+          "The war is barely taught in Nigerian schools, but its memory is alive. The Indigenous People of Biafra (IPOB) has revived calls for independence; its 'sit-at-home' orders have paralysed south-eastern cities, and violence by armed groups and security forces there has killed many. In November 2025 its leader, Nnamdi Kanu, was sentenced to life imprisonment for terrorism. Peter Obi's strong showing in 2023 energised many Igbo voters (briefing 4)." }
+      ],
+      takeaways: [
+        "Coups in 1966 and massacres of Igbo people in the north led the east to secede as Biafra in 1967.",
+        "Nigeria's blockade caused famine; between 500,000 and 3 million people died.",
+        "Biafra surrendered in 1970; separatism has revived, and IPOB's leader was jailed for life in 2025."
+      ],
+      check: { q: "What caused most deaths in the Nigerian civil war?",
+        choices: ["Air raids on Lagos", "Starvation and disease under the blockade of Biafra", "Oil fires"], answer: 1,
+        explain: "Most victims were civilians in Biafra who died of hunger and disease during the blockade." },
+      sources: [
+        { title: "Nigerian Civil War", publisher: "Britannica", url: "https://www.britannica.com/topic/Nigerian-civil-war", date: "n.d." },
+        { title: "The Nigerian-Biafran War", publisher: "African Studies Centre Leiden", url: "https://www.ascleiden.nl/content/webdossiers/nigerian-biafran-war", date: "n.d." },
+        { title: "Will Nnamdi Kanu's Life Sentence End the Agitation for Biafra?", publisher: "IPS", url: "https://www.ipsnews.net/2025/12/nigeria-will-nnamdi-kanus-life-sentence-end-the-violent-agitation-for-biafra/", date: "2025-12" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "ng-11", kind: "past", asOf: "2026-09-29",
+      title: "June 12, 1993",
+      dek: "Nigeria's freest election was annulled by the military ruler who organised it. The fight that followed shaped the democracy that returned in 1999, and the career of President Tinubu.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ng/ng-11-hero.webp",
+          alt: "Illustration of a long line of voters in colourful clothing seen from behind queueing in the open air at a polling station under a large tree.",
+          caption: "Voters queued across the country on 12 June 1993 in an election observers praised as fair.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long orderly line of Nigerian voters in colourful early-1990s clothing seen from behind queueing in the open air at a rural polling station under a large shade tree, a simple wooden table ahead, bright midday sun, hopeful civic mood, no faces, no legible text." },
+        { type: "timeline", head: "From annulment to democracy", items: [
+          ["12 Jun 1993", "Presidential election; Abiola wins"],
+          ["23 Jun 1993", "Babangida annuls the result"],
+          ["Nov 1993", "General Sani Abacha seizes power"],
+          ["1994", "Abiola declares himself president and is jailed"],
+          ["10 Nov 1995", "Ken Saro-Wiwa and eight others hanged"],
+          ["Jun–Jul 1998", "Abacha dies; Abiola dies in custody"],
+          ["29 May 1999", "Civilian rule returns"],
+          ["2018", "12 June made Democracy Day"]
+        ] },
+        { type: "section", head: "A promised transition", md:
+          "General Ibrahim Babangida, who took power in a 1985 coup, promised to hand over to civilians and designed an elaborate transition with two government-created parties. In the presidential election of 12 June 1993, Moshood Abiola, a wealthy Yoruba Muslim businessman and philanthropist from the south-west, ran for the Social Democratic Party with a Muslim northern running mate. He won support across ethnic and religious lines, and observers judged the vote the freest in Nigeria's history." },
+        { type: "section", head: "Annulled", md:
+          "Before the full results were announced, Babangida annulled the election on 23 June, citing irregularities. Protests and strikes shook Lagos and the south-west, and dozens were killed. Babangida stepped aside in August for a civilian interim government, which General Sani Abacha overthrew in November. When Abiola declared himself president on the first anniversary of the vote, in 1994, he was arrested for treason." },
+        { type: "section", head: "The Abacha years", md:
+          "Abacha's rule was the harshest in Nigeria's history. Opponents were jailed or killed; Abiola's wife Kudirat was assassinated in 1996. The pro-democracy coalition NADECO campaigned from exile, among them Bola Tinubu, then a senator from Lagos. In November 1995 the regime hanged the writer Ken Saro-Wiwa and eight other Ogoni activists after a widely condemned trial, and the Commonwealth suspended Nigeria. Abacha, who looted billions of dollars, died suddenly in June 1998; Abiola died in custody a month later, on the eve of his expected release." },
+        { type: "section", head: "Democracy returns", md:
+          "Abacha's successor, General Abdulsalami Abubakar, organised a quick transition. Olusegun Obasanjo, a former military ruler and a Yoruba, was elected in 1999, partly to placate the south-west over Abiola. For years 29 May, the date of the handover, was Democracy Day. In 2018 President Buhari moved it to 12 June and posthumously gave Abiola the country's highest honour." },
+        { type: "compare", head: "Two views of the annulment",
+          left: { head: "Most Nigerians today", md:
+            "A theft of the people's mandate by the military, which set democracy back six years and cost many lives." },
+          right: { head: "Babangida's account", md:
+            "He says in his memoir that he annulled it to prevent a coup by officers opposed to Abiola, and has expressed regret." } },
+        { type: "section", head: "Why it still matters", md:
+          "June 12 is a symbol of what Nigerian elections could be: across ethnic and religious lines, and respected. Tinubu, who fought for Abiola's mandate, often invokes it, while critics point out that elections since 1999, including Tinubu's own in 2023, have been marred by low turnout and fraud claims (briefing 3). The struggle also produced a generation of civil society activists and a lasting distrust of the military, relevant as rumours of coup plots return (briefing 7)." }
+      ],
+      takeaways: [
+        "Moshood Abiola won the 12 June 1993 election, widely seen as Nigeria's freest, but the military annulled it.",
+        "General Abacha's brutal rule followed; Ken Saro-Wiwa was hanged in 1995 and Abiola died in custody in 1998.",
+        "Civilian rule returned in 1999, and 12 June became Democracy Day in 2018."
+      ],
+      check: { q: "What happened to the 12 June 1993 presidential election?",
+        choices: ["It was won by Obasanjo", "The military government annulled it", "It was postponed to 1999"], answer: 1,
+        explain: "General Babangida annulled the result before it was fully announced; Abiola was widely believed to have won." },
+      sources: [
+        { title: "June 12 is now Democracy Day in Nigeria. Why it matters", publisher: "The Conversation", url: "https://theconversation.com/june-12-is-now-democracy-day-in-nigeria-why-it-matters-118572", date: "2018" },
+        { title: "June 12 presidential election was annulled to prevent coup — Babangida", publisher: "The Guardian (Nigeria)", url: "https://guardian.ng/news/june-12-presidential-election-was-annulled-to-prevent-coup-babangida/", date: "2025" },
+        { title: "History of Nigeria", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Nigeria", date: "n.d." }
       ]
     },
 
@@ -347,6 +501,56 @@ window.POLITICS.addUnit("ng", {
         { title: "Nigeria roiled by alleged coup plot to topple Tinubu", publisher: "African Business", url: "https://african.business/2026/02/politics/nigeria-roiled-by-alleged-coup-plot-to-topple-tinubu", date: "2026-02" },
         { title: "Nigeria charges six people with 'terrorism', treason over 2025 coup plot", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/4/21/nigeria-charges-six-people-with-terrorism-treason-over-2025-coup-plot", date: "2026-04-21" },
         { title: "Nigerian military says officers will be tried after a probe found they carried out a coup plot", publisher: "AP via The Hill", url: "https://thehill.com/homenews/ap/ap-international/ap-nigerian-military-says-officers-will-be-tried-after-a-probe-found-they-carried-out-a-coup-plot/", date: "2026-01" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "ng-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "Oil and the Niger Delta",
+      dek: "Oil has paid for Nigeria's state for half a century, but the region that produces it is among the most polluted places on earth. Now the foreign majors are leaving and a giant local refinery is changing the business.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ng/ng-12-hero.webp",
+          alt: "Illustration of a winding creek in the Niger Delta lined with mangroves, with a small wooden canoe and a distant gas flare burning on the horizon.",
+          caption: "Gas flares still burn across the Delta's creeks and mangroves.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A winding creek in the Niger Delta lined with dense mangroves, a small wooden dugout canoe with a fisherman seen from behind, oily sheen on the water, a distant orange gas flare burning on the horizon under a hazy dusk sky, beautiful but troubled mood, no faces, no legible text." },
+        { type: "facts", head: "Oil in numbers", rows: [
+          ["First commercial oil", "Oloibiri, 1956"],
+          ["Share of government revenue", "Historically well over half"],
+          ["Dangote refinery", "650,000 barrels a day, opened 2024"],
+          ["Shell's onshore sale", "Completed March 2025"],
+          ["Amnesty programme", "Since 2009, for former militants"]
+        ] },
+        { type: "section", head: "Riches and ruin", md:
+          "Oil was found at Oloibiri in the Delta in 1956, and by the 1970s it dominated exports and the federal budget. Most of the money flowed to Abuja and the states through a formula the Delta's people considered unfair, and much was stolen. Meanwhile decades of spills from ageing pipelines, sabotage and theft, and the flaring of gas, poisoned creeks, farmland and fishing grounds. A 2011 UN report on Ogoniland said a full clean-up could take 30 years." },
+        { type: "section", head: "Resistance", md:
+          "In the early 1990s Ken Saro-Wiwa's Movement for the Survival of the Ogoni People led peaceful protests against Shell and the government, until he and eight others were hanged in 1995 (briefing 11); in 2025 Tinubu granted the 'Ogoni Nine' a posthumous pardon, though their families sought full exoneration. In the 2000s armed groups such as MEND kidnapped oil workers and blew up pipelines, cutting output sharply. In 2009 President Yar'Adua offered an amnesty: militants handed in weapons in exchange for stipends and training, a programme that still costs billions of naira a year." },
+        { type: "section", head: "Theft and decline", md:
+          "Violence fell, but theft did not. Criminal networks, some linked to officials and security forces, tap pipelines and run illegal refineries, 'bunkering' hundreds of thousands of barrels a day at times. Output fell below OPEC quotas. Nigeria even imported almost all its petrol, because its state refineries barely worked, and spent billions subsidising the price until Tinubu scrapped the subsidy in 2023 (briefing 5)." },
+        { type: "section", head: "A new era", md:
+          "The industry is changing. Shell, Exxon, Eni and TotalEnergies have sold onshore and shallow-water assets to Nigerian companies, leaving the pollution liabilities contested; Shell completed the sale of its onshore subsidiary to the Renaissance consortium in March 2025. The Dangote refinery near Lagos, Africa's largest, reached its full capacity of 650,000 barrels a day, letting Nigeria refine its own crude and even export fuel, though it has clashed with regulators and the state oil company." },
+        { type: "compare", head: "Two views of the divestments",
+          left: { head: "Government and industry", md:
+            "Nigerian operators will invest, raise output and keep more of the profits at home." },
+          right: { head: "Delta communities and activists", md:
+            "The majors are walking away from decades of pollution, and local firms may lack the money to clean it up." } },
+        { type: "section", head: "Why it matters", md:
+          "Oil still funds much of the state and backs the naira, so output, prices and theft directly affect Tinubu's reforms (briefing 5). The Delta's grievances remain a potential source of conflict, and its politics matter nationally. As the world begins to move away from oil, Nigeria faces the question of what else can pay for a country of more than 230 million people." }
+      ],
+      takeaways: [
+        "Oil discovered in the Niger Delta in 1956 has funded Nigeria's state, but left the Delta badly polluted.",
+        "Protest, then armed militancy, ended in a 2009 amnesty; oil theft remains huge.",
+        "Foreign majors are selling onshore assets, and the Dangote refinery lets Nigeria refine its own crude."
+      ],
+      check: { q: "Why did Nigeria import most of its petrol for years despite being a major oil producer?",
+        choices: ["It had no oil fields on land", "Its state refineries barely worked", "OPEC banned refining"], answer: 1,
+        explain: "With the state refineries broken, Nigeria exported crude and imported fuel until the Dangote refinery opened." },
+      sources: [
+        { title: "Shell completes sale of SPDC", publisher: "Shell", url: "https://www.shell.com/news-and-insights/newsroom/news-and-media-releases/2025/shell-completes-sale-of-spdc.html", date: "2025-03" },
+        { title: "Dangote Says Refinery Units Reach 650,000 Barrel-a-Day Capacity", publisher: "Bloomberg", url: "https://www.bloomberg.com/news/articles/2026-02-12/dangote-says-refinery-units-reach-650-000-barrel-a-day-capacity", date: "2026-02-12" },
+        { title: "Dangote refinery drives increase in petroleum shipments from Nigeria", publisher: "US Energy Information Administration", url: "https://www.eia.gov/todayinenergy/detail.php?id=68004", date: "2026" },
+        { title: "How Shell is still benefiting from offloaded Niger Delta oil assets", publisher: "Climate Home News", url: "https://www.climatechangenews.com/2026/05/06/how-shell-is-still-benefiting-from-offloaded-niger-delta-oil-assets/", date: "2026-05-06" }
       ]
     },
 
