@@ -718,8 +718,8 @@
     var main = shell("map");
     main.classList.add("wrap-wide");
     main.appendChild(el("h1", "page-title", "World map"));
-    main.appendChild(el("p", "page-sub", "All 30 countries, each with its number of briefings. The lines join countries that have " +
-      "relationship briefings of their own. Tap a country or a line."));
+    main.appendChild(el("p", "page-sub", "All 30 countries. Tap one to see its relationships: a line to each country it has " +
+      "relationship briefings with, labelled with their two flags."));
     var box = el("div", "wmap-box");
     box.appendChild(el("div", "card loading", "Drawing the map…"));
     main.appendChild(box);
@@ -732,22 +732,42 @@
   function drawMap(box, panel, W, focus) {
     var prof = me();
     var ns = "http://www.w3.org/2000/svg";
-    function pos(id) { var k = W.countries[id]; return [k.lx, k.ly]; }
-    /* A link's badge sits 30% of the way along its arc from the first
-       country, clear of the badges it joins; a link in links.js can set
-       its own `bow` (how high the arc climbs) and `at`. Links between near
-       neighbours get a fixed badge position from tools/build-world.js
-       (maps/world.js "links"), and their arc bends through it. */
-    function linkArc(l) {
-      var via = W.links && W.links[l.id];
-      if (!via) return arcPath(pos(l.a), pos(l.b), l.bow || 0.45, l.at || 0.3);
-      /* A curve through the badge's set position: the control point that
-         puts a quadratic's midpoint at (x, y). */
-      var a = pos(l.a), b = pos(l.b);
-      var qx = 2 * via.x - (a[0] + b[0]) / 2, qy = 2 * via.y - (a[1] + b[1]) / 2;
-      return { d: "M" + a[0] + "," + a[1] + " Q" + qx.toFixed(1) + "," + qy.toFixed(1) + " " + b[0] + "," + b[1], at: [via.x, via.y] };
+    function pos(id) { var k = W.countries[id]; return [k.cx, k.cy]; }
+    function arc(l, t) { return arcPath(pos(l.a), pos(l.b), 0.28, t); }
+    function drawable(l) { return !!(W.countries[l.a] && W.countries[l.b]); }
+    /* Where each label goes: near the partner's end of its line (the
+       middle for a relationship shown on its own), sliding along the line
+       and then off to the side (with a dotted tie back to the line) until
+       it clears the labels already placed. */
+    function spots(links, from, mw, mh) {
+      var out = {}, placed = [];
+      links.forEach(function (l) {
+        var ts = from ? [0.74, 0.66, 0.82, 0.58, 0.5, 0.42] : [0.5, 0.42, 0.58, 0.34, 0.66];
+        var flip = from && l.b === from;
+        ts = ts.map(function (t) { return flip ? 1 - t : t; });
+        var mid = arc(l, ts[0]).at, best = null, cands = [];
+        ts.forEach(function (t) { var p = arc(l, t).at; cands.push([p[0], p[1], false]); });
+        [1, 2, 3].forEach(function (r) {
+          for (var k = 0; k < 8; k++) cands.push([mid[0] + Math.cos(k * Math.PI / 4) * mw * 0.75 * r, mid[1] + Math.sin(k * Math.PI / 4) * mh * 1.1 * r, true]);
+        });
+        cands.some(function (c) {
+          if (c[0] < mw / 2 || c[0] > W.w - mw / 2 || c[1] < mh / 2 || c[1] > W.h - mh / 2) return false;
+          var hit = 0;
+          placed.forEach(function (q) { if (Math.abs(q[0] - c[0]) < mw && Math.abs(q[1] - c[1]) < mh) hit++; });
+          if (!best || hit < best.hit) best = { at: [c[0], c[1]], tie: c[2] ? mid : null, hit: hit };
+          return hit === 0;
+        });
+        placed.push(best.at);
+        out[l.id] = best;
+      });
+      return out;
     }
     function each(sel, fn) { Array.prototype.forEach.call(root.querySelectorAll(sel), fn); }
+    function svgEl(tag, attrs) {
+      var x = document.createElementNS(ns, tag);
+      Object.keys(attrs).forEach(function (k) { x.setAttribute(k, attrs[k]); });
+      return x;
+    }
     var svg = ['<svg class="wmap" viewBox="0 0 ' + W.w + " " + W.h + '" role="group" aria-label="World map of the 30 countries and their relationships">',
       '<defs><pattern id="wm-hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
       '<rect width="4" height="4" class="wm-hatch-bg"/><rect width="1.6" height="4" class="wm-hatch-fg"/></pattern></defs>',
@@ -762,92 +782,77 @@
       svg.push('<path class="wm-disputed" d="' + x.d + '"><title>' + esc(x.name ? x.name + " (disputed)" : "Disputed territory") + "</title></path>");
     });
     svg.push('<path class="wm-borders" d="' + W.borders + '"/>');
-    svg.push('<g class="wm-rel-layer"></g>');
-    /* Leader lines for badges moved off a crowded country. */
+    /* A tap target on every country, so the small ones (Israel, Taiwan,
+       the UAE) are as easy to pick as Russia; also what the keyboard
+       focuses. */
     P.countries.forEach(function (c) {
       var k = W.countries[c.id];
       if (!k) return;
-      var dx = k.lx - k.cx, dy = k.ly - k.cy;
-      if (dx * dx + dy * dy > 150) svg.push('<line class="wm-leader" x1="' + k.cx + '" y1="' + k.cy + '" x2="' + k.lx + '" y2="' + k.ly + '"/><circle class="wm-dot" cx="' + k.cx + '" cy="' + k.cy + '" r="1.8"/>');
+      var n = P.linksOf(c.id).filter(drawable).length;
+      svg.push('<circle class="wm-hit" data-id="' + c.id + '" cx="' + k.cx + '" cy="' + k.cy + '" r="9" tabindex="0" role="button" aria-label="' +
+        esc(c.name + ": " + plural(n, "relationship")) + '"><title>' + esc(c.name) + "</title></circle>");
     });
-    P.links.forEach(function (l) {
-      if (!W.countries[l.a] || !W.countries[l.b]) return;
-      var d = linkArc(l).d, s = P.subject(l.id);
-      svg.push('<path class="wm-link-hit" data-link="' + l.id + '" d="' + d + '"/>' +
-        '<path class="wm-link' + (s.lessons > 0 ? "" : " soon") + '" data-link="' + l.id + '" style="--c:' + s.color + '" d="' + d + '"/>');
-    });
-    /* Badges on top: countries, then relationships. */
-    P.countries.forEach(function (c) {
-      var k = W.countries[c.id];
-      if (!k) return;
-      var n = c.lessons || 0, done = n ? P.readCount(prof, c.id) : 0;
-      var r = 15.5, circ = 2 * Math.PI * r, f = n ? Math.min(1, done / n) : 0;
-      svg.push('<g class="wm-b" data-id="' + c.id + '" transform="translate(' + k.lx + "," + k.ly + ')" tabindex="0" role="button" aria-label="' +
-        esc(c.name + ": " + plural(n, "briefing") + ", " + done + " read") + '" style="--c:' + c.color + '">' +
-        "<title>" + esc(c.name + " · " + plural(n, "briefing") + " · " + done + " read") + "</title>" +
-        '<circle class="wm-b-ring" r="' + r + '"/>' +
-        (f > 0 ? '<circle class="wm-b-prog" r="' + r + '" stroke-dasharray="' + (circ * f).toFixed(1) + " " + circ.toFixed(1) + '" transform="rotate(-90)"/>' : "") +
-        '<circle class="wm-b-disc" r="12"/><text class="wm-b-num" dy="0.36em">' + n + "</text></g>");
-    });
-    P.links.forEach(function (l) {
-      if (!W.countries[l.a] || !W.countries[l.b]) return;
-      var s = P.subject(l.id), spot = linkArc(l).at;
-      var done = P.readCount(prof, l.id);
-      svg.push('<g class="wm-lb" data-link="' + l.id + '" transform="translate(' + spot[0].toFixed(1) + "," + spot[1].toFixed(1) + ')" tabindex="0" role="button" aria-label="' +
-        esc(s.name + ": " + s.title + ", " + plural(s.lessons, "briefing") + ", " + done + " read") + '" style="--c:' + s.color + '">' +
-        "<title>" + esc(s.name + " · " + s.title) + "</title>" +
-        '<rect class="wm-lb-pill" x="-24" y="-11" width="48" height="22" rx="11"/>' +
-        '<text class="wm-lb-txt" dy="0.36em">⇄ ' + s.lessons + "</text></g>");
-    });
-    svg.push("</svg>");
+    svg.push('<g class="wm-sel-layer"></g></svg>');
     box.innerHTML = "";
     var scroller = el("div", "wmap-scroll");
     scroller.innerHTML = svg.join("");
     box.appendChild(scroller);
     box.appendChild(el("div", "wmap-legend",
-      '<span><i class="lg-badge">12</i> briefings on a country</span>' +
-      '<span><i class="lg-ring"></i> fills gold as you read</span>' +
-      '<span><i class="lg-link">⇄ 3</i> briefings on a relationship</span>' +
+      '<span><i class="lg-tap"></i> tap a country to show its relationships</span>' +
       '<span><i class="lg-hatch"></i> disputed territory</span>'));
     var root = scroller.querySelector("svg");
-    var relLayer = root.querySelector(".wm-rel-layer");
+    var layer = root.querySelector(".wm-sel-layer");
 
+    /* Draw the selected country's relationships (or one relationship on
+       its own): lines, a dot where they meet, and a flag label on each. */
     function mark(sel) {
       each(".on", function (x) { x.classList.remove("on"); });
-      relLayer.innerHTML = "";
+      layer.innerHTML = "";
       root.classList.toggle("has-sel", !!sel);
       if (!sel) return;
-      if (sel.link) {
-        var l = P.link(sel.link);
-        [l.a, l.b].forEach(function (id) { each('[data-id="' + id + '"]', function (x) { x.classList.add("on"); }); });
-        each('[data-link="' + sel.link + '"]', function (x) { x.classList.add("on"); });
-        return;
-      }
-      var c = P.country(sel.id);
-      each('[data-id="' + c.id + '"]', function (x) { x.classList.add("on"); });
-      /* Dashed lines to the countries its briefings connect it with. */
-      (c.related || []).forEach(function (r) {
-        if (!W.countries[r]) return;
-        var p = document.createElementNS(ns, "path");
-        p.setAttribute("class", "wm-rel");
-        p.setAttribute("d", arcPath(pos(c.id), pos(r), 0.18).d);
-        relLayer.appendChild(p);
-        each('.wm-b[data-id="' + r + '"]', function (x) { x.classList.add("on"); });
+      var links = (sel.id ? P.linksOf(sel.id) : [P.link(sel.link)]).filter(drawable);
+      var ids = sel.id ? [sel.id] : [];
+      links.forEach(function (l) { [l.a, l.b].forEach(function (x) { if (ids.indexOf(x) < 0) ids.push(x); }); });
+      ids.forEach(function (id) { each('.wm-c[data-id="' + id + '"]', function (x) { x.classList.add("on"); }); });
+      var lines = svgEl("g", {}), dots = svgEl("g", {}), labels = svgEl("g", {});
+      var at = spots(links, sel.id, 56, 26);
+      links.forEach(function (l) {
+        var s = P.subject(l.id), d = arc(l, 0.5).d, pick = sel.link === l.id;
+        lines.appendChild(svgEl("path", { "class": "wm-link-hit", "data-link": l.id, d: d }));
+        lines.appendChild(svgEl("path", { "class": "wm-link" + (s.lessons > 0 ? "" : " soon") + (pick ? " on" : ""), "data-link": l.id, style: "--c:" + s.color, d: d }));
+        var p = at[l.id].at, tie = at[l.id].tie;
+        var g = svgEl("g", { "class": "wm-lb" + (pick ? " on" : ""), "data-link": l.id, transform: "translate(" + p[0].toFixed(1) + "," + p[1].toFixed(1) + ")",
+          tabindex: "0", role: "button", style: "--c:" + s.color,
+          "aria-label": s.name + ": " + s.title + ", " + plural(s.lessons, "briefing") + ", " + P.readCount(prof, l.id) + " read" });
+        g.innerHTML = "<title>" + esc(s.name + " · " + s.title) + "</title>" +
+          (tie ? '<line class="wm-lb-tie" x1="0" y1="0" x2="' + (tie[0] - p[0]).toFixed(1) + '" y2="' + (tie[1] - p[1]).toFixed(1) + '"/>' : "") +
+          '<rect class="wm-lb-pill" x="-26" y="-12" width="52" height="24" rx="12"/>' +
+          '<text class="wm-lb-txt" dy="0.36em">' + P.country(l.a).flag + P.country(l.b).flag + "</text>";
+        labels.appendChild(g);
       });
-      P.linksOf(c.id).forEach(function (l) {
-        each('[data-link="' + l.id + '"]', function (x) { x.classList.add("on"); });
-        [l.a, l.b].forEach(function (id) { each('.wm-b[data-id="' + id + '"]', function (x) { x.classList.add("on"); }); });
+      ids.forEach(function (id) {
+        var k = W.countries[id];
+        if (k) dots.appendChild(svgEl("circle", { "class": "wm-anchor" + (id === sel.id ? " main" : ""), cx: k.cx, cy: k.cy, r: id === sel.id ? 4.5 : 3.2 }));
       });
+      layer.appendChild(lines); layer.appendChild(dots); layer.appendChild(labels);
     }
+    var cur = null;
     function select(sel, fromUser) {
+      /* A label tapped while a country is showing keeps that country's
+         other relationships on the map. */
+      if (sel && sel.link && !sel.id && cur && cur.id) {
+        var l0 = P.link(sel.link);
+        if (l0 && (l0.a === cur.id || l0.b === cur.id)) sel = { id: cur.id, link: sel.link };
+      }
+      cur = sel;
       mark(sel);
-      drawPanel(sel);
+      drawPanel(sel && sel.link ? { link: sel.link } : sel);
       if (fromUser && history.replaceState) history.replaceState(null, "", "#/map" + (sel ? "/" + (sel.link || sel.id) : ""));
     }
     function drawPanel(sel) {
       panel.innerHTML = "";
       if (!sel) {
-        panel.appendChild(el("p", "wmap-hint", "Tap a country to see its briefings and connections, or a ⇄ line for the briefings on a relationship."));
+        panel.appendChild(el("p", "wmap-hint", "Tap a country on the map to see its relationships, or pick one from the list below."));
         if (P.links.length) {
           panel.appendChild(el("h2", "section-title", "Relationships"));
           P.links.forEach(function (l) { panel.appendChild(linkRow(l)); });
@@ -899,7 +904,7 @@
           card.appendChild(rrow);
         }
       }
-      var all = el("button", "wmap-clear", "✕ Show the whole map");
+      var all = el("button", "wmap-clear", "✕ Clear the map");
       all.type = "button";
       all.onclick = function () { select(null, true); };
       card.appendChild(all);
@@ -928,7 +933,7 @@
     select(start, false);
     /* On a phone the map scrolls sideways: start with the selection (or the Atlantic) in view. */
     if (scroller.scrollWidth > scroller.clientWidth) {
-      var at = start ? (start.link ? linkArc(P.link(start.link)).at : pos(start.id)) : [W.w * 0.42, 0];
+      var at = start ? (start.link ? arcPath(pos(P.link(start.link).a), pos(P.link(start.link).b), 0.28, 0.5).at : pos(start.id)) : [W.w * 0.42, 0];
       scroller.scrollLeft = Math.max(0, at[0] / W.w * scroller.scrollWidth - scroller.clientWidth / 2);
     }
   }

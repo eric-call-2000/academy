@@ -124,4 +124,40 @@
   L({ id: "us_tw", a: "us", b: "tw", lessons: 3, color: "#3a6a8a",
       title: "Ambiguity, arms and bargaining",
       blurb: "A treaty ally dropped in 1979 but armed by law, a deliberately vague promise, and arms sales that became a bargaining chip." });
+  L({ id: "us_sa", a: "us", b: "sa", lessons: 3, color: "#3a6a4a",
+      title: "Oil, terror and a crown prince",
+      blurb: "Oil for security since 1945, troops and the 9/11 hijackers, and a crown prince who went from pariah to partner." });
+  L({ id: "us_gb", a: "us", b: "gb", lessons: 3, color: "#2a3a7a",
+      title: "Special, unequal and tested",
+      blurb: "Wartime allies who share spies and nuclear secrets, followed each other into Iraq, and now argue over Iran and Chagos." });
+  L({ id: "de_cn", a: "de", b: "cn", lessons: 3, color: "#6a4a2a",
+      title: "Cars, rivals and a deficit",
+      blurb: "Volkswagen in Shanghai and change through trade, a turn to 'systemic rival', and Chinese cars, chips and a record trade deficit." });
+  L({ id: "jp_ru", a: "jp", b: "ru", lessons: 3, color: "#4a3a6a",
+      title: "Four islands and no peace",
+      blurb: "Two wars and four islands with no peace treaty since 1945, Abe's failed courtship of Putin, and sanctions, Sakhalin gas and a provocative visit." });
+  L({ id: "in_ru", a: "in", b: "ru", lessons: 3, color: "#7a4a2a",
+      title: "Old friends, arms and oil",
+      blurb: "A Cold War friendship sealed in 1971, decades of Russian arms, and cheap oil that brought Trump's tariffs." });
+  L({ id: "br_cn", a: "br", b: "cn", lessons: 3, color: "#3a7a3a",
+      title: "Soybeans, vaccines and BRICS",
+      blurb: "China's biggest farm supplier, a president who campaigned against Beijing then made peace, and record trade as Trump's tariffs bite." });
+  L({ id: "eg_sa", a: "eg", b: "sa", lessons: 3, color: "#8a6a2a",
+      title: "Rivals, patrons and partners",
+      blurb: "Nasser against the Saudi kings, billions for Sisi and two Red Sea islands in return, and a partnership of deposits, power lines and Sudan." });
+  L({ id: "za_ru", a: "za", b: "ru", lessons: 3, color: "#6a2a4a",
+      title: "Comrades, drills and recruits",
+      blurb: "Soviet guns for the ANC's struggle, 'non-alignment' on Ukraine from naval drills to the Lady R, and young men lured to Russia's front." });
+  L({ id: "us_au", a: "us", b: "au", lessons: 3, color: "#2a5a7a",
+      title: "ANZUS, AUKUS and minerals",
+      blurb: "Australia turned to America in 1941, followed it to war and signed AUKUS for nuclear subs, then courted Trump with minerals." });
+  L({ id: "us_kr", a: "us", b: "kr", lessons: 3, color: "#2a4a6a",
+      title: "Troops, subs and a snub",
+      blurb: "An alliance born in the Korean War, 28,500 troops and fights over cost and THAAD, and Trump's nuclear subs and cut-back drills." });
+  L({ id: "cn_kp", a: "cn", b: "kp", lessons: 3, color: "#7a2a2a",
+      title: "Lips, teeth and a parade",
+      blurb: "Chinese armies saved Kim Il Sung in 1950, China became the North's lifeline but opposed its bomb, then won Kim back from Russia." });
+  L({ id: "us_ua", a: "us", b: "ua", lessons: 3, color: "#3a5a9a",
+      title: "Assurances, arms and a deal",
+      blurb: "Nuclear weapons given up for promises in 1994, the largest US war aid in decades, and Trump's minerals deal and push for peace." });
 })();

@@ -413,30 +413,24 @@ figcaption { padding: 8px 16px 0; font-size: 14.5px; color: var(--ink-2); line-h
 .wm-disputed { fill: url(#wm-hatch); stroke: var(--map-hatch); stroke-width: 0.6; stroke-dasharray: 2 1.5; }
 .wm-hatch-bg { fill: var(--map-land); }
 .wm-hatch-fg { fill: var(--map-hatch); }
-.wm-leader { stroke: var(--ink-2); stroke-width: 0.9; opacity: 0.55; pointer-events: none; }
-.wm-dot { fill: var(--ink-2); opacity: 0.65; pointer-events: none; }
-.wm-link { fill: none; stroke: var(--c); stroke-width: 3.2; stroke-linecap: round; pointer-events: none; }
+.wm-hit { fill: transparent; cursor: pointer; outline: none; }
+.wm-hit:focus-visible { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+.wm-link { fill: none; stroke: var(--c); stroke-width: 2.6; stroke-linecap: round; pointer-events: none; }
+.wm-link.on { stroke-width: 4.2; }
 .wm-link.soon { stroke-dasharray: 6 5; opacity: 0.55; }
-.wm-link-hit { fill: none; stroke: transparent; stroke-width: 18; cursor: pointer; }
-.wm-rel { fill: none; stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; opacity: 0.75; pointer-events: none; }
-.wm-b, .wm-lb { cursor: pointer; outline: none; transition: opacity 0.15s; }
-.wm-b-ring { fill: var(--surface); stroke: rgba(20, 22, 30, 0.16); stroke-width: 3.2; }
-.wm-b-prog { fill: none; stroke: var(--gold); stroke-width: 3.2; stroke-linecap: round; }
-.wm-b-disc { fill: var(--c); }
-.wm-b-num { fill: #fff; font-size: 12.5px; font-weight: 900; text-anchor: middle; pointer-events: none; }
-.wm-b:hover .wm-b-ring, .wm-b.on .wm-b-ring { stroke: var(--ink); }
-.wm-b:focus-visible .wm-b-ring, .wm-lb:focus-visible .wm-lb-pill { stroke: var(--accent); stroke-width: 4; }
-.has-sel .wm-b:not(.on), .has-sel .wm-lb:not(.on) { opacity: 0.4; }
-.has-sel .wm-link:not(.on) { opacity: 0.3; }
-.wm-lb-pill { fill: var(--c); stroke: var(--surface); stroke-width: 2.5; }
-.wm-lb:hover .wm-lb-pill, .wm-lb.on .wm-lb-pill { stroke: var(--ink); }
-.wm-lb-txt { fill: #fff; font-size: 12.5px; font-weight: 900; text-anchor: middle; pointer-events: none; }
+.wm-link-hit { fill: none; stroke: transparent; stroke-width: 16; cursor: pointer; }
+.wm-anchor { fill: var(--surface); stroke: var(--ink); stroke-width: 1.4; pointer-events: none; }
+.wm-anchor.main { stroke-width: 2; }
+.wm-lb { cursor: pointer; outline: none; }
+.wm-lb-pill { fill: var(--surface); stroke: var(--c); stroke-width: 2.5; }
+.wm-lb:hover .wm-lb-pill, .wm-lb.on .wm-lb-pill { stroke: var(--ink); stroke-width: 3; }
+.wm-lb:focus-visible .wm-lb-pill { stroke: var(--accent); stroke-width: 4; }
+.wm-lb-txt { font-size: 14px; letter-spacing: 1px; text-anchor: middle; pointer-events: none; }
+.wm-lb-tie { stroke: var(--c); stroke-width: 1.5; stroke-dasharray: 2 2; }
 .wmap-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 10px 14px; font-size: 13px; font-weight: 700; color: var(--ink-2); border-top: 1px solid var(--line); }
 .wmap-legend span { display: inline-flex; align-items: center; gap: 7px; }
 .wmap-legend i { font-style: normal; flex-shrink: 0; }
-.lg-badge { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 900; font-size: 11px; box-shadow: 0 0 0 2.5px var(--surface), 0 0 0 5px rgba(20, 22, 30, 0.16); margin: 0 3px; }
-.lg-ring { width: 20px; height: 20px; border-radius: 50%; border: 3.5px solid var(--gold); }
-.lg-link { background: #6b3a55; color: #fff; border-radius: 999px; padding: 1px 9px; font-weight: 900; font-size: 12px; }
+.lg-tap { width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--ink); }
 .lg-hatch { width: 20px; height: 13px; border: 1px dashed var(--map-hatch); background: repeating-linear-gradient(45deg, var(--map-hatch) 0 1.5px, transparent 1.5px 4px); }
 .wmap-panel { max-width: 760px; margin: 18px auto 0; }
 .wmap-hint { color: var(--muted); font-weight: 700; margin: 4px 0 6px; }

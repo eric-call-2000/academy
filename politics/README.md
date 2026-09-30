@@ -84,6 +84,18 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇺🇸🇮🇱 United States & Israel | Recognition, aid and a divided public | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇨🇦🇨🇳 Canada & China | Head tax, hostages and canola | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇺🇸🇹🇼 United States & Taiwan | Ambiguity, arms and bargaining | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇸🇦 United States & Saudi Arabia | Oil, terror and a crown prince | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇬🇧 United States & United Kingdom | Special, unequal and tested | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇩🇪🇨🇳 Germany & China | Cars, rivals and a deficit | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇯🇵🇷🇺 Japan & Russia | Four islands and no peace | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇳🇷🇺 India & Russia | Old friends, arms and oil | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇧🇷🇨🇳 Brazil & China | Soybeans, vaccines and BRICS | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇪🇬🇸🇦 Egypt & Saudi Arabia | Rivals, patrons and partners | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇿🇦🇷🇺 South Africa & Russia | Comrades, drills and recruits | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇦🇺 United States & Australia | ANZUS, AUKUS and minerals | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇰🇷 United States & South Korea | Troops, subs and a snub | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇨🇳🇰🇵 China & North Korea | Lips, teeth and a parade | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇺🇦 United States & Ukraine | Assurances, arms and a deal | 3 of 3 | 30 Sep 2026 | illustrations pending |
 
 ## Run it
 
@@ -115,11 +127,12 @@ It is static files, so any of these work:
 
 - **Today** shows the next briefing, the daily goal (1–3 a day, set under the avatar), a
   seven-day strip, briefings updated since you read them, and dispatches.
-- **Map** is a world map of all 30 countries. Each has a badge with its number of
-  briefings and a gold ring that fills as you read; relationships are arcs between two
-  countries with their own "⇄ n" badge. Tapping a country or an arc opens a card under the
-  map (its briefings, relationships and connected countries); the choice is kept in the URL
-  (`#/map/cn`, `#/map/us_cn`). On a phone the map scrolls sideways.
+- **Map** is a world map of all 30 countries, with no lines until you pick one. Tapping a
+  country draws its relationships: a line to each partner, with a label of the two flags
+  near the partner's end (labels that would overlap slide along their line or step aside
+  with a dotted tie). Tapping a label or line opens that relationship; a card under the map
+  shows the country's briefings, relationships and connected countries. The choice is kept
+  in the URL (`#/map/cn`, `#/map/us_cn`). On a phone the map scrolls sideways.
 - **Atlas** lists all 30 countries by region, with progress rings. Unwritten ones say
   "Coming soon".
 - **Country** shows the unit's 12 briefings in reading order, the current-as-of date, dispatches,
@@ -144,7 +157,7 @@ politics/
 ├── styles.css          reading-first, mobile-first, light and dark
 ├── units/<id>.js       one file per written country or relationship (lazy-loaded)
 ├── maps/<id>.svg       locator maps built from Natural Earth data
-├── maps/world.js       the world map's shapes and badge positions (lazy-loaded)
+├── maps/world.js       the world map's shapes and country centroids (lazy-loaded)
 ├── img/<id>/…          illustrations, portraits and diagrams
 └── tools/
     ├── validate.js     content rules (CI)
@@ -199,11 +212,8 @@ A relationship covers two of the 30 countries in **2 or 3 briefings**, all of ki
 3. Write `units/<id>.js` like a country unit, with ids `<id>-1` … `<id>-N` in order. Each
    briefing leads with an illustration (`img/<id>/…`) and follows the same word, takeaway and
    source rules.
-4. The map draws the arc and both country pages list it automatically. If its "⇄" badge lands
-   on another badge, which happens with near neighbours, give it a spot in open sea in
-   `LINK_LABEL` in `tools/build-world.js` and rebuild `maps/world.js`; the arc then bends
-   through that spot. (Long links can instead set `bow`, default 0.45, or `at`, default 0.3,
-   in `links.js`.)
+4. The map draws the line and flag label and both country pages list it automatically;
+   labels are placed at runtime, so there is nothing to tune.
 
 The validator enforces the plan's rules:
 - 500–900 words per briefing, with no section over 180 words

@@ -274,8 +274,25 @@ A fifth set of twelve followed:
 | 🇨🇦🇨🇳 Canada & China | Railways, wheat and recognition | Meng Wanzhou and the two Michaels | Interference, canola and a reset |
 | 🇺🇸🇹🇼 US & Taiwan | From treaty ally to unofficial friend | Strategic ambiguity and the porcupine | A bargaining chip? |
 
-Candidates for later relationships: US–Saudi Arabia, UK–US, Germany–China, Japan–Russia,
-India–Russia, Brazil–China, Egypt–Saudi Arabia, South Africa–Russia, Australia–US.
+A sixth set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇺🇸🇸🇦 US & Saudi Arabia | Oil for security | Troops, terror and 9/11 | From pariah to partner |
+| 🇺🇸🇬🇧 US & UK | The special relationship is born | Thatcher, Reagan, Blair and Iraq | Trump, Starmer and Burnham |
+| 🇩🇪🇨🇳 Germany & China | Cars for China | Partner, competitor, rival | Cars, chips and a deficit |
+| 🇯🇵🇷🇺 Japan & Russia | Two wars and four islands | Abe's courtship of Putin | Sanctions, gas and a visit |
+| 🇮🇳🇷🇺 India & Russia | The Cold War friendship | Arms from Moscow | Cheap oil and a hard choice |
+| 🇧🇷🇨🇳 Brazil & China | Soy, iron and satellites | Bolsonaro's China problem | Lula, Xi and Trump's tariffs |
+| 🇪🇬🇸🇦 Egypt & Saudi Arabia | Nasser against the kings | Billions for Sisi, islands for Riyadh | Power lines, deposits and Sudan |
+| 🇿🇦🇷🇺 South Africa & Russia | Comrades in the struggle | Neutral, or not? | Lured to the front |
+| 🇺🇸🇦🇺 US & Australia | Australia looks to America | From 9/11 to AUKUS | Minerals, submarines and Trump |
+| 🇺🇸🇰🇷 US & South Korea | An alliance forged in blood | Protection and its price | Submarines, command and a snub |
+| 🇨🇳🇰🇵 China & North Korea | Sealed in blood | Lifeline with limits | Back in Beijing's embrace |
+| 🇺🇸🇺🇦 US & Ukraine | Bombs given up, promises made | Arsenal of Ukraine | Trump's terms |
+
+Candidates for later relationships: Mexico–China, Iran–Russia, Turkey–Germany, Nigeria–China,
+Indonesia–China, UAE–Israel, Japan–India, Poland–Russia.
 
 ---
 
