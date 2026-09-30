@@ -157,4 +157,7 @@
   L({ id: "cn_kp", a: "cn", b: "kp", lessons: 3, color: "#7a2a2a",
       title: "Lips, teeth and a parade",
       blurb: "Chinese armies saved Kim Il Sung in 1950, China became the North's lifeline but opposed its bomb, then won Kim back from Russia." });
+  L({ id: "us_ua", a: "us", b: "ua", lessons: 3, color: "#3a5a9a",
+      title: "Assurances, arms and a deal",
+      blurb: "Nuclear weapons given up for promises in 1994, the largest US war aid in decades, and Trump's minerals deal and push for peace." });
 })();
