@@ -130,4 +130,7 @@
   L({ id: "us_gb", a: "us", b: "gb", lessons: 3, color: "#2a3a7a",
       title: "Special, unequal and tested",
       blurb: "Wartime allies who share spies and nuclear secrets, followed each other into Iraq, and now argue over Iran and Chagos." });
+  L({ id: "de_cn", a: "de", b: "cn", lessons: 3, color: "#6a4a2a",
+      title: "Cars, rivals and a deficit",
+      blurb: "Volkswagen in Shanghai and change through trade, a turn to 'systemic rival', and Chinese cars, chips and a record trade deficit." });
 })();
