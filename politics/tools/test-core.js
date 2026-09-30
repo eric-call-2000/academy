@@ -209,8 +209,8 @@ test("glossary and unit references render through the hooks", () => {
   assert.strictEqual(P.inline("see [[unit:ir]] or [[unit:cn|Beijing]]", opts), "see [U:ir:Iran] or [U:cn:Beijing]");
 });
 test("scanRefs finds every reference", () => {
-  same(P.scanRefs("[[NATO]], [[unit:ua]], [[primary election|primaries]]"),
-    { terms: ["nato", "primary-election"], units: ["ua"] });
+  same(P.scanRefs("[[NATO]], [[unit:ua]], [[primary election|primaries]], [[lesson:ua-10]]"),
+    { terms: ["nato", "primary-election"], units: ["ua"], lessons: ["ua-10"] });
 });
 test("bold, italic, links and bullets", () => {
   assert.strictEqual(P.inline("**a** and *b*"), "<strong>a</strong> and <em>b</em>");
@@ -228,6 +228,17 @@ test("every US briefing has a picture for its card", () => {
   unit.lessons.forEach((l) => assert.ok(P.heroOf(l), l.id + " has no hero"));
 });
 
+/* ---------- briefing references ---------- */
+test("[[lesson:…]] shows a briefing's place in the reading order, not its id", () => {
+  assert.strictEqual(P.lessonRef("mx-10").pos, 5, "mx-10 is fifth in the 12-briefing order");
+  assert.strictEqual(P.lessonRef("us-8").label, "briefing 12");
+  assert.strictEqual(P.lessonRef("us_cn-2", "Briefing #").label, "Briefing 2");
+  assert.strictEqual(P.lessonRef("us-13").pos, 0, "no such briefing");
+  assert.strictEqual(P.inline("see [[lesson:mx-10]]"), 'see <span class="lesson-ref">briefing 5</span>');
+  assert.strictEqual(P.inline("[[lesson:ar-4|#]]", { lesson: (id, label) => "[L:" + id + ":" + label + "]" }), "[L:ar-4:7]");
+  assert.strictEqual(P.words("see [[lesson:mx-10]]"), 3, "counts as 'see briefing 5'");
+});
+
 /* ---------- relationships ---------- */
 test("a relationship is a subject dressed like a country", () => {
   const s = P.subject("us_cn");
@@ -239,8 +250,9 @@ test("a relationship is a subject dressed like a country", () => {
   assert.strictEqual(P.country("us_cn"), null, "links are not countries");
 });
 test("links are found from either country, and stay off the 30-country path", () => {
-  same(P.linksOf("cn").map((l) => l.id), ["us_cn"]);
-  same(P.linksOf("us").map((l) => l.id), ["us_cn"]);
+  assert.ok(P.linksOf("cn").some((l) => l.id === "us_cn"), "China lists US–China");
+  assert.ok(P.linksOf("us").some((l) => l.id === "us_cn"), "the US lists US–China");
+  assert.ok(P.linksOf("us").every((l) => l.a === "us" || l.b === "us"), "only links that include the US");
   same(P.linksOf("fr"), []);
   assert.strictEqual(P.countries.length, 30);
   assert.strictEqual(P.unitIdOf("us_cn-2"), "us_cn");
