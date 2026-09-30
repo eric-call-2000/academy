@@ -96,6 +96,18 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇺🇸🇰🇷 United States & South Korea | Troops, subs and a snub | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇨🇳🇰🇵 China & North Korea | Lips, teeth and a parade | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇺🇸🇺🇦 United States & Ukraine | Assurances, arms and a deal | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇲🇽🇨🇳 Mexico & China | Silver, chemicals and tariffs | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇷🇷🇺 Iran & Russia | Old predator, new partner | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇩🇪🇹🇷 Germany & Turkey | Allies, guest workers and jets | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇳🇬🇨🇳 Nigeria & China | Railways, loans and traders | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇩🇨🇳 Indonesia & China | Nickel, a bullet train and Natuna | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇦🇪🇮🇱 United Arab Emirates & Israel | Accords, a red line and Iran | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇯🇵🇮🇳 Japan & India | Goodwill, trains and the Quad | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇵🇱🇷🇺 Poland & Russia | Partitions, Katyń and drones | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇹🇷 United States & Turkey | Allies, missiles and F-35s | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇪🇬 United States & Egypt | Aid, a coup and the canal | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇬🇧🇨🇳 United Kingdom & China | Opium, Huawei and an embassy | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇻🇪🇨🇳 Venezuela & China | Oil for loans, then a raid | 3 of 3 | 30 Sep 2026 | illustrations pending |
 
 ## Run it
 

@@ -291,8 +291,25 @@ A sixth set of twelve followed:
 | 🇨🇳🇰🇵 China & North Korea | Sealed in blood | Lifeline with limits | Back in Beijing's embrace |
 | 🇺🇸🇺🇦 US & Ukraine | Bombs given up, promises made | Arsenal of Ukraine | Trump's terms |
 
-Candidates for later relationships: Mexico–China, Iran–Russia, Turkey–Germany, Nigeria–China,
-Indonesia–China, UAE–Israel, Japan–India, Poland–Russia.
+A seventh set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇲🇽🇨🇳 Mexico & China | Silver, silk and a massacre | The fentanyl chain | Caught between two giants |
+| 🇮🇷🇷🇺 Iran & Russia | The bear to the north | Partners in Syria and Ukraine | A partner, not an ally |
+| 🇩🇪🇹🇷 Germany & Turkey | Kaiser, sultan and a genocide | Guests who stayed | Refugees, rallies and warplanes |
+| 🇳🇬🇨🇳 Nigeria & China | From Biafra to 'strategic partners' | Railways, a port and the loans | Traders, textiles and Guangzhou |
+| 🇮🇩🇨🇳 Indonesia & China | Bandung, 1965 and a long freeze | Nickel and a bullet train | The sea off Natuna |
+| 🇦🇪🇮🇱 UAE & Israel | From secret contacts to the Abraham Accords | Trade, Gaza and a red line | Allies against Iran |
+| 🇯🇵🇮🇳 Japan & India | Bose, Pal and old goodwill | Suzuki, the metro and the bullet train | Two seas and the Quad |
+| 🇵🇱🇷🇺 Poland & Russia | Partitions and rebellions | Katyń, Soviet rule and Smolensk | Drones, sabotage and a shield |
+| 🇺🇸🇹🇷 US & Turkey | Cold War allies | A coup, a preacher and Russian missiles | Trump, Erdoğan and the F-35 |
+| 🇺🇸🇪🇬 US & Egypt | From Nasser to Camp David | Mubarak, the revolution and a coup | Trump, Gaza and the canal |
+| 🇬🇧🇨🇳 UK & China | Opium, Hong Kong and the handover | From golden era to ice age | Spies, an embassy and steel |
+| 🇻🇪🇨🇳 Venezuela & China | Chávez's new friend | Oil for loans | Losing Venezuela |
+
+Candidates for later relationships: Saudi Arabia–China, Iran–China, France–Russia, Brazil–US,
+Argentina–China, South Africa–China, Pakistan–US, Turkey–Ukraine.
 
 ---
 
