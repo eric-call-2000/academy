@@ -154,4 +154,7 @@
   L({ id: "us_kr", a: "us", b: "kr", lessons: 3, color: "#2a4a6a",
       title: "Troops, subs and a snub",
       blurb: "An alliance born in the Korean War, 28,500 troops and fights over cost and THAAD, and Trump's nuclear subs and cut-back drills." });
+  L({ id: "cn_kp", a: "cn", b: "kp", lessons: 3, color: "#7a2a2a",
+      title: "Lips, teeth and a parade",
+      blurb: "Chinese armies saved Kim Il Sung in 1950, China became the North's lifeline but opposed its bomb, then won Kim back from Russia." });
 })();
