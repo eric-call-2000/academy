@@ -71,9 +71,9 @@
   /* Part 5 — The Americas */
   C({ id: "ca", iso: "124", part: 5, name: "Canada", flag: "🇨🇦", color: "#b3332c", lessons: 12,
       blurb: "America's biggest trading partner, told to be the '51st state', facing a separatism vote." });
-  C({ id: "mx", iso: "484", part: 5, name: "Mexico", flag: "🇲🇽", color: "#22704a", lessons: 8,
+  C({ id: "mx", iso: "484", part: 5, name: "Mexico", flag: "🇲🇽", color: "#22704a", lessons: 12,
       blurb: "America's top trading partner: cartels, migration, nearshoring and steady US pressure." });
-  C({ id: "br", iso: "076", part: 5, name: "Brazil", flag: "🇧🇷", color: "#3a8d3f", lessons: 8,
+  C({ id: "br", iso: "076", part: 5, name: "Brazil", flag: "🇧🇷", color: "#3a8d3f", lessons: 12,
       blurb: "Latin America's giant, which jailed an ex-president and votes on 4 October 2026." });
   C({ id: "ar", iso: "032", part: 5, name: "Argentina", flag: "🇦🇷", color: "#4a8ec2", lessons: 8,
       blurb: "Milei's libertarian 'chainsaw' experiment, watched by the whole world." });
