@@ -88,4 +88,13 @@
   L({ id: "eg_il", a: "eg", b: "il", lessons: 3, color: "#8a6a2a",
       title: "Cold peace, gas and Rafah",
       blurb: "The first Arab–Israeli peace and why it stayed cold, Israeli gas that keeps Egypt's lights on, and Gaza's southern border." });
+  L({ id: "us_jp", a: "us", b: "jp", lessons: 3, color: "#2a4a7a",
+      title: "Alliance, Okinawa and trade",
+      blurb: "From occupation to the alliance anchoring US power in Asia, the island that carries the bases, and trade fights." });
+  L({ id: "fr_de", a: "fr", b: "de", lessons: 3, color: "#4a4a8a",
+      title: "Enemies, engine and the bomb",
+      blurb: "Three wars turned into Europe's central friendship, the engine that drives the EU, and a failed jet beside new nuclear talks." });
+  L({ id: "tr_il", a: "tr", b: "il", lessons: 3, color: "#8a3a5a",
+      title: "Allies to rivals",
+      blurb: "Quiet military partners turned bitter enemies, Turkey's trade and airspace bans over Gaza, and a new contest over Syria's skies." });
 })();
