@@ -169,21 +169,20 @@ function check(name, ok, detail) {
   await shot(page, "phone-menu");
   await page.keyboard.press("Escape");
 
-  /* 5b. The world map: 30 badges with their counts, the US-China arc,
-     selection, and the relationship's own page and briefings. */
+  /* 5b. The world map: no lines until a country is picked, then that
+     country's relationships with flag labels; selection, and the
+     relationship's own page and briefings. */
   await page.goto(base + "/politics/#/map");
-  await page.waitForSelector(".wmap .wm-b");
-  check("the map shows a badge for all 30 countries", (await page.$$(".wmap .wm-b")).length === 30);
-  const counts = await page.$$eval(".wm-b-num", (ns) => ns.map((n) => n.textContent));
-  const want = await page.evaluate(() => window.POLITICS.countries.map((c) => String(c.lessons)));
-  check("…each showing its briefing count", JSON.stringify(counts) === JSON.stringify(want), counts.join(","));
-  check("…and a relationship line for US–China", !!(await page.$('.wm-link[data-link="us_cn"]')) && !!(await page.$('.wm-lb[data-link="us_cn"]')));
-  const nLinks = await page.evaluate(() => window.POLITICS.links.length);
-  check("…and a ⇄ badge for every relationship", (await page.$$(".wmap .wm-lb")).length === nLinks, String(nLinks));
-  check("the US badge shows reading progress", !!(await page.$('.wm-b[data-id="us"] .wm-b-prog')));
-  await page.click('.wm-b[data-id="cn"]');
+  await page.waitForSelector(".wmap .wm-hit");
+  check("the map has a tap target for all 30 countries", (await page.$$(".wmap .wm-hit")).length === 30);
+  check("…and no relationship lines or labels until a country is picked", (await page.$$(".wmap .wm-link")).length === 0 && (await page.$$(".wmap .wm-lb")).length === 0);
+  await page.click('.wm-hit[data-id="cn"]');
   await page.waitForSelector(".wmap-card");
-  check("tapping China opens its card, with the relationship", /China/.test(await page.textContent(".wmap-card h2")) && !!(await page.$('.wmap-card a[href="#/c/us_cn"]')));
+  const nCn = await page.evaluate(() => window.POLITICS.linksOf("cn").length);
+  check("tapping China draws a line and a flag label for each of its relationships",
+    (await page.$$(".wmap .wm-link")).length === nCn && (await page.$$(".wmap .wm-lb")).length === nCn, String(nCn));
+  check("…including US–China, labelled with both flags", /🇺🇸🇨🇳/.test(await page.textContent('.wm-lb[data-link="us_cn"]')));
+  check("…and opens its card, with the relationship", /China/.test(await page.textContent(".wmap-card h2")) && !!(await page.$('.wmap-card a[href="#/c/us_cn"]')));
   check("…and the URL remembers the selection", /#\/map\/cn$/.test(page.url()), page.url());
   await shot(page, "phone-map");
   await page.click('.wm-lb[data-link="us_cn"]');
