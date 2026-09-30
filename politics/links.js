@@ -97,4 +97,13 @@
   L({ id: "tr_il", a: "tr", b: "il", lessons: 3, color: "#8a3a5a",
       title: "Allies to rivals",
       blurb: "Quiet military partners turned bitter enemies, Turkey's trade and airspace bans over Gaza, and a new contest over Syria's skies." });
+  L({ id: "sa_ae", a: "sa", b: "ae", lessons: 3, color: "#4a7a3a",
+      title: "Mentor, rival, OPEC exit",
+      blurb: "Two Gulf princes who went to war together, a clash in Yemen that broke into the open, and the UAE's exit from OPEC." });
+  L({ id: "us_in", a: "us", b: "in", lessons: 3, color: "#2a6a6a",
+      title: "Estrangement, nukes and visas",
+      blurb: "Cold War distance, a nuclear deal that built a strategic partnership, and the visas, deportations and tariffs now testing it." });
+  L({ id: "pk_cn", a: "pk", b: "cn", lessons: 3, color: "#2a6a3a",
+      title: "Iron brothers, corridor, jets",
+      blurb: "An 'all-weather' friendship built on rivalry with India, a corridor under militant attack, and Chinese jets tested in battle." });
 })();
