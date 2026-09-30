@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /* ============================================================
    Browser smoke test: drives the real app in Chromium from a fresh
-   profile through reading, finishing, the glossary and the Atlas,
+   profile through reading, finishing, the glossary, the Atlas and the
+   world map (with the US–China relationship briefings),
    and checks that progress lands in Academy's store and on its
    picker card.
 
@@ -167,6 +168,33 @@ function check(name, ok, detail) {
   await page.waitForTimeout(400);
   await shot(page, "phone-menu");
   await page.keyboard.press("Escape");
+
+  /* 5b. The world map: 30 badges with their counts, the US-China arc,
+     selection, and the relationship's own page and briefings. */
+  await page.goto(base + "/politics/#/map");
+  await page.waitForSelector(".wmap .wm-b");
+  check("the map shows a badge for all 30 countries", (await page.$$(".wmap .wm-b")).length === 30);
+  const counts = await page.$$eval(".wm-b-num", (ns) => ns.map((n) => n.textContent));
+  const want = await page.evaluate(() => window.POLITICS.countries.map((c) => String(c.lessons)));
+  check("…each showing its briefing count", JSON.stringify(counts) === JSON.stringify(want), counts.join(","));
+  check("…and a relationship line for US–China", !!(await page.$('.wm-link[data-link="us_cn"]')) && !!(await page.$('.wm-lb[data-link="us_cn"]')));
+  check("the US badge shows reading progress", !!(await page.$('.wm-b[data-id="us"] .wm-b-prog')));
+  await page.click('.wm-b[data-id="cn"]');
+  await page.waitForSelector(".wmap-card");
+  check("tapping China opens its card, with the relationship", /China/.test(await page.textContent(".wmap-card h2")) && !!(await page.$('.wmap-card a[href="#/c/us_cn"]')));
+  check("…and the URL remembers the selection", /#\/map\/cn$/.test(page.url()), page.url());
+  await shot(page, "phone-map");
+  await page.click('.wm-lb[data-link="us_cn"]');
+  await page.waitForSelector('.wmap-card a[href="#/c/us_cn"].btn');
+  await page.click('.wmap-card a[href="#/c/us_cn"].btn');
+  await page.waitForSelector(".link-hero");
+  check("the US–China page lists its 3 briefings", (await page.$$(".lesson-row")).length === 3);
+  await page.goto(base + "/politics/#/read/us_cn-1");
+  await page.waitForSelector(".reader h1");
+  check("a relationship briefing opens in the reader", /Briefing 1 of 3/.test(await page.textContent(".reader-head .kicker")));
+  await page.goto(base + "/politics/#/c/cn");
+  await page.waitForSelector(".link-row");
+  check("China's page lists the relationship", /Steel, tariffs and soybeans/.test(await page.textContent(".link-row")));
 
   /* 6. Academy's picker shows the card with live progress. */
   await page.goto(base + "/index.html");

@@ -102,7 +102,8 @@ politics/
   briefings; default 1) and **What's new** (dispatches and refreshed lessons since your last
   visit).
 - **Atlas** lists the 30 countries grouped by region. Each card shows its flag and a progress
-  ring (x of 12). A world map shaded by progress is a Phase 3 extra.
+  ring (x of 12). The **Map** screen shows them on a world map with their briefing counts
+  and the relationships between them.
 - **Unit** is the country's page: its 12 briefings in reading order, its "current as of" date, and links
   to related units (Iran links to Israel, Saudi Arabia, Pakistan and the US).
 - **Reader** is a single column about 680px wide, with a reading-progress bar and a large hero
@@ -201,6 +202,25 @@ progress keys and never change; the app reads them in this order (`P.ORDER12` in
 **Every story briefing has the same four parts:** *What happened* (dated and specific), *Why
 it happened*, *Why it matters*, and *What's next*. That is the short-form format, and it lets
 a reader skim any briefing in the app the same way.
+
+---
+
+## Relationships and the world map
+
+Beyond the 30 country units, **relationship units** cover how two countries deal with each
+other, in **2–3 briefings** each (`links.js`, `units/<a>_<b>.js`, kind `relation`). The
+first is **🇺🇸🇨🇳 United States & China: steel, tariffs and soybeans**:
+
+| # | Briefing | What it covers |
+|---|----------|----------------|
+| 1 | **Cheap steel from China** | China's overcapacity, dumping, and 20 years of US anti-dumping duties |
+| 2 | **The tariff wall** | Section 232 steel tariffs from 2018 to 50% in 2025: who they hit and what they did |
+| 3 | **Soybeans: how China hits back** | China's retaliation against US farmers, the aid, and the 2025 purchase pledges |
+
+The **Map** screen (`#/map`) shows every country with its number of briefings and your
+progress, and draws each relationship as an arc between the two countries. Candidates for
+the next relationships: US–Mexico (tariffs, migration, cartels), Russia–Ukraine, China–Taiwan,
+India–Pakistan, Israel–Iran, US–Canada, Japan–China.
 
 ---
 

@@ -2,7 +2,8 @@
    Political Academy — registry + pure helpers
    ------------------------------------------------------------
    Loaded FIRST. countries.js declares the 30 countries (in path
-   order), glossary.js adds terms, updates.js adds dated dispatches,
+   order), links.js the relationships between pairs of them,
+   glossary.js adds terms, updates.js adds dated dispatches,
    and each unit file (units/<id>.js) registers its briefings with
    addUnit() when app.js lazy-loads it.
 
@@ -20,6 +21,8 @@
   P.units = P.units || {};
   P.glossary = P.glossary || {};
   P.updates = P.updates || [];
+  P.links = P.links || [];
+  P._linkById = P._linkById || {};
 
   P.PARTS = [
     { id: 1, title: "The Big Four" },
@@ -42,8 +45,13 @@
     players: "The players",
     story: "Story",
     spotlight: "Spotlight",
-    now: "Where things stand"
+    now: "Where things stand",
+    relation: "Relationship"
   };
+  /* A relationship ("link") unit covers two countries in 2-3 briefings,
+     all of kind "relation", with ids <link>-1 … <link>-N in order. */
+  P.LINK_MIN = 2;
+  P.LINK_MAX = 3;
   P.ARC8 = ["snapshot", "power", "history", "players", "story", "story", "story", "now"];
   P.ARC = ["snapshot", "power", "founding", "history", "past", "past", "players", "story", "story", "story", "spotlight", "now"];
   /* Briefing numbers (the n in "<unit>-n") in reading order. */
@@ -77,6 +85,34 @@
     P._byId[c.id] = c;
   };
   P.country = function (id) { return P._byId[id] || null; };
+
+  /* Relationships between two countries (links.js). A link's id joins its
+     two country ids with "_" (never "-", which separates the briefing
+     number), so "us_cn-2" is the second US–China briefing. Links are
+     not part of the 30-country path; the world map and each country's
+     page lead to them. */
+  P.defineLink = function (l) {
+    if (P._linkById[l.id]) return;
+    P.links.push(l);
+    P._linkById[l.id] = l;
+  };
+  P.link = function (id) { return P._linkById[id] || null; };
+  P.linksOf = function (countryId) {
+    return P.links.filter(function (l) { return l.a === countryId || l.b === countryId; });
+  };
+  /* Anything with briefings: a country, or a link dressed like one
+     (name, flag and colour) so pages, rows and the reader can draw it. */
+  P.subject = function (id) {
+    if (P._byId[id]) return P._byId[id];
+    var l = P._linkById[id];
+    if (!l) return null;
+    var a = P._byId[l.a], b = P._byId[l.b];
+    if (!a || !b) return null;
+    return {
+      id: l.id, isLink: true, a: l.a, b: l.b, title: l.title, blurb: l.blurb, lessons: l.lessons || 0,
+      name: a.name + " & " + b.name, flag: a.flag + b.flag, color: l.color || a.color
+    };
+  };
   P.addUnit = function (id, unit) { P.units[id] = unit; };
   P.addTerms = function (list) {
     (list || []).forEach(function (t) { P.glossary[t.id] = t; });

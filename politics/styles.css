@@ -22,6 +22,7 @@
   --flame: #d9480f;
   --gold: #a86f0c;
   --shadow: 0 1px 2px rgba(20, 22, 30, 0.06), 0 6px 20px rgba(20, 22, 30, 0.06);
+  --map-ocean: #dbe7f0; --map-land: #ece7dc; --map-border: #ffffff; --map-hatch: #9d978a;
   --ui: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --read-size: 19px;
@@ -34,6 +35,7 @@
     --muted: #9c9a92; --line: #2e333a; --accent: #8db8e2; --accent-ink: #0d1822; --accent-soft: #1c2a38;
     --ok: #62c48f; --ok-soft: #173326; --bad: #f08a80; --bad-soft: #3a1d1b; --flame: #ff8a4c; --gold: #e0b252;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+    --map-ocean: #16202a; --map-land: #2c3138; --map-border: #1a1d21; --map-hatch: #6f6a60;
     color-scheme: dark;
   }
 }
@@ -42,6 +44,7 @@
   --muted: #9c9a92; --line: #2e333a; --accent: #8db8e2; --accent-ink: #0d1822; --accent-soft: #1c2a38;
   --ok: #62c48f; --ok-soft: #173326; --bad: #f08a80; --bad-soft: #3a1d1b; --flame: #ff8a4c; --gold: #e0b252;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+  --map-ocean: #16202a; --map-land: #2c3138; --map-border: #1a1d21; --map-hatch: #6f6a60;
   color-scheme: dark;
 }
 :root[data-size="s"] { --read-size: 17px; }
@@ -393,3 +396,62 @@ figcaption { padding: 8px 16px 0; font-size: 14.5px; color: var(--ink-2); line-h
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* ===== World map (#/map) and relationships ===== */
+.wrap.wrap-wide { max-width: 1180px; }
+.wrap-wide > .page-title, .wrap-wide > .page-sub { max-width: 760px; }
+.wmap-box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-top: 14px; }
+.wmap-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+.wmap { display: block; width: 100%; min-width: 820px; height: auto; font-family: var(--ui); }
+@media (min-width: 860px) { .wmap { min-width: 0; } }
+.wm-ocean { fill: var(--map-ocean); }
+.wm-land { fill: var(--map-land); }
+.wm-c { fill: var(--c); opacity: 0.8; cursor: pointer; transition: opacity 0.15s; }
+.wm-c:hover, .wm-c.on { opacity: 1; }
+.has-sel .wm-c:not(.on) { opacity: 0.35; }
+.wm-borders { fill: none; stroke: var(--map-border); stroke-width: 0.6; stroke-linejoin: round; pointer-events: none; }
+.wm-disputed { fill: url(#wm-hatch); stroke: var(--map-hatch); stroke-width: 0.6; stroke-dasharray: 2 1.5; }
+.wm-hatch-bg { fill: var(--map-land); }
+.wm-hatch-fg { fill: var(--map-hatch); }
+.wm-leader { stroke: var(--ink-2); stroke-width: 0.9; opacity: 0.55; pointer-events: none; }
+.wm-dot { fill: var(--ink-2); opacity: 0.65; pointer-events: none; }
+.wm-link { fill: none; stroke: var(--c); stroke-width: 3.2; stroke-linecap: round; pointer-events: none; }
+.wm-link.soon { stroke-dasharray: 6 5; opacity: 0.55; }
+.wm-link-hit { fill: none; stroke: transparent; stroke-width: 18; cursor: pointer; }
+.wm-rel { fill: none; stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 4; opacity: 0.75; pointer-events: none; }
+.wm-b, .wm-lb { cursor: pointer; outline: none; transition: opacity 0.15s; }
+.wm-b-ring { fill: var(--surface); stroke: rgba(20, 22, 30, 0.16); stroke-width: 3.2; }
+.wm-b-prog { fill: none; stroke: var(--gold); stroke-width: 3.2; stroke-linecap: round; }
+.wm-b-disc { fill: var(--c); }
+.wm-b-num { fill: #fff; font-size: 12.5px; font-weight: 900; text-anchor: middle; pointer-events: none; }
+.wm-b:hover .wm-b-ring, .wm-b.on .wm-b-ring { stroke: var(--ink); }
+.wm-b:focus-visible .wm-b-ring, .wm-lb:focus-visible .wm-lb-pill { stroke: var(--accent); stroke-width: 4; }
+.has-sel .wm-b:not(.on), .has-sel .wm-lb:not(.on) { opacity: 0.4; }
+.has-sel .wm-link:not(.on) { opacity: 0.3; }
+.wm-lb-pill { fill: var(--c); stroke: var(--surface); stroke-width: 2.5; }
+.wm-lb:hover .wm-lb-pill, .wm-lb.on .wm-lb-pill { stroke: var(--ink); }
+.wm-lb-txt { fill: #fff; font-size: 12.5px; font-weight: 900; text-anchor: middle; pointer-events: none; }
+.wmap-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 10px 14px; font-size: 13px; font-weight: 700; color: var(--ink-2); border-top: 1px solid var(--line); }
+.wmap-legend span { display: inline-flex; align-items: center; gap: 7px; }
+.wmap-legend i { font-style: normal; flex-shrink: 0; }
+.lg-badge { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 900; font-size: 11px; box-shadow: 0 0 0 2.5px var(--surface), 0 0 0 5px rgba(20, 22, 30, 0.16); margin: 0 3px; }
+.lg-ring { width: 20px; height: 20px; border-radius: 50%; border: 3.5px solid var(--gold); }
+.lg-link { background: #6b3a55; color: #fff; border-radius: 999px; padding: 1px 9px; font-weight: 900; font-size: 12px; }
+.lg-hatch { width: 20px; height: 13px; border: 1px dashed var(--map-hatch); background: repeating-linear-gradient(45deg, var(--map-hatch) 0 1.5px, transparent 1.5px 4px); }
+.wmap-panel { max-width: 760px; margin: 18px auto 0; }
+.wmap-hint { color: var(--muted); font-weight: 700; margin: 4px 0 6px; }
+.wmap-card { border-top: 5px solid var(--c); }
+.wmap-card-head { display: flex; gap: 12px; align-items: center; }
+.wmap-card-flag { font-size: 38px; line-height: 1; flex-shrink: 0; }
+.wmap-card-titles { min-width: 0; }
+.wmap-card h2 { font-family: var(--serif); font-size: 24px; line-height: 1.15; }
+.wmap-card-blurb { margin: 10px 0 0; color: var(--ink-2); }
+.wmap-sub { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 900; margin: 18px 0 8px; }
+.wmap-clear { display: block; background: none; border: 0; color: var(--muted); font: 800 14px var(--ui); margin-top: 10px; padding: 6px 0; cursor: pointer; }
+.wmap-clear:hover { color: var(--ink); }
+.link-row { border-left: 5px solid var(--c); }
+.link-row.soon { opacity: 0.65; }
+.link-flags { font-size: 20px; letter-spacing: 1px; white-space: nowrap; }
+.link-hero .unit-flag { font-size: 40px; white-space: nowrap; }
+.atlas-map { display: flex; align-items: center; gap: 12px; margin-top: 14px; text-decoration: none; }
+.atlas-map .row-ic { font-size: 28px; }

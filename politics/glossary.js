@@ -12,6 +12,8 @@ window.POLITICS.addTerms([
     def: "A formula said to come from 1992 talks between Beijing and Taipei, under which both sides accept there is 'one China' but differ on what it means. Taiwan's KMT accepts it; the DPP rejects it, and Beijing treats acceptance as a condition for dialogue." },
   { id: "abraham-accords", term: "Abraham Accords",
     def: "Agreements brokered by the United States in 2020 under which the UAE, Bahrain, Morocco and later Sudan normalised relations with Israel. Saudi Arabia has said it could join if there is a credible path to a Palestinian state." },
+  { id: "anti-dumping-duty", term: "Anti-dumping duty",
+    def: "An extra tariff on a product a foreign firm sells abroad below its price at home or below its cost ('dumping'). In the US, the Commerce Department sets the rate and the International Trade Commission decides whether the imports hurt American producers." },
   { id: "apartheid", term: "Apartheid",
     def: "South Africa's system of racial segregation and white minority rule from 1948 to the early 1990s, which classified every person by race and denied Black South Africans citizenship and the vote. The term is also used in international law for systematic racial domination anywhere." },
   { id: "article-49-3", term: "Article 49.3",
@@ -108,6 +110,8 @@ window.POLITICS.addTerms([
     def: "The North Atlantic Treaty Organization, a military alliance founded in 1949. Its members, now 32 countries in North America and Europe, pledge that an armed attack on one is an attack on all (Article 5)." },
   { id: "opec-plus", term: "OPEC Plus",
     def: "Usually written OPEC+: the alliance of the Organization of the Petroleum Exporting Countries, led by Saudi Arabia, with other producers led by Russia. Together they agree how much oil to pump, which strongly influences world oil prices." },
+  { id: "overcapacity", term: "Overcapacity",
+    def: "When an industry can make far more than buyers want at a profitable price. Firms keep producing to cover costs and sell the surplus cheaply abroad. China's steel, solar and car industries are the best-known examples." },
   { id: "peronism", term: "Peronism",
     def: "The political movement founded by Juan Perón, Argentina's president in 1946–55 and 1973–74, built on trade unions, the urban poor and a strong state. It spans left and right, from the Kirchners to conservative provincial bosses, and has won most Argentine presidential elections since 1983." },
   { id: "pkk", term: "PKK",
@@ -164,6 +168,8 @@ window.POLITICS.addTerms([
     def: "A leader's power to reject a law passed by the legislature. In the US, Congress can override a presidential veto with two-thirds of both chambers." },
   { id: "voting-rights-act", term: "Voting Rights Act",
     def: "A 1965 US law banning racial discrimination in voting. Section 2 lets people challenge election rules and district maps that dilute minority votes; the Supreme Court narrowed it in Louisiana v. Callais (2026)." },
+  { id: "wto", term: "WTO",
+    def: "The World Trade Organization, set up in 1995 to police the rules of trade among its 166 members. It settles disputes, such as a ruling against US steel tariffs in 2003, but its appeals court has been unable to sit since 2019 because the US blocks new judges." },
   { id: "war-powers-resolution", term: "War Powers Resolution",
     def: "A 1973 US law requiring the president to notify Congress within 48 hours of sending forces into hostilities and to end them within 60 days (plus 30 to withdraw) unless Congress authorises them." }
 ]);

@@ -43,6 +43,12 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 29 | 🇿🇦 South Africa | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
 | 30 | 🇳🇬 Nigeria | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
 
+**Relationships** (briefings on how two countries deal with each other; `links.js`):
+
+| Relationship | Title | Briefings | Current as of | Pictures |
+|--------------|-------|-----------|---------------|----------|
+| 🇺🇸🇨🇳 United States & China | Steel, tariffs and soybeans | 3 of 3 | 30 Sep 2026 | illustrations pending |
+
 ## Run it
 
 It is static files, so any of these work:
@@ -73,10 +79,16 @@ It is static files, so any of these work:
 
 - **Today** shows the next briefing, the daily goal (1–3 a day, set under the avatar), a
   seven-day strip, briefings updated since you read them, and dispatches.
+- **Map** is a world map of all 30 countries. Each has a badge with its number of
+  briefings and a gold ring that fills as you read; relationships are arcs between two
+  countries with their own "⇄ n" badge. Tapping a country or an arc opens a card under the
+  map (its briefings, relationships and connected countries); the choice is kept in the URL
+  (`#/map/cn`, `#/map/us_cn`). On a phone the map scrolls sideways.
 - **Atlas** lists all 30 countries by region, with progress rings. Unwritten ones say
   "Coming soon".
-- **Country** shows the unit's 12 briefings in reading order, the current-as-of date, dispatches and connected
-  countries.
+- **Country** shows the unit's 12 briefings in reading order, the current-as-of date, dispatches,
+  its relationships and connected countries.
+- **Relationship** (`#/c/us_cn`) shows the 2–3 briefings on two countries, and links to both.
 - **Reader** is one serif column with a reading-progress bar and adjustable text size.
   Glossary terms are tappable. Each briefing ends with three takeaways, an optional quick
   check that never blocks progress, and its sources.
@@ -89,12 +101,14 @@ politics/
 ├── index.html          boots the app
 ├── core.js             registry + every progress rule (DOM-free, tested in Node)
 ├── countries.js        the 30 countries in path order; `lessons` > 0 means written
+├── links.js            relationships between two countries (ids like "us_cn")
 ├── glossary.js         terms that briefings link to with [[term]]
 ├── updates.js          dated dispatches added between rewrites
 ├── app.js              the screens
 ├── styles.css          reading-first, mobile-first, light and dark
-├── units/<id>.js       one file per written country (lazy-loaded)
+├── units/<id>.js       one file per written country or relationship (lazy-loaded)
 ├── maps/<id>.svg       locator maps built from Natural Earth data
+├── maps/world.js       the world map's shapes and badge positions (lazy-loaded)
 ├── img/<id>/…          illustrations, portraits and diagrams
 └── tools/
     ├── validate.js     content rules (CI)
@@ -102,6 +116,8 @@ politics/
     ├── smoke.js        browser walk-through (needs Playwright + Chromium)
     ├── image-manifest.js  every missing picture, with its prompt or source
     ├── build-maps.js   Natural Earth → maps/<id>.svg (npm install first); disputed areas hatched
+    ├── build-world.js  Natural Earth → maps/world.js for the Map screen
+    ├── disputes.js     the disputed areas both map builders hatch
     ├── build-diagrams.js  the "how power works" diagram for each country
     ├── load.js         loads the data the way the browser does
     └── research/<id>.md   the checked facts and sources behind each unit
@@ -130,6 +146,22 @@ politics/
 5. **Set `lessons`** for the country in `countries.js`.
 6. **Check it:** run `node tools/validate.js` and `node tools/test-core.js`, then open the
    unit in a browser. If Playwright is installed, `node tools/smoke.js` walks the app.
+
+## Writing a relationship
+
+A relationship covers two of the 30 countries in **2 or 3 briefings**, all of kind
+`"relation"`:
+
+1. Add it to `links.js`: `id` is the two country ids joined by `_` (`us_cn`), with `a`, `b`,
+   a short `title`, a one-line `blurb`, a `color` and `lessons`. Never use `-` in the id: it
+   separates the briefing number (`us_cn-2`).
+2. Research it in `tools/research/<id>.md`, and check it against both countries' units.
+3. Write `units/<id>.js` like a country unit, with ids `<id>-1` … `<id>-N` in order. Each
+   briefing leads with an illustration (`img/<id>/…`) and follows the same word, takeaway and
+   source rules.
+4. The map draws the arc and both country pages list it automatically. If its badge lands on
+   another badge, give the link a `bow` (how high the arc climbs, default 0.45) or `at` (where
+   along the arc the badge sits, default 0.3).
 
 The validator enforces the plan's rules:
 - 500–900 words per briefing, with no section over 180 words

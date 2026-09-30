@@ -13,7 +13,9 @@
    - lesson ids are stable progress keys, and "next" stays in the
      country you were reading before walking the path in order;
    - the Academy mirror has exactly the shape Academy's tracks use;
-   - markup escapes HTML and resolves every reference.
+   - markup escapes HTML and resolves every reference;
+   - relationships (links.js) resolve as subjects but never join the
+     30-country path, and their reads pay XP like any briefing.
    ============================================================ */
 const assert = require("assert");
 const { load } = require("./load");
@@ -224,6 +226,36 @@ test("word counts read references as their labels", () => {
 });
 test("every US briefing has a picture for its card", () => {
   unit.lessons.forEach((l) => assert.ok(P.heroOf(l), l.id + " has no hero"));
+});
+
+/* ---------- relationships ---------- */
+test("a relationship is a subject dressed like a country", () => {
+  const s = P.subject("us_cn");
+  assert.ok(s && s.isLink, "us_cn should resolve");
+  assert.strictEqual(s.name, "United States & China");
+  assert.strictEqual(s.flag, P.country("us").flag + P.country("cn").flag);
+  assert.strictEqual(P.subject("us"), P.country("us"));
+  assert.strictEqual(P.subject("nope"), null);
+  assert.strictEqual(P.country("us_cn"), null, "links are not countries");
+});
+test("links are found from either country, and stay off the 30-country path", () => {
+  same(P.linksOf("cn").map((l) => l.id), ["us_cn"]);
+  same(P.linksOf("us").map((l) => l.id), ["us_cn"]);
+  same(P.linksOf("fr"), []);
+  assert.strictEqual(P.countries.length, 30);
+  assert.strictEqual(P.unitIdOf("us_cn-2"), "us_cn");
+  assert.strictEqual(P.lessonNum("us_cn-2"), 2);
+});
+test("reading a relationship counts, pays XP once and a completion bonus", () => {
+  const prof = P.freshProfile();
+  const link = P.units.us_cn;
+  assert.ok(link, "units/us_cn.js should be loaded");
+  link.lessons.forEach((l) => P.markRead(prof, link, l.id, "2026-09-30"));
+  assert.strictEqual(P.readCount(prof, "us_cn"), link.lessons.length);
+  assert.strictEqual(P.readCount(prof, "us"), 0, "link reads don't count toward the US unit");
+  assert.strictEqual(P.xp(prof), link.lessons.length * P.XP_PER_BRIEFING + P.XP_PER_COUNTRY);
+  prof.last = "us_cn-3";
+  assert.strictEqual(P.nextLessonId(prof), "us-1", "after a link, next walks the country path");
 });
 
 console.log(passed + " passed" + (process.exitCode ? ", some FAILED" : ""));
