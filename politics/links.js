@@ -139,4 +139,7 @@
   L({ id: "in_ru", a: "in", b: "ru", lessons: 3, color: "#7a4a2a",
       title: "Old friends, arms and oil",
       blurb: "A Cold War friendship sealed in 1971, decades of Russian arms, and cheap oil that brought Trump's tariffs." });
+  L({ id: "br_cn", a: "br", b: "cn", lessons: 3, color: "#3a7a3a",
+      title: "Soybeans, vaccines and BRICS",
+      blurb: "China's biggest farm supplier, a president who campaigned against Beijing then made peace, and record trade as Trump's tariffs bite." });
 })();
