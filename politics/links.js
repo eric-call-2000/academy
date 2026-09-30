@@ -106,4 +106,13 @@
   L({ id: "pk_cn", a: "pk", b: "cn", lessons: 3, color: "#2a6a3a",
       title: "Iron brothers, corridor, jets",
       blurb: "An 'all-weather' friendship built on rivalry with India, a corridor under militant attack, and Chinese jets tested in battle." });
+  L({ id: "ua_pl", a: "ua", b: "pl", lessons: 3, color: "#3a5a8a",
+      title: "Volhynia, refugees and grain",
+      blurb: "A painful shared past, refugees and grain disputes in wartime, and a 2026 crisis over how history is honoured." });
+  L({ id: "it_fr", a: "it", b: "fr", lessons: 3, color: "#6a3a6a",
+      title: "Latin sisters, migrants and a treaty",
+      blurb: "Neighbours who helped make each other, quarrel over migrants and ambassadors, and are bound by a friendship treaty and big business." });
+  L({ id: "ir_pk", a: "ir", b: "pk", lessons: 3, color: "#5a6a2a",
+      title: "Brothers, borders and a pipeline",
+      blurb: "The first country to recognise Pakistan, a Baloch border that erupted into missile strikes, and a pipeline stuck by sanctions." });
 })();
