@@ -65,11 +65,11 @@
       blurb: "A nuclear, army-run state of 250 million that became the Iran war's peacemaker." });
   C({ id: "id", iso: "360", part: 4, name: "Indonesia", flag: "🇮🇩", color: "#b8363f", lessons: 12,
       blurb: "The largest Muslim-majority democracy, ASEAN's anchor and the nickel behind EV batteries." });
-  C({ id: "au", iso: "036", part: 4, name: "Australia", flag: "🇦🇺", color: "#2a4d7a", lessons: 8,
+  C({ id: "au", iso: "036", part: 4, name: "Australia", flag: "🇦🇺", color: "#2a4d7a", lessons: 12,
       blurb: "AUKUS submarines, China trade and a populist surge at home." });
 
   /* Part 5 — The Americas */
-  C({ id: "ca", iso: "124", part: 5, name: "Canada", flag: "🇨🇦", color: "#b3332c", lessons: 8,
+  C({ id: "ca", iso: "124", part: 5, name: "Canada", flag: "🇨🇦", color: "#b3332c", lessons: 12,
       blurb: "America's biggest trading partner, told to be the '51st state', facing a separatism vote." });
   C({ id: "mx", iso: "484", part: 5, name: "Mexico", flag: "🇲🇽", color: "#22704a", lessons: 8,
       blurb: "America's top trading partner: cartels, migration, nearshoring and steady US pressure." });
