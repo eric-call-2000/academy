@@ -99,6 +99,59 @@ window.POLITICS.addUnit("pk", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "pk-9", kind: "founding", asOf: "2026-09-29",
+      title: "Jinnah and the idea of Pakistan",
+      dek: "Pakistan was created in 1947 as a homeland for the Muslims of British India. What kind of state that homeland should be has been argued over ever since.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/pk/pk-9-hero.webp",
+          alt: "Illustration of a crowded railway platform in 1947 with a steam train packed with passengers, people in period clothing seen from behind with bundles and trunks.",
+          caption: "Partition in 1947 set off one of the largest migrations in history.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A crowded railway platform in Punjab in 1947, a steam train packed with passengers on the roof and in doorways, people in 1940s South Asian clothing seen from behind carrying bundles and trunks, dusty golden light, tense historical atmosphere, no faces, no flags, no legible text." },
+        { type: "timeline", head: "From idea to state", items: [
+          ["1906", "All-India Muslim League founded"],
+          ["23 Mar 1940", "Lahore Resolution calls for Muslim-majority states"],
+          ["11 Aug 1947", "Jinnah's speech to the Constituent Assembly"],
+          ["14 Aug 1947", "Pakistan becomes independent"],
+          ["11 Sep 1948", "Jinnah dies"],
+          ["Mar 1949", "Objectives Resolution"],
+          ["1956", "First constitution: an Islamic Republic"]
+        ] },
+        { type: "section", head: "Two nations?", md:
+          "Under British rule, Muslims were about a quarter of India's population. Many Muslim leaders came to fear that in an independent India dominated by the Hindu-majority Congress party they would be a permanent minority. The poet-philosopher Muhammad Iqbal suggested in 1930 a Muslim state in the northwest. The 'two-nation theory' held that Hindus and Muslims were separate nations, and on 23 March 1940, in Lahore, the Muslim League demanded independent states in the Muslim-majority areas of the northwest and east." },
+        { type: "section", head: "Jinnah", md:
+          "The League's leader, Muhammad Ali Jinnah, was a Western-educated lawyer from Karachi, a former member of Congress who once called himself an ambassador of Hindu–Muslim unity. Precise and uncompromising, he became convinced that only a separate state could protect Muslims. Pakistanis call him Quaid-e-Azam, the Great Leader. After the Second World War, the League won almost all the Muslim seats in the 1945–46 elections, and talks on a united India failed." },
+        { type: "section", head: "Partition", md:
+          "The British decided to leave quickly. On 14 August 1947 Pakistan became independent, a day before India, in two wings a thousand miles apart: West Pakistan and East Bengal, later East Pakistan. The provinces of Punjab and Bengal were split. About 15 million people crossed the new borders, and hundreds of thousands were killed in communal violence. Karachi, the first capital, filled with refugees, and the new state began with few officials, an empty treasury and a war over Kashmir (briefing 12)." },
+        { type: "section", head: "Whose Pakistan?", md:
+          "On 11 August 1947 Jinnah told the Constituent Assembly: 'You are free to go to your temples... You may belong to any religion or caste or creed — that has nothing to do with the business of the state.' But he died of tuberculosis in September 1948, and his successor, Liaquat Ali Khan, was assassinated in 1951. In 1949 the Assembly's Objectives Resolution declared that sovereignty belongs to God and that Muslims should live according to Islam. The 1956 constitution made Pakistan an Islamic Republic." },
+        { type: "section", head: "A fragile start", md:
+          "It took nine years to agree on a constitution, and it lasted two before General Ayub Khan's coup in 1958. Deep divisions were there from the start: over whether Urdu, spoken by a small minority, should be the only national language (Bengalis, the majority, protested in 1952); over how much power the provinces should have; and over the role of the army and civil service, which dominated a weak political class. The first of those divisions would break the country in 1971 (briefing 10)." },
+        { type: "compare", head: "Two readings of Jinnah",
+          left: { head: "A secular Pakistan", md:
+            "Jinnah wanted a modern, tolerant state where Muslims were safe, with equal rights for all; his 11 August speech is the proof." },
+          right: { head: "An Islamic Pakistan", md:
+            "Pakistan was made in the name of Islam; the Objectives Resolution and later Islamic laws fulfil its purpose." } },
+        { type: "section", head: "Why it still matters", md:
+          "Every Pakistani argument about religion, minorities and the constitution goes back to the question of what Jinnah's Pakistan was for. The Objectives Resolution now stands at the head of the constitution. Partition also created the rivalry with [[unit:in|India]], and 23 March, Pakistan Day, and 14 August remain the country's great national holidays." }
+      ],
+      takeaways: [
+        "The Muslim League, led by Jinnah, demanded a separate homeland for India's Muslims from 1940.",
+        "Pakistan became independent on 14 August 1947, in two wings, amid the violence of partition.",
+        "Pakistanis still argue over whether Jinnah wanted a secular state for Muslims or an Islamic one."
+      ],
+      check: { q: "What did the Lahore Resolution of 1940 demand?",
+        choices: ["A united India with Muslim reserved seats", "Independent states for the Muslim-majority areas", "Dominion status within the British Empire"], answer: 1,
+        explain: "The Muslim League called for independent states in the Muslim-majority northwest and east." },
+      sources: [
+        { title: "Mohammed Ali Jinnah", publisher: "Britannica", url: "https://www.britannica.com/biography/Mohammed-Ali-Jinnah", date: "n.d." },
+        { title: "Partition of India", publisher: "Britannica", url: "https://www.britannica.com/event/Partition-of-India", date: "n.d." },
+        { title: "Pakistan: From disunion through the Zia-ul-Haq era", publisher: "Britannica", url: "https://www.britannica.com/place/Pakistan/From-disunion-through-the-Zia-ul-Haq-era", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "pk-3", kind: "history", asOf: "2026-09-29",
@@ -144,6 +197,113 @@ window.POLITICS.addUnit("pk", {
         { title: "Pakistan profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-south-asia-12966786", date: "n.d." },
         { title: "Pakistan", publisher: "Britannica", url: "https://www.britannica.com/place/Pakistan", date: "n.d." },
         { title: "2022–2025 Pakistan political unrest", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2022%E2%80%932025_Pakistan_political_unrest", date: "2025" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "pk-10", kind: "past", asOf: "2026-09-29",
+      title: "1971: the country splits",
+      dek: "When West Pakistan's rulers refused to hand power to the party that won the 1970 election, a crackdown in the East led to war and the birth of Bangladesh.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/pk/pk-10-hero.webp",
+          alt: "Illustration of a wide river delta in Bengal at dusk with country boats and a line of refugees walking along an embankment, seen from behind.",
+          caption: "About ten million people fled East Pakistan to India in 1971.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A wide river delta landscape in Bengal at dusk, wooden country boats on the water, a long line of refugees in 1970s clothing walking along a muddy embankment seen from behind, carrying bundles, monsoon clouds, muted and sorrowful, no faces, no weapons, no legible text." },
+        { type: "timeline", head: "The road to 1971", items: [
+          ["1952", "Language protests in Dhaka"],
+          ["Dec 1970", "Awami League wins a majority in Pakistan's election"],
+          ["25 Mar 1971", "Operation Searchlight: army crackdown in the East"],
+          ["26 Mar 1971", "Bangladesh's independence declared"],
+          ["3 Dec 1971", "Full war between India and Pakistan"],
+          ["16 Dec 1971", "Pakistani forces surrender in Dhaka"]
+        ] },
+        { type: "section", head: "Two wings", md:
+          "East Pakistan had more people than the West, but power, the army and most investment were in the West. Bengalis resented attempts to make Urdu the sole national language, which led to deadly protests in Dhaka in 1952, and the flow of money from the East's jute exports to the West. A devastating cyclone in November 1970, which killed hundreds of thousands, and the government's slow response, deepened the anger." },
+        { type: "section", head: "The election", md:
+          "In December 1970 Pakistan held its first general election based on universal adult franchise. Sheikh Mujibur Rahman's Awami League, campaigning for autonomy for the East, won almost every seat there and an overall majority in the National Assembly. Zulfikar Ali Bhutto's Pakistan Peoples Party won in the West. The military ruler, General Yahya Khan, and Bhutto were unwilling to let Mujib govern. Talks failed, and the Assembly never met." },
+        { type: "section", head: "Crackdown and war", md:
+          "On the night of 25 March 1971 the army launched Operation Searchlight in Dhaka, attacking students, intellectuals, police and Hindus; Mujib was arrested and flown west. Over the following months soldiers and allied militias carried out mass killings and sexual violence on a vast scale. About ten million refugees fled to India. Bengali fighters, the Mukti Bahini, trained and armed by India, fought back. In December India invaded, and on 16 December 1971 the Pakistani commander in Dhaka surrendered with about 90,000 troops." },
+        { type: "facts", head: "The toll", rows: [
+          ["Dead", "Estimates from 300,000 to 3 million (Bangladesh's official figure)"],
+          ["Refugees to India", "About 10 million"],
+          ["Prisoners of war", "About 90,000 Pakistanis"],
+          ["Result", "Bangladesh independent; Bhutto takes over what remained of Pakistan"]
+        ] },
+        { type: "section", head: "Reckoning", md:
+          "Yahya Khan resigned and Bhutto took over the smaller Pakistan. A government inquiry, the Hamoodur Rahman Commission, criticised the army's conduct, but its report was kept secret for nearly thirty years and no one was prosecuted in Pakistan. Bangladesh has put to death several Bengali collaborators after trials widely criticised for their procedures. Pakistan's official history tends to stress Indian intervention and Bengali militia violence against non-Bengalis, which also cost many lives." },
+        { type: "compare", head: "Two memories of 1971",
+          left: { head: "Bangladesh", md:
+            "A genocide by the Pakistani army, followed by a war of liberation; Pakistan should formally apologise." },
+          right: { head: "Pakistan's official view", md:
+            "A civil conflict turned into defeat by Indian aggression, with atrocities on all sides; the numbers are exaggerated." } },
+        { type: "section", head: "Why it still matters", md:
+          "Losing half the country in 1971 shaped Pakistan's army and its fear of Indian encirclement, and gave urgency to the nuclear programme Bhutto started soon afterwards (briefing 3). It also showed the cost of denying a majority its vote, a lesson Pakistani democrats still invoke. Relations with Bangladesh warmed after its government fell in 2024, but the demand for an apology remains." }
+      ],
+      takeaways: [
+        "East Pakistan was more populous but dominated by the West, and its resentment grew over language and money.",
+        "After the Awami League won the 1970 election, the army cracked down, killing huge numbers of people.",
+        "India intervened, and Pakistani forces surrendered on 16 December 1971; Bangladesh became independent."
+      ],
+      check: { q: "What triggered the 1971 crisis?",
+        choices: ["A border war with China", "The refusal to hand power to the Awami League after it won the 1970 election", "The assassination of Jinnah"], answer: 1,
+        explain: "The Awami League won a majority, but the military and West Pakistan's leaders would not let it govern." },
+      sources: [
+        { title: "Bangladesh Liberation War", publisher: "Britannica", url: "https://www.britannica.com/event/Bangladesh-Liberation-War", date: "n.d." },
+        { title: "1971 India-Pakistan War", publisher: "Britannica", url: "https://www.britannica.com/event/1971-India-Pakistan-War", date: "n.d." },
+        { title: "Bangladesh: The Pakistani period, 1947–71", publisher: "Britannica", url: "https://www.britannica.com/place/Bangladesh/The-Pakistani-period-1947-71", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "pk-11", kind: "past", asOf: "2026-09-29",
+      title: "Zia, Islamisation and the Afghan jihad",
+      dek: "General Zia-ul-Haq ruled for eleven years, remade Pakistan's laws in the name of Islam and turned it into the base for the war against the Soviets in Afghanistan.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/pk/pk-11-hero.webp",
+          alt: "Illustration of a rugged mountain pass on the Pakistan–Afghanistan frontier with a line of pack mules and men in shawls seen from behind.",
+          caption: "Supplies for the Afghan mujahideen flowed across Pakistan's frontier in the 1980s.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A rugged dry mountain pass on the Pakistan–Afghanistan frontier in the 1980s, a line of pack mules and men wrapped in woollen shawls seen from behind walking up a dusty track, dramatic late afternoon light on brown mountains, historical, no faces, no weapons visible, no legible text." },
+        { type: "timeline", head: "The Zia years", items: [
+          ["5 Jul 1977", "Zia overthrows Zulfikar Ali Bhutto"],
+          ["1979", "Hudood Ordinances; Bhutto hanged in April"],
+          ["Dec 1979", "Soviet invasion of Afghanistan"],
+          ["1980s", "US and Saudi aid flows through Pakistan to the mujahideen"],
+          ["1986", "Death penalty law for blaspheming the Prophet"],
+          ["17 Aug 1988", "Zia killed in a plane crash"],
+          ["Feb 1989", "Last Soviet troops leave Afghanistan"]
+        ] },
+        { type: "section", head: "The coup", md:
+          "Zulfikar Ali Bhutto, prime minister after 1971, was a charismatic populist who nationalised industries, gave Pakistan its 1973 constitution and began the nuclear programme. He was also authoritarian, and in 1977 he was accused of rigging an election. Amid street protests, the army chief, General Muhammad Zia-ul-Haq, whom Bhutto had promoted over more senior officers, seized power on 5 July 1977, promising elections within ninety days. They did not come for eight years. Bhutto was tried for conspiracy to murder and hanged in 1979, a verdict Pakistan's Supreme Court said in 2024 had not been a fair trial." },
+        { type: "section", head: "Islamisation", md:
+          "Zia, a devout Muslim, set out to make the state's laws Islamic. The 1979 Hudood Ordinances introduced punishments from Islamic law for theft, alcohol and sex outside marriage; women who reported rape could be charged with adultery if they could not prove it. A Federal Shariat Court was created, zakat (an alms tax) was deducted from bank accounts, and the blasphemy laws were expanded, including a death penalty from 1986 for insulting the Prophet Muhammad. Ahmadis were barred from calling themselves Muslims." },
+        { type: "section", head: "The Afghan jihad", md:
+          "When the Soviet Union invaded Afghanistan in December 1979, Zia became indispensable to the United States. Billions of dollars in American and Saudi aid, and weapons, were channelled through Pakistan's intelligence service, the ISI, which chose which Afghan mujahideen groups to back, favouring the most Islamist. About three million Afghan refugees came to Pakistan. Religious schools, madrasas, multiplied, many funded from the Gulf, and volunteers from across the Muslim world passed through." },
+        { type: "section", head: "The legacy", md:
+          "The Soviets left Afghanistan in 1989. Zia died the year before, when his plane exploded soon after take-off; the cause has never been established. What he left behind lasted far longer: militant networks that Pakistan's security services would use in Kashmir and Afghanistan, and that later turned on Pakistan itself; the spread of guns and heroin, a 'Kalashnikov culture'; sectarian violence between Sunni and Shia groups; and laws that are very hard to repeal." },
+        { type: "compare", head: "Two views of Zia",
+          left: { head: "Admirers", md:
+            "He stood up to the Soviet Union, gave Pakistan an Islamic identity faithful to its founding, and kept the country stable." },
+          right: { head: "Critics", md:
+            "He was a dictator who killed an elected leader, harmed women and minorities, and planted the seeds of extremism." } },
+        { type: "section", head: "Why it still matters", md:
+          "Many of Zia's laws survive. The Hudood rape provisions were reformed in 2006, but the blasphemy laws remain, and accusations of blasphemy regularly lead to mob killings; the governor of Punjab, Salman Taseer, was assassinated in 2011 by his own bodyguard for criticising them. The militancy described in briefing 7 grew partly from the networks built in the 1980s. And the army's role as the final arbiter of politics, which Zia strengthened, remains the defining feature of the system (briefing 2)." }
+      ],
+      takeaways: [
+        "General Zia-ul-Haq seized power in 1977, and Bhutto was hanged in 1979.",
+        "Zia introduced Islamic criminal laws, harsher blasphemy laws and religious courts.",
+        "Pakistan became the base for the US- and Saudi-funded war against the Soviets in Afghanistan, with lasting effects."
+      ],
+      check: { q: "What role did Pakistan play in the Soviet–Afghan war of the 1980s?",
+        choices: ["It sent troops to fight alongside the Soviets", "It channelled US and Saudi aid to the Afghan mujahideen", "It stayed strictly neutral"], answer: 1,
+        explain: "Pakistan's ISI distributed American and Saudi weapons and money to the mujahideen." },
+      sources: [
+        { title: "Mohammad Zia-ul-Haq", publisher: "Britannica", url: "https://www.britannica.com/biography/Mohammad-Zia-ul-Haq", date: "n.d." },
+        { title: "Pakistan: Zia-ul-Haq", publisher: "Britannica", url: "https://www.britannica.com/place/Pakistan/Zia-ul-Haq", date: "n.d." },
+        { title: "Afghan War", publisher: "Britannica", url: "https://www.britannica.com/event/Afghan-War", date: "n.d." }
       ]
     },
 
@@ -350,6 +510,57 @@ window.POLITICS.addUnit("pk", {
         { title: "Why Did Pakistan Announce 'Open War' Against the Taliban?", publisher: "CSIS", url: "https://www.csis.org/analysis/why-did-pakistan-announce-open-war-against-taliban", date: "2026" },
         { title: "Ceasefire at risk as Pakistan and Afghanistan report cross-border attacks", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/4/27/ceasefire-at-risk-as-pakistan-and-afghanistan-report-cross-border-attacks", date: "2026-04-27" },
         { title: "TTP: The Thorn In Pakistan's Throat", publisher: "Eurasia Review", url: "https://www.eurasiareview.com/25082026-ttp-the-thorn-in-pakistans-throat-analysis/", date: "2026-08-25" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "pk-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "Kashmir",
+      dek: "Since 1947 India and Pakistan have fought three wars and many smaller clashes over the former princely state of Jammu and Kashmir. Its people are caught between them.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/pk/pk-12-hero.webp",
+          alt: "Illustration of a mountain valley in Kashmir with a lake, wooden houseboats and snow-capped peaks, a lone boatman seen from behind.",
+          caption: "The Vale of Kashmir, at the heart of the dispute, is controlled by India.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A serene mountain valley in Kashmir with a calm lake, ornate wooden houseboats and a small shikara boat with a lone boatman seen from behind, snow-capped Himalayan peaks and chinar trees in autumn colours, soft morning mist, beautiful but melancholy, no faces, no legible text, no flags." },
+        { type: "facts", head: "Who holds what", rows: [
+          ["India", "Jammu and Kashmir, Ladakh (about 55% of the area)"],
+          ["Pakistan", "Azad Kashmir and Gilgit-Baltistan (about 30%)"],
+          ["China", "Aksai Chin and the Shaksgam valley (about 15%)"],
+          ["Dividing line", "The Line of Control, since 1972"],
+          ["Wars", "1947–48, 1965, the Kargil conflict of 1999; clashes in 2019 and May 2025"]
+        ] },
+        { type: "section", head: "1947", md:
+          "At partition, the hundreds of princely states could join India or Pakistan. Jammu and Kashmir had a Muslim majority but a Hindu ruler, Maharaja Hari Singh, who hesitated. In October 1947 Pashtun tribesmen from Pakistan invaded. The Maharaja asked India for help and signed an Instrument of Accession to India. Indian troops were flown in, and the first war ended in a UN-brokered ceasefire on 1 January 1949, leaving each side holding part of the state." },
+        { type: "section", head: "The promised vote", md:
+          "UN Security Council resolutions in 1948 called for a plebiscite to let Kashmiris choose, after Pakistan withdrew its forces and India reduced its own. The steps were never taken in order, and the vote never happened. Pakistan says the plebiscite is still owed. India says the accession was legal and final, that Pakistan never withdrew, and that the 1972 Simla Agreement, after the 1971 war, committed both sides to settle their differences bilaterally, without outside mediators." },
+        { type: "section", head: "Insurgency", md:
+          "Pakistan tried to take Kashmir by force again in 1965 and, in the Kargil heights, in 1999, a year after both countries tested nuclear weapons. In 1989 an armed uprising broke out in the Indian-held Kashmir valley, fuelled by a disputed state election and local grievances; it was soon joined by militants armed and trained in Pakistan. Tens of thousands of people have been killed, and Kashmiri Hindus, the Pandits, fled the valley in 1990. India deployed hundreds of thousands of troops, and rights groups documented abuses by security forces as well as by militants." },
+        { type: "section", head: "2019 and after", md:
+          "On 5 August 2019 India revoked Article 370 of its constitution, which gave Jammu and Kashmir special autonomy, and split it into two union territories, amid a months-long communications blackout; India's Supreme Court upheld the move in December 2023. Pakistan downgraded relations in protest. On 22 April 2025 gunmen killed 26 people, most of them tourists, at Pahalgam; India blamed Pakistan-based groups, and the crisis led to the four days of fighting in May described in briefing 5." },
+        { type: "compare", head: "Two positions",
+          left: { head: "India", md:
+            "All of Jammu and Kashmir is Indian by the 1947 accession; the problem is Pakistani-sponsored terrorism, and it is an internal matter." },
+          right: { head: "Pakistan", md:
+            "Kashmir's Muslim majority must decide its own future under the UN resolutions; Pakistan offers them moral and diplomatic support." } },
+        { type: "section", head: "Kashmiris themselves", md:
+          "Kashmiris are not a single voice. Many in the valley want independence or have long resented Indian rule; many in Hindu-majority Jammu and Buddhist Ladakh prefer India; many in Azad Kashmir identify with Pakistan, though protests there over electricity prices and rights have grown in recent years. Neither India nor Pakistan offers independence as an option." },
+        { type: "section", head: "Why it matters", md:
+          "Kashmir is the main reason two nuclear-armed neighbours remain enemies, and the trigger for most of their crises. For Pakistan's army it is central to its identity and budget, and 5 February is observed as Kashmir Solidarity Day. The Indus rivers that rise in and near Kashmir now add another source of tension, after India suspended the Indus Waters Treaty in 2025 (see [[unit:in|India]])." }
+      ],
+      takeaways: [
+        "Kashmir's Hindu ruler acceded to India in 1947 after an invasion from Pakistan; the state has been divided ever since.",
+        "Pakistan demands the plebiscite promised in UN resolutions; India says the matter is settled and internal.",
+        "India ended the region's special status in 2019, and a 2025 attack led to the latest India–Pakistan fighting."
+      ],
+      check: { q: "What did UN resolutions in 1948 call for in Kashmir?",
+        choices: ["Independence under UN rule", "A plebiscite to let the people choose", "Permanent partition along the rivers"], answer: 1,
+        explain: "They called for a plebiscite after troop withdrawals; it has never been held." },
+      sources: [
+        { title: "Kashmir", publisher: "Britannica", url: "https://www.britannica.com/place/Kashmir-region-Indian-subcontinent", date: "n.d." },
+        { title: "Kashmir: The Kashmir problem", publisher: "Britannica", url: "https://www.britannica.com/place/Kashmir-region-Indian-subcontinent/The-Kashmir-problem", date: "n.d." },
+        { title: "Jammu and Kashmir", publisher: "Britannica", url: "https://www.britannica.com/place/Jammu-and-Kashmir", date: "n.d." }
       ]
     },
 

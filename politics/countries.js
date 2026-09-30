@@ -61,9 +61,9 @@
       blurb: "A nuclear dynasty whose soldiers and shells now fight for Russia." });
   C({ id: "tw", iso: "158", part: 4, name: "Taiwan", flag: "🇹🇼", color: "#3c4f9e", lessons: 12,
       blurb: "Self-governed and claimed by Beijing; maker of the chips the world runs on." });
-  C({ id: "pk", iso: "586", part: 4, name: "Pakistan", flag: "🇵🇰", color: "#2f6f4f", lessons: 8,
+  C({ id: "pk", iso: "586", part: 4, name: "Pakistan", flag: "🇵🇰", color: "#2f6f4f", lessons: 12,
       blurb: "A nuclear, army-run state of 250 million that became the Iran war's peacemaker." });
-  C({ id: "id", iso: "360", part: 4, name: "Indonesia", flag: "🇮🇩", color: "#b8363f", lessons: 8,
+  C({ id: "id", iso: "360", part: 4, name: "Indonesia", flag: "🇮🇩", color: "#b8363f", lessons: 12,
       blurb: "The largest Muslim-majority democracy, ASEAN's anchor and the nickel behind EV batteries." });
   C({ id: "au", iso: "036", part: 4, name: "Australia", flag: "🇦🇺", color: "#2a4d7a", lessons: 8,
       blurb: "AUKUS submarines, China trade and a populist surge at home." });

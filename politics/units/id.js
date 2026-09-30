@@ -101,6 +101,60 @@ window.POLITICS.addUnit("id", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "id-9", kind: "founding", asOf: "2026-09-29",
+      title: "Merdeka: the revolution of 1945–49",
+      dek: "Indonesia declared independence two days after Japan surrendered, then fought four years against the returning Dutch. The compromises of those years still define the state.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/id/id-9-hero.webp",
+          alt: "Illustration of a modest veranda of a colonial-era house in Jakarta in 1945, with a small group of people in white clothing seen from behind listening to a reading.",
+          caption: "Independence was proclaimed on 17 August 1945 outside Sukarno's house in Jakarta.",
+          credit: "AI illustration — not a photograph",
+          prompt: "The front veranda of a modest colonial-era house in Jakarta in 1945, tropical trees, a small crowd in white and khaki 1940s clothing seen from behind listening quietly, a simple bamboo flagpole without a flag, bright morning light, historic and hopeful, no faces, no legible text." },
+        { type: "timeline", head: "From colony to republic", items: [
+          ["1928", "Youth Pledge: one homeland, one nation, one language"],
+          ["1942–45", "Japanese occupation"],
+          ["1 Jun 1945", "Sukarno sets out Pancasila"],
+          ["17 Aug 1945", "Sukarno and Hatta proclaim independence"],
+          ["Nov 1945", "Battle of Surabaya"],
+          ["1947, 1948", "Dutch 'police actions'"],
+          ["27 Dec 1949", "The Netherlands transfers sovereignty"],
+          ["Aug 1950", "Unitary Republic of Indonesia"]
+        ] },
+        { type: "section", head: "An archipelago becomes a nation", md:
+          "The Dutch East Indies were a patchwork of sultanates, islands and peoples, brought under Dutch control over three centuries. An Indonesian identity was largely the creation of educated nationalists in the early twentieth century. In the 1928 Youth Pledge, young activists declared one homeland, one nation and one language, Indonesian, a form of Malay rather than the Javanese spoken by the largest group. That choice of a shared, neutral language is one reason Indonesia held together." },
+        { type: "section", head: "The Japanese interlude", md:
+          "Japan conquered the Indies in 1942. Its occupation was brutal; millions of Indonesians were forced into labour and hundreds of thousands died, many in famine. But the Japanese also jailed the Dutch, gave nationalist leaders such as Sukarno and Mohammad Hatta a public role and trained Indonesian militias. As defeat neared, they allowed a committee to prepare independence. On 1 June 1945 Sukarno set out Pancasila, five principles for the new state, including belief in God without making Indonesia an Islamic state." },
+        { type: "section", head: "The proclamation", md:
+          "Japan surrendered on 15 August 1945. Pushed by impatient young activists, who briefly kidnapped them, Sukarno and Hatta read a two-sentence proclamation of independence on the morning of 17 August. The next day a constitution was adopted, the 1945 Constitution still in force today, and Sukarno became president. In a key compromise, seven words that would have obliged Muslims to follow Islamic law were dropped from the preamble, to keep the Christian and Hindu east inside the republic." },
+        { type: "section", head: "War with the Dutch", md:
+          "The Netherlands wanted its colony back. British troops arriving to accept the Japanese surrender fought a bloody battle at Surabaya in November 1945, now marked as Heroes' Day. Dutch forces then launched two large offensives, which they called 'police actions', in 1947 and 1948, and captured Sukarno. Guerrilla resistance continued, and the United States, fearing communism would profit, threatened to cut Marshall Plan aid. The Dutch transferred sovereignty on 27 December 1949, and a federal state became a unitary republic in 1950." },
+        { type: "compare", head: "Two readings of the revolution",
+          left: { head: "Indonesia's national story", md:
+            "A people united across the islands won their freedom by their own struggle, proclaimed on 17 August 1945." },
+          right: { head: "Historians' additions", md:
+            "The revolution was also a civil war, with violence against Chinese, Eurasians and rivals; diplomacy and US pressure mattered as much as arms." } },
+        { type: "section", head: "A late apology", md:
+          "Only in 2005 did the Netherlands accept 17 August 1945 'politically and morally' as the date of independence. In 2022 a large Dutch study concluded that its forces used systematic, extreme violence in the war, and the Dutch prime minister apologised. In 2023 the government said it recognised the 1945 date in full. For Indonesians, 17 August, with flags on every house and village games, is the biggest national celebration of the year." },
+        { type: "section", head: "Why it still matters", md:
+          "Pancasila, the 1945 Constitution and the unitary state are treated as fixed pillars that no party openly challenges, and any group seen to threaten them, whether Islamist, communist or separatist, can be banned. The army traces its political role to the revolution, when it saw itself as the guardian of the nation, a claim that returned with the 2025 changes to the military law (briefing 2)." }
+      ],
+      takeaways: [
+        "Sukarno and Hatta proclaimed independence on 17 August 1945, two days after Japan's surrender.",
+        "The Pancasila principles and a shared Indonesian language helped hold a diverse archipelago together.",
+        "The Netherlands fought to return until 1949; it has since apologised for its forces' extreme violence."
+      ],
+      check: { q: "What is Pancasila?",
+        choices: ["Indonesia's national language", "The five founding principles of the Indonesian state", "The Dutch colonial legal code"], answer: 1,
+        explain: "Sukarno set out Pancasila in June 1945 as the philosophy of the new state; it includes belief in God without an Islamic state." },
+      sources: [
+        { title: "Sukarno", publisher: "Britannica", url: "https://www.britannica.com/biography/Sukarno", date: "n.d." },
+        { title: "Indonesia: Toward independence", publisher: "Britannica", url: "https://www.britannica.com/place/Indonesia/Toward-independence", date: "n.d." },
+        { title: "Indonesia: Independent Indonesia to 1965", publisher: "Britannica", url: "https://www.britannica.com/place/Indonesia/Independent-Indonesia-to-1965", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "id-3", kind: "history", asOf: "2026-09-29",
@@ -146,6 +200,108 @@ window.POLITICS.addUnit("id", {
         { title: "Indonesia profile — Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-asia-pacific-15114517", date: "n.d." },
         { title: "Indonesia", publisher: "Britannica", url: "https://www.britannica.com/place/Indonesia", date: "n.d." },
         { title: "Prabowo Subianto", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Prabowo_Subianto", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "id-10", kind: "past", asOf: "2026-09-29",
+      title: "1965: the killings",
+      dek: "After a failed coup attempt, the army and allied militias killed around half a million people accused of being communists. For decades it could not be discussed.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/id/id-10-hero.webp",
+          alt: "Illustration of a quiet river in rural Java at dawn, with rice fields and palm trees and an empty wooden bridge.",
+          caption: "Many victims of the 1965–66 killings were buried in unmarked graves or thrown into rivers.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A quiet brown river in rural Java at dawn, rice paddies and coconut palms on the banks, an empty weathered wooden footbridge, low mist, muted and mournful atmosphere, no people, no legible text." },
+        { type: "timeline", head: "1965–1998", items: [
+          ["30 Sep–1 Oct 1965", "'30 September Movement' kills six generals"],
+          ["Oct 1965–1966", "Mass killings across Java, Bali and Sumatra"],
+          ["Mar 1966", "Sukarno hands power to Suharto"],
+          ["1966", "Communist Party banned"],
+          ["1969–79", "Thousands of prisoners held on Buru island"],
+          ["1998", "Suharto falls"],
+          ["Jan 2023", "Jokowi acknowledges gross rights violations"]
+        ] },
+        { type: "section", head: "The coup attempt", md:
+          "By 1965 Sukarno balanced two great rival forces: the army and the Communist Party of Indonesia (PKI), then the largest communist party outside China and the Soviet Union, with millions of members. On the night of 30 September, a group of junior officers calling themselves the '30 September Movement' kidnapped and killed six senior generals, saying they were preventing a coup. Within a day General Suharto, commander of the army's strategic reserve, crushed the movement and blamed the PKI." },
+        { type: "section", head: "The killings", md:
+          "What followed was one of the worst mass killings of the twentieth century. Between late 1965 and 1966 the army, and civilian militias it armed and encouraged, including Muslim youth groups in Java and nationalist gangs in Bali, killed people accused of being communists: party members, union and peasant activists, teachers, ethnic Chinese and people denounced by neighbours. Most estimates put the dead at around 500,000, some up to a million. Hundreds of thousands more were imprisoned without trial, some for over a decade." },
+        { type: "section", head: "The New Order's story", md:
+          "Suharto took power from Sukarno in March 1966 and ruled for 32 years. His regime taught that the PKI had been a treacherous enemy defeated by the army. A state film shown to schoolchildren every year on 30 September depicted the generals' murders in lurid detail, and said nothing about the killings. Former prisoners and their families had 'ET' (ex-political prisoner) marked on their identity cards and were barred from jobs such as teaching and the civil service." },
+        { type: "section", head: "Outside powers", md:
+          "Western governments welcomed the fall of the PKI. US embassy documents declassified in 2017 show American officials followed the killings closely as they happened, and earlier accounts say US diplomats gave the army lists of communist names; Britain ran propaganda against the PKI. For the West, Indonesia's turn from Sukarno's leftward drift was a great Cold War victory, and Suharto became a valued partner." },
+        { type: "compare", head: "Two views of 1965",
+          left: { head: "The official and conservative view", md:
+            "The PKI tried to seize power; the army saved the nation from communism, and reopening the past risks new divisions." },
+          right: { head: "Historians and survivors", md:
+            "The coup attempt became a pretext for the organised slaughter of unarmed civilians, for which no one has been held to account." } },
+        { type: "section", head: "Breaking the silence", md:
+          "After 1998 the silence slowly broke. Films such as The Act of Killing (2012), in which perpetrators re-enact their crimes, and an international people's tribunal in 2015 drew attention. In January 2023 President Joko Widodo acknowledged twelve cases of gross human rights violations, including the '1965–66 events', and expressed regret, though without an apology or prosecutions. The PKI and the spreading of communism remain banned by law." },
+        { type: "section", head: "Why it still matters", md:
+          "1965 created the New Order and the army's dominance that defined Indonesia for a generation. Accusations of communism are still used to smear opponents, and the question of justice for past abuses, from 1965 to East Timor and 1998, hangs over a president, Prabowo Subianto, who was a Suharto-era general (briefing 5)." }
+      ],
+      takeaways: [
+        "A failed coup attempt in 1965 was blamed on the Communist Party.",
+        "The army and allied militias killed around 500,000 people, perhaps up to a million, in 1965–66.",
+        "Suharto's New Order suppressed the memory; the state acknowledged the violations only in 2023."
+      ],
+      check: { q: "Who was targeted in the 1965–66 killings?",
+        choices: ["Dutch settlers", "People accused of being communists", "Army generals"], answer: 1,
+        explain: "The army and allied militias killed people accused of links to the Communist Party of Indonesia." },
+      sources: [
+        { title: "Indonesia's Jokowi Admits to Serious Past Human Rights Abuses", publisher: "The Diplomat", url: "https://thediplomat.com/2023/01/indonesias-jokowi-admits-to-serious-past-human-rights-abuses/", date: "2023-01" },
+        { title: "Indonesia: historical violations", publisher: "UN Office of the High Commissioner for Human Rights", url: "https://www.ohchr.org/en/press-releases/2023/01/indonesia-historical-violations", date: "2023-01" },
+        { title: "Indonesia: Independent Indonesia to 1965", publisher: "Britannica", url: "https://www.britannica.com/place/Indonesia/Independent-Indonesia-to-1965", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "id-11", kind: "past", asOf: "2026-09-29",
+      title: "East Timor",
+      dek: "Indonesia invaded the former Portuguese colony in 1975 and ruled it for 24 years. In 1999 its people voted for independence, and the army's militias burned the country.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/id/id-11-hero.webp",
+          alt: "Illustration of a long queue of people in simple clothing seen from behind waiting outside a small school building on a hillside in Timor, early morning.",
+          caption: "Almost everyone registered voted in the 1999 referendum, many queuing from before dawn.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long queue of people in simple 1990s clothing seen from behind waiting outside a small whitewashed school building on a dry hillside in Timor, eucalyptus trees, early morning light, calm determination, no faces, no flags, no legible text." },
+        { type: "facts", head: "Occupation in numbers", rows: [
+          ["Occupation", "December 1975 to October 1999"],
+          ["Deaths, 1974–1999", "At least 102,800, most from hunger and disease (truth commission)"],
+          ["1999 vote", "78.5% for independence"],
+          ["Independence", "20 May 2002"],
+          ["ASEAN", "Joined as the 11th member, October 2025"]
+        ] },
+        { type: "section", head: "Invasion", md:
+          "East Timor, the eastern half of an island in the Lesser Sundas, was a neglected Portuguese colony. When Portugal's dictatorship fell in 1974 and it began to leave its empire, a short civil war left the left-leaning Fretilin party in control, and it declared independence in November 1975. Nine days later, on 7 December, Indonesia invaded. The day before, US President Gerald Ford and Secretary of State Henry Kissinger had met Suharto in Jakarta and did not object. Indonesia annexed the territory as its 27th province in 1976." },
+        { type: "section", head: "Occupation", md:
+          "The resistance fled to the mountains, and the army answered with bombing, forced resettlement and the destruction of crops. East Timor's truth commission later found that at least 102,800 people died as a result of the conflict between 1974 and 1999, the great majority from hunger and illness in the late 1970s. On 12 November 1991 soldiers fired on mourners at the Santa Cruz cemetery in Dili, killing more than 200 people; foreign journalists filmed it, and the footage turned the world's attention to Timor." },
+        { type: "section", head: "The 1999 vote", md:
+          "After Suharto fell, his successor, B. J. Habibie, surprised his own generals by offering the East Timorese a choice between autonomy within Indonesia and independence. On 30 August 1999, in a UN-run ballot, 78.5% voted for independence. Pro-Indonesian militias, organised and backed by the army, then killed an estimated 1,400 people, drove hundreds of thousands from their homes and destroyed most buildings. An Australian-led international force landed in September, and the UN ran the territory until independence in 2002." },
+        { type: "section", head: "Justice and reconciliation", md:
+          "Indonesian ad hoc courts tried a handful of officers and militia leaders; almost all were acquitted on appeal. Timor-Leste's leaders, notably Xanana Gusmão and José Ramos-Horta, chose to prioritise good relations with their large neighbour over prosecutions, and a joint Indonesia–Timor-Leste truth commission in 2008 found the Indonesian state responsible for gross violations. Today the two countries are friendly, and Indonesia backed Timor-Leste's entry into ASEAN, completed in October 2025." },
+        { type: "compare", head: "Two views of the occupation",
+          left: { head: "The Indonesian government's view at the time", md:
+            "Indonesia acted to stop a communist civil war on its border and to integrate a people who wanted to join it." },
+          right: { head: "Timor-Leste, the UN and most historians", md:
+            "It was an illegal invasion and occupation marked by mass atrocities; the 1999 vote showed what Timorese wanted." } },
+        { type: "section", head: "Why it still matters", md:
+          "Losing East Timor made Indonesia's generals and nationalists fearful that other regions, especially Papua (briefing 12), might follow. Several officers who served there went on to high office, including Prabowo Subianto, who led special forces operations in Timor. And the gap between the East Timor referendum and Papua's 1969 'Act of Free Choice' is the heart of Papuan activists' argument." }
+      ],
+      takeaways: [
+        "Indonesia invaded East Timor in 1975, days after it declared independence from Portugal.",
+        "At least 102,800 people died as a result of the conflict, most from hunger and disease.",
+        "In 1999 78.5% voted for independence; army-backed militias then devastated the territory."
+      ],
+      check: { q: "What happened in East Timor in August 1999?",
+        choices: ["Indonesia annexed it", "Its people voted for independence in a UN-run ballot", "It joined ASEAN"], answer: 1,
+        explain: "78.5% voted for independence, after which pro-Indonesian militias unleashed violence." },
+      sources: [
+        { title: "Timor-Leste independence", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Timor-Leste_independence", date: "n.d." },
+        { title: "Timor-Leste FAQs (CAVR mortality estimates)", publisher: "Human Rights Data Analysis Group", url: "https://hrdag.org/timorlestefaqs/", date: "n.d." },
+        { title: "Why ASEAN membership matters for Timor-Leste", publisher: "Fortune", url: "https://fortune.com/2025/10/30/why-timor-leste-joined-asean/", date: "2025-10-30" }
       ]
     },
 
@@ -359,6 +515,55 @@ window.POLITICS.addUnit("id", {
         { title: "Delivery Driver's Death Unleashes Rage at Indonesia's Elites", publisher: "Bloomberg", url: "https://www.bloomberg.com/news/articles/2025-08-31/delivery-driver-s-death-unleashes-fury-against-indonesia-elites", date: "2025-08-31" },
         { title: "Protest wave challenges Indonesia's authoritarian drift", publisher: "East Asia Forum", url: "https://eastasiaforum.org/2025/10/20/protest-wave-challenges-indonesias-authoritarian-drift/", date: "2025-10-20" },
         { title: "Indonesian students protest gov't policies amid economic strain", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/6/12/indonesian-students-protest-govt-policies-amid-economic-strain", date: "2026-06-12" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "id-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "Papua",
+      dek: "Indonesia's easternmost region is rich in minerals and forests, poor in almost every other measure, and home to the country's longest-running separatist conflict.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/id/id-12-hero.webp",
+          alt: "Illustration of steep green highlands in Papua with mist in the valleys and a traditional round thatched hut, a person seen from behind on a path.",
+          caption: "Most Indigenous Papuans live in the highlands and along the coasts of the western half of New Guinea.",
+          credit: "AI illustration — not a photograph",
+          prompt: "Steep lush green highlands of Papua with low mist in the valleys, a traditional round thatched honai hut, sweet potato gardens, a single person seen from far behind walking on a mountain path, soft morning light, beautiful and remote, no faces, no legible text, no flags." },
+        { type: "facts", head: "Papua at a glance", rows: [
+          ["Where", "The western half of New Guinea"],
+          ["Provinces", "Six since 2022 (previously two)"],
+          ["People", "About 5.5 million; Indigenous Papuans are Melanesian"],
+          ["Resources", "Grasberg copper and gold mine; forests; gas"],
+          ["Joined Indonesia", "1963 under UN arrangements; 'Act of Free Choice' 1969"]
+        ] },
+        { type: "section", head: "Left out in 1949", md:
+          "When the Dutch handed over the East Indies in 1949, they kept western New Guinea, arguing that its Melanesian peoples were distinct and preparing them for self-government; a Papuan council raised the Morning Star flag in 1961. Sukarno threatened war. Under American pressure, the 1962 New York Agreement, negotiated without Papuans, handed the territory to a brief UN administration and then to Indonesia in 1963, on condition that Papuans would later decide their future." },
+        { type: "section", head: "The 'Act of Free Choice'", md:
+          "The vote came in 1969. Instead of a referendum, Indonesia selected 1,025 representatives, who voted unanimously to remain part of Indonesia, under heavy military pressure. The UN General Assembly took note of the result and accepted it. Indonesia regards the matter as closed. Papuan independence activists call it the 'Act of No Choice' and say their right to self-determination was never exercised." },
+        { type: "section", head: "Conflict and grievance", md:
+          "An armed movement, the Free Papua Movement (OPM), has fought a low-level insurgency since the 1960s; its armed wing has attacked soldiers, police, construction workers and, in 2023, took a New Zealand pilot hostage for 19 months. The security forces have been accused of killings, torture and displacement of villagers; thousands have fled fighting in the highlands. Rights groups and journalists face tight restrictions on access, so reliable figures are scarce." },
+        { type: "section", head: "Riches and poverty", md:
+          "Papua holds Grasberg, one of the world's largest copper and gold mines, run by Freeport-McMoRan with the Indonesian state now the majority owner. Yet Papua has Indonesia's highest poverty rates and lowest life expectancy. Decades of migration from other islands, partly under the government's transmigration programme, have made Indigenous Papuans a minority in many towns and much of the economy. Special autonomy, granted in 2001 and renewed in 2021, brought large budgets but, critics say, little change." },
+        { type: "compare", head: "Two views of Papua",
+          left: { head: "Jakarta", md:
+            "Papua is an inseparable part of Indonesia; development, roads and special autonomy are closing the gap, and separatists are criminals." },
+          right: { head: "Papuan activists", md:
+            "Papuans were never allowed to choose; development serves outsiders, and they face racism and military repression." } },
+        { type: "section", head: "Why it matters", md:
+          "Papua tests Indonesia's promise of unity in diversity. Racist abuse of Papuan students in Surabaya in 2019 set off the biggest protests in the region for years. Prabowo's plans for giant rice and sugarcane estates in the south, backed by more troops, worry Indigenous communities and environmental groups (briefing 8). Pacific island states, many of them fellow Melanesians, regularly raise Papua at the UN, and Jakarta pushes back hard." }
+      ],
+      takeaways: [
+        "Papua joined Indonesia through the 1962 New York Agreement and a 1969 'Act of Free Choice' in which 1,025 selected representatives voted.",
+        "A low-level independence insurgency and rights abuses by security forces continue.",
+        "Papua is rich in minerals but has Indonesia's highest poverty rates."
+      ],
+      check: { q: "How many people voted in Papua's 1969 'Act of Free Choice'?",
+        choices: ["About 1,000 selected representatives", "Every adult Papuan", "About 100,000 registered voters"], answer: 0,
+        explain: "Indonesia chose 1,025 representatives, who voted unanimously for integration." },
+      sources: [
+        { title: "Act of Free Choice", publisher: "International Parliamentarians for West Papua", url: "https://www.ipwp.org/background/act-of-free-choice/", date: "n.d." },
+        { title: "Fifty Years after the 'Act of Free Choice': The West Papua Issue", publisher: "ANU Open Research", url: "https://openresearch-repository.anu.edu.au/bitstreams/1c20aaec-95da-4b17-a61e-2c8f561a03c1/download", date: "n.d." },
+        { title: "Papua", publisher: "Britannica", url: "https://www.britannica.com/place/Papua", date: "n.d." }
       ]
     },
 
