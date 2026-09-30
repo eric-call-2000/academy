@@ -52,4 +52,13 @@
   L({ id: "us_ru", a: "us", b: "ru", lessons: 3, color: "#5a5a8a",
       title: "Treaties, resets and swaps",
       blurb: "The nuclear treaties that have all lapsed, repeated resets that ended in rupture, and the prisoners traded between them." });
+  L({ id: "de_ru", a: "de", b: "ru", lessons: 3, color: "#6a5a3a",
+      title: "Gas, sabotage and spies",
+      blurb: "Fifty years of trading pipes for gas, the pipelines blown up under the Baltic, and Russia's shadow war inside Germany." });
+  L({ id: "gb_fr", a: "gb", b: "fr", lessons: 3, color: "#3f5f8f",
+      title: "Rivals, boats and bombs",
+      blurb: "Seven centuries of rivalry turned alliance, the small boats crossing the Channel, and Europe's two nuclear powers working together." });
+  L({ id: "jp_kr", a: "jp", b: "kr", lessons: 3, color: "#7a3f6a",
+      title: "History, chips and a thaw",
+      blurb: "A colonial past that won't settle, a trade war over wartime labour, and two leaders who chose to cooperate anyway." });
 })();

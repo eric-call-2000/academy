@@ -253,7 +253,7 @@ test("links are found from either country, and stay off the 30-country path", ()
   assert.ok(P.linksOf("cn").some((l) => l.id === "us_cn"), "China lists US–China");
   assert.ok(P.linksOf("us").some((l) => l.id === "us_cn"), "the US lists US–China");
   assert.ok(P.linksOf("us").every((l) => l.a === "us" || l.b === "us"), "only links that include the US");
-  same(P.linksOf("fr"), []);
+  same(P.linksOf("it"), []);  // Italy has no relationship units yet; pick another if it gets one
   assert.strictEqual(P.countries.length, 30);
   assert.strictEqual(P.unitIdOf("us_cn-2"), "us_cn");
   assert.strictEqual(P.lessonNum("us_cn-2"), 2);
