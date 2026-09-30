@@ -9,7 +9,7 @@ fact-check when it is written.
 
 ## At a glance
 
-- **30 units, one per country.** Each unit has **8 lessons** ("briefings"): **240 briefings** in all.
+- **30 units, one per country.** Each unit has **12 lessons** ("briefings"): **360 briefings** in all.
 - **A briefing is a 3–5 minute read.** It runs 500–900 words, in short sections of 180 words
   or fewer. It has one or two pictures: an AI-generated illustration of a specific event, or an
   accurate map. It closes with three key takeaways, its sources, and a "current as of" date.
@@ -102,8 +102,8 @@ politics/
   briefings; default 1) and **What's new** (dispatches and refreshed lessons since your last
   visit).
 - **Atlas** lists the 30 countries grouped by region. Each card shows its flag and a progress
-  ring (x of 8). A world map shaded by progress is a Phase 3 extra.
-- **Unit** is the country's page: its 8 briefings in order, its "current as of" date, and links
+  ring (x of 12). A world map shaded by progress is a Phase 3 extra.
+- **Unit** is the country's page: its 12 briefings in reading order, its "current as of" date, and links
   to related units (Iran links to Israel, Saudi Arabia, Pakistan and the US).
 - **Reader** is a single column about 680px wide, with a reading-progress bar and a large hero
   image. It shows fact boxes, timelines and quotes, then takeaways and sources, then
@@ -173,21 +173,30 @@ CodeLab's validator, which keeps its course catalog honest.
 
 ---
 
-## The standard unit: 8 briefings per country
+## The standard unit: 12 briefings per country
 
-Every country follows the same arc, so you always know where you are. Lessons 5–7 are the
-**stories**, the event-driven, short-form core you asked for.
+Every country follows the same arc, so you always know where you are. The **stories** are
+the event-driven, short-form core; around them, three history briefings explain how the
+country began and two big issues from its past, and a spotlight covers one theme chosen for
+that country.
 
-| # | Briefing | What it covers | Picture |
-|---|----------|----------------|---------|
-| 1 | **Snapshot** | The country in 5 minutes: who's in charge, how big it is, why it's in the top 30 *right now* | Locator map + fact box |
-| 2 | **How power really works** | The system on paper and in practice: who decides, parties, elections, courts, the military | Simple power diagram (SVG) |
-| 3 | **The road here** | The five turning points of modern history that explain today | Timeline + one illustration |
-| 4 | **The players** | The leader, their rivals and the people behind them, and what each wants | Official portraits (public-domain / CC photos, credited) |
-| 5 | **Story 1** | Usually the biggest domestic event | AI event illustration |
-| 6 | **Story 2** | Usually the biggest foreign or security event | AI event illustration |
-| 7 | **Story 3** | Whatever defines the year: an election, a crisis or a war | AI event illustration |
-| 8 | **Where things stand** | The situation as of the date, three plausible scenarios, and dated things to watch | Illustration or chart |
+Units began with 8 briefings (ids 1–8). The four added later got ids 9–12, because ids are
+progress keys and never change; the app reads them in this order (`P.ORDER12` in `core.js`):
+
+| Order | Id | Briefing | What it covers | Picture |
+|---|---|----------|----------------|---------|
+| 1 | 1 | **Snapshot** | The country in 5 minutes: who's in charge, how big it is, why it's in the top 30 *right now* | Locator map + fact box |
+| 2 | 2 | **How power really works** | The system on paper and in practice: who decides, parties, elections, courts, the military | Simple power diagram (SVG) |
+| 3 | 9 | **How it began** | The founding: independence, unification, revolution or constitution, and the arguments about it | Timeline + AI illustration |
+| 4 | 3 | **The road here** | The five turning points of modern history that explain today | Timeline + one illustration |
+| 5 | 10 | **From the past 1** | An important issue from the country's history, in depth | AI illustration |
+| 6 | 11 | **From the past 2** | A second important historical issue | AI illustration |
+| 7 | 4 | **The players** | The leader, their rivals and the people behind them, and what each wants | Official portraits (public-domain / CC photos, credited) |
+| 8 | 5 | **Story 1** | Usually the biggest domestic event | AI event illustration |
+| 9 | 6 | **Story 2** | Usually the biggest foreign or security event | AI event illustration |
+| 10 | 7 | **Story 3** | Whatever defines the year: an election, a crisis or a war | AI event illustration |
+| 11 | 12 | **Spotlight** | One theme chosen for this country (Kashmir, the Arctic, the chaebol, the disappeared…) | AI illustration |
+| 12 | 8 | **Where things stand** | The situation as of the date, three plausible scenarios, and dated things to watch | Illustration or chart |
 
 **Every story briefing has the same four parts:** *What happened* (dated and specific), *Why
 it happened*, *Why it matters*, and *What's next*. That is the short-form format, and it lets
@@ -197,7 +206,7 @@ a reader skim any briefing in the app the same way.
 
 ## Images
 
-About 2 images per briefing gives **~480 images**. As 1600×900 WebP at ~150 KB each, that is
+About 2 images per briefing gives **~720 images**. As 1600×900 WebP at ~150 KB each, that is
 about 70 MB, lazy-loaded per unit, which is fine for GitHub Pages.
 
 **House style.** Every event prompt starts with the same prefix so the whole app looks like

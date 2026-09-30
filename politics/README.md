@@ -12,36 +12,36 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 
 | Unit | Country | Briefings | Current as of | Pictures |
 |------|---------|-----------|---------------|----------|
-| 1 | 🇺🇸 United States | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 2 | 🇨🇳 China | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 3 | 🇷🇺 Russia | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 4 | 🇮🇳 India | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 5 | 🇺🇦 Ukraine | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 6 | 🇩🇪 Germany | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 7 | 🇬🇧 United Kingdom | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 8 | 🇫🇷 France | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 9 | 🇮🇹 Italy | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 10 | 🇵🇱 Poland | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 11 | 🇹🇷 Turkey | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 12 | 🇮🇱 Israel | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 13 | 🇮🇷 Iran | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 14 | 🇸🇦 Saudi Arabia | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 15 | 🇦🇪 United Arab Emirates | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 16 | 🇪🇬 Egypt | 8 of 8 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 17 | 🇯🇵 Japan | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 18 | 🇰🇷 South Korea | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 19 | 🇰🇵 North Korea | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 20 | 🇹🇼 Taiwan | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 21 | 🇵🇰 Pakistan | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 22 | 🇮🇩 Indonesia | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 23 | 🇦🇺 Australia | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 24 | 🇨🇦 Canada | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 25 | 🇲🇽 Mexico | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 26 | 🇧🇷 Brazil | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 27 | 🇦🇷 Argentina | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 28 | 🇻🇪 Venezuela | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 29 | 🇿🇦 South Africa | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 30 | 🇳🇬 Nigeria | 8 of 8 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 1 | 🇺🇸 United States | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 2 | 🇨🇳 China | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 3 | 🇷🇺 Russia | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 4 | 🇮🇳 India | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 5 | 🇺🇦 Ukraine | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 6 | 🇩🇪 Germany | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 7 | 🇬🇧 United Kingdom | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 8 | 🇫🇷 France | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 9 | 🇮🇹 Italy | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 10 | 🇵🇱 Poland | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 11 | 🇹🇷 Turkey | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 12 | 🇮🇱 Israel | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 13 | 🇮🇷 Iran | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 14 | 🇸🇦 Saudi Arabia | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 15 | 🇦🇪 United Arab Emirates | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 16 | 🇪🇬 Egypt | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 17 | 🇯🇵 Japan | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 18 | 🇰🇷 South Korea | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 19 | 🇰🇵 North Korea | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 20 | 🇹🇼 Taiwan | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 21 | 🇵🇰 Pakistan | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 22 | 🇮🇩 Indonesia | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 23 | 🇦🇺 Australia | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 24 | 🇨🇦 Canada | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 25 | 🇲🇽 Mexico | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 26 | 🇧🇷 Brazil | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 27 | 🇦🇷 Argentina | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 28 | 🇻🇪 Venezuela | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 29 | 🇿🇦 South Africa | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 30 | 🇳🇬 Nigeria | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
 
 ## Run it
 
@@ -75,7 +75,7 @@ It is static files, so any of these work:
   seven-day strip, briefings updated since you read them, and dispatches.
 - **Atlas** lists all 30 countries by region, with progress rings. Unwritten ones say
   "Coming soon".
-- **Country** shows the unit's 8 briefings, the current-as-of date, dispatches and connected
+- **Country** shows the unit's 12 briefings in reading order, the current-as-of date, dispatches and connected
   countries.
 - **Reader** is one serif column with a reading-progress bar and adjustable text size.
   Glossary terms are tappable. Each briefing ends with three takeaways, an optional quick
@@ -111,10 +111,13 @@ politics/
 
 1. **Research first.** Write `tools/research/<id>.md` from fresh sources: every number,
    date and name, each with a link. Politics moves; memory goes stale.
-2. **Copy the shape of `units/us.js`.** Use the standard arc of 8 briefings: snapshot, how
-   power works, the road here, the players, three stories, where things stand. Each story
-   has four parts: *what happened*, *why*, *why it matters*, *what's next*. Ids are
-   `<id>-1` … `<id>-8` and never change, because they're progress keys.
+2. **Copy the shape of `units/us.js`.** Use the standard arc of 12 briefings: snapshot, how
+   power works, how it began, the road here, two issues from the past, the players, three
+   stories, a spotlight, where things stand. Each story has four parts: *what happened*,
+   *why*, *why it matters*, *what's next*. Ids are `<id>-1` … `<id>-12` and never change,
+   because they're progress keys; the four added later (founding 9, past 10 and 11,
+   spotlight 12) sit in the file in reading order (`P.ORDER12` in `core.js`), which the
+   validator checks.
 3. **Markup** is deliberately small: `**bold**`, `*italic*`, `[label](https://…)`,
    `[[term]]` or `[[term-id|label]]` for the glossary, `[[unit:ir]]` for another country, a
    blank line for a new paragraph, and `- ` for bullets. Add any new term to `glossary.js`.
