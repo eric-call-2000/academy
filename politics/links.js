@@ -169,4 +169,7 @@
   L({ id: "de_tr", a: "de", b: "tr", lessons: 3, color: "#8a3a3a",
       title: "Allies, guest workers and jets",
       blurb: "First World War allies, three million German Turks from the guest-worker era, and a bumpy partnership over refugees, rallies and jets." });
+  L({ id: "ng_cn", a: "ng", b: "cn", lessons: 3, color: "#5a7a2a",
+      title: "Railways, loans and traders",
+      blurb: "From Biafra to strategic partners, Chinese-built railways and a deep-sea port on Chinese loans, and traders in Lagos and Guangzhou." });
 })();
