@@ -175,4 +175,7 @@
   L({ id: "id_cn", a: "id", b: "cn", lessons: 3, color: "#8a2a3a",
       title: "Nickel, a bullet train and Natuna",
       blurb: "A 23-year freeze after 1965, Chinese money behind Indonesia's nickel boom and its bullet train, and a dispute over the seas off Natuna." });
+  L({ id: "ae_il", a: "ae", b: "il", lessons: 3, color: "#2a6a5a",
+      title: "Accords, a red line and Iran",
+      blurb: "Secret contacts and the 2020 Abraham Accords, a warm peace strained by Gaza, and a military partnership forged against Iran." });
 })();
