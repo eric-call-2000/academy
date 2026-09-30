@@ -193,4 +193,7 @@
   L({ id: "gb_cn", a: "gb", b: "cn", lessons: 3, color: "#6a2a3a",
       title: "Opium, Huawei and an embassy",
       blurb: "Britain took Hong Kong in the Opium Wars and returned it in 1997; a golden era gave way to spies and bans." });
+  L({ id: "ve_cn", a: "ve", b: "cn", lessons: 3, color: "#7a5a1a",
+      title: "Oil for loans, then a raid",
+      blurb: "Chávez's partner lent about $60 billion against oil; Maduro's capture left Beijing owed billions by a Venezuela tilting to Washington." });
 })();
