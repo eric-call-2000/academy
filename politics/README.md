@@ -54,6 +54,12 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇮🇱🇮🇷 Israel & Iran | From allies to arch-enemies | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇮🇳🇵🇰 India & Pakistan | Wars, water and cricket | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇨🇳🇹🇼 China & Taiwan | Consensus, trade and Kinmen | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇯🇵🇨🇳 Japan & China | History, islands and pressure | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇸🇦🇮🇷 Saudi Arabia & Iran | Pilgrims, oil and proxies | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇰🇷🇰🇵 South Korea & North Korea | Summits, factories and balloons | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇬🇧🇦🇷 United Kingdom & Argentina | The Falklands: claims, war and oil | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇹🇷🇷🇺 Turkey & Russia | Old enemies, awkward partners | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇷🇺 United States & Russia | Treaties, resets and swaps | 3 of 3 | 30 Sep 2026 | illustrations pending |
 
 ## Run it
 

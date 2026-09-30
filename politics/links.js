@@ -34,4 +34,22 @@
   L({ id: "cn_tw", a: "cn", b: "tw", lessons: 3, color: "#9a3b3b",
       title: "Consensus, trade and Kinmen",
       blurb: "A deliberately vague formula, an economic embrace Taiwan is loosening, and islands within sight of China." });
+  L({ id: "jp_cn", a: "jp", b: "cn", lessons: 3, color: "#7a4b2a",
+      title: "History, islands and pressure",
+      blurb: "A war that still shapes both countries, five islands both claim, and the economic squeeze Beijing applies when relations sour." });
+  L({ id: "sa_ir", a: "sa", b: "ir", lessons: 3, color: "#2f6f6a",
+      title: "Pilgrims, oil and proxies",
+      blurb: "A Sunni kingdom and a Shia republic competing to lead Islam, a drone attack on Saudi oil, and a decade of rival proxies." });
+  L({ id: "kr_kp", a: "kr", b: "kp", lessons: 3, color: "#3a6b8c",
+      title: "Summits, factories and balloons",
+      blurb: "Rounds of engagement that ended in freezes, a factory town in the North, and a propaganda war of balloons and loudspeakers." });
+  L({ id: "gb_ar", a: "gb", b: "ar", lessons: 3, color: "#4a6b8a",
+      title: "The Falklands: claims, war and oil",
+      blurb: "Two claims to the same islands, the road from war to wary partnership, and the squid and oil now driving the dispute." });
+  L({ id: "tr_ru", a: "tr", b: "ru", lessons: 3, color: "#8a4a5e",
+      title: "Old enemies, awkward partners",
+      blurb: "Twelve imperial wars over the Black Sea, a downed jet and a murdered ambassador, and a NATO member tied to Russian gas and reactors." });
+  L({ id: "us_ru", a: "us", b: "ru", lessons: 3, color: "#5a5a8a",
+      title: "Treaties, resets and swaps",
+      blurb: "The nuclear treaties that have all lapsed, repeated resets that ended in rupture, and the prisoners traded between them." });
 })();

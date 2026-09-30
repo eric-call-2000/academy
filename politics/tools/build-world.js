@@ -43,7 +43,8 @@ const LABEL = {
    country's. The app draws the arc through this point, so it bows into
    open sea. Links not listed use a default arc (see app.js). */
 const LINK_LABEL = {
-  us_mx: [-127, 26], us_ca: [-60, 50], il_ir: [55, 46], in_pk: [70, 10.5], cn_tw: [113, 14]
+  us_mx: [-127, 26], us_ca: [-60, 50], il_ir: [55, 46], in_pk: [70, 10.5], cn_tw: [113, 14],
+  jp_cn: [140, 26], kr_kp: [140, 53], sa_ir: [48, 9], us_ru: [10, 77]
 };
 
 const features = topojson.feature(coarse, coarse.objects.countries).features;

@@ -229,9 +229,19 @@ Six more followed, each taking angles the country units don't already cover:
 | 🇨🇳🇹🇼 China & Taiwan | The 1992 Consensus | An economic embrace, loosening | Kinmen: the front-line islands |
 
 The **Map** screen (`#/map`) shows every country with its number of briefings and your
-progress, and draws each relationship as an arc between the two countries. Candidates for
-later relationships: Japan–China, Saudi Arabia–Iran, Turkey–Russia, US–Russia, Germany–Russia,
-Venezuela–Colombia.
+progress, and draws each relationship as an arc between the two countries. A third set of six followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇯🇵🇨🇳 Japan & China | History that won't settle | The Senkaku islands | Rare earths, seafood and tourists |
+| 🇸🇦🇮🇷 Saudi Arabia & Iran | Rivals for the Muslim world | Abqaiq: the attack on the oil heart | The contest for the Arab world |
+| 🇰🇷🇰🇵 South & North Korea | Sunshine and summits | Kaesong: the factory town | Balloons, loudspeakers and leaflets |
+| 🇬🇧🇦🇷 UK & Argentina | Two claims to the islands | From enemies to wary partners | Squid, oil and Sea Lion |
+| 🇹🇷🇷🇺 Turkey & Russia | Empires at war | The jet and the ambassador | Gas, reactors and missiles |
+| 🇺🇸🇷🇺 US & Russia | The last treaty ends | From reset to rupture | Prisoners and swaps |
+
+Candidates for later relationships: Germany–Russia, US–Venezuela, Egypt–Israel, UK–France,
+Japan–South Korea, Poland–Germany, China–India, Australia–China, Brazil–Argentina.
 
 ---
 
