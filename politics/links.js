@@ -136,4 +136,7 @@
   L({ id: "jp_ru", a: "jp", b: "ru", lessons: 3, color: "#4a3a6a",
       title: "Four islands and no peace",
       blurb: "Two wars and four islands with no peace treaty since 1945, Abe's failed courtship of Putin, and sanctions, Sakhalin gas and a provocative visit." });
+  L({ id: "in_ru", a: "in", b: "ru", lessons: 3, color: "#7a4a2a",
+      title: "Old friends, arms and oil",
+      blurb: "A Cold War friendship sealed in 1971, decades of Russian arms, and cheap oil that brought Trump's tariffs." });
 })();
