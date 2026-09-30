@@ -190,4 +190,7 @@
   L({ id: "us_eg", a: "us", b: "eg", lessons: 3, color: "#8a6a2a",
       title: "Aid, a coup and the canal",
       blurb: "Rivals over Suez in 1956, partners after Camp David, strained by a coup and Gaza, and bound by .3 billion a year." });
+  L({ id: "gb_cn", a: "gb", b: "cn", lessons: 3, color: "#6a2a3a",
+      title: "Opium, Huawei and an embassy",
+      blurb: "Britain took Hong Kong in the Opium Wars and returned it in 1997; a golden era gave way to spies and bans." });
 })();
