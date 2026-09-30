@@ -70,4 +70,13 @@
   L({ id: "au_cn", a: "au", b: "cn", lessons: 3, color: "#b0602a",
       title: "Iron ore, trade war and submarines",
       blurb: "A mine-and-market marriage, China's 2020 trade punishment and how Australia rode it out, and a rivalry over ports and warships." });
+  L({ id: "br_ar", a: "br", b: "ar", lessons: 3, color: "#3a7a4a",
+      title: "Rivals, Mercosur and a feud",
+      blurb: "Rivals who gave up a nuclear race, a common market that never quite worked, and two presidents who barely speak." });
+  L({ id: "cn_ru", a: "cn", b: "ru", lessons: 3, color: "#8a2a2a",
+      title: "Split, 'no limits' and pipelines",
+      blurb: "Allies turned enemies turned partners, a friendship with 'no limits' in wartime, and an energy trade tilted toward Beijing." });
+  L({ id: "ng_za", a: "ng", b: "za", lessons: 3, color: "#3a7a5a",
+      title: "Solidarity, rivalry and xenophobia",
+      blurb: "Nigeria's support for the anti-apartheid struggle, a rivalry for Africa's lead, and the attacks that led to a 2026 airlift." });
 })();
