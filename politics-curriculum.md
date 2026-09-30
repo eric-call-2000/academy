@@ -229,9 +229,36 @@ Six more followed, each taking angles the country units don't already cover:
 | 🇨🇳🇹🇼 China & Taiwan | The 1992 Consensus | An economic embrace, loosening | Kinmen: the front-line islands |
 
 The **Map** screen (`#/map`) shows every country with its number of briefings and your
-progress, and draws each relationship as an arc between the two countries. Candidates for
-later relationships: Japan–China, Saudi Arabia–Iran, Turkey–Russia, US–Russia, Germany–Russia,
-Venezuela–Colombia.
+progress, and draws each relationship as an arc between the two countries. A third set of six followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇯🇵🇨🇳 Japan & China | History that won't settle | The Senkaku islands | Rare earths, seafood and tourists |
+| 🇸🇦🇮🇷 Saudi Arabia & Iran | Rivals for the Muslim world | Abqaiq: the attack on the oil heart | The contest for the Arab world |
+| 🇰🇷🇰🇵 South & North Korea | Sunshine and summits | Kaesong: the factory town | Balloons, loudspeakers and leaflets |
+| 🇬🇧🇦🇷 UK & Argentina | Two claims to the islands | From enemies to wary partners | Squid, oil and Sea Lion |
+| 🇹🇷🇷🇺 Turkey & Russia | Empires at war | The jet and the ambassador | Gas, reactors and missiles |
+| 🇺🇸🇷🇺 US & Russia | The last treaty ends | From reset to rupture | Prisoners and swaps |
+
+A fourth set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇩🇪🇷🇺 Germany & Russia | Change through trade | Nord Stream: the pipes that blew up | Hackers, hitmen and drones |
+| 🇬🇧🇫🇷 UK & France | From old enemies to Entente | The small boats | Europe's two nuclear powers |
+| 🇯🇵🇰🇷 Japan & South Korea | Colony and its wounds | The 2019 trade war | Lee and Takaichi: unlikely partners |
+| 🇵🇱🇩🇪 Poland & Germany | Borders and forgiveness | The reparations question | Trade, troops and border checks |
+| 🇨🇳🇮🇳 China & India | The Himalayan border | Rivals who trade | Tibet, rivers and the Dalai Lama |
+| 🇦🇺🇨🇳 Australia & China | Quarry and customer | The trade war, 2020–24 | Ports, submarines and warships |
+| 🇧🇷🇦🇷 Brazil & Argentina | Rivals who gave up the bomb | Mercosur and its discontents | Milei against Lula |
+| 🇨🇳🇷🇺 China & Russia | Comrades, enemies, partners | 'No limits' | An unequal bargain |
+| 🇳🇬🇿🇦 Nigeria & South Africa | Brothers against apartheid | Rivals for Africa's lead | Xenophobia and the airlift |
+| 🇮🇩🇦🇺 Indonesia & Australia | Neighbours from Timor to Lombok | Cattle, spies and executions | Boats, bases and the Treaty of Jakarta |
+| 🇺🇸🇻🇪 US & Venezuela | The Monroe Doctrine's test case | Citgo: Venezuela's American refineries | Deported to a mega-prison |
+| 🇪🇬🇮🇱 Egypt & Israel | A cold peace | Gas flows the other way | Rafah: Gaza's southern gate |
+
+Candidates for later relationships: Japan–US, France–Germany, Turkey–Israel, Saudi Arabia–UAE,
+India–US, Pakistan–China, Ukraine–Poland, Italy–France, Iran–Pakistan.
 
 ---
 
