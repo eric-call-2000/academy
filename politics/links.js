@@ -172,4 +172,7 @@
   L({ id: "ng_cn", a: "ng", b: "cn", lessons: 3, color: "#5a7a2a",
       title: "Railways, loans and traders",
       blurb: "From Biafra to strategic partners, Chinese-built railways and a deep-sea port on Chinese loans, and traders in Lagos and Guangzhou." });
+  L({ id: "id_cn", a: "id", b: "cn", lessons: 3, color: "#8a2a3a",
+      title: "Nickel, a bullet train and Natuna",
+      blurb: "A 23-year freeze after 1965, Chinese money behind Indonesia's nickel boom and its bullet train, and a dispute over the seas off Natuna." });
 })();
