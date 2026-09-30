@@ -163,4 +163,7 @@
   L({ id: "mx_cn", a: "mx", b: "cn", lessons: 3, color: "#8a4a2a",
       title: "Silver, chemicals and tariffs",
       blurb: "Galleons, migrants and the Torreón massacre, the Chinese chemicals behind Mexican fentanyl, and tariffs imposed under US pressure." });
+  L({ id: "ir_ru", a: "ir", b: "ru", lessons: 3, color: "#4a4a6a",
+      title: "Old predator, new partner",
+      blurb: "Russia took Iran's Caucasus and occupied its north; now they share drones and a treaty that stops short of defence." });
 })();
