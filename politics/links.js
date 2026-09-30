@@ -151,4 +151,7 @@
   L({ id: "us_au", a: "us", b: "au", lessons: 3, color: "#2a5a7a",
       title: "ANZUS, AUKUS and minerals",
       blurb: "Australia turned to America in 1941, followed it to war and signed AUKUS for nuclear subs, then courted Trump with minerals." });
+  L({ id: "us_kr", a: "us", b: "kr", lessons: 3, color: "#2a4a6a",
+      title: "Troops, subs and a snub",
+      blurb: "An alliance born in the Korean War, 28,500 troops and fights over cost and THAAD, and Trump's nuclear subs and cut-back drills." });
 })();
