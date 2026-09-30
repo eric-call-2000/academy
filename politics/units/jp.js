@@ -390,7 +390,7 @@ window.POLITICS.addUnit("jp", {
         { type: "section", head: "The first weeks", md:
           "Takaichi's first weeks were busy: a summit with Trump in Tokyo, the APEC meeting in South Korea, and a stimulus package to help households with prices. Her approval ratings in early polls were among the highest for a new prime minister in years, which encouraged her to seek a fresh mandate." },
         { type: "section", head: "What's next", md:
-          "Within four months Takaichi had turned a shaky minority government into a landslide majority, as briefing 7 explains. The next test is whether she can use it without overreaching." }
+          "Within four months Takaichi had turned a shaky minority government into a landslide majority, as [[lesson:jp-7]] explains. The next test is whether she can use it without overreaching." }
       ],
       takeaways: [
         "Ishiba resigned in September 2025 after the LDP lost both of its parliamentary majorities.",

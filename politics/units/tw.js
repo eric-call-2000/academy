@@ -125,7 +125,7 @@ window.POLITICS.addUnit("tw", {
         { type: "section", head: "A republic born in China", md:
           "The Republic of China (ROC) was founded on 1 January 1912, after a revolution toppled the Qing dynasty. Its founding father, Sun Yat-sen, is honoured on both sides of the Taiwan Strait. Sun's Nationalist Party, the Kuomintang (KMT), later led by Chiang Kai-shek, fought warlords, the Japanese and the Chinese Communist Party for control of the country. At the time, Taiwan was not part of it: the Qing had ceded the island to Japan in 1895." },
         { type: "section", head: "1945: a handover", md:
-          "In the 1943 Cairo Declaration, the United States, Britain and the ROC said Taiwan should be 'restored' to China after the war. When Japan surrendered, ROC forces took over the island on 25 October 1945. Many Taiwanese first welcomed them, but corruption, inflation and discrimination by the new officials quickly bred anger, which exploded in February 1947 (briefing 10). That same year the ROC adopted a constitution in Nanjing, the one Taiwan still uses, much amended." },
+          "In the 1943 Cairo Declaration, the United States, Britain and the ROC said Taiwan should be 'restored' to China after the war. When Japan surrendered, ROC forces took over the island on 25 October 1945. Many Taiwanese first welcomed them, but corruption, inflation and discrimination by the new officials quickly bred anger, which exploded in February 1947 ([[lesson:tw-10]]). That same year the ROC adopted a constitution in Nanjing, the one Taiwan still uses, much amended." },
         { type: "section", head: "1949: the retreat", md:
           "The civil war turned decisively against Chiang in 1948–49. Mao Zedong proclaimed the People's Republic of China (PRC) in Beijing on 1 October 1949, and in December the ROC government moved to Taipei, bringing troops, officials, the national treasury and the imperial art collection now in the National Palace Museum. About two million mainlanders arrived on an island of six million. Chiang expected to retake the mainland; instead, the US Navy's protection from 1950 froze the division." },
         { type: "section", head: "A question left open", md:
@@ -239,7 +239,7 @@ window.POLITICS.addUnit("tw", {
         { type: "section", head: "The Chiang question", md:
           "The hardest argument is about Chiang Kai-shek himself. Hundreds of his statues have been removed from schools and parks, many to a park in Taoyuan. The huge Chiang Kai-shek Memorial Hall in Taipei, once the site of the 1990 Wild Lily student protests, remains, and governments have debated for years how to change its purpose. To many older KMT supporters Chiang saved Taiwan from communism; to many others he presided over its darkest years." },
         { type: "section", head: "Why it still matters", md:
-          "28 February and the White Terror are a key reason why many Taiwanese came to see themselves as distinct from China, and why the democracy movement of the 1970s and 1980s demanded both freedom and a Taiwanese identity (briefing 3). Families still ask where victims were buried, and each 28 February leaders of every party attend memorial services." }
+          "28 February and the White Terror are a key reason why many Taiwanese came to see themselves as distinct from China, and why the democracy movement of the 1970s and 1980s demanded both freedom and a Taiwanese identity ([[lesson:tw-3]]). Families still ask where victims were buried, and each 28 February leaders of every party attend memorial services." }
       ],
       takeaways: [
         "A protest on 28 February 1947 grew into an island-wide uprising that troops crushed, killing many thousands.",
@@ -553,7 +553,7 @@ window.POLITICS.addUnit("tw", {
           right: { head: "Caution", md:
             "Indigenous peoples have their own claims and should not become symbols in the argument between Taipei and Beijing." } },
         { type: "section", head: "Why it matters", md:
-          "Indigenous peoples are a small minority, but their place in Taiwan's story has grown along with Taiwanese identity. Governments of both parties now celebrate them, and Taiwan uses its Austronesian heritage in diplomacy with Pacific island states, three of which, the Marshall Islands, Palau and Tuvalu, still recognise Taipei (briefing 11). In elections, Indigenous voters have tended to back the KMT, which built strong local networks in their townships." }
+          "Indigenous peoples are a small minority, but their place in Taiwan's story has grown along with Taiwanese identity. Governments of both parties now celebrate them, and Taiwan uses its Austronesian heritage in diplomacy with Pacific island states, three of which, the Marshall Islands, Palau and Tuvalu, still recognise Taipei ([[lesson:tw-11]]). In elections, Indigenous voters have tended to back the KMT, which built strong local networks in their townships." }
       ],
       takeaways: [
         "Taiwan's Indigenous peoples speak Austronesian languages, and many scholars see the island as that family's homeland.",

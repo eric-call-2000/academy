@@ -44,7 +44,7 @@ window.POLITICS.addUnit("us_cn", {
           right: { head: "Beijing", md:
             "Chinese mills are efficient and meet real demand; American duties are protectionism that punishes users of steel." } },
         { type: "section", head: "Why it matters", md:
-          "Steel sits where economics meets security: tanks, ships and bridges need it, and a country that cannot make it depends on others in a crisis. That argument gave presidents of both parties a reason to go beyond case-by-case duties to tariffs on all imported steel, the story of briefing 2. And it made steel the opening round of the wider trade war between [[unit:us]] and [[unit:cn]]." }
+          "Steel sits where economics meets security: tanks, ships and bridges need it, and a country that cannot make it depends on others in a crisis. That argument gave presidents of both parties a reason to go beyond case-by-case duties to tariffs on all imported steel, the story of [[lesson:us_cn-2]]. And it made steel the opening round of the wider trade war between [[unit:us]] and [[unit:cn]]." }
       ],
       takeaways: [
         "China makes more than half the world's steel, and its mills export their surplus cheaply.",
@@ -97,7 +97,7 @@ window.POLITICS.addUnit("us_cn", {
           right: { head: "Critics", md:
             "The tariffs raised costs for manufacturers, alienated allies and did little against China, whose steel was already shut out." } },
         { type: "section", head: "Where it stands", md:
-          "When the Supreme Court struck down Trump's emergency tariffs in February 2026, the steel tariffs survived, because they rest on Section 232, a different law (see [[unit:us]], briefing 5). Chinese steel now faces the 50% tariff, the Section 301 tariffs and dozens of trade-case duties stacked together. The 2025–26 truce between Washington and Beijing, which cut other tariffs, did not touch steel." }
+          "When the Supreme Court struck down Trump's emergency tariffs in February 2026, the steel tariffs survived, because they rest on Section 232, a different law (see [[unit:us]], [[lesson:us-5]]). Chinese steel now faces the 50% tariff, the Section 301 tariffs and dozens of trade-case duties stacked together. The 2025–26 truce between Washington and Beijing, which cut other tariffs, did not touch steel." }
       ],
       takeaways: [
         "Since 2018 Section 232 national-security tariffs have covered nearly all imported steel; the rate has been 50% since June 2025.",
@@ -150,7 +150,7 @@ window.POLITICS.addUnit("us_cn", {
           right: { head: "Farm groups and critics", md:
             "Farmers lost their best customer to Brazil, and purchases managed by Beijing's state firms can stop whenever politics changes." } },
         { type: "section", head: "Why it matters", md:
-          "Steel and soybeans show the two halves of the trade war. Washington protects industries it sees as strategic; Beijing retaliates against the exporters with the most political weight. The farm trade is also a signal: when Chinese purchases rise, the truce is holding, and when they stop, a new round has begun (see [[unit:cn]], briefing 5)." }
+          "Steel and soybeans show the two halves of the trade war. Washington protects industries it sees as strategic; Beijing retaliates against the exporters with the most political weight. The farm trade is also a signal: when Chinese purchases rise, the truce is holding, and when they stop, a new round has begun (see [[unit:cn]], [[lesson:cn-5]])." }
       ],
       takeaways: [
         "China retaliates against US tariffs by cutting purchases of American farm goods, above all soybeans.",

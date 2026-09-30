@@ -71,7 +71,7 @@ window.POLITICS.addUnit("mx", {
         { type: "section", head: "Congress and the constitution", md:
           "Congress has a 500-seat Chamber of Deputies, elected every three years, and a 128-seat Senate, elected every six. Changing the constitution needs two-thirds of both houses and a majority of state legislatures. After the 2024 election, Morena and its allies, the Greens (PVEM) and the Labour Party (PT), reached two-thirds in both, partly thanks to a disputed reading of rules on seats allocated by proportional representation. Since then the constitution has been amended dozens of times." },
         { type: "section", head: "Elected judges", md:
-          "In September 2024, days before leaving office, López Obrador's Congress passed a reform replacing appointed judges with elected ones. In June 2025 voters chose all nine Supreme Court justices and hundreds of other judges. Only about 13% of voters took part, and candidates backed by Morena won every Supreme Court seat. Briefing 5 tells that story." },
+          "In September 2024, days before leaving office, López Obrador's Congress passed a reform replacing appointed judges with elected ones. In June 2025 voters chose all nine Supreme Court justices and hundreds of other judges. Only about 13% of voters took part, and candidates backed by Morena won every Supreme Court seat. [[lesson:mx-5|Briefing #]] tells that story." },
         { type: "section", head: "The states and the military", md:
           "Mexico is a federation of 31 states and Mexico City, each with an elected governor; Morena holds most of them. The armed forces have gained a far bigger role than in most democracies: they run the National Guard, which polices the country, as well as customs, ports, airports and major infrastructure projects. The independent watchdogs created after 2000, for transparency, competition and energy regulation, were abolished in 2024–25 and their work handed to ministries." },
         { type: "section", head: "How elections work", md:
@@ -133,7 +133,7 @@ window.POLITICS.addUnit("mx", {
           right: { head: "The elite settlement", md:
             "Independence was actually won in 1821 by conservative officers and the Church, who kept the old social order." } },
         { type: "section", head: "Why it still matters", md:
-          "Every 15 September at night, Mexico's president rings the bell from the balcony of the National Palace and repeats the Grito, a ritual Sheinbaum performed in 2025 as the first woman to do so. The struggles of independence, between federalists and centralists, liberals and conservatives, Church and state, dominated the nineteenth century. The weak, divided republic that emerged was soon to lose half its territory to the United States (briefing 10)." }
+          "Every 15 September at night, Mexico's president rings the bell from the balcony of the National Palace and repeats the Grito, a ritual Sheinbaum performed in 2025 as the first woman to do so. The struggles of independence, between federalists and centralists, liberals and conservatives, Church and state, dominated the nineteenth century. The weak, divided republic that emerged was soon to lose half its territory to the United States ([[lesson:mx-10]])." }
       ],
       takeaways: [
         "Father Miguel Hidalgo's call to revolt on 16 September 1810 began the war of independence.",
@@ -237,7 +237,7 @@ window.POLITICS.addUnit("mx", {
           right: { head: "In the United States", md:
             "Often a brief chapter of westward expansion, though historians, like Lincoln and Grant at the time, now largely see it as a war of aggression." } },
         { type: "section", head: "Why it still matters", md:
-          "The war is why Mexican governments of all colours guard their sovereignty so fiercely, and why US threats to send troops or drones against cartels on Mexican soil touch a raw nerve (briefing 7). Tens of thousands of Mexicans living in the ceded lands became Americans overnight; their descendants and later migrants make the border region deeply Mexican in culture. Trump's renaming of the Gulf of Mexico as the 'Gulf of America' in 2025 was received in Mexico as the latest in a long history of slights." }
+          "The war is why Mexican governments of all colours guard their sovereignty so fiercely, and why US threats to send troops or drones against cartels on Mexican soil touch a raw nerve ([[lesson:mx-7]]). Tens of thousands of Mexicans living in the ceded lands became Americans overnight; their descendants and later migrants make the border region deeply Mexican in culture. Trump's renaming of the Gulf of Mexico as the 'Gulf of America' in 2025 was received in Mexico as the latest in a long history of slights." }
       ],
       takeaways: [
         "After Texas broke away and was annexed by the US, the two countries went to war in 1846.",
@@ -289,7 +289,7 @@ window.POLITICS.addUnit("mx", {
           right: { head: "A new elite", md:
             "Its winners became a ruling party that held power for 71 years through patronage and fraud, using revolutionary slogans to justify control." } },
         { type: "section", head: "Why it still matters", md:
-          "The revolution's symbols are everywhere. Morena, founded by López Obrador, presents itself as the 'Fourth Transformation', after independence, the liberal Reform of the 1850s and the Revolution. Its defence of Pemex and national energy sovereignty echoes Cárdenas, and its judicial and constitutional reforms are fought over in the language of 1917 (briefings 2 and 5). The party that grew out of the revolution, the PRI, now a small opposition force, ruled until 2000 (briefing 3)." }
+          "The revolution's symbols are everywhere. Morena, founded by López Obrador, presents itself as the 'Fourth Transformation', after independence, the liberal Reform of the 1850s and the Revolution. Its defence of Pemex and national energy sovereignty echoes Cárdenas, and its judicial and constitutional reforms are fought over in the language of 1917 (briefings [[lesson:mx-2|#]] and [[lesson:mx-5|#]]). The party that grew out of the revolution, the PRI, now a small opposition force, ruled until 2000 ([[lesson:mx-3]])." }
       ],
       takeaways: [
         "The revolution of 1910–20 overthrew Porfirio Díaz and cost perhaps a million lives.",
@@ -540,7 +540,7 @@ window.POLITICS.addUnit("mx", {
           right: { head: "Families and rights groups", md:
             "Authorities minimise the crisis, protect local officials tied to cartels and leave mothers to do the state's job." } },
         { type: "section", head: "Why it matters", md:
-          "Disappearances measure the reach of organised crime and the weakness of justice more starkly than murder rates. They are also a political test for Morena, which promised to resolve the Ayotzinapa case and has not, and a source of friction with the United States, which cites them in pressing Mexico to act against cartels (briefing 6). For thousands of families, there is no ending, only the search." }
+          "Disappearances measure the reach of organised crime and the weakness of justice more starkly than murder rates. They are also a political test for Morena, which promised to resolve the Ayotzinapa case and has not, and a source of friction with the United States, which cites them in pressing Mexico to act against cartels ([[lesson:mx-6]]). For thousands of families, there is no ending, only the search." }
       ],
       takeaways: [
         "About 134,000 people are registered as missing in Mexico, most since the drug war began in 2006.",

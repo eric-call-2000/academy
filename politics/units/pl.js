@@ -135,7 +135,7 @@ window.POLITICS.addUnit("pl", {
           right: { head: "Dmowski's Poland", md:
             "Roman Dmowski's National Democrats saw Poland as an ethnically Polish, Catholic nation, a strand that still runs through the Polish right." } },
         { type: "section", head: "Why it still matters", md:
-          "Centuries of partition and occupation explain Poland's fierce attachment to sovereignty, its deep distrust of Russia, and its enthusiasm for NATO. They also explain why Poles argue so passionately about their own history, as the Smolensk debate (briefing 11) shows." }
+          "Centuries of partition and occupation explain Poland's fierce attachment to sovereignty, its deep distrust of Russia, and its enthusiasm for NATO. They also explain why Poles argue so passionately about their own history, as the Smolensk debate ([[lesson:pl-11]]) shows." }
       ],
       takeaways: [
         "The Polish-Lithuanian Commonwealth was one of Europe's largest states until Russia, Prussia and Austria partitioned it by 1795.",

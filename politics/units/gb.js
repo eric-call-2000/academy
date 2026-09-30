@@ -133,7 +133,7 @@ window.POLITICS.addUnit("gb", {
           right: { head: "Nationalists", md:
             "A union built by conquest, pressure and English dominance, in which smaller nations are routinely outvoted." } },
         { type: "section", head: "Why it still matters", md:
-          "The UK has no single written constitution; its arrangements have grown piece by piece, most recently with the devolved parliaments of 1999. That flexibility lets the union change without revolution, but it also means its future is always open: Scotland's independence movement (briefing 12) and the question of Irish unity (briefing 11) are live debates." }
+          "The UK has no single written constitution; its arrangements have grown piece by piece, most recently with the devolved parliaments of 1999. That flexibility lets the union change without revolution, but it also means its future is always open: Scotland's independence movement ([[lesson:gb-12]]) and the question of Irish unity ([[lesson:gb-11]]) are live debates." }
       ],
       takeaways: [
         "England annexed Wales in the 16th century and joined with Scotland in 1707 to form Great Britain.",

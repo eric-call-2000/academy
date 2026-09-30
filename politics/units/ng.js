@@ -126,14 +126,14 @@ window.POLITICS.addUnit("ng", {
         { type: "section", head: "The road to independence", md:
           "After the Second World War nationalists such as Nnamdi Azikiwe, Obafemi Awolowo and Ahmadu Bello pushed for self-rule. But their parties were rooted in the three big regions: the Northern People's Congress in the Hausa-Fulani north, the Action Group in the Yoruba west and the NCNC in the Igbo-led east. Britain granted a federal constitution in 1954, giving each region wide powers. Northern leaders, worried about southern dominance, asked to delay independence until their region was ready." },
         { type: "section", head: "Independence", md:
-          "Nigeria became independent on 1 October 1960, with Abubakar Tafawa Balewa, a northerner, as prime minister and Azikiwe as governor-general, then president when Nigeria became a republic in 1963. The new federation was fragile: the north held more than half the seats in parliament, disputed censuses and elections inflamed rivalries, and violence in the west in 1964–65 led to the coup of January 1966 that ended the First Republic (briefing 3)." },
+          "Nigeria became independent on 1 October 1960, with Abubakar Tafawa Balewa, a northerner, as prime minister and Azikiwe as governor-general, then president when Nigeria became a republic in 1963. The new federation was fragile: the north held more than half the seats in parliament, disputed censuses and elections inflamed rivalries, and violence in the west in 1964–65 led to the coup of January 1966 that ended the First Republic ([[lesson:ng-3]])." },
         { type: "compare", head: "Two views of 1914",
           left: { head: "A nation in the making", md:
             "Amalgamation created a large, diverse country with the size and resources to be a leading power in Africa." },
           right: { head: "A forced marriage", md:
             "Britain joined peoples who never chose to live together, and the imbalance it built in has fuelled conflict ever since." } },
         { type: "section", head: "Why it still matters", md:
-          "Nigeria's politics still turns on balancing north and south, Muslims and Christians, and the major ethnic groups. The unwritten rule of rotating the presidency between north and south (briefing 2), demands for 'restructuring' to give states more power and control over resources, and separatist movements all go back to the way the country was created and to the regional rivalries of the 1950s." }
+          "Nigeria's politics still turns on balancing north and south, Muslims and Christians, and the major ethnic groups. The unwritten rule of rotating the presidency between north and south ([[lesson:ng-2]]), demands for 'restructuring' to give states more power and control over resources, and separatist movements all go back to the way the country was created and to the regional rivalries of the 1950s." }
       ],
       takeaways: [
         "Britain created Nigeria on 1 January 1914 by merging its northern and southern protectorates.",
@@ -233,7 +233,7 @@ window.POLITICS.addUnit("ng", {
           right: { head: "The federal view", md:
             "The war preserved Nigeria's unity against an illegal secession, and reconciliation afterwards was generous." } },
         { type: "section", head: "Why it still matters", md:
-          "The war is barely taught in Nigerian schools, but its memory is alive. The Indigenous People of Biafra (IPOB) has revived calls for independence; its 'sit-at-home' orders have paralysed south-eastern cities, and violence by armed groups and security forces there has killed many. In November 2025 its leader, Nnamdi Kanu, was sentenced to life imprisonment for terrorism. Peter Obi's strong showing in 2023 energised many Igbo voters (briefing 4)." }
+          "The war is barely taught in Nigerian schools, but its memory is alive. The Indigenous People of Biafra (IPOB) has revived calls for independence; its 'sit-at-home' orders have paralysed south-eastern cities, and violence by armed groups and security forces there has killed many. In November 2025 its leader, Nnamdi Kanu, was sentenced to life imprisonment for terrorism. Peter Obi's strong showing in 2023 energised many Igbo voters ([[lesson:ng-4]])." }
       ],
       takeaways: [
         "Coups in 1966 and massacres of Igbo people in the north led the east to secede as Biafra in 1967.",
@@ -285,7 +285,7 @@ window.POLITICS.addUnit("ng", {
           right: { head: "Babangida's account", md:
             "He says in his memoir that he annulled it to prevent a coup by officers opposed to Abiola, and has expressed regret." } },
         { type: "section", head: "Why it still matters", md:
-          "June 12 is a symbol of what Nigerian elections could be: across ethnic and religious lines, and respected. Tinubu, who fought for Abiola's mandate, often invokes it, while critics point out that elections since 1999, including Tinubu's own in 2023, have been marred by low turnout and fraud claims (briefing 3). The struggle also produced a generation of civil society activists and a lasting distrust of the military, relevant as rumours of coup plots return (briefing 7)." }
+          "June 12 is a symbol of what Nigerian elections could be: across ethnic and religious lines, and respected. Tinubu, who fought for Abiola's mandate, often invokes it, while critics point out that elections since 1999, including Tinubu's own in 2023, have been marred by low turnout and fraud claims ([[lesson:ng-3]]). The struggle also produced a generation of civil society activists and a lasting distrust of the military, relevant as rumours of coup plots return ([[lesson:ng-7]])." }
       ],
       takeaways: [
         "Moshood Abiola won the 12 June 1993 election, widely seen as Nigeria's freest, but the military annulled it.",
@@ -525,9 +525,9 @@ window.POLITICS.addUnit("ng", {
         { type: "section", head: "Riches and ruin", md:
           "Oil was found at Oloibiri in the Delta in 1956, and by the 1970s it dominated exports and the federal budget. Most of the money flowed to Abuja and the states through a formula the Delta's people considered unfair, and much was stolen. Meanwhile decades of spills from ageing pipelines, sabotage and theft, and the flaring of gas, poisoned creeks, farmland and fishing grounds. A 2011 UN report on Ogoniland said a full clean-up could take 30 years." },
         { type: "section", head: "Resistance", md:
-          "In the early 1990s Ken Saro-Wiwa's Movement for the Survival of the Ogoni People led peaceful protests against Shell and the government, until he and eight others were hanged in 1995 (briefing 11); in 2025 Tinubu granted the 'Ogoni Nine' a posthumous pardon, though their families sought full exoneration. In the 2000s armed groups such as MEND kidnapped oil workers and blew up pipelines, cutting output sharply. In 2009 President Yar'Adua offered an amnesty: militants handed in weapons in exchange for stipends and training, a programme that still costs billions of naira a year." },
+          "In the early 1990s Ken Saro-Wiwa's Movement for the Survival of the Ogoni People led peaceful protests against Shell and the government, until he and eight others were hanged in 1995 ([[lesson:ng-11]]); in 2025 Tinubu granted the 'Ogoni Nine' a posthumous pardon, though their families sought full exoneration. In the 2000s armed groups such as MEND kidnapped oil workers and blew up pipelines, cutting output sharply. In 2009 President Yar'Adua offered an amnesty: militants handed in weapons in exchange for stipends and training, a programme that still costs billions of naira a year." },
         { type: "section", head: "Theft and decline", md:
-          "Violence fell, but theft did not. Criminal networks, some linked to officials and security forces, tap pipelines and run illegal refineries, 'bunkering' hundreds of thousands of barrels a day at times. Output fell below OPEC quotas. Nigeria even imported almost all its petrol, because its state refineries barely worked, and spent billions subsidising the price until Tinubu scrapped the subsidy in 2023 (briefing 5)." },
+          "Violence fell, but theft did not. Criminal networks, some linked to officials and security forces, tap pipelines and run illegal refineries, 'bunkering' hundreds of thousands of barrels a day at times. Output fell below OPEC quotas. Nigeria even imported almost all its petrol, because its state refineries barely worked, and spent billions subsidising the price until Tinubu scrapped the subsidy in 2023 ([[lesson:ng-5]])." },
         { type: "section", head: "A new era", md:
           "The industry is changing. Shell, Exxon, Eni and TotalEnergies have sold onshore and shallow-water assets to Nigerian companies, leaving the pollution liabilities contested; Shell completed the sale of its onshore subsidiary to the Renaissance consortium in March 2025. The Dangote refinery near Lagos, Africa's largest, reached its full capacity of 650,000 barrels a day, letting Nigeria refine its own crude and even export fuel, though it has clashed with regulators and the state oil company." },
         { type: "compare", head: "Two views of the divestments",
@@ -536,7 +536,7 @@ window.POLITICS.addUnit("ng", {
           right: { head: "Delta communities and activists", md:
             "The majors are walking away from decades of pollution, and local firms may lack the money to clean it up." } },
         { type: "section", head: "Why it matters", md:
-          "Oil still funds much of the state and backs the naira, so output, prices and theft directly affect Tinubu's reforms (briefing 5). The Delta's grievances remain a potential source of conflict, and its politics matter nationally. As the world begins to move away from oil, Nigeria faces the question of what else can pay for a country of more than 230 million people." }
+          "Oil still funds much of the state and backs the naira, so output, prices and theft directly affect Tinubu's reforms ([[lesson:ng-5]]). The Delta's grievances remain a potential source of conflict, and its politics matter nationally. As the world begins to move away from oil, Nigeria faces the question of what else can pay for a country of more than 230 million people." }
       ],
       takeaways: [
         "Oil discovered in the Niger Delta in 1956 has funded Nigeria's state, but left the Delta badly polluted.",

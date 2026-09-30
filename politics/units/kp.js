@@ -137,7 +137,7 @@ window.POLITICS.addUnit("kp", {
           right: { head: "Historians", md:
             "The state was created under Soviet direction; Kim was picked by Moscow, and his rule quickly became a one-man dictatorship." } },
         { type: "section", head: "Why it still matters", md:
-          "Everything in North Korea's official identity goes back to these years: the Kim family's claim to rule, the idea of self-reliance later called *Juche*, and the enmity with the south. Kim Il Sung is still the 'eternal president' more than thirty years after his death, and his birthday, 15 April, is the country's biggest holiday. The war he started in 1950 is the subject of briefing 10." }
+          "Everything in North Korea's official identity goes back to these years: the Kim family's claim to rule, the idea of self-reliance later called *Juche*, and the enmity with the south. Kim Il Sung is still the 'eternal president' more than thirty years after his death, and his birthday, 15 April, is the country's biggest holiday. The war he started in 1950 is the subject of [[lesson:kp-10]]." }
       ],
       takeaways: [
         "Soviet forces occupied northern Korea in 1945 and chose Kim Il Sung, a former guerrilla, to lead it.",
@@ -283,7 +283,7 @@ window.POLITICS.addUnit("kp", {
           right: { head: "Researchers and survivors", md:
             "The floods struck an already failing system; the regime's choices, secrecy and priorities turned shortage into mass death." } },
         { type: "section", head: "Why it still matters", md:
-          "The famine broke the idea that the state would provide, and many North Koreans who later escaped cite it as the moment they stopped believing. It also produced the first large wave of people crossing into China, the start of the defector story in briefing 12. Food remains short: UN agencies estimate that a large share of the population lacks enough to eat, and rumours of hunger followed the border closures of the pandemic years." }
+          "The famine broke the idea that the state would provide, and many North Koreans who later escaped cite it as the moment they stopped believing. It also produced the first large wave of people crossing into China, the start of the defector story in [[lesson:kp-12]]. Food remains short: UN agencies estimate that a large share of the population lacks enough to eat, and rumours of hunger followed the border closures of the pandemic years." }
       ],
       takeaways: [
         "The loss of Soviet aid after 1991, a failing farm system and floods led to famine in the mid-1990s.",
@@ -538,7 +538,7 @@ window.POLITICS.addUnit("kp", {
           right: { head: "Seoul and rights groups", md:
             "They are citizens of the Republic of Korea by law and refugees from persecution; forced return by China violates international law." } },
         { type: "section", head: "Why it matters", md:
-          "Defectors are the main source of what the outside world knows about life in North Korea, from the prison camps documented by the UN in 2014 to prices in local markets. Their small numbers now show how tightly the regime controls its people. Their stories also test South Korea's promise that unification would welcome northerners as fellow citizens, at a time when Kim calls the South a separate, hostile state (briefing 7)." }
+          "Defectors are the main source of what the outside world knows about life in North Korea, from the prison camps documented by the UN in 2014 to prices in local markets. Their small numbers now show how tightly the regime controls its people. Their stories also test South Korea's promise that unification would welcome northerners as fellow citizens, at a time when Kim calls the South a separate, hostile state ([[lesson:kp-7]])." }
       ],
       takeaways: [
         "About 34,500 North Koreans have reached South Korea since 1998, most of them women.",

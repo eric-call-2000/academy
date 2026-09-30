@@ -79,7 +79,7 @@ window.POLITICS.addUnit("in", {
           "A national election is a logistical marvel. The 2024 vote ran in seven phases over six weeks, with about a million polling stations, some reached by boat, elephant or on foot, so that no voter lives more than two kilometres from one. Indians vote on electronic machines, and a paper slip lets each voter check their choice. Turnout is usually around two-thirds, higher than in many richer democracies." },
         { type: "section", head: "Referees", md:
           "Two institutions hold the ring. The Supreme Court can strike down laws and has ruled on everything from privacy to temples. The Election Commission, independent under the constitution, runs national and state elections, with electronic voting machines, for nearly a billion voters.\n\n" +
-          "Both are now at the centre of political fights. The opposition accuses the Election Commission of favouring the BJP in its revision of voter lists, which the commission denies, as briefing 7 explains." },
+          "Both are now at the centre of political fights. The opposition accuses the Election Commission of favouring the BJP in its revision of voter lists, which the commission denies, as [[lesson:in-7]] explains." },
         { type: "compare", head: "Two views of India's democracy",
           left: { head: "The government's view", md:
             "India holds huge, free elections that the BJP keeps winning; opposition parties won Kerala and Tamil Nadu in 2026. Criticism from abroad misreads a vibrant, self-correcting democracy." },

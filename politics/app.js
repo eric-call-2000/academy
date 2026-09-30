@@ -147,6 +147,11 @@
       var c = P.subject(id);
       if (c && c.lessons > 0) return '<a class="unit-link" href="#/c/' + id + '">' + label + "</a>";
       return '<span class="unit-ref" title="' + esc((c ? c.name : id) + " — coming soon") + '">' + label + "</span>";
+    },
+    lesson: function (id, label) {
+      var s = P.subject(P.unitIdOf(id));
+      if (s && s.lessons > 0) return '<a class="unit-link" href="#/read/' + id + '">' + label + "</a>";
+      return '<span class="unit-ref">' + label + "</span>";
     }
   };
   function md(s) { return P.md(s, mdOpts); }

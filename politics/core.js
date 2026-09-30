@@ -140,6 +140,9 @@
        **bold**   *italic*   [label](https://…)
        [[term]]  or  [[term-id|label]]         glossary chip
        [[unit:ir]]  or  [[unit:ir|Iran]]        link to another country
+       [[lesson:mx-10]] or [[lesson:mx-10|Briefing #]]   link to a briefing;
+            "#" becomes its place in the reading order ("briefing 5"),
+            so references stay right whatever the id number
        blank line = new paragraph;  "- " at line start = bullet            */
   P.slug = function (s) {
     return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -150,19 +153,30 @@
     });
   };
   var REF = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
-  /* Every [[…]] in a string, split into glossary and unit references. */
+  /* A [[lesson:<id>]] reference: the briefing it points to, its place in
+     its unit's reading order (from the manifest, so no unit file needs to
+     be loaded) and the label with "#" filled in. pos is 0 if the unit or
+     briefing doesn't exist. */
+  P.lessonRef = function (lessonId, label) {
+    var s = P.subject(P.unitIdOf(lessonId)), n = P.lessonNum(lessonId);
+    var pos = s && n >= 1 && n <= (s.lessons || 0) ? P.readingOrder(s.lessons).indexOf(n) + 1 : 0;
+    return { id: lessonId, pos: pos, label: String(label || "briefing #").replace(/#/g, pos || "?") };
+  };
+  /* Every [[…]] in a string, split into glossary, unit and lesson references. */
   P.scanRefs = function (md) {
-    var out = { terms: [], units: [] };
+    var out = { terms: [], units: [], lessons: [] };
     String(md || "").replace(REF, function (_, target) {
       target = target.trim();
       if (target.indexOf("unit:") === 0) out.units.push(target.slice(5).trim());
+      else if (target.indexOf("lesson:") === 0) out.lessons.push(target.slice(7).trim());
       else out.terms.push(P.slug(target));
       return "";
     });
     return out;
   };
-  /* Inline markup → HTML. opts.term(id, label) and opts.unit(id, label)
-     return the HTML for a reference; defaults render plain spans. */
+  /* Inline markup → HTML. opts.term(id, label), opts.unit(id, label) and
+     opts.lesson(id, label) return the HTML for a reference; defaults
+     render plain spans. */
   P.inline = function (text, opts) {
     opts = opts || {};
     var html = P.esc(text);
@@ -173,6 +187,10 @@
         var c = P._byId[uid];
         var ulabel = label ? label.trim() : (c ? P.esc(c.name) : uid);
         return opts.unit ? opts.unit(uid, ulabel) : '<span class="unit-ref">' + ulabel + "</span>";
+      }
+      if (target.indexOf("lesson:") === 0) {
+        var ref = P.lessonRef(target.slice(7).trim(), label && label.trim());
+        return opts.lesson ? opts.lesson(ref.id, ref.label) : '<span class="lesson-ref">' + ref.label + "</span>";
       }
       var tid = P.slug(target);
       var tlabel = label ? label.trim() : target;
@@ -202,7 +220,10 @@
   /* Readable words in a markup string (references count as their label). */
   P.words = function (md) {
     var t = String(md || "")
-      .replace(REF, function (_, target, label) { return label || target.replace(/^unit:/, ""); })
+      .replace(REF, function (_, target, label) {
+        if (target.indexOf("lesson:") === 0) return P.lessonRef(target.slice(7).trim(), label).label;
+        return label || target.replace(/^unit:/, "");
+      })
       .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
       .replace(/[*#>_`]/g, " ");
     var m = t.match(/[A-Za-z0-9À-ɏ][A-Za-z0-9À-ɏ'’.,%$€£:\/-]*/g);

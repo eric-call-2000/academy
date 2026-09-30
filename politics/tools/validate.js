@@ -16,7 +16,8 @@
      maps and diagrams (which we make ourselves) must exist
    - every relationship (links.js) joins two real countries, and its
      unit has 2-3 "relation" briefings with ids <link>-1 … <link>-N
-   - every [[glossary]] and [[unit:…]] reference resolves
+   - every [[glossary]], [[unit:…]] and [[lesson:…]] reference resolves,
+     and briefing numbers are never typed by hand
    - dispatches and glossary entries are well formed
 
    Missing illustrations and portraits are NOT failures — they are
@@ -93,6 +94,11 @@ function checkRefs(where, md) {
   const refs = P.scanRefs(md);
   refs.terms.forEach((t) => { if (!P.glossary[t]) err(where, "glossary term [[" + t + "]] isn't in glossary.js"); });
   refs.units.forEach((u) => { if (!P.subject(u)) err(where, "[[unit:" + u + "]] isn't a country or relationship id"); });
+  refs.lessons.forEach((id) => {
+    const u = P.units[P.unitIdOf(id)];
+    if (!P.lessonRef(id).pos || !u || !(u.lessons || []).some((l) => l.id === id)) err(where, "[[lesson:" + id + "]] isn't a written briefing");
+  });
+  if (/\bbriefings? \d/i.test(md || "")) err(where, "write briefing numbers as [[lesson:<id>]] so they follow the reading order");
   if (/<[a-z/!]/i.test(md || "")) err(where, "raw HTML in text; use the markup in core.js instead");
 }
 function checkSource(where, s) {
@@ -259,7 +265,8 @@ P.updates.forEach((u) => {
 Object.keys(P.units).forEach((id) => {
   const u = P.units[id];
   const rows = (u.lessons || []).map((l) => "  " + l.id.padEnd(6) + String(P.lessonWords(l)).padStart(4) + " words  " + P.readMins(l) + " min  " + l.title);
-  console.log(P.subject(id).flag + " " + P.subject(id).name + " — current as of " + u.asOf + "\n" + rows.join("\n"));
+  const s = P.subject(id) || { flag: "?", name: id };
+  console.log(s.flag + " " + s.name + " — current as of " + u.asOf + "\n" + rows.join("\n"));
 });
 console.log("\n" + totals.units + " unit(s), " + totals.links + " relationship(s), " + totals.lessons + " briefings, " + totals.words + " words, " +
   Object.keys(P.glossary).length + " glossary terms, " + P.updates.length + " dispatches.");

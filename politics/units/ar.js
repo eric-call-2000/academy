@@ -134,7 +134,7 @@ window.POLITICS.addUnit("ar", {
           right: { head: "The nationalist tradition", md:
             "The caudillos and Rosas defended the interior and national sovereignty against Buenos Aires's elites and foreign powers." } },
         { type: "section", head: "Why it still matters", md:
-          "The rivalry between Buenos Aires and the provinces never ended. The capital and its province hold a huge share of the people and wealth, while governors in the interior bargain their senators' votes for federal money, a dynamic Milei has to manage for every law he passes (briefing 2). Milei himself cites Alberdi as his hero, while Peronists and nationalists tend to honour the caudillos and Rosas as defenders of sovereignty." }
+          "The rivalry between Buenos Aires and the provinces never ended. The capital and its province hold a huge share of the people and wealth, while governors in the interior bargain their senators' votes for federal money, a dynamic Milei has to manage for every law he passes ([[lesson:ar-2]]). Milei himself cites Alberdi as his hero, while Peronists and nationalists tend to honour the caudillos and Rosas as defenders of sovereignty." }
       ],
       takeaways: [
         "The May Revolution of 25 May 1810 began self-government in Buenos Aires; independence was declared on 9 July 1816.",
@@ -227,14 +227,14 @@ window.POLITICS.addUnit("ar", {
         { type: "section", head: "In power", md:
           "Elected in 1946 with 56% of the vote, Perón nationalised railways, telephones and foreign trade, built housing, hospitals and schools, and pursued a 'Third Position' between capitalism and communism. Workers' share of national income rose sharply. But he also muzzled the press, packed the Supreme Court, jailed opponents and built a personality cult. When the postwar boom ended, inflation rose and he clashed with the Church. In 1955 the military overthrew him and he went into exile, mostly in Franco's Spain." },
         { type: "section", head: "Exile and return", md:
-          "For 18 years Peronism was banned, and Argentina lurched between weak civilian governments and military coups. Perón's movement split into left-wing guerrillas and right-wing unionists, all claiming his name. He returned in 1973 and was elected president with 62% of the vote, but died in July 1974. His third wife and vice-president, Isabel, presided over growing chaos and political violence until the military coup of 1976 (briefing 11)." },
+          "For 18 years Peronism was banned, and Argentina lurched between weak civilian governments and military coups. Perón's movement split into left-wing guerrillas and right-wing unionists, all claiming his name. He returned in 1973 and was elected president with 62% of the vote, but died in July 1974. His third wife and vice-president, Isabel, presided over growing chaos and political violence until the military coup of 1976 ([[lesson:ar-11]])." },
         { type: "compare", head: "Two views of Perón",
           left: { head: "Peronists", md:
             "He gave workers dignity, rights and a voice, and Evita gave the poor someone who loved them; they built social justice." },
           right: { head: "Critics", md:
             "He was an authoritarian populist whose spending, protectionism and cult of personality started Argentina's long decline." } },
         { type: "section", head: "Why it still matters", md:
-          "Peronism, officially the Justicialist Party, has won most free presidential elections since 1946. It has no fixed ideology: Carlos Menem privatised and deregulated in the 1990s, the Kirchners nationalised and spent. What unites it is loyalty to the unions, the poor and the Peronist symbols. Milei defines himself against it, calling it the cause of Argentina's decline, while Peronists lead the opposition to his reforms (briefings 4 and 7)." }
+          "Peronism, officially the Justicialist Party, has won most free presidential elections since 1946. It has no fixed ideology: Carlos Menem privatised and deregulated in the 1990s, the Kirchners nationalised and spent. What unites it is loyalty to the unions, the poor and the Peronist symbols. Milei defines himself against it, calling it the cause of Argentina's decline, while Peronists lead the opposition to his reforms (briefings [[lesson:ar-4|#]] and [[lesson:ar-7|#]])." }
       ],
       takeaways: [
         "Juan Perón built a mass movement on the trade unions in the 1940s; Eva Perón became the idol of the poor.",
@@ -438,7 +438,7 @@ window.POLITICS.addUnit("ar", {
           right: { head: "Critics", md:
             "Washington openly tied its money to an election result, an extraordinary intervention in another democracy, and American farmers complained it helped a soybean competitor." } },
         { type: "section", head: "Why it matters", md:
-          "The win saved Milei's programme and gave him the votes to pass a labour reform in February 2026 (briefing 7). It also tightened his alliance with Trump: in September 2026 the two countries launched an 'Andes-Atlantic Corridor' with up to $7 billion in US export credit by 2027." },
+          "The win saved Milei's programme and gave him the votes to pass a labour reform in February 2026 ([[lesson:ar-7]]). It also tightened his alliance with Trump: in September 2026 the two countries launched an 'Andes-Atlantic Corridor' with up to $7 billion in US export credit by 2027." },
         { type: "section", head: "What's next", md:
           "The swap line bought time, not a cure. Argentina still needs to rebuild reserves and regain access to international markets before the 2027 election." }
       ],

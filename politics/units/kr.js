@@ -127,7 +127,7 @@ window.POLITICS.addUnit("kr", {
         { type: "section", head: "Two states", md:
           "In May 1948 the South held an election under UN supervision, which the North refused. On 15 August 1948 the Republic of Korea was proclaimed in Seoul, with Syngman Rhee, a US-educated nationalist who had spent decades in exile, as president. In September the North proclaimed the Democratic People's Republic of Korea under Kim Il Sung (see [[unit:kp]]). Each claimed to be the only legitimate government of all Korea. Rhee ruled in an increasingly authoritarian way, and a leftist uprising on Jeju Island in 1948 was crushed with the killing of tens of thousands of islanders." },
         { type: "section", head: "Rhee's fall", md:
-          "After the Korean War (1950–53), Rhee rigged elections to stay in power. In April 1960 student-led protests after a fraudulent election forced him to resign and flee to Hawaii, the April Revolution. A brief democratic government followed, until General Park Chung-hee seized power in a military coup in May 1961 (briefing 10)." },
+          "After the Korean War (1950–53), Rhee rigged elections to stay in power. In April 1960 student-led protests after a fraudulent election forced him to resign and flee to Hawaii, the April Revolution. A brief democratic government followed, until General Park Chung-hee seized power in a military coup in May 1961 ([[lesson:kr-10]])." },
         { type: "compare", head: "Two views of the founding",
           left: { head: "The conservative view", md:
             "The 1948 founding of a free, anti-communist republic, backed by the US and the UN, laid the foundation of today's prosperity." },
@@ -224,7 +224,7 @@ window.POLITICS.addUnit("kr", {
         { type: "section", head: "Dictatorship", md:
           "Growth came with repression. After nearly losing the 1971 election to Kim Dae-jung, Park declared martial law and imposed the 1972 Yushin constitution, which let him rule indefinitely, appoint a third of the legislature and issue emergency decrees. The KCIA, his intelligence agency, kidnapped Kim Dae-jung from a Tokyo hotel in 1973. Labour unions were suppressed, and workers, many of them young women in textile factories, endured long hours and low pay." },
         { type: "section", head: "The end", md:
-          "In October 1979 protests broke out in Busan and Masan. On 26 October, during a dinner at a safe house, Park was shot dead by his own intelligence chief, Kim Jae-gyu, after an argument over how to handle them. A brief opening followed, but in December General Chun Doo-hwan seized control of the army, and in 1980 crushed the uprising in Gwangju (briefing 11)." },
+          "In October 1979 protests broke out in Busan and Masan. On 26 October, during a dinner at a safe house, Park was shot dead by his own intelligence chief, Kim Jae-gyu, after an argument over how to handle them. A brief opening followed, but in December General Chun Doo-hwan seized control of the army, and in 1980 crushed the uprising in Gwangju ([[lesson:kr-11]])." },
         { type: "section", head: "The price paid", md:
           "The pace was punishing. In November 1970 a 22-year-old garment worker, Jeon Tae-il, set himself on fire in Seoul's Pyeonghwa Market, shouting that workers were not machines and that the labour law should be obeyed. His death inspired a generation of students and trade unionists. Rural villages were remade too, through the Saemaul (New Village) movement, which paired government materials with local labour to build roads, roofs and wells." },
         { type: "compare", head: "Two views of Park",
@@ -233,7 +233,7 @@ window.POLITICS.addUnit("kr", {
           right: { head: "Critics", md:
             "He was a dictator who tortured opponents and exploited workers; South Korea's prosperity owed as much to its people as to him." } },
         { type: "section", head: "Why it still matters", md:
-          "Park remains the most divisive figure in South Korean politics. Conservatives revere him; his daughter, Park Geun-hye, was elected president in 2012 and impeached in 2017. The chaebol he built still dominate the economy (see briefing 12)." }
+          "Park remains the most divisive figure in South Korean politics. Conservatives revere him; his daughter, Park Geun-hye, was elected president in 2012 and impeached in 2017. The chaebol he built still dominate the economy (see [[lesson:kr-12]])." }
       ],
       takeaways: [
         "General Park Chung-hee seized power in 1961 and ruled until 1979.",

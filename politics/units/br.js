@@ -125,14 +125,14 @@ window.POLITICS.addUnit("br", {
         { type: "section", head: "One empire, not many republics", md:
           "Spain's American empire broke into many republics after long wars. Brazil stayed a single country, and a monarchy. Historians credit the continuity of the crown, a landowning elite united by fear of slave revolts, and the suppression of regional rebellions in the 1830s and 1840s. Pedro I, unpopular and autocratic, abdicated in 1831 in favour of his five-year-old son. Pedro II ruled for nearly half a century, a stable if slave-based parliamentary monarchy that fought the devastating Paraguayan War of 1864–70." },
         { type: "section", head: "The republic", md:
-          "The monarchy fell soon after it abolished slavery in 1888 (briefing 10), losing the support of planters, while army officers influenced by positivism wanted a modern republic. On 15 November 1889 Marshal Deodoro da Fonseca led a bloodless coup, and the imperial family went into exile. The motto on the new flag, 'Order and Progress', comes from that positivist movement. The 1891 constitution created a federal republic, dominated by the coffee and dairy elites of São Paulo and Minas Gerais." },
+          "The monarchy fell soon after it abolished slavery in 1888 ([[lesson:br-10]]), losing the support of planters, while army officers influenced by positivism wanted a modern republic. On 15 November 1889 Marshal Deodoro da Fonseca led a bloodless coup, and the imperial family went into exile. The motto on the new flag, 'Order and Progress', comes from that positivist movement. The 1891 constitution created a federal republic, dominated by the coffee and dairy elites of São Paulo and Minas Gerais." },
         { type: "compare", head: "Two readings of 1822",
           left: { head: "A national achievement", md:
             "Brazil won independence with little bloodshed and kept its vast territory whole, the base of today's continental country." },
           right: { head: "A change at the top", md:
             "Independence was arranged by elites to keep power and slavery intact; ordinary Brazilians had little say." } },
         { type: "section", head: "Why it still matters", md:
-          "Brazil's size, its single language and its sense of being a nation apart from Spanish-speaking neighbours go back to this peaceful, top-down independence. So does a political tradition in which change is often negotiated among elites, and in which the army sees itself as the guardian of the republic it founded in 1889, a self-image that shaped the 1964 coup and the 2022–23 plot (briefings 11 and 5). 7 September remains Independence Day, marked with military parades." }
+          "Brazil's size, its single language and its sense of being a nation apart from Spanish-speaking neighbours go back to this peaceful, top-down independence. So does a political tradition in which change is often negotiated among elites, and in which the army sees itself as the guardian of the republic it founded in 1889, a self-image that shaped the 1964 coup and the 2022–23 plot (briefings [[lesson:br-11|#]] and [[lesson:br-5|#]]). 7 September remains Independence Day, marked with military parades." }
       ],
       takeaways: [
         "The Portuguese court moved to Rio in 1808, and Brazil became a kingdom equal to Portugal.",
@@ -179,7 +179,7 @@ window.POLITICS.addUnit("br", {
         { type: "section", head: "4. Impeachment and the rise of Bolsonaro", md:
           "Rousseff was impeached and removed in 2016 over budget manipulation, which her supporters call a parliamentary coup. Lula was convicted of corruption in 2017 and jailed in 2018, which kept him out of that year's election; the Supreme Court later annulled his convictions on procedural grounds. Jair Bolsonaro, a former army captain and fringe congressman who praised the dictatorship, won in 2018 on anger at crime and corruption." },
         { type: "section", head: "5. 2022 and 8 January", md:
-          "In 2022 Lula beat Bolsonaro in the runoff by 50.9% to 49.1%, the closest result since democracy returned. Bolsonaro never clearly conceded. On 8 January 2023, a week after Lula took office, thousands of his supporters stormed and ransacked Congress, the Supreme Court and the presidential palace in Brasília, demanding military intervention. Investigators later uncovered a wider plot, which briefing 5 explains. More than a thousand rioters were charged, and hundreds were convicted by the Supreme Court, some to sentences of more than a decade; those sentences, and calls for an amnesty, became a rallying cause for the right." }
+          "In 2022 Lula beat Bolsonaro in the runoff by 50.9% to 49.1%, the closest result since democracy returned. Bolsonaro never clearly conceded. On 8 January 2023, a week after Lula took office, thousands of his supporters stormed and ransacked Congress, the Supreme Court and the presidential palace in Brasília, demanding military intervention. Investigators later uncovered a wider plot, which [[lesson:br-5]] explains. More than a thousand rioters were charged, and hundreds were convicted by the Supreme Court, some to sentences of more than a decade; those sentences, and calls for an amnesty, became a rallying cause for the right." }
       ],
       takeaways: [
         "Brazil was a Portuguese colony and an empire, and the last country in the Americas to abolish slavery.",
@@ -221,7 +221,7 @@ window.POLITICS.addUnit("br", {
         { type: "section", head: "Freedom without land", md:
           "The freed received no land, education or support. Governments instead encouraged European immigration, partly with the declared aim of 'whitening' the population. Many former slaves and their descendants moved to the edges of cities, the start of the favelas. For much of the twentieth century Brazil called itself a 'racial democracy', where mixing had made racism irrelevant; activists argued that this myth hid deep discrimination." },
         { type: "section", head: "Race today", md:
-          "In the 2022 census, 45.3% of Brazilians identified as *pardo* (mixed) and 10.2% as *preto* (Black): together a majority. Black and mixed-race Brazilians earn much less on average, are over-represented in prisons, and make up most of the victims of homicide and of police killings (briefing 12). Since 2012 a quota law has reserved half of the places at federal universities for public-school students, with shares for Black, mixed-race and Indigenous students, transforming campuses. 20 November, the anniversary of Zumbi's death, became a national holiday in 2024." },
+          "In the 2022 census, 45.3% of Brazilians identified as *pardo* (mixed) and 10.2% as *preto* (Black): together a majority. Black and mixed-race Brazilians earn much less on average, are over-represented in prisons, and make up most of the victims of homicide and of police killings ([[lesson:br-12]]). Since 2012 a quota law has reserved half of the places at federal universities for public-school students, with shares for Black, mixed-race and Indigenous students, transforming campuses. 20 November, the anniversary of Zumbi's death, became a national holiday in 2024." },
         { type: "compare", head: "Two views of affirmative action",
           left: { head: "Supporters", md:
             "Quotas are a modest correction to centuries of exclusion, and have opened universities and the civil service to Black Brazilians." },
@@ -280,7 +280,7 @@ window.POLITICS.addUnit("br", {
           right: { head: "Most historians and victims", md:
             "It was a coup that destroyed democracy, tortured thousands and left its crimes unpunished, a lesson for 2023." } },
         { type: "section", head: "Why it still matters", md:
-          "Jair Bolsonaro, a former army captain, praised the dictatorship and a notorious torturer throughout his career. His conviction in 2025 for plotting a coup after the 2022 election was the first time senior military officers were convicted of attacking democracy, something the 1979 amnesty had prevented for the dictatorship's crimes (briefing 5). The Oscar-winning 2024 film I'm Still Here, about the family of a congressman who disappeared in 1971, brought the era to a new generation." }
+          "Jair Bolsonaro, a former army captain, praised the dictatorship and a notorious torturer throughout his career. His conviction in 2025 for plotting a coup after the 2022 election was the first time senior military officers were convicted of attacking democracy, something the 1979 amnesty had prevented for the dictatorship's crimes ([[lesson:br-5]]). The Oscar-winning 2024 film I'm Still Here, about the family of a congressman who disappeared in 1971, brought the era to a new generation." }
       ],
       takeaways: [
         "The military overthrew President Goulart in 1964 and ruled until 1985.",
@@ -378,7 +378,7 @@ window.POLITICS.addUnit("br", {
           right: { head: "Bolsonaro's supporters", md:
             "The trial was political persecution by a biased court that also acted as investigator and victim. Bolsonaro never carried out a coup, and he should be free to run." } },
         { type: "section", head: "Why it matters", md:
-          "The case split Brazil and drew in Washington: Donald Trump called the trial a 'witch hunt' and cited it when imposing 50% tariffs on Brazil in 2025 (briefing 6). An amnesty or pardon for Bolsonaro is now a central issue in the election: Flávio Bolsonaro has promised one if he wins." },
+          "The case split Brazil and drew in Washington: Donald Trump called the trial a 'witch hunt' and cited it when imposing 50% tariffs on Brazil in 2025 ([[lesson:br-6]]). An amnesty or pardon for Bolsonaro is now a central issue in the election: Flávio Bolsonaro has promised one if he wins." },
         { type: "section", head: "What's next", md:
           "The Supreme Court still has to rule on the sentence-cutting law, and the next president's stance on a pardon could decide how long Bolsonaro stays in prison. His lawyers have repeatedly sought house arrest on health grounds, and he has left prison for hospital treatment, then returned. Whether he stays behind bars could depend on the vote." }
       ],
@@ -529,7 +529,7 @@ window.POLITICS.addUnit("br", {
           right: { head: "The left and many experts", md:
             "Raids kill many but change little; follow the money, reform the prisons and bring services to the favelas." } },
         { type: "section", head: "Why it matters", md:
-          "Security is one of voters' top concerns and favours the right, whose candidates promise to confront the gangs head on (briefing 7). It also affects Brazil's foreign relations: the Trump administration has discussed designating the PCC and Comando Vermelho as terrorist organisations, which Brasília fears could justify foreign interference. And it lies at the root of deep inequalities of race and place (briefing 10)." }
+          "Security is one of voters' top concerns and favours the right, whose candidates promise to confront the gangs head on ([[lesson:br-7]]). It also affects Brazil's foreign relations: the Trump administration has discussed designating the PCC and Comando Vermelho as terrorist organisations, which Brasília fears could justify foreign interference. And it lies at the root of deep inequalities of race and place ([[lesson:br-10]])." }
       ],
       takeaways: [
         "Gangs born in prisons, the PCC and the Comando Vermelho, now operate nationwide and abroad.",

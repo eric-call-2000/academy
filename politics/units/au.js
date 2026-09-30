@@ -127,14 +127,14 @@ window.POLITICS.addUnit("au", {
         { type: "section", head: "Birth of a nation", md:
           "The British parliament passed the constitution into law in 1900, and the Commonwealth of Australia was proclaimed on 1 January 1901, with Edmund Barton as the first prime minister. Parliament sat in Melbourne until Canberra was ready in 1927. The King remained head of state, represented by a governor-general, and Britain kept control of foreign policy for decades. Full legal independence came in stages: the Statute of Westminster in 1942 and the Australia Act of 1986, which ended appeals to London's courts." },
         { type: "section", head: "Who was left out", md:
-          "Aboriginal and Torres Strait Islander peoples had no say in federation. The constitution excluded 'aboriginal natives' from being counted in the population and barred the Commonwealth from making laws for them; both clauses were removed in the 1967 referendum, approved by 90.8% of voters. One of the new parliament's first acts, in 1901, restricted immigration through a dictation test, the basis of the 'White Australia' policy (briefing 3). Women won the federal vote in 1902, among the first in the world, though Aboriginal people in several states were denied it until 1962." },
+          "Aboriginal and Torres Strait Islander peoples had no say in federation. The constitution excluded 'aboriginal natives' from being counted in the population and barred the Commonwealth from making laws for them; both clauses were removed in the 1967 referendum, approved by 90.8% of voters. One of the new parliament's first acts, in 1901, restricted immigration through a dictation test, the basis of the 'White Australia' policy ([[lesson:au-3]]). Women won the federal vote in 1902, among the first in the world, though Aboriginal people in several states were denied it until 1962." },
         { type: "compare", head: "Two views of the founding",
           left: { head: "A democratic achievement", md:
             "Australia was founded peacefully, by votes rather than war, with a stable constitution that has lasted more than 125 years." },
           right: { head: "An incomplete founding", md:
             "It was built on the dispossession of First Nations peoples and a racial immigration policy, and has never been reckoned with in the constitution." } },
         { type: "section", head: "Why it still matters", md:
-          "The federal bargain of 1901 explains why the states still run hospitals, schools and police, and why the Senate gives Tasmania as many senators as New South Wales (briefing 2). The constitution is very hard to change: only 8 of 45 referendums have passed, the latest defeats being the republic in 1999 and the Indigenous Voice in 2023. And the national day is not 1 January but 26 January, the anniversary of the First Fleet, which many Indigenous Australians mark as Invasion Day." }
+          "The federal bargain of 1901 explains why the states still run hospitals, schools and police, and why the Senate gives Tasmania as many senators as New South Wales ([[lesson:au-2]]). The constitution is very hard to change: only 8 of 45 referendums have passed, the latest defeats being the republic in 1999 and the Indigenous Voice in 2023. And the national day is not 1 January but 26 January, the anniversary of the First Fleet, which many Indigenous Australians mark as Invasion Day." }
       ],
       takeaways: [
         "Six British colonies united as the Commonwealth of Australia on 1 January 1901, after referendums approved a constitution.",
@@ -232,7 +232,7 @@ window.POLITICS.addUnit("au", {
           right: { head: "Conservative critics", md:
             "Many removals were motivated by concern for children's welfare, and the word 'genocide' distorts the history." } },
         { type: "section", head: "Why it still matters", md:
-          "The trauma of removal is linked to higher rates of poor health, imprisonment and family breakdown among descendants. Today Indigenous children are far more likely than other children to be placed in out-of-home care, which leads activists to warn of a new stolen generation. The history also shaped the 2023 referendum on an Indigenous Voice to Parliament, whose defeat many Indigenous leaders saw as a setback for reconciliation (briefing 3)." }
+          "The trauma of removal is linked to higher rates of poor health, imprisonment and family breakdown among descendants. Today Indigenous children are far more likely than other children to be placed in out-of-home care, which leads activists to warn of a new stolen generation. The history also shaped the 2023 referendum on an Indigenous Voice to Parliament, whose defeat many Indigenous leaders saw as a setback for reconciliation ([[lesson:au-3]])." }
       ],
       takeaways: [
         "From about 1910 to 1970, between one in ten and one in three Indigenous children were forcibly removed from their families.",
@@ -281,7 +281,7 @@ window.POLITICS.addUnit("au", {
           right: { head: "Critics", md:
             "The legend glorifies wars fought for others, overshadows the frontier wars against Aboriginal people, and is used to discourage questioning." } },
         { type: "section", head: "Why it still matters", md:
-          "Anzac Day dawn services draw huge crowds, and the Australian War Memorial in Canberra is a national shrine. The instinct to fight alongside a great ally runs from Gallipoli to AUKUS, the submarine pact with the US and Britain (briefing 7). The debate over whether Australia's wars serve its own interests, or those of its allies, returns whenever Washington asks for support, most recently over a possible conflict with China over Taiwan (see [[unit:tw|Taiwan]])." }
+          "Anzac Day dawn services draw huge crowds, and the Australian War Memorial in Canberra is a national shrine. The instinct to fight alongside a great ally runs from Gallipoli to AUKUS, the submarine pact with the US and Britain ([[lesson:au-7]]). The debate over whether Australia's wars serve its own interests, or those of its allies, returns whenever Washington asks for support, most recently over a possible conflict with China over Taiwan (see [[unit:tw|Taiwan]])." }
       ],
       takeaways: [
         "The failed 1915 landing at Gallipoli became the founding legend of Anzac Day.",
@@ -383,7 +383,7 @@ window.POLITICS.addUnit("au", {
         { type: "section", head: "The aftermath", md:
           "The defeat set off a crisis on the right. The Liberals chose Sussan Ley as their first woman leader within days. Soon afterwards the Nationals announced they would leave the Coalition, citing disagreements over policy, before reuniting with the Liberals about a week later. The Coalition then spent months arguing over whether to keep the net-zero emissions target, while Albanese used his majority to pass his agenda with the help of the Greens in the Senate." },
         { type: "section", head: "Why it matters", md:
-          "The landslide gave Albanese a huge majority, but the low first-preference vote for both big parties signalled a fragmenting electorate. Within a year the Coalition would lose ground not to Labor but to One Nation, as briefing 7 explains." },
+          "The landslide gave Albanese a huge majority, but the low first-preference vote for both big parties signalled a fragmenting electorate. Within a year the Coalition would lose ground not to Labor but to One Nation, as [[lesson:au-7]] explains." },
         { type: "section", head: "What's next", md:
           "The next federal election is due by 2028. The question is whether Labor can hold its gains while its opponents reorganise on the right, and whether the voters who deserted both big parties in 2025 come back or keep drifting to independents and One Nation." }
       ],
@@ -538,7 +538,7 @@ window.POLITICS.addUnit("au", {
           right: { head: "Critics (Greens, rights groups, the UN)", md:
             "It punishes people with valid refugee claims to deter others, breaches international obligations and costs billions." } },
         { type: "section", head: "Why it matters", md:
-          "Offshore processing is now bipartisan, and 'stop the boats' remains a political touchstone; One Nation and parts of the Coalition campaign for lower migration overall (briefing 7). Governments in Europe, including Britain and Italy, have studied or copied the model (see [[unit:gb|the UK]] and [[unit:it|Italy]]). Australia still accepts refugees through its humanitarian programme, about 20,000 places a year, but only those it chooses from abroad." }
+          "Offshore processing is now bipartisan, and 'stop the boats' remains a political touchstone; One Nation and parts of the Coalition campaign for lower migration overall ([[lesson:au-7]]). Governments in Europe, including Britain and Italy, have studied or copied the model (see [[unit:gb|the UK]] and [[unit:it|Italy]]). Australia still accepts refugees through its humanitarian programme, about 20,000 places a year, but only those it chooses from abroad." }
       ],
       takeaways: [
         "Since the 2001 Tampa affair, Australia has sent people arriving by boat to offshore camps on Nauru and Manus Island.",

@@ -134,7 +134,7 @@ window.POLITICS.addUnit("ca", {
           right: { head: "A union of provinces", md:
             "Others see it as a federation of equal provinces, with a strong central government, open to all Canadians." } },
         { type: "section", head: "Why it still matters", md:
-          "The division of powers written in 1867 is behind today's quarrels between Ottawa and the provinces over energy, health and trade (briefings 2 and 7). Quebec's special status in 1867 underpins its demands to be recognised as a nation (briefing 11). Indigenous peoples, not consulted in 1867, now hold constitutionally protected treaty rights. And Canada Day, 1 July, marks not independence, which came gradually, but a deal struck by colonial politicians." }
+          "The division of powers written in 1867 is behind today's quarrels between Ottawa and the provinces over energy, health and trade (briefings [[lesson:ca-2|#]] and [[lesson:ca-7|#]]). Quebec's special status in 1867 underpins its demands to be recognised as a nation ([[lesson:ca-11]]). Indigenous peoples, not consulted in 1867, now hold constitutionally protected treaty rights. And Canada Day, 1 July, marks not independence, which came gradually, but a deal struck by colonial politicians." }
       ],
       takeaways: [
         "Canada was created on 1 July 1867 when four provinces united under the British North America Act.",
@@ -231,7 +231,7 @@ window.POLITICS.addUnit("ca", {
           right: { head: "Some commentators", md:
             "The history is real, but claims about mass graves have outrun the evidence, and the focus on the past can crowd out present problems." } },
         { type: "section", head: "Why it matters", md:
-          "Reconciliation is now a core part of Canadian politics. It shapes debates over Indigenous rights on pipelines and mines, including the major projects Carney's government is fast-tracking (briefing 4), over child welfare, where Indigenous children remain heavily over-represented in care, and over Canada's image of itself as a tolerant country. Today, 30 September, is the National Day for Truth and Reconciliation." }
+          "Reconciliation is now a core part of Canadian politics. It shapes debates over Indigenous rights on pipelines and mines, including the major projects Carney's government is fast-tracking ([[lesson:ca-4]]), over child welfare, where Indigenous children remain heavily over-represented in care, and over Canada's image of itself as a tolerant country. Today, 30 September, is the National Day for Truth and Reconciliation." }
       ],
       takeaways: [
         "At least 150,000 Indigenous children were sent to residential schools designed to assimilate them.",
@@ -285,7 +285,7 @@ window.POLITICS.addUnit("ca", {
           right: { head: "Federalists", md:
             "Quebecers twice chose Canada; confusing questions and the damage of uncertainty show why clear rules are needed." } },
         { type: "section", head: "Why it matters now", md:
-          "For two decades separatism faded, but the PQ has led the polls ahead of Quebec's 5 October 2026 election, promising a referendum on independence after January 2029 (briefings 4 and 8). Trump's threats have pushed many Quebecers toward Canada, while others see a chance. Language laws remain a flashpoint: Bill 96 in 2022 tightened French requirements, and Quebec has used the constitution's 'notwithstanding clause' to shield laws on language and religious symbols from court challenges." }
+          "For two decades separatism faded, but the PQ has led the polls ahead of Quebec's 5 October 2026 election, promising a referendum on independence after January 2029 (briefings [[lesson:ca-4|#]] and [[lesson:ca-8|#]]). Trump's threats have pushed many Quebecers toward Canada, while others see a chance. Language laws remain a flashpoint: Bill 96 in 2022 tightened French requirements, and Quebec has used the constitution's 'notwithstanding clause' to shield laws on language and religious symbols from court challenges." }
       ],
       takeaways: [
         "Quebec's modernisation in the 1960s produced a strong independence movement, and a violent fringe in the 1970 October Crisis.",
@@ -532,7 +532,7 @@ window.POLITICS.addUnit("ca", {
           right: { head: "Northern voices", md:
             "Defence spending is welcome only if it brings housing, health care and infrastructure to Northerners and respects Inuit rights." } },
         { type: "section", head: "Why it matters", md:
-          "The Arctic has become a test of Canada's sovereignty and of its place between an unpredictable United States and hostile powers. Climate change is also transforming the North faster than anywhere else in the country, threatening permafrost, wildlife and the way of life of Northern communities. For Carney, who has made standing up to Trump central to his leadership (briefing 5), Arctic defence is a way to show that Canada can take care of itself." }
+          "The Arctic has become a test of Canada's sovereignty and of its place between an unpredictable United States and hostile powers. Climate change is also transforming the North faster than anywhere else in the country, threatening permafrost, wildlife and the way of life of Northern communities. For Carney, who has made standing up to Trump central to his leadership ([[lesson:ca-5]]), Arctic defence is a way to show that Canada can take care of itself." }
       ],
       takeaways: [
         "Canada's Arctic covers about 40% of its land but has only about 130,000 people.",

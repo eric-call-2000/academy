@@ -133,7 +133,7 @@ window.POLITICS.addUnit("ve", {
           right: { head: "Critics", md:
             "Chávez turned a complex liberal-minded aristocrat into a cult to justify his own rule and the army's role in politics." } },
         { type: "section", head: "Why it still matters", md:
-          "No country worships its founder like Venezuela. Every town has a Plaza Bolívar, the currency is the bolívar, and Chávez renamed the country the Bolivarian Republic of Venezuela in 1999, added a star to the flag and had Bolívar's remains exhumed in 2010. The tradition of the military hero who saves the nation, from Páez to Chávez, runs through Venezuelan history, and the armed forces remain the arbiter of who governs (briefing 2)." }
+          "No country worships its founder like Venezuela. Every town has a Plaza Bolívar, the currency is the bolívar, and Chávez renamed the country the Bolivarian Republic of Venezuela in 1999, added a star to the flag and had Bolívar's remains exhumed in 2010. The tradition of the military hero who saves the nation, from Páez to Chávez, runs through Venezuelan history, and the armed forces remain the arbiter of who governs ([[lesson:ve-2]])." }
       ],
       takeaways: [
         "Venezuela declared independence on 5 July 1811, the first Spanish colony in South America to do so.",
@@ -225,14 +225,14 @@ window.POLITICS.addUnit("ve", {
         { type: "section", head: "'Saudi Venezuela'", md:
           "The 1973 oil shock quadrupled prices. President Carlos Andrés Pérez nationalised the oil industry on 1 January 1976, creating the state company PDVSA, and spent lavishly on industry, scholarships and subsidies; Venezuelans flew to Miami to shop, and the era became known as 'Saudi Venezuela'. The government also borrowed heavily. When oil prices fell in the 1980s, the bill came due: on 18 February 1983, 'Black Friday', the bolívar was devalued, and living standards began a long decline." },
         { type: "section", head: "Decay", md:
-          "By the late 1980s most Venezuelans were poorer than a decade earlier, and many saw the parties as corrupt cliques. Pérez, re-elected in 1988, imposed IMF-backed austerity, which triggered the Caracazo riots (briefing 11). In 1993 Congress impeached him for misusing public funds, and the veteran Caldera won the presidency as an independent, breaking the two-party system. When oil prices collapsed again in 1998, voters turned to the outsider Hugo Chávez, who promised to sweep the old parties away." },
+          "By the late 1980s most Venezuelans were poorer than a decade earlier, and many saw the parties as corrupt cliques. Pérez, re-elected in 1988, imposed IMF-backed austerity, which triggered the Caracazo riots ([[lesson:ve-11]]). In 1993 Congress impeached him for misusing public funds, and the veteran Caldera won the presidency as an independent, breaking the two-party system. When oil prices collapsed again in 1998, voters turned to the outsider Hugo Chávez, who promised to sweep the old parties away." },
         { type: "compare", head: "Two verdicts on Punto Fijo",
           left: { head: "Its defenders", md:
             "It gave Venezuela forty years of democracy and freedom, far better than what came before or after." },
           right: { head: "Chavismo", md:
             "It was a corrupt pact of elites that shared the oil wealth among themselves and left the poor behind." } },
         { type: "section", head: "Why it still matters", md:
-          "Chávez built his movement by denouncing the 'Fourth Republic', as he called the Punto Fijo era, and AD and COPEI never recovered. Today's opposition, led by María Corina Machado, has had to build new parties from scratch. The lessons of 1958, when parties with deep differences agreed on rules to share power, are often cited in discussions of how a transition from chavismo might work (briefings 6 and 8)." }
+          "Chávez built his movement by denouncing the 'Fourth Republic', as he called the Punto Fijo era, and AD and COPEI never recovered. Today's opposition, led by María Corina Machado, has had to build new parties from scratch. The lessons of 1958, when parties with deep differences agreed on rules to share power, are often cited in discussions of how a transition from chavismo might work (briefings [[lesson:ve-6|#]] and [[lesson:ve-8|#]])." }
       ],
       takeaways: [
         "After the fall of Pérez Jiménez in 1958, AD and COPEI agreed in the Punto Fijo pact to share power and defend democracy.",
@@ -274,14 +274,14 @@ window.POLITICS.addUnit("ve", {
         { type: "section", head: "'For now'", md:
           "Inside the army a secret movement of junior officers, the MBR-200, had been plotting for years, inspired by Bolívar and angered by corruption and by being ordered to fire on civilians. On the night of 4 February 1992 its leader, Lieutenant Colonel Hugo Chávez, launched a coup. The rebels took bases in other cities but failed to capture the president in Caracas. Chávez surrendered, and was allowed to speak on television. He told his comrades that their objectives had not been achieved 'por ahora', for now, and took responsibility. The phrase made him famous." },
         { type: "section", head: "From prison to power", md:
-          "A second coup attempt by other officers in November 1992 also failed. Chávez spent two years in prison, becoming a folk hero in the barrios. Pérez was impeached in 1993, and President Caldera, who had refused to condemn the coup outright, pardoned Chávez in 1994. Chávez toured the country, abandoned armed struggle for elections and won the presidency in December 1998 with 56% of the vote (briefing 3)." },
+          "A second coup attempt by other officers in November 1992 also failed. Chávez spent two years in prison, becoming a folk hero in the barrios. Pérez was impeached in 1993, and President Caldera, who had refused to condemn the coup outright, pardoned Chávez in 1994. Chávez toured the country, abandoned armed struggle for elections and won the presidency in December 1998 with 56% of the vote ([[lesson:ve-3]])." },
         { type: "compare", head: "Two views of 4 February",
           left: { head: "Chavismo", md:
             "A 'day of national dignity', when patriotic soldiers rose against a corrupt regime that massacred its people in 1989." },
           right: { head: "Opponents", md:
             "A failed military coup against an elected government, which made the use of force a founding myth of the regime." } },
         { type: "section", head: "Why it still matters", md:
-          "Chavismo celebrates 4 February as a holiday, and the Caracazo is part of its founding story, cited to justify the break with the old system. The events also marked the start of the armed forces' return to politics, which Chávez completed in office and on which the government of Delcy Rodríguez still depends (briefings 2 and 4). For opponents, a movement born in a coup was never likely to give up power at the ballot box." }
+          "Chavismo celebrates 4 February as a holiday, and the Caracazo is part of its founding story, cited to justify the break with the old system. The events also marked the start of the armed forces' return to politics, which Chávez completed in office and on which the government of Delcy Rodríguez still depends (briefings [[lesson:ve-2|#]] and [[lesson:ve-4|#]]). For opponents, a movement born in a coup was never likely to give up power at the ballot box." }
       ],
       takeaways: [
         "IMF-backed price rises in 1989 set off the Caracazo riots, which security forces crushed, killing hundreds.",
@@ -526,14 +526,14 @@ window.POLITICS.addUnit("ve", {
         { type: "section", head: "Maduro's escalation", md:
           "In December 2023 Maduro held a referendum in which the government said Venezuelans overwhelmingly backed creating a Venezuelan state of 'Guayana Esequiba'; the ICJ had ordered Venezuela not to change the status quo. Troops massed near the border, Brazil reinforced its own frontier, and Britain sent a warship to Guyana. In May 2025 Venezuela even held elections for a 'governor' of the territory it does not control. Guyana answered with appeals to the UN and closer defence ties with the United States." },
         { type: "section", head: "After Maduro", md:
-          "The US raid that removed Maduro has not ended the claim. In May 2026 the acting president, Delcy Rodríguez, travelled to The Hague to argue Venezuela's case at the final hearings, while insisting that Venezuela never consented to the court's jurisdiction and would not accept a ruling against it. Guyana expects a judgment between late 2026 and early 2027. With Washington now deeply involved in Venezuela's oil (briefing 6), the United States is in the unusual position of partner to both sides." },
+          "The US raid that removed Maduro has not ended the claim. In May 2026 the acting president, Delcy Rodríguez, travelled to The Hague to argue Venezuela's case at the final hearings, while insisting that Venezuela never consented to the court's jurisdiction and would not accept a ruling against it. Guyana expects a judgment between late 2026 and early 2027. With Washington now deeply involved in Venezuela's oil ([[lesson:ve-6]]), the United States is in the unusual position of partner to both sides." },
         { type: "compare", head: "Two positions",
           left: { head: "Venezuela", md:
             "The 1899 award was a fraud imposed by a colonial power; only negotiation under the 1966 Geneva Agreement can settle the border." },
           right: { head: "Guyana", md:
             "The 1899 award is a valid, final settlement accepted for over sixty years; the ICJ is the proper forum." } },
         { type: "section", head: "Why it matters", md:
-          "Essequibo is one of the few issues that unites Venezuelans across the political divide: the opposition also rejects the 1899 award. The ruling will test whether any Venezuelan government accepts international law over a cause of national pride, and whether oil investment in Guyana, one of the region's great new sources of supply, stays safe. For Rodríguez, the claim is a way to show nationalist credentials while working with Washington (briefing 4)." }
+          "Essequibo is one of the few issues that unites Venezuelans across the political divide: the opposition also rejects the 1899 award. The ruling will test whether any Venezuelan government accepts international law over a cause of national pride, and whether oil investment in Guyana, one of the region's great new sources of supply, stays safe. For Rodríguez, the claim is a way to show nationalist credentials while working with Washington ([[lesson:ve-4]])." }
       ],
       takeaways: [
         "Venezuela claims the Essequibo region, two-thirds of Guyana, rejecting an 1899 arbitral award.",

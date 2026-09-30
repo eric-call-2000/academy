@@ -138,7 +138,7 @@ window.POLITICS.addUnit("id", {
         { type: "section", head: "A late apology", md:
           "Only in 2005 did the Netherlands accept 17 August 1945 'politically and morally' as the date of independence. In 2022 a large Dutch study concluded that its forces used systematic, extreme violence in the war, and the Dutch prime minister apologised. In 2023 the government said it recognised the 1945 date in full. For Indonesians, 17 August, with flags on every house and village games, is the biggest national celebration of the year." },
         { type: "section", head: "Why it still matters", md:
-          "Pancasila, the 1945 Constitution and the unitary state are treated as fixed pillars that no party openly challenges, and any group seen to threaten them, whether Islamist, communist or separatist, can be banned. The army traces its political role to the revolution, when it saw itself as the guardian of the nation, a claim that returned with the 2025 changes to the military law (briefing 2)." }
+          "Pancasila, the 1945 Constitution and the unitary state are treated as fixed pillars that no party openly challenges, and any group seen to threaten them, whether Islamist, communist or separatist, can be banned. The army traces its political role to the revolution, when it saw itself as the guardian of the nation, a claim that returned with the 2025 changes to the military law ([[lesson:id-2]])." }
       ],
       takeaways: [
         "Sukarno and Hatta proclaimed independence on 17 August 1945, two days after Japan's surrender.",
@@ -239,7 +239,7 @@ window.POLITICS.addUnit("id", {
         { type: "section", head: "Breaking the silence", md:
           "After 1998 the silence slowly broke. Films such as The Act of Killing (2012), in which perpetrators re-enact their crimes, and an international people's tribunal in 2015 drew attention. In January 2023 President Joko Widodo acknowledged twelve cases of gross human rights violations, including the '1965–66 events', and expressed regret, though without an apology or prosecutions. The PKI and the spreading of communism remain banned by law." },
         { type: "section", head: "Why it still matters", md:
-          "1965 created the New Order and the army's dominance that defined Indonesia for a generation. Accusations of communism are still used to smear opponents, and the question of justice for past abuses, from 1965 to East Timor and 1998, hangs over a president, Prabowo Subianto, who was a Suharto-era general (briefing 5)." }
+          "1965 created the New Order and the army's dominance that defined Indonesia for a generation. Accusations of communism are still used to smear opponents, and the question of justice for past abuses, from 1965 to East Timor and 1998, hangs over a president, Prabowo Subianto, who was a Suharto-era general ([[lesson:id-5]])." }
       ],
       takeaways: [
         "A failed coup attempt in 1965 was blamed on the Communist Party.",
@@ -288,7 +288,7 @@ window.POLITICS.addUnit("id", {
           right: { head: "Timor-Leste, the UN and most historians", md:
             "It was an illegal invasion and occupation marked by mass atrocities; the 1999 vote showed what Timorese wanted." } },
         { type: "section", head: "Why it still matters", md:
-          "Losing East Timor made Indonesia's generals and nationalists fearful that other regions, especially Papua (briefing 12), might follow. Several officers who served there went on to high office, including Prabowo Subianto, who led special forces operations in Timor. And the gap between the East Timor referendum and Papua's 1969 'Act of Free Choice' is the heart of Papuan activists' argument." }
+          "Losing East Timor made Indonesia's generals and nationalists fearful that other regions, especially Papua ([[lesson:id-12]]), might follow. Several officers who served there went on to high office, including Prabowo Subianto, who led special forces operations in Timor. And the gap between the East Timor referendum and Papua's 1969 'Act of Free Choice' is the heart of Papuan activists' argument." }
       ],
       takeaways: [
         "Indonesia invaded East Timor in 1975, days after it declared independence from Portugal.",
@@ -550,7 +550,7 @@ window.POLITICS.addUnit("id", {
           right: { head: "Papuan activists", md:
             "Papuans were never allowed to choose; development serves outsiders, and they face racism and military repression." } },
         { type: "section", head: "Why it matters", md:
-          "Papua tests Indonesia's promise of unity in diversity. Racist abuse of Papuan students in Surabaya in 2019 set off the biggest protests in the region for years. Prabowo's plans for giant rice and sugarcane estates in the south, backed by more troops, worry Indigenous communities and environmental groups (briefing 8). Pacific island states, many of them fellow Melanesians, regularly raise Papua at the UN, and Jakarta pushes back hard." }
+          "Papua tests Indonesia's promise of unity in diversity. Racist abuse of Papuan students in Surabaya in 2019 set off the biggest protests in the region for years. Prabowo's plans for giant rice and sugarcane estates in the south, backed by more troops, worry Indigenous communities and environmental groups ([[lesson:id-8]]). Pacific island states, many of them fellow Melanesians, regularly raise Papua at the UN, and Jakarta pushes back hard." }
       ],
       takeaways: [
         "Papua joined Indonesia through the 1962 New York Agreement and a 1969 'Act of Free Choice' in which 1,025 selected representatives voted.",

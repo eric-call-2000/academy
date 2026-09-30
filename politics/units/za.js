@@ -132,7 +132,7 @@ window.POLITICS.addUnit("za", {
           right: { head: "For Black South Africans, then and now", md:
             "Union was a pact between white groups at the expense of the Black majority, whose dispossession it made law." } },
         { type: "section", head: "Why it still matters", md:
-          "The pattern set in 1910, and above all the 1913 Land Act, explains why land ownership is still so unequal and so politically charged (briefing 12). The memory of the camps shaped Afrikaner nationalism and the National Party that built apartheid (briefing 3). The Union Buildings remain the seat of the presidency, and 31 May, once a national day, is no longer celebrated." }
+          "The pattern set in 1910, and above all the 1913 Land Act, explains why land ownership is still so unequal and so politically charged ([[lesson:za-12]]). The memory of the camps shaped Afrikaner nationalism and the National Party that built apartheid ([[lesson:za-3]]). The Union Buildings remain the seat of the presidency, and 31 May, once a national day, is no longer celebrated." }
       ],
       takeaways: [
         "Britain defeated the Boer republics in the war of 1899–1902, in which tens of thousands died in concentration camps.",
@@ -223,14 +223,14 @@ window.POLITICS.addUnit("za", {
         { type: "section", head: "Soweto", md:
           "A new generation revived the struggle. Influenced by Steve Biko's Black Consciousness movement, students in Soweto rebelled against a decree forcing half of their lessons to be taught in Afrikaans, the language of the government. On 16 June 1976 thousands marched; police fired, and 12-year-old Hector Pieterson was among the first killed. A photograph of his body being carried went around the world. Protests spread nationwide, and estimates of those killed over the following months range from 176 to 700." },
         { type: "section", head: "Consequences", md:
-          "Thousands of young people fled into exile to join the ANC's armed wing, reviving it. In 1977 Biko died of head injuries in police custody, and the UN imposed a mandatory arms embargo. Inside the country, a mass movement of unions, churches and civic groups grew through the 1980s, making the townships ungovernable and, together with sanctions, forcing the government to negotiate (briefing 3)." },
+          "Thousands of young people fled into exile to join the ANC's armed wing, reviving it. In 1977 Biko died of head injuries in police custody, and the UN imposed a mandatory arms embargo. Inside the country, a mass movement of unions, churches and civic groups grew through the 1980s, making the townships ungovernable and, together with sanctions, forcing the government to negotiate ([[lesson:za-3]])." },
         { type: "compare", head: "Two debates about the struggle",
           left: { head: "The ANC's account", md:
             "The ANC led the liberation struggle, from the Freedom Charter to armed struggle, which is why it earned the right to govern." },
           right: { head: "Other traditions", md:
             "The PAC, Black Consciousness, trade unions and ordinary people played roles the ANC's story often overshadows." } },
         { type: "section", head: "Why it still matters", md:
-          "21 March is Human Rights Day in South Africa, and the UN marks it as the International Day for the Elimination of Racial Discrimination. 16 June is Youth Day, a reminder of young people's power at a time when youth unemployment is above 45% and turnout among the young is low. The ANC's claim to authority as the liberation movement has weakened as a generation born after 1994, the 'born frees', votes on jobs and services instead (briefing 7)." }
+          "21 March is Human Rights Day in South Africa, and the UN marks it as the International Day for the Elimination of Racial Discrimination. 16 June is Youth Day, a reminder of young people's power at a time when youth unemployment is above 45% and turnout among the young is low. The ANC's claim to authority as the liberation movement has weakened as a generation born after 1994, the 'born frees', votes on jobs and services instead ([[lesson:za-7]])." }
       ],
       takeaways: [
         "Police killed at least 69 anti-pass protesters at Sharpeville on 21 March 1960; the ANC was banned and turned to armed struggle.",
@@ -281,7 +281,7 @@ window.POLITICS.addUnit("za", {
           right: { head: "Critics", md:
             "It asked victims to forgive while perpetrators kept their freedom and wealth; 'reconciliation' left economic injustice untouched." } },
         { type: "section", head: "Why it still matters", md:
-          "The TRC shaped South Africa's founding story as the 'rainbow nation', and its record makes denying apartheid's crimes impossible. But anger that reconciliation came without economic justice now drives politics: the EFF and MK parties campaign on land and wealth, arguing the 1994 settlement was too generous to white South Africans (briefings 4 and 12)." }
+          "The TRC shaped South Africa's founding story as the 'rainbow nation', and its record makes denying apartheid's crimes impossible. But anger that reconciliation came without economic justice now drives politics: the EFF and MK parties campaign on land and wealth, arguing the 1994 settlement was too generous to white South Africans (briefings [[lesson:za-4|#]] and [[lesson:za-12|#]])." }
       ],
       takeaways: [
         "The TRC, chaired by Desmond Tutu, offered amnesty in exchange for full public disclosure of political crimes.",
@@ -528,14 +528,14 @@ window.POLITICS.addUnit("za", {
         { type: "section", head: "The Expropriation Act", md:
           "After a push to amend the constitution failed in 2021, parliament passed the Expropriation Act, which Ramaphosa signed in January 2025. It replaces an apartheid-era law and sets out when the state may expropriate property, including cases where 'nil compensation' may be just and equitable, such as abandoned land or land held purely for speculation. The government says it will be used rarely. The DA, a partner in the unity government, AfriForum and others challenged it; the high court heard the case in August 2026." },
         { type: "section", head: "Trump and the Afrikaners", md:
-          "The law became an international issue. Donald Trump claimed that South Africa was confiscating white farmers' land and that Afrikaners faced 'genocide', claims rejected by Pretoria and by the data on farm murders, which are part of the country's general violent crime. In 2025 he cut aid, expelled South Africa's ambassador and admitted Afrikaners as refugees while largely closing the US refugee programme to others (briefing 5). Some Afrikaner groups welcomed his support; others rejected the refugee offer." },
+          "The law became an international issue. Donald Trump claimed that South Africa was confiscating white farmers' land and that Afrikaners faced 'genocide', claims rejected by Pretoria and by the data on farm murders, which are part of the country's general violent crime. In 2025 he cut aid, expelled South Africa's ambassador and admitted Afrikaners as refugees while largely closing the US refugee programme to others ([[lesson:za-5]]). Some Afrikaner groups welcomed his support; others rejected the refugee offer." },
         { type: "compare", head: "Two views of the Act",
           left: { head: "Supporters (ANC, EFF, MK)", md:
             "Land reform is essential to undo apartheid, and a sovereign state must be able to expropriate without paying inflated prices." },
           right: { head: "Critics (DA, AfriForum, business groups)", md:
             "Nil compensation threatens property rights and investment; the state should first use the land it already owns." } },
         { type: "section", head: "Why it matters", md:
-          "Land is where South Africa's past and its politics meet. It divides the unity government, fuels the EFF's and MK's appeal to young and poor voters, and shapes relations with the United States. Most urban South Africans say they care more about jobs, housing and crime than farms, yet the land question carries a weight of history that no party can ignore, especially before the November local elections (briefing 7)." }
+          "Land is where South Africa's past and its politics meet. It divides the unity government, fuels the EFF's and MK's appeal to young and poor voters, and shapes relations with the United States. Most urban South Africans say they care more about jobs, housing and crime than farms, yet the land question carries a weight of history that no party can ignore, especially before the November local elections ([[lesson:za-7]])." }
       ],
       takeaways: [
         "Colonial laws and apartheid left most privately owned farmland in white hands; about 72% in a 2017 audit.",
