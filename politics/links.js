@@ -124,4 +124,10 @@
   L({ id: "us_tw", a: "us", b: "tw", lessons: 3, color: "#3a6a8a",
       title: "Ambiguity, arms and bargaining",
       blurb: "A treaty ally dropped in 1979 but armed by law, a deliberately vague promise, and arms sales that became a bargaining chip." });
+  L({ id: "us_sa", a: "us", b: "sa", lessons: 3, color: "#3a6a4a",
+      title: "Oil, terror and a crown prince",
+      blurb: "Oil for security since 1945, troops and the 9/11 hijackers, and a crown prince who went from pariah to partner." });
+  L({ id: "us_gb", a: "us", b: "gb", lessons: 3, color: "#2a3a7a",
+      title: "Special, unequal and tested",
+      blurb: "Wartime allies who share spies and nuclear secrets, followed each other into Iraq, and now argue over Iran and Chagos." });
 })();
