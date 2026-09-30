@@ -184,4 +184,7 @@
   L({ id: "pl_ru", a: "pl", b: "ru", lessons: 3, color: "#8a2a4a",
       title: "Partitions, Katyń and drones",
       blurb: "Centuries of partitions and uprisings, Katyń and the Smolensk crash, and drones and sabotage on NATO's front line." });
+  L({ id: "us_tr", a: "us", b: "tr", lessons: 3, color: "#2a3a6a",
+      title: "Allies, missiles and F-35s",
+      blurb: "NATO allies since 1952 who fell out over the Kurds, a failed coup and Russian S-400s, now bargaining over F-35s." });
 })();
