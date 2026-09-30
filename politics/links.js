@@ -115,4 +115,13 @@
   L({ id: "ir_pk", a: "ir", b: "pk", lessons: 3, color: "#5a6a2a",
       title: "Brothers, borders and a pipeline",
       blurb: "The first country to recognise Pakistan, a Baloch border that erupted into missile strikes, and a pipeline stuck by sanctions." });
+  L({ id: "us_il", a: "us", b: "il", lessons: 3, color: "#2a5a8a",
+      title: "Recognition, aid and a divided public",
+      blurb: "Recognised in eleven minutes, armed for decades with record aid, now fighting Iran side by side while American opinion shifts." });
+  L({ id: "ca_cn", a: "ca", b: "cn", lessons: 3, color: "#8a3a2a",
+      title: "Head tax, hostages and canola",
+      blurb: "An early recognition, a Huawei arrest answered by two detained Canadians, and a 2026 canola-for-cars deal that angered Trump." });
+  L({ id: "us_tw", a: "us", b: "tw", lessons: 3, color: "#3a6a8a",
+      title: "Ambiguity, arms and bargaining",
+      blurb: "A treaty ally dropped in 1979 but armed by law, a deliberately vague promise, and arms sales that became a bargaining chip." });
 })();
