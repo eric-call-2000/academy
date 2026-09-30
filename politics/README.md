@@ -72,6 +72,18 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇮🇩🇦🇺 Indonesia & Australia | Timor, spies and a treaty | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇺🇸🇻🇪 United States & Venezuela | Monroe, Citgo and CECOT | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇪🇬🇮🇱 Egypt & Israel | Cold peace, gas and Rafah | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇯🇵 United States & Japan | Alliance, Okinawa and trade | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇫🇷🇩🇪 France & Germany | Enemies, engine and the bomb | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇹🇷🇮🇱 Turkey & Israel | Allies to rivals | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇸🇦🇦🇪 Saudi Arabia & United Arab Emirates | Mentor, rival, OPEC exit | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇮🇳 United States & India | Estrangement, nukes and visas | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇵🇰🇨🇳 Pakistan & China | Iron brothers, corridor, jets | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇦🇵🇱 Ukraine & Poland | Volhynia, refugees and grain | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇹🇫🇷 Italy & France | Latin sisters, migrants and a treaty | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇷🇵🇰 Iran & Pakistan | Brothers, borders and a pipeline | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇮🇱 United States & Israel | Recognition, aid and a divided public | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇨🇦🇨🇳 Canada & China | Head tax, hostages and canola | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇹🇼 United States & Taiwan | Ambiguity, arms and bargaining | 3 of 3 | 30 Sep 2026 | illustrations pending |
 
 ## Run it
 

@@ -8,7 +8,7 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | Track | Units | Lessons | What it covers |
 |-------|-------|---------|----------------|
 | 🧑‍💻 Full-Stack Coding Lab ↗ | 8 courses | 205 items | **Interactive coding** in [CodeLab](codelab/) — write real HTML/CSS/JS/APIs in a browser sandbox; shares this app's profiles & XP |
-| 🗳️ Political Academy ↗ | 30 countries + 25 relationships | 435 briefings | **Daily reading** in [Political Academy](politics/) — illustrated briefings on the world's 30 most important countries; shares this app's profiles & XP |
+| 🗳️ Political Academy ↗ | 30 countries + 37 relationships | 471 briefings | **Daily reading** in [Political Academy](politics/) — illustrated briefings on the world's 30 most important countries; shares this app's profiles & XP |
 | 🤖 AI & Coding | 16 | 128 | Using AI well — Claude, prompting, models, capabilities, coding, agents, safety |
 | 🏛️ System Design | 25 | 200 | Architecting at scale — distributed systems, trade-offs, and running agents at the max level |
 | 📣 Marketing | 8 | 64 | Brand, audience, content, channels, metrics, growth, and marketing with AI |
@@ -29,7 +29,7 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 
 **14,235 quiz questions across 2,056 lessons in 261 units, over 17 quiz tracks** — plus
 CodeLab's 205 interactive coding items as an eighteenth, external track, and Political
-Academy's 435 reading briefings as a nineteenth.
+Academy's 471 reading briefings as a nineteenth.
 
 *(Counted from the unit files on 2026-09-19. If you add units, recount rather than
 guessing — this table was wrong by more than double before it was last checked.)*

@@ -46,7 +46,10 @@ const LINK_LABEL = {
   us_mx: [-127, 26], us_ca: [-60, 50], il_ir: [55, 46], in_pk: [70, 10.5], cn_tw: [113, 14],
   jp_cn: [140, 26], kr_kp: [140, 53], sa_ir: [48, 9], us_ru: [10, 77],
   gb_fr: [-34, 49.5], jp_kr: [153, 44], pl_de: [12, 51], cn_in: [84, 34],
-  id_au: [100, -18], br_ar: [-33, -30], eg_il: [20, 15]
+  id_au: [100, -18], br_ar: [-33, -30], eg_il: [20, 15],
+  us_il: [-19, 36], ca_cn: [25, 43.5], us_tw: [2.5, 31], us_jp: [67, 38.5], us_in: [-15.5, 28.5],
+  pk_cn: [101, 29.5], ir_pk: [41.5, 33.5], sa_ae: [45, 17], tr_il: [14, 23.5], fr_de: [-11.5, 63.5],
+  ua_pl: [34.5, 62.5], it_fr: [-3.5, 21]
 };
 
 const features = topojson.feature(coarse, coarse.objects.countries).features;
