@@ -148,4 +148,7 @@
   L({ id: "za_ru", a: "za", b: "ru", lessons: 3, color: "#6a2a4a",
       title: "Comrades, drills and recruits",
       blurb: "Soviet guns for the ANC's struggle, 'non-alignment' on Ukraine from naval drills to the Lady R, and young men lured to Russia's front." });
+  L({ id: "us_au", a: "us", b: "au", lessons: 3, color: "#2a5a7a",
+      title: "ANZUS, AUKUS and minerals",
+      blurb: "Australia turned to America in 1941, followed it to war and signed AUKUS for nuclear subs, then courted Trump with minerals." });
 })();
