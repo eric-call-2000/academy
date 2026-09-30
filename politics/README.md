@@ -60,6 +60,18 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇬🇧🇦🇷 United Kingdom & Argentina | The Falklands: claims, war and oil | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇹🇷🇷🇺 Turkey & Russia | Old enemies, awkward partners | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇺🇸🇷🇺 United States & Russia | Treaties, resets and swaps | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇩🇪🇷🇺 Germany & Russia | Gas, sabotage and spies | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇬🇧🇫🇷 United Kingdom & France | Rivals, boats and bombs | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇯🇵🇰🇷 Japan & South Korea | History, chips and a thaw | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇵🇱🇩🇪 Poland & Germany | Borders, reparations and trade | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇨🇳🇮🇳 China & India | Border, trade and Tibet | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇦🇺🇨🇳 Australia & China | Iron ore, trade war and submarines | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇧🇷🇦🇷 Brazil & Argentina | Rivals, Mercosur and a feud | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇨🇳🇷🇺 China & Russia | Split, 'no limits' and pipelines | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇳🇬🇿🇦 Nigeria & South Africa | Solidarity, rivalry and xenophobia | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇩🇦🇺 Indonesia & Australia | Timor, spies and a treaty | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇻🇪 United States & Venezuela | Monroe, Citgo and CECOT | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇪🇬🇮🇱 Egypt & Israel | Cold peace, gas and Rafah | 3 of 3 | 30 Sep 2026 | illustrations pending |
 
 ## Run it
 

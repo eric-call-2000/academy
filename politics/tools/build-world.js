@@ -44,7 +44,9 @@ const LABEL = {
    open sea. Links not listed use a default arc (see app.js). */
 const LINK_LABEL = {
   us_mx: [-127, 26], us_ca: [-60, 50], il_ir: [55, 46], in_pk: [70, 10.5], cn_tw: [113, 14],
-  jp_cn: [140, 26], kr_kp: [140, 53], sa_ir: [48, 9], us_ru: [10, 77]
+  jp_cn: [140, 26], kr_kp: [140, 53], sa_ir: [48, 9], us_ru: [10, 77],
+  gb_fr: [-34, 49.5], jp_kr: [153, 44], pl_de: [12, 51], cn_in: [84, 34],
+  id_au: [100, -18], br_ar: [-33, -30], eg_il: [20, 15]
 };
 
 const features = topojson.feature(coarse, coarse.objects.countries).features;

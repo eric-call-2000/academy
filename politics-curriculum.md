@@ -240,8 +240,25 @@ progress, and draws each relationship as an arc between the two countries. A thi
 | 🇹🇷🇷🇺 Turkey & Russia | Empires at war | The jet and the ambassador | Gas, reactors and missiles |
 | 🇺🇸🇷🇺 US & Russia | The last treaty ends | From reset to rupture | Prisoners and swaps |
 
-Candidates for later relationships: Germany–Russia, US–Venezuela, Egypt–Israel, UK–France,
-Japan–South Korea, Poland–Germany, China–India, Australia–China, Brazil–Argentina.
+A fourth set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇩🇪🇷🇺 Germany & Russia | Change through trade | Nord Stream: the pipes that blew up | Hackers, hitmen and drones |
+| 🇬🇧🇫🇷 UK & France | From old enemies to Entente | The small boats | Europe's two nuclear powers |
+| 🇯🇵🇰🇷 Japan & South Korea | Colony and its wounds | The 2019 trade war | Lee and Takaichi: unlikely partners |
+| 🇵🇱🇩🇪 Poland & Germany | Borders and forgiveness | The reparations question | Trade, troops and border checks |
+| 🇨🇳🇮🇳 China & India | The Himalayan border | Rivals who trade | Tibet, rivers and the Dalai Lama |
+| 🇦🇺🇨🇳 Australia & China | Quarry and customer | The trade war, 2020–24 | Ports, submarines and warships |
+| 🇧🇷🇦🇷 Brazil & Argentina | Rivals who gave up the bomb | Mercosur and its discontents | Milei against Lula |
+| 🇨🇳🇷🇺 China & Russia | Comrades, enemies, partners | 'No limits' | An unequal bargain |
+| 🇳🇬🇿🇦 Nigeria & South Africa | Brothers against apartheid | Rivals for Africa's lead | Xenophobia and the airlift |
+| 🇮🇩🇦🇺 Indonesia & Australia | Neighbours from Timor to Lombok | Cattle, spies and executions | Boats, bases and the Treaty of Jakarta |
+| 🇺🇸🇻🇪 US & Venezuela | The Monroe Doctrine's test case | Citgo: Venezuela's American refineries | Deported to a mega-prison |
+| 🇪🇬🇮🇱 Egypt & Israel | A cold peace | Gas flows the other way | Rafah: Gaza's southern gate |
+
+Candidates for later relationships: Japan–US, France–Germany, Turkey–Israel, Saudi Arabia–UAE,
+India–US, Pakistan–China, Ukraine–Poland, Italy–France, Iran–Pakistan.
 
 ---
 

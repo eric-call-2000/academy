@@ -79,4 +79,13 @@
   L({ id: "ng_za", a: "ng", b: "za", lessons: 3, color: "#3a7a5a",
       title: "Solidarity, rivalry and xenophobia",
       blurb: "Nigeria's support for the anti-apartheid struggle, a rivalry for Africa's lead, and the attacks that led to a 2026 airlift." });
+  L({ id: "id_au", a: "id", b: "au", lessons: 3, color: "#7a5a2a",
+      title: "Timor, spies and a treaty",
+      blurb: "Neighbours who fell out over East Timor, cattle, spying and executions, then signed their closest security pact in 2026." });
+  L({ id: "us_ve", a: "us", b: "ve", lessons: 3, color: "#5a3a7a",
+      title: "Monroe, Citgo and CECOT",
+      blurb: "A century of the Monroe Doctrine tested in Venezuela, the fight over its American refineries, and Venezuelans caught in US deportations." });
+  L({ id: "eg_il", a: "eg", b: "il", lessons: 3, color: "#8a6a2a",
+      title: "Cold peace, gas and Rafah",
+      blurb: "The first Arab–Israeli peace and why it stayed cold, Israeli gas that keeps Egypt's lights on, and Gaza's southern border." });
 })();
