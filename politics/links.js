@@ -145,4 +145,7 @@
   L({ id: "eg_sa", a: "eg", b: "sa", lessons: 3, color: "#8a6a2a",
       title: "Rivals, patrons and partners",
       blurb: "Nasser against the Saudi kings, billions for Sisi and two Red Sea islands in return, and a partnership of deposits, power lines and Sudan." });
+  L({ id: "za_ru", a: "za", b: "ru", lessons: 3, color: "#6a2a4a",
+      title: "Comrades, drills and recruits",
+      blurb: "Soviet guns for the ANC's struggle, 'non-alignment' on Ukraine from naval drills to the Lady R, and young men lured to Russia's front." });
 })();
