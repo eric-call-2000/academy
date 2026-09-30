@@ -142,4 +142,7 @@
   L({ id: "br_cn", a: "br", b: "cn", lessons: 3, color: "#3a7a3a",
       title: "Soybeans, vaccines and BRICS",
       blurb: "China's biggest farm supplier, a president who campaigned against Beijing then made peace, and record trade as Trump's tariffs bite." });
+  L({ id: "eg_sa", a: "eg", b: "sa", lessons: 3, color: "#8a6a2a",
+      title: "Rivals, patrons and partners",
+      blurb: "Nasser against the Saudi kings, billions for Sisi and two Red Sea islands in return, and a partnership of deposits, power lines and Sudan." });
 })();
