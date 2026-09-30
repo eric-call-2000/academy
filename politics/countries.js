@@ -75,9 +75,9 @@
       blurb: "America's top trading partner: cartels, migration, nearshoring and steady US pressure." });
   C({ id: "br", iso: "076", part: 5, name: "Brazil", flag: "🇧🇷", color: "#3a8d3f", lessons: 12,
       blurb: "Latin America's giant, which jailed an ex-president and votes on 4 October 2026." });
-  C({ id: "ar", iso: "032", part: 5, name: "Argentina", flag: "🇦🇷", color: "#4a8ec2", lessons: 8,
+  C({ id: "ar", iso: "032", part: 5, name: "Argentina", flag: "🇦🇷", color: "#4a8ec2", lessons: 12,
       blurb: "Milei's libertarian 'chainsaw' experiment, watched by the whole world." });
-  C({ id: "ve", iso: "862", part: 5, name: "Venezuela", flag: "🇻🇪", color: "#c79a1a", lessons: 8,
+  C({ id: "ve", iso: "862", part: 5, name: "Venezuela", flag: "🇻🇪", color: "#c79a1a", lessons: 12,
       blurb: "The largest oil reserves, and the leader the US seized in January 2026." });
 
   /* Part 6 — Africa */

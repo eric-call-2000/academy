@@ -99,6 +99,57 @@ window.POLITICS.addUnit("ve", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "ve-9", kind: "founding", asOf: "2026-09-29",
+      title: "Bolívar's republic",
+      dek: "Venezuela was the first Spanish colony in South America to declare independence, and the birthplace of Simón Bolívar. His legend has been claimed by every Venezuelan government since.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ve/ve-9-hero.webp",
+          alt: "Illustration of a column of soldiers in early-19th-century uniforms and ponchos crossing a high, misty mountain pass in the Andes, seen from behind.",
+          caption: "Bolívar's army crossed the Andes in 1819 to liberate New Granada.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A long column of soldiers in ragged early-19th-century uniforms and ponchos, some on horseback, crossing a high cold mountain pass in the Andes, seen from behind, swirling mist and snow on the peaks, epic and exhausting mood, no faces, no flags, no legible text." },
+        { type: "timeline", head: "From colony to republic", items: [
+          ["19 Apr 1810", "Caracas junta deposes the Spanish governor"],
+          ["5 Jul 1811", "Declaration of independence"],
+          ["1812", "Earthquake and royalist reconquest; first republic falls"],
+          ["1819", "Gran Colombia proclaimed"],
+          ["24 Jun 1821", "Battle of Carabobo"],
+          ["1830", "Venezuela leaves Gran Colombia; Bolívar dies"],
+          ["1999", "Renamed the Bolivarian Republic"]
+        ] },
+        { type: "section", head: "A colony of cacao", md:
+          "Colonial Venezuela was a modest part of Spain's empire, exporting cacao grown on plantations worked by enslaved Africans. A wealthy criollo elite in Caracas, including the family of Simón Bolívar, born there in 1783, resented Spanish trade restrictions and officials. The *llanos*, the vast plains of the interior, were home to hard-riding cattle herders, the *llaneros*, who would decide the wars to come." },
+        { type: "section", head: "The first republics", md:
+          "When Napoleon deposed Spain's king, Caracas set up its own junta on 19 April 1810, and on 5 July 1811 a congress declared independence, the first in Spanish South America. The first republic collapsed within a year, after an earthquake that the clergy called divine punishment and a royalist counter-attack. A second republic under Bolívar fell in 1814 to royalist llaneros led by José Tomás Boves, in a war of extraordinary cruelty on both sides. War, disease and reprisals killed a large share of the population." },
+        { type: "section", head: "The Liberator", md:
+          "Bolívar regrouped from exile, won over the llaneros under José Antonio Páez and promised freedom to enslaved people who fought. In 1819 he crossed the Andes and liberated New Granada (Colombia), then proclaimed Gran Colombia, uniting Venezuela, Colombia and later Ecuador. The Battle of Carabobo on 24 June 1821 secured Venezuela; his armies went on to free Peru and Bolivia, named after him. Bolívar dreamed of a union of Spanish America." },
+        { type: "section", head: "Break-up", md:
+          "The union did not last. Regional leaders resented rule from Bogotá and Bolívar's increasingly authoritarian ways. In 1829–30 Páez led Venezuela out of Gran Colombia, and Bolívar, ill and disillusioned, died in December 1830 near Santa Marta, reportedly saying he had 'ploughed the sea'. For the rest of the nineteenth century Venezuela was ruled mostly by caudillos, military strongmen who took power in civil wars and coups." },
+        { type: "compare", head: "Whose Bolívar?",
+          left: { head: "Chavismo", md:
+            "Bolívar was an anti-imperialist revolutionary; the Bolivarian Revolution completes his fight for independence and Latin American unity." },
+          right: { head: "Critics", md:
+            "Chávez turned a complex liberal-minded aristocrat into a cult to justify his own rule and the army's role in politics." } },
+        { type: "section", head: "Why it still matters", md:
+          "No country worships its founder like Venezuela. Every town has a Plaza Bolívar, the currency is the bolívar, and Chávez renamed the country the Bolivarian Republic of Venezuela in 1999, added a star to the flag and had Bolívar's remains exhumed in 2010. The tradition of the military hero who saves the nation, from Páez to Chávez, runs through Venezuelan history, and the armed forces remain the arbiter of who governs (briefing 2)." }
+      ],
+      takeaways: [
+        "Venezuela declared independence on 5 July 1811, the first Spanish colony in South America to do so.",
+        "Simón Bolívar, born in Caracas, led the wars that freed Venezuela, Colombia, Ecuador, Peru and Bolivia.",
+        "Venezuela left Gran Colombia in 1830; Chávez later built his movement around Bolívar's legend."
+      ],
+      check: { q: "What was Gran Colombia?",
+        choices: ["A Spanish viceroyalty", "Bolívar's union of Venezuela, Colombia and Ecuador", "An oil company"], answer: 1,
+        explain: "Bolívar proclaimed Gran Colombia in 1819; Venezuela left it in 1830." },
+      sources: [
+        { title: "Venezuela: The independence movement", publisher: "Britannica", url: "https://www.britannica.com/place/Venezuela/The-independence-movement", date: "n.d." },
+        { title: "History of Venezuela", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Venezuela", date: "n.d." },
+        { title: "Simón Bolívar", publisher: "Britannica", url: "https://www.britannica.com/biography/Simon-Bolivar", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "ve-3", kind: "history", asOf: "2026-09-29",
@@ -143,6 +194,107 @@ window.POLITICS.addUnit("ve", {
         { title: "Venezuela: History", publisher: "Britannica", url: "https://www.britannica.com/place/Venezuela/History", date: "n.d." },
         { title: "Presidency of Nicolás Maduro", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Presidency_of_Nicol%C3%A1s_Maduro", date: "2026" },
         { title: "Venezuela profile: Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-latin-america-19652436", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "ve-10", kind: "past", asOf: "2026-09-29",
+      title: "The Punto Fijo democracy, 1958–1998",
+      dek: "After a dictator fell in 1958, two parties built one of Latin America's most stable democracies on oil money. Its decay explains how Chávez came to power.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ve/ve-10-hero.webp",
+          alt: "Illustration of the modernist skyline of Caracas in the 1970s, with tall towers, a motorway and green mountains behind.",
+          caption: "Oil money built modern Caracas in the 1950s–70s.",
+          credit: "AI illustration — not a photograph",
+          prompt: "The modernist skyline of Caracas in the 1970s, tall concrete towers and elevated motorways with vintage cars, the green Ávila mountain behind, bright tropical sunshine, optimistic retro mood, no people up close, no legible text." },
+        { type: "timeline", head: "Forty years", items: [
+          ["23 Jan 1958", "Dictator Marcos Pérez Jiménez overthrown"],
+          ["31 Oct 1958", "Punto Fijo pact signed"],
+          ["1960s", "Left-wing guerrilla war defeated"],
+          ["1 Jan 1976", "Oil industry nationalised; PDVSA created"],
+          ["18 Feb 1983", "'Black Friday' devaluation"],
+          ["1989", "Caracazo riots"],
+          ["1993", "President Pérez impeached"],
+          ["1998", "Chávez elected"]
+        ] },
+        { type: "section", head: "The pact", md:
+          "General Marcos Pérez Jiménez ruled Venezuela in the 1950s, building motorways and tower blocks with oil revenues while jailing and torturing opponents. A popular uprising and a military revolt forced him out on 23 January 1958. That October the leaders of three parties met at the house of Rafael Caldera, called Punto Fijo, and agreed to respect election results, share posts and defend democracy together. The communists were excluded. Rómulo Betancourt of Democratic Action (AD) won the presidency, and democracy survived coup attempts and a Cuban-backed guerrilla insurgency." },
+        { type: "section", head: "Two parties, one system", md:
+          "For four decades AD and the Christian democrats of COPEI alternated in power. Venezuela was held up as a model: regular elections, a free press, civilian control of the army, while much of Latin America lived under dictatorships. The system worked through oil money distributed via the parties, unions and business groups, which bought social peace but also bred patronage and corruption." },
+        { type: "section", head: "'Saudi Venezuela'", md:
+          "The 1973 oil shock quadrupled prices. President Carlos Andrés Pérez nationalised the oil industry on 1 January 1976, creating the state company PDVSA, and spent lavishly on industry, scholarships and subsidies; Venezuelans flew to Miami to shop, and the era became known as 'Saudi Venezuela'. The government also borrowed heavily. When oil prices fell in the 1980s, the bill came due: on 18 February 1983, 'Black Friday', the bolívar was devalued, and living standards began a long decline." },
+        { type: "section", head: "Decay", md:
+          "By the late 1980s most Venezuelans were poorer than a decade earlier, and many saw the parties as corrupt cliques. Pérez, re-elected in 1988, imposed IMF-backed austerity, which triggered the Caracazo riots (briefing 11). In 1993 Congress impeached him for misusing public funds, and the veteran Caldera won the presidency as an independent, breaking the two-party system. When oil prices collapsed again in 1998, voters turned to the outsider Hugo Chávez, who promised to sweep the old parties away." },
+        { type: "compare", head: "Two verdicts on Punto Fijo",
+          left: { head: "Its defenders", md:
+            "It gave Venezuela forty years of democracy and freedom, far better than what came before or after." },
+          right: { head: "Chavismo", md:
+            "It was a corrupt pact of elites that shared the oil wealth among themselves and left the poor behind." } },
+        { type: "section", head: "Why it still matters", md:
+          "Chávez built his movement by denouncing the 'Fourth Republic', as he called the Punto Fijo era, and AD and COPEI never recovered. Today's opposition, led by María Corina Machado, has had to build new parties from scratch. The lessons of 1958, when parties with deep differences agreed on rules to share power, are often cited in discussions of how a transition from chavismo might work (briefings 6 and 8)." }
+      ],
+      takeaways: [
+        "After the fall of Pérez Jiménez in 1958, AD and COPEI agreed in the Punto Fijo pact to share power and defend democracy.",
+        "Oil nationalisation in 1976 and the 1970s boom brought wealth, debt and corruption.",
+        "Falling oil prices and austerity discredited the parties, opening the way for Chávez in 1998."
+      ],
+      check: { q: "What was the Punto Fijo pact?",
+        choices: ["A 1958 agreement among parties to share power and defend democracy", "An oil deal with the US", "A peace treaty with Colombia"], answer: 0,
+        explain: "After the dictator's fall, party leaders agreed to respect elections and govern together." },
+      sources: [
+        { title: "History of Venezuela", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Venezuela", date: "n.d." },
+        { title: "Constitutional history of Venezuela", publisher: "ConstitutionNet", url: "https://constitutionnet.org/country/venezuela", date: "n.d." },
+        { title: "Carlos Andrés Pérez", publisher: "Britannica", url: "https://www.britannica.com/biography/Carlos-Andres-Perez", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "ve-11", kind: "past", asOf: "2026-09-29",
+      title: "The Caracazo and the coup of 1992",
+      dek: "In 1989 riots against austerity were crushed with hundreds of deaths. Three years later a paratrooper named Hugo Chávez tried to seize power, failed, and became a national figure.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ve/ve-11-hero.webp",
+          alt: "Illustration of steep hillside barrios of Caracas at dawn, with smoke rising from the streets below.",
+          caption: "The riots began in the poor neighbourhoods around Caracas in February 1989.",
+          credit: "AI illustration — not a photograph",
+          prompt: "Steep hillsides covered in brick barrio houses above Caracas at dawn, thin columns of smoke rising from the streets below, a hazy orange sky, tense and ominous mood, no people up close, no legible text." },
+        { type: "facts", head: "Two shocks", rows: [
+          ["Caracazo", "27 February to early March 1989"],
+          ["Official death toll", "276; rights groups say many hundreds"],
+          ["Trigger", "Fuel price rise and fare increases under IMF-backed reforms"],
+          ["Coup attempt", "4 February 1992, led by Lt Col Hugo Chávez"],
+          ["Second coup attempt", "27 November 1992"]
+        ] },
+        { type: "section", head: "The package", md:
+          "Carlos Andrés Pérez won the 1988 election, and many voters expected a return of the free-spending boom of his first term. Instead, facing empty reserves, he announced an IMF-backed 'package' in February 1989: higher petrol prices, freed prices and cuts to subsidies. When bus fares jumped on 27 February, commuters from the poor towns around Caracas rioted. Looting spread across the capital and other cities." },
+        { type: "section", head: "The massacre", md:
+          "The government suspended constitutional rights and sent in the army. Soldiers and police fired into barrios, and many victims were buried in mass graves. The official toll was 276 dead; rights groups documented many hundreds more, and some estimates run far higher. In 1999 the Inter-American Court of Human Rights ruled against Venezuela and ordered investigations. The Caracazo shattered the image of a stable democracy and convinced many that the system served only the few." },
+        { type: "section", head: "'For now'", md:
+          "Inside the army a secret movement of junior officers, the MBR-200, had been plotting for years, inspired by Bolívar and angered by corruption and by being ordered to fire on civilians. On the night of 4 February 1992 its leader, Lieutenant Colonel Hugo Chávez, launched a coup. The rebels took bases in other cities but failed to capture the president in Caracas. Chávez surrendered, and was allowed to speak on television. He told his comrades that their objectives had not been achieved 'por ahora', for now, and took responsibility. The phrase made him famous." },
+        { type: "section", head: "From prison to power", md:
+          "A second coup attempt by other officers in November 1992 also failed. Chávez spent two years in prison, becoming a folk hero in the barrios. Pérez was impeached in 1993, and President Caldera, who had refused to condemn the coup outright, pardoned Chávez in 1994. Chávez toured the country, abandoned armed struggle for elections and won the presidency in December 1998 with 56% of the vote (briefing 3)." },
+        { type: "compare", head: "Two views of 4 February",
+          left: { head: "Chavismo", md:
+            "A 'day of national dignity', when patriotic soldiers rose against a corrupt regime that massacred its people in 1989." },
+          right: { head: "Opponents", md:
+            "A failed military coup against an elected government, which made the use of force a founding myth of the regime." } },
+        { type: "section", head: "Why it still matters", md:
+          "Chavismo celebrates 4 February as a holiday, and the Caracazo is part of its founding story, cited to justify the break with the old system. The events also marked the start of the armed forces' return to politics, which Chávez completed in office and on which the government of Delcy Rodríguez still depends (briefings 2 and 4). For opponents, a movement born in a coup was never likely to give up power at the ballot box." }
+      ],
+      takeaways: [
+        "IMF-backed price rises in 1989 set off the Caracazo riots, which security forces crushed, killing hundreds.",
+        "On 4 February 1992 Lt Col Hugo Chávez led a failed coup and became famous for saying it failed 'for now'.",
+        "Pardoned in 1994, Chávez won the presidency in 1998."
+      ],
+      check: { q: "What did Chávez famously say after his failed 1992 coup?",
+        choices: ["'Independence or death'", "That the rebels' goals had not been achieved 'for now'", "'We will decide who comes'"], answer: 1,
+        explain: "His televised surrender, saying the rebels had failed 'por ahora', turned him into a national figure." },
+      sources: [
+        { title: "Case of the Caracazo v. Venezuela", publisher: "Inter-American Court of Human Rights", url: "https://www.corteidh.or.cr/docs/casos/articulos/seriec_58_ing.pdf", date: "1999" },
+        { title: "February 1992 Venezuelan coup attempt", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/February_1992_Venezuelan_coup_attempt", date: "n.d." },
+        { title: "Hugo Chávez", publisher: "Britannica", url: "https://www.britannica.com/biography/Hugo-Chavez", date: "n.d." }
       ]
     },
 
@@ -346,6 +498,55 @@ window.POLITICS.addUnit("ve", {
         { title: "Venezuela situation", publisher: "UNHCR", url: "https://www.unhcr.org/emergencies/venezuela-situation", date: "2025" },
         { title: "Refugees and Migrants from Venezuela", publisher: "R4V Inter-Agency Coordination Platform", url: "https://www.r4v.info/en/refugeeandmigrants", date: "2025" },
         { title: "2026 political prisoner release in Venezuela", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2026_political_prisoner_release_in_Venezuela", date: "2026" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "ve-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "Essequibo",
+      dek: "Venezuela claims two-thirds of neighbouring Guyana, a territory now at the heart of one of the world's fastest-growing oil industries. The World Court is expected to rule soon.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ve/ve-12-hero.webp",
+          alt: "Illustration of a wide brown river winding through dense rainforest in Guyana, with a distant offshore oil vessel on the Atlantic horizon.",
+          caption: "The Essequibo region is mostly rainforest; its offshore waters hold vast oil reserves.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A wide brown river winding through dense green tropical rainforest seen from above, flowing toward the Atlantic coast, a distant offshore oil production vessel on the sea horizon, humid misty light, vast and contested landscape, no people, no flags, no legible text." },
+        { type: "facts", head: "The dispute", rows: [
+          ["Area", "About 160,000 km², two-thirds of Guyana"],
+          ["Border set by", "An 1899 arbitral award"],
+          ["Venezuela's position", "The award is void; the 1966 Geneva Agreement requires a negotiated settlement"],
+          ["World Court", "Case filed by Guyana in 2018; hearings on the merits held in May 2026"],
+          ["Oil", "ExxonMobil-led discoveries off Guyana since 2015"]
+        ] },
+        { type: "section", head: "A colonial border", md:
+          "Spain and the Netherlands, then Britain after it took over British Guiana in 1814, never agreed where the frontier lay. In 1899 an international arbitration tribunal in Paris gave most of the disputed land to Britain. Venezuela accepted the line for decades, but in 1949 a memo by a US lawyer involved in the case, published after his death, alleged a political deal behind the award. Venezuela declared it null in 1962. In the 1966 Geneva Agreement, signed just before Guyana's independence, the parties agreed to seek a practical settlement." },
+        { type: "section", head: "Oil changes everything", md:
+          "For decades the claim was a matter of maps and school lessons in Venezuela, which shows the region as the 'Zone in Reclamation'. Then in 2015 ExxonMobil found oil off the Guyanese coast, in waters Venezuela also claims. Guyana, with fewer than a million people, has become one of the world's fastest-growing economies and a significant oil producer. In 2018 it asked the International Court of Justice (ICJ) to confirm the 1899 border; the court ruled in 2020 and 2023 that it had jurisdiction." },
+        { type: "section", head: "Maduro's escalation", md:
+          "In December 2023 Maduro held a referendum in which the government said Venezuelans overwhelmingly backed creating a Venezuelan state of 'Guayana Esequiba'; the ICJ had ordered Venezuela not to change the status quo. Troops massed near the border, Brazil reinforced its own frontier, and Britain sent a warship to Guyana. In May 2025 Venezuela even held elections for a 'governor' of the territory it does not control. Guyana answered with appeals to the UN and closer defence ties with the United States." },
+        { type: "section", head: "After Maduro", md:
+          "The US raid that removed Maduro has not ended the claim. In May 2026 the acting president, Delcy Rodríguez, travelled to The Hague to argue Venezuela's case at the final hearings, while insisting that Venezuela never consented to the court's jurisdiction and would not accept a ruling against it. Guyana expects a judgment between late 2026 and early 2027. With Washington now deeply involved in Venezuela's oil (briefing 6), the United States is in the unusual position of partner to both sides." },
+        { type: "compare", head: "Two positions",
+          left: { head: "Venezuela", md:
+            "The 1899 award was a fraud imposed by a colonial power; only negotiation under the 1966 Geneva Agreement can settle the border." },
+          right: { head: "Guyana", md:
+            "The 1899 award is a valid, final settlement accepted for over sixty years; the ICJ is the proper forum." } },
+        { type: "section", head: "Why it matters", md:
+          "Essequibo is one of the few issues that unites Venezuelans across the political divide: the opposition also rejects the 1899 award. The ruling will test whether any Venezuelan government accepts international law over a cause of national pride, and whether oil investment in Guyana, one of the region's great new sources of supply, stays safe. For Rodríguez, the claim is a way to show nationalist credentials while working with Washington (briefing 4)." }
+      ],
+      takeaways: [
+        "Venezuela claims the Essequibo region, two-thirds of Guyana, rejecting an 1899 arbitral award.",
+        "Oil discoveries off Guyana since 2015 raised the stakes; Maduro escalated with a 2023 referendum.",
+        "The ICJ heard the case in May 2026; Venezuela, even under Rodríguez, says it will not accept a ruling against it."
+      ],
+      check: { q: "Which country administers the Essequibo region that Venezuela claims?",
+        choices: ["Colombia", "Guyana", "Brazil"], answer: 1,
+        explain: "Essequibo makes up about two-thirds of Guyana; Venezuela says the 1899 award giving it to British Guiana is void." },
+      sources: [
+        { title: "ICJ opens oral hearings as Guyana asks court to affirm century-old boundary with Venezuela", publisher: "JURIST", url: "https://www.jurist.org/news/2026/05/icj-opens-oral-hearings-as-guyana-asks-court-to-affirm-century-old-boundary-with-venezuela/", date: "2026-05" },
+        { title: "Delcy Rodríguez defends Essequibo claim at The Hague", publisher: "MercoPress", url: "https://en.mercopress.com/2026/05/11/delcy-rodriguez-defends-essequibo-claim-at-the-hague-under-temporary-eu-sanctions-waiver", date: "2026-05-11" },
+        { title: "ICJ 2026 Update Brief: Guyana v. Venezuela", publisher: "IMUNA", url: "https://imuna.org/blog/icj-2026-update-brief-guyana-v-venezuela/", date: "2026" }
       ]
     },
 

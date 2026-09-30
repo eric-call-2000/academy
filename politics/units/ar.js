@@ -99,6 +99,58 @@ window.POLITICS.addUnit("ar", {
       ]
     },
 
+    /* ---------------------------------------------------------- 9 */
+    {
+      id: "ar-9", kind: "founding", asOf: "2026-09-29",
+      title: "May 1810 to the Constitution of 1853",
+      dek: "Argentina broke from Spain in the 1810s, then spent four decades fighting over whether Buenos Aires or the provinces should rule. The 1853 constitution settled the country's shape.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ar/ar-9-hero.webp",
+          alt: "Illustration of a whitewashed colonial town hall with arches and a small tower facing a square, with a crowd in early-19th-century clothing and umbrellas seen from behind.",
+          caption: "Crowds gathered outside Buenos Aires's town hall, the Cabildo, in May 1810.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A whitewashed Spanish colonial town hall with a long row of arches and a small bell tower facing a plaza, a crowd in early-19th-century clothing holding umbrellas in light rain seen from behind, grey May autumn sky, historical and expectant mood, no faces, no flags, no legible text." },
+        { type: "timeline", head: "From viceroyalty to republic", items: [
+          ["1776", "Viceroyalty of the Río de la Plata created"],
+          ["1806–07", "Local militias repel British invasions"],
+          ["25 May 1810", "May Revolution: a local junta takes power"],
+          ["9 Jul 1816", "Independence declared at Tucumán"],
+          ["1817–22", "San Martín's campaigns in Chile and Peru"],
+          ["1829–52", "Rosas rules Buenos Aires"],
+          ["1853", "National constitution adopted"],
+          ["1880", "Buenos Aires becomes the federal capital"]
+        ] },
+        { type: "section", head: "The May Revolution", md:
+          "Buenos Aires was the capital of Spain's Viceroyalty of the Río de la Plata, covering today's Argentina, Uruguay, Paraguay and Bolivia. In 1806 and 1807 its local militias defeated two British invasions without Spanish help, a boost to local pride. When Napoleon captured the Spanish king in 1808, the empire's authority collapsed. On 25 May 1810 an open town meeting in Buenos Aires deposed the viceroy and set up a junta to govern, still nominally in the king's name. 25 May is now a national holiday, and the Casa Rosada faces the Plaza de Mayo, named after it." },
+        { type: "section", head: "Independence", md:
+          "Paraguay, Uruguay and Upper Peru (Bolivia) soon went their own ways. The remaining provinces sent delegates to Tucumán, who declared the independence of the United Provinces of the Río de la Plata on 9 July 1816. General José de San Martín, Argentina's national hero, then led an army across the Andes in 1817 to free Chile and went on to Peru. He refused to take sides in the civil wars at home and died in exile in France." },
+        { type: "section", head: "Unitarians and federalists", md:
+          "Independence did not bring unity. Unitarians, mostly in Buenos Aires, wanted a strong central government run from the port city, which controlled customs revenue from trade. Federalists, led by provincial strongmen called *caudillos*, wanted provincial autonomy. Decades of civil war followed. From 1829 to 1852 Juan Manuel de Rosas, a rancher and federalist, ruled Buenos Aires province as a dictator, using a political police, the Mazorca, against opponents, while controlling the country's foreign affairs and trade." },
+        { type: "section", head: "The constitution", md:
+          "In 1852 the governor of Entre Ríos, Justo José de Urquiza, defeated Rosas. A convention adopted a federal constitution in 1853, inspired by the United States and by the thinker Juan Bautista Alberdi, whose motto was 'to govern is to populate': it guaranteed rights to foreigners and encouraged immigration. Buenos Aires refused to join until 1861, and only in 1880 was the city made the federal capital. That constitution, amended in 1994, is still in force." },
+        { type: "compare", head: "Two traditions from the founding",
+          left: { head: "The liberal tradition", md:
+            "Argentina was built by the liberal constitution of 1853, open trade and European immigration, which made it rich by 1900." },
+          right: { head: "The nationalist tradition", md:
+            "The caudillos and Rosas defended the interior and national sovereignty against Buenos Aires's elites and foreign powers." } },
+        { type: "section", head: "Why it still matters", md:
+          "The rivalry between Buenos Aires and the provinces never ended. The capital and its province hold a huge share of the people and wealth, while governors in the interior bargain their senators' votes for federal money, a dynamic Milei has to manage for every law he passes (briefing 2). Milei himself cites Alberdi as his hero, while Peronists and nationalists tend to honour the caudillos and Rosas as defenders of sovereignty." }
+      ],
+      takeaways: [
+        "The May Revolution of 25 May 1810 began self-government in Buenos Aires; independence was declared on 9 July 1816.",
+        "Decades of civil war pitted Buenos Aires's centralists against provincial federalists and caudillos.",
+        "The 1853 federal constitution, still in force, encouraged immigration and set the country's shape."
+      ],
+      check: { q: "What happened on 9 July 1816?",
+        choices: ["The May Revolution", "The declaration of independence at Tucumán", "The adoption of the constitution"], answer: 1,
+        explain: "Delegates meeting at Tucumán declared the independence of the United Provinces of the Río de la Plata." },
+      sources: [
+        { title: "May Revolution", publisher: "Britannica", url: "https://www.britannica.com/topic/May-Revolution", date: "n.d." },
+        { title: "How did Argentina gain independence from Spain?", publisher: "Britannica", url: "https://www.britannica.com/question/How-did-Argentina-gain-independence-from-Spain", date: "n.d." },
+        { title: "History of Argentina: National consolidation, 1852–80", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Argentina/National-consolidation-1852-80", date: "n.d." }
+      ]
+    },
+
     /* ---------------------------------------------------------- 3 */
     {
       id: "ar-3", kind: "history", asOf: "2026-09-29",
@@ -144,6 +196,110 @@ window.POLITICS.addUnit("ar", {
         { title: "Argentina: History", publisher: "Britannica", url: "https://www.britannica.com/place/Argentina/History", date: "n.d." },
         { title: "Falkland Islands War", publisher: "Britannica", url: "https://www.britannica.com/event/Falkland-Islands-War", date: "n.d." },
         { title: "Argentina profile: Timeline", publisher: "BBC News", url: "https://www.bbc.com/news/world-latin-america-18712378", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 10 */
+    {
+      id: "ar-10", kind: "past", asOf: "2026-09-29",
+      title: "Perón and Evita",
+      dek: "A colonel and an actress built a movement of the working class that has dominated Argentine politics for eighty years. To understand Argentina, you have to understand Peronism.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ar/ar-10-hero.webp",
+          alt: "Illustration of a huge crowd of workers in 1940s clothing seen from behind filling the Plaza de Mayo, facing the pink presidential palace at night.",
+          caption: "On 17 October 1945 workers filled the Plaza de Mayo to demand Perón's release.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A huge crowd of workers in 1940s shirtsleeves and caps seen from behind filling a grand city square at night, facing a pink neoclassical presidential palace with a lit balcony, some people with feet in a fountain, warm lamplight, euphoric historical mood, no faces, no flags, no legible text." },
+        { type: "timeline", head: "Peronism's first era", items: [
+          ["1943", "Military coup; Perón becomes labour secretary"],
+          ["17 Oct 1945", "Mass rally frees Perón: 'Loyalty Day'"],
+          ["1946", "Perón elected president"],
+          ["1947", "Women win the vote"],
+          ["26 Jul 1952", "Evita dies at 33"],
+          ["1955", "Perón overthrown; exile"],
+          ["1973", "Perón returns and is elected again"],
+          ["1974", "Perón dies; his wife Isabel takes over"]
+        ] },
+        { type: "section", head: "The colonel", md:
+          "Juan Domingo Perón was an army officer who took part in the 1943 military coup and made himself secretary of labour. He used the post to win over the trade unions, granting wage rises, paid holidays and pensions, and bringing millions of workers, many of them migrants from the provinces, into politics for the first time. Rivals in the army arrested him in October 1945. On 17 October huge crowds of workers marched into central Buenos Aires and forced his release, a day Peronists still celebrate as Loyalty Day." },
+        { type: "section", head: "Evita", md:
+          "Days later Perón married Eva Duarte, a radio and film actress from a poor provincial family. As first lady she ran a vast charitable foundation, championed the 'shirtless ones', the *descamisados*, and led the campaign that gave women the vote in 1947. Adored by the poor and loathed by the elite, she was nominated for vice-president in 1951 but withdrew, already ill with cancer. Her death in 1952, at 33, brought national mourning; her embalmed body later disappeared for 16 years." },
+        { type: "section", head: "In power", md:
+          "Elected in 1946 with 56% of the vote, Perón nationalised railways, telephones and foreign trade, built housing, hospitals and schools, and pursued a 'Third Position' between capitalism and communism. Workers' share of national income rose sharply. But he also muzzled the press, packed the Supreme Court, jailed opponents and built a personality cult. When the postwar boom ended, inflation rose and he clashed with the Church. In 1955 the military overthrew him and he went into exile, mostly in Franco's Spain." },
+        { type: "section", head: "Exile and return", md:
+          "For 18 years Peronism was banned, and Argentina lurched between weak civilian governments and military coups. Perón's movement split into left-wing guerrillas and right-wing unionists, all claiming his name. He returned in 1973 and was elected president with 62% of the vote, but died in July 1974. His third wife and vice-president, Isabel, presided over growing chaos and political violence until the military coup of 1976 (briefing 11)." },
+        { type: "compare", head: "Two views of Perón",
+          left: { head: "Peronists", md:
+            "He gave workers dignity, rights and a voice, and Evita gave the poor someone who loved them; they built social justice." },
+          right: { head: "Critics", md:
+            "He was an authoritarian populist whose spending, protectionism and cult of personality started Argentina's long decline." } },
+        { type: "section", head: "Why it still matters", md:
+          "Peronism, officially the Justicialist Party, has won most free presidential elections since 1946. It has no fixed ideology: Carlos Menem privatised and deregulated in the 1990s, the Kirchners nationalised and spent. What unites it is loyalty to the unions, the poor and the Peronist symbols. Milei defines himself against it, calling it the cause of Argentina's decline, while Peronists lead the opposition to his reforms (briefings 4 and 7)." }
+      ],
+      takeaways: [
+        "Juan Perón built a mass movement on the trade unions in the 1940s; Eva Perón became the idol of the poor.",
+        "He was elected in 1946, overthrown in 1955 and returned to power in 1973.",
+        "Peronism, left or right, has dominated Argentine politics ever since; Milei defines himself against it."
+      ],
+      check: { q: "What do Peronists celebrate on 17 October?",
+        choices: ["Evita's birthday", "The 1945 mass rally that freed Perón", "Independence from Spain"], answer: 1,
+        explain: "Workers' mass protest forced Perón's release on 17 October 1945, now 'Loyalty Day'." },
+      sources: [
+        { title: "Juan Perón", publisher: "Britannica", url: "https://www.britannica.com/biography/Juan-Peron", date: "n.d." },
+        { title: "Eva Perón", publisher: "Britannica", url: "https://www.britannica.com/biography/Eva-Peron", date: "n.d." },
+        { title: "Peronist", publisher: "Britannica", url: "https://www.britannica.com/topic/Peronist", date: "n.d." }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 11 */
+    {
+      id: "ar-11", kind: "past", asOf: "2026-09-29",
+      title: "The Dirty War and the Falklands",
+      dek: "From 1976 to 1983 a military junta made thousands of people disappear, then lost a war with Britain over the Falklands. Argentina's trials of its generals became a model for the world.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ar/ar-11-hero.webp",
+          alt: "Illustration of older women in white headscarves seen from behind walking in a circle around a monument in a large square.",
+          caption: "The Mothers of the Plaza de Mayo have marched on Thursdays since 1977.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A group of older women wearing white headscarves seen from behind walking slowly in a circle around a white obelisk-like monument in a large city square with palm trees, soft afternoon light, quiet dignity and grief, no faces, no legible text, no flags." },
+        { type: "timeline", head: "Dictatorship and after", items: [
+          ["24 Mar 1976", "Military coup against Isabel Perón"],
+          ["1977", "Mothers of the Plaza de Mayo begin their marches"],
+          ["2 Apr 1982", "Argentina invades the Falklands"],
+          ["14 Jun 1982", "Argentine forces surrender"],
+          ["1983", "Democracy returns; Alfonsín elected"],
+          ["1984", "Truth commission report, Nunca Más"],
+          ["1985", "Trial of the Juntas"],
+          ["2003–05", "Amnesty laws annulled; trials resume"]
+        ] },
+        { type: "section", head: "The 'Process'", md:
+          "By 1976 Argentina was in chaos: left-wing guerrillas and right-wing death squads were killing hundreds, and inflation was soaring. On 24 March the armed forces overthrew Isabel Perón and launched what they called the 'Process of National Reorganisation'. Their aim was to destroy 'subversion'. Security forces seized suspects, often at night, and took them to some 600 secret detention centres, such as the Navy Mechanics School (ESMA) in Buenos Aires, where they were tortured and most were killed." },
+        { type: "section", head: "The disappeared", md:
+          "Victims included guerrillas but also students, trade unionists, journalists, lawyers, priests and their families. Many were drugged and thrown alive from planes into the sea or the River Plate. About 500 babies born in captivity were given to military families; the Grandmothers of the Plaza de Mayo have since identified more than 130 of them through DNA. The 1984 Nunca Más report documented about 9,000 disappearances; human rights groups say 30,000, the figure used in commemorations." },
+        { type: "section", head: "The Falklands War", md:
+          "Facing economic collapse and protests, the junta led by General Leopoldo Galtieri invaded the British-held Falkland Islands, which Argentina calls the Malvinas and has claimed since Britain took control in 1833, on 2 April 1982. It expected Britain not to fight. Margaret Thatcher sent a task force, and after 74 days Argentine forces surrendered on 14 June. 649 Argentine and 255 British servicemen and three islanders died. Defeat destroyed the junta, and democracy returned in 1983 (see [[unit:gb|the UK]])." },
+        { type: "section", head: "Justice", md:
+          "President Raúl Alfonsín ordered the prosecution of the juntas. In the 1985 Trial of the Juntas, a civilian court sentenced former leaders including Jorge Videla to life imprisonment, a landmark in the world. Military pressure then led to amnesty laws and, in 1990, pardons by Menem. In 2003–05 Congress and the Supreme Court annulled the amnesties, and trials resumed: more than 1,000 people have since been convicted of crimes against humanity." },
+        { type: "compare", head: "Two views of the 1970s",
+          left: { head: "Human rights groups and most historians", md:
+            "The state carried out a systematic plan of terror and extermination; 'never again' requires memory, truth and justice." },
+          right: { head: "Military sympathisers and some on the right", md:
+            "It was a war against terrorist guerrillas, whose victims are forgotten; the figure of 30,000 is inflated." } },
+        { type: "section", head: "Why it still matters", md:
+          "The dictatorship is still fought over. Milei questioned the 30,000 figure in his 2023 campaign, and his vice-president, Victoria Villarruel, long campaigned for the victims of guerrilla violence and visited Videla in prison. Every 24 March huge marches answer them. The Falklands claim remains in the constitution, and 2 April is a national holiday for the war's veterans, even as Milei seeks closer ties with Britain." }
+      ],
+      takeaways: [
+        "The 1976–83 junta made thousands disappear: about 9,000 documented, 30,000 according to rights groups.",
+        "Its 1982 invasion of the Falklands ended in defeat by Britain, bringing down the regime.",
+        "Argentina tried its junta leaders in 1985 and, after amnesties were annulled, more than 1,000 others."
+      ],
+      check: { q: "What brought down Argentina's military junta in 1983?",
+        choices: ["A US invasion", "Defeat in the 1982 Falklands War and economic collapse", "Perón's return"], answer: 1,
+        explain: "Losing the war with Britain discredited the junta, which handed power to an elected government in 1983." },
+      sources: [
+        { title: "Falkland Islands War", publisher: "Britannica", url: "https://www.britannica.com/event/Falkland-Islands-War", date: "n.d." },
+        { title: "Trial of the Juntas", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Trial_of_the_Juntas", date: "n.d." },
+        { title: "On anniversary of dictatorship, Argentines push back against Milei's revisionist history", publisher: "Courthouse News", url: "https://www.courthousenews.com/on-anniversary-of-dictatorship-argentines-push-back-against-mileis-revisionist-history/", date: "2024" }
       ]
     },
 
@@ -347,6 +503,55 @@ window.POLITICS.addUnit("ar", {
         { title: "Argentina Senate approves contentious Milei-backed labour reforms", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/2/28/argentina-senate-approves-contentious-milei-backed-labour-reforms", date: "2026-02-28" },
         { title: "Argentina's Chamber of Deputies passes controversial labour reform bill", publisher: "Al Jazeera", url: "https://aljazeera.com/news/2026/2/20/argentinas-chamber-of-deputies-passes-controversial-labour-reform-bill", date: "2026-02-20" },
         { title: "Poverty Rate Tests Argentina's Milei Ahead of Election", publisher: "Reuters via US News", url: "https://www.usnews.com/news/world/articles/2026-09-24/poverty-rate-tests-argentinas-milei-ahead-of-election", date: "2026-09-24" }
+      ]
+    },
+
+    /* ---------------------------------------------------------- 12 */
+    {
+      id: "ar-12", kind: "spotlight", asOf: "2026-09-29",
+      title: "The AMIA bombing",
+      dek: "In 1994 a bomb destroyed a Jewish community centre in Buenos Aires, killing 85 people. Three decades of cover-ups, a prosecutor's mysterious death and a trial in absentia later, it still divides Argentina.",
+      blocks: [
+        { type: "image", kind: "illustration", src: "img/ar/ar-12-hero.webp",
+          alt: "Illustration of a memorial wall on a Buenos Aires street with rows of small plaques and flowers, and people seen from behind standing in silence.",
+          caption: "Every 18 July people gather in Pasteur Street to remember the victims.",
+          credit: "AI illustration — not a photograph",
+          prompt: "A memorial wall on a narrow Buenos Aires street lined with rows of small blank plaques and fresh flowers, a few people seen from behind standing in silence, winter morning light, grey stone and trees, mournful and dignified, no faces, no legible text." },
+        { type: "facts", head: "The attacks", rows: [
+          ["Israeli embassy bombing", "17 March 1992; 29 killed"],
+          ["AMIA bombing", "18 July 1994; 85 killed, over 300 injured"],
+          ["Accused", "Iranian officials and Hezbollah"],
+          ["Convictions for the attack itself", "None"],
+          ["Trial in absentia", "Ordered in 2025 under a new law"]
+        ] },
+        { type: "section", head: "The attack", md:
+          "Argentina has Latin America's largest Jewish community. On the morning of 18 July 1994 a van packed with explosives blew up outside the headquarters of the Argentine Israelite Mutual Association (AMIA) in Buenos Aires, killing 85 people and injuring more than 300. It came two years after a bombing destroyed Israel's embassy in the city, killing 29. It remains the deadliest terrorist attack in Argentina's history." },
+        { type: "section", head: "A botched investigation", md:
+          "The first investigation collapsed in scandal: the judge was found to have paid a witness to accuse police officers, and the case was annulled. Later investigations concluded that the attack was planned by senior Iranian officials and carried out by Hezbollah, the Lebanese group Iran backs. Argentina obtained Interpol red notices for several Iranians in 2007. Iran denies any involvement. In 2024 Argentina's top criminal appeals court ruled that Iran ordered the attack and that it was a crime against humanity." },
+        { type: "section", head: "Nisman", md:
+          "In 2013 President Cristina Fernández de Kirchner signed a memorandum with Iran to set up a joint 'truth commission', which critics saw as a way to lift the arrest warrants. In January 2015 the special prosecutor, Alberto Nisman, accused her of covering up for Iran in exchange for trade. The day before he was due to present his case to Congress, he was found dead in his flat with a gunshot wound to the head. An appeals court later ruled that he was murdered, a finding his critics dispute; no one has been convicted. Fernández denies the cover-up charge, which she calls political persecution." },
+        { type: "section", head: "Trial in absentia", md:
+          "Iran has never handed over the suspects. In February 2025 Congress passed a law allowing trials in absentia for terrorism and crimes against humanity, and in June a judge ordered that ten Iranian and Lebanese suspects be tried under it, including senior Revolutionary Guards and government figures; an appeals court confirmed the order. It would be the first such trial in Argentina's history. Victims' families are divided over whether a trial without defendants brings justice." },
+        { type: "compare", head: "Two views",
+          left: { head: "Many victims' families and the Milei government", md:
+            "Iran and Hezbollah are responsible, and past governments, especially Fernández's, protected them; justice requires a trial." },
+          right: { head: "Fernández's supporters and some relatives", md:
+            "The case has been used against political enemies, while local complicity and the first cover-up have gone unpunished." } },
+        { type: "section", head: "Why it matters", md:
+          "The AMIA case shapes Argentina's foreign policy. Milei, who has made support for Israel and the United States central to his diplomacy, declared Hamas a terrorist organisation in 2024 and blames Iran directly. The case also links Argentina to the wider confrontation with Iran (see [[unit:ir|Iran]] and [[unit:il|Israel]]) and remains a symbol of impunity in a country whose courts are often slow and politicised." }
+      ],
+      takeaways: [
+        "The 1994 AMIA bombing killed 85 people, the deadliest terrorist attack in Argentine history.",
+        "Argentine courts blame Iran and Hezbollah; Iran denies involvement and has never surrendered suspects.",
+        "The prosecutor Alberto Nisman died in 2015 after accusing Cristina Fernández of a cover-up; suspects are now to be tried in absentia."
+      ],
+      check: { q: "Who have Argentine courts blamed for the 1994 AMIA bombing?",
+        choices: ["The military junta", "Iranian officials and Hezbollah", "Argentine guerrillas"], answer: 1,
+        explain: "Investigators and a 2024 court ruling concluded that Iran planned the attack and Hezbollah carried it out." },
+      sources: [
+        { title: "Argentina orders trial in absentia for suspects in AMIA bombing", publisher: "UPI", url: "https://www.upi.com/Top_News/World-News/2025/06/26/world-argentina-trial-absentia-amia-bombing-suspects-2025/2691750967659", date: "2025-06-26" },
+        { title: "Absentee trial for fugitive Iranian AMIA bombing suspects confirmed", publisher: "Buenos Aires Times", url: "https://www.batimes.com.ar/news/argentina/absentee-trial-for-fugitive-iranian-amia-bombing-suspects-confirmed.phtml", date: "2025-09" },
+        { title: "2 top Iranian officials to face trial in absentia over deadly 1994 attack on Argentinian Jewish center", publisher: "JTA", url: "https://www.jta.org/2026/09/23/global/2-top-iranian-officials-to-face-trial-in-absentia-over-deadly-1994-attack-on-argentinian-jewish-center", date: "2026-09-23" }
       ]
     },
 
