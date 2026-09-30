@@ -178,4 +178,7 @@
   L({ id: "ae_il", a: "ae", b: "il", lessons: 3, color: "#2a6a5a",
       title: "Accords, a red line and Iran",
       blurb: "Secret contacts and the 2020 Abraham Accords, a warm peace strained by Gaza, and a military partnership forged against Iran." });
+  L({ id: "jp_in", a: "jp", b: "in", lessons: 3, color: "#9a5a2a",
+      title: "Goodwill, trains and the Quad",
+      blurb: "Wartime links through Bose and Justice Pal, Japanese cars, loans and a bullet train, and a partnership in the Quad." });
 })();
