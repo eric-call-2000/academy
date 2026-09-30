@@ -48,6 +48,12 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | Relationship | Title | Briefings | Current as of | Pictures |
 |--------------|-------|-----------|---------------|----------|
 | 🇺🇸🇨🇳 United States & China | Steel, tariffs and soybeans | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇲🇽 United States & Mexico | Factories, migrants and guns | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇨🇦 United States & Canada | Allies, lumber and oil | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇷🇺🇺🇦 Russia & Ukraine | One people? Gas and captives | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇱🇮🇷 Israel & Iran | From allies to arch-enemies | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇳🇵🇰 India & Pakistan | Wars, water and cricket | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇨🇳🇹🇼 China & Taiwan | Consensus, trade and Kinmen | 3 of 3 | 30 Sep 2026 | illustrations pending |
 
 ## Run it
 
@@ -137,6 +143,10 @@ politics/
 3. **Markup** is deliberately small: `**bold**`, `*italic*`, `[label](https://…)`,
    `[[term]]` or `[[term-id|label]]` for the glossary, `[[unit:ir]]` for another country, a
    blank line for a new paragraph, and `- ` for bullets. Add any new term to `glossary.js`.
+   To point to a briefing, write `[[lesson:mx-10]]` (or `[[lesson:mx-10|Briefing #]]`, or
+   `briefings [[lesson:ar-4|#]] and [[lesson:ar-7|#]]`): it shows the briefing's place in the
+   reading order ("briefing 5") as a link. Never type briefing numbers by hand; ids and reading
+   positions differ, and the validator rejects them.
 4. **Pictures.** An AI illustration carries `kind: "illustration"`, its alt text, caption,
    the credit *"AI illustration — not a photograph"* and a scene `prompt`. Real people
    appear only as credited public-domain or Creative Commons portraits, never as AI faces.
@@ -159,9 +169,11 @@ A relationship covers two of the 30 countries in **2 or 3 briefings**, all of ki
 3. Write `units/<id>.js` like a country unit, with ids `<id>-1` … `<id>-N` in order. Each
    briefing leads with an illustration (`img/<id>/…`) and follows the same word, takeaway and
    source rules.
-4. The map draws the arc and both country pages list it automatically. If its badge lands on
-   another badge, give the link a `bow` (how high the arc climbs, default 0.45) or `at` (where
-   along the arc the badge sits, default 0.3).
+4. The map draws the arc and both country pages list it automatically. If its "⇄" badge lands
+   on another badge, which happens with near neighbours, give it a spot in open sea in
+   `LINK_LABEL` in `tools/build-world.js` and rebuild `maps/world.js`; the arc then bends
+   through that spot. (Long links can instead set `bow`, default 0.45, or `at`, default 0.3,
+   in `links.js`.)
 
 The validator enforces the plan's rules:
 - 500–900 words per briefing, with no section over 180 words

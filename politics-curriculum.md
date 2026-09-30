@@ -217,10 +217,21 @@ first is **🇺🇸🇨🇳 United States & China: steel, tariffs and soybeans**
 | 2 | **The tariff wall** | Section 232 steel tariffs from 2018 to 50% in 2025: who they hit and what they did |
 | 3 | **Soybeans: how China hits back** | China's retaliation against US farmers, the aid, and the 2025 purchase pledges |
 
+Six more followed, each taking angles the country units don't already cover:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇺🇸🇲🇽 US & Mexico | Built together (trade, the USMCA) | Migrants and money | Guns south, drugs north |
+| 🇺🇸🇨🇦 US & Canada | Allies next door (NORAD) | Softwood lumber: the forty-year fight | Oil, power and water |
+| 🇷🇺🇺🇦 Russia & Ukraine | 'One people'? | Gas: the pipeline weapon | Children, prisoners and the occupied |
+| 🇮🇱🇮🇷 Israel & Iran | Friends before 1979 | The shadow war | The axis of resistance |
+| 🇮🇳🇵🇰 India & Pakistan | Nuclear rivals | Sharing the Indus | A border almost closed |
+| 🇨🇳🇹🇼 China & Taiwan | The 1992 Consensus | An economic embrace, loosening | Kinmen: the front-line islands |
+
 The **Map** screen (`#/map`) shows every country with its number of briefings and your
 progress, and draws each relationship as an arc between the two countries. Candidates for
-the next relationships: US–Mexico (tariffs, migration, cartels), Russia–Ukraine, China–Taiwan,
-India–Pakistan, Israel–Iran, US–Canada, Japan–China.
+later relationships: Japan–China, Saudi Arabia–Iran, Turkey–Russia, US–Russia, Germany–Russia,
+Venezuela–Colombia.
 
 ---
 

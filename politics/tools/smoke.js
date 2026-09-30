@@ -178,6 +178,8 @@ function check(name, ok, detail) {
   const want = await page.evaluate(() => window.POLITICS.countries.map((c) => String(c.lessons)));
   check("…each showing its briefing count", JSON.stringify(counts) === JSON.stringify(want), counts.join(","));
   check("…and a relationship line for US–China", !!(await page.$('.wm-link[data-link="us_cn"]')) && !!(await page.$('.wm-lb[data-link="us_cn"]')));
+  const nLinks = await page.evaluate(() => window.POLITICS.links.length);
+  check("…and a ⇄ badge for every relationship", (await page.$$(".wmap .wm-lb")).length === nLinks, String(nLinks));
   check("the US badge shows reading progress", !!(await page.$('.wm-b[data-id="us"] .wm-b-prog')));
   await page.click('.wm-b[data-id="cn"]');
   await page.waitForSelector(".wmap-card");

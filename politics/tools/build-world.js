@@ -16,7 +16,8 @@
    Badges sit on each country's main landmass. Where countries are
    too close for their badges to fit (Europe, the Middle East, the
    Koreas), LABEL moves the badge to nearby open space and the app
-   draws a thin leader line back to the country.
+   draws a thin leader line back to the country. LINK_LABEL does the
+   same for relationships between near neighbours.
    ============================================================ */
 const fs = require("fs");
 const path = require("path");
@@ -36,6 +37,13 @@ const LABEL = {
   gb: [-21, 56], fr: [-17, 43], de: [4, 63], pl: [19, 63], it: [5, 38.5], ua: [35, 55],
   tr: [38.5, 40.5], il: [28.5, 34], eg: [27, 24.5], ae: [58, 19.5],
   kr: [124.5, 33], kp: [127.5, 41.5], jp: [146, 37], tw: [123.5, 20.5]
+};
+/* Where a relationship's "⇄ n" badge sits [lon, lat], for links between
+   near neighbours, whose arcs would otherwise put the badge on top of a
+   country's. The app draws the arc through this point, so it bows into
+   open sea. Links not listed use a default arc (see app.js). */
+const LINK_LABEL = {
+  us_mx: [-127, 26], us_ca: [-60, 50], il_ir: [55, 46], in_pk: [70, 10.5], cn_tw: [113, 14]
 };
 
 const features = topojson.feature(coarse, coarse.objects.countries).features;
@@ -65,7 +73,12 @@ function mainland(f) {
   return best;
 }
 
-const out = { w: W, h: H, land: geo(land), borders: geo(borders), hatched: [], contested: [], countries: {} };
+const out = { w: W, h: H, land: geo(land), borders: geo(borders), hatched: [], contested: [], countries: {}, links: {} };
+Object.keys(LINK_LABEL).forEach((id) => {
+  if (!P.link(id)) throw new Error("LINK_LABEL: no relationship '" + id + "' in links.js");
+  const at = proj(LINK_LABEL[id]);
+  out.links[id] = { x: r1(at[0]), y: r1(at[1]) };
+});
 P.countries.forEach((c) => {
   const f = features.find((x) => x.id === c.iso);
   if (!f) throw new Error(c.id + ": no Natural Earth feature with ISO numeric id " + c.iso);

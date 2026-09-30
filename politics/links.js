@@ -28,10 +28,10 @@
   L({ id: "il_ir", a: "il", b: "ir", lessons: 3, color: "#5b4a8a",
       title: "From allies to arch-enemies",
       blurb: "Secret friends under the Shah, a shadow war of sabotage and assassination, and Iran's network of armed allies." });
-  L({ id: "in_pk", a: "in", b: "pk", lessons: 0, color: "#a0522d",
+  L({ id: "in_pk", a: "in", b: "pk", lessons: 3, color: "#a0522d",
       title: "Wars, water and cricket",
       blurb: "Four wars and nuclear bombs, a treaty that shares the Indus, and a border that is almost closed." });
-  L({ id: "cn_tw", a: "cn", b: "tw", lessons: 0, color: "#9a3b3b",
+  L({ id: "cn_tw", a: "cn", b: "tw", lessons: 3, color: "#9a3b3b",
       title: "Consensus, trade and Kinmen",
       blurb: "A deliberately vague formula, an economic embrace Taiwan is loosening, and islands within sight of China." });
 })();

@@ -735,8 +735,18 @@
     function pos(id) { var k = W.countries[id]; return [k.lx, k.ly]; }
     /* A link's badge sits 30% of the way along its arc from the first
        country, clear of the badges it joins; a link in links.js can set
-       its own `bow` (how high the arc climbs) and `at`. */
-    function linkArc(l) { return arcPath(pos(l.a), pos(l.b), l.bow || 0.45, l.at || 0.3); }
+       its own `bow` (how high the arc climbs) and `at`. Links between near
+       neighbours get a fixed badge position from tools/build-world.js
+       (maps/world.js "links"), and their arc bends through it. */
+    function linkArc(l) {
+      var via = W.links && W.links[l.id];
+      if (!via) return arcPath(pos(l.a), pos(l.b), l.bow || 0.45, l.at || 0.3);
+      /* A curve through the badge's set position: the control point that
+         puts a quadratic's midpoint at (x, y). */
+      var a = pos(l.a), b = pos(l.b);
+      var qx = 2 * via.x - (a[0] + b[0]) / 2, qy = 2 * via.y - (a[1] + b[1]) / 2;
+      return { d: "M" + a[0] + "," + a[1] + " Q" + qx.toFixed(1) + "," + qy.toFixed(1) + " " + b[0] + "," + b[1], at: [via.x, via.y] };
+    }
     function each(sel, fn) { Array.prototype.forEach.call(root.querySelectorAll(sel), fn); }
     var svg = ['<svg class="wmap" viewBox="0 0 ' + W.w + " " + W.h + '" role="group" aria-label="World map of the 30 countries and their relationships">',
       '<defs><pattern id="wm-hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
