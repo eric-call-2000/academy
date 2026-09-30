@@ -61,4 +61,13 @@
   L({ id: "jp_kr", a: "jp", b: "kr", lessons: 3, color: "#7a3f6a",
       title: "History, chips and a thaw",
       blurb: "A colonial past that won't settle, a trade war over wartime labour, and two leaders who chose to cooperate anyway." });
+  L({ id: "pl_de", a: "pl", b: "de", lessons: 3, color: "#8a3a3a",
+      title: "Borders, reparations and trade",
+      blurb: "A border moved west and a chancellor on his knees, a €1.3 trillion claim, and neighbours bound by trade and defence." });
+  L({ id: "cn_in", a: "cn", b: "in", lessons: 3, color: "#8a5a2a",
+      title: "Border, trade and Tibet",
+      blurb: "A Himalayan border that has seen war and deadly clashes, a lopsided trade, and the contest over Tibet and the Dalai Lama." });
+  L({ id: "au_cn", a: "au", b: "cn", lessons: 3, color: "#b0602a",
+      title: "Iron ore, trade war and submarines",
+      blurb: "A mine-and-market marriage, China's 2020 trade punishment and how Australia rode it out, and a rivalry over ports and warships." });
 })();
