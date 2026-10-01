@@ -111,7 +111,7 @@ window.POLITICS.addUnit("tw", {
         { type: "image", kind: "illustration", src: "img/tw/tw-9-hero.webp",
           alt: "Illustration of a crowded harbour quay in 1949 with steamships and people in period clothing seen from behind carrying luggage down gangplanks.",
           caption: "About two million soldiers and civilians followed the Nationalist government to Taiwan around 1949.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A crowded harbour quay in southern Taiwan in 1949, large steamships moored, soldiers and civilians in late-1940s clothing seen from behind carrying suitcases and bundles down gangplanks, subtropical hills in the background, humid hazy light, historical and uncertain mood, no faces, no flags, no legible text." },
         { type: "timeline", head: "Three founding moments", items: [
           ["1 Jan 1912", "Republic of China founded in Nanjing after the 1911 revolution"],
@@ -164,7 +164,7 @@ window.POLITICS.addUnit("tw", {
         { type: "image", kind: "illustration", src: "img/tw/tw-3-hero.webp",
           alt: "Illustration of a grand white memorial hall with a blue octagonal roof at the end of a vast plaza, with a crowd gathered in the distance.",
           caption: "Liberty Square in Taipei, scene of the 1990 Wild Lily student movement for democracy.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand white memorial hall with a deep blue octagonal roof at the end of a vast plaza flanked by traditional gates, a large peaceful crowd seen from far behind in the plaza, spring evening light, dignified and hopeful, no flags or legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1895–1945", "Japanese colony"],
@@ -212,7 +212,7 @@ window.POLITICS.addUnit("tw", {
         { type: "image", kind: "illustration", src: "img/tw/tw-10-hero.webp",
           alt: "Illustration of a quiet memorial park in Taipei with a tall modern monument, trees and people seen from behind laying white flowers.",
           caption: "28 February is now a national day of remembrance in Taiwan.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A quiet memorial park in Taipei with a tall abstract modern monument among tropical trees, a few people seen from behind laying white lilies on a low stone ledge, soft overcast light, calm and mournful, no faces, no legible text, no flags." },
         { type: "timeline", head: "From massacre to reckoning", items: [
           ["27 Feb 1947", "Officials beat a cigarette seller in Taipei; a bystander is shot"],
@@ -265,7 +265,7 @@ window.POLITICS.addUnit("tw", {
         { type: "image", kind: "illustration", src: "img/tw/tw-11-hero.webp",
           alt: "Illustration of a large assembly hall with rows of delegates' desks seen from the back of the room, with a vote tally board glowing at the front.",
           caption: "The UN General Assembly voted on 25 October 1971 to seat the People's Republic of China.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large 1970s international assembly hall with curved rows of delegates' desks seen from the back of the room, silhouettes of delegates, a glowing electronic vote tally board at the front with abstract lights, dramatic lighting, historical diplomatic mood, no faces, no legible text, no flags." },
         { type: "timeline", head: "The diplomatic slide", items: [
           ["1945", "ROC a founding member of the UN, with a Security Council seat"],
@@ -322,7 +322,7 @@ window.POLITICS.addUnit("tw", {
         { type: "image", kind: "illustration", src: "img/tw/tw-4-hero.webp",
           alt: "Illustration of a busy Taipei night market with food stalls, lanterns and a campaign truck with blank banners passing slowly through the crowd.",
           caption: "Campaigning in Taiwan happens in night markets, temples and on campaign trucks.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy night market street in an East Asian city, glowing food stalls and paper lanterns, steam rising, a small campaign truck with blank banners moving slowly through the crowd, people seen from behind, lively and warm, no legible text or faces." },
         { type: "people", head: "Five to know", items: [
           { name: "Lai Ching-te", role: "President, since May 2024",
@@ -378,7 +378,7 @@ window.POLITICS.addUnit("tw", {
         { type: "image", kind: "illustration", src: "img/tw/tw-5-hero.webp",
           alt: "Illustration of volunteers at a street-corner table on a rainy evening in a Taiwanese city, collecting signatures from passers-by under umbrellas.",
           caption: "Volunteers collected hundreds of thousands of signatures to trigger the recall votes.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Volunteers at a small folding table on a rainy city street corner in the evening, collecting signatures from passers-by holding umbrellas, scooters parked nearby, shop lights reflected on wet pavement, earnest and grassroots, no legible text or faces." },
         { type: "section", head: "What happened", md:
           "Angered by the opposition's budget cuts and court changes, civic groups aligned with the DPP launched a campaign in 2025 to recall KMT legislators, using a legal process that lets voters remove a representative. If enough recalls succeeded, the DPP could win the by-elections that followed and take control of the legislature.\n\n" +
@@ -428,7 +428,7 @@ window.POLITICS.addUnit("tw", {
         { type: "image", kind: "illustration", src: "img/tw/tw-6-hero.webp",
           alt: "Illustration of a vast semiconductor fabrication plant at night, its long buildings glowing, with cooling towers and green hills behind.",
           caption: "Taiwan's chip fabs make the world's most advanced processors.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast semiconductor fabrication plant at night, long windowless white buildings glowing softly, cooling towers releasing vapour, a highway with light trails, dark green hills behind, high-tech and immense, no people, no legible text or logos." },
         { type: "section", head: "What happened", md:
           "Under pressure from Trump's [[tariff|tariffs]] and his complaints that Taiwan had 'stolen' America's chip industry, TSMC raised its planned investment in Arizona to $165 billion for chip fabrication plants, advanced packaging and a research centre. In January 2026 Taiwan and the United States signed a trade agreement: US tariffs on Taiwanese goods were capped at 15%, down from 20%, and Taiwanese firms committed to invest at least $250 billion in American chip production, backed by another $250 billion of credit guarantees from Taiwan's government." },
@@ -479,7 +479,7 @@ window.POLITICS.addUnit("tw", {
         { type: "image", kind: "illustration", src: "img/tw/tw-7-hero.webp",
           alt: "Illustration of two coastguard patrol boats on a grey, choppy strait, with a distant warship on the horizon under low clouds.",
           caption: "Chinese military and coastguard activity around Taiwan has grown every year.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Two coastguard patrol boats on a grey choppy sea strait, a distant warship silhouette on the horizon under low heavy clouds, spray and wind, tense and watchful, no flags or legible markings." },
         { type: "section", head: "What happened", md:
           "China's People's Liberation Army holds large exercises around Taiwan several times a year. In December 2025 its 'Justice Mission 2025' drills simulated a blockade, with warships and aircraft approaching closer to Taiwan's coast than before. Chinese aircraft cross the unofficial median line of the Taiwan Strait almost daily, and coastguard ships patrol near Taiwan's outlying islands.\n\n" +
@@ -531,7 +531,7 @@ window.POLITICS.addUnit("tw", {
         { type: "image", kind: "illustration", src: "img/tw/tw-12-hero.webp",
           alt: "Illustration of green mountain terraces in eastern Taiwan with a village of low houses and people in woven red and white clothing seen from behind at a harvest gathering.",
           caption: "Many Indigenous communities hold harvest festivals each summer.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Lush green mountains and terraced fields in eastern Taiwan near the Pacific coast, a small village of low houses, a group of people seen from behind in traditional red, white and black woven clothing gathered in a circle at a summer harvest festival, warm golden light, joyful, no faces, no legible text." },
         { type: "facts", head: "Indigenous Taiwan today", rows: [
           ["Population", "About 629,000 (2.7%), end of 2025"],
@@ -579,7 +579,7 @@ window.POLITICS.addUnit("tw", {
         { type: "image", kind: "illustration", src: "img/tw/tw-8-hero.webp",
           alt: "Illustration of Taipei's skyline at dusk with a very tall segmented tower rising above the city and green mountains behind.",
           caption: "Taipei, capital of a democracy of 23 million.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A city skyline at dusk dominated by a very tall segmented skyscraper resembling stacked pagoda sections, green forested mountains behind, soft pink and blue sky, lights coming on across the city, calm and modern, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Politics:** a DPP president and a KMT–TPP legislature in constant conflict.\n" +

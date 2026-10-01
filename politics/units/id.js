@@ -110,7 +110,7 @@ window.POLITICS.addUnit("id", {
         { type: "image", kind: "illustration", src: "img/id/id-9-hero.webp",
           alt: "Illustration of a modest veranda of a colonial-era house in Jakarta in 1945, with a small group of people in white clothing seen from behind listening to a reading.",
           caption: "Independence was proclaimed on 17 August 1945 outside Sukarno's house in Jakarta.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The front veranda of a modest colonial-era house in Jakarta in 1945, tropical trees, a small crowd in white and khaki 1940s clothing seen from behind listening quietly, a simple bamboo flagpole without a flag, bright morning light, historic and hopeful, no faces, no legible text." },
         { type: "timeline", head: "From colony to republic", items: [
           ["1928", "Youth Pledge: one homeland, one nation, one language"],
@@ -164,7 +164,7 @@ window.POLITICS.addUnit("id", {
         { type: "image", kind: "illustration", src: "img/id/id-3-hero.webp",
           alt: "Illustration of students occupying the steps and green dome of a parliament building in Jakarta in 1998, seen from a distance.",
           caption: "In May 1998 students occupied the parliament building, helping force Suharto to resign after 32 years.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Thousands of students occupying the steps and the roof of a parliament building with a distinctive green curved dome, seen from a distance in 1998, tropical afternoon light, jubilant and historic, muted film colours, no legible banners, no faces in close-up." },
         { type: "timeline", head: "The short version", items: [
           ["1945", "Sukarno declares independence from the Netherlands"],
@@ -212,7 +212,7 @@ window.POLITICS.addUnit("id", {
         { type: "image", kind: "illustration", src: "img/id/id-10-hero.webp",
           alt: "Illustration of a quiet river in rural Java at dawn, with rice fields and palm trees and an empty wooden bridge.",
           caption: "Many victims of the 1965–66 killings were buried in unmarked graves or thrown into rivers.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A quiet brown river in rural Java at dawn, rice paddies and coconut palms on the banks, an empty weathered wooden footbridge, low mist, muted and mournful atmosphere, no people, no legible text." },
         { type: "timeline", head: "1965–1998", items: [
           ["30 Sep–1 Oct 1965", "'30 September Movement' kills six generals"],
@@ -265,7 +265,7 @@ window.POLITICS.addUnit("id", {
         { type: "image", kind: "illustration", src: "img/id/id-11-hero.webp",
           alt: "Illustration of a long queue of people in simple clothing seen from behind waiting outside a small school building on a hillside in Timor, early morning.",
           caption: "Almost everyone registered voted in the 1999 referendum, many queuing from before dawn.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long queue of people in simple 1990s clothing seen from behind waiting outside a small whitewashed school building on a dry hillside in Timor, eucalyptus trees, early morning light, calm determination, no faces, no flags, no legible text." },
         { type: "facts", head: "Occupation in numbers", rows: [
           ["Occupation", "December 1975 to October 1999"],
@@ -314,7 +314,7 @@ window.POLITICS.addUnit("id", {
         { type: "image", kind: "illustration", src: "img/id/id-4-hero.webp",
           alt: "Illustration of a white colonial-era presidential palace in Jakarta with columns and a manicured lawn, under a tropical sky.",
           caption: "Merdeka Palace in Jakarta, the president's official residence.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white neoclassical colonial-era palace with tall columns and a wide manicured lawn in a tropical city, palm trees, dramatic tropical clouds, soft afternoon light, stately and calm, no people close up, no flags or legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Prabowo Subianto", role: "President, since October 2024",
@@ -368,7 +368,7 @@ window.POLITICS.addUnit("id", {
         { type: "image", kind: "illustration", src: "img/id/id-5-hero.webp",
           alt: "Illustration of a huge campaign rally in a stadium at night with confetti, cartoonish animated screens and a crowd dancing.",
           caption: "Prabowo's 2024 campaign rebranded him with a cuddly, dancing image aimed at young voters.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge campaign rally in a football stadium at night, colourful confetti and stage lights, large screens showing cheerful cartoon animations without faces or text, a young crowd dancing seen from behind, festive energy, no legible text or faces." },
         { type: "section", head: "What happened", md:
           "Prabowo's career has been an extraordinary arc. As a special-forces commander in 1997–98 his men abducted pro-democracy activists; several were never found. He was discharged from the army in 1998 and spent years abroad. He came back as a businessman and founder of the Gerindra party, and ran for president in 2014 and 2019, losing both times to Jokowi and disputing the results; in 2019 protests over his defeat turned deadly.\n\n" +
@@ -421,7 +421,7 @@ window.POLITICS.addUnit("id", {
         { type: "image", kind: "illustration", src: "img/id/id-6-hero.webp",
           alt: "Illustration of schoolchildren in uniforms sitting at long tables in a school hall, each with a metal lunch tray of rice, vegetables and egg.",
           caption: "The free meals programme aims to feed tens of millions of schoolchildren and pregnant women.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Schoolchildren in red and white uniforms seen from behind sitting at long tables in a simple school hall, each with a compartmented metal lunch tray of rice, vegetables and egg, fans on the ceiling, warm light, hopeful, no faces, no legible text." },
         { type: "section", head: "What happened", md:
           "Prabowo's flagship is the Free Nutritious Meals programme, launched in January 2025 to feed schoolchildren and pregnant women, with a target of more than 80 million recipients and a cost of about $15 billion a year. It is run by a new national agency with help from the army and police. Outbreaks of food poisoning affecting thousands of pupils, and a corruption probe that led Prabowo to fire the programme's head in June 2026, have dogged it.\n\n" +
@@ -472,7 +472,7 @@ window.POLITICS.addUnit("id", {
         { type: "image", kind: "illustration", src: "img/id/id-7-hero.webp",
           alt: "Illustration of a crowd of motorbike taxi drivers in green jackets gathered at a busy Jakarta intersection at dusk, seen from above.",
           caption: "Online motorbike-taxi drivers joined the protests after one of their own was killed.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large crowd of motorbike taxi drivers in green jackets and helmets gathered at a busy tropical city intersection at dusk, seen from above, stalled traffic, smoke in the distance, tense and angry mood, no legible text or logos, no faces in close-up." },
         { type: "section", head: "What happened", md:
           "In late August 2025 protests erupted in Jakarta over generous housing allowances for members of parliament, at a time of layoffs and rising prices. On 28 August a paramilitary police armoured vehicle ran over and killed Affan Kurniawan, a 21-year-old motorbike-taxi driver who had been delivering a food order near the protests. Video of the incident spread instantly.\n\n" +
@@ -527,7 +527,7 @@ window.POLITICS.addUnit("id", {
         { type: "image", kind: "illustration", src: "img/id/id-12-hero.webp",
           alt: "Illustration of steep green highlands in Papua with mist in the valleys and a traditional round thatched hut, a person seen from behind on a path.",
           caption: "Most Indigenous Papuans live in the highlands and along the coasts of the western half of New Guinea.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Steep lush green highlands of Papua with low mist in the valleys, a traditional round thatched honai hut, sweet potato gardens, a single person seen from far behind walking on a mountain path, soft morning light, beautiful and remote, no faces, no legible text, no flags." },
         { type: "facts", head: "Papua at a glance", rows: [
           ["Where", "The western half of New Guinea"],
@@ -576,7 +576,7 @@ window.POLITICS.addUnit("id", {
         { type: "image", kind: "illustration", src: "img/id/id-8-hero.webp",
           alt: "Illustration of a nickel smelter complex on a tropical coast, with chimneys releasing plumes over green hills and a port with ore ships.",
           caption: "Nickel smelters on Sulawesi and Halmahera have made Indonesia the world's biggest nickel producer.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large industrial smelter complex on a tropical coastline, tall chimneys releasing grey plumes over green forested hills, a port with bulk ore ships, turquoise sea, contrast of industry and nature, no people close up, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Power:** Prabowo is popular and faces almost no parliamentary opposition.\n" +
