@@ -208,4 +208,10 @@
   L({ id: "us_br", a: "us", b: "br", lessons: 3, color: "#2a6a4a",
       title: "A coup, spies and a vote",
       blurb: "Wartime allies; the US backed the 1964 coup; spying, Bolsonaro's Trump-style politics and a quarrel over the 2026 vote." });
+  L({ id: "ar_cn", a: "ar", b: "cn", lessons: 3, color: "#7a6a2a",
+      title: "Soy, dams and a swap",
+      blurb: "China buys Argentina's soy and lent for the Kirchners' dams; Milei swore off 'communists', then kept the currency swap." });
+  L({ id: "us_ar", a: "us", b: "ar", lessons: 3, color: "#4a7aaa",
+      title: "Perón, debts and a bailout",
+      blurb: "From 'Braden or Perón' and the Falklands to vulture funds, record IMF loans and Trump's $20 billion rescue of Milei." });
 })();
