@@ -217,4 +217,7 @@
   L({ id: "za_cn", a: "za", b: "cn", lessons: 3, color: "#8a5a2a",
       title: "Taiwan, BRICS and cheap steel",
       blurb: "Mandela switched from Taipei to Beijing; BRICS and party schools followed, then Chinese steel, cars and a trade deal." });
+  L({ id: "us_pk", a: "us", b: "pk", lessons: 3, color: "#2a5a3a",
+      title: "Spy planes, bin Laden, a field marshal",
+      blurb: "Cold War allies of convenience, partners and suspects in the war on terror, and now Trump's favourite field marshal." });
 })();
