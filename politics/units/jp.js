@@ -521,7 +521,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-12-hero.webp",
           alt: "Illustration of an empty rural village street with old wooden houses, shuttered shops and an elderly person walking slowly in the distance, with mountains behind.",
           caption: "Across rural Japan, millions of homes stand empty as villages age and shrink.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty rural Japanese village street with old wooden houses and tiled roofs, shuttered shops, an elderly figure far in the distance walking slowly, green forested mountains behind, soft autumn light, quiet and melancholy, no face visible, no legible text." },
         { type: "facts", head: "Demography", rows: [
           ["Population", "About 124 million, falling"],

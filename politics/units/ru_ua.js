@@ -71,7 +71,7 @@ window.POLITICS.addUnit("ru_ua", {
         { type: "image", kind: "illustration", src: "img/ru_ua/ru_ua-2-hero.webp",
           alt: "Illustration of a snow-covered gas compressor station with large pipes and valves in a flat winter landscape at dusk.",
           caption: "Ukraine's pipelines once carried most of the Russian gas that Europe burned.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A snow-covered natural gas compressor station in a flat winter landscape at dusk, large grey pipes and valves rising from the ground, a few lit windows in a low control building, bare birch trees, cold blue light, quiet and heavy mood, no people, no flags, no legible text." },
         { type: "facts", head: "Gas in numbers", rows: [
           ["Transit via Ukraine, 2024", "About 15 billion cubic metres, down from well over 100 in the 2000s"],

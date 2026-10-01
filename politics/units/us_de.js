@@ -22,7 +22,7 @@ window.POLITICS.addUnit("us_de", {
         { type: "image", kind: "illustration", src: "img/us_de/us_de-1-hero.webp",
           alt: "Illustration of a cargo plane flying low over bombed-out apartment buildings, watched by children on a rubble heap.",
           caption: "During the Berlin Airlift, a plane landed in West Berlin every few minutes, and at its peak every 30 seconds.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A 1940s propeller cargo plane flying low over bombed-out Berlin apartment buildings, children standing on a rubble heap watching it, grey sky, historical documentary painting style, seen from behind, no faces, no flags, no legible text." },
         { type: "timeline", head: "From enemy to ally", items: [
           ["1945", "US occupation of southern Germany begins"],

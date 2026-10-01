@@ -20,7 +20,7 @@ window.POLITICS.addUnit("us_cn", {
         { type: "image", kind: "illustration", src: "img/us_cn/us_cn-1-hero.webp",
           alt: "Illustration of a vast steel works at dusk on a river estuary, with blast furnaces, smoke and rows of steel coils waiting on a quay beside a cargo ship.",
           caption: "China now makes more steel than the rest of the world combined, and exports a record amount.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast steel works on a wide river estuary at dusk, tall blast furnaces glowing orange, drifting smoke, long rows of rolled steel coils stacked on a concrete quay beside a large cargo ship being loaded by cranes, tiny workers in hard hats seen from far away, industrial and immense." },
         { type: "facts", head: "Steel in numbers (2025)", rows: [
           ["China's crude steel output", "960.8 million tonnes, about 52% of the world's"],

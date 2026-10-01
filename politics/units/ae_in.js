@@ -73,7 +73,7 @@ window.POLITICS.addUnit("ae_in", {
         { type: "image", kind: "illustration", src: "img/ae_in/ae_in-2-hero.webp",
           alt: "Illustration of a large carved pink sandstone Hindu temple with spires standing in a desert landscape at sunset.",
           caption: "The BAPS Hindu Mandir near Abu Dhabi opened in February 2024.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large intricately carved pink sandstone Hindu temple with several ornate spires standing in a flat desert landscape at sunset, a reflecting pool in front, warm golden light, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "A strategic partnership", items: [
           ["Aug 2015", "Modi visits, the first Indian PM in 34 years"],

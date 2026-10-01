@@ -454,7 +454,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-7-hero.webp",
           alt: "Illustration of a line of oil tankers in a narrow strait at dusk, with a warship on the horizon and barren mountains on the shore.",
           caption: "The Strait of Hormuz, where Iranian attacks and a US blockade have disrupted shipping since March.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A convoy of large oil tankers moving through a narrow strait at dusk, a grey warship silhouetted on the horizon, barren rocky mountains on the shore, a hazy orange sky, tension and scale, no flags or legible text." },
         { type: "section", head: "What happened", md:
           "On 28 February 2026 the United States and Israel launched nearly 900 strikes in 12 hours on Iran's missiles, air defences, military bases and leadership. Ali Khamenei was killed. Iran retaliated with missiles and drones against Israel and against Gulf states hosting US forces, hitting oil facilities in [[unit:sa|Saudi Arabia]] and [[unit:ae|the UAE]], and it attacked ships to close the [[Strait of Hormuz]]. Oil prices passed $100 a barrel.\n\n" +

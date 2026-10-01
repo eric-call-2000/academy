@@ -171,7 +171,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-3-hero.webp",
           alt: "Illustration of civil-rights-era marchers, seen from behind, crossing a wide bridge at sunrise.",
           caption: "The civil-rights movement rewrote who could vote. In 2026 the fight over its laws returned to the Supreme Court.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Hundreds of marchers in early-1960s clothing seen from behind, crossing a wide steel-arch bridge at sunrise over a broad river, plain banners with no writing, a mood of resolve and scale." },
         { type: "timeline", head: "The short version", items: [
           ["1945–49", "Victory in the Second World War; the US helps found the UN and NATO and funds Europe's recovery"],

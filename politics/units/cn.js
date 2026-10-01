@@ -363,7 +363,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-5-hero.webp",
           alt: "Illustration of a giant container port at night, cranes lit up, with a lone cargo ship waiting offshore.",
           caption: "Trade between the US and China fell sharply during the 2025 tariff war, then partly recovered under a truce.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A giant container port at night seen from a hill, rows of gantry cranes lit orange, stacks of containers in muted colours, one large cargo ship waiting offshore under a hazy moon, a sense of pause." },
         { type: "section", head: "What happened", md:
           "In April 2025, as [[unit:us]] imposed [[tariff|tariffs]] on almost every country, the United States and China escalated against each other until US tariffs on Chinese goods reached 145% and China's on American goods 125%. Trade between them nearly froze.\n\n" +
