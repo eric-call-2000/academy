@@ -21,7 +21,7 @@ window.POLITICS.addUnit("ar_cn", {
         { type: "image", kind: "illustration", src: "img/ar_cn/ar_cn-1-hero.webp",
           alt: "Illustration of a vast flat field of soybeans under a wide sky, with grain silos and a combine harvester.",
           caption: "Most of Argentina's soybean exports go to China.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast flat field of green soybeans on the Argentine pampas under a huge sky with white clouds, a red combine harvester working, tall metal grain silos in the distance, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "A partnership grows", items: [
           ["1972", "Argentina switches recognition from Taipei to Beijing"],
@@ -74,7 +74,7 @@ window.POLITICS.addUnit("ar_cn", {
         { type: "image", kind: "illustration", src: "img/ar_cn/ar_cn-2-hero.webp",
           alt: "Illustration of a large white radio dish antenna on a windswept Patagonian plateau.",
           caption: "China's deep-space station in Neuquén has operated since 2017.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge white radio dish antenna on a windswept dry Patagonian plateau, low buildings beside it, distant snow-capped Andes, wide blue sky, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "China's footprint", items: [
           ["2014–15", "Deal for a Chinese space station in Neuquén"],
@@ -126,7 +126,7 @@ window.POLITICS.addUnit("ar_cn", {
         { type: "image", kind: "illustration", src: "img/ar_cn/ar_cn-3-hero.webp",
           alt: "Illustration of a concrete dam under construction across a turquoise Patagonian river, with cranes.",
           caption: "Work on the Chinese-financed Santa Cruz dams resumed under Milei.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large concrete dam under construction across a wide turquoise river in dry Patagonian steppe, tall cranes and trucks, distant mountains under a pale sky, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Between two powers", items: [
           ["2023", "Milei campaigns against dealing with 'communists'"],

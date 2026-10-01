@@ -21,7 +21,7 @@ window.POLITICS.addUnit("gb_in", {
         { type: "image", kind: "illustration", src: "img/gb_in/gb_in-1-hero.webp",
           alt: "Illustration of a crowded train with people on its roof and hanging from its doors, crossing a dry plain in 1947.",
           caption: "Partition in 1947 displaced more than 10 million people.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An overcrowded steam train with people sitting on its roof and clinging to its doors, crossing a flat dusty plain in 1947, bundles and luggage, hazy sky, historical documentary painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "Empire and exit", items: [
           ["1757", "East India Company victory at Plassey"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("gb_in", {
         { type: "image", kind: "illustration", src: "img/gb_in/gb_in-2-hero.webp",
           alt: "Illustration of a jewelled crown with a large oval diamond on a velvet cushion in a dim display case.",
           caption: "India has asked for the Koh-i-Noor diamond, now in a British crown, to be returned.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An ornate jewelled crown with a large oval diamond at its front resting on a purple velvet cushion inside a glass display case, dim museum lighting, reflections on the glass, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Ties of people", items: [
           ["1947 & 1953", "India asks for the Koh-i-Noor's return; Britain refuses"],
@@ -124,7 +124,7 @@ window.POLITICS.addUnit("gb_in", {
         { type: "image", kind: "illustration", src: "img/gb_in/gb_in-3-hero.webp",
           alt: "Illustration of cases of Scotch whisky being loaded onto a ship at a busy port, with containers stacked behind.",
           caption: "The trade deal cuts India's steep tariffs on Scotch whisky.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Wooden crates and cases of whisky bottles being loaded onto a cargo ship at a busy port, stacked shipping containers and cranes behind, grey northern sky, documentary painting style, no people close up, no logos, no flags, no legible text." },
         { type: "timeline", head: "From talks to treaty", items: [
           ["Jan 2022", "Free trade talks begin"],

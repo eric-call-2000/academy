@@ -22,7 +22,7 @@ window.POLITICS.addUnit("ve_cn", {
         { type: "image", kind: "illustration", src: "img/ve_cn/ve_cn-1-hero.webp",
           alt: "Illustration of a rocket lifting off from a launch pad in mountains, trailing fire and smoke.",
           caption: "China launched satellites for Venezuela, part of a partnership that went far beyond oil.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white space rocket lifting off from a launch tower in green mountains at dawn, bright flame and billowing smoke, distant control buildings, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Building a partnership", items: [
           ["1999", "Chávez visits Beijing in his first year in office"],
@@ -75,7 +75,7 @@ window.POLITICS.addUnit("ve_cn", {
         { type: "image", kind: "illustration", src: "img/ve_cn/ve_cn-2-hero.webp",
           alt: "Illustration of a large oil tanker loading at a jetty beside storage tanks on a tropical coast.",
           caption: "Chinese loans were repaid with shipments of Venezuelan oil.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large crude oil tanker moored at a long jetty beside rows of white storage tanks on a tropical coast, palm trees and hazy hills behind, pipes and loading arms, late afternoon light, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Boom and bust", items: [
           ["2007", "China Development Bank begins oil-backed lending"],
@@ -127,7 +127,7 @@ window.POLITICS.addUnit("ve_cn", {
         { type: "image", kind: "illustration", src: "img/ve_cn/ve_cn-3-hero.webp",
           alt: "Illustration of a grand palace courtyard at night, lit by floodlights, with an empty reception room visible through tall windows.",
           caption: "Maduro met China's envoy at the Miraflores Palace hours before US forces captured him.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand colonial-style presidential palace courtyard at night lit by floodlights, tall windows showing an empty reception room with chairs arranged for a meeting, palm trees, helicopters as dark shapes in the distant sky, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "A partner lost", items: [
           ["16 Dec 2025", "Trump orders a blockade of sanctioned tankers"],
