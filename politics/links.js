@@ -259,4 +259,7 @@
   L({ id: "ae_in", a: "ae", b: "in", lessons: 3, color: "#7a4a2a",
       title: "Workers, a temple and gas",
       blurb: "Indians built the Emirates; Modi and MBZ added a trade deal and a temple; now gas, defence and a war on the UAE's doorstep." });
+  L({ id: "tr_eg", a: "tr", b: "eg", lessons: 3, color: "#8a5a3a",
+      title: "Sultans, Morsi and a handshake",
+      blurb: "Ottoman Egypt and Nasser; a decade of hostility over Morsi, Libya and the sea; then a handshake, state visits and naval drills." });
 })();
