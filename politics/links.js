@@ -241,4 +241,7 @@
   L({ id: "us_it", a: "us", b: "it", lessons: 3, color: "#2a7a5a",
       title: "Emigrants, bases and Meloni",
       blurb: "Four million emigrants; 1948, US bases and the Sigonella stand-off; and Meloni as Europe's bridge to Trump." });
+  L({ id: "us_de", a: "us", b: "de", lessons: 3, color: "#4a4a4a",
+      title: "Airlift, spies and a rift",
+      blurb: "From the Berlin Airlift and reunification to Iraq, a tapped phone and Nord Stream, and Merz's 2026 rift with Trump." });
 })();
