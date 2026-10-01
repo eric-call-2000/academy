@@ -262,4 +262,7 @@
   L({ id: "tr_eg", a: "tr", b: "eg", lessons: 3, color: "#8a5a3a",
       title: "Sultans, Morsi and a handshake",
       blurb: "Ottoman Egypt and Nasser; a decade of hostility over Morsi, Libya and the sea; then a handshake, state visits and naval drills." });
+  L({ id: "us_id", a: "us", b: "id", lessons: 3, color: "#7a2a2a",
+      title: "1965, Obama and Prabowo",
+      blurb: "The CIA, the 1965 killings and East Timor; Obama's Jakarta and a democratic partner; Prabowo's tariff, nickel and Gaza bet on Trump." });
 })();
