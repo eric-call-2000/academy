@@ -235,4 +235,7 @@
   L({ id: "jp_au", a: "jp", b: "au", lessons: 3, color: "#2a6a8a",
       title: "War, gas and frigates",
       blurb: "Wartime enemies who became trading partners in 1957; gas, whales and a lost submarine deal; now Mogami frigates and a quasi-alliance." });
+  L({ id: "in_sa", a: "in", b: "sa", lessons: 3, color: "#4a7a3a",
+      title: "Oil, workers and a Pakistan pact",
+      blurb: "Saudi Arabia once backed Pakistan against India; now it sells India oil, employs 2.6 million Indians and balances between the rivals." });
 })();
