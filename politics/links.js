@@ -238,4 +238,7 @@
   L({ id: "in_sa", a: "in", b: "sa", lessons: 3, color: "#4a7a3a",
       title: "Oil, workers and a Pakistan pact",
       blurb: "Saudi Arabia once backed Pakistan against India; now it sells India oil, employs 2.6 million Indians and balances between the rivals." });
+  L({ id: "us_it", a: "us", b: "it", lessons: 3, color: "#2a7a5a",
+      title: "Emigrants, bases and Meloni",
+      blurb: "Four million emigrants; 1948, US bases and the Sigonella stand-off; and Meloni as Europe's bridge to Trump." });
 })();
