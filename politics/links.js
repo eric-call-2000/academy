@@ -226,4 +226,7 @@
   L({ id: "us_fr", a: "us", b: "fr", lessons: 3, color: "#3a4a7a",
       title: "Yorktown, Iraq and Greenland",
       blurb: "America's oldest ally: Yorktown and D-Day, de Gaulle and 'freedom fries', AUKUS, Greenland tariffs and a dinner at Versailles." });
+  L({ id: "gb_in", a: "gb", b: "in", lessons: 3, color: "#7a3a2a",
+      title: "Raj, diaspora and a trade deal",
+      blurb: "Empire, Amritsar and Partition; a diaspora of 1.9 million and a Koh-i-Noor dispute; a trade deal in force since July 2026." });
 })();
