@@ -108,7 +108,7 @@ window.POLITICS.addUnit("ve", {
         { type: "image", kind: "illustration", src: "img/ve/ve-9-hero.webp",
           alt: "Illustration of a column of soldiers in early-19th-century uniforms and ponchos crossing a high, misty mountain pass in the Andes, seen from behind.",
           caption: "Bolívar's army crossed the Andes in 1819 to liberate New Granada.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long column of soldiers in ragged early-19th-century uniforms and ponchos, some on horseback, crossing a high cold mountain pass in the Andes, seen from behind, swirling mist and snow on the peaks, epic and exhausting mood, no faces, no flags, no legible text." },
         { type: "timeline", head: "From colony to republic", items: [
           ["19 Apr 1810", "Caracas junta deposes the Spanish governor"],
@@ -159,7 +159,7 @@ window.POLITICS.addUnit("ve", {
         { type: "image", kind: "illustration", src: "img/ve/ve-3-hero.webp",
           alt: "Illustration of rusting oil derricks standing in the shallow waters of a vast lake at sunset.",
           caption: "Lake Maracaibo, where Venezuela's oil boom began in the 1920s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Dozens of old rusting oil derricks standing in the shallow waters of a vast calm lake at sunset, pipes and walkways between them, the sky orange and purple, reflections on the water, haunting and melancholy, no people, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1922", "Oil gusher at Lake Maracaibo launches the boom"],
@@ -206,7 +206,7 @@ window.POLITICS.addUnit("ve", {
         { type: "image", kind: "illustration", src: "img/ve/ve-10-hero.webp",
           alt: "Illustration of the modernist skyline of Caracas in the 1970s, with tall towers, a motorway and green mountains behind.",
           caption: "Oil money built modern Caracas in the 1950s–70s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The modernist skyline of Caracas in the 1970s, tall concrete towers and elevated motorways with vintage cars, the green Ávila mountain behind, bright tropical sunshine, optimistic retro mood, no people up close, no legible text." },
         { type: "timeline", head: "Forty years", items: [
           ["23 Jan 1958", "Dictator Marcos Pérez Jiménez overthrown"],
@@ -258,7 +258,7 @@ window.POLITICS.addUnit("ve", {
         { type: "image", kind: "illustration", src: "img/ve/ve-11-hero.webp",
           alt: "Illustration of steep hillside barrios of Caracas at dawn, with smoke rising from the streets below.",
           caption: "The riots began in the poor neighbourhoods around Caracas in February 1989.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Steep hillsides covered in brick barrio houses above Caracas at dawn, thin columns of smoke rising from the streets below, a hazy orange sky, tense and ominous mood, no people up close, no legible text." },
         { type: "facts", head: "Two shocks", rows: [
           ["Caracazo", "27 February to early March 1989"],
@@ -307,7 +307,7 @@ window.POLITICS.addUnit("ve", {
         { type: "image", kind: "illustration", src: "img/ve/ve-4-hero.webp",
           alt: "Illustration of a colonial-style white palace with a courtyard and arched colonnades in Caracas, with mountains rising behind.",
           caption: "Miraflores Palace, the seat of Venezuela's presidency, below the Ávila mountain.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white colonial-style palace with a central courtyard, arched colonnades and a fountain, a lush green mountain rising steeply behind under drifting clouds, tropical trees, morning light, calm and guarded, no people, no flags, no legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Delcy Rodríguez", role: "Acting president, since January 2026",
@@ -359,7 +359,7 @@ window.POLITICS.addUnit("ve", {
         { type: "image", kind: "illustration", src: "img/ve/ve-5-hero.webp",
           alt: "Illustration of a grey warship on a dark Caribbean sea at night with helicopters in the sky and the lights of a coastal city on the horizon.",
           caption: "The United States built up its largest naval presence in the Caribbean in decades.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large grey warship on a dark calm sea at night, two helicopters with navigation lights in the sky, the distant glittering lights of a coastal city at the foot of mountains on the horizon, moonlight on the water, tense and cinematic, no flags, no legible text." },
         { type: "section", head: "The boat strikes", md:
           "On 2 September 2025 the US military destroyed a speedboat that had left Venezuela, killing all 11 people aboard; the Trump administration said they were drug traffickers from the Tren de Aragua gang. Dozens more strikes followed, in the Caribbean and then the eastern Pacific, under what became Operation Southern Spear. By 19 September 2026 at least 234 people had been killed in about 78 strikes. The administration released little evidence about the people killed or their cargo, and legal experts and several governments called the strikes extrajudicial killings." },
@@ -410,7 +410,7 @@ window.POLITICS.addUnit("ve", {
         { type: "image", kind: "illustration", src: "img/ve/ve-6-hero.webp",
           alt: "Illustration of an oil tanker being loaded at a terminal jetty at dusk, with storage tanks on the shore and flares burning.",
           caption: "More than half a million barrels a day now go to the United States.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large oil tanker moored at a long terminal jetty at dusk, loading arms connected, white storage tanks on the tropical shore, gas flares burning orange in the distance, calm sea, industrial and busy, no flags, no legible text or logos." },
         { type: "section", head: "What happened", md:
           "Within weeks of the raid, Rodríguez's government opened the oil sector to US companies on new terms. In April 2026 it signed agreements giving Chevron new drilling areas and larger stakes; Chevron says it will invest $7 billion and double its Venezuelan output by 2031. By August more than 500,000 barrels a day, about 40% of national production of 1.25 million, were going to the US, according to the US Energy Department. Washington eased [[sanctions]] to allow the trade and lifted personal sanctions on Rodríguez." },
@@ -460,7 +460,7 @@ window.POLITICS.addUnit("ve", {
         { type: "image", kind: "illustration", src: "img/ve/ve-7-hero.webp",
           alt: "Illustration of people walking with suitcases and backpacks across a long bridge over a river at dawn, seen from behind.",
           caption: "Millions crossed into Colombia on foot at the height of the crisis.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long concrete bridge over a brown river at dawn, a line of people seen from behind walking with suitcases, backpacks and children, soft mist, green hills beyond, hopeful and weary, no faces, no flags, no legible text." },
         { type: "section", head: "What happened", md:
           "From 2014, as the economy collapsed, Venezuelans began leaving in huge numbers: first professionals and the middle class, then the poor, many on foot. By 2025 the UN counted nearly 8 million Venezuelan refugees and migrants, about a quarter of the population, most of them in Latin America. Colombia took about 2.8 million, followed by Peru, Brazil, Chile and Ecuador; hundreds of thousands reached the United States." },
@@ -510,7 +510,7 @@ window.POLITICS.addUnit("ve", {
         { type: "image", kind: "illustration", src: "img/ve/ve-12-hero.webp",
           alt: "Illustration of a wide brown river winding through dense rainforest in Guyana, with a distant offshore oil vessel on the Atlantic horizon.",
           caption: "The Essequibo region is mostly rainforest; its offshore waters hold vast oil reserves.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wide brown river winding through dense green tropical rainforest seen from above, flowing toward the Atlantic coast, a distant offshore oil production vessel on the sea horizon, humid misty light, vast and contested landscape, no people, no flags, no legible text." },
         { type: "facts", head: "The dispute", rows: [
           ["Area", "About 160,000 km², two-thirds of Guyana"],
@@ -559,7 +559,7 @@ window.POLITICS.addUnit("ve", {
         { type: "image", kind: "illustration", src: "img/ve/ve-8-hero.webp",
           alt: "Illustration of a hillside barrio of brightly painted brick houses stacked above a modern city, at dusk, with lights coming on.",
           caption: "Caracas: recovery has begun, but most Venezuelans are still poor.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A steep hillside covered in stacked, brightly painted brick houses above a modern city of towers, at dusk, lights coming on in windows, a green mountain behind, warm and bittersweet, no people close up, no flags, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Delcy Rodríguez, acting president, cooperating with Washington.\n" +
