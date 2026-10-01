@@ -265,4 +265,7 @@
   L({ id: "us_id", a: "us", b: "id", lessons: 3, color: "#7a2a2a",
       title: "1965, Obama and Prabowo",
       blurb: "The CIA, the 1965 killings and East Timor; Obama's Jakarta and a democratic partner; Prabowo's tariff, nickel and Gaza bet on Trump." });
+  L({ id: "gb_ng", a: "gb", b: "ng", lessons: 3, color: "#3a6a3a",
+      title: "Lugard, Biafra and bronzes",
+      blurb: "Britain made Nigeria in 1914 and armed Lagos against Biafra; now bronzes are going home and a big diaspora links the two." });
 })();
