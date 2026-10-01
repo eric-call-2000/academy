@@ -196,4 +196,7 @@
   L({ id: "ve_cn", a: "ve", b: "cn", lessons: 3, color: "#7a5a1a",
       title: "Oil for loans, then a raid",
       blurb: "Chávez's partner lent about $60 billion against oil; Maduro's capture left Beijing owed billions by a Venezuela tilting to Washington." });
+  L({ id: "sa_cn", a: "sa", b: "cn", lessons: 3, color: "#3a6a3a",
+      title: "Missiles, oil and a broken peace",
+      blurb: "Secret Chinese missiles in 1988, oil and a Beijing-brokered peace with Iran in 2023, then a war that showed China's limits." });
 })();
