@@ -220,4 +220,7 @@
   L({ id: "us_pk", a: "us", b: "pk", lessons: 3, color: "#2a5a3a",
       title: "Spy planes, bin Laden, a field marshal",
       blurb: "Cold War allies of convenience, partners and suspects in the war on terror, and now Trump's favourite field marshal." });
+  L({ id: "tr_ua", a: "tr", b: "ua", lessons: 3, color: "#3a7a8a",
+      title: "Crimea, drones and Istanbul",
+      blurb: "Ottoman Crimea and the Tatars; Bayraktar drones, closed straits and the grain deal; Istanbul as the talks city." });
 })();
