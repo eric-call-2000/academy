@@ -202,4 +202,7 @@
   L({ id: "ir_cn", a: "ir", b: "cn", lessons: 3, color: "#6a3a5a",
       title: "Silkworms, oil and limits",
       blurb: "China armed Iran in the 1980s and buys almost all its oil, but in the 2026 war it condemned, and did not fight." });
+  L({ id: "fr_ru", a: "fr", b: "ru", lessons: 3, color: "#3a4a8a",
+      title: "Napoleon, Minsk and the bomb",
+      blurb: "Old allies against Germany; France talked to Putin for years, then became Europe's loudest voice against Russia." });
 })();
