@@ -108,7 +108,7 @@ window.POLITICS.addUnit("ar", {
         { type: "image", kind: "illustration", src: "img/ar/ar-9-hero.webp",
           alt: "Illustration of a whitewashed colonial town hall with arches and a small tower facing a square, with a crowd in early-19th-century clothing and umbrellas seen from behind.",
           caption: "Crowds gathered outside Buenos Aires's town hall, the Cabildo, in May 1810.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A whitewashed Spanish colonial town hall with a long row of arches and a small bell tower facing a plaza, a crowd in early-19th-century clothing holding umbrellas in light rain seen from behind, grey May autumn sky, historical and expectant mood, no faces, no flags, no legible text." },
         { type: "timeline", head: "From viceroyalty to republic", items: [
           ["1776", "Viceroyalty of the Río de la Plata created"],
@@ -160,7 +160,7 @@ window.POLITICS.addUnit("ar", {
         { type: "image", kind: "illustration", src: "img/ar/ar-3-hero.webp",
           alt: "Illustration of a grand pink presidential palace facing a wide plaza with palm trees and a white obelisk-like pyramid monument, in late afternoon light.",
           caption: "The Casa Rosada on the Plaza de Mayo, where mothers of the disappeared marched every week under the dictatorship.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand pink neoclassical palace facing a wide plaza with tall palm trees and a small white stone pyramid monument, late afternoon golden light, pigeons, white headscarf shapes painted in a circle on the paving stones, historic and poignant, no people, no flags, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1946", "Juan Perón elected president"],
@@ -208,7 +208,7 @@ window.POLITICS.addUnit("ar", {
         { type: "image", kind: "illustration", src: "img/ar/ar-10-hero.webp",
           alt: "Illustration of a huge crowd of workers in 1940s clothing seen from behind filling the Plaza de Mayo, facing the pink presidential palace at night.",
           caption: "On 17 October 1945 workers filled the Plaza de Mayo to demand Perón's release.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge crowd of workers in 1940s shirtsleeves and caps seen from behind filling a grand city square at night, facing a pink neoclassical presidential palace with a lit balcony, some people with feet in a fountain, warm lamplight, euphoric historical mood, no faces, no flags, no legible text." },
         { type: "timeline", head: "Peronism's first era", items: [
           ["1943", "Military coup; Perón becomes labour secretary"],
@@ -260,7 +260,7 @@ window.POLITICS.addUnit("ar", {
         { type: "image", kind: "illustration", src: "img/ar/ar-11-hero.webp",
           alt: "Illustration of older women in white headscarves seen from behind walking in a circle around a monument in a large square.",
           caption: "The Mothers of the Plaza de Mayo have marched on Thursdays since 1977.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A group of older women wearing white headscarves seen from behind walking slowly in a circle around a white obelisk-like monument in a large city square with palm trees, soft afternoon light, quiet dignity and grief, no faces, no legible text, no flags." },
         { type: "timeline", head: "Dictatorship and after", items: [
           ["24 Mar 1976", "Military coup against Isabel Perón"],
@@ -312,7 +312,7 @@ window.POLITICS.addUnit("ar", {
         { type: "image", kind: "illustration", src: "img/ar/ar-4-hero.webp",
           alt: "Illustration of a red chainsaw resting on a wooden desk covered with stacks of papers and a desk lamp, in a dim office.",
           caption: "Milei campaigned with a chainsaw, a symbol of cutting the state.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A bright red chainsaw resting on a large old wooden government desk piled with stacks of paper files and folders, a green banker's lamp casting warm light, a dim high-ceilinged office, dramatic and slightly satirical, no people, no legible text or logos." },
         { type: "people", head: "Five to know", items: [
           { name: "Javier Milei", role: "President, since December 2023",
@@ -364,7 +364,7 @@ window.POLITICS.addUnit("ar", {
         { type: "image", kind: "illustration", src: "img/ar/ar-5-hero.webp",
           alt: "Illustration of a neighbourhood grocery shop counter with handwritten price tags crossed out and rewritten, and a small calculator beside the till.",
           caption: "For decades, Argentine shopkeepers changed prices so often they wrote them in pencil.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small neighbourhood grocery shop counter with shelves of pasta, yerba mate and tins, handwritten price tags on cards crossed out and rewritten several times, an old calculator beside the till, warm afternoon light, everyday and nostalgic, no people, no legible numbers or text." },
         { type: "section", head: "What happened", md:
           "When Milei took office in December 2023, monthly inflation was running at about 25% and the central bank had negative reserves. He devalued the peso by more than half, froze public works, cut transfers to provinces, let pensions and public wages fall behind prices, eliminated or merged ministries, and laid off tens of thousands of public employees. In 2024 Argentina ran its first budget surplus in over a decade.\n\n" +
@@ -415,7 +415,7 @@ window.POLITICS.addUnit("ar", {
         { type: "image", kind: "illustration", src: "img/ar/ar-6-hero.webp",
           alt: "Illustration of a currency exchange board in a city street at night with blank glowing panels, and a man in a coat walking past.",
           caption: "Argentines watch the dollar's price obsessively.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A city street at night with a glowing electronic currency exchange board mounted on an old stone building, the panels blank with no numbers, a figure in a coat walking past seen from behind, wet pavement reflecting the light, tense and cinematic, no legible text." },
         { type: "section", head: "What happened", md:
           "On 7 September 2025 Milei's party was crushed in the Buenos Aires provincial election, winning about 34% to the Peronists' 47%. Investors panicked, the peso plunged and the central bank burned reserves defending it. With national midterms seven weeks away, it looked as if the Milei experiment might collapse.\n\n" +
@@ -466,7 +466,7 @@ window.POLITICS.addUnit("ar", {
         { type: "image", kind: "illustration", src: "img/ar/ar-7-hero.webp",
           alt: "Illustration of a large union march on a wide avenue with drums, banners without text and a tall white obelisk in the distance.",
           caption: "Argentina's unions called general strikes against the reform.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large trade union march on a very wide city avenue, marchers seen from behind carrying big plain blue-and-white banners with no text and bass drums, a tall white obelisk in the distance, smoke from flares, energetic and defiant, no faces, no legible text." },
         { type: "section", head: "What happened", md:
           "After the midterm win, Milei pushed a labour reform that previous governments had tried and failed to pass. The Chamber of Deputies approved it by 135 votes to 115 on 20 February 2026, and the Senate by 42 to 28 on 27 February, amid protests and a general strike called by the CGT, the main union federation.\n\n" +
@@ -515,7 +515,7 @@ window.POLITICS.addUnit("ar", {
         { type: "image", kind: "illustration", src: "img/ar/ar-12-hero.webp",
           alt: "Illustration of a memorial wall on a Buenos Aires street with rows of small plaques and flowers, and people seen from behind standing in silence.",
           caption: "Every 18 July people gather in Pasteur Street to remember the victims.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A memorial wall on a narrow Buenos Aires street lined with rows of small blank plaques and fresh flowers, a few people seen from behind standing in silence, winter morning light, grey stone and trees, mournful and dignified, no faces, no legible text." },
         { type: "facts", head: "The attacks", rows: [
           ["Israeli embassy bombing", "17 March 1992; 29 killed"],
@@ -564,7 +564,7 @@ window.POLITICS.addUnit("ar", {
         { type: "image", kind: "illustration", src: "img/ar/ar-8-hero.webp",
           alt: "Illustration of an oil drilling rig in a desert of red rock and scrub in Patagonia, with snow-capped Andes on the horizon.",
           caption: "Vaca Muerta, in Patagonia, holds one of the world's largest shale oil and gas reserves.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A tall oil drilling rig standing in a dry Patagonian desert of red rock and grey scrub, snow-capped Andes mountains on the far horizon, clear cold blue sky, long shadows, vast and remote, no people, no legible text or logos." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Milei, halfway through his term, with over a third of Congress.\n" +

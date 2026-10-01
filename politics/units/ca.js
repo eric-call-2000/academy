@@ -108,7 +108,7 @@ window.POLITICS.addUnit("ca", {
         { type: "image", kind: "illustration", src: "img/ca/ca-9-hero.webp",
           alt: "Illustration of a Victorian meeting room with a long table covered in papers, tall windows looking onto a harbour, and men in 1860s frock coats seen from behind.",
           caption: "Delegates met at Charlottetown and Quebec City in 1864 to design the union.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A Victorian meeting room with a long wooden table covered in papers and inkwells, tall windows looking out onto a harbour with sailing ships, men in 1860s frock coats seen from behind standing in discussion, warm lamplight mixed with daylight, historical and deliberate mood, no faces, no flags, no legible text." },
         { type: "timeline", head: "Building a country", items: [
           ["1763", "Britain takes New France"],
@@ -160,7 +160,7 @@ window.POLITICS.addUnit("ca", {
         { type: "image", kind: "illustration", src: "img/ca/ca-3-hero.webp",
           alt: "Illustration of a transcontinental railway line running through snowy mountains beside a turquoise lake, with a steam train in the distance.",
           caption: "The railway to the Pacific, finished in 1885, helped hold the new country together.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A 19th-century steam train crossing a wooden trestle bridge through snowy Rocky Mountain peaks beside a turquoise glacial lake, pine forests, dramatic clouds, painterly and historic, no people close up, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1867", "Confederation of four British colonies"],
@@ -208,7 +208,7 @@ window.POLITICS.addUnit("ca", {
         { type: "image", kind: "illustration", src: "img/ca/ca-10-hero.webp",
           alt: "Illustration of rows of small orange t-shirts hanging on a fence in front of a field with autumn trees.",
           caption: "Orange shirts mark 30 September, the National Day for Truth and Reconciliation.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rows of small plain orange children's t-shirts hanging on a simple wooden fence in front of a quiet prairie field with autumn birch trees, soft overcast light, solemn and respectful mood, no people, no legible text or logos." },
         { type: "facts", head: "The system", rows: [
           ["Years", "1880s to 1996 (last federally funded school closed)"],
@@ -258,7 +258,7 @@ window.POLITICS.addUnit("ca", {
         { type: "image", kind: "illustration", src: "img/ca/ca-11-hero.webp",
           alt: "Illustration of a huge crowd seen from behind filling a square in Montreal in autumn, with old stone buildings and church towers behind.",
           caption: "Huge rallies on both sides marked the last days of the 1995 referendum campaign.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge crowd in 1990s autumn jackets seen from behind filling a public square in Montreal, old grey stone buildings and church spires behind, blue and white balloons and plain banners without text, cool October light, tense and emotional, no faces, no legible text, no flags." },
         { type: "timeline", head: "The sovereignty question", items: [
           ["1960s", "The Quiet Revolution"],
@@ -311,7 +311,7 @@ window.POLITICS.addUnit("ca", {
         { type: "image", kind: "illustration", src: "img/ca/ca-4-hero.webp",
           alt: "Illustration of a Gothic Revival parliament building with a tall clock tower on a hill above a river, in autumn.",
           caption: "Parliament Hill in Ottawa, above the Ottawa River.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A Gothic Revival parliament building with a tall central clock tower and copper-green roofs on a cliff above a wide river, autumn maple trees in red and orange, clear crisp blue sky, stately and calm, no flags or legible text, no people close up." },
         { type: "people", head: "Five to know", items: [
           { name: "Mark Carney", role: "Prime minister, since March 2025",
@@ -364,7 +364,7 @@ window.POLITICS.addUnit("ca", {
         { type: "image", kind: "illustration", src: "img/ca/ca-5-hero.webp",
           alt: "Illustration of an ice hockey rink seen from above with players in red and blue jerseys jostling along the boards, their elbows raised.",
           caption: "'Elbows up', a hockey phrase for standing your ground, became the slogan of Canadian defiance in 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An indoor ice hockey rink seen from a high angle, players in plain red and plain white jerseys with no logos battling along the boards with elbows raised, spray of ice, bright arena lights, energetic and defiant, no faces visible, no legible text." },
         { type: "section", head: "What happened", md:
           "At the start of 2025 the Conservatives led the Liberals by more than 20 points, and Pierre Poilievre looked certain to become prime minister. Then Donald Trump, newly back in office, threatened sweeping [[tariff|tariffs]] and repeatedly said Canada should become America's '51st state', calling Justin Trudeau 'governor'.\n\n" +
@@ -414,7 +414,7 @@ window.POLITICS.addUnit("ca", {
         { type: "image", kind: "illustration", src: "img/ca/ca-6-hero.webp",
           alt: "Illustration of a long line of lorries queued at a border crossing on a suspension bridge over a river at dusk.",
           caption: "Hundreds of billions of dollars of goods cross the Canada–US border every year.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long line of freight trucks queued on a large suspension bridge over a wide river at dusk, customs booths at the far end, city lights on both banks, a sense of waiting and tension, no flags, no legible text or logos." },
         { type: "section", head: "What happened", md:
           "Trump first put 25% tariffs on Canadian goods in March 2025, citing fentanyl and migrants, but exempted goods covered by the [[USMCA]], which spared most trade. He added 50% tariffs on steel and aluminium and 25% on cars. Canada retaliated, then dropped most counter-tariffs in 2025 to restart talks. In October 2025 Trump broke off negotiations over an Ontario government advert quoting Ronald Reagan against tariffs.\n\n" +
@@ -464,7 +464,7 @@ window.POLITICS.addUnit("ca", {
         { type: "image", kind: "illustration", src: "img/ca/ca-7-hero.webp",
           alt: "Illustration of a vast prairie wheat field under a huge sky, with oil pumpjacks and grain elevators on the horizon and the Rocky Mountains far beyond.",
           caption: "Oil, farming and a sense of distance from Ottawa shape Alberta's politics.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast golden prairie wheat field under an enormous sky with towering clouds, oil pumpjacks and a red wooden grain elevator on the horizon, the Rocky Mountains faint in the far distance, evening light, open and lonely, no people, no legible text." },
         { type: "section", head: "What happened", md:
           "Alberta, the heart of Canada's oil industry, has long resented Ottawa over climate rules, pipelines and the way federal money is shared. After the Liberals won again in 2025, a separatist group gathered enough signatures under Alberta's new citizen-initiative law to force a vote. Premier Danielle Smith's government placed it on a ballot of ten questions on 19 October 2026.\n\n" +
@@ -509,7 +509,7 @@ window.POLITICS.addUnit("ca", {
         { type: "image", kind: "illustration", src: "img/ca/ca-12-hero.webp",
           alt: "Illustration of a small Arctic town of colourful houses on a rocky shore beside sea ice, with a grey ship offshore under a low sun.",
           caption: "Iqaluit, capital of Nunavut, where Carney announced new Arctic defences in March 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small Arctic town of brightly coloured houses on a rocky treeless shore beside broken sea ice, a grey coast guard ship offshore, low golden sun on the horizon, vast pale sky, cold and beautiful, no people up close, no flags, no legible text." },
         { type: "facts", head: "The Canadian North", rows: [
           ["Share of Canada's land", "About 40% (the three territories)"],
@@ -558,7 +558,7 @@ window.POLITICS.addUnit("ca", {
         { type: "image", kind: "illustration", src: "img/ca/ca-8-hero.webp",
           alt: "Illustration of a container port on the Pacific coast with cranes loading ships beneath forested mountains.",
           caption: "Canada is trying to sell more to Europe and Asia and less to the United States.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large container port on a rainy Pacific coast, tall gantry cranes loading cargo ships, dark forested mountains rising behind in mist, grey-blue light, industrial and ambitious, no flags, no legible text or logos." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Liberals hold 174 of 343 seats; next election due by October 2029.\n" +

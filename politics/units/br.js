@@ -107,7 +107,7 @@ window.POLITICS.addUnit("br", {
         { type: "image", kind: "illustration", src: "img/br/br-9-hero.webp",
           alt: "Illustration of horsemen in early-19th-century uniforms on a grassy riverbank near São Paulo, seen from behind, with one rider raising a hat.",
           caption: "Prince Pedro declared independence beside the Ipiranga stream on 7 September 1822.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A group of horsemen in early-19th-century military uniforms on a grassy riverbank beside a small stream near São Paulo, seen from behind, the leading rider raising his hat in the air, tropical trees and rolling hills, bright afternoon light, heroic historical painting style, no faces, no flags, no legible text." },
         { type: "timeline", head: "Colony to republic", items: [
           ["1500", "Portuguese fleet reaches Brazil"],
@@ -158,7 +158,7 @@ window.POLITICS.addUnit("br", {
         { type: "image", kind: "illustration", src: "img/br/br-3-hero.webp",
           alt: "Illustration of a modernist capital city with a pair of tall twin towers, two dome-shaped buildings, one upturned and one inverted, and a long reflecting pool under a vast sky.",
           caption: "Brasília, the planned capital inaugurated in 1960.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modernist government complex on a flat plain, twin tall slender office towers between a shallow upturned white bowl and an inverted white dome, a long reflecting pool, enormous blue sky with scattered clouds, clean lines, no people, no flags, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1822", "Independence from Portugal as an empire"],
@@ -205,7 +205,7 @@ window.POLITICS.addUnit("br", {
         { type: "image", kind: "illustration", src: "img/br/br-10-hero.webp",
           alt: "Illustration of the old colonial centre of Salvador, Bahia, with pastel houses and cobbled streets climbing a hill, and a church at the top.",
           caption: "Salvador, Bahia, was a centre of the slave trade and is now the heart of Afro-Brazilian culture.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The historic colonial centre of Salvador, Bahia, with pastel-coloured baroque houses and steep cobbled streets climbing a hill toward a church, a few people seen from behind walking, warm tropical afternoon light, dignified and reflective mood, no faces, no legible text." },
         { type: "facts", head: "By the numbers", rows: [
           ["Enslaved Africans brought to Brazil", "About 4 to 5 million, around 40% of all brought to the Americas"],
@@ -254,7 +254,7 @@ window.POLITICS.addUnit("br", {
         { type: "image", kind: "illustration", src: "img/br/br-11-hero.webp",
           alt: "Illustration of a huge crowd seen from behind filling a wide avenue in São Paulo in 1984, holding plain yellow banners.",
           caption: "Millions rallied for direct presidential elections, the 'Diretas Já' campaign, in 1984.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge crowd in 1980s clothing seen from behind filling a wide city avenue in São Paulo lined with modernist buildings, many holding plain yellow banners and balloons without text, evening light, hopeful and massive, no faces, no legible text, no flags." },
         { type: "timeline", head: "The military years", items: [
           ["31 Mar–1 Apr 1964", "Coup against President João Goulart"],
@@ -306,7 +306,7 @@ window.POLITICS.addUnit("br", {
         { type: "image", kind: "illustration", src: "img/br/br-4-hero.webp",
           alt: "Illustration of a crowded political rally at night on a wide avenue, a sea of people seen from behind waving blank flags in red and in green and yellow.",
           caption: "Brazil's politics has split into two camps: red for Lula's Workers' Party, green and yellow for Bolsonaro's supporters.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge political rally at night on a wide city avenue seen from behind the crowd, half the crowd waving plain red flags and half plain green-and-yellow flags with no symbols, stage lights and smoke in the distance, energetic and divided, no faces, no legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Luiz Inácio Lula da Silva", role: "President (Workers' Party), 2003–10 and since 2023",
@@ -358,7 +358,7 @@ window.POLITICS.addUnit("br", {
         { type: "image", kind: "illustration", src: "img/br/br-5-hero.webp",
           alt: "Illustration of a modernist courtroom with a long curved bench of empty high-backed chairs beneath a large crucifix and tall windows.",
           caption: "Bolsonaro was tried by a five-judge panel of the Supreme Federal Court.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modernist courtroom with a long curved wooden judges' bench and five empty high-backed black leather chairs, a simple wooden crucifix on a pale wall above, tall narrow windows with afternoon light, polished floor, solemn and still, no people, no flags, no legible text." },
         { type: "section", head: "What happened", md:
           "Federal police concluded in 2024 that Bolsonaro and his inner circle had plotted to stay in power after losing the 2022 election. According to prosecutors, the plan included a draft decree to annul the result, pressure on military commanders to back it, and a scheme called 'Green and Yellow Dagger' to assassinate Lula, his vice-president and Justice Moraes. The army and air force chiefs refused to go along.\n\n" +
@@ -406,7 +406,7 @@ window.POLITICS.addUnit("br", {
         { type: "image", kind: "illustration", src: "img/br/br-6-hero.webp",
           alt: "Illustration of a coffee plantation on rolling green hills with rows of coffee bushes and sacks of beans stacked beside a farm road.",
           caption: "Coffee and beef were among the Brazilian exports hit, then spared, by US tariffs.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rolling green hills covered in neat rows of coffee bushes, burlap sacks of coffee beans stacked beside a red dirt farm road, a small farmhouse in the distance, warm late-afternoon light, peaceful and agricultural, no people close up, no legible text or logos." },
         { type: "section", head: "What happened", md:
           "In July 2025 Donald Trump announced a 50% [[tariff]] on Brazilian goods, one of the highest on any country, explicitly citing the 'witch hunt' against Bolsonaro and Brazilian court orders against US social media platforms. Many products, including aircraft and orange juice, were exempted. Washington also imposed Magnitsky [[sanctions]] on Justice Alexandre de Moraes and revoked visas for other judges.\n\n" +
@@ -458,7 +458,7 @@ window.POLITICS.addUnit("br", {
         { type: "image", kind: "illustration", src: "img/br/br-7-hero.webp",
           alt: "Illustration of an electronic voting machine on a small table behind a cardboard privacy screen, with a numeric keypad and a small screen.",
           caption: "Brazilians vote on electronic machines by typing their candidate's number.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A simple electronic voting machine with a large numeric keypad and a small blank screen on a school table behind a grey cardboard privacy screen, a classroom polling station, soft daylight, civic and ordinary, no people, no legible text or logos." },
         { type: "section", head: "What's happening", md:
           "More than 150 million Brazilians are due to vote on 4 October for president, governors, the whole Chamber of Deputies, two-thirds of the Senate and state assemblies. If no presidential candidate wins over half the valid votes, the top two meet in a runoff on 25 October.\n\n" +
@@ -507,7 +507,7 @@ window.POLITICS.addUnit("br", {
         { type: "image", kind: "illustration", src: "img/br/br-12-hero.webp",
           alt: "Illustration of a Rio de Janeiro favela of brick houses stacked up a steep green hillside at dusk, with lights coming on and the city below.",
           caption: "About a fifth of Rio's population lives in favelas, many controlled by gangs or militias.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A Rio de Janeiro favela of unpainted brick and colourful houses stacked densely up a steep green hillside at dusk, small lights coming on, the city and the sea below, purple sky, atmospheric and complex mood, no people visible up close, no legible text." },
         { type: "facts", head: "Violence in numbers", rows: [
           ["Killings by police, 2024", "6,243, more than 17 a day"],
@@ -556,7 +556,7 @@ window.POLITICS.addUnit("br", {
         { type: "image", kind: "illustration", src: "img/br/br-8-hero.webp",
           alt: "Illustration of the edge of the Amazon rainforest seen from the air, dense green forest on one side and cleared cattle pasture on the other, with a winding river.",
           caption: "The Amazon: deforestation fell sharply under Lula, but the frontier is still under pressure.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An aerial view of the edge of a dense tropical rainforest, lush green canopy on one side and cleared brown and pale-green cattle pasture on the other, a brown river winding between them, scattered white clouds casting shadows, striking contrast, no people, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Election:** first round 4 October, runoff 25 October; Lula slightly ahead.\n" +
