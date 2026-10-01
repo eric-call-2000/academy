@@ -214,4 +214,7 @@
   L({ id: "us_ar", a: "us", b: "ar", lessons: 3, color: "#4a7aaa",
       title: "Perón, debts and a bailout",
       blurb: "From 'Braden or Perón' and the Falklands to vulture funds, record IMF loans and Trump's $20 billion rescue of Milei." });
+  L({ id: "za_cn", a: "za", b: "cn", lessons: 3, color: "#8a5a2a",
+      title: "Taiwan, BRICS and cheap steel",
+      blurb: "Mandela switched from Taipei to Beijing; BRICS and party schools followed, then Chinese steel, cars and a trade deal." });
 })();
