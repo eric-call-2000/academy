@@ -199,4 +199,7 @@
   L({ id: "sa_cn", a: "sa", b: "cn", lessons: 3, color: "#3a6a3a",
       title: "Missiles, oil and a broken peace",
       blurb: "Secret Chinese missiles in 1988, oil and a Beijing-brokered peace with Iran in 2023, then a war that showed China's limits." });
+  L({ id: "ir_cn", a: "ir", b: "cn", lessons: 3, color: "#6a3a5a",
+      title: "Silkworms, oil and limits",
+      blurb: "China armed Iran in the 1980s and buys almost all its oil, but in the 2026 war it condemned, and did not fight." });
 })();
