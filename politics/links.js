@@ -205,4 +205,7 @@
   L({ id: "fr_ru", a: "fr", b: "ru", lessons: 3, color: "#3a4a8a",
       title: "Napoleon, Minsk and the bomb",
       blurb: "Old allies against Germany; France talked to Putin for years, then became Europe's loudest voice against Russia." });
+  L({ id: "us_br", a: "us", b: "br", lessons: 3, color: "#2a6a4a",
+      title: "A coup, spies and a vote",
+      blurb: "Wartime allies; the US backed the 1964 coup; spying, Bolsonaro's Trump-style politics and a quarrel over the 2026 vote." });
 })();
