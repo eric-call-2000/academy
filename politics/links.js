@@ -250,4 +250,7 @@
   L({ id: "mx_br", a: "mx", b: "br", lessons: 3, color: "#3a7a3a",
       title: "Two giants, two paths",
       blurb: "Latin America's giants chose NAFTA and Mercosur, compete for leadership, and split between Trump's Washington and China." });
+  L({ id: "il_ru", a: "il", b: "ru", lessons: 3, color: "#4a5a8a",
+      title: "Refuseniks, Putin and Iran",
+      blurb: "The USSR recognised Israel, then armed its enemies; a million immigrants and a Netanyahu–Putin hotline; now Russia sides with Iran." });
 })();
