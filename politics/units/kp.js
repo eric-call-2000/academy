@@ -110,7 +110,7 @@ window.POLITICS.addUnit("kp", {
         { type: "image", kind: "illustration", src: "img/kp/kp-9-hero.webp",
           alt: "Illustration of a crowd in 1940s clothing seen from behind in a square in a northern Korean city, facing a wooden stage decorated with plain red banners.",
           caption: "The Democratic People's Republic of Korea was proclaimed in Pyongyang on 9 September 1948.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A 1940s city square in northern Korea, a crowd in period clothing seen from behind facing a simple wooden stage hung with plain red banners, low mountains in the distance, overcast autumn light, historical and solemn, no faces, no legible text, no flags." },
         { type: "timeline", head: "From liberation to war", items: [
           ["Aug 1945", "Soviet troops enter northern Korea; Japan surrenders"],
@@ -163,7 +163,7 @@ window.POLITICS.addUnit("kp", {
         { type: "image", kind: "illustration", src: "img/kp/kp-3-hero.webp",
           alt: "Illustration of a vast stadium seen from high above at night, filled with thousands of performers holding coloured cards to form a giant abstract mosaic.",
           caption: "Mass games, with tens of thousands of performers, are a signature of North Korean state spectacle.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast oval stadium seen from high above at night, tens of thousands of tiny performers on the field and stands holding coloured cards to form a giant abstract geometric mosaic, torches around the rim, dramatic floodlights, overwhelming scale, no legible text, no faces." },
         { type: "timeline", head: "The short version", items: [
           ["1948", "Kim Il Sung founds the Democratic People's Republic of Korea"],
@@ -209,7 +209,7 @@ window.POLITICS.addUnit("kp", {
         { type: "image", kind: "illustration", src: "img/kp/kp-10-hero.webp",
           alt: "Illustration of a snowy mountain road in Korea in winter, with a long line of refugees in 1950s clothing carrying bundles, seen from behind.",
           caption: "Millions of Koreans were displaced as the front moved up and down the peninsula.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A snowy mountain road in Korea in winter, a long line of refugees in early-1950s clothing seen from behind carrying bundles and children on their backs, grey sky, bare trees, muted cold colours, historical and sorrowful, no faces, no weapons, no legible text." },
         { type: "timeline", head: "The war in brief", items: [
           ["25 Jun 1950", "North Korea invades; Seoul falls in three days"],
@@ -260,7 +260,7 @@ window.POLITICS.addUnit("kp", {
         { type: "image", kind: "illustration", src: "img/kp/kp-11-hero.webp",
           alt: "Illustration of an informal market on a dirt street in a North Korean town, with women seen from behind selling vegetables from cloths on the ground.",
           caption: "As the state stopped handing out food, markets run mostly by women kept people alive.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An informal street market on a dusty dirt road in a small North Korean town in the 1990s, women in plain padded jackets seen from behind selling a few vegetables and corn laid on cloths on the ground, bare hills and grey concrete buildings, pale winter light, muted colours, no faces, no legible text." },
         { type: "facts", head: "The famine in numbers", rows: [
           ["When", "Roughly 1994–1998"],
@@ -309,7 +309,7 @@ window.POLITICS.addUnit("kp", {
         { type: "image", kind: "illustration", src: "img/kp/kp-4-hero.webp",
           alt: "Illustration of an empty grand boulevard in Pyongyang at dawn with monumental buildings and a tall tower with a flame-shaped top.",
           caption: "Pyongyang, the showcase capital where the elite live.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty grand boulevard in a monumental socialist capital at dawn, pastel apartment towers, a tall stone tower topped with a red flame sculpture beside a river, almost no cars, pale mist, eerie order and silence, no people close up, no legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Kim Jong Un", role: "General Secretary and President of State Affairs, since 2011",
@@ -363,7 +363,7 @@ window.POLITICS.addUnit("kp", {
         { type: "image", kind: "illustration", src: "img/kp/kp-5-hero.webp",
           alt: "Illustration of a long freight train crossing a steel bridge over a frozen river in snow, with its wagons covered in tarpaulins.",
           caption: "Trains across the short Russia–North Korea border carry arms one way and supplies the other.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long freight train of covered wagons crossing a steel girder bridge over a frozen river in heavy snow, bare hills on both banks, grey winter light, secretive and cold, no flags or legible text." },
         { type: "section", head: "What happened", md:
           "In June 2024 Kim Jong Un and Vladimir Putin signed a treaty pledging mutual military aid. From October 2024 North Korean soldiers were deployed to Russia's Kursk region, where Ukraine had launched an incursion. South Korean and Western estimates put the total sent at 14,000 to 15,000 troops, of whom about 6,000 were killed or wounded. After months of silence, Pyongyang acknowledged the deployment in April 2025, and in 2026 Kim publicly honoured the soldiers of its 'overseas military operations'.\n\n" +
@@ -415,7 +415,7 @@ window.POLITICS.addUnit("kp", {
         { type: "image", kind: "illustration", src: "img/kp/kp-6-hero.webp",
           alt: "Illustration of a vast square in Beijing during a military parade, with ranks of soldiers, rows of missiles on trucks and a large reviewing stand in the distance.",
           caption: "China's September 2025 parade marked 80 years since the end of the Second World War.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast city square during a military parade seen from high above, ranks of soldiers marching in perfect formation, rows of missiles on trucks, a long red reviewing stand far away, aircraft in formation overhead, grandiose and ordered, no faces, no legible text or flags." },
         { type: "section", head: "What happened", md:
           "On 3 September 2025, [[unit:cn|China]] held a huge military parade in Beijing to mark 80 years since Japan's defeat. On the reviewing stand, Xi Jinping stood between Vladimir Putin and Kim Jong Un. It was Kim's first appearance at a major multilateral event and the first time the leaders of the three countries had appeared together. He travelled by armoured train, and brought his daughter.\n\n" +
@@ -462,7 +462,7 @@ window.POLITICS.addUnit("kp", {
         { type: "image", kind: "illustration", src: "img/kp/kp-7-hero.webp",
           alt: "Illustration of a huge congress hall with thousands of delegates in identical rows facing a stage with a massive red backdrop.",
           caption: "Party Congresses are held in Pyongyang's vast April 25 House of Culture.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge congress hall with thousands of delegates in identical dark rows seen from the back, facing a distant stage with a massive red curtain backdrop and a long table, bright uniform lighting, overwhelming conformity, no legible text or faces." },
         { type: "section", head: "What happened", md:
           "The Workers' Party's 9th Congress met in Pyongyang in February 2026 and closed on 25 February. It adopted a new five-year economic plan, confirmed North Korea's status as a permanent nuclear power, and wrote the 'two hostile states' doctrine toward South Korea into the Party's line, abandoning the goal of peaceful reunification that both Koreas had formally held since 1948. It replaced 161 of the 250 members of the Central Committee." },
@@ -515,7 +515,7 @@ window.POLITICS.addUnit("kp", {
         { type: "image", kind: "illustration", src: "img/kp/kp-12-hero.webp",
           alt: "Illustration of a wide frozen river at dusk between two wooded banks, with a single figure in a padded coat seen from far behind on the far shore.",
           caption: "Most escapees cross the Tumen or Yalu rivers into China before a long journey south.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wide frozen river at dusk between two low wooded banks in northeast Asia, a single small figure in a padded coat seen from far behind on the far bank, dark blue evening light, snow, quiet and tense atmosphere, no faces, no legible text." },
         { type: "facts", head: "Arrivals in South Korea", rows: [
           ["Total since 1998", "About 34,500"],
@@ -564,7 +564,7 @@ window.POLITICS.addUnit("kp", {
         { type: "image", kind: "illustration", src: "img/kp/kp-8-hero.webp",
           alt: "Illustration of a large stone arch monument over an empty motorway, with mountains behind and no traffic.",
           caption: "Pyongyang demolished its Arch of Reunification monument in 2024, as Kim abandoned the goal of unification.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large empty multi-lane motorway leading into misty mountains, a single abandoned concrete pedestal by the road where a monument once stood, no traffic, overcast sky, desolate and symbolic, no people, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Power:** Kim Jong Un secure; his daughter increasingly visible.\n" +

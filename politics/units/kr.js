@@ -109,7 +109,7 @@ window.POLITICS.addUnit("kr", {
         { type: "image", kind: "illustration", src: "img/kr/kr-9-hero.webp",
           alt: "Illustration of a traditional Korean palace gate with curved tiled roofs in Seoul, with a crowd seen from behind gathered in front, in 1940s clothing.",
           caption: "Crowds celebrated liberation from Japan on 15 August 1945, now Korea's national day.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand traditional Korean palace gate with sweeping curved tiled roofs and painted wooden eaves, a large crowd in 1940s clothing seen from behind gathered in front, bright August sun, joyful and historic, no faces, no flags, no legible text." },
         { type: "timeline", head: "From colony to republic", items: [
           ["1910", "Japan annexes Korea"],
@@ -160,7 +160,7 @@ window.POLITICS.addUnit("kr", {
         { type: "image", kind: "illustration", src: "img/kr/kr-3-hero.webp",
           alt: "Illustration of a huge crowd of students and workers filling a wide Seoul avenue in the 1980s, with tear-gas haze and office buildings.",
           caption: "Mass protests in June 1987 forced the military government to accept direct presidential elections.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge crowd of students and workers seen from above filling a wide city avenue in the late 1980s, drifting haze, office buildings and a traditional palace gate in the distance, muted film colours, determined and historic, no legible banners, no faces in close-up." },
         { type: "timeline", head: "The short version", items: [
           ["1945–48", "Korea divided after Japanese rule; two states founded"],
@@ -208,7 +208,7 @@ window.POLITICS.addUnit("kr", {
         { type: "image", kind: "illustration", src: "img/kr/kr-10-hero.webp",
           alt: "Illustration of a vast shipyard with giant cranes and a half-built ship's hull on a coast at dawn.",
           caption: "Shipyards and steel mills built under Park turned South Korea into an industrial power.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast shipyard on a coast at dawn, giant red and white gantry cranes towering over a half-built ship's hull, calm sea, orange sunrise, industrial and ambitious, no people close up, no legible text or logos." },
         { type: "facts", head: "The miracle", rows: [
           ["GDP per person, 1960", "About $160, less than many African countries"],
@@ -259,7 +259,7 @@ window.POLITICS.addUnit("kr", {
         { type: "image", kind: "illustration", src: "img/kr/kr-11-hero.webp",
           alt: "Illustration of a wide city street filled with young protesters seen from behind, many wearing white headbands, with office buildings and clouds of white smoke.",
           caption: "Mass protests in June 1987 forced South Korea's military government to accept direct presidential elections.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wide city street filled with young protesters in 1980s clothes seen from behind, many wearing white headbands, office buildings on both sides, drifting clouds of white smoke, determined and historic, no faces, no flags, no legible text." },
         { type: "timeline", head: "From massacre to democracy", items: [
           ["Dec 1979", "General Chun Doo-hwan seizes control of the army"],
@@ -309,7 +309,7 @@ window.POLITICS.addUnit("kr", {
         { type: "image", kind: "illustration", src: "img/kr/kr-4-hero.webp",
           alt: "Illustration of a traditional Korean palace roof with curved eaves in the foreground and modern glass towers of Seoul behind, at dusk.",
           caption: "Seoul, where old palaces sit among the towers of a city of nearly 10 million.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The curved tiled roofs and painted eaves of a traditional Korean palace in the foreground, modern glass skyscrapers of a big city rising behind, a forested mountain beyond, dusk with glowing windows, harmony of old and new, no people close up, no legible text." },
         { type: "people", head: "Six to know", items: [
           { name: "Lee Jae-myung", role: "President, since June 2025",
@@ -367,7 +367,7 @@ window.POLITICS.addUnit("kr", {
         { type: "image", kind: "illustration", src: "img/kr/kr-5-hero.webp",
           alt: "Illustration of citizens linking arms outside a parliament gate at night, with soldiers in the background and phone lights in the crowd.",
           caption: "Citizens gathered outside the National Assembly on the night of 3 December 2024.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Citizens linking arms outside the tall iron gate of a domed parliament building at night, seen from behind, soldiers in helmets as distant silhouettes, phone lights raised in the crowd, winter breath in cold air, tense but peaceful, no faces, no legible text." },
         { type: "section", head: "What happened", md:
           "At about 10:30 pm on 3 December 2024, President Yoon Suk Yeol went on television to declare emergency [[martial law]], accusing the opposition-controlled parliament of 'anti-state' activities and sympathy for North Korea. A decree banned political activity and put the media under military control, and special forces were sent to the National Assembly.\n\n" +
@@ -418,7 +418,7 @@ window.POLITICS.addUnit("kr", {
         { type: "image", kind: "illustration", src: "img/kr/kr-6-hero.webp",
           alt: "Illustration of a vast shipyard at dusk with a half-built ship hull, towering gantry cranes and welding sparks.",
           caption: "Shipbuilding was at the heart of South Korea's investment pledge to the United States.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast shipyard at dusk, a huge half-built steel ship hull in a dry dock, towering yellow gantry cranes, bright welding sparks, workers as tiny silhouettes, industrial scale and ambition, no legible text or logos." },
         { type: "section", head: "What happened", md:
           "In July 2025 Trump threatened South Korea with a 25% [[tariff]]. Seoul agreed to a 15% rate on most goods, including cars, in exchange for a pledge of $350 billion of investment in the United States: $200 billion in cash contributions, capped at $20 billion a year to protect the won, and $150 billion for cooperation on shipbuilding.\n\n" +
@@ -470,7 +470,7 @@ window.POLITICS.addUnit("kr", {
         { type: "image", kind: "illustration", src: "img/kr/kr-7-hero.webp",
           alt: "Illustration of a busy Seoul subway station exit at evening with commuters walking past rows of blank campaign posters.",
           caption: "Turnout in June 2026 was the highest for local elections in years.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy city subway station exit at evening, commuters seen from behind walking past a long row of blank campaign posters on a fence, neon shop signs without legible text, apartment towers behind, lively and ordinary, no faces, no legible text." },
         { type: "section", head: "What happened", md:
           "On 3 June 2026, a year after Lee's election, South Koreans voted for mayors, governors and local councils. The Democratic Party won 12 of the 16 races for big-city mayors and provincial governors; the People Power Party held 4. Turnout was about 61%, around 11 points higher than in 2022.\n\n" +
@@ -523,7 +523,7 @@ window.POLITICS.addUnit("kr", {
         { type: "image", kind: "illustration", src: "img/kr/kr-12-hero.webp",
           alt: "Illustration of a cluster of gleaming corporate towers in Seoul at night, with busy streets and neon lights below.",
           caption: "The headquarters of South Korea's biggest conglomerates tower over Seoul.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A cluster of gleaming glass corporate skyscrapers in a dense Asian city at night, busy streets with light trails and colourful neon below, a river reflecting the lights, powerful and modern, no people close up, no legible text or logos." },
         { type: "facts", head: "The big groups", rows: [
           ["Largest", "Samsung, SK, Hyundai Motor, LG, Lotte"],
@@ -574,7 +574,7 @@ window.POLITICS.addUnit("kr", {
         { type: "image", kind: "illustration", src: "img/kr/kr-8-hero.webp",
           alt: "Illustration of a guard post on a hill overlooking the Demilitarised Zone, with barbed wire fences and misty mountains stretching north.",
           caption: "The Demilitarised Zone, a 4-kilometre-wide strip that has divided Korea since 1953.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A guard post on a green hill overlooking a wide valley, double barbed-wire fences running across the landscape, misty mountains stretching into the distance, autumn colours, quiet and tense, no people close up, no flags or legible text." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Lee's Democratic Party controls the National Assembly and most local governments.\n" +
