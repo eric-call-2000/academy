@@ -22,7 +22,7 @@ window.POLITICS.addUnit("in_ru", {
         { type: "image", kind: "illustration", src: "img/in_ru/in_ru-1-hero.webp",
           alt: "Illustration of a huge steel plant with blast furnaces and chimneys under a smoky orange sky.",
           caption: "The Soviet Union helped build the Bhilai steel plant in central India in the 1950s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge 1960s steel plant with tall blast furnaces, chimneys and conveyor gantries under a smoky orange evening sky, workers in the distance, a railway line with wagons of ore in front, historical documentary painting style, no flags, no legible text." },
         { type: "timeline", head: "Building a friendship", items: [
           ["1955", "Khrushchev and Bulganin tour India; Soviets agree to build the Bhilai steel plant"],
@@ -70,7 +70,7 @@ window.POLITICS.addUnit("in_ru", {
         { type: "image", kind: "illustration", src: "img/in_ru/in_ru-2-hero.webp",
           alt: "Illustration of mobile air-defence missile launchers raised on trucks in a dry plain at dawn.",
           caption: "India bought Russia's S-400 air-defence system despite American objections.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several large mobile air-defence missile launchers with tubes raised on heavy military trucks in a dry dusty plain at dawn, radar vehicle beside them, pale pink sky, documentary style, no people close up, no flags, no legible text." },
         { type: "facts", head: "Russia's share of India's arms imports (SIPRI)", rows: [
           ["2009–13", "76%"],
@@ -120,7 +120,7 @@ window.POLITICS.addUnit("in_ru", {
         { type: "image", kind: "illustration", src: "img/in_ru/in_ru-3-hero.webp",
           alt: "Illustration of an oil refinery on a coast at night with a tanker moored at a jetty.",
           caption: "Indian refineries bought discounted Russian crude after Western countries shunned it.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large oil refinery on a flat tropical coast at night, lit towers and pipes glowing, flare stacks burning, a crude oil tanker moored at a long jetty, warm humid haze, documentary style, no people, no logos, no flags, no legible text." },
         { type: "timeline", head: "Oil, tariffs and a summit", items: [
           ["2022–25", "India's Russian oil imports soar; trade reaches $68.7 billion"],

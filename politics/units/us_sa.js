@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_sa", {
         { type: "image", kind: "illustration", src: "img/us_sa/us_sa-1-hero.webp",
           alt: "Illustration of a grey 1940s navy cruiser anchored on a calm lake in the desert, with a carpet and tent on its deck.",
           caption: "Roosevelt and Ibn Saud met aboard the cruiser USS Quincy on the Great Bitter Lake in February 1945.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grey 1940s navy heavy cruiser anchored on a calm pale-blue lake surrounded by flat desert, a patterned carpet and small tent set up on its deck, a smaller destroyer nearby, bright winter sunlight, historical documentary painting style, no flags, no legible text." },
         { type: "timeline", head: "Building the bargain", items: [
           ["1933", "Standard Oil of California wins the Saudi oil concession"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("us_sa", {
         { type: "image", kind: "illustration", src: "img/us_sa/us_sa-2-hero.webp",
           alt: "Illustration of rows of military tents and armoured vehicles in a desert camp under a hazy sky.",
           caption: "The 1990–91 Gulf War brought hundreds of thousands of American troops to Saudi soil.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rows of sand-coloured military tents and armoured vehicles in a vast flat desert camp, helicopters in the distance, hazy orange sky at sunset, dust in the air, documentary style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From ally to suspect", items: [
           ["Aug 1990", "Iraq invades Kuwait; US troops sent to Saudi Arabia"],
@@ -117,7 +117,7 @@ window.POLITICS.addUnit("us_sa", {
         { type: "image", kind: "illustration", src: "img/us_sa/us_sa-3-hero.webp",
           alt: "Illustration of an ornate consulate building behind a high wall on a quiet city street at dusk.",
           caption: "Jamal Khashoggi was killed inside the Saudi consulate in Istanbul in October 2018.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An ornate pale stone consulate building behind a high wall and metal gate on a quiet city street at dusk, a few bare trees, street lamps glowing, a sombre and uneasy atmosphere, no people, no flags, no legible text." },
         { type: "timeline", head: "Pariah and back", items: [
           ["2 Oct 2018", "Jamal Khashoggi killed in the Saudi consulate in Istanbul"],

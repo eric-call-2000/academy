@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_gb", {
         { type: "image", kind: "illustration", src: "img/us_gb/us_gb-1-hero.webp",
           alt: "Illustration of a crowded college gymnasium in 1946 with a speaker at a lectern and a large audience.",
           caption: "Churchill spoke of an 'iron curtain' and a 'special relationship' at Fulton, Missouri, in March 1946.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A crowded 1940s American college gymnasium with a heavyset older speaker in a dark suit at a lectern, a large attentive audience in hats and coats, banners of bunting on the walls, warm light, sepia-toned historical painting style, no flags, no legible text." },
         { type: "timeline", head: "Forging the alliance", items: [
           ["Aug 1941", "Roosevelt and Churchill agree the Atlantic Charter"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("us_gb", {
         { type: "image", kind: "illustration", src: "img/us_gb/us_gb-2-hero.webp",
           alt: "Illustration of a huge crowd of protesters marching through a city street past grand stone buildings, holding blank banners.",
           caption: "In February 2003 up to a million people marched in London against the coming war in Iraq.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge crowd of protesters marching down a wide London street past grand grey stone government buildings, holding blank banners and placards, overcast winter sky, a sea of coats and scarves, documentary style, no legible text, no flags." },
         { type: "timeline", head: "Close allies", items: [
           ["1981–89", "Thatcher and Reagan in power together"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("us_gb", {
         { type: "image", kind: "illustration", src: "img/us_gb/us_gb-3-hero.webp",
           alt: "Illustration of a grand castle banquet hall with a long table set with candles and silver for a state dinner.",
           caption: "Trump's second state visit, in September 2025, included a banquet at Windsor Castle.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand medieval castle banqueting hall with a very long polished table set with candelabras, silver and flowers for a state dinner, gothic windows and wood panelling, warm golden candlelight, no people, no flags, no legible text." },
         { type: "timeline", head: "A turbulent two years", items: [
           ["8 May 2025", "US–UK trade deal: 10% tariff, car quota"],
