@@ -308,8 +308,25 @@ A seventh set of twelve followed:
 | 🇬🇧🇨🇳 UK & China | Opium, Hong Kong and the handover | From golden era to ice age | Spies, an embassy and steel |
 | 🇻🇪🇨🇳 Venezuela & China | Chávez's new friend | Oil for loans | Losing Venezuela |
 
-Candidates for later relationships: Saudi Arabia–China, Iran–China, France–Russia, Brazil–US,
-Argentina–China, South Africa–China, Pakistan–US, Turkey–Ukraine.
+An eighth set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇸🇦🇨🇳 Saudi Arabia & China | Missiles in the desert | Xi in Riyadh, peace in Beijing | War, Hormuz and the yuan |
+| 🇮🇷🇨🇳 Iran & China | The Shah, the ayatollahs and the Silkworm | Oil, sanctions and a 25-year pact | A friend that won't fight |
+| 🇫🇷🇷🇺 France & Russia | Napoleon, an alliance and de Gaulle | Warships, Minsk and a long table | Wagner, coffins and the bomb |
+| 🇺🇸🇧🇷 US & Brazil | Allies, then a coup | Spies and the Trump of the Tropics | Judges, platforms and a vote |
+| 🇦🇷🇨🇳 Argentina & China | Soybeans and the Kirchners' dams | Squid, lithium and a space station | Milei's U-turn |
+| 🇺🇸🇦🇷 US & Argentina | Braden, the Falklands and 'carnal relations' | Defaults, vulture funds and the IMF | Trump's rescue of Milei |
+| 🇿🇦🇨🇳 South Africa & China | Mandela's choice | BRICS, party schools and the Dalai Lama | Steel, cars and zero tariffs |
+| 🇺🇸🇵🇰 US & Pakistan | Cold War allies of convenience | Jihad, the bomb and bin Laden | Trump's favourite field marshal |
+| 🇹🇷🇺🇦 Turkey & Ukraine | Crimea and the Tatars | Drones, straits and grain | Istanbul, the talks city |
+| 🇺🇸🇫🇷 US & France | America's oldest ally | Freedom fries and a stab in the back | Greenland, Versailles and a map |
+| 🇬🇧🇮🇳 UK & India | The Raj, Amritsar and Partition | Diaspora, a diamond and a prime minister | A trade deal at last |
+| 🇰🇷🇨🇳 South Korea & China | From enemies to partners | THAAD and the boycott | Lee's reset |
+
+Candidates for later relationships: Japan–Australia, India–Saudi Arabia, Italy–US, Germany–US,
+Canada–India, Mexico–Brazil, Israel–Russia, Nigeria–US.
 
 ---
 

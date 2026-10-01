@@ -108,6 +108,18 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇺🇸🇪🇬 United States & Egypt | Aid, a coup and the canal | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇬🇧🇨🇳 United Kingdom & China | Opium, Huawei and an embassy | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇻🇪🇨🇳 Venezuela & China | Oil for loans, then a raid | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇸🇦🇨🇳 Saudi Arabia & China | Missiles, oil and a broken peace | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇮🇷🇨🇳 Iran & China | Silkworms, oil and limits | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇫🇷🇷🇺 France & Russia | Napoleon, Minsk and the bomb | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇧🇷 United States & Brazil | A coup, spies and a vote | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇦🇷🇨🇳 Argentina & China | Soy, dams and a swap | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇦🇷 United States & Argentina | Perón, debts and a bailout | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇿🇦🇨🇳 South Africa & China | Taiwan, BRICS and cheap steel | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇵🇰 United States & Pakistan | Spy planes, bin Laden, a field marshal | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇹🇷🇺🇦 Turkey & Ukraine | Crimea, drones and Istanbul | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇫🇷 United States & France | Yorktown, Iraq and Greenland | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇬🇧🇮🇳 United Kingdom & India | Raj, diaspora and a trade deal | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇰🇷🇨🇳 South Korea & China | War, THAAD and a reset | 3 of 3 | 1 Oct 2026 | illustrations pending |
 
 ## Run it
 
