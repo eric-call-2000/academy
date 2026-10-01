@@ -157,15 +157,17 @@ Object.assign(Scene.prototype, {
   },
   /* a semicircle of seats rising round a floor, seen from the back (parliament chambers) */
   hemicycle(o) {
+    // rows are U-shaped arcs round the rostrum at (x, y), opening away from the viewer
     o = o || {};
-    const cx = o.x || W / 2, cy = o.y || 560, rx0 = o.r0 || 240, rows = o.rows || 8, col = o.color || "#7a3f3a", r = this.r;
+    const cx = o.x || W / 2, cy = o.y || 480, rx0 = o.r0 || 200, rows = o.rows || 8, col = o.color || "#7a3f3a", r = this.r;
+    const tilt = o.tilt || 0.45, step = o.step || 70, bw = o.bench || step * 0.55;
     for (let i = rows - 1; i >= 0; i--) {
-      const rx = rx0 + i * (o.step || 60), ry = rx * (o.tilt || 0.32), y = cy - i * (o.rise || 14);
-      this.add(`<path d="M${n(cx - rx)},${n(y)} A${n(rx)},${n(ry)} 0 0 0 ${n(cx + rx)},${n(y)} L${n(cx + rx - 26)},${n(y + 10)} A${n(rx - 26)},${n(ry - 8)} 0 0 1 ${n(cx - rx + 26)},${n(y + 10)} Z" fill="${shade(col, -0.05 * (i % 2))}" transform="scale(1,-1) translate(0,${n(-2 * y)})"/>`);
-      if (o.people) for (let a = 0.05; a < 0.95; a += 0.03 + r() * 0.03) {
+      const rx = rx0 + i * step, ry = rx * tilt;
+      this.add(`<path d="M${n(cx - rx)},${n(cy)} A${n(rx)},${n(ry)} 0 0 0 ${n(cx + rx)},${n(cy)}" stroke="${shade(col, -0.25)}" stroke-width="${n(bw + 8)}" fill="none"/><path d="M${n(cx - rx)},${n(cy - 4)} A${n(rx)},${n(ry)} 0 0 0 ${n(cx + rx)},${n(cy - 4)}" stroke="${shade(col, 0.05 * (i % 2))}" stroke-width="${n(bw)}" fill="none"/>`);
+      if (o.people) for (let a = 0.04; a < 0.96; a += 0.025) {
         if (r() > o.people) continue;
-        const t = Math.PI * a, px = cx - Math.cos(t) * (rx - 14), py = y + Math.sin(t) * (ry - 6);
-        this.add(`<circle cx="${n(px)}" cy="${n(py - 10)}" r="${n(4 + i * 0.25)}" fill="${r.pick(o.peopleColors || [this.m.ink, shade(this.m.ink, 0.15)])}"/>`);
+        const t = Math.PI * a, px = cx - Math.cos(t) * rx, py = cy + Math.sin(t) * ry;
+        this.add(`<circle cx="${n(px)}" cy="${n(py - 8)}" r="${n(5 + i * 0.5)}" fill="${r.pick(o.peopleColors || [this.m.ink, shade(this.m.ink, 0.15)])}"/>`);
       }
     }
     return this;

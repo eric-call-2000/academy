@@ -533,7 +533,9 @@ class Scene {
       g += box(20, -90, 26, 36, ink(o.funnel || "#b04a3a"));
     } else if (type === "dhow" || type === "boat") {
       const L = type === "dhow" ? 160 : 90;
-      g += `<path d="M${n(x - f * L / 2 * s)},${n(y - 26 * s)} Q${n(x)},${n(y + 12 * s)} ${n(x + f * L / 2 * s)},${n(y - 34 * s)} L${n(x + f * L * 0.36 * s)},${n(y - 18 * s)} L${n(x - f * L * 0.42 * s)},${n(y - 14 * s)} Z" fill="${hullC}"/>`;
+      g += `<path d="M${n(x - f * L / 2 * s)},${n(y - 26 * s)} L${n(x + f * L / 2 * s)},${n(y - 36 * s)} Q${n(x + f * L * 0.32 * s)},${n(y + 4 * s)} ${n(x)},${n(y + 2 * s)} Q${n(x - f * L * 0.36 * s)},${n(y)} ${n(x - f * L / 2 * s)},${n(y - 26 * s)} Z" fill="${hullC}"/>`;
+      g += `<path d="M${n(x - f * L / 2 * s)},${n(y - 24 * s)} L${n(x + f * L / 2 * s)},${n(y - 33 * s)}" stroke="${ink(o.stripe || "#efe9dc")}" stroke-width="${n(4 * s)}"/>`;
+      if (type === "boat" && o.cabin !== false) g += box(-24, -29, 30, 22, ink(o.cabin || "#e9e5dc")) + box(-20, -44, 22, 8, ink(o.cabin ? shade(o.cabin, 0.1) : "#f4f1ea"));
       if (type === "dhow") {
         g += `<line x1="${n(x)}" y1="${n(y - 18 * s)}" x2="${n(x)}" y2="${n(y - 150 * s)}" stroke="${hullC}" stroke-width="${n(3 * s)}"/>`;
         g += `<polygon points="${pts(P([[0, -150], [70, -40], [-60, -30]]))}" fill="${ink(o.sail || "#e6dcc6")}"/>`;
