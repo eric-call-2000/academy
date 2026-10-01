@@ -160,4 +160,112 @@
   L({ id: "us_ua", a: "us", b: "ua", lessons: 3, color: "#3a5a9a",
       title: "Assurances, arms and a deal",
       blurb: "Nuclear weapons given up for promises in 1994, the largest US war aid in decades, and Trump's minerals deal and push for peace." });
+  L({ id: "mx_cn", a: "mx", b: "cn", lessons: 3, color: "#8a4a2a",
+      title: "Silver, chemicals and tariffs",
+      blurb: "Galleons, migrants and the Torreón massacre, the Chinese chemicals behind Mexican fentanyl, and tariffs imposed under US pressure." });
+  L({ id: "ir_ru", a: "ir", b: "ru", lessons: 3, color: "#4a4a6a",
+      title: "Old predator, new partner",
+      blurb: "Russia took Iran's Caucasus and occupied its north; now they share drones and a treaty that stops short of defence." });
+  L({ id: "de_tr", a: "de", b: "tr", lessons: 3, color: "#8a3a3a",
+      title: "Allies, guest workers and jets",
+      blurb: "First World War allies, three million German Turks from the guest-worker era, and a bumpy partnership over refugees, rallies and jets." });
+  L({ id: "ng_cn", a: "ng", b: "cn", lessons: 3, color: "#5a7a2a",
+      title: "Railways, loans and traders",
+      blurb: "From Biafra to strategic partners, Chinese-built railways and a deep-sea port on Chinese loans, and traders in Lagos and Guangzhou." });
+  L({ id: "id_cn", a: "id", b: "cn", lessons: 3, color: "#8a2a3a",
+      title: "Nickel, a bullet train and Natuna",
+      blurb: "A 23-year freeze after 1965, Chinese money behind Indonesia's nickel boom and its bullet train, and a dispute over the seas off Natuna." });
+  L({ id: "ae_il", a: "ae", b: "il", lessons: 3, color: "#2a6a5a",
+      title: "Accords, a red line and Iran",
+      blurb: "Secret contacts and the 2020 Abraham Accords, a warm peace strained by Gaza, and a military partnership forged against Iran." });
+  L({ id: "jp_in", a: "jp", b: "in", lessons: 3, color: "#9a5a2a",
+      title: "Goodwill, trains and the Quad",
+      blurb: "Wartime links through Bose and Justice Pal, Japanese cars, loans and a bullet train, and a partnership in the Quad." });
+  L({ id: "pl_ru", a: "pl", b: "ru", lessons: 3, color: "#8a2a4a",
+      title: "Partitions, Katyń and drones",
+      blurb: "Centuries of partitions and uprisings, Katyń and the Smolensk crash, and drones and sabotage on NATO's front line." });
+  L({ id: "us_tr", a: "us", b: "tr", lessons: 3, color: "#2a3a6a",
+      title: "Allies, missiles and F-35s",
+      blurb: "NATO allies since 1952 who fell out over the Kurds, a failed coup and Russian S-400s, now bargaining over F-35s." });
+  L({ id: "us_eg", a: "us", b: "eg", lessons: 3, color: "#8a6a2a",
+      title: "Aid, a coup and the canal",
+      blurb: "Rivals over Suez in 1956, partners after Camp David, strained by a coup and Gaza, and bound by .3 billion a year." });
+  L({ id: "gb_cn", a: "gb", b: "cn", lessons: 3, color: "#6a2a3a",
+      title: "Opium, Huawei and an embassy",
+      blurb: "Britain took Hong Kong in the Opium Wars and returned it in 1997; a golden era gave way to spies and bans." });
+  L({ id: "ve_cn", a: "ve", b: "cn", lessons: 3, color: "#7a5a1a",
+      title: "Oil for loans, then a raid",
+      blurb: "Chávez's partner lent about $60 billion against oil; Maduro's capture left Beijing owed billions by a Venezuela tilting to Washington." });
+  L({ id: "sa_cn", a: "sa", b: "cn", lessons: 3, color: "#3a6a3a",
+      title: "Missiles, oil and a broken peace",
+      blurb: "Secret Chinese missiles in 1988, oil and a Beijing-brokered peace with Iran in 2023, then a war that showed China's limits." });
+  L({ id: "ir_cn", a: "ir", b: "cn", lessons: 3, color: "#6a3a5a",
+      title: "Silkworms, oil and limits",
+      blurb: "China armed Iran in the 1980s and buys almost all its oil, but in the 2026 war it condemned, and did not fight." });
+  L({ id: "fr_ru", a: "fr", b: "ru", lessons: 3, color: "#3a4a8a",
+      title: "Napoleon, Minsk and the bomb",
+      blurb: "Old allies against Germany; France talked to Putin for years, then became Europe's loudest voice against Russia." });
+  L({ id: "us_br", a: "us", b: "br", lessons: 3, color: "#2a6a4a",
+      title: "A coup, spies and a vote",
+      blurb: "Wartime allies; the US backed the 1964 coup; spying, Bolsonaro's Trump-style politics and a quarrel over the 2026 vote." });
+  L({ id: "ar_cn", a: "ar", b: "cn", lessons: 3, color: "#7a6a2a",
+      title: "Soy, dams and a swap",
+      blurb: "China buys Argentina's soy and lent for the Kirchners' dams; Milei swore off 'communists', then kept the currency swap." });
+  L({ id: "us_ar", a: "us", b: "ar", lessons: 3, color: "#4a7aaa",
+      title: "Perón, debts and a bailout",
+      blurb: "From 'Braden or Perón' and the Falklands to vulture funds, record IMF loans and Trump's $20 billion rescue of Milei." });
+  L({ id: "za_cn", a: "za", b: "cn", lessons: 3, color: "#8a5a2a",
+      title: "Taiwan, BRICS and cheap steel",
+      blurb: "Mandela switched from Taipei to Beijing; BRICS and party schools followed, then Chinese steel, cars and a trade deal." });
+  L({ id: "us_pk", a: "us", b: "pk", lessons: 3, color: "#2a5a3a",
+      title: "Spy planes, bin Laden, a field marshal",
+      blurb: "Cold War allies of convenience, partners and suspects in the war on terror, and now Trump's favourite field marshal." });
+  L({ id: "tr_ua", a: "tr", b: "ua", lessons: 3, color: "#3a7a8a",
+      title: "Crimea, drones and Istanbul",
+      blurb: "Ottoman Crimea and the Tatars; Bayraktar drones, closed straits and the grain deal; Istanbul as the talks city." });
+  L({ id: "us_fr", a: "us", b: "fr", lessons: 3, color: "#3a4a7a",
+      title: "Yorktown, Iraq and Greenland",
+      blurb: "America's oldest ally: Yorktown and D-Day, de Gaulle and 'freedom fries', AUKUS, Greenland tariffs and a dinner at Versailles." });
+  L({ id: "gb_in", a: "gb", b: "in", lessons: 3, color: "#7a3a2a",
+      title: "Raj, diaspora and a trade deal",
+      blurb: "Empire, Amritsar and Partition; a diaspora of 1.9 million and a Koh-i-Noor dispute; a trade deal in force since July 2026." });
+  L({ id: "kr_cn", a: "kr", b: "cn", lessons: 3, color: "#5a4a8a",
+      title: "War, THAAD and a reset",
+      blurb: "Enemies in the Korean War, partners from 1992; China's THAAD boycott; Lee's reset amid Yellow Sea rigs and anti-China rallies." });
+  L({ id: "jp_au", a: "jp", b: "au", lessons: 3, color: "#2a6a8a",
+      title: "War, gas and frigates",
+      blurb: "Wartime enemies who became trading partners in 1957; gas, whales and a lost submarine deal; now Mogami frigates and a quasi-alliance." });
+  L({ id: "in_sa", a: "in", b: "sa", lessons: 3, color: "#4a7a3a",
+      title: "Oil, workers and a Pakistan pact",
+      blurb: "Saudi Arabia once backed Pakistan against India; now it sells India oil, employs 2.6 million Indians and balances between the rivals." });
+  L({ id: "us_it", a: "us", b: "it", lessons: 3, color: "#2a7a5a",
+      title: "Emigrants, bases and Meloni",
+      blurb: "Four million emigrants; 1948, US bases and the Sigonella stand-off; and Meloni as Europe's bridge to Trump." });
+  L({ id: "us_de", a: "us", b: "de", lessons: 3, color: "#4a4a4a",
+      title: "Airlift, spies and a rift",
+      blurb: "From the Berlin Airlift and reunification to Iraq, a tapped phone and Nord Stream, and Merz's 2026 rift with Trump." });
+  L({ id: "ca_in", a: "ca", b: "in", lessons: 3, color: "#8a3a2a",
+      title: "A reactor, a killing and a reset",
+      blurb: "The Komagata Maru, a Canadian reactor and the Air India bombing; the Nijjar killing; and Carney's 2026 uranium-and-trade reset." });
+  L({ id: "mx_br", a: "mx", b: "br", lessons: 3, color: "#3a7a3a",
+      title: "Two giants, two paths",
+      blurb: "Latin America's giants chose NAFTA and Mercosur, compete for leadership, and split between Trump's Washington and China." });
+  L({ id: "il_ru", a: "il", b: "ru", lessons: 3, color: "#4a5a8a",
+      title: "Refuseniks, Putin and Iran",
+      blurb: "The USSR recognised Israel, then armed its enemies; a million immigrants and a Netanyahu–Putin hotline; now Russia sides with Iran." });
+  L({ id: "us_ng", a: "us", b: "ng", lessons: 3, color: "#2a6a3a",
+      title: "Oil, Chibok and Christmas missiles",
+      blurb: "An American-style constitution and oil; Chibok and arms rows; Trump's Christian-persecution charge, strikes and a travel ban." });
+  L({ id: "ae_in", a: "ae", b: "in", lessons: 3, color: "#7a4a2a",
+      title: "Workers, a temple and gas",
+      blurb: "Indians built the Emirates; Modi and MBZ added a trade deal and a temple; now gas, defence and a war on the UAE's doorstep." });
+  L({ id: "tr_eg", a: "tr", b: "eg", lessons: 3, color: "#8a5a3a",
+      title: "Sultans, Morsi and a handshake",
+      blurb: "Ottoman Egypt and Nasser; a decade of hostility over Morsi, Libya and the sea; then a handshake, state visits and naval drills." });
+  L({ id: "us_id", a: "us", b: "id", lessons: 3, color: "#7a2a2a",
+      title: "1965, Obama and Prabowo",
+      blurb: "The CIA, the 1965 killings and East Timor; Obama's Jakarta and a democratic partner; Prabowo's tariff, nickel and Gaza bet on Trump." });
+  L({ id: "gb_ng", a: "gb", b: "ng", lessons: 3, color: "#3a6a3a",
+      title: "Lugard, Biafra and bronzes",
+      blurb: "Britain made Nigeria in 1914 and armed Lagos against Biafra; now bronzes are going home and a big diaspora links the two." });
 })();

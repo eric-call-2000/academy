@@ -291,8 +291,59 @@ A sixth set of twelve followed:
 | 🇨🇳🇰🇵 China & North Korea | Sealed in blood | Lifeline with limits | Back in Beijing's embrace |
 | 🇺🇸🇺🇦 US & Ukraine | Bombs given up, promises made | Arsenal of Ukraine | Trump's terms |
 
-Candidates for later relationships: Mexico–China, Iran–Russia, Turkey–Germany, Nigeria–China,
-Indonesia–China, UAE–Israel, Japan–India, Poland–Russia.
+A seventh set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇲🇽🇨🇳 Mexico & China | Silver, silk and a massacre | The fentanyl chain | Caught between two giants |
+| 🇮🇷🇷🇺 Iran & Russia | The bear to the north | Partners in Syria and Ukraine | A partner, not an ally |
+| 🇩🇪🇹🇷 Germany & Turkey | Kaiser, sultan and a genocide | Guests who stayed | Refugees, rallies and warplanes |
+| 🇳🇬🇨🇳 Nigeria & China | From Biafra to 'strategic partners' | Railways, a port and the loans | Traders, textiles and Guangzhou |
+| 🇮🇩🇨🇳 Indonesia & China | Bandung, 1965 and a long freeze | Nickel and a bullet train | The sea off Natuna |
+| 🇦🇪🇮🇱 UAE & Israel | From secret contacts to the Abraham Accords | Trade, Gaza and a red line | Allies against Iran |
+| 🇯🇵🇮🇳 Japan & India | Bose, Pal and old goodwill | Suzuki, the metro and the bullet train | Two seas and the Quad |
+| 🇵🇱🇷🇺 Poland & Russia | Partitions and rebellions | Katyń, Soviet rule and Smolensk | Drones, sabotage and a shield |
+| 🇺🇸🇹🇷 US & Turkey | Cold War allies | A coup, a preacher and Russian missiles | Trump, Erdoğan and the F-35 |
+| 🇺🇸🇪🇬 US & Egypt | From Nasser to Camp David | Mubarak, the revolution and a coup | Trump, Gaza and the canal |
+| 🇬🇧🇨🇳 UK & China | Opium, Hong Kong and the handover | From golden era to ice age | Spies, an embassy and steel |
+| 🇻🇪🇨🇳 Venezuela & China | Chávez's new friend | Oil for loans | Losing Venezuela |
+
+An eighth set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇸🇦🇨🇳 Saudi Arabia & China | Missiles in the desert | Xi in Riyadh, peace in Beijing | War, Hormuz and the yuan |
+| 🇮🇷🇨🇳 Iran & China | The Shah, the ayatollahs and the Silkworm | Oil, sanctions and a 25-year pact | A friend that won't fight |
+| 🇫🇷🇷🇺 France & Russia | Napoleon, an alliance and de Gaulle | Warships, Minsk and a long table | Wagner, coffins and the bomb |
+| 🇺🇸🇧🇷 US & Brazil | Allies, then a coup | Spies and the Trump of the Tropics | Judges, platforms and a vote |
+| 🇦🇷🇨🇳 Argentina & China | Soybeans and the Kirchners' dams | Squid, lithium and a space station | Milei's U-turn |
+| 🇺🇸🇦🇷 US & Argentina | Braden, the Falklands and 'carnal relations' | Defaults, vulture funds and the IMF | Trump's rescue of Milei |
+| 🇿🇦🇨🇳 South Africa & China | Mandela's choice | BRICS, party schools and the Dalai Lama | Steel, cars and zero tariffs |
+| 🇺🇸🇵🇰 US & Pakistan | Cold War allies of convenience | Jihad, the bomb and bin Laden | Trump's favourite field marshal |
+| 🇹🇷🇺🇦 Turkey & Ukraine | Crimea and the Tatars | Drones, straits and grain | Istanbul, the talks city |
+| 🇺🇸🇫🇷 US & France | America's oldest ally | Freedom fries and a stab in the back | Greenland, Versailles and a map |
+| 🇬🇧🇮🇳 UK & India | The Raj, Amritsar and Partition | Diaspora, a diamond and a prime minister | A trade deal at last |
+| 🇰🇷🇨🇳 South Korea & China | From enemies to partners | THAAD and the boycott | Lee's reset |
+
+A ninth set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇯🇵🇦🇺 Japan & Australia | From war to trade | Gas, whales and a lost submarine deal | Frigates and a quasi-alliance |
+| 🇮🇳🇸🇦 India & Saudi Arabia | Pilgrims, oil and a Pakistani shadow | A hundred billion promised | A pact with Pakistan, a war next door |
+| 🇺🇸🇮🇹 US & Italy | Four million emigrants | 1948, bases and Sigonella | The Trump whisperer |
+| 🇺🇸🇩🇪 US & Germany | The airlift and the Wall | Iraq, spies and pipelines | The end of unconditional friendship |
+| 🇨🇦🇮🇳 Canada & India | A ship, a reactor and a bomb | The Nijjar affair | Carney's reset |
+| 🇲🇽🇧🇷 Mexico & Brazil | Two giants, two paths | Cars, planes and oil | Between Trump and China |
+| 🇮🇱🇷🇺 Israel & Russia | Midwife, then enemy | Netanyahu and Putin | Hamas, Iran and a cold peace |
+| 🇺🇸🇳🇬 US & Nigeria | Oil and an American-style constitution | Chibok, arms and human rights | Christmas missiles |
+| 🇦🇪🇮🇳 UAE & India | Dhows, rupees and workers | Modi, MBZ and a temple | Gas, defence and a war |
+| 🇹🇷🇪🇬 Turkey & Egypt | Sultans, pashas and Nasser | Morsi, Rabaa and a cold war | The handshake and the drills |
+| 🇺🇸🇮🇩 US & Indonesia | Rebels, massacres and East Timor | Obama's Jakarta and a democratic partner | Prabowo's bet on Trump |
+| 🇬🇧🇳🇬 UK & Nigeria | Lugard's creation | Biafra and Abacha | Bronzes, diaspora and a state visit |
+
+Candidates for later relationships: Australia–India, Germany–Italy, Saudi Arabia–Turkey,
+Germany–Ukraine, Canada–Mexico, Japan–Taiwan, Poland–US, South Africa–US.
 
 ---
 

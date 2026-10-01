@@ -96,6 +96,42 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇺🇸🇰🇷 United States & South Korea | Troops, subs and a snub | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇨🇳🇰🇵 China & North Korea | Lips, teeth and a parade | 3 of 3 | 30 Sep 2026 | illustrations pending |
 | 🇺🇸🇺🇦 United States & Ukraine | Assurances, arms and a deal | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇲🇽🇨🇳 Mexico & China | Silver, chemicals and tariffs | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇷🇷🇺 Iran & Russia | Old predator, new partner | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇩🇪🇹🇷 Germany & Turkey | Allies, guest workers and jets | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇳🇬🇨🇳 Nigeria & China | Railways, loans and traders | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇮🇩🇨🇳 Indonesia & China | Nickel, a bullet train and Natuna | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇦🇪🇮🇱 United Arab Emirates & Israel | Accords, a red line and Iran | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇯🇵🇮🇳 Japan & India | Goodwill, trains and the Quad | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇵🇱🇷🇺 Poland & Russia | Partitions, Katyń and drones | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇹🇷 United States & Turkey | Allies, missiles and F-35s | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇺🇸🇪🇬 United States & Egypt | Aid, a coup and the canal | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇬🇧🇨🇳 United Kingdom & China | Opium, Huawei and an embassy | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇻🇪🇨🇳 Venezuela & China | Oil for loans, then a raid | 3 of 3 | 30 Sep 2026 | illustrations pending |
+| 🇸🇦🇨🇳 Saudi Arabia & China | Missiles, oil and a broken peace | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇮🇷🇨🇳 Iran & China | Silkworms, oil and limits | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇫🇷🇷🇺 France & Russia | Napoleon, Minsk and the bomb | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇧🇷 United States & Brazil | A coup, spies and a vote | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇦🇷🇨🇳 Argentina & China | Soy, dams and a swap | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇦🇷 United States & Argentina | Perón, debts and a bailout | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇿🇦🇨🇳 South Africa & China | Taiwan, BRICS and cheap steel | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇵🇰 United States & Pakistan | Spy planes, bin Laden, a field marshal | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇹🇷🇺🇦 Turkey & Ukraine | Crimea, drones and Istanbul | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇫🇷 United States & France | Yorktown, Iraq and Greenland | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇬🇧🇮🇳 United Kingdom & India | Raj, diaspora and a trade deal | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇰🇷🇨🇳 South Korea & China | War, THAAD and a reset | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇯🇵🇦🇺 Japan & Australia | War, gas and frigates | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇮🇳🇸🇦 India & Saudi Arabia | Oil, workers and a Pakistan pact | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇮🇹 United States & Italy | Emigrants, bases and Meloni | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇩🇪 United States & Germany | Airlift, spies and a rift | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇨🇦🇮🇳 Canada & India | A reactor, a killing and a reset | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇲🇽🇧🇷 Mexico & Brazil | Two giants, two paths | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇮🇱🇷🇺 Israel & Russia | Refuseniks, Putin and Iran | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇳🇬 United States & Nigeria | Oil, Chibok and Christmas missiles | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇦🇪🇮🇳 United Arab Emirates & India | Workers, a temple and gas | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇹🇷🇪🇬 Turkey & Egypt | Sultans, Morsi and a handshake | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇮🇩 United States & Indonesia | 1965, Obama and Prabowo | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇬🇧🇳🇬 United Kingdom & Nigeria | Lugard, Biafra and bronzes | 3 of 3 | 1 Oct 2026 | illustrations pending |
 
 ## Run it
 
