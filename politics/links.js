@@ -256,4 +256,7 @@
   L({ id: "us_ng", a: "us", b: "ng", lessons: 3, color: "#2a6a3a",
       title: "Oil, Chibok and Christmas missiles",
       blurb: "An American-style constitution and oil; Chibok and arms rows; Trump's Christian-persecution charge, strikes and a travel ban." });
+  L({ id: "ae_in", a: "ae", b: "in", lessons: 3, color: "#7a4a2a",
+      title: "Workers, a temple and gas",
+      blurb: "Indians built the Emirates; Modi and MBZ added a trade deal and a temple; now gas, defence and a war on the UAE's doorstep." });
 })();
