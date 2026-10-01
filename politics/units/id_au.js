@@ -21,7 +21,7 @@ window.POLITICS.addUnit("id_au", {
         { type: "image", kind: "illustration", src: "img/id_au/id_au-1-hero.webp",
           alt: "Illustration of military transport ships anchored off a tropical coastline with hills behind, and small landing craft heading to shore.",
           caption: "In September 1999 Australia led INTERFET, the international force that restored order in East Timor.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Grey military transport ships anchored off a tropical coastline with dry brown hills and palm trees, small landing craft heading toward a sandy shore, hazy morning light, calm but purposeful, no people close up, no flags, no legible text or markings." },
         { type: "timeline", head: "Ups and downs", items: [
           ["1945–49", "Australia backs Indonesia's independence at the UN"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("id_au", {
         { type: "image", kind: "illustration", src: "img/id_au/id_au-2-hero.webp",
           alt: "Illustration of a large livestock ship loaded with cattle docked at a tropical port under a hot sky.",
           caption: "Indonesia is the biggest buyer of Australia's live cattle; a sudden ban in 2011 caused a diplomatic storm.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large white livestock carrier ship with many decks docked at a tropical port, cattle visible along the rails, cranes and palm trees, hot hazy sky, busy and industrial, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Four bad years", items: [
           ["Jun 2011", "Australia suspends live cattle exports to Indonesia for a month"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("id_au", {
         { type: "image", kind: "illustration", src: "img/id_au/id_au-3-hero.webp",
           alt: "Illustration of a grand white presidential palace with columns and a manicured lawn, under a tropical sky with palm trees.",
           caption: "Albanese and Prabowo signed the Treaty on Common Security in Jakarta on 6 February 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand white colonial-era presidential palace with tall columns and a wide manicured lawn, tall palm trees, bright tropical sky with scattered clouds, formal and stately, no people, no flags, no legible text." },
         { type: "timeline", head: "A new closeness", items: [
           ["2013", "Australia begins turning asylum boats back toward Indonesia"],

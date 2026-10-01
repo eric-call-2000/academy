@@ -21,7 +21,7 @@ window.POLITICS.addUnit("cn_ru", {
         { type: "image", kind: "illustration", src: "img/cn_ru/cn_ru-1-hero.webp",
           alt: "Illustration of a small snowy island in a frozen river, with forest on both banks and a watchtower in the distance.",
           caption: "Zhenbao (Damansky) Island on the Ussuri river, where Chinese and Soviet troops clashed in March 1969.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small flat snowy island in the middle of a wide frozen river, bare birch and pine forest on both banks, a distant wooden watchtower, pale grey winter sky, cold and desolate, no people, no flags, no legible text." },
         { type: "timeline", head: "A turbulent century", items: [
           ["1950", "Mao and Stalin sign a treaty of alliance"],
@@ -70,7 +70,7 @@ window.POLITICS.addUnit("cn_ru", {
         { type: "image", kind: "illustration", src: "img/cn_ru/cn_ru-2-hero.webp",
           alt: "Illustration of a long banquet hall with a red carpet, chandeliers and two empty ornate chairs at the far end.",
           caption: "Xi Jinping and Vladimir Putin have met dozens of times; Xi calls relations 'at their highest level in history'.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long grand state banquet hall with a deep red carpet, crystal chandeliers and gilded columns, two ornate empty chairs side by side at the far end, warm golden light, ceremonial and imposing, no people, no flags, no legible text." },
         { type: "timeline", head: "Closer and closer", items: [
           ["4 Feb 2022", "'No limits' joint statement in Beijing"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("cn_ru", {
         { type: "image", kind: "illustration", src: "img/cn_ru/cn_ru-3-hero.webp",
           alt: "Illustration of a large gas pipeline running through snowy taiga forest toward distant mountains under a pale sky.",
           caption: "Power of Siberia, opened in 2019, carries Russian gas to China; a second line has stalled over price.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large elevated steel gas pipeline running straight through snowy Siberian taiga forest toward distant low mountains, pale winter sky, long shadows, vast and remote, no people, no flags, no legible text." },
         { type: "facts", head: "The trade", rows: [
           ["2024", "A record $243.6 billion, by Chinese customs figures"],
