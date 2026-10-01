@@ -927,7 +927,7 @@ class Scene {
     o = o || {};
     const r = this.r;
     let s = "";
-    for (let i = 0; i < (o.count || 220); i++) s += `<circle cx="${n(r() * W)}" cy="${n(r() * H)}" r="${n(r.range(1, 3))}" fill="#ffffff" opacity="${n(r.range(0.4, 0.85))}"/>`;
+    for (let i = 0; i < (o.count == null ? 220 : o.count); i++) s += `<circle cx="${n(r() * W)}" cy="${n(r() * H)}" r="${n(r.range(1, 3))}" fill="#ffffff" opacity="${n(r.range(0.4, 0.85))}"/>`;
     return this.add(s);
   }
   birds(x, y, count, o) {
@@ -967,3 +967,4 @@ class Scene {
 }
 
 module.exports = { Scene, W, H, mix, shade, rng, MOODS, LAND };
+require("./more");

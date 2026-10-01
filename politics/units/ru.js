@@ -110,7 +110,7 @@ window.POLITICS.addUnit("ru", {
         { type: "image", kind: "illustration", src: "img/ru/ru-9-hero.webp",
           alt: "Illustration of a red-brick fortress wall with pointed towers beside a river in winter, with golden onion domes of cathedrals rising behind it.",
           caption: "The Moscow Kremlin, fortress of the grand princes and tsars who built the Russian state.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long red-brick medieval fortress wall with tall pointed towers beside a frozen river in winter, golden onion domes of cathedrals rising behind, snow on the battlements, pale winter sun, historic and imposing, no people close up, no flags, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["c. 882", "Kyivan Rus founded around Kyiv"],
@@ -161,7 +161,7 @@ window.POLITICS.addUnit("ru", {
         { type: "image", kind: "illustration", src: "img/ru/ru-3-hero.webp",
           alt: "Illustration of a snowy Moscow square at night with a lowered red flag being folded by distant figures, seen from far away.",
           caption: "On 25 December 1991 the Soviet flag came down over the Kremlin for the last time.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A snowy square at night beneath tall dark fortress walls and onion domes, a red flag being lowered from a flagpole atop a domed building, tiny distant figures in winter coats watching, falling snow, quiet and historic." },
         { type: "timeline", head: "The short version", items: [
           ["1991", "The Soviet Union collapses into 15 countries"],
@@ -208,7 +208,7 @@ window.POLITICS.addUnit("ru", {
         { type: "image", kind: "illustration", src: "img/ru/ru-10-hero.webp",
           alt: "Illustration of rows of wooden barracks behind barbed wire in a snowy forest clearing under a grey sky, with a watchtower.",
           caption: "The Gulag: a network of labour camps through which about 18 million people passed.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rows of low wooden barracks behind a double barbed-wire fence in a snowy forest clearing, a wooden watchtower, a grey heavy sky, dark pine trees, bleak and silent, no people close up, no legible text." },
         { type: "facts", head: "The Soviet toll", rows: [
           ["Revolution", "February and October 1917"],
@@ -257,7 +257,7 @@ window.POLITICS.addUnit("ru", {
         { type: "image", kind: "illustration", src: "img/ru/ru-11-hero.webp",
           alt: "Illustration of a ruined city on a wide river in winter, with shattered factory buildings and smoke rising into a grey sky.",
           caption: "Stalingrad, where the Red Army destroyed a German army in the winter of 1942–43.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A ruined industrial city on the bank of a wide frozen river in winter, shattered factory buildings and chimneys, smoke rising into a grey sky, snow over rubble, desolate and epic, no people, no flags, no legible text." },
         { type: "timeline", head: "1939–45", items: [
           ["Aug 1939", "Nazi–Soviet pact divides eastern Europe"],
@@ -307,7 +307,7 @@ window.POLITICS.addUnit("ru", {
         { type: "image", kind: "illustration", src: "img/ru/ru-4-hero.webp",
           alt: "Illustration of a long gilded hall with a very long white table and two chairs at opposite ends.",
           caption: "Access to Putin is the most valuable currency in Russian politics.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long, ornate palace hall with white and gold walls and crystal chandeliers, a very long white table with just two empty chairs at opposite ends, afternoon light through tall windows, no people, a sense of distance and power." },
         { type: "people", head: "Seven to know", items: [
           { name: "Vladimir Putin", role: "President",
@@ -363,7 +363,7 @@ window.POLITICS.addUnit("ru", {
         { type: "image", kind: "illustration", src: "img/ru/ru-5-hero.webp",
           alt: "Illustration of an oil refinery at night in winter, with one column of dark smoke rising into a cold sky.",
           caption: "Oil pays for much of Russia's war. In 2025–26, Ukrainian drones struck refineries deep inside Russia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An oil refinery on a snowy plain at night, lit towers and pipes, one column of dark smoke rising into a cold starry sky, a line of tanker rail cars in the foreground, stillness and strain." },
         { type: "section", head: "What happened", md:
           "When the West imposed sweeping [[sanctions]] in 2022, many expected Russia's economy to buckle. Instead it grew, powered by record military spending, higher wages in factories making weapons and oil sold to [[unit:cn]] and [[unit:in]] at a discount, often carried by an ageing '[[shadow fleet]]' of tankers.\n\n" +
@@ -413,7 +413,7 @@ window.POLITICS.addUnit("ru", {
         { type: "image", kind: "illustration", src: "img/ru/ru-6-hero.webp",
           alt: "Illustration of an empty negotiating table with two small flags and a closed folder, in a plain room with snow outside the window.",
           caption: "Territory and security guarantees: the two issues on which every draft has foundered.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A plain negotiating room with a single polished table, two empty chairs facing each other, a closed leather folder and two glasses of water, snow falling outside a tall window, cool light, an atmosphere of stalemate, no flags with legible symbols." },
         { type: "section", head: "What happened", md:
           "Donald Trump returned to office promising to end the war quickly. In February 2025 a heated Oval Office meeting with Zelensky showed how hard he was prepared to press Kyiv. On 15 August 2025 he met Putin in Anchorage, Alaska, without an agreement. In November, a 28-point plan drafted by his envoy Steve Witkoff with Russia's Kirill Dmitriev leaked. It would have had [[unit:ua]] give up the rest of the Donbas, cap its army and renounce NATO. After talks in Geneva on 23 November, a revised US–Ukrainian draft of 19 points left 'very few things' of the original, a Ukrainian negotiator said.\n\n" +
@@ -464,7 +464,7 @@ window.POLITICS.addUnit("ru", {
         { type: "image", kind: "illustration", src: "img/ru/ru-7-hero.webp",
           alt: "Illustration of a transparent ballot box in a small-town school polling station, with a single voter seen from behind.",
           caption: "Russia's September 2026 parliamentary vote was described by independent observers as the least competitive in its modern history.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small-town school gymnasium turned polling station, a transparent ballot box on a table, one voter in a winter coat seen from behind, a bored official at a distance, pale fluorescent light, no legible signs or symbols." },
         { type: "section", head: "What happened", md:
           "Russians voted for a new [[State Duma]] on 18–20 September 2026, the first parliamentary election since the full-scale war began. United Russia, the party that backs Putin, won 349 of the 450 seats, beating its own record of 343 from 2016, with about 58% of the party-list vote.\n\n" +
@@ -509,7 +509,7 @@ window.POLITICS.addUnit("ru", {
         { type: "image", kind: "illustration", src: "img/ru/ru-12-hero.webp",
           alt: "Illustration of a city of new glass towers and a large mosque with tall minarets, set against green mountains in the Caucasus.",
           caption: "Grozny, the Chechen capital, destroyed in the 1990s and rebuilt with Moscow's money.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A rebuilt city of shiny new glass towers and a large white mosque with four tall minarets, green Caucasus mountains rising behind, bright clear light, orderly and strangely new, no people close up, no flags, no legible text." },
         { type: "facts", head: "Two wars", rows: [
           ["First Chechen war", "1994–96; ended in de facto Chechen independence"],
@@ -557,7 +557,7 @@ window.POLITICS.addUnit("ru", {
         { type: "image", kind: "illustration", src: "img/ru/ru-8-hero.webp",
           alt: "Illustration of the red walls and towers of a Moscow fortress at dusk under heavy autumn clouds.",
           caption: "The Kremlin enters the autumn of 2026 with the war unresolved.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Tall red brick fortress walls and pointed towers at dusk under heavy autumn clouds, a wide empty cobbled square in front, wet stones reflecting street lamps, no people, a brooding mood." },
         { type: "section", head: "The state of play", md:
           "- **The war:** Russia holds about a fifth of [[unit:ua]]; the front moves slowly; strikes on each other's energy systems go on despite repeated announcements of pauses.\n" +

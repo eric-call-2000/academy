@@ -112,7 +112,7 @@ window.POLITICS.addUnit("ua", {
         { type: "image", kind: "illustration", src: "img/ua/ua-9-hero.webp",
           alt: "Illustration of a golden-domed monastery on a green hill above a wide river, with a city beyond, in soft summer light.",
           caption: "Kyiv, on the Dnipro, capital of medieval Rus and of independent Ukraine.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white monastery with gleaming golden domes on a wooded hill above a wide river, a city spreading beyond, soft summer evening light, peaceful and historic, no people close up, no flags, no legible text." },
         { type: "timeline", head: "The long road to 1991", items: [
           ["988", "Kyivan Rus adopts Christianity"],
@@ -163,7 +163,7 @@ window.POLITICS.addUnit("ua", {
         { type: "image", kind: "illustration", src: "img/ua/ua-3-hero.webp",
           alt: "Illustration of a snowy city square at night filled with tents and a huge crowd around braziers, seen from above.",
           caption: "Kyiv's Independence Square, the Maidan, was the heart of revolutions in 2004 and 2013–14.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large snowy city square at night seen from above, filled with tents, a huge crowd gathered around smoking braziers, a tall white column monument, warm firelight against blue snow, plain flags without symbols, no legible signs." },
         { type: "timeline", head: "The short version", items: [
           ["1991", "Over 90% vote for independence as the Soviet Union collapses"],
@@ -209,7 +209,7 @@ window.POLITICS.addUnit("ua", {
         { type: "image", kind: "illustration", src: "img/ua/ua-10-hero.webp",
           alt: "Illustration of a bare, empty wheat field under a leaden sky with a lone abandoned wooden house and a leafless tree.",
           caption: "Ukraine, the Soviet 'breadbasket', starved while grain was taken away.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast bare harvested field under a heavy leaden sky, a lone abandoned whitewashed village house with a thatched roof and an empty doorway, a leafless tree, cold and desolate, no people, no legible text." },
         { type: "facts", head: "The famine", rows: [
           ["Years", "1932–33"],
@@ -258,7 +258,7 @@ window.POLITICS.addUnit("ua", {
         { type: "image", kind: "illustration", src: "img/ua/ua-11-hero.webp",
           alt: "Illustration of an abandoned city of concrete apartment blocks overgrown with trees, with a rusting Ferris wheel in the foreground.",
           caption: "Pripyat, the city of 49,000 evacuated after the Chernobyl explosion, has stood empty ever since.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An abandoned Soviet city of concrete apartment blocks overgrown with birch trees, a rusting yellow Ferris wheel in the foreground, empty streets, overcast light, eerie silence, no people, no legible text." },
         { type: "timeline", head: "The disaster", items: [
           ["26 Apr 1986, 01:23", "Reactor No. 4 explodes during a safety test"],
@@ -310,7 +310,7 @@ window.POLITICS.addUnit("ua", {
         { type: "image", kind: "illustration", src: "img/ua/ua-4-hero.webp",
           alt: "Illustration of a government building in Kyiv at night, its windows sandbagged, with a single lit office.",
           caption: "Ukraine's government has worked from sandbagged buildings since the first days of the invasion.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand government building in an Eastern European capital at night, lower windows walled with sandbags, a single upper office window lit, bare winter trees, empty street with a checkpoint barrier, quiet resolve." },
         { type: "people", head: "Six to know", items: [
           { name: "Volodymyr Zelensky", role: "President, since 2019",
@@ -367,7 +367,7 @@ window.POLITICS.addUnit("ua", {
         { type: "image", kind: "illustration", src: "img/ua/ua-5-hero.webp",
           alt: "Illustration of a drone operator in a dugout at dawn, seen from behind, watching a screen, with a small quadcopter resting on a crate.",
           caption: "Drones now cause most casualties on the front line, according to military analysts.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Inside a log-lined dugout at dawn, a soldier seen from behind in winter gear watching a small glowing screen, a small quadcopter drone resting on a wooden ammunition crate, cables and a radio, cold blue light through a gap, focus and tension, no insignia." },
         { type: "section", head: "What happened: the front", md:
           "Since 2023 the front line has been dominated by drones. Small, cheap first-person-view drones, flown by operators miles away, hunt tanks, trucks and soldiers, making it very hard for either side to mass troops for a breakthrough. Ukraine builds millions a year in hundreds of workshops, and Russia has scaled up just as fast.\n\n" +
@@ -416,7 +416,7 @@ window.POLITICS.addUnit("ua", {
         { type: "image", kind: "illustration", src: "img/ua/ua-6-hero.webp",
           alt: "Illustration of a long corridor in a grand government building with two groups of officials walking toward each other, seen from far away.",
           caption: "Ukraine has had to negotiate with Washington as hard as with Moscow.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long, grand corridor with marble floors and tall windows, two small groups of officials in dark coats walking toward each other from opposite ends, seen from far away, soft winter light, a sense of careful diplomacy, no flags or legible signs." },
         { type: "section", head: "What happened", md:
           "Ukraine's relationship with Trump's Washington began badly. On 28 February 2025 a meeting between Zelensky, Trump and Vice President JD Vance in the Oval Office turned into a public shouting match, and US intelligence sharing was briefly paused. Relations recovered with a minerals deal in April, which set up a joint investment fund for Ukraine's natural resources.\n\n" +
@@ -466,7 +466,7 @@ window.POLITICS.addUnit("ua", {
         { type: "image", kind: "illustration", src: "img/ua/ua-7-hero.webp",
           alt: "Illustration of young protesters holding blank cardboard signs in a city square on a summer evening, seen from behind.",
           caption: "In July 2025 thousands protested in Kyiv against a law that curbed anti-corruption agencies; it was reversed within days.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Young people holding blank handmade cardboard signs in a city square on a warm summer evening, seen from behind, a grand theatre building in the background, soft golden light, a peaceful but determined crowd, no legible text on the signs." },
         { type: "section", head: "What happened: Operation Midas", md:
           "In November 2025 Ukraine's anti-corruption bureau, [[NABU]], revealed Operation Midas: an investigation into a scheme that allegedly took about $100 million in kickbacks from contractors of Energoatom, the state nuclear energy company, at a time when the grid was under constant attack. The alleged organiser, Tymur Mindich, a former business partner of Zelensky, fled to Israel before he could be charged.\n\n" +
@@ -519,7 +519,7 @@ window.POLITICS.addUnit("ua", {
         { type: "image", kind: "illustration", src: "img/ua/ua-12-hero.webp",
           alt: "Illustration of a modern courtroom with a long bench and empty chairs, papers stacked on tables, and tall windows looking out on a city.",
           caption: "Ukraine built new anti-corruption courts and agencies after 2014.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern courtroom with a long pale-wood judges' bench, empty chairs, stacks of case files on tables, tall windows looking out over a city of old and new buildings, clean daylight, serious and hopeful, no people, no flags, no legible text." },
         { type: "facts", head: "The fight in brief", rows: [
           ["EU candidate status", "June 2022"],
@@ -570,7 +570,7 @@ window.POLITICS.addUnit("ua", {
         { type: "image", kind: "illustration", src: "img/ua/ua-8-hero.webp",
           alt: "Illustration of a golden wheat field under a stormy sky with a distant church with golden domes.",
           caption: "Ukraine remains one of the world's great grain exporters, even in wartime.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast golden wheat field under a dramatic stormy sky, a small white church with golden onion domes on the horizon, a strip of sunlight breaking through the clouds onto the wheat, no people, hope and uncertainty." },
         { type: "section", head: "The state of play", md:
           "- **The war:** Russia holds about a fifth of the country; the front moves slowly; both sides strike each other's energy systems.\n" +
