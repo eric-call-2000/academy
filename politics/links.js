@@ -244,4 +244,7 @@
   L({ id: "us_de", a: "us", b: "de", lessons: 3, color: "#4a4a4a",
       title: "Airlift, spies and a rift",
       blurb: "From the Berlin Airlift and reunification to Iraq, a tapped phone and Nord Stream, and Merz's 2026 rift with Trump." });
+  L({ id: "ca_in", a: "ca", b: "in", lessons: 3, color: "#8a3a2a",
+      title: "A reactor, a killing and a reset",
+      blurb: "The Komagata Maru, a Canadian reactor and the Air India bombing; the Nijjar killing; and Carney's 2026 uranium-and-trade reset." });
 })();
