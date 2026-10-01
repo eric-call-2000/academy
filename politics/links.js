@@ -232,4 +232,7 @@
   L({ id: "kr_cn", a: "kr", b: "cn", lessons: 3, color: "#5a4a8a",
       title: "War, THAAD and a reset",
       blurb: "Enemies in the Korean War, partners from 1992; China's THAAD boycott; Lee's reset amid Yellow Sea rigs and anti-China rallies." });
+  L({ id: "jp_au", a: "jp", b: "au", lessons: 3, color: "#2a6a8a",
+      title: "War, gas and frigates",
+      blurb: "Wartime enemies who became trading partners in 1957; gas, whales and a lost submarine deal; now Mogami frigates and a quasi-alliance." });
 })();
