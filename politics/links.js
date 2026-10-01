@@ -229,4 +229,7 @@
   L({ id: "gb_in", a: "gb", b: "in", lessons: 3, color: "#7a3a2a",
       title: "Raj, diaspora and a trade deal",
       blurb: "Empire, Amritsar and Partition; a diaspora of 1.9 million and a Koh-i-Noor dispute; a trade deal in force since July 2026." });
+  L({ id: "kr_cn", a: "kr", b: "cn", lessons: 3, color: "#5a4a8a",
+      title: "War, THAAD and a reset",
+      blurb: "Enemies in the Korean War, partners from 1992; China's THAAD boycott; Lee's reset amid Yellow Sea rigs and anti-China rallies." });
 })();
