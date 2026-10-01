@@ -21,7 +21,7 @@ window.POLITICS.addUnit("cn_tw", {
         { type: "image", kind: "illustration", src: "img/cn_tw/cn_tw-1-hero.webp",
           alt: "Illustration of a long polished negotiating table in a hotel conference room with two rows of empty chairs facing each other and teacups set out.",
           caption: "The 1993 talks in Singapore were the first high-level meeting between the two sides since 1949.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long polished wooden negotiating table in a 1990s hotel conference room, two rows of empty leather chairs facing each other, porcelain teacups and folders neatly set out, large windows with a tropical city skyline, soft daylight, formal and expectant mood, no people, no flags, no legible text." },
         { type: "timeline", head: "Talking without agreeing", items: [
           ["1991–92", "Taiwan and China set up 'unofficial' bodies to talk"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("cn_tw", {
         { type: "image", kind: "illustration", src: "img/cn_tw/cn_tw-2-hero.webp",
           alt: "Illustration of a vast electronics factory campus in southern China at dusk, with dormitory blocks and workers walking in the distance.",
           caption: "Taiwanese firms such as Foxconn built giant factories in China from the 1990s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast electronics factory campus in southern China at dusk, long white factory buildings and dormitory blocks with lit windows, rows of shuttle buses, small figures of workers walking in the distance, hazy pink sky, industrial scale, no faces, no legible text or logos." },
         { type: "facts", head: "Trade and investment", rows: [
           ["China and Hong Kong's share of Taiwan's exports", "26.6% in 2025, down from 43.9% in 2020"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("cn_tw", {
         { type: "image", kind: "illustration", src: "img/cn_tw/cn_tw-3-hero.webp",
           alt: "Illustration of a sandy beach on Kinmen lined with rusting anti-landing spikes, with the high-rise skyline of Xiamen across the water at dusk.",
           caption: "From Kinmen's beaches, the towers of Xiamen are clearly visible across the water.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A quiet sandy beach on a small island lined with rows of rusting anti-landing steel spikes, the high-rise skyline of a modern Chinese city across a narrow stretch of water at dusk, city lights beginning to glow, calm sea, poignant contrast, no people, no flags, no legible text." },
         { type: "timeline", head: "From battlefield to bridge and back", items: [
           ["Oct 1949", "Communist landing on Kinmen defeated at Guningtou"],

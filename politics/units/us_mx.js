@@ -19,7 +19,7 @@ window.POLITICS.addUnit("us_mx", {
         { type: "image", kind: "illustration", src: "img/us_mx/us_mx-1-hero.webp",
           alt: "Illustration of long lines of cargo trucks waiting at a border crossing in the desert at dawn, with factory buildings on the far side.",
           caption: "Most US–Mexico trade crosses the land border by truck and train.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Long lines of cargo trucks waiting at a busy land border crossing in the desert at dawn, customs canopies and lanes in the middle distance, low factory buildings and hills on the far side, warm hazy light, a sense of scale and routine, no people up close, no flags, no legible text." },
         { type: "facts", head: "Trade in numbers", rows: [
           ["Two-way goods trade, 2025", "$872.8 billion, a record"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("us_mx", {
         { type: "image", kind: "illustration", src: "img/us_mx/us_mx-2-hero.webp",
           alt: "Illustration of a tall steel border fence running across desert hills at sunset, with a small town on one side.",
           caption: "Crossings at the southern border fell to their lowest level since 1970 in 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A tall steel bollard border fence running across rolling desert hills at sunset, long shadows, a small town with lights coming on in the valley on one side, empty dirt road alongside the fence, vast sky, quiet and heavy mood, no people, no legible text." },
         { type: "facts", head: "People and money", rows: [
           ["Border Patrol arrests, fiscal 2025", "237,565, the lowest since 1970"],
@@ -120,7 +120,7 @@ window.POLITICS.addUnit("us_mx", {
         { type: "image", kind: "illustration", src: "img/us_mx/us_mx-3-hero.webp",
           alt: "Illustration of a highway border checkpoint at night, with a pickup truck being inspected under floodlights by officers seen from behind.",
           caption: "Drugs are mostly smuggled north through official crossings; guns travel south the same way.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A highway border checkpoint at night lit by harsh floodlights, a pickup truck stopped with its doors open, two officers seen from behind inspecting it with a dog, a line of headlights behind, tense and procedural mood, no faces, no legible text, no insignia." },
         { type: "facts", head: "The two flows", rows: [
           ["US overdose deaths, 2025", "About 70,000, down 14% (CDC)"],

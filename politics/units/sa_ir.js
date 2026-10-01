@@ -21,7 +21,7 @@ window.POLITICS.addUnit("sa_ir", {
         { type: "image", kind: "illustration", src: "img/sa_ir/sa_ir-1-hero.webp",
           alt: "Illustration of a vast crowd of pilgrims in white robes walking across a plain toward a city of white tents under a hazy sun.",
           caption: "The Hajj pilgrimage to Mecca, which Saudi Arabia hosts, has repeatedly become a flashpoint with Iran.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast crowd of pilgrims in simple white robes walking across a dusty plain toward a sprawling city of white tents, rocky hills behind, hazy golden sunlight, seen from a distance so no faces are visible, reverent and immense, no flags, no legible text." },
         { type: "timeline", head: "Breaks and repairs", items: [
           ["1979", "Iran's Islamic Revolution"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("sa_ir", {
         { type: "image", kind: "illustration", src: "img/sa_ir/sa_ir-2-hero.webp",
           alt: "Illustration of a desert oil processing plant at night with tall fires and thick smoke rising from damaged spherical tanks.",
           caption: "Fires at the Abqaiq plant, which processes most of Saudi Arabia's crude oil, after the attack on 14 September 2019.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast desert oil processing plant at night, several large spherical tanks and towers damaged, tall orange fires and thick black smoke rising into a dark sky, floodlights and silhouetted pipelines, dramatic and alarming, no people, no legible text." },
         { type: "facts", head: "The attack", rows: [
           ["Date", "Early morning of 14 September 2019"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("sa_ir", {
         { type: "image", kind: "illustration", src: "img/sa_ir/sa_ir-3-hero.webp",
           alt: "Illustration of a city skyline on a Mediterranean coast at dusk, with mountains behind and apartment blocks, some damaged.",
           caption: "Lebanon, where Iran backed Hezbollah and Saudi Arabia backed its rivals, has been one arena of the contest.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A dense Mediterranean coastal city skyline at dusk, apartment blocks climbing toward green mountains, a few buildings damaged, calm sea in the foreground, soft purple light, melancholy and resilient, no people, no flags, no legible text." },
         { type: "timeline", head: "Arenas", items: [
           ["Mar 2011", "Saudi-led Gulf troops enter Bahrain to help end protests"],

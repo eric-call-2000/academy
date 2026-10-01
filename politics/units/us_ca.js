@@ -19,7 +19,7 @@ window.POLITICS.addUnit("us_ca", {
         { type: "image", kind: "illustration", src: "img/us_ca/us_ca-1-hero.webp",
           alt: "Illustration of a radar dome on a snowy Arctic ridge under a green aurora, with two fighter jets flying in formation far above.",
           caption: "NORAD, the joint US–Canadian command, has watched North America's skies since 1958.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white radar dome on a snowy ridge in the Canadian Arctic at night, green northern lights rippling across the sky, two small fighter jets flying in formation high above, a lonely research hut with one lit window, cold vast landscape, no people up close, no flags, no legible text." },
         { type: "timeline", head: "From enemies to allies", items: [
           ["1812–15", "The US invades Canada, then a British colony, and is repelled"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("us_ca", {
         { type: "image", kind: "illustration", src: "img/us_ca/us_ca-2-hero.webp",
           alt: "Illustration of a sawmill yard in a British Columbia valley with stacks of cut lumber, a log pond and forested mountains behind.",
           caption: "British Columbia's forests supply much of the lumber used to build American homes.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A sawmill yard in a forested British Columbia valley, tall stacks of freshly cut pale lumber wrapped for shipping, a log pond, a freight train with flatcars waiting, snow-capped mountains and dense evergreen forest behind, soft morning light, industrious mood, no people up close, no legible text." },
         { type: "facts", head: "The dispute in brief", rows: [
           ["Began", "1982, 'Lumber I'"],
@@ -120,7 +120,7 @@ window.POLITICS.addUnit("us_ca", {
         { type: "image", kind: "illustration", src: "img/us_ca/us_ca-3-hero.webp",
           alt: "Illustration of a pipeline crossing a wide prairie landscape under a big sky, with a line of electricity pylons in the distance.",
           caption: "Pipelines carry millions of barrels of Canadian crude south every day.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large steel pipeline running straight across a wide golden prairie under a vast sky with towering clouds, a line of high-voltage electricity pylons marching toward the horizon, a small pumping station, late afternoon light, calm and expansive, no people, no legible text." },
         { type: "facts", head: "Energy in numbers (2025)", rows: [
           ["Canada's share of US crude oil imports", "63.4%"],
