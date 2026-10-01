@@ -108,7 +108,7 @@ window.POLITICS.addUnit("mx", {
         { type: "image", kind: "illustration", src: "img/mx/mx-9-hero.webp",
           alt: "Illustration of a colonial stone church with a bell tower in a small Mexican town at dawn, with a crowd of villagers in early-19th-century clothing gathered in front, seen from behind.",
           caption: "Miguel Hidalgo rang the church bell in Dolores on 16 September 1810 to call his parishioners to revolt.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A colonial stone church with a tall bell tower in a small Mexican town at dawn, a crowd of villagers in early-19th-century clothing with sombreros and rebozos seen from behind gathered in the plaza, some carrying farm tools, warm orange sky, dramatic and historic, no faces, no flags, no legible text." },
         { type: "timeline", head: "From New Spain to Mexico", items: [
           ["1521", "Spanish conquest of the Aztec capital"],
@@ -159,7 +159,7 @@ window.POLITICS.addUnit("mx", {
         { type: "image", kind: "illustration", src: "img/mx/mx-3-hero.webp",
           alt: "Illustration of a huge central city square at dawn with a giant flagpole, a cathedral and a long colonial palace façade.",
           caption: "Mexico City's Zócalo, faced by the cathedral and the National Palace, where the president lives and works.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast empty stone city square at dawn, a huge baroque cathedral on one side and a long red-stone colonial palace on another, an enormous bare flagpole in the centre, soft pink sky, pigeons, grand and quiet, no flags, no legible text, no people close up." },
         { type: "timeline", head: "The short version", items: [
           ["1910–20", "The Mexican Revolution"],
@@ -207,7 +207,7 @@ window.POLITICS.addUnit("mx", {
         { type: "image", kind: "illustration", src: "img/mx/mx-10-hero.webp",
           alt: "Illustration of a hilltop castle above a green park in Mexico City, with a stone monument of tall columns in the foreground.",
           caption: "Chapultepec Castle, where young cadets died defending Mexico City in September 1847.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A historic castle on a wooded hilltop above a green park in Mexico City, a white marble monument of six tall columns in the foreground, clear afternoon light, solemn and dignified mood, a few people seen from far behind walking, no faces, no flags, no legible text." },
         { type: "timeline", head: "Losing the north", items: [
           ["1836", "Texas breaks away from Mexico"],
@@ -263,7 +263,7 @@ window.POLITICS.addUnit("mx", {
         { type: "image", kind: "illustration", src: "img/mx/mx-11-hero.webp",
           alt: "Illustration of revolutionary horsemen in wide sombreros and bandoliers riding across a dusty plain toward distant mountains, seen from behind.",
           caption: "Peasant armies led by Emiliano Zapata and Pancho Villa fought for land and power.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A group of revolutionary horsemen in wide straw sombreros and cotton clothing with bandoliers riding across a dusty Mexican plain toward distant blue mountains, seen from behind, agave plants, golden late afternoon light and dust, epic historical mood, no faces, no flags, no legible text." },
         { type: "timeline", head: "Revolution and after", items: [
           ["1876–1911", "Porfirio Díaz rules"],
@@ -315,7 +315,7 @@ window.POLITICS.addUnit("mx", {
         { type: "image", kind: "illustration", src: "img/mx/mx-4-hero.webp",
           alt: "Illustration of a long lectern in an ornate colonial hall with microphones and rows of empty chairs for reporters, early in the morning.",
           caption: "The mañanera: the president's daily morning press conference at the National Palace.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An ornate colonial-era hall with carved wooden ceilings and stone arches, a simple lectern with a cluster of microphones facing rows of empty folding chairs for reporters, a large blank screen behind, early morning light through tall windows, no people, no flags, no legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Claudia Sheinbaum", role: "President, since October 2024",
@@ -367,7 +367,7 @@ window.POLITICS.addUnit("mx", {
         { type: "image", kind: "illustration", src: "img/mx/mx-5-hero.webp",
           alt: "Illustration of a polling station in a school courtyard with cardboard voting booths and very long ballot sheets, and only a few voters.",
           caption: "Voters faced long ballots listing candidates few had heard of.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A school courtyard used as a polling station, simple cardboard voting booths, extremely long folded ballot papers on a table, only two or three voters seen from behind, bright midday sun and a painted wall, quiet and sparse, no legible text, no faces." },
         { type: "section", head: "What happened", md:
           "On 1 June 2025 Mexicans voted for all nine Supreme Court justices, members of a new disciplinary tribunal for judges, electoral magistrates and hundreds of federal judges and magistrates. The candidates had been screened by committees of the three branches of government, then placed on ballots with dozens of names, and could not be backed by parties.\n\n" +
@@ -417,7 +417,7 @@ window.POLITICS.addUnit("mx", {
         { type: "image", kind: "illustration", src: "img/mx/mx-6-hero.webp",
           alt: "Illustration of a highway at night blocked by burning vehicles, with smoke rising against the orange glow of a city on the hills.",
           caption: "Cartel gunmen blocked roads with burning vehicles across 20 states.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A multi-lane highway at night blocked by two burning abandoned vehicles, thick smoke rising, the orange glow of a city on hills in the distance, empty roadside, tense and ominous, no people, no weapons, no legible text." },
         { type: "section", head: "What happened", md:
           "On 22 February 2026 Mexican troops, with US intelligence support, raided a hideout in Tapalpa, Jalisco, and seriously wounded Nemesio Oseguera Cervantes, known as 'El Mencho', the founder and leader of the Jalisco New Generation Cartel (CJNG). He died on the way to Mexico City. The US had offered a $15 million reward for him.\n\n" +
@@ -467,7 +467,7 @@ window.POLITICS.addUnit("mx", {
         { type: "image", kind: "illustration", src: "img/mx/mx-7-hero.webp",
           alt: "Illustration of a car assembly line in a large factory with robotic arms and car bodies moving along the line.",
           caption: "Mexico's car factories are built into supply chains that cross the US border.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern car assembly line inside a vast bright factory, orange robotic arms welding bare car bodies moving along the line, sparks, clean floors, a few workers in the distance, industrial and precise, no logos, no legible text." },
         { type: "section", head: "What happened", md:
           "Trump imposed 25% 'fentanyl' tariffs on Mexico in March 2025, exempting goods that met [[USMCA]] rules, which covered most trade, and added 50% on steel and aluminium and 25% on cars. Sheinbaum avoided retaliation, sent 10,000 National Guard troops to the border, and transferred cartel prisoners to the US. That calm approach won her repeated delays of harsher measures.\n\n" +
@@ -517,7 +517,7 @@ window.POLITICS.addUnit("mx", {
         { type: "image", kind: "illustration", src: "img/mx/mx-12-hero.webp",
           alt: "Illustration of a group of women in wide hats seen from behind walking across dry scrubland with shovels and long metal rods, under a hot sky.",
           caption: "Searching mothers probe the ground with metal rods to detect the smell of graves.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small group of women in wide-brimmed hats and long sleeves seen from behind walking across dry desert scrubland in northern Mexico carrying shovels and long thin metal rods, hot hazy sky, cacti, determined and sorrowful mood, no faces, no legible text." },
         { type: "facts", head: "The crisis in numbers", rows: [
           ["Registered missing", "About 134,000"],
@@ -566,7 +566,7 @@ window.POLITICS.addUnit("mx", {
         { type: "image", kind: "illustration", src: "img/mx/mx-8-hero.webp",
           alt: "Illustration of a busy border crossing at dawn with lanes of trucks and cars waiting to cross, and a desert city beyond.",
           caption: "The border is where trade, migration and security meet.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wide border crossing at dawn, many lanes of trucks and cars queued under a long canopy of inspection booths, a sprawling desert city and brown hills beyond, pale golden light and haze, busy but orderly, no flags, no legible text, no faces." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Sheinbaum, two years into a six-year term; approval near 70%.\n" +

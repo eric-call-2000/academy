@@ -22,7 +22,7 @@ window.POLITICS.addUnit("us_pk", {
         { type: "image", kind: "illustration", src: "img/us_pk/us_pk-1-hero.webp",
           alt: "Illustration of a slender black spy plane with long wings on a runway at dawn, with mountains behind.",
           caption: "Gary Powers' U-2 took off from Peshawar before it was shot down over the Soviet Union in 1960.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A slender black high-altitude spy plane with very long wings on a runway at dawn, ground crew silhouettes far away, dry hills and mountains behind, 1960 historical documentary painting style, no faces, no flags, no legible text." },
         { type: "timeline", head: "A Cold War bargain", items: [
           ["1954", "Mutual defence agreement; Pakistan joins SEATO"],
@@ -75,7 +75,7 @@ window.POLITICS.addUnit("us_pk", {
         { type: "image", kind: "illustration", src: "img/us_pk/us_pk-2-hero.webp",
           alt: "Illustration of a walled compound on a hillside town at night, with helicopters approaching.",
           caption: "US commandos killed Osama bin Laden in his compound in Abbottabad on 2 May 2011.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large walled concrete compound in a quiet hillside town at night, dark helicopters approaching low over rooftops, a few lit windows, pine-covered hills behind, documentary painting style, no people visible, no flags, no legible text." },
         { type: "timeline", head: "Need and distrust", items: [
           ["1979–89", "CIA arms Afghan mujahideen through Pakistan's ISI"],
@@ -127,7 +127,7 @@ window.POLITICS.addUnit("us_pk", {
         { type: "image", kind: "illustration", src: "img/us_pk/us_pk-3-hero.webp",
           alt: "Illustration of a rugged mountain mine with trucks carrying ore down a winding road.",
           caption: "Pakistan has offered the US access to its minerals.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A rugged dry mountain landscape with an open-pit mine, heavy trucks carrying ore down a winding dirt road, dust in the air, distant snow peaks, documentary painting style, no people close up, no logos, no flags, no legible text." },
         { type: "timeline", head: "A sudden warmth", items: [
           ["May 2025", "Four-day India–Pakistan conflict; Trump claims the ceasefire"],

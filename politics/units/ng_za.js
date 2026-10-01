@@ -21,7 +21,7 @@ window.POLITICS.addUnit("ng_za", {
         { type: "image", kind: "illustration", src: "img/ng_za/ng_za-1-hero.webp",
           alt: "Illustration of a large crowd at a rally in an African city in the 1970s, with banners and raised fists, seen from behind.",
           caption: "Nigeria was one of the loudest voices against apartheid, and was treated as an honorary 'frontline state'.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large crowd at a 1970s rally in a West African city seen from behind, raised fists and blank banners, colourful clothing, dusty sunlit street and low buildings, warm vintage film tones, energetic and hopeful, no legible text, no faces clearly visible." },
         { type: "timeline", head: "From solidarity to partnership", items: [
           ["1960", "Nigeria's independence; it campaigns against apartheid"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("ng_za", {
         { type: "image", kind: "illustration", src: "img/ng_za/ng_za-2-hero.webp",
           alt: "Illustration of a busy Lagos street market under a flyover, with stalls, yellow minibuses and phone-card sellers under umbrellas.",
           caption: "South African firms such as the phone company MTN and the broadcaster MultiChoice count tens of millions of Nigerian customers.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy Lagos street market under a concrete flyover, yellow minibuses, market stalls with colourful umbrellas, vendors selling phone accessories, crowds seen from a distance, bright hazy sunlight, energetic and dense, no legible text or logos." },
         { type: "facts", head: "Two giants", rows: [
           ["Population", "Nigeria about 230 million; South Africa about 63 million"],
@@ -116,7 +116,7 @@ window.POLITICS.addUnit("ng_za", {
         { type: "image", kind: "illustration", src: "img/ng_za/ng_za-3-hero.webp",
           alt: "Illustration of a passenger jet at an airport gate at night with a line of travellers carrying bags walking toward it, seen from behind.",
           caption: "Evacuation flights carried Nigerians home from Johannesburg in June and July 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A passenger jet parked at an airport gate at night, a line of travellers seen from behind carrying suitcases and bags walking across the tarmac toward the stairs, floodlights and wet ground, weary and relieved mood, no faces visible, no logos, no legible text." },
         { type: "timeline", head: "Recurring violence", items: [
           ["May 2008", "Anti-foreigner riots kill 62 people"],

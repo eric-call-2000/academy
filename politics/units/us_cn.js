@@ -20,7 +20,7 @@ window.POLITICS.addUnit("us_cn", {
         { type: "image", kind: "illustration", src: "img/us_cn/us_cn-1-hero.webp",
           alt: "Illustration of a vast steel works at dusk on a river estuary, with blast furnaces, smoke and rows of steel coils waiting on a quay beside a cargo ship.",
           caption: "China now makes more steel than the rest of the world combined, and exports a record amount.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast steel works on a wide river estuary at dusk, tall blast furnaces glowing orange, drifting smoke, long rows of rolled steel coils stacked on a concrete quay beside a large cargo ship being loaded by cranes, tiny workers in hard hats seen from far away, industrial and immense." },
         { type: "facts", head: "Steel in numbers (2025)", rows: [
           ["China's crude steel output", "960.8 million tonnes, about 52% of the world's"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("us_cn", {
         { type: "image", kind: "illustration", src: "img/us_cn/us_cn-2-hero.webp",
           alt: "Illustration of an American steel mill beside a river in a hilly town at dawn, with brick houses on the slopes and a bridge in the foreground.",
           caption: "Tariffs were meant to revive steel towns in Pennsylvania, Ohio and Indiana.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An old American steel mill with tall chimneys beside a wide river in a hilly Pennsylvania town at dawn, rows of brick houses climbing the green slopes, a steel truss bridge in the foreground, soft mist on the water, a few distant figures walking to work, hopeful and weathered mood." },
         { type: "timeline", head: "Steel tariffs, 2002–2026", items: [
           ["Mar 2002", "Bush imposes 8–30% 'safeguard' tariffs on steel"],
@@ -125,7 +125,7 @@ window.POLITICS.addUnit("us_cn", {
         { type: "image", kind: "illustration", src: "img/us_cn/us_cn-3-hero.webp",
           alt: "Illustration of a golden soybean field in the American Midwest at harvest, with a combine harvester and tall grain silos under a big sky.",
           caption: "China was once the buyer of more than half of all US soybean exports.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast golden soybean field in the American Midwest at harvest time, a green combine harvester working in the middle distance, tall silver grain silos and a red barn beyond, a huge sky with late afternoon clouds, a lone farmer seen from far behind, calm but uncertain mood." },
         { type: "facts", head: "Soybeans and the trade war", rows: [
           ["US soybean exports to China, 2017", "$12.2 billion, 57% of all US soybean exports"],

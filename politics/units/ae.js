@@ -110,7 +110,7 @@ window.POLITICS.addUnit("ae", {
         { type: "image", kind: "illustration", src: "img/ae/ae-9-hero.webp",
           alt: "Illustration of a low white guesthouse with a colonnade on a sandy shore beside a calm creek, with palm trees, under a hazy sky.",
           caption: "Union House in Dubai, where the rulers signed the founding agreement on 2 December 1971.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A low white 1960s guesthouse with a shaded colonnade on a sandy shore beside a calm turquoise creek, a few palm trees, a hazy pale sky, simple and historic, no people, no flags, no legible text." },
         { type: "timeline", head: "From Trucial States to federation", items: [
           ["1820", "First British treaty with the Gulf sheikhdoms"],
@@ -160,7 +160,7 @@ window.POLITICS.addUnit("ae", {
         { type: "image", kind: "illustration", src: "img/ae/ae-3-hero.webp",
           alt: "Illustration of wooden dhow boats moored along a creek at sunset, with low old buildings on one bank and glass skyscrapers rising on the other.",
           caption: "Dubai Creek, where traditional dhows still trade beside the modern city.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Traditional wooden dhow boats moored along a creek at sunset, low sand-coloured old buildings with wind towers on one bank, gleaming glass skyscrapers rising on the other, warm golden light on the water, past and present side by side, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1820–1971", "The 'Trucial States' under British protection"],
@@ -208,7 +208,7 @@ window.POLITICS.addUnit("ae", {
         { type: "image", kind: "illustration", src: "img/ae/ae-10-hero.webp",
           alt: "Illustration of a creek lined with wooden dhows loaded with goods, and glass towers rising behind the old trading district.",
           caption: "Dubai Creek, where traders' dhows still dock beneath the towers of the modern city.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A creek lined with traditional wooden dhows loaded with sacks and boxes, old low trading houses with wind towers along the bank, gleaming glass skyscrapers rising behind, golden afternoon light, old and new together, no people close up, no legible text or logos." },
         { type: "facts", head: "The Dubai model", rows: [
           ["Jebel Ali port", "Opened 1979; among the world's largest container ports"],
@@ -259,7 +259,7 @@ window.POLITICS.addUnit("ae", {
         { type: "image", kind: "illustration", src: "img/ae/ae-11-hero.webp",
           alt: "Illustration of an imposing modern courthouse with tall columns in a desert city at midday, with an empty plaza in front.",
           caption: "In 2013 dozens of Emiratis were convicted in a mass trial of alleged Brotherhood members.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An imposing modern courthouse with tall slender columns and a vast empty plaza in a desert city at midday, harsh white sunlight, palm trees, stern and silent, no people, no flags, no legible text." },
         { type: "facts", head: "The campaign", rows: [
           ["Petition for reform", "March 2011, signed by 133 Emiratis"],
@@ -308,7 +308,7 @@ window.POLITICS.addUnit("ae", {
         { type: "image", kind: "illustration", src: "img/ae/ae-4-hero.webp",
           alt: "Illustration of a vast white marble presidential palace with a domed roof beside the sea in Abu Dhabi, at golden hour.",
           caption: "Power in the UAE is concentrated in Abu Dhabi's ruling family.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast white marble palace with a large central dome and colonnades beside a calm turquoise sea at golden hour, palm-lined gardens and fountains, grand and serene, no people close up, no flags or legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Mohamed bin Zayed", role: "President and ruler of Abu Dhabi, since 2022",
@@ -362,7 +362,7 @@ window.POLITICS.addUnit("ae", {
         { type: "image", kind: "illustration", src: "img/ae/ae-5-hero.webp",
           alt: "Illustration of a vast desert data-centre campus at night, rows of low buildings glowing, cooling towers and power lines leading to the horizon.",
           caption: "Stargate UAE is planned as a one-gigawatt AI computing cluster in Abu Dhabi.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast data-centre campus in the desert at night, rows of long low buildings glowing blue, cooling towers releasing vapour, high-voltage power lines stretching to the horizon, sand dunes beyond, futuristic and immense, no people, no legible text or logos." },
         { type: "section", head: "What happened", md:
           "In May 2025, during Trump's visit to the Gulf, the UAE and the US announced a 5-gigawatt UAE–US AI Campus in Abu Dhabi. Its first part, Stargate UAE, is a 1-gigawatt cluster to be built by G42, the Abu Dhabi AI company, and operated with OpenAI and Oracle, using hundreds of thousands of Nvidia's most advanced chips. Its first 200 megawatts were due to go live in 2026.\n\n" +
@@ -412,7 +412,7 @@ window.POLITICS.addUnit("ae", {
         { type: "image", kind: "illustration", src: "img/ae/ae-6-hero.webp",
           alt: "Illustration of a dusty desert road with a long line of displaced people walking with bundles and donkeys toward a distant camp at dawn.",
           caption: "Sudan's war has displaced more than 12 million people, the largest displacement crisis in the world.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long line of displaced people seen from behind walking along a dusty desert road at dawn, carrying bundles, a donkey cart, a scattering of white tents far away, acacia trees, haze and pale light, sorrowful, no faces, no legible text." },
         { type: "section", head: "What happened", md:
           "Since April 2023 Sudan has been torn by war between its army and the Rapid Support Forces (RSF), a paramilitary group. In October 2025 the RSF captured El Fasher, the last army stronghold in Darfur, after an 18-month siege; UN investigators and rights groups documented mass killings, and UN investigators have since described evidence of genocide by the RSF there.\n\n" +
@@ -456,7 +456,7 @@ window.POLITICS.addUnit("ae", {
         { type: "image", kind: "illustration", src: "img/ae/ae-7-hero.webp",
           alt: "Illustration of a glittering skyline of skyscrapers at night with thin bright trails of interceptor missiles rising over the sea.",
           caption: "Air-defence systems over the Gulf coast intercepted most of Iran's missiles and drones.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A glittering coastal skyline of very tall skyscrapers at night, thin bright trails of interceptor missiles rising over dark water, small flashes high in the sky, reflections on the sea, tense and surreal, no people, no legible text." },
         { type: "section", head: "What happened", md:
           "Within hours of the US–Israeli strikes on [[unit:ir|Iran]] on 28 February 2026, Iran began firing missiles and drones at the UAE, which hosts US forces and is a close partner of Israel. By early April the UAE said it had intercepted 537 ballistic missiles, 2,256 drones and 26 cruise missiles, using American THAAD and Patriot systems. At least 15 people were killed and more than 240 injured. Attacks hit oil facilities, ports and an ADNOC tanker, and continued intermittently after the April ceasefire, including in May and at the end of August.\n\n" +
@@ -507,7 +507,7 @@ window.POLITICS.addUnit("ae", {
         { type: "image", kind: "illustration", src: "img/ae/ae-12-hero.webp",
           alt: "Illustration of construction workers in blue overalls and helmets seen from behind walking toward a bus at dawn, with cranes and half-built towers behind.",
           caption: "Millions of South Asian workers have built the UAE's cities.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A group of construction workers in blue overalls and hard hats seen from behind walking toward a white bus at dawn, tall cranes and half-built skyscrapers behind them, dusty golden light, weary and dignified, no faces, no legible text or logos." },
         { type: "facts", head: "Who lives in the UAE", rows: [
           ["Population", "About 11 million (2024)"],
@@ -556,7 +556,7 @@ window.POLITICS.addUnit("ae", {
         { type: "image", kind: "illustration", src: "img/ae/ae-8-hero.webp",
           alt: "Illustration of a huge container port at dawn with cranes, stacked containers and a ship leaving toward the open sea.",
           caption: "Jebel Ali in Dubai is the largest port in the Middle East.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An enormous container port at dawn, rows of towering cranes, colourful stacked containers, a large container ship leaving toward the open sea, soft pink sky, busy and resilient, no people close up, no legible text or logos." },
         { type: "section", head: "The state of play", md:
           "- **Leadership:** MBZ firmly in charge; his brothers run security, money and AI.\n" +

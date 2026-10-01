@@ -20,7 +20,7 @@ window.POLITICS.addUnit("ru_ua", {
         { type: "image", kind: "illustration", src: "img/ru_ua/ru_ua-1-hero.webp",
           alt: "Illustration of the golden domes of an old monastery on a hill above a wide river in Kyiv, with autumn trees along the bank.",
           caption: "Kyiv, where Rus adopted Christianity in 988, is claimed as a birthplace by both nations.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The golden domes and white walls of an ancient Orthodox monastery on a wooded hill above a wide river, autumn trees in yellow and red along the steep bank, soft morning mist over the water, a few small figures seen from far away walking on a path, contemplative and historic, no flags, no legible text." },
         { type: "timeline", head: "Two nations, one argument", items: [
           ["988", "Prince Volodymyr of Kyiv adopts Orthodox Christianity"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("ru_ua", {
         { type: "image", kind: "illustration", src: "img/ru_ua/ru_ua-2-hero.webp",
           alt: "Illustration of a snow-covered gas compressor station with large pipes and valves in a flat winter landscape at dusk.",
           caption: "Ukraine's pipelines once carried most of the Russian gas that Europe burned.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A snow-covered natural gas compressor station in a flat winter landscape at dusk, large grey pipes and valves rising from the ground, a few lit windows in a low control building, bare birch trees, cold blue light, quiet and heavy mood, no people, no flags, no legible text." },
         { type: "facts", head: "Gas in numbers", rows: [
           ["Transit via Ukraine, 2024", "About 15 billion cubic metres, down from well over 100 in the 2000s"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("ru_ua", {
         { type: "image", kind: "illustration", src: "img/ru_ua/ru_ua-3-hero.webp",
           alt: "Illustration of a bus at a border checkpoint at dawn, with families seen from behind waiting on the roadside holding flowers.",
           caption: "Families wait at prisoner exchanges hoping to see relatives return.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white bus arriving at a rural border checkpoint at dawn, families seen from behind waiting on the roadside, some holding small bunches of flowers and handmade signs without legible text, soft grey light, birch trees, emotional and hopeful mood, no faces, no flags, no legible text." },
         { type: "facts", head: "The human toll", rows: [
           ["Children Ukraine says were deported or forcibly moved", "More than 20,600 verified cases (Sept 2026)"],

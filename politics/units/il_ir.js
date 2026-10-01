@@ -20,7 +20,7 @@ window.POLITICS.addUnit("il_ir", {
         { type: "image", kind: "illustration", src: "img/il_ir/il_ir-1-hero.webp",
           alt: "Illustration of an oil tanker at a desert port on the Red Sea at dusk, with storage tanks and a pipeline running inland.",
           caption: "From 1968 a pipeline carried Iranian oil from Eilat on the Red Sea across Israel.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An oil tanker moored at a small desert port on the Red Sea at dusk, white storage tanks and a pipeline running inland across bare mountains, calm turquoise water, warm fading light, 1970s atmosphere, no people up close, no flags, no legible text." },
         { type: "timeline", head: "An alliance and its end", items: [
           ["1950", "Iran recognises Israel de facto"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("il_ir", {
         { type: "image", kind: "illustration", src: "img/il_ir/il_ir-2-hero.webp",
           alt: "Illustration of a dim underground hall of centrifuges, long rows of tall grey cylinders under cold light.",
           caption: "Iran's enrichment sites were the main target of sabotage.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast dim underground hall filled with long rows of tall grey centrifuge cylinders connected by pipes, cold blue-white light, a faint haze, industrial and secretive atmosphere, no people, no legible text or symbols." },
         { type: "timeline", head: "From sabotage to open fire", items: [
           ["2010", "Stuxnet computer worm damages Iran's centrifuges"],
@@ -123,7 +123,7 @@ window.POLITICS.addUnit("il_ir", {
         { type: "image", kind: "illustration", src: "img/il_ir/il_ir-3-hero.webp",
           alt: "Illustration of a hilly southern Lebanese landscape at dusk with a village of stone houses and a damaged road, smoke rising in the distance.",
           caption: "Southern Lebanon, Hezbollah's heartland, has been a front line between Israel and Iran's allies for decades.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rolling hills of southern Lebanon at dusk, a village of pale stone houses with olive groves, a cracked road in the foreground, a thin column of smoke rising far in the distance, soft orange light, tense stillness, no people, no flags, no legible text." },
         { type: "facts", head: "The network", rows: [
           ["Lebanon", "Hezbollah, founded 1982 with Revolutionary Guards help"],

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_jp", {
         { type: "image", kind: "illustration", src: "img/us_jp/us_jp-1-hero.webp",
           alt: "Illustration of a large grey aircraft carrier moored in a Japanese harbour with green hills and houses behind.",
           caption: "Yokosuka, near Tokyo, is home port of the US Seventh Fleet's aircraft carrier.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large grey aircraft carrier moored at a naval pier in a Japanese harbour, forested green hills and small houses rising behind, cranes and smaller warships nearby, soft morning haze, calm and powerful, no people close up, no flags, no legible text or hull numbers." },
         { type: "timeline", head: "Building the alliance", items: [
           ["1945–52", "US occupation under General MacArthur"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("us_jp", {
         { type: "image", kind: "illustration", src: "img/us_jp/us_jp-2-hero.webp",
           alt: "Illustration of a military airfield runway running through a dense town of white concrete houses, with the sea behind.",
           caption: "Futenma air station sits in the middle of the crowded city of Ginowan.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long military airfield runway running through the middle of a dense subtropical town of low white concrete houses, a turquoise sea and coral reef behind, a few grey aircraft parked, bright sun, crowded and tense, no people close up, no flags, no legible text." },
         { type: "facts", head: "Okinawa and the bases", rows: [
           ["US troops in Japan", "About 54,000, the most in any foreign country"],
@@ -120,7 +120,7 @@ window.POLITICS.addUnit("us_jp", {
         { type: "image", kind: "illustration", src: "img/us_jp/us_jp-3-hero.webp",
           alt: "Illustration of rows of new cars lined up at a port beside a huge car-carrier ship under a clear sky.",
           caption: "Cars are Japan's biggest export to the United States.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rows of shiny new cars lined up on a vast port dock beside a huge boxy car-carrier ship, cranes and a clear blue sky, orderly and industrial, no people, no logos, no legible text." },
         { type: "timeline", head: "Trade battles", items: [
           ["1981", "Japan agrees to limit car exports to the US"],

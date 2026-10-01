@@ -21,7 +21,7 @@ window.POLITICS.addUnit("sa_cn", {
         { type: "image", kind: "illustration", src: "img/sa_cn/sa_cn-1-hero.webp",
           alt: "Illustration of a long missile on a launcher hidden in a rocky desert valley at dusk.",
           caption: "Saudi Arabia secretly bought Chinese CSS-2 missiles in the 1980s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long pale ballistic missile lying on a launch vehicle in a rocky desert valley at dusk, camouflage netting over part of it, low concrete bunkers nearby, orange sky, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From strangers to partners", items: [
           ["1949–90", "Saudi Arabia recognises Taiwan, not Beijing"],
@@ -74,7 +74,7 @@ window.POLITICS.addUnit("sa_cn", {
         { type: "image", kind: "illustration", src: "img/sa_cn/sa_cn-2-hero.webp",
           alt: "Illustration of a long conference table under chandeliers in a grand hall, with three sets of empty chairs.",
           caption: "China hosted the talks that restored Saudi–Iranian relations in March 2023.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long polished conference table under crystal chandeliers in a grand hall, three groups of empty leather chairs and water glasses, tall windows with heavy curtains, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "A partnership deepens", items: [
           ["2016", "Xi visits; a comprehensive strategic partnership"],
@@ -127,7 +127,7 @@ window.POLITICS.addUnit("sa_cn", {
         { type: "image", kind: "illustration", src: "img/sa_cn/sa_cn-3-hero.webp",
           alt: "Illustration of oil tankers waiting at anchor in a hazy strait with warships on the horizon.",
           caption: "The 2026 war disrupted the Strait of Hormuz, through which most Saudi oil to Asia flows.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several large oil tankers waiting at anchor in a hazy narrow strait between dry mountains, grey warships on the horizon, smoke rising faintly from a distant coast, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "A détente breaks", items: [
           ["28 Feb 2026", "US and Israel attack Iran"],

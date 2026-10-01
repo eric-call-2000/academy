@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_it", {
         { type: "image", kind: "illustration", src: "img/us_it/us_it-1-hero.webp",
           alt: "Illustration of an immigrant family with bundles on the deck of a steamship approaching a harbour with a statue.",
           caption: "Millions of Italians arrived in New York through Ellis Island.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An immigrant family with bundles and trunks standing on the crowded deck of an early 1900s steamship approaching a harbour with a large statue and city skyline in the haze, historical documentary painting style, seen from behind, no faces, no flags, no legible text." },
         { type: "timeline", head: "A great migration", items: [
           ["1880–1920", "Over four million Italians emigrate to the US"],
@@ -73,7 +73,7 @@ window.POLITICS.addUnit("us_it", {
         { type: "image", kind: "illustration", src: "img/us_it/us_it-2-hero.webp",
           alt: "Illustration of an airliner on a night runway surrounded by two rings of armed soldiers and vehicles.",
           caption: "At Sigonella in October 1985, Italian troops surrounded American special forces surrounding a plane.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white airliner parked on a dark runway at night under floodlights, surrounded by an inner ring of soldiers and an outer ring of other soldiers and military vehicles, Sicilian hills in the darkness, documentary painting style, no faces, no flags, no legible text." },
         { type: "timeline", head: "Cold War ally", items: [
           ["18 Apr 1948", "Christian Democrats win a decisive election"],
@@ -124,7 +124,7 @@ window.POLITICS.addUnit("us_it", {
         { type: "image", kind: "illustration", src: "img/us_it/us_it-3-hero.webp",
           alt: "Illustration of a long stone bridge across a river at dusk, with lights reflecting in the water.",
           caption: "Meloni has presented herself as a bridge between Europe and Trump.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long old stone bridge with many arches across a wide river at dusk, warm lamps along it reflecting in the water, a city's domes on one bank, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "A special friendship", items: [
           ["20 Jan 2025", "Meloni the only EU leader at Trump's inauguration"],

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_ng", {
         { type: "image", kind: "illustration", src: "img/us_ng/us_ng-1-hero.webp",
           alt: "Illustration of an oil platform and flare in a mangrove-lined river delta at sunset.",
           caption: "Nigeria was one of America's top five sources of crude oil for almost four decades.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An oil platform with a burning gas flare in a wide river delta lined with green mangroves at sunset, small wooden boats on the water, orange and purple sky, documentary painting style, no people close up, no logos, no flags, no legible text." },
         { type: "timeline", head: "Partners and critics", items: [
           ["1960", "Nigeria becomes independent"],
@@ -73,7 +73,7 @@ window.POLITICS.addUnit("us_ng", {
         { type: "image", kind: "illustration", src: "img/us_ng/us_ng-2-hero.webp",
           alt: "Illustration of an empty school classroom with overturned desks and scattered exercise books, sunlight through broken windows.",
           caption: "Boko Haram abducted 276 schoolgirls from Chibok in April 2014.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty rural school classroom with overturned wooden desks and scattered exercise books, sunlight streaming through broken windows, dusty floor, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Partners against terror", items: [
           ["Apr 2014", "Boko Haram abducts 276 schoolgirls at Chibok"],
@@ -126,7 +126,7 @@ window.POLITICS.addUnit("us_ng", {
         { type: "image", kind: "illustration", src: "img/us_ng/us_ng-3-hero.webp",
           alt: "Illustration of a dry savannah landscape at night with a distant glow of an explosion on the horizon.",
           caption: "US missiles struck targets in Sokoto State on Christmas night 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A dry savannah landscape at night with scattered acacia trees and mud-brick villages, a distant orange glow on the horizon under a starry sky, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Pressure and partnership", items: [
           ["Aug 2025", "15% US tariff on Nigerian goods"],

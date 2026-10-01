@@ -21,7 +21,7 @@ window.POLITICS.addUnit("pk_cn", {
         { type: "image", kind: "illustration", src: "img/pk_cn/pk_cn-1-hero.webp",
           alt: "Illustration of a winding mountain highway through jagged snowy peaks, with colourfully painted trucks on the road.",
           caption: "The Karakoram Highway, completed in 1979, crosses the Khunjerab Pass between Pakistan and China at 4,700 metres.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A winding mountain highway through jagged snow-capped Karakoram peaks, a few brightly painted decorated trucks on the road, a turquoise river far below, crisp blue sky, dramatic and remote, no people close up, no flags, no legible text." },
         { type: "timeline", head: "A 75-year bond", items: [
           ["1951", "Diplomatic relations established"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("pk_cn", {
         { type: "image", kind: "illustration", src: "img/pk_cn/pk_cn-2-hero.webp",
           alt: "Illustration of a modern deep-water port with cranes on an arid coast under barren cliffs, with few ships.",
           caption: "Gwadar port on the Arabian Sea, built by China, is the centrepiece of the corridor but has seen little traffic.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern deep-water port with a few tall cranes and an empty quay on an arid coast, dramatic barren sandstone cliffs behind, a calm blue Arabian Sea with one small ship, bright harsh sun, quiet and underused, no people, no flags, no legible text." },
         { type: "facts", head: "CPEC", rows: [
           ["Launched", "2015, during Xi Jinping's visit to Islamabad"],
@@ -121,7 +121,7 @@ window.POLITICS.addUnit("pk_cn", {
         { type: "image", kind: "illustration", src: "img/pk_cn/pk_cn-3-hero.webp",
           alt: "Illustration of a grey delta-winged fighter jet taking off from a desert air base at dawn, with mountains behind.",
           caption: "Pakistan's J-10C fighters, bought from China, were used in the May 2025 clash with India.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grey delta-winged fighter jet taking off from a desert air base at dawn, afterburner glowing, brown mountains in the background, dust on the runway, dramatic and powerful, no markings, no flags, no legible text." },
         { type: "timeline", head: "Arms ties", items: [
           ["1960s", "Chinese tanks and jets begin to arrive"],

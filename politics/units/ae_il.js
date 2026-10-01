@@ -21,7 +21,7 @@ window.POLITICS.addUnit("ae_il", {
         { type: "image", kind: "illustration", src: "img/ae_il/ae_il-1-hero.webp",
           alt: "Illustration of a white colonnaded balcony overlooking a green lawn with a signing table set out.",
           caption: "The Abraham Accords were signed on the White House lawn on 15 September 2020.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white neoclassical colonnaded balcony overlooking a wide green lawn, a long table with chairs and pens set out for a signing ceremony, rows of empty chairs for guests, bright late-summer sunlight, no people, no flags, no legible text." },
         { type: "timeline", head: "Road to normalisation", items: [
           ["1971", "UAE founded; no relations with Israel"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("ae_il", {
         { type: "image", kind: "illustration", src: "img/ae_il/ae_il-2-hero.webp",
           alt: "Illustration of a modern airport terminal with a plane at the gate and the Dubai skyline in the distance.",
           caption: "Direct flights began after 2020, and hundreds of thousands of Israelis visited the UAE.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern airport terminal with a white passenger jet at the gate seen through tall glass windows, a desert city skyline with very tall towers in the hazy distance, warm evening light, no people close up, no airline logos, no flags, no legible text." },
         { type: "timeline", head: "Deepening ties, rising strain", items: [
           ["31 May 2022", "Free-trade agreement (CEPA) signed"],
@@ -122,7 +122,7 @@ window.POLITICS.addUnit("ae_il", {
         { type: "image", kind: "illustration", src: "img/ae_il/ae_il-3-hero.webp",
           alt: "Illustration of interceptor missiles rising into a night sky over a desert city of skyscrapers.",
           caption: "Iranian missiles and drones targeted the UAE during the 2026 war.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several interceptor missiles rising with bright trails into a dark night sky over a desert city of tall skyscrapers, small explosions high above, city lights below, dramatic documentary style, no people, no flags, no legible text." },
         { type: "timeline", head: "A security partnership", items: [
           ["Jan 2022", "Houthi missiles and drones hit Abu Dhabi"],

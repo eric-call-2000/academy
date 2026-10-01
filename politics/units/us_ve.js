@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_ve", {
         { type: "image", kind: "illustration", src: "img/us_ve/us_ve-1-hero.webp",
           alt: "Illustration of old steam-powered warships anchored off a tropical coastline with mountains behind, in the style of an early 20th-century painting.",
           caption: "In 1902–03 British, German and Italian warships blockaded Venezuela's ports to collect debts.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several early twentieth-century steam warships with tall funnels anchored off a tropical coastline, green mountains rising behind a small port town, calm sea, painted in a muted historical oil-painting style, no flags, no legible text." },
         { type: "timeline", head: "A century of intervention", items: [
           ["1823", "Monroe Doctrine warns Europe off the Americas"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("us_ve", {
         { type: "image", kind: "illustration", src: "img/us_ve/us_ve-2-hero.webp",
           alt: "Illustration of a large oil refinery on the US Gulf Coast at dusk, with towers, flares and storage tanks.",
           caption: "Citgo's largest refinery, at Lake Charles, Louisiana, was built to process heavy Venezuelan crude.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large oil refinery on a flat coastal plain at dusk, distillation towers and storage tanks lit by floodlights, a small gas flare, marshland and a waterway in the foreground, orange and purple sky, industrial and vast, no people, no logos, no legible text." },
         { type: "facts", head: "Citgo", rows: [
           ["Owner", "PDV Holding, a subsidiary of Venezuela's state oil company PDVSA"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("us_ve", {
         { type: "image", kind: "illustration", src: "img/us_ve/us_ve-3-hero.webp",
           alt: "Illustration of a vast concrete prison complex surrounded by high walls and watchtowers in a green landscape, seen from above.",
           caption: "In March 2025 the US sent 238 Venezuelans to CECOT, El Salvador's terrorism confinement centre.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Aerial view of a vast grey concrete prison complex with long rectangular blocks, high walls and watchtowers, surrounded by green fields and hills, harsh midday light, stark and imposing, no people visible, no legible text." },
         { type: "timeline", head: "Protection to deportation", items: [
           ["2021", "Biden grants Temporary Protected Status to Venezuelans"],

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_fr", {
         { type: "image", kind: "illustration", src: "img/us_fr/us_fr-1-hero.webp",
           alt: "Illustration of 18th-century French and American soldiers in trenches before earthworks, with sailing warships in a bay behind.",
           caption: "French troops and ships were decisive at the siege of Yorktown in 1781.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "18th-century soldiers in blue and white coats manning cannons in siege trenches before earthwork forts, tall sailing warships in a bay behind, smoke drifting, autumn light, historical oil painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "An old friendship", items: [
           ["1778", "France signs a treaty of alliance with the United States"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("us_fr", {
         { type: "image", kind: "illustration", src: "img/us_fr/us_fr-2-hero.webp",
           alt: "Illustration of a conventional submarine in a dry dock under construction, with welding sparks.",
           caption: "Australia cancelled its French submarine contract in 2021 in favour of AUKUS.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large conventional submarine hull under construction in a covered dry dock, welding sparks, scaffolding and cranes, industrial lighting, documentary painting style, no people close up, no logos, no flags, no legible text." },
         { type: "timeline", head: "Quarrels among friends", items: [
           ["14 Feb 2003", "Villepin's UN speech against war in Iraq"],
@@ -123,7 +123,7 @@ window.POLITICS.addUnit("us_fr", {
         { type: "image", kind: "illustration", src: "img/us_fr/us_fr-3-hero.webp",
           alt: "Illustration of colourful wooden houses around a small harbour on a rocky North Atlantic island under grey skies.",
           caption: "Macron and Canada's Mark Carney visited Saint-Pierre-et-Miquelon in September 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Brightly painted wooden houses around a small fishing harbour on a rocky treeless North Atlantic island, small boats, low grey clouds, cold light, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Friction and flattery", items: [
           ["17 Jan 2026", "Trump threatens tariffs on France and seven others over Greenland"],

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("cn_in", {
         { type: "image", kind: "illustration", src: "img/cn_in/cn_in-1-hero.webp",
           alt: "Illustration of a barren high-altitude valley with a narrow river between brown mountains and snow-capped peaks, with a small military post.",
           caption: "The Galwan valley in Ladakh, where Indian and Chinese troops clashed in June 2020.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A barren high-altitude valley with a narrow grey-green river winding between steep brown mountains, snow-capped peaks beyond, a tiny military outpost with tents on a ridge, thin clear air and harsh sunlight, remote and tense, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Clashes and talks", items: [
           ["1914", "The McMahon Line drawn at a conference China never ratified"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("cn_in", {
         { type: "image", kind: "illustration", src: "img/cn_in/cn_in-2-hero.webp",
           alt: "Illustration of a busy electronics assembly line with rows of workers placing parts on circuit boards under bright lights.",
           caption: "India makes more phones than ever, but many of their components still come from China.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long bright electronics assembly line with rows of workers in blue caps and smocks, seen from behind and the side, placing components on green circuit boards, conveyor belts and bins of parts, busy and modern, no faces clearly visible, no legible text or logos." },
         { type: "facts", head: "Trade in 2025–26", rows: [
           ["Imports from China", "$131.6 billion"],
@@ -121,7 +121,7 @@ window.POLITICS.addUnit("cn_in", {
         { type: "image", kind: "illustration", src: "img/cn_in/cn_in-3-hero.webp",
           alt: "Illustration of a deep river gorge winding between steep forested mountains with snowy peaks, mist rising from the water.",
           caption: "The Yarlung Tsangpo flows through a deep gorge in Tibet before entering India as the Brahmaputra.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A deep dramatic river gorge winding between steep green forested mountains, snowy Himalayan peaks above, mist rising from a fast turquoise river, prayer flags faint on a distant ridge, awe-inspiring and remote, no people, no legible text." },
         { type: "timeline", head: "Tibet and India", items: [
           ["1950", "China takes control of Tibet"],

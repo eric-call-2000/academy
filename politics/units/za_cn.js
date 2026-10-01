@@ -21,7 +21,7 @@ window.POLITICS.addUnit("za_cn", {
         { type: "image", kind: "illustration", src: "img/za_cn/za_cn-1-hero.webp",
           alt: "Illustration of an empty diplomatic office with packed boxes and a desk cleared of papers, in Pretoria.",
           caption: "South Africa ended relations with Taiwan and recognised Beijing in January 1998.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty diplomatic office with cardboard boxes packed on the floor, a cleared wooden desk, bare picture hooks on the wall, jacaranda trees visible through the window in Pretoria, late afternoon light, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Two Chinas", items: [
           ["1960s", "China backs the ANC, then its rival, the PAC"],
@@ -74,7 +74,7 @@ window.POLITICS.addUnit("za_cn", {
         { type: "image", kind: "illustration", src: "img/za_cn/za_cn-2-hero.webp",
           alt: "Illustration of grey warships sailing in formation off a city harbour with high-rise buildings and a beach.",
           caption: "South Africa held naval exercises with China and Russia off Durban in 2023.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several grey warships sailing in formation off a subtropical harbour city with high-rise buildings and a long beach, blue Indian Ocean, light clouds, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "A political friendship", items: [
           ["2010", "China invites South Africa to join BRIC, making it BRICS"],
@@ -126,7 +126,7 @@ window.POLITICS.addUnit("za_cn", {
         { type: "image", kind: "illustration", src: "img/za_cn/za_cn-3-hero.webp",
           alt: "Illustration of rows of new cars lined up at a port car terminal next to a large car-carrier ship.",
           caption: "Chinese brands took about a fifth of South Africa's car market in 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Long rows of new cars in many colours lined up at a port car terminal next to a huge car-carrier ship, cranes and a harbour city behind, bright sky, documentary painting style, no people, no logos, no flags, no legible text." },
         { type: "timeline", head: "Trade under pressure", items: [
           ["2025", "ArcelorMittal South Africa winds down its long-steel business"],

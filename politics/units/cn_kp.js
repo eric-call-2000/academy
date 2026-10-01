@@ -22,7 +22,7 @@ window.POLITICS.addUnit("cn_kp", {
         { type: "image", kind: "illustration", src: "img/cn_kp/cn_kp-1-hero.webp",
           alt: "Illustration of a long steel bridge across a wide river in winter, with snowy hills on both banks.",
           caption: "Chinese troops crossed the Yalu river into Korea in October 1950.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long old steel truss bridge across a wide half-frozen river in winter, snowy low hills on both banks, a column of small figures crossing at dusk seen from far away, cold blue light, historical documentary painting style, no flags, no legible text." },
         { type: "timeline", head: "Brothers in arms", items: [
           ["Oct 1950", "Chinese 'People's Volunteers' cross the Yalu"],
@@ -70,7 +70,7 @@ window.POLITICS.addUnit("cn_kp", {
         { type: "image", kind: "illustration", src: "img/cn_kp/cn_kp-2-hero.webp",
           alt: "Illustration of lorries queuing to cross a bridge at a border checkpoint in a river valley, with a Chinese city on one side and dark hills on the other.",
           caption: "Most of North Korea's trade crosses the Yalu between Dandong and Sinuiju.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A line of cargo lorries queuing at a border checkpoint to cross a bridge over a river valley, a bright modern city with tall buildings on one bank and dark sparsely lit hills on the other, evening light, documentary style, no people close up, no flags, no legible text." },
         { type: "facts", head: "China and the North", rows: [
           ["Share of North Korea's trade", "About 90% or more"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("cn_kp", {
         { type: "image", kind: "illustration", src: "img/cn_kp/cn_kp-3-hero.webp",
           alt: "Illustration of a huge square with a massed military parade, missiles on launch vehicles and crowds in the stands.",
           caption: "China's premier watched North Korea's October 2025 parade, which displayed new intercontinental missiles.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge city square at night lit by floodlights with a massed military parade, giant missiles on long launch vehicles rolling past, crowds in grandstands, fireworks in the sky, seen from high above and far away, no faces, no flags, no legible text." },
         { type: "timeline", head: "Rivalry and reconciliation", items: [
           ["2023–24", "North Korea sends Russia shells and missiles"],

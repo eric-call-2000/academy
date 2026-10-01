@@ -112,7 +112,7 @@ window.POLITICS.addUnit("de", {
         { type: "image", kind: "illustration", src: "img/de/de-9-hero.webp",
           alt: "Illustration of a modest white modernist building on the bank of a wide river lined with trees, in soft spring light.",
           caption: "Bonn, on the Rhine, where the Basic Law was drafted in 1948–49 and which served as West Germany's capital until 1990.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modest white modernist government building with large windows beside a wide river lined with trees, soft spring light, a small ferry on the water, calm and unassuming, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From one Germany to two, and back", items: [
           ["1871", "Germany unified as an empire under Prussia"],
@@ -163,7 +163,7 @@ window.POLITICS.addUnit("de", {
         { type: "image", kind: "illustration", src: "img/de/de-3-hero.webp",
           alt: "Illustration of crowds climbing onto a graffiti-covered concrete wall at night, with a grand stone gate lit up behind them.",
           caption: "The fall of the Berlin Wall on 9 November 1989 opened the way to reunification less than a year later.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Night scene of jubilant crowds seen from behind climbing onto a graffiti-covered concrete wall, a grand neoclassical stone gate floodlit in the background, fireworks and camera flashes, cold autumn air, joy and disbelief, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1945", "Nazi Germany defeated; the country occupied and divided"],
@@ -209,7 +209,7 @@ window.POLITICS.addUnit("de", {
         { type: "image", kind: "illustration", src: "img/de/de-10-hero.webp",
           alt: "Illustration of a field of grey concrete slabs of different heights in rows, seen at dusk with long shadows.",
           caption: "Berlin's Memorial to the Murdered Jews of Europe, opened in 2005 near the Brandenburg Gate.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast field of grey concrete slabs of varying heights arranged in a tight grid on undulating ground, seen at dusk with long shadows, a few bare trees at the edge, solemn and disorienting, no people, no legible text." },
         { type: "facts", head: "The toll", rows: [
           ["Jews murdered in the Holocaust", "About 6 million"],
@@ -258,7 +258,7 @@ window.POLITICS.addUnit("de", {
         { type: "image", kind: "illustration", src: "img/de/de-11-hero.webp",
           alt: "Illustration of a long concrete wall covered in faded colourful murals beside a river in a city, with a watchtower in the distance.",
           caption: "A surviving stretch of the Berlin Wall, now covered in murals.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long stretch of concrete wall covered in faded colourful abstract murals beside a river in a city, a concrete watchtower in the distance, autumn trees, soft afternoon light, historic and reflective, no people close up, no legible text or recognisable artworks." },
         { type: "timeline", head: "Division and unity", items: [
           ["13 Aug 1961", "East Germany seals the border in Berlin"],
@@ -308,7 +308,7 @@ window.POLITICS.addUnit("de", {
         { type: "image", kind: "illustration", src: "img/de/de-4-hero.webp",
           alt: "Illustration of a modern glass-domed parliament building at dusk, with people walking on a spiral ramp inside the dome.",
           caption: "The Reichstag building in Berlin, home of the Bundestag. Its glass dome lets visitors look down on the chamber.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand stone parliament building with a modern glass dome at dusk, small silhouettes of visitors walking up a spiral ramp inside the lit dome, a wide lawn in front, soft blue sky, calm and civic, no flags or legible text." },
         { type: "people", head: "Six to know", items: [
           { name: "Friedrich Merz", role: "Chancellor and CDU leader, since May 2025",
@@ -362,7 +362,7 @@ window.POLITICS.addUnit("de", {
         { type: "image", kind: "illustration", src: "img/de/de-5-hero.webp",
           alt: "Illustration of a row of new armoured vehicles in a factory hall, with workers in overalls inspecting them under bright lights.",
           caption: "Germany's defence industry is expanding fast to meet new orders.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long, brightly lit factory hall with a row of new olive-green armoured vehicles on an assembly line, workers in overalls with tablets inspecting them, steel beams and cranes overhead, a sense of scale and urgency, no insignia or legible text." },
         { type: "section", head: "What happened", md:
           "In March 2025 the outgoing Bundestag amended the constitution so that defence spending above 1% of GDP no longer counts against the [[debt brake]], the rule that limits federal borrowing. That removed the ceiling on how much Germany can borrow for its armed forces.\n\n" +
@@ -413,7 +413,7 @@ window.POLITICS.addUnit("de", {
         { type: "image", kind: "illustration", src: "img/de/de-6-hero.webp",
           alt: "Illustration of a small eastern German town square in autumn, with a polling-station sign-shaped blank board outside a town hall and a few people walking in.",
           caption: "In Saxony-Anhalt and Mecklenburg-Western Pomerania the AfD won by wide margins in September 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A quiet small-town square in eastern Germany in autumn, a modest town hall with a blank board outside, a few voters in coats walking in, plane trees with yellow leaves, overcast sky, restored old houses beside a concrete block, no legible text or party logos." },
         { type: "section", head: "What happened", md:
           "On 6 September 2026 voters in Saxony-Anhalt gave the AfD 43.8% of the vote, far ahead of the CDU on 17.2%. The CDU, which had led the state for years, did not win a single constituency.\n\n" +
@@ -465,7 +465,7 @@ window.POLITICS.addUnit("de", {
         { type: "image", kind: "illustration", src: "img/de/de-7-hero.webp",
           alt: "Illustration of a car factory at night with a half-empty car park and a single lit production hall.",
           caption: "Germany's carmakers face high costs at home and fierce competition from Chinese brands.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large car factory at night seen from a distance, one production hall lit with a warm glow, a half-empty staff car park under sodium lamps, a railway siding with covered wagons, light rain, a mood of uncertainty, no logos or legible text." },
         { type: "section", head: "What happened", md:
           "Germany's economy shrank by 0.3% in 2023 and 0.2% in 2024, and grew just 0.3% in 2025. Forecasts for 2026 range from about 0.6%, from the European Commission, to 1.4%, from Goldman Sachs, which expects government spending to kick in. Unemployment has crept up, and big industrial names have announced job cuts." },
@@ -515,7 +515,7 @@ window.POLITICS.addUnit("de", {
         { type: "image", kind: "illustration", src: "img/de/de-12-hero.webp",
           alt: "Illustration of a busy railway station hall with arched iron roof, travellers with backpacks and bags seen from behind, and volunteers at tables.",
           caption: "In September 2015 volunteers welcomed arrivals at stations such as Munich's.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large railway station hall with a high arched iron-and-glass roof, travellers with backpacks and bags seen from behind walking along the platform, volunteers at tables with water and food, warm light, hopeful and crowded, no faces, no legible text." },
         { type: "facts", head: "The numbers", rows: [
           ["Asylum seekers arriving 2015–16", "About 1.2 million"],
@@ -564,7 +564,7 @@ window.POLITICS.addUnit("de", {
         { type: "image", kind: "illustration", src: "img/de/de-8-hero.webp",
           alt: "Illustration of a wide river winding past vineyards and a castle on a hill under a mixed sky of sun and cloud.",
           caption: "Germany enters the autumn of 2026 with its political centre under more pressure than at any time since reunification.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wide river winding through a valley of terraced vineyards, a medieval castle on a hilltop, a barge on the water, a sky half sunlit and half heavy with storm clouds, autumn colours, calm but uncertain, no people." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Merz's CDU/CSU–SPD coalition holds 328 of 630 seats, but his personal approval is very low; one September poll found just 14% think he is the right chancellor.\n" +

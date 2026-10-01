@@ -22,7 +22,7 @@ window.POLITICS.addUnit("fr_ru", {
         { type: "image", kind: "illustration", src: "img/fr_ru/fr_ru-1-hero.webp",
           alt: "Illustration of a ragged army retreating through snow past burned-out buildings in 1812.",
           caption: "Napoleon's army retreated from Moscow in the winter of 1812.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A ragged column of soldiers in tattered 1812-era uniforms retreating through deep snow past burned wooden buildings, abandoned cannons and carts, grey winter sky, historical oil painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "Enemies and allies", items: [
           ["1812", "Napoleon invades Russia and occupies Moscow"],
@@ -75,7 +75,7 @@ window.POLITICS.addUnit("fr_ru", {
         { type: "image", kind: "illustration", src: "img/fr_ru/fr_ru-2-hero.webp",
           alt: "Illustration of two men sitting at opposite ends of a very long white table in an ornate hall.",
           caption: "Putin received Macron at a famously long table in February 2022.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Two small figures in dark suits seated at opposite ends of an extremely long white oval table in an ornate hall with gilded walls and a chandelier, seen from a distance, documentary painting style, no faces visible, no flags, no legible text." },
         { type: "timeline", head: "Talking to Putin", items: [
           ["Aug 2008", "Sarkozy brokers the Georgia ceasefire"],
@@ -127,7 +127,7 @@ window.POLITICS.addUnit("fr_ru", {
         { type: "image", kind: "illustration", src: "img/fr_ru/fr_ru-3-hero.webp",
           alt: "Illustration of a nuclear-armed submarine at a naval base on a rocky coast at dawn.",
           caption: "Macron unveiled a new nuclear doctrine at France's ballistic-missile submarine base in March 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large black ballistic missile submarine moored at a naval base on a rocky Breton coast at dawn, cranes and grey buildings behind, calm water, misty light, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From mediator to adversary", items: [
           ["2021–22", "Wagner arrives in Mali; French troops leave"],

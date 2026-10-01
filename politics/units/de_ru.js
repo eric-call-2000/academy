@@ -21,7 +21,7 @@ window.POLITICS.addUnit("de_ru", {
         { type: "image", kind: "illustration", src: "img/de_ru/de_ru-1-hero.webp",
           alt: "Illustration of large steel gas pipes stacked in a snowy yard beside a railway, with a gas compressor station behind.",
           caption: "In 1970 West Germany agreed to supply steel pipes to the Soviet Union in return for gas, the start of a 50-year energy partnership.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Huge steel gas pipes stacked in rows in a snowy industrial yard beside a railway line, a gas compressor station with chimneys behind, low winter sun, cold and industrial, no people, no flags, no legible text." },
         { type: "timeline", head: "The gas bargain", items: [
           ["1970", "Brandt's Moscow Treaty; the first gas-for-pipes deal"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("de_ru", {
         { type: "image", kind: "illustration", src: "img/de_ru/de_ru-2-hero.webp",
           alt: "Illustration of a large circle of bubbling, churning water on a calm grey sea, seen from the air.",
           caption: "Gas bubbling to the surface of the Baltic Sea near the Danish island of Bornholm after the explosions on 26 September 2022.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Aerial view of a large circle of white churning bubbling water on a calm dark grey sea, gas escaping from below, a faint coastline far away, overcast sky, eerie and dramatic, no boats, no people, no legible text." },
         { type: "facts", head: "The sabotage", rows: [
           ["When", "26 September 2022"],
@@ -120,7 +120,7 @@ window.POLITICS.addUnit("de_ru", {
         { type: "image", kind: "illustration", src: "img/de_ru/de_ru-3-hero.webp",
           alt: "Illustration of a large cargo aircraft on an airport apron at night under floodlights, with a small drone silhouetted against the sky.",
           caption: "In August 2026, Germany says, Russian agents used an explosive-laden drone against Ukrainian cargo planes at Leipzig airport.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge cargo aircraft parked on an airport apron at night under bright floodlights, a small quadcopter drone silhouetted against the dark sky above, wet tarmac reflections, tense and sinister, no people, no markings, no flags, no legible text." },
         { type: "timeline", head: "A shadow war", items: [
           ["2015", "Hackers steal 16 GB of data from the Bundestag"],

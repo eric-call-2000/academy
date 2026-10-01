@@ -110,7 +110,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-9-hero.webp",
           alt: "Illustration of black-hulled steamships with tall funnels anchored in a calm bay, with wooded hills and a small Japanese fishing village on the shore.",
           caption: "Commodore Perry's 'black ships' arrived in 1853, forcing Japan to open to the world.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several black-hulled 19th-century steamships with tall funnels and masts anchored in a calm bay, wooded green hills and a small traditional fishing village with thatched roofs on the shore, misty morning light, woodblock-print-inspired style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From shogunate to empire", items: [
           ["1603", "The Tokugawa shogunate begins"],
@@ -161,7 +161,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-3-hero.webp",
           alt: "Illustration of a bullet train speeding past a snow-capped volcano under a clear sky, with rice fields in the foreground.",
           caption: "The first bullet train opened in 1964, the year Tokyo hosted the Olympics, a symbol of Japan's post-war rebirth.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A sleek white high-speed train speeding across a viaduct past a large snow-capped conical volcano under a clear blue sky, flooded rice fields reflecting the mountain in the foreground, crisp and optimistic, no people close up, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1945", "Defeat in the Second World War; American occupation"],
@@ -209,7 +209,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-10-hero.webp",
           alt: "Illustration of the skeletal ruin of a domed building beside a river, with a quiet park and paper lanterns floating on the water at dusk.",
           caption: "The Atomic Bomb Dome in Hiroshima, preserved as a memorial; lanterns are floated on the river every 6 August.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The skeletal ruin of a domed brick building beside a calm river at dusk, a quiet green park, many small glowing paper lanterns floating on the water, peaceful and mournful, no people close up, no legible text." },
         { type: "facts", head: "The war", rows: [
           ["Manchuria seized", "1931"],
@@ -259,7 +259,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-11-hero.webp",
           alt: "Illustration of a sleek white bullet train speeding past rice fields with a snow-capped volcano in the background.",
           caption: "The Shinkansen bullet train, launched in 1964, symbolised Japan's postwar boom.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A sleek white bullet train speeding across a viaduct past green rice paddies, a snow-capped symmetrical volcano in the background under a clear blue sky, dynamic and optimistic, no people, no legible text or logos." },
         { type: "facts", head: "Boom and bust", rows: [
           ["Average growth, 1956–73", "About 9% a year"],
@@ -308,7 +308,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-4-hero.webp",
           alt: "Illustration of the Japanese Diet building, a pale stone structure with a stepped central tower, framed by cherry trees in blossom.",
           caption: "The National Diet Building in Tokyo, where the LDP now holds two-thirds of the lower house.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A symmetrical pale granite parliament building with a stepped pyramid-topped central tower, framed by cherry trees in full pink blossom, a wide empty plaza in front, soft spring light, calm and formal, no people close up, no flags or legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Sanae Takaichi", role: "Prime minister and LDP president, since October 2025",
@@ -364,7 +364,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-5-hero.webp",
           alt: "Illustration of a hall of politicians in dark suits applauding, seen from the back, with a single figure at a podium under bright lights.",
           caption: "Takaichi won the LDP leadership in October 2025 in a run-off against Shinjiro Koizumi.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large conference hall seen from the back, rows of politicians in dark suits applauding, a single small figure at a podium far away under bright stage lights, a plain backdrop, formal and momentous, no faces visible, no legible text." },
         { type: "section", head: "What happened", md:
           "Shigeru Ishiba's LDP lost its lower-house majority in October 2024 and its upper-house majority in July 2025, when voters punished it for the funding scandal and rising prices. Ishiba announced his resignation on 7 September 2025. On 4 October LDP members chose Sanae Takaichi as their leader, beating Shinjiro Koizumi in a run-off.\n\n" +
@@ -416,7 +416,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-6-hero.webp",
           alt: "Illustration of a grey warship leaving a harbour at dawn, with container cranes and green hills behind it.",
           caption: "Japan's forces could be drawn into a Taiwan conflict, Takaichi told the Diet in November 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grey naval destroyer leaving a harbour at dawn, container cranes and green forested hills behind, calm water with a long wake, pale gold sky, sober and strategic, no flags or legible markings." },
         { type: "section", head: "What happened", md:
           "On 7 November 2025, answering a question in the Diet, Takaichi said that a Chinese naval blockade or use of force against [[unit:tw|Taiwan]] could 'by all means' become a 'survival-threatening situation' for Japan, the legal term that allows its forces to act alongside allies. Previous prime ministers had avoided saying so explicitly.\n\n" +
@@ -469,7 +469,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-7-hero.webp",
           alt: "Illustration of a Tokyo street at night in the rain, with a crowd under umbrellas watching a giant screen showing blank results bars.",
           caption: "Election night, 8 February 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy Tokyo street crossing at night in light rain, a crowd under clear umbrellas seen from behind watching a giant outdoor video screen showing blank coloured bar charts, neon reflections on wet pavement, excitement, no legible text or faces." },
         { type: "section", head: "What happened", md:
           "Riding high approval ratings, Takaichi dissolved the lower house in January 2026. In the election on 8 February the LDP won 316 of 465 seats, the most any party has won since the war and a two-thirds majority on its own. With Ishin, the ruling bloc holds 352 seats. The opposition Centrist Reform Alliance fell to 49, and the populist Sanseito rose to 15. Turnout was about 56%, slightly higher than in 2024." },
@@ -521,7 +521,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-12-hero.webp",
           alt: "Illustration of an empty rural village street with old wooden houses, shuttered shops and an elderly person walking slowly in the distance, with mountains behind.",
           caption: "Across rural Japan, millions of homes stand empty as villages age and shrink.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty rural Japanese village street with old wooden houses and tiled roofs, shuttered shops, an elderly figure far in the distance walking slowly, green forested mountains behind, soft autumn light, quiet and melancholy, no face visible, no legible text." },
         { type: "facts", head: "Demography", rows: [
           ["Population", "About 124 million, falling"],
@@ -572,7 +572,7 @@ window.POLITICS.addUnit("jp", {
         { type: "image", kind: "illustration", src: "img/jp/jp-8-hero.webp",
           alt: "Illustration of a quiet rural Japanese village in autumn, with old wooden houses, a shrine gate and an elderly person walking along a lane.",
           caption: "Japan's countryside is ageing fast; more than one in four Japanese people is 65 or older.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A quiet rural Japanese village in autumn, old wooden houses with tiled roofs, a red shrine gate at the edge of a forest, maple trees turning red, an elderly person seen from behind walking slowly along a lane, gentle melancholy, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Takaichi's LDP holds 316 of 465 lower-house seats; with Ishin, 352.\n" +

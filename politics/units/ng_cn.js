@@ -21,7 +21,7 @@ window.POLITICS.addUnit("ng_cn", {
         { type: "image", kind: "illustration", src: "img/ng_cn/ng_cn-1-hero.webp",
           alt: "Illustration of a busy Lagos street with yellow minibuses, market stalls and a modern skyline behind.",
           caption: "Lagos, Nigeria's commercial capital, is full of Chinese-made goods.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy street in Lagos with yellow minibuses and motorbikes, colourful market stalls under umbrellas, crowds of shoppers seen from a distance, modern glass towers and cranes on the skyline behind, bright hazy sunlight, documentary style, no legible text, no flags." },
         { type: "timeline", head: "Building ties", items: [
           ["1968", "China voices support for Biafra in the civil war"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("ng_cn", {
         { type: "image", kind: "illustration", src: "img/ng_cn/ng_cn-2-hero.webp",
           alt: "Illustration of a modern passenger train on a new railway line crossing a green savannah landscape.",
           caption: "The Chinese-built Abuja–Kaduna railway opened in 2016.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern green-and-white passenger train on a new standard-gauge railway crossing a green savannah landscape with rocky outcrops and scattered trees, bright afternoon light, wide documentary view, no people close up, no logos, no flags, no legible text." },
         { type: "facts", head: "Chinese-built Nigeria", rows: [
           ["Abuja–Kaduna railway", "Built by CCECC; commercial service from July 2016"],
@@ -122,7 +122,7 @@ window.POLITICS.addUnit("ng_cn", {
         { type: "image", kind: "illustration", src: "img/ng_cn/ng_cn-3-hero.webp",
           alt: "Illustration of a wholesale market with stacks of colourful fabric rolls and boxes of goods.",
           caption: "Wax-print fabrics sold in Nigerian markets are often made in China.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy wholesale market hall with tall stacks of colourful patterned fabric rolls, cardboard boxes of goods and hand carts, traders seen from a distance, warm light through a high roof, documentary style, no faces in close-up, no logos, no flags, no legible text." },
         { type: "timeline", head: "People and markets", items: [
           ["1980s–90s", "Kano's textile mills employ hundreds of thousands"],

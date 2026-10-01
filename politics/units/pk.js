@@ -108,7 +108,7 @@ window.POLITICS.addUnit("pk", {
         { type: "image", kind: "illustration", src: "img/pk/pk-9-hero.webp",
           alt: "Illustration of a crowded railway platform in 1947 with a steam train packed with passengers, people in period clothing seen from behind with bundles and trunks.",
           caption: "Partition in 1947 set off one of the largest migrations in history.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A crowded railway platform in Punjab in 1947, a steam train packed with passengers on the roof and in doorways, people in 1940s South Asian clothing seen from behind carrying bundles and trunks, dusty golden light, tense historical atmosphere, no faces, no flags, no legible text." },
         { type: "timeline", head: "From idea to state", items: [
           ["1906", "All-India Muslim League founded"],
@@ -161,7 +161,7 @@ window.POLITICS.addUnit("pk", {
         { type: "image", kind: "illustration", src: "img/pk/pk-3-hero.webp",
           alt: "Illustration of a crowded railway platform in 1947 with families carrying bundles and a steam train packed with people on the roof.",
           caption: "Partition in 1947 displaced about 15 million people and killed hundreds of thousands.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A crowded railway platform in 1947, families seen from behind carrying bundles and trunks, a steam train packed with people including on its roof, dust and smoke, sepia and muted colours, sorrow and upheaval, no legible text, no faces in close-up." },
         { type: "timeline", head: "The short version", items: [
           ["1947", "Independence and Partition from British India"],
@@ -209,7 +209,7 @@ window.POLITICS.addUnit("pk", {
         { type: "image", kind: "illustration", src: "img/pk/pk-10-hero.webp",
           alt: "Illustration of a wide river delta in Bengal at dusk with country boats and a line of refugees walking along an embankment, seen from behind.",
           caption: "About ten million people fled East Pakistan to India in 1971.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wide river delta landscape in Bengal at dusk, wooden country boats on the water, a long line of refugees in 1970s clothing walking along a muddy embankment seen from behind, carrying bundles, monsoon clouds, muted and sorrowful, no faces, no weapons, no legible text." },
         { type: "timeline", head: "The road to 1971", items: [
           ["1952", "Language protests in Dhaka"],
@@ -265,7 +265,7 @@ window.POLITICS.addUnit("pk", {
         { type: "image", kind: "illustration", src: "img/pk/pk-11-hero.webp",
           alt: "Illustration of a rugged mountain pass on the Pakistan–Afghanistan frontier with a line of pack mules and men in shawls seen from behind.",
           caption: "Supplies for the Afghan mujahideen flowed across Pakistan's frontier in the 1980s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A rugged dry mountain pass on the Pakistan–Afghanistan frontier in the 1980s, a line of pack mules and men wrapped in woollen shawls seen from behind walking up a dusty track, dramatic late afternoon light on brown mountains, historical, no faces, no weapons visible, no legible text." },
         { type: "timeline", head: "The Zia years", items: [
           ["5 Jul 1977", "Zia overthrows Zulfikar Ali Bhutto"],
@@ -316,7 +316,7 @@ window.POLITICS.addUnit("pk", {
         { type: "image", kind: "illustration", src: "img/pk/pk-4-hero.webp",
           alt: "Illustration of a crowd at a night rally holding up blank portrait placards and party flags without symbols, seen from behind, under floodlights.",
           caption: "Imran Khan remains Pakistan's most popular politician, according to polls, despite being in prison since 2023.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large crowd at a night political rally seen from behind, people holding up blank portrait placards and plain green and red flags without symbols, floodlights and dust, a stage far away, fervent atmosphere, no faces, no legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Asim Munir", role: "Field Marshal; army chief and Chief of Defence Forces",
@@ -370,7 +370,7 @@ window.POLITICS.addUnit("pk", {
         { type: "image", kind: "illustration", src: "img/pk/pk-5-hero.webp",
           alt: "Illustration of snowy mountain border posts at dawn, with a flag pole without a flag and barbed wire along a ridge.",
           caption: "The Line of Control in Kashmir has divided Indian- and Pakistani-administered areas since 1972.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Stone and sandbag military border posts on a snowy mountain ridge at dawn, coils of barbed wire along the crest, an empty flag pole, vast Himalayan peaks behind in pink light, cold and tense, no people close up, no flags or legible text." },
         { type: "section", head: "What happened", md:
           "On 22 April 2025 gunmen killed 26 people, mostly Hindu tourists, at Pahalgam in Indian-administered Kashmir. India blamed Pakistan-based militants; Pakistan denied involvement. India suspended the Indus Waters Treaty, which governs the rivers that supply most of Pakistan's water. On 7 May India struck what it said were militant targets in Pakistan; Pakistan said civilians were killed and claimed to have shot down several Indian jets. Drone and missile exchanges followed, including strikes on air bases, until a ceasefire on 10 May, first announced by Trump." },
@@ -422,7 +422,7 @@ window.POLITICS.addUnit("pk", {
         { type: "image", kind: "illustration", src: "img/pk/pk-6-hero.webp",
           alt: "Illustration of a long negotiating table in an empty hotel ballroom with chandeliers, water glasses and name cards turned face down.",
           caption: "Islamabad hosted US and Iranian negotiators in April 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long negotiating table in an empty hotel ballroom, chandeliers overhead, water glasses and blank name cards laid out, rows of empty chairs on both sides, heavy curtains, quiet anticipation, no people, no legible text or flags." },
         { type: "section", head: "What happened", md:
           "When the United States and Israel went to war with [[unit:ir|Iran]] on 28 February 2026, Pakistan was one of the few countries trusted by both Washington and Tehran. It shares a long border with Iran and a large Shia minority, and its army chief had Trump's ear. Pakistani officials, led by Munir and Sharif, shuttled messages between the two sides. On 8 April the United States and Iran agreed a two-week ceasefire, mediated by Pakistan.\n\n" +
@@ -476,7 +476,7 @@ window.POLITICS.addUnit("pk", {
         { type: "image", kind: "illustration", src: "img/pk/pk-7-hero.webp",
           alt: "Illustration of a rugged mountain pass with a fortified checkpoint, an armoured vehicle and a long line of trucks waiting under a hazy sky.",
           caption: "Pakistan's border with Afghanistan has seen repeated clashes since October 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A rugged dry mountain pass with a fortified stone checkpoint, an armoured vehicle parked beside a barrier, a long line of colourful decorated trucks waiting, hazy dusty sky, tense stillness, no people close up, no flags or legible text." },
         { type: "section", head: "What happened", md:
           "Militant violence has surged. The Pakistani Taliban (TTP), which Pakistan says operates from Afghan territory, has carried out hundreds of attacks in Khyber Pakhtunkhwa and beyond; by late August 2026 at least 559 people had been killed in TTP-linked violence that year, according to one tally. A suicide bombing struck a mosque in Islamabad in February 2026. Separatists have also attacked in Balochistan.\n\n" +
@@ -522,7 +522,7 @@ window.POLITICS.addUnit("pk", {
         { type: "image", kind: "illustration", src: "img/pk/pk-12-hero.webp",
           alt: "Illustration of a mountain valley in Kashmir with a lake, wooden houseboats and snow-capped peaks, a lone boatman seen from behind.",
           caption: "The Vale of Kashmir, at the heart of the dispute, is controlled by India.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A serene mountain valley in Kashmir with a calm lake, ornate wooden houseboats and a small shikara boat with a lone boatman seen from behind, snow-capped Himalayan peaks and chinar trees in autumn colours, soft morning mist, beautiful but melancholy, no faces, no legible text, no flags." },
         { type: "facts", head: "Who holds what", rows: [
           ["India", "Jammu and Kashmir, Ladakh (about 55% of the area)"],
@@ -573,7 +573,7 @@ window.POLITICS.addUnit("pk", {
         { type: "image", kind: "illustration", src: "img/pk/pk-8-hero.webp",
           alt: "Illustration of a busy Karachi port at sunset with cranes, container ships and a crowded harbour of fishing boats.",
           caption: "Karachi, Pakistan's biggest city and commercial capital.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy seaport at sunset with container cranes and a large ship, a crowded harbour of colourful wooden fishing boats in the foreground, a hazy city skyline behind, warm orange light, bustle and resilience, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Power:** Field Marshal Munir dominates; Sharif's government manages the economy.\n" +

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("tr_ua", {
         { type: "image", kind: "illustration", src: "img/tr_ua/tr_ua-1-hero.webp",
           alt: "Illustration of an old palace with a minaret and carved wooden galleries in a green valley in Crimea.",
           caption: "The khans' palace at Bakhchysarai was the capital of the Crimean Khanate.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An old Crimean Tatar palace with a slender minaret, carved wooden galleries and a courtyard fountain in a green valley with limestone cliffs, soft morning light, historical painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "A shared past", items: [
           ["1475", "The Crimean Khanate becomes an Ottoman vassal"],
@@ -74,7 +74,7 @@ window.POLITICS.addUnit("tr_ua", {
         { type: "image", kind: "illustration", src: "img/tr_ua/tr_ua-2-hero.webp",
           alt: "Illustration of a bulk carrier loaded with grain sailing through the Bosphorus past mosques and a bridge.",
           caption: "Under the 2022 grain deal, ships carried Ukrainian grain through Istanbul's Bosphorus.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large bulk carrier ship sailing through the Bosphorus strait past Istanbul's domed mosques and a suspension bridge, calm blue water, gulls, morning light, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Wartime partner", items: [
           ["2019", "Ukraine buys Bayraktar TB2 drones"],
@@ -127,7 +127,7 @@ window.POLITICS.addUnit("tr_ua", {
         { type: "image", kind: "illustration", src: "img/tr_ua/tr_ua-3-hero.webp",
           alt: "Illustration of an Ottoman palace on the Bosphorus shore at dusk, its windows lit, with boats on the water.",
           caption: "Istanbul's palaces have hosted Russia–Ukraine talks since 2022.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long white Ottoman palace on the Bosphorus shore at dusk, warm lights in tall windows, small boats on the water, the Asian shore and a bridge in the distance, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Talks and swaps", items: [
           ["Mar 2022", "First Istanbul talks; a draft deal collapses"],

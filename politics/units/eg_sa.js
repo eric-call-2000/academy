@@ -21,7 +21,7 @@ window.POLITICS.addUnit("eg_sa", {
         { type: "image", kind: "illustration", src: "img/eg_sa/eg_sa-1-hero.webp",
           alt: "Illustration of steep terraced mountains in Yemen with a stone village perched on a ridge and a military truck on a dirt road.",
           caption: "Up to 70,000 Egyptian troops fought in the mountains of North Yemen in the 1960s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Steep terraced brown mountains in Yemen with a tall stone tower-house village perched on a ridge, a 1960s military truck on a winding dirt road below, dust and harsh afternoon light, historical documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Rivals, then partners", items: [
           ["1962", "Coup in North Yemen; Egypt backs republicans, Saudi Arabia the royalists"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("eg_sa", {
         { type: "image", kind: "illustration", src: "img/eg_sa/eg_sa-2-hero.webp",
           alt: "Illustration of two small barren islands in a turquoise sea at the mouth of a narrow gulf, with desert mountains behind.",
           caption: "Tiran and Sanafir guard the entrance to the Gulf of Aqaba.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Two small barren rocky islands in a bright turquoise sea at the narrow mouth of a gulf, coral reefs visible in the clear water, rugged reddish desert mountains on the mainland behind, a ship passing, harsh sunlight, no people, no flags, no legible text." },
         { type: "timeline", head: "Money and islands", items: [
           ["Jul 2013", "Morsi ousted; Saudi Arabia, UAE and Kuwait pledge $12 billion"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("eg_sa", {
         { type: "image", kind: "illustration", src: "img/eg_sa/eg_sa-3-hero.webp",
           alt: "Illustration of high-voltage power line towers marching across a desert towards a coastline at sunset.",
           caption: "A $1.8 billion link will let Egypt and Saudi Arabia trade up to 3,000 megawatts of electricity.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long line of tall high-voltage electricity pylons marching across a flat sandy desert towards a blue sea coastline at sunset, a large converter station with white buildings in the foreground, orange and purple sky, no people, no logos, no flags, no legible text." },
         { type: "facts", head: "The partnership in numbers", rows: [
           ["Saudi deposits at Egypt's central bank", "About $10 billion, to be turned into investment"],

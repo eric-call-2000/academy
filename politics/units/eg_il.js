@@ -21,7 +21,7 @@ window.POLITICS.addUnit("eg_il", {
         { type: "image", kind: "illustration", src: "img/eg_il/eg_il-1-hero.webp",
           alt: "Illustration of a desert landscape with rocky mountains and a lone observation post with a flagpole on a ridge.",
           caption: "An international force has monitored the Sinai peninsula since 1982 under the peace treaty.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast desert landscape of rocky red-brown mountains and sand, a small lone observation post with a bare flagpole on a ridge, a dirt track winding below, clear blue sky, quiet and remote, no people, no flags flying, no legible text." },
         { type: "timeline", head: "From war to treaty", items: [
           ["1948–73", "Four wars between Egypt and Israel"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("eg_il", {
         { type: "image", kind: "illustration", src: "img/eg_il/eg_il-2-hero.webp",
           alt: "Illustration of an offshore gas production platform standing in a calm blue sea at sunset.",
           caption: "Israel's Leviathan field, off Haifa, supplies a growing share of Egypt's gas.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large offshore natural gas production platform standing on steel legs in a calm blue Mediterranean sea at sunset, a supply ship nearby, orange sky and long reflections, industrial and serene, no people, no flags, no legible text or logos." },
         { type: "facts", head: "The gas deal", rows: [
           ["Signed", "August 2025; approved by Israel's government in December 2025"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("eg_il", {
         { type: "image", kind: "illustration", src: "img/eg_il/eg_il-3-hero.webp",
           alt: "Illustration of a border crossing gate in a desert landscape with concrete walls and a long line of trucks waiting in the heat.",
           caption: "Trucks carrying aid wait on the Egyptian side of the Rafah crossing.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A border crossing gate set in high concrete walls in a flat sandy desert, a long line of cargo trucks waiting in the hazy heat, dust in the air, pale sky, tense and weary atmosphere, no people close up, no flags, no legible text." },
         { type: "timeline", head: "The border", items: [
           ["2005", "Israel withdraws from Gaza; Rafah opens under EU monitors"],

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("jp_kr", {
         { type: "image", kind: "illustration", src: "img/jp_kr/jp_kr-1-hero.webp",
           alt: "Illustration of a bronze statue of a young girl in traditional dress seated on a chair beside an empty chair, on a city pavement.",
           caption: "Statues of a girl beside an empty chair, honouring the 'comfort women', stand in Seoul and dozens of other cities.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A bronze statue of a young girl in a simple traditional Korean dress sitting on a chair with her hands on her knees, an empty bronze chair beside her, on a city pavement with autumn leaves, soft afternoon light, quiet and poignant, no people, no legible text." },
         { type: "timeline", head: "Deals and disputes", items: [
           ["1910", "Japan annexes Korea"],
@@ -70,7 +70,7 @@ window.POLITICS.addUnit("jp_kr", {
         { type: "image", kind: "illustration", src: "img/jp_kr/jp_kr-2-hero.webp",
           alt: "Illustration of a semiconductor cleanroom with workers in white protective suits beside large machines under yellow light.",
           caption: "Japan restricted exports of three chemicals used to make semiconductors, South Korea's biggest export.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A semiconductor factory cleanroom lit with yellow light, workers in full white protective suits and masks seen from behind beside large wafer-processing machines, gleaming floors, precise and high-tech, no faces visible, no flags, no legible text or logos." },
         { type: "timeline", head: "Escalation and repair", items: [
           ["30 Oct 2018", "Korea's Supreme Court orders Nippon Steel to pay wartime labourers"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("jp_kr", {
         { type: "image", kind: "illustration", src: "img/jp_kr/jp_kr-3-hero.webp",
           alt: "Illustration of an ancient wooden temple hall with deer grazing on a lawn in front, under autumn trees.",
           caption: "Lee and Takaichi held their first bilateral summit in Nara, Takaichi's home region, in January 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An ancient large wooden Japanese temple hall with sweeping dark roofs, a few deer grazing on a lawn in front, maple trees in red and gold, soft winter morning light, calm and historic, no people, no flags, no legible text." },
         { type: "timeline", head: "Shuttle diplomacy", items: [
           ["Jun 2025", "Lee Jae-myung becomes president"],

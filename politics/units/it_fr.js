@@ -22,7 +22,7 @@ window.POLITICS.addUnit("it_fr", {
         { type: "image", kind: "illustration", src: "img/it_fr/it_fr-1-hero.webp",
           alt: "Illustration of a Mediterranean seaside town with pastel houses and a harbour at the foot of mountains, on the French–Italian coast.",
           caption: "Nice, which passed from the Kingdom of Sardinia to France in 1860, sits a short drive from the Italian border.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A Mediterranean seaside town with pastel ochre and pink houses stacked around a small harbour at the foot of green mountains, fishing boats, turquoise sea, warm afternoon light, charming and historic, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Shared history", items: [
           ["1796–1814", "Napoleon conquers and reorganises Italy"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("it_fr", {
         { type: "image", kind: "illustration", src: "img/it_fr/it_fr-2-hero.webp",
           alt: "Illustration of a coastal road border crossing between two countries along cliffs above the sea, with police vans and a small group of people walking.",
           caption: "France has checked the border at Ventimiglia since 2015, turning back migrants arriving from Italy.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A coastal road border crossing along steep cliffs above a blue sea, a few police vans parked by a checkpoint, a small group of people with backpacks walking seen from far behind, bright Mediterranean light, tense and quiet, no flags, no legible text." },
         { type: "timeline", head: "Flashpoints", items: [
           ["2011", "Rows over Tunisian migrants and the war in Libya"],
@@ -122,7 +122,7 @@ window.POLITICS.addUnit("it_fr", {
         { type: "image", kind: "illustration", src: "img/it_fr/it_fr-3-hero.webp",
           alt: "Illustration of a railway tunnel entrance being dug into a steep Alpine mountainside, with cranes and construction equipment.",
           caption: "A 57.5 km rail tunnel under the Alps is being built between Lyon and Turin.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large railway tunnel entrance being dug into a steep forested Alpine mountainside, cranes, concrete segments and construction machinery, snowy peaks above, clear morning light, industrial and ambitious, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Ties that bind", items: [
           ["2018", "Essilor and Luxottica merge"],

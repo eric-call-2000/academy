@@ -21,7 +21,7 @@ window.POLITICS.addUnit("pl_de", {
         { type: "image", kind: "illustration", src: "img/pl_de/pl_de-1-hero.webp",
           alt: "Illustration of a bronze memorial wall with a wreath of flowers laid at its base on a grey winter day, with bare trees behind.",
           caption: "On 7 December 1970 West Germany's chancellor Willy Brandt knelt before the memorial to the Warsaw Ghetto Uprising.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A dark bronze and stone memorial wall with relief figures, a large wreath of white and red flowers laid at its base, wet paving stones, bare trees behind on a grey winter day, solemn and quiet, no people, no legible text." },
         { type: "timeline", head: "From enemies to neighbours", items: [
           ["1939–45", "German occupation; about 6 million Polish citizens killed"],
@@ -70,7 +70,7 @@ window.POLITICS.addUnit("pl_de", {
         { type: "image", kind: "illustration", src: "img/pl_de/pl_de-2-hero.webp",
           alt: "Illustration of a city of ruined, roofless buildings under snow, with a lone church tower still standing.",
           caption: "About 85% of Warsaw was destroyed by the end of the war; its old town was rebuilt from paintings and photographs.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A city of ruined roofless brick buildings under a thin layer of snow, rubble in the streets, a single damaged church tower still standing, grey winter sky, desolate and historic, no people, no flags, no legible text." },
         { type: "facts", head: "The claim", rows: [
           ["1953", "Communist Poland renounces reparations from Germany"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("pl_de", {
         { type: "image", kind: "illustration", src: "img/pl_de/pl_de-3-hero.webp",
           alt: "Illustration of a road bridge over a wide river at a border crossing, with a line of cars and trucks and a police checkpoint tent.",
           caption: "Germany and Poland have both reintroduced checks at crossings along the Oder and Neisse rivers.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A road bridge over a wide calm river at a quiet border crossing, a line of cars and lorries slowly moving, a small police checkpoint with a white tent and traffic cones, green riverbanks, morning light, orderly and slightly tense, no legible text, no flags." },
         { type: "facts", head: "Bound together", rows: [
           ["Trade", "About €180 billion in goods in 2025"],

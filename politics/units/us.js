@@ -118,7 +118,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-9-hero.webp",
           alt: "Illustration of a Georgian brick assembly hall with tall arched windows, rows of green-covered tables and empty wooden chairs, and quill pens and papers left on the tables.",
           caption: "Independence Hall in Philadelphia, where the Declaration of Independence was adopted in 1776 and the Constitution written in 1787.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An 18th-century Georgian assembly room with tall arched windows, wooden panelling, rows of tables covered in green baize cloth, empty wooden chairs, quill pens, inkwells and scattered papers, warm summer light, historic and hushed, no people, no flags, no legible text." },
         { type: "timeline", head: "From colonies to a constitution", items: [
           ["1765", "Stamp Act protests: 'no taxation without representation'"],
@@ -171,7 +171,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-3-hero.webp",
           alt: "Illustration of civil-rights-era marchers, seen from behind, crossing a wide bridge at sunrise.",
           caption: "The civil-rights movement rewrote who could vote. In 2026 the fight over its laws returned to the Supreme Court.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Hundreds of marchers in early-1960s clothing seen from behind, crossing a wide steel-arch bridge at sunrise over a broad river, plain banners with no writing, a mood of resolve and scale." },
         { type: "timeline", head: "The short version", items: [
           ["1945–49", "Victory in the Second World War; the US helps found the UN and NATO and funds Europe's recovery"],
@@ -219,7 +219,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-10-hero.webp",
           alt: "Illustration of a quiet battlefield at dawn with a split-rail fence, a stone wall, rolling fields and mist, and a lone cannon on a ridge.",
           caption: "Gettysburg, Pennsylvania, site of the Civil War's bloodiest battle in July 1863.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A quiet rolling battlefield at dawn, a weathered split-rail fence and low stone wall crossing green fields, mist in the hollows, a lone 19th-century cannon on a ridge, soft grey-gold light, solemn and still, no people, no flags, no legible text." },
         { type: "facts", head: "The war in numbers", rows: [
           ["Enslaved people in 1860", "About 4 million"],
@@ -268,7 +268,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-11-hero.webp",
           alt: "Illustration of a long line of marchers seen from behind crossing a steel arch bridge over a river under a grey sky.",
           caption: "The march from Selma to Montgomery, Alabama, in 1965 helped win the Voting Rights Act.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long column of marchers in 1960s coats and hats seen from behind, walking across a steel arch bridge over a wide river under a grey overcast sky, determined and peaceful, no faces visible, no flags, no legible text or signs." },
         { type: "timeline", head: "Key moments", items: [
           ["1954", "Brown v. Board of Education ends school segregation in law"],
@@ -318,7 +318,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-4-hero.webp",
           alt: "Illustration of a long ceremonial avenue at dusk linking a domed capitol building to a columned executive mansion.",
           caption: "Pennsylvania Avenue links Congress and the White House. Who holds power along it is the subject of this briefing.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An aerial view at dusk of a long, straight ceremonial avenue linking a white domed capitol building at one end to a white columned mansion among trees at the other, street lights coming on, light traffic as tiny streaks, no people visible." },
         { type: "people", head: "The seven to know", items: [
           { name: "Donald Trump", role: "President (Republican), second term since Jan 2025",
@@ -379,7 +379,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-5-hero.webp",
           alt: "Illustration of stacked shipping containers at a quiet port at dawn, with a white domed courthouse across the water.",
           caption: "Tariffs are taxes on imports. In 2026 the Supreme Court ruled on who gets to set them.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Stacks of weathered shipping containers at a quiet port at dawn, cranes idle, and across grey water a white neoclassical courthouse with columns and a dome, low winter light, a feeling of standoff." },
         { type: "section", head: "What happened", md:
           "On 2 April 2025, a day he called 'Liberation Day', Trump announced [[tariff|tariffs]] on imports from almost every country: a 10% baseline plus higher 'reciprocal' rates for many partners. He relied on [[IEEPA]], a 1977 law that lets a president act against foreign threats in a national emergency, which he had already used for tariffs on Canada, Mexico and China over fentanyl.\n\n" +
@@ -432,7 +432,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-6-hero.webp",
           alt: "Illustration of an aircraft carrier and escort warships at dusk on a calm sea, with helicopters as small silhouettes.",
           caption: "US naval power has been at the centre of both 2026 operations, from the Caribbean to the Strait of Hormuz.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An aircraft carrier and two escort warships at dusk on a calm tropical sea, three helicopters as small silhouettes against an orange-violet sky, a dark coastline on the horizon, quiet menace rather than combat." },
         { type: "section", head: "What happened: Venezuela", md:
           "From September 2025 the US military began destroying boats in the Caribbean, and later the eastern Pacific, that the administration said were carrying drugs. By 19 September 2026 at least 234 people had been killed or were missing, presumed dead, in 78 strikes, according to public tallies; little evidence about the boats has been made public.\n\n" +
@@ -477,7 +477,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-7-hero.webp",
           alt: "Illustration of voters queuing outside a brick school gymnasium on a cold autumn morning, seen from behind.",
           caption: "Midterms usually punish the president's party. Whether 2026 follows the pattern decides the next two years.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A line of voters in coats queuing outside a brick school gymnasium on a cold November morning, seen from behind, trees with orange leaves, a hand-painted arrow sign with no words, breath visible in the cold air." },
         { type: "section", head: "What happened: the mood", md:
           "[[Midterm elections]], held halfway through a presidential term, usually go badly for the president's party: it has lost House seats in all but two midterms since the Second World War. Trump's approval sits in the high 30s in most averages, and in September Democrats led the [[generic ballot]] by roughly five to eight points.\n\n" +
@@ -533,7 +533,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-12-hero.webp",
           alt: "Illustration of a large red-brick immigration hall with arched windows on an island in a harbour, with a city skyline across the water.",
           caption: "Ellis Island in New York harbour processed some 12 million immigrants between 1892 and 1954.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand red-brick and limestone immigration building with four copper-domed towers and tall arched windows on a small island in a harbour, a city skyline across the water, soft morning light and calm water, historic and hopeful, no people close up, no flags, no legible text." },
         { type: "facts", head: "Immigration today", rows: [
           ["Foreign-born residents", "About 52 million, 15.4% of residents (2025), now declining"],
@@ -582,7 +582,7 @@ window.POLITICS.addUnit("us", {
         { type: "image", kind: "illustration", src: "img/us/us-8-hero.webp",
           alt: "Illustration of a white capitol dome at dusk seen across a long reflecting pool, with storm clouds breaking.",
           caption: "Five weeks before the midterms, the balance of power in Washington is about to be tested.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white capitol dome at dusk seen across a long reflecting pool, storm clouds breaking to reveal a strip of gold light, bare trees, still water, no people, a mood of anticipation." },
         { type: "section", head: "The state of play", md:
           "- **Power:** Republicans hold the White House, the Senate (53–47) and the House (218–214). Trump's approval is in the high 30s.\n" +

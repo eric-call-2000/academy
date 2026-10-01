@@ -20,7 +20,7 @@ window.POLITICS.addUnit("kr_kp", {
         { type: "image", kind: "illustration", src: "img/kr_kp/kr_kp-1-hero.webp",
           alt: "Illustration of a row of low blue huts straddling a concrete border line, with a large grey building on each side and empty ground between.",
           caption: "Panmunjom, in the demilitarised zone, where Moon Jae-in and Kim Jong Un met in April 2018.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A row of low sky-blue single-storey huts straddling a raised concrete border line, a large grey formal building on each side, open paved ground between, a few pine trees, clear spring morning, tense stillness, no people, no flags, no legible text." },
         { type: "timeline", head: "Engagement and freeze", items: [
           ["1972", "First joint statement on unification"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("kr_kp", {
         { type: "image", kind: "illustration", src: "img/kr_kp/kr_kp-2-hero.webp",
           alt: "Illustration of an empty industrial park of low factory buildings in a valley, with overgrown lots and hills behind.",
           caption: "The Kaesong Industrial Complex, just north of the border, has stood idle since February 2016.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty industrial park of neat low factory buildings in a green valley, weeds growing through parking lots, closed gates, rounded hills behind, grey overcast sky, abandoned and quiet, no people, no flags, no legible text or signs." },
         { type: "facts", head: "The complex", rows: [
           ["Location", "Kaesong, North Korea, about 10 km north of the border"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("kr_kp", {
         { type: "image", kind: "illustration", src: "img/kr_kp/kr_kp-3-hero.webp",
           alt: "Illustration of large white balloons carrying bags drifting over green hills and a fenced border at dusk.",
           caption: "From May 2024 North Korea sent thousands of balloons carrying rubbish over the border.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several large white balloons carrying plastic bags drifting over forested green hills and a double wire border fence with guard posts at dusk, pale pink sky, eerie and absurd, no people, no flags, no legible text." },
         { type: "timeline", head: "The noise war", items: [
           ["1963", "Loudspeaker broadcasts begin"],

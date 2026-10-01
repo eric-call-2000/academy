@@ -110,7 +110,7 @@ window.POLITICS.addUnit("in", {
         { type: "image", kind: "illustration", src: "img/in/in-9-hero.webp",
           alt: "Illustration of a large circular colonnaded parliament building of red sandstone in morning light, with lawns and trees in front.",
           caption: "The old circular Parliament House in New Delhi, where the Constituent Assembly met from 1946 to 1949.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large circular colonial-era parliament building ringed with pale sandstone columns and a red sandstone base, green lawns and trees in front, soft morning light, dignified and historic, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From Raj to republic", items: [
           ["1857", "Rebellion against the East India Company; Britain takes direct rule"],
@@ -161,7 +161,7 @@ window.POLITICS.addUnit("in", {
         { type: "image", kind: "illustration", src: "img/in/in-3-hero.webp",
           alt: "Illustration of a crowded railway platform in 1947, families with bundles and trunks waiting for a steam train, seen from behind.",
           caption: "Partition in 1947 uprooted about 15 million people and left a rivalry that still shapes South Asia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A crowded 1940s railway platform in hazy afternoon light, families in simple clothes with bundles and metal trunks waiting for a steam train, seen from behind, a sense of upheaval and exhaustion, no legible signs." },
         { type: "timeline", head: "The short version", items: [
           ["1947", "Independence from Britain and partition with Pakistan"],
@@ -207,7 +207,7 @@ window.POLITICS.addUnit("in", {
         { type: "image", kind: "illustration", src: "img/in/in-10-hero.webp",
           alt: "Illustration of a printing press room at night with a newspaper page left blank on the press and papers scattered on the floor.",
           caption: "During the Emergency, newspapers were censored; some printed blank editorials in protest.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An old newspaper printing room at night, a large press with a blank white page on it, stacks of paper and scattered sheets on the floor, a single hanging lamp, silence and suppression, no people, no legible text." },
         { type: "facts", head: "The Emergency", rows: [
           ["Declared", "25 June 1975"],
@@ -256,7 +256,7 @@ window.POLITICS.addUnit("in", {
         { type: "image", kind: "illustration", src: "img/in/in-11-hero.webp",
           alt: "Illustration of a modern glass office campus with palm trees and a busy road in front, under a bright sky, in an Indian tech city.",
           caption: "Bengaluru's technology parks grew out of the reforms of the 1990s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern glass-and-steel office campus with palm trees and flowering bougainvillea, a busy road with auto-rickshaws and motorbikes in front, bright tropical light, energetic and prosperous, no people close up, no logos, no legible text." },
         { type: "facts", head: "Before and after", rows: [
           ["Foreign reserves, mid-1991", "About three weeks of imports"],
@@ -305,7 +305,7 @@ window.POLITICS.addUnit("in", {
         { type: "image", kind: "illustration", src: "img/in/in-4-hero.webp",
           alt: "Illustration of a vast election rally ground at dusk, a sea of people and flags seen from the back, with a distant stage.",
           caption: "Indian politics is mass politics: rallies of hundreds of thousands are routine at election time.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast outdoor rally ground at dusk seen from the back of the crowd, thousands of people and plain coloured flags without symbols, a distant lit stage, dust in the warm air, loudspeakers on poles, energy and scale." },
         { type: "people", head: "Six to know", items: [
           { name: "Narendra Modi", role: "Prime Minister (BJP), since 2014",
@@ -360,7 +360,7 @@ window.POLITICS.addUnit("in", {
         { type: "image", kind: "illustration", src: "img/in/in-5-hero.webp",
           alt: "Illustration of a Himalayan meadow at dusk with pine forest and snow peaks, empty except for a few abandoned tourist ponies.",
           caption: "Pahalgam, a Kashmir resort town, where 26 people were killed on 22 April 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A green Himalayan meadow at dusk ringed by tall pine forest and snow-capped peaks, a few riderless ponies standing still, long shadows, an eerie calm and emptiness, no people visible." },
         { type: "section", head: "What happened", md:
           "On 22 April 2025 gunmen killed 26 people, most of them Hindu tourists, in the meadows near Pahalgam in Indian-administered Kashmir. India blamed Pakistan-based militants; Pakistan denied involvement. The next day India put the [[Indus Waters Treaty]], which governs the rivers both countries depend on, 'in abeyance'.\n\n" +
@@ -412,7 +412,7 @@ window.POLITICS.addUnit("in", {
         { type: "image", kind: "illustration", src: "img/in/in-6-hero.webp",
           alt: "Illustration of an oil tanker turning away from a busy Indian port at sunset, with container cranes behind.",
           caption: "Discounted Russian oil became a major source of India's imports after 2022, until the February 2026 deal.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large oil tanker slowly turning away from a busy tropical port at sunset, container cranes and palm trees behind, small fishing boats nearby, warm orange haze, a sense of a change of course." },
         { type: "section", head: "What happened", md:
           "After Russia invaded Ukraine, India bought record amounts of discounted Russian oil, becoming one of Moscow's biggest customers. In 2025 [[unit:us]] made that a trade issue: a 25% 'reciprocal' [[tariff]] in July, and another 25% in August as a penalty for the oil, making 50% on many Indian goods, among the highest rates on any country.\n\n" +
@@ -461,7 +461,7 @@ window.POLITICS.addUnit("in", {
         { type: "image", kind: "illustration", src: "img/in/in-7-hero.webp",
           alt: "Illustration of a line of women in bright saris queuing outside a village polling booth, one holding up an ink-marked finger, seen from behind.",
           caption: "A voter's ink-marked finger, India's badge of having voted. Five states and territories voted in April 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A line of women in brightly coloured saris queuing outside a small village school used as a polling booth, one woman seen from behind raising a finger marked with dark ink, dusty road, midday sun, no legible signs." },
         { type: "section", head: "What happened", md:
           "Five states and territories voted in April 2026, with results on 4 May, and several upended their politics:\n\n" +
@@ -511,7 +511,7 @@ window.POLITICS.addUnit("in", {
         { type: "image", kind: "illustration", src: "img/in/in-12-hero.webp",
           alt: "Illustration of a long queue of students seen from behind outside a university building with arches, holding folders, in bright morning light.",
           caption: "Places in universities and government jobs are allocated partly by caste-based quotas.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long queue of young students seen from behind holding folders outside a colonial-style university building with arches and a clock tower, bright morning light, hopeful and crowded, no faces, no legible text." },
         { type: "facts", head: "Reservations in brief", rows: [
           ["Scheduled Castes (Dalits)", "About 17% of the population; 15% quota"],
@@ -560,7 +560,7 @@ window.POLITICS.addUnit("in", {
         { type: "image", kind: "illustration", src: "img/in/in-8-hero.webp",
           alt: "Illustration of New Delhi's grand ceremonial avenue at dusk with a sandstone arch in the distance and government buildings lit up.",
           caption: "India chairs BRICS in 2026 and hosted its summit in September, with Xi Jinping among the guests.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand ceremonial avenue in a South Asian capital at dusk, a tall sandstone memorial arch in the distance, red sandstone government buildings with domes lit in warm light, lawns and fountains, no people close up, no legible signs." },
         { type: "section", head: "The state of play", md:
           "- **Washington:** a 10% Section 301 tariff on most goods after the February deal and the Supreme Court ruling; Modi and Trump speaking monthly.\n" +

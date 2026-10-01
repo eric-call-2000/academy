@@ -132,15 +132,17 @@ function check(name, ok, detail) {
   check("…with us-1 completed and 10 XP", track && track.completed["us-1"] === true && track.xp === 10, JSON.stringify(track));
   check("…and a one-day streak", track && track.streak === 1);
 
-  /* 4. Next briefing: the diagram, then a story with a pending illustration. */
+  /* 4. Next briefing: the diagram, then a story with its illustration. */
   await page.click("text=Next briefing");
   await page.waitForSelector(".fig-diagram img");
   check("briefing 2 shows the power diagram", await page.$eval(".fig-diagram img", (i) => i.complete && i.naturalWidth > 0));
   await page.goto(base + "/politics/#/read/us-5");
   await page.waitForSelector(".reader h1");
-  await page.waitForSelector(".fig-illustration .ph");
-  check("a missing illustration shows its placeholder, not a broken image", await page.isVisible(".fig-illustration .ph-label"));
-  await shot(page, "phone-story-placeholder");
+  await page.waitForSelector(".fig-illustration img");
+  await page.waitForFunction(() => { const i = document.querySelector(".fig-illustration img"); return i && i.complete; });
+  check("a story shows its drawn illustration", await page.$eval(".fig-illustration img", (i) => i.naturalWidth === 1600));
+  check("…credited as an illustration, not a photograph", (await page.textContent(".fig-illustration")).indexOf("Illustration — not a photograph") > -1);
+  await shot(page, "phone-story-illustration");
   await page.goto(base + "/politics/#/read/us-4");
   await page.waitForSelector(".person");
   check("players show seven people", (await page.$$(".person")).length === 7);

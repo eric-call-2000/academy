@@ -21,7 +21,7 @@ window.POLITICS.addUnit("gb_fr", {
         { type: "image", kind: "illustration", src: "img/gb_fr/gb_fr-1-hero.webp",
           alt: "Illustration of white chalk cliffs above a narrow grey sea, with a faint far coastline on the horizon.",
           caption: "At its narrowest the Channel is 33 km wide; on a clear day each country can see the other.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Tall white chalk cliffs above a narrow grey-green sea, a faint low coastline visible on the far horizon, a few seagulls, soft hazy sunlight, calm and timeless, no boats, no people, no flags, no legible text." },
         { type: "timeline", head: "Rivals to allies", items: [
           ["1066", "Norman conquest of England"],
@@ -70,7 +70,7 @@ window.POLITICS.addUnit("gb_fr", {
         { type: "image", kind: "illustration", src: "img/gb_fr/gb_fr-2-hero.webp",
           alt: "Illustration of a crowded inflatable boat on a grey sea at dawn, seen from a distance, with a coastline of dunes behind.",
           caption: "Most small boats leave from beaches around Calais, Dunkirk and Boulogne in northern France.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small crowded grey inflatable boat on a choppy grey sea at dawn, seen from far away so no faces are visible, a low coastline of sand dunes behind, pale cold light, precarious and sombre, no flags, no legible text." },
         { type: "facts", head: "In numbers", rows: [
           ["2022", "45,755 arrivals, the record"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("gb_fr", {
         { type: "image", kind: "illustration", src: "img/gb_fr/gb_fr-3-hero.webp",
           alt: "Illustration of a dark submarine partly surfaced in a calm sea at dusk, with a second faint submarine shape in the distance.",
           caption: "Each country keeps at least one nuclear-armed submarine at sea at all times.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large dark submarine partly surfaced in a calm grey sea at dusk, a second faint submarine silhouette far in the distance, low clouds, muted light, silent and powerful, no people, no flags, no markings, no legible text." },
         { type: "timeline", head: "Building together", items: [
           ["1969", "Concorde's first flight, a joint project"],

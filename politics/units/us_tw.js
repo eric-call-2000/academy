@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_tw", {
         { type: "image", kind: "illustration", src: "img/us_tw/us_tw-1-hero.webp",
           alt: "Illustration of a modern office building in Taipei with a quiet street in front, representing an unofficial embassy.",
           caption: "The American Institute in Taiwan is an embassy in all but name.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern low-rise office compound of pale stone and glass on a tree-lined street in an Asian city, green hills behind, a guard post at the gate, morning light, calm and official mood, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From alliance to 'unofficial' ties", items: [
           ["Jun 1950", "Korean War: the US Seventh Fleet moves into the Taiwan Strait"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("us_tw", {
         { type: "image", kind: "illustration", src: "img/us_tw/us_tw-2-hero.webp",
           alt: "Illustration of an aircraft carrier and escort ships sailing through a grey strait with a mountainous island in the distance.",
           caption: "In 1996 the United States sent two aircraft carrier groups to the waters near Taiwan.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large grey aircraft carrier with escort warships sailing through a choppy grey strait, a mountainous green island on the horizon, heavy clouds and shafts of light, tense and powerful documentary mood, no flags, no legible text." },
         { type: "facts", head: "Arms and ambiguity", rows: [
           ["1995–96", "China fires missiles near Taiwan; the US sends two carrier groups"],
@@ -117,7 +117,7 @@ window.POLITICS.addUnit("us_tw", {
         { type: "image", kind: "illustration", src: "img/us_tw/us_tw-3-hero.webp",
           alt: "Illustration of a chess board with pieces on it, set on a table between two empty chairs in a grand hall.",
           caption: "Taiwan fears being traded away in bargaining between Washington and Beijing.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wooden chess board mid-game on a polished table between two empty high-backed chairs in a grand ornate hall, soft window light, one small piece standing alone near the centre, quiet tense mood, no people, no flags, no legible text." },
         { type: "timeline", head: "Trump's second term", items: [
           ["Jul–Aug 2025", "Lai's New York stopover refused; he cancels his trip"],

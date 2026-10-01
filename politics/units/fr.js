@@ -109,7 +109,7 @@ window.POLITICS.addUnit("fr", {
         { type: "image", kind: "illustration", src: "img/fr/fr-9-hero.webp",
           alt: "Illustration of a crowd seen from behind surging toward a massive medieval stone fortress with round towers, under smoke and a summer sky.",
           caption: "The storming of the Bastille on 14 July 1789, now France's national day.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge crowd in 18th-century clothes seen from behind surging toward a massive medieval stone fortress with round towers, smoke drifting across a bright summer sky, dramatic painterly style, no faces visible, no flags, no legible text." },
         { type: "timeline", head: "From monarchy to republic", items: [
           ["May 1789", "Estates-General meets at Versailles"],
@@ -160,7 +160,7 @@ window.POLITICS.addUnit("fr", {
         { type: "image", kind: "illustration", src: "img/fr/fr-3-hero.webp",
           alt: "Illustration of a wide Paris boulevard lined with pale stone buildings, with a crowd of protesters in yellow high-visibility vests walking under a grey sky.",
           caption: "The 'yellow vest' protests of 2018–19 began over fuel taxes and grew into a revolt against the cost of living.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wide Parisian boulevard lined with pale stone Haussmann buildings, a crowd of protesters seen from behind wearing yellow high-visibility vests, grey winter sky, bare plane trees, a distant monument arch, restless atmosphere, no faces in close-up, no legible signs." },
         { type: "timeline", head: "The short version", items: [
           ["1958", "De Gaulle founds the Fifth Republic"],
@@ -207,7 +207,7 @@ window.POLITICS.addUnit("fr", {
         { type: "image", kind: "illustration", src: "img/fr/fr-10-hero.webp",
           alt: "Illustration of a whitewashed Mediterranean city climbing a hillside above a harbour, with a casbah of narrow streets and a large colonial boulevard.",
           caption: "Algiers, where the Battle of Algiers was fought in 1957.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A whitewashed Mediterranean city climbing steeply above a harbour, a dense casbah of narrow alleys and flat roofs beside grand colonial arcaded boulevards, bright hard sunlight and deep blue sea, tense stillness, no people close up, no flags, no legible text." },
         { type: "facts", head: "The war", rows: [
           ["Years", "1954–1962"],
@@ -256,7 +256,7 @@ window.POLITICS.addUnit("fr", {
         { type: "image", kind: "illustration", src: "img/fr/fr-11-hero.webp",
           alt: "Illustration of a narrow Paris street with cobblestones piled into a barricade, overturned chairs and smoke, below tall stone apartment buildings.",
           caption: "Barricades in the Latin Quarter of Paris, May 1968.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A narrow Parisian street of tall cream stone apartment buildings with wrought-iron balconies, cobblestones piled into a makeshift barricade with overturned chairs and a toppled car, drifting smoke, early morning light, rebellious and tense, no people, no legible text or graffiti." },
         { type: "timeline", head: "Spring 1968", items: [
           ["22 March", "Students occupy a building at Nanterre university"],
@@ -307,7 +307,7 @@ window.POLITICS.addUnit("fr", {
         { type: "image", kind: "illustration", src: "img/fr/fr-4-hero.webp",
           alt: "Illustration of the courtyard of a grand eighteenth-century palace in Paris at night, with a gravel yard, guards at the gate and lit windows.",
           caption: "The Élysée Palace, home of the French presidency, whose occupant changes in May 2027.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The gravel courtyard of a grand eighteenth-century Parisian palace at night, tall lit windows, two ceremonial guards standing at a wrought-iron gate, black cars parked, elegant and quiet, no flags or legible text." },
         { type: "people", head: "Six to know", items: [
           { name: "Emmanuel Macron", role: "President, since 2017",
@@ -363,7 +363,7 @@ window.POLITICS.addUnit("fr", {
         { type: "image", kind: "illustration", src: "img/fr/fr-5-hero.webp",
           alt: "Illustration of an older man and woman sitting on a park bench in a French town square, watching children play near a fountain.",
           caption: "The age at which French people can retire has been one of the country's most bitter political fights.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An older couple seen from behind sitting on a green park bench in a French provincial town square, plane trees, a stone fountain, children playing in the distance, warm late-afternoon light, a café terrace at the edge, gentle and reflective, no legible text." },
         { type: "section", head: "What happened", md:
           "In 2023 Macron's government raised the minimum retirement age from 62 to 64, forcing the reform through with [[article-49-3|Article 49.3]] despite months of strikes and protests. It became the symbol of his second term.\n\n" +
@@ -414,7 +414,7 @@ window.POLITICS.addUnit("fr", {
         { type: "image", kind: "illustration", src: "img/fr/fr-6-hero.webp",
           alt: "Illustration of a grand ministry building beside the Seine at dusk, with a long row of lit office windows.",
           caption: "France's finance ministry, at Bercy in Paris, is preparing €54 billion of savings for 2027.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long modern ministry building stretching over a riverbank at dusk, rows of lit office windows reflected in the river, a barge passing, the sky fading from orange to blue, a sense of long working hours, no legible text or flags." },
         { type: "section", head: "What happened", md:
           "France's budget deficit, the gap between what the state spends and what it collects, was 5.4% of GDP in 2026, missing the government's target. Public debt reached about 119% of GDP and is forecast to pass 121% in 2027. In September 2026 Lecornu set out a plan for 2027 with €54 billion of savings and tax measures to bring the deficit down to 5%.\n\n" +
@@ -465,7 +465,7 @@ window.POLITICS.addUnit("fr", {
         { type: "image", kind: "illustration", src: "img/fr/fr-7-hero.webp",
           alt: "Illustration of a row of empty official election poster boards on a French street, numbered but blank, with a bakery in the background.",
           caption: "Each candidate gets an identical official poster board outside every polling station.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A row of identical empty metal election poster boards along a French town street, all blank, a boulangerie with a striped awning in the background, morning light, a cyclist passing, anticipation, no legible text or faces." },
         { type: "section", head: "What happened", md:
           "The 2027 presidential election will be held on 18 April, with a run-off on 2 May. Polls through 2026 show the National Rally's candidate, most often tested as Jordan Bardella, winning around 35% in the first round, far ahead of anyone else. Édouard Philippe, the former prime minister, is the best-placed centrist, at around 20%.\n\n" +
@@ -512,7 +512,7 @@ window.POLITICS.addUnit("fr", {
         { type: "image", kind: "illustration", src: "img/fr/fr-12-hero.webp",
           alt: "Illustration of large concrete housing towers in a suburb at dusk, with a tram line in front and a small mosque with a green dome between the blocks.",
           caption: "The banlieues around Paris and other cities, built in the 1960s and 1970s, are home to many families of immigrant origin.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Large concrete housing tower blocks in a French suburb at dusk, a modern tram line passing in front, a small mosque with a modest green dome between the blocks, lit windows, a mix of hope and neglect, no people close up, no legible text or graffiti." },
         { type: "facts", head: "Key facts", rows: [
           ["Law separating churches and state", "1905"],
@@ -561,7 +561,7 @@ window.POLITICS.addUnit("fr", {
         { type: "image", kind: "illustration", src: "img/fr/fr-8-hero.webp",
           alt: "Illustration of the French National Assembly's semicircular chamber seen from the public gallery, with red seats mostly empty.",
           caption: "The National Assembly, where no group has a majority.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand semicircular parliamentary chamber seen from a high public gallery, rows of red velvet seats mostly empty, a raised marble rostrum, classical columns and a painted ceiling, soft daylight from above, quiet before a vote, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Lecornu's minority government survives with the Socialists' tolerance.\n" +

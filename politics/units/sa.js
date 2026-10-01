@@ -109,7 +109,7 @@ window.POLITICS.addUnit("sa", {
         { type: "image", kind: "illustration", src: "img/sa/sa-9-hero.webp",
           alt: "Illustration of the ruins of a mud-brick desert town with towers and walls on a rocky outcrop above a dry valley with palm groves, at sunset.",
           caption: "Diriyah, near Riyadh, the first capital of the Saudi state, founded in the 18th century.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The ruins of a mud-brick desert town with tall crenellated towers and walls on a rocky outcrop above a dry valley with palm groves, warm sunset light, golden and ancient, no people, no flags, no legible text." },
         { type: "timeline", head: "Three Saudi states", items: [
           ["1744", "Pact between Muhammad ibn Saud and Muhammad ibn Abd al-Wahhab"],
@@ -160,7 +160,7 @@ window.POLITICS.addUnit("sa", {
         { type: "image", kind: "illustration", src: "img/sa/sa-3-hero.webp",
           alt: "Illustration of a mud-brick fortress with watchtowers at the edge of a desert oasis at sunset, palm trees in the foreground.",
           caption: "The Al Saud dynasty began in the oasis towns of central Arabia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An old mud-brick fortress with square watchtowers at the edge of a desert oasis at sunset, date palms in the foreground, sand dunes glowing orange behind, a camel caravan small in the distance, timeless and historic, no people close up, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1932", "Ibn Saud unites his conquests as the Kingdom of Saudi Arabia"],
@@ -208,7 +208,7 @@ window.POLITICS.addUnit("sa", {
         { type: "image", kind: "illustration", src: "img/sa/sa-10-hero.webp",
           alt: "Illustration of a long line of 1970s cars queued at a petrol station with a hand-painted sign reading nothing legible, on a grey winter day.",
           caption: "The 1973 embargo brought petrol queues and rationing to the United States and Europe.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long line of large 1970s cars queued along a road to a small petrol station with old pumps on a grey winter day, bare trees, a sense of scarcity and frustration, no people close up, no legible text or logos." },
         { type: "facts", head: "The oil shock", rows: [
           ["Embargo", "October 1973 – March 1974"],
@@ -259,7 +259,7 @@ window.POLITICS.addUnit("sa", {
         { type: "image", kind: "illustration", src: "img/sa/sa-11-hero.webp",
           alt: "Illustration of a vast mosque courtyard with arcades and tall minarets at dawn, with a column of smoke rising in the distance.",
           caption: "Mecca's Grand Mosque, seized by militants on 20 November 1979.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast marble mosque courtyard surrounded by arched arcades and tall slender minarets at dawn, a column of dark smoke rising from one side, empty and ominous, no people, no legible text." },
         { type: "facts", head: "The siege", rows: [
           ["Began", "20 November 1979, the first day of the Islamic year 1400"],
@@ -310,7 +310,7 @@ window.POLITICS.addUnit("sa", {
         { type: "image", kind: "illustration", src: "img/sa/sa-4-hero.webp",
           alt: "Illustration of an empty, gilded royal reception hall with long rows of armchairs facing each other, chandeliers and patterned carpets.",
           caption: "Power in Saudi Arabia is exercised in royal courts and majlis halls, not parliaments.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty, gilded royal reception hall with two long rows of ornate armchairs facing each other across patterned carpets, crystal chandeliers, tall arched windows, polished marble, opulent and silent, no people, no legible text." },
         { type: "people", head: "Six to know", items: [
           { name: "Mohammed bin Salman", role: "Crown prince and prime minister",
@@ -367,7 +367,7 @@ window.POLITICS.addUnit("sa", {
         { type: "image", kind: "illustration", src: "img/sa/sa-5-hero.webp",
           alt: "Illustration of a vast desert construction site at dusk, with half-finished mirrored structures, idle cranes and trenches stretching toward the mountains.",
           caption: "NEOM, on the Red Sea coast, was meant to include a 170-kilometre linear city called The Line.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast desert construction site at dusk, half-finished tall mirrored wall structures, idle tower cranes, long trenches and gravel roads stretching toward rugged mountains, a red sea coastline in the distance, ambitious and incomplete, no people close up, no legible text." },
         { type: "section", head: "What happened", md:
           "Launched in 2016, Vision 2030 promised to end Saudi Arabia's 'addiction to oil'. Its most famous projects were giga-projects: NEOM, a new region on the Red Sea with The Line, a mirrored city 170 kilometres long; resorts along the coast; and new districts in Riyadh. From 2024 the plans shrank. The Public Investment Fund ordered spending cuts of at least 20% across its companies, The Line was reduced to a small first phase, and in April 2026 the government stopped funding several big tourism projects.\n\n" +
@@ -418,7 +418,7 @@ window.POLITICS.addUnit("sa", {
         { type: "image", kind: "illustration", src: "img/sa/sa-6-hero.webp",
           alt: "Illustration of a large oil refinery at night with flares burning, one section dark and smoking, under a sky with faint contrails.",
           caption: "Iranian missiles and drones struck Saudi oil facilities, including the Ras Tanura refinery, in 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large oil refinery complex at night, tall gas flares burning orange, one section dark with rising smoke, pipes and storage tanks lit by floodlights, faint contrails in a dark sky, tense aftermath, no people, no legible text." },
         { type: "section", head: "What happened", md:
           "In 2015 Saudi Arabia led a coalition into Yemen's civil war against the Iran-aligned Houthis, who had seized the capital. The war became a stalemate and a humanitarian catastrophe; the Houthis struck Saudi cities and, in 2019, Saudi oil facilities. A truce in 2022 largely stopped the fighting. In March 2023, in a deal brokered by [[unit:cn|China]], Riyadh and Tehran restored diplomatic relations.\n\n" +
@@ -470,7 +470,7 @@ window.POLITICS.addUnit("sa", {
         { type: "image", kind: "illustration", src: "img/sa/sa-7-hero.webp",
           alt: "Illustration of fighter jets flying in formation over a white neoclassical building with a lawn, under a clear autumn sky.",
           caption: "The White House welcomed MBS with a military flyover in November 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several fighter jets flying in tight formation over a white neoclassical mansion with columns and a wide green lawn, clear blue autumn sky, a red carpet on the drive, celebratory and grand, no people close up, no flags or legible text." },
         { type: "section", head: "What happened", md:
           "Trump chose the Gulf for his first major foreign tour of his second term in May 2025, starting in Riyadh as he had in 2017, and the kingdom pledged $600 billion of investment in the United States. In November 2025 MBS visited the White House for the first time since Khashoggi's killing. Trump agreed to sell Saudi Arabia F-35 fighter jets, signed a defence agreement committing the US to help defend the kingdom, and agreed a framework for civil nuclear cooperation. MBS raised the investment pledge toward $1 trillion." },
@@ -521,7 +521,7 @@ window.POLITICS.addUnit("sa", {
         { type: "image", kind: "illustration", src: "img/sa/sa-12-hero.webp",
           alt: "Illustration of a woman in a black abaya seen from behind driving a car along a wide highway into a modern city skyline at dusk.",
           caption: "Saudi women were allowed to drive from June 2018.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A woman in a black abaya and headscarf seen from behind at the wheel of a car on a wide desert highway leading into a modern city skyline at dusk, warm pink sky, a sense of freedom, no face visible, no legible text or logos." },
         { type: "facts", head: "A changing kingdom", rows: [
           ["Women allowed to drive", "June 2018"],
@@ -570,7 +570,7 @@ window.POLITICS.addUnit("sa", {
         { type: "image", kind: "illustration", src: "img/sa/sa-8-hero.webp",
           alt: "Illustration of Riyadh's skyline at dusk with modern towers, highways lit by traffic and the desert beyond.",
           caption: "Riyadh has grown into a city of more than seven million.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern desert city skyline at dusk, distinctive tall towers including one with a large opening near its top, highways streaming with car lights, flat desert beyond under a purple sky, dynamic and prosperous, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Power:** MBS rules; King Salman remains head of state.\n" +

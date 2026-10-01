@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_br", {
         { type: "image", kind: "illustration", src: "img/us_br/us_br-1-hero.webp",
           alt: "Illustration of an aircraft carrier steaming south across a calm ocean with escort ships, 1960s.",
           caption: "In 1964 the US sent a naval task force toward Brazil in case the coup plotters needed help.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A 1960s aircraft carrier with escort destroyers steaming across a calm blue ocean, jets parked on deck, long wakes behind, hazy tropical horizon, historical documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Partners and patrons", items: [
           ["1824", "The US is the first country to recognise Brazil's independence"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("us_br", {
         { type: "image", kind: "illustration", src: "img/us_br/us_br-2-hero.webp",
           alt: "Illustration of rioters swarming over the ramps and roofs of modernist government buildings in Brasília.",
           caption: "Bolsonaro supporters stormed Brasília's government buildings on 8 January 2023.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A crowd swarming over the ramps and flat roofs of white modernist government buildings with twin towers in Brasília, smoke and broken glass, police lines in the distance, wide blue sky, documentary painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "Ups and downs", items: [
           ["2007", "Bush and Lula sign an ethanol partnership"],
@@ -122,7 +122,7 @@ window.POLITICS.addUnit("us_br", {
         { type: "image", kind: "illustration", src: "img/us_br/us_br-3-hero.webp",
           alt: "Illustration of a voter using an electronic voting machine behind a cardboard screen in a school classroom.",
           caption: "Brazil votes electronically; the first round of the 2026 election is on 4 October.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small grey electronic voting machine with a keypad behind a cardboard privacy screen in a sunlit school classroom, a voter's hand pressing a key, a queue of people blurred in the background, documentary painting style, no faces, no flags, no legible text." },
         { type: "timeline", head: "A political quarrel", items: [
           ["Aug–Oct 2024", "Brazil blocks X after Musk defies court orders"],

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("in_sa", {
         { type: "image", kind: "illustration", src: "img/in_sa/in_sa-1-hero.webp",
           alt: "Illustration of a crowd of pilgrims in white garments walking toward a great mosque at dawn.",
           caption: "India sends one of the largest groups of pilgrims to Mecca each year.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large crowd of pilgrims in simple white garments walking toward a vast mosque with tall minarets at dawn, warm golden light, haze, documentary painting style, seen from behind at a distance, no faces, no flags, no legible text." },
         { type: "timeline", head: "Slow beginnings", items: [
           ["1955–56", "King Saud visits India; Nehru visits Saudi Arabia"],
@@ -73,7 +73,7 @@ window.POLITICS.addUnit("in_sa", {
         { type: "image", kind: "illustration", src: "img/in_sa/in_sa-2-hero.webp",
           alt: "Illustration of a freight train of containers crossing a desert, with a port and ships in the distance.",
           caption: "The India–Middle East–Europe corridor would link Indian ports to Europe through Saudi Arabia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long freight train carrying shipping containers crossing a flat golden desert, a modern port with cranes and container ships in the far distance, clear sky, documentary painting style, no people, no logos, no flags, no legible text." },
         { type: "timeline", head: "Big plans", items: [
           ["2018", "Aramco signs up to a giant refinery in Maharashtra"],
@@ -126,7 +126,7 @@ window.POLITICS.addUnit("in_sa", {
         { type: "image", kind: "illustration", src: "img/in_sa/in_sa-3-hero.webp",
           alt: "Illustration of oil tankers queued off a hazy coastline with refinery flares in the distance.",
           caption: "The 2026 Iran war disrupted the Gulf oil that India relies on.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A queue of oil tankers waiting off a hazy flat coastline, refinery flares burning in the distance, dusk light, calm sea, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "New pressures", items: [
           ["May 2025", "India–Pakistan conflict; Riyadh urges restraint"],

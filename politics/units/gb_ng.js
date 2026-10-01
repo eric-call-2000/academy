@@ -21,7 +21,7 @@ window.POLITICS.addUnit("gb_ng", {
         { type: "image", kind: "illustration", src: "img/gb_ng/gb_ng-1-hero.webp",
           alt: "Illustration of ornate cast bronze plaques and a commemorative head displayed in a dim museum gallery.",
           caption: "British troops took thousands of Benin Bronzes in 1897.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Ornate cast bronze relief plaques and a commemorative bronze head displayed in glass cases in a dim museum gallery, warm spotlights, dark walls, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Empire to independence", items: [
           ["1861", "Britain annexes Lagos"],
@@ -73,7 +73,7 @@ window.POLITICS.addUnit("gb_ng", {
         { type: "image", kind: "illustration", src: "img/gb_ng/gb_ng-2-hero.webp",
           alt: "Illustration of an armoured car on a red dirt road through tropical forest in the late 1960s.",
           caption: "Britain supplied armoured vehicles and ammunition to Nigeria's federal army during the Biafran war.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A 1960s armoured car parked on a red dirt road through dense tropical forest, palm trees, a burned-out village hut in the distance, overcast light, historical documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Civil war and dictatorship", items: [
           ["May 1967", "The Eastern Region declares independence as Biafra"],
@@ -126,7 +126,7 @@ window.POLITICS.addUnit("gb_ng", {
         { type: "image", kind: "illustration", src: "img/gb_ng/gb_ng-3-hero.webp",
           alt: "Illustration of a horse-drawn carriage procession approaching a castle on a spring day.",
           caption: "King Charles hosted President Tinubu at Windsor Castle in March 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A ceremonial horse-drawn carriage procession with mounted guards approaching a grand stone castle with round towers on a bright spring day, green lawns, documentary painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "A modern partnership", items: [
           ["2021", "270,768 Nigerian-born residents in England and Wales"],
