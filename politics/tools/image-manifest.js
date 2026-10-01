@@ -7,13 +7,13 @@
      node tools/image-manifest.js --json    machine-readable
      node tools/image-manifest.js us        one country (or relationship, e.g. us_cn)
 
-   Illustrations: paste the full prompt (house style + scene) into
-   any image generator, export 1600x900, save as WebP (~150 KB) at
-   the path shown. Portraits: download the named public-domain or
+   Illustrations: draw the scene in tools/art/scenes/<unit>.js and
+   run tools/build-art.js, which renders the 1600x900 WebP at the
+   path shown. The prompt is the brief to draw from. Portraits: download the named public-domain or
    Creative Commons photo, check its licence on the file page, crop
    square (~400x400) and save at the path shown.
    The rules the pictures follow are in politics-curriculum.md
-   ("Images"): labelled as AI, no AI faces of real people, no text.
+   ("Images"): always labelled, no faces of real people, no text.
    ============================================================ */
 const fs = require("fs");
 const path = require("path");

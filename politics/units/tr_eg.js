@@ -22,7 +22,7 @@ window.POLITICS.addUnit("tr_eg", {
         { type: "image", kind: "illustration", src: "img/tr_eg/tr_eg-1-hero.webp",
           alt: "Illustration of a great mosque with tall pencil-thin minarets on a citadel above Cairo at sunset.",
           caption: "Muhammad Ali's mosque, built in Ottoman style, crowns the Cairo citadel.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A great mosque with large domes and two tall pencil-thin Ottoman-style minarets on a stone citadel above a sprawling city at sunset, dusty golden haze, historical painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From province to rival", items: [
           ["1517", "Sultan Selim I conquers Egypt"],
@@ -74,7 +74,7 @@ window.POLITICS.addUnit("tr_eg", {
         { type: "image", kind: "illustration", src: "img/tr_eg/tr_eg-2-hero.webp",
           alt: "Illustration of grey warships patrolling a calm Mediterranean sea near a gas drilling platform.",
           caption: "Turkey and Egypt backed rival claims to the eastern Mediterranean's gas-rich waters.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Grey warships patrolling a calm blue Mediterranean sea near an offshore gas drilling platform, a distant rocky coastline, clear sky, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "A decade of hostility", items: [
           ["2012", "Mohamed Morsi elected; Erdoğan an ally"],
@@ -126,7 +126,7 @@ window.POLITICS.addUnit("tr_eg", {
         { type: "image", kind: "illustration", src: "img/tr_eg/tr_eg-3-hero.webp",
           alt: "Illustration of two frigates sailing side by side in the eastern Mediterranean at dawn.",
           caption: "In September 2025 Turkey and Egypt held their first joint naval exercise in 13 years.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Two grey frigates sailing side by side across the calm eastern Mediterranean at dawn, a helicopter above, soft pink light on the water, documentary painting style, no people close up, no markings, no flags, no legible text." },
         { type: "timeline", head: "Reconciliation", items: [
           ["Nov 2022", "Erdoğan and Sisi shake hands at the World Cup in Qatar"],

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("kr_cn", {
         { type: "image", kind: "illustration", src: "img/kr_cn/kr_cn-1-hero.webp",
           alt: "Illustration of a busy container port with huge cranes loading ships under a hazy sky.",
           caption: "China has been South Korea's largest trading partner for two decades.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast busy container port with huge gantry cranes loading stacked containers onto enormous ships, apartment towers and hills behind, hazy morning sky, documentary painting style, no people close up, no logos, no flags, no legible text." },
         { type: "timeline", head: "Enemies to partners", items: [
           ["Oct 1950", "Chinese troops enter the Korean War"],
@@ -73,7 +73,7 @@ window.POLITICS.addUnit("kr_cn", {
         { type: "image", kind: "illustration", src: "img/kr_cn/kr_cn-2-hero.webp",
           alt: "Illustration of missile launcher trucks and a large radar on a hilltop golf course turned military base.",
           caption: "The THAAD battery was deployed on a former golf course in Seongju in 2017.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Military missile launcher trucks and a large flat radar array on a hilltop that was once a golf course, green fairways and fences, misty Korean hills around, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From embrace to punishment", items: [
           ["Sep 2015", "President Park attends China's military parade in Beijing"],
@@ -126,7 +126,7 @@ window.POLITICS.addUnit("kr_cn", {
         { type: "image", kind: "illustration", src: "img/kr_cn/kr_cn-3-hero.webp",
           alt: "Illustration of a large steel platform standing in grey open sea, with a coastguard ship watching nearby.",
           caption: "China's steel structures in the Yellow Sea have alarmed Seoul.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large rusty steel platform on tall legs standing in grey open sea, a white coastguard ship watching from a distance, low clouds and choppy water, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "A cautious thaw", items: [
           ["Feb 2025", "Sea stand-off over a Chinese structure in the Yellow Sea"],

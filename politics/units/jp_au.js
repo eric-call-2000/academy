@@ -21,7 +21,7 @@ window.POLITICS.addUnit("jp_au", {
         { type: "image", kind: "illustration", src: "img/jp_au/jp_au-1-hero.webp",
           alt: "Illustration of smoke rising from ships and wharves in a tropical harbour under attack from aircraft, 1942.",
           caption: "Japanese aircraft bombed Darwin on 19 February 1942.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Black smoke rising from burning ships and wooden wharves in a tropical harbour in 1942, distant aircraft in a hazy blue sky, palm trees on the shore, historical documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Enemies, then customers", items: [
           ["19 Feb 1942", "Japanese aircraft bomb Darwin"],
@@ -74,7 +74,7 @@ window.POLITICS.addUnit("jp_au", {
         { type: "image", kind: "illustration", src: "img/jp_au/jp_au-2-hero.webp",
           alt: "Illustration of a large LNG tanker with round tanks loading at a jetty on an arid coast.",
           caption: "Japan is the biggest buyer of Australian liquefied natural gas.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large liquefied natural gas tanker with spherical domed tanks loading at a long jetty beside a gas processing plant on a red arid coast of north-west Australia, calm turquoise sea, documentary painting style, no people, no logos, no flags, no legible text." },
         { type: "timeline", head: "Partners with quarrels", items: [
           ["1960s", "Japanese demand drives Australia's iron-ore boom"],
@@ -127,7 +127,7 @@ window.POLITICS.addUnit("jp_au", {
         { type: "image", kind: "illustration", src: "img/jp_au/jp_au-3-hero.webp",
           alt: "Illustration of a sleek grey stealth frigate with angular sides sailing in open sea.",
           caption: "Australia is buying 11 upgraded Mogami-class frigates from Japan.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A sleek modern grey stealth frigate with smooth angular sides and an enclosed mast sailing through open blue sea, white wake, clear sky, documentary painting style, no people visible, no markings, no flags, no legible text." },
         { type: "timeline", head: "Towards an alliance", items: [
           ["Jan 2022", "Reciprocal Access Agreement signed"],

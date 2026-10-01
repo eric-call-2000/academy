@@ -14,4 +14,22 @@ module.exports = {
     .tree("palm", 1330, 730, { s: 1.35 })
     .person(1180, 640, 18, { robe: "#efe6d6" })
     .person(1206, 642, 17, { color: "#4a3a36" }),
+  // Wooden dhows loaded with sacks and boxes along a busy creek, wind-tower buildings on one bank, towers in the haze.
+  "ae_in-1": (s) => {
+    s.sky("golden");
+    s.city({ y: 440, x0: 820, x1: 1640, style: "towers", h: [160, 360], depth: 0.4, color: "#8fa6b8", lit: false });
+    s.sea(470, { color: "#4f8a9a" });
+    s.rect(0, 440, 820, 40, "#c9a877");
+    for (let i = 0; i < 6; i++) s.windTower(60 + i * 130, 440, 0.7);
+    for (let i = 0; i < 5; i++) { s.ship("dhow", 160 + i * 260, 600 + (i % 2) * 70, { s: 1.1, dir: i % 2 ? -1 : 1 }); s.crate(120 + i * 260, 590 + (i % 2) * 70, 50, 26, { color: "#a8906c" }); }
+    return s;
+  },
+  // A large LNG carrier with domed tanks sailing past a modern Gulf port with cranes and storage tanks, faint contrails.
+  "ae_in-3": (s) => s
+    .sky("haze", { top: "#a8b8c4" })
+    .add('<path d="M100,140 L700,80 M900,160 L1500,100" stroke="#ffffff" stroke-width="3" opacity="0.5"/>')
+    .crane(200, 470, 0.6).crane(330, 470, 0.6)
+    .tanks(500, 470, 5, { w: 70, h: 40 })
+    .sea(470, { color: "#4f8aa8" })
+    .ship("lng", 900, 640, { s: 1.4 }),
 };

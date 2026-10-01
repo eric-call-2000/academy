@@ -74,7 +74,7 @@ window.POLITICS.addUnit("us_de", {
         { type: "image", kind: "illustration", src: "img/us_de/us_de-2-hero.webp",
           alt: "Illustration of a mobile phone lying on a polished desk in a government office, with a large window behind.",
           caption: "Leaks in 2013 showed the NSA had monitored Chancellor Merkel's mobile phone.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An older mobile phone lying on a polished wooden desk in a modern government office, a large window behind showing a glass dome in the distance, soft light, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Friction among friends", items: [
           ["2002–03", "Schröder refuses to join the Iraq war"],
@@ -126,7 +126,7 @@ window.POLITICS.addUnit("us_de", {
         { type: "image", kind: "illustration", src: "img/us_de/us_de-3-hero.webp",
           alt: "Illustration of military trucks in a convoy leaving a base gate in the German countryside at dawn.",
           caption: "The Pentagon ordered about 5,000 US troops out of Germany in May 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A convoy of military trucks and armoured vehicles leaving a base gate in green German countryside at dawn, mist over fields, a church spire in a village beyond, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "A widening gap", items: [
           ["Feb 2025", "Merz: 'achieve independence from the USA'"],

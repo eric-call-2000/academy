@@ -21,7 +21,7 @@ window.POLITICS.addUnit("ca_in", {
         { type: "image", kind: "illustration", src: "img/ca_in/ca_in-1-hero.webp",
           alt: "Illustration of an old steamship anchored in a harbour with mountains behind, its deck crowded with turbaned passengers.",
           caption: "The Komagata Maru was kept anchored off Vancouver for two months in 1914.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An old black steamship anchored in a calm harbour with forested mountains behind, its deck crowded with passengers in turbans seen from a distance, small police boats nearby, overcast 1914 light, historical painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "Old wounds", items: [
           ["1914", "The Komagata Maru is turned away at Vancouver"],
@@ -73,7 +73,7 @@ window.POLITICS.addUnit("ca_in", {
         { type: "image", kind: "illustration", src: "img/ca_in/ca_in-2-hero.webp",
           alt: "Illustration of a white Sikh temple with a gold dome in a suburban street at dusk, with a car park in front.",
           caption: "Hardeep Singh Nijjar was shot in the car park of a Sikh temple in Surrey, British Columbia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white Sikh temple with a golden dome in a quiet suburban street at dusk, an almost empty car park in front, street lamps coming on, evergreen trees, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "A diplomatic rupture", items: [
           ["18 Jun 2023", "Hardeep Singh Nijjar shot dead in Surrey, BC"],
@@ -126,7 +126,7 @@ window.POLITICS.addUnit("ca_in", {
         { type: "image", kind: "illustration", src: "img/ca_in/ca_in-3-hero.webp",
           alt: "Illustration of a uranium mine in northern boreal forest, with yellow ore trucks and a processing plant.",
           caption: "Canada's Cameco agreed to supply India with uranium from 2027 to 2035.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A uranium mine in northern boreal forest, a processing plant with silver tanks and conveyor belts, yellow heavy trucks, a lake in the distance, cool clear light, documentary painting style, no people close up, no logos, no flags, no legible text." },
         { type: "timeline", head: "Rebuilding", items: [
           ["Jun 2025", "Modi at the G7 in Kananaskis; high commissioners to return"],

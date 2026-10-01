@@ -22,7 +22,7 @@ window.POLITICS.addUnit("il_ru", {
         { type: "image", kind: "illustration", src: "img/il_ru/il_ru-1-hero.webp",
           alt: "Illustration of crowds of immigrants with suitcases at an airport arrivals hall in the early 1990s.",
           caption: "About a million people from the former Soviet Union moved to Israel in the 1990s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A crowded airport arrivals hall in the early 1990s, families with suitcases, bundles and coats, a welcome desk in the background, warm fluorescent light, documentary painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "From midwife to enemy", items: [
           ["17 May 1948", "The USSR recognises Israel"],
@@ -75,7 +75,7 @@ window.POLITICS.addUnit("il_ru", {
         { type: "image", kind: "illustration", src: "img/il_ru/il_ru-2-hero.webp",
           alt: "Illustration of fighter jets flying over a dry Syrian landscape at dusk, with an air base and radar dishes far below.",
           caption: "From 2015 Israel and Russia kept a military hotline over Syria.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Two fighter jets flying high over a dry brown Syrian landscape at dusk, a distant air base with radar dishes and hangars far below, orange sky, documentary painting style, no people, no markings, no flags, no legible text." },
         { type: "timeline", head: "A working relationship", items: [
           ["2009–21", "Netanyahu meets Putin about 20 times"],
@@ -128,7 +128,7 @@ window.POLITICS.addUnit("il_ru", {
         { type: "image", kind: "illustration", src: "img/il_ru/il_ru-3-hero.webp",
           alt: "Illustration of an old-fashioned telephone on a desk in a dim room, with a city skyline at night through the window.",
           caption: "Putin and Netanyahu have kept talking by phone despite deep disagreements.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An old-fashioned desk telephone on a polished wooden desk in a dim office, a city skyline with lights visible through a tall window at night, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Drifting apart", items: [
           ["Oct 2023", "Russia hosts a Hamas delegation weeks after 7 October"],

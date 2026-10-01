@@ -22,7 +22,7 @@ window.POLITICS.addUnit("us_id", {
         { type: "image", kind: "illustration", src: "img/us_id/us_id-1-hero.webp",
           alt: "Illustration of a twin-engine bomber flying low over green tropical islands and a coastal town in the 1950s.",
           caption: "A CIA pilot flying for Indonesian rebels was shot down over Ambon in 1958.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A 1950s twin-engine bomber flying low over lush green tropical islands and a small coastal town with tin roofs, turquoise sea, smoke trailing from one engine, historical documentary painting style, no people visible, no markings, no flags, no legible text." },
         { type: "timeline", head: "Cold War interventions", items: [
           ["1949", "US pressure helps Indonesia win independence from the Dutch"],
@@ -75,7 +75,7 @@ window.POLITICS.addUnit("us_id", {
         { type: "image", kind: "illustration", src: "img/us_id/us_id-2-hero.webp",
           alt: "Illustration of a narrow Jakarta lane with small houses, motorbikes and street vendors in the late afternoon.",
           caption: "Barack Obama lived in Jakarta from 1967 to 1971.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A narrow lane in an old Jakarta neighbourhood with small tiled-roof houses, potted plants, parked motorbikes and a street food cart, warm late-afternoon light, documentary painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "A democratic partner", items: [
           ["1967–71", "Young Barack Obama lives in Jakarta"],
@@ -127,7 +127,7 @@ window.POLITICS.addUnit("us_id", {
         { type: "image", kind: "illustration", src: "img/us_id/us_id-3-hero.webp",
           alt: "Illustration of a vast open-pit nickel mine with terraced red earth and haul trucks on a tropical island.",
           caption: "A 2026 trade deal opened Indonesia's nickel to American investors.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast open-pit nickel mine with terraced red earth cut into green tropical hills, large haul trucks on the roads, a smelter with smoke stacks near the coast, hazy light, documentary painting style, no people close up, no logos, no flags, no legible text." },
         { type: "timeline", head: "A new closeness", items: [
           ["Jan 2025", "Indonesia joins BRICS"],

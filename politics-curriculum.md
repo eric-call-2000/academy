@@ -11,7 +11,7 @@ fact-check when it is written.
 
 - **30 units, one per country.** Each unit has **12 lessons** ("briefings"): **360 briefings** in all.
 - **A briefing is a 3–5 minute read.** It runs 500–900 words, in short sections of 180 words
-  or fewer. It has one or two pictures: an AI-generated illustration of a specific event, or an
+  or fewer. It has one or two pictures: a drawn illustration of a specific event, or an
   accurate map. It closes with three key takeaways, its sources, and a "current as of" date.
 - **Not Codecademy and not Duolingo.** Briefings have no editor, no hearts and no graded quiz
   gating progress. You read and tap **Finish briefing**, and progress, XP and your streak save.
@@ -349,11 +349,15 @@ Germany–Ukraine, Canada–Mexico, Japan–Taiwan, Poland–US, South Africa–
 
 ## Images
 
-About 2 images per briefing gives **~720 images**. As 1600×900 WebP at ~150 KB each, that is
-about 70 MB, lazy-loaded per unit, which is fine for GitHub Pages.
+About 2 images per briefing gives **~720 images**: 555 illustrations and 165 portraits. The
+illustrations are drawn, not generated: each is layered vector art built in code
+(`politics/tools/art/`) and rendered to a 1600×900 WebP of about 20–40 KB, so all of them
+together come to roughly 15 MB, lazy-loaded per unit.
 
-**House style.** Every event prompt starts with the same prefix so the whole app looks like
-one publication:
+**House style.** One drawing toolkit (`tools/art/lib.js` and `more.js`) gives every picture
+the same look: flat, muted shapes, haze for depth, slightly rough edges and a paper grain.
+Each lesson keeps a scene `prompt`, which is the brief its picture is drawn from. The prompts
+started from one shared prefix so the whole app reads as one publication:
 
 > *Editorial illustration, muted textured gouache, cinematic wide composition, soft natural
 > light, restrained palette, no text, no logos, no legible signs, figures seen from behind or at
@@ -365,9 +369,11 @@ drone silhouette in the sky, tension rather than explosion."*
 
 **Rules, which are also enforced in review:**
 
-1. **Illustrations are always labelled.** The caption line reads *"AI illustration — not a
-   photograph."* Invented scenes of real news must never pass for photojournalism.
-2. **No AI faces of real people.** Real leaders appear only in lesson 4, as credited public-domain
+1. **Illustrations are always labelled.** The caption line reads *"Illustration — not a
+   photograph."* Invented scenes of real news must never pass for photojournalism. (An
+   AI-generated picture, if one is ever used, is credited *"AI illustration — not a
+   photograph."*; the validator accepts only these two.)
+2. **No drawn or AI faces of real people.** Real leaders appear only in lesson 4, as credited public-domain
    or Creative-Commons portraits (US-government works are public domain; many governments
    publish CC photos). Event illustrations show crowds, places and objects, never a
    recognizable politician doing something.
@@ -375,12 +381,18 @@ drone silhouette in the sky, tension rather than explosion."*
    Natural Earth data, and disputed areas are drawn as disputed with a note: Crimea and
    occupied Ukraine, Kashmir, Taiwan, and Western Sahara in the Africa context.
 4. **No gore.** War is shown through aftermath, symbols and scale.
-5. **No text inside images.** Models garble it. Captions carry the words.
+5. **No text inside images.** Captions carry the words.
+6. **No real flags or emblems.** Crowds carry plain one-colour flags and blank banners; colour
+   combinations that read as a national flag are avoided.
 
 **Workflow.** Prompts are written into the lesson files as the text is written. Running
 `node politics/tools/image-manifest.js` prints every missing image with its prompt and target
-file name. You generate them, drop them in `img/<id>/`, and the validator confirms each one.
-Until an image exists, the reader shows a tasteful placeholder in the unit colour.
+file name. To draw one, add the lesson to `politics/tools/art/scenes/<unit>.js` (a function
+that composes the scene from the toolkit) and run
+`NODE_PATH=… node politics/tools/build-art.js <unit or lesson id>` (`--missing` draws only
+pictures not yet on disk, `--png DIR` also writes previews). It renders the WebP to the
+block's `src` in Chromium through Playwright and sets the credit to *"Illustration — not a
+photograph"*. Until an image exists, the reader shows a placeholder in the unit colour.
 
 ---
 

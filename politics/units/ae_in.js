@@ -21,7 +21,7 @@ window.POLITICS.addUnit("ae_in", {
         { type: "image", kind: "illustration", src: "img/ae_in/ae_in-1-hero.webp",
           alt: "Illustration of wooden dhows loaded with goods moored along a creek with old wind towers and modern towers behind.",
           caption: "Wooden dhows still carry goods between Dubai Creek and India's west coast.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several wooden dhows loaded with sacks and boxes moored along a busy creek, old buildings with traditional wind towers on one bank and glass skyscrapers in the hazy distance, warm afternoon light, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Old ties", items: [
           ["Centuries", "Dhows carry dates, pearls, spices and timber across the Arabian Sea"],
@@ -125,7 +125,7 @@ window.POLITICS.addUnit("ae_in", {
         { type: "image", kind: "illustration", src: "img/ae_in/ae_in-3-hero.webp",
           alt: "Illustration of a liquefied gas carrier sailing past a modern port with cranes, under a hazy sky streaked with contrails.",
           caption: "India agreed in 2026 to become the UAE's biggest buyer of liquefied natural gas.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large liquefied natural gas carrier with domed tanks sailing past a modern Gulf port with cranes and storage tanks, a hazy sky with faint contrails, calm sea, documentary painting style, no people, no logos, no flags, no legible text." },
         { type: "timeline", head: "Deepening in a storm", items: [
           ["19 Jan 2026", "MBZ's three-hour visit to Delhi: LNG deal and defence pledge"],
