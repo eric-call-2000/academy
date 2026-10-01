@@ -21,7 +21,7 @@ window.POLITICS.addUnit("jp_in", {
         { type: "image", kind: "illustration", src: "img/jp_in/jp_in-1-hero.webp",
           alt: "Illustration of a Japanese temple garden with a stone monument among maple trees in autumn.",
           caption: "Justice Radhabinod Pal is commemorated at shrines and temples in Japan.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A quiet Japanese temple garden in autumn with red maple trees, a grey stone memorial monument on a low pedestal, gravel paths and a wooden temple building behind, soft golden light, no people, no flags, no legible text." },
         { type: "timeline", head: "Early ties", items: [
           ["6th century", "Buddhism, born in India, reaches Japan"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("jp_in", {
         { type: "image", kind: "illustration", src: "img/jp_in/jp_in-2-hero.webp",
           alt: "Illustration of a sleek white bullet train on an elevated viaduct above green fields and a small town.",
           caption: "India's first high-speed railway, from Mumbai to Ahmedabad, uses Japanese Shinkansen technology.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A sleek white bullet train with a long pointed nose on a tall concrete viaduct above green fields and a small Indian town with colourful houses, morning haze, wide documentary view, no people close up, no logos, no flags, no legible text." },
         { type: "facts", head: "Japan in India's economy", rows: [
           ["Maruti Suzuki", "Joint venture from 1982; first car in 1983"],
@@ -120,7 +120,7 @@ window.POLITICS.addUnit("jp_in", {
         { type: "image", kind: "illustration", src: "img/jp_in/jp_in-3-hero.webp",
           alt: "Illustration of two grey warships sailing side by side on a calm blue ocean.",
           caption: "Japanese and Indian navies exercise together, including in the Malabar drills with the US and Australia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Two grey naval destroyers sailing side by side on a calm deep blue ocean, a helicopter flying overhead, bright sunlight and scattered clouds, wide documentary view, no people close up, no flags, no markings, no legible text." },
         { type: "timeline", head: "A strategic partnership", items: [
           ["22 Aug 2007", "Abe's 'Confluence of the Two Seas' speech in Delhi"],

@@ -22,7 +22,7 @@ window.POLITICS.addUnit("gb_cn", {
         { type: "image", kind: "illustration", src: "img/gb_cn/gb_cn-1-hero.webp",
           alt: "Illustration of wooden sailing warships and a steam gunboat firing on a Chinese river fort in the 1840s.",
           caption: "The First Opium War ended in 1842 with Hong Kong Island ceded to Britain.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Wooden sailing warships and a black steam paddle gunboat firing cannons at a stone fort on a wide Chinese river in the 1840s, smoke drifting over the water, junks fleeing, historical oil painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Empire and return", items: [
           ["1839–42", "First Opium War; Treaty of Nanking cedes Hong Kong Island"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("gb_cn", {
         { type: "image", kind: "illustration", src: "img/gb_cn/gb_cn-2-hero.webp",
           alt: "Illustration of a mobile phone mast on a hill above a British town, with engineers removing equipment.",
           caption: "Britain ordered Huawei equipment out of its 5G network by 2027.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A tall mobile phone mast on a green hill above a small British town of brick houses, two engineers in hard hats on a platform removing grey equipment boxes, overcast sky, documentary painting style, no faces, no logos, no flags, no legible text." },
         { type: "timeline", head: "Warm to cold", items: [
           ["Oct 2015", "Xi's state visit; the 'golden era' is declared"],
@@ -122,7 +122,7 @@ window.POLITICS.addUnit("gb_cn", {
         { type: "image", kind: "illustration", src: "img/gb_cn/gb_cn-3-hero.webp",
           alt: "Illustration of a grand old stone building behind railings near a river in London, with protesters' umbrellas outside.",
           caption: "China's planned new embassy at the old Royal Mint in London was approved in January 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand pale stone Georgian building behind black iron railings near the Tower of London, a crowd of people with umbrellas and blank placards outside in light rain, grey sky, documentary painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "Reset and friction", items: [
           ["Sep 2025", "Spy case against two Britons collapses"],

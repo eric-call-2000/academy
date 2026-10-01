@@ -22,7 +22,7 @@ window.POLITICS.addUnit("mx_cn", {
         { type: "image", kind: "illustration", src: "img/mx_cn/mx_cn-1-hero.webp",
           alt: "Illustration of a large Spanish galleon under full sail on a wide ocean at sunset.",
           caption: "From 1565 to 1815 the Manila galleons linked Acapulco with Asia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large sixteenth-century Spanish galleon under full white sails on a wide calm ocean at sunset, golden light on the waves, a second ship far behind, historical oil painting style, no flags, no legible text." },
         { type: "timeline", head: "Early ties", items: [
           ["1565–1815", "Manila galleons link Acapulco and Asia"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("mx_cn", {
         { type: "image", kind: "illustration", src: "img/mx_cn/mx_cn-2-hero.webp",
           alt: "Illustration of a container port at night with stacks of shipping containers and a cargo ship, lit by floodlights.",
           caption: "Precursor chemicals for fentanyl often arrive in Mexico by sea, hidden among legal cargo.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy container port at night, tall stacks of colourful shipping containers, a large cargo ship at the quay, cranes lit by floodlights, wet ground reflecting lights, moody documentary style, no people close up, no logos, no flags, no legible text." },
         { type: "facts", head: "The supply chain", rows: [
           ["Chemicals", "Precursors mostly bought from Chinese companies"],
@@ -122,7 +122,7 @@ window.POLITICS.addUnit("mx_cn", {
         { type: "image", kind: "illustration", src: "img/mx_cn/mx_cn-3-hero.webp",
           alt: "Illustration of a large modern industrial park in northern Mexico with factory buildings and mountains behind.",
           caption: "Some Chinese firms opened factories in Mexico to reach the US market, a move Washington wants to stop.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large modern industrial park in the dry hills of northern Mexico, rows of white factory buildings and loading bays, lorries on a new road, rugged brown mountains behind under a clear sky, documentary style, no logos, no flags, no legible text." },
         { type: "timeline", head: "Trade under pressure", items: [
           ["2024", "Record $120 billion trade deficit with China"],

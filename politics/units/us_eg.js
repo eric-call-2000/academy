@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_eg", {
         { type: "image", kind: "illustration", src: "img/us_eg/us_eg-1-hero.webp",
           alt: "Illustration of a huge dam wall holding back a wide river under a hot sky, with cranes on top.",
           caption: "The Aswan High Dam: America's withdrawal of funding in 1956 set off the Suez crisis.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast rock and concrete dam under construction across a wide desert river in the 1960s, tall cranes along its top, a lake forming behind it, hot hazy sky, historical documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From rival to client", items: [
           ["19 Jul 1956", "US withdraws its offer to fund the Aswan Dam"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("us_eg", {
         { type: "image", kind: "illustration", src: "img/us_eg/us_eg-2-hero.webp",
           alt: "Illustration of a vast crowd filling a city square at dusk, with smoke rising and tanks at its edge.",
           caption: "Cairo's Tahrir Square, where the 2011 revolution began.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast crowd filling a large city square at dusk, tents and banners without text, smoke rising in the distance, a line of armoured vehicles at the edge of the square, apartment blocks around it, documentary painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "A partner in turmoil", items: [
           ["1981–2011", "Hosni Mubarak rules; Egypt is a close US partner"],
@@ -123,7 +123,7 @@ window.POLITICS.addUnit("us_eg", {
         { type: "image", kind: "illustration", src: "img/us_eg/us_eg-3-hero.webp",
           alt: "Illustration of a large container ship sailing through a narrow canal in the desert at sunrise.",
           caption: "Trump said American ships should use the Suez Canal free of charge; Egypt refused.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge container ship sailing slowly through a narrow straight canal cut through flat yellow desert at sunrise, a small town and palm trees on one bank, calm water, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Friction and need", items: [
           ["Feb 2025", "Trump suggests moving Gazans to Egypt and Jordan; Egypt refuses"],
