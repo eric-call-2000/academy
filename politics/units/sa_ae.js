@@ -21,7 +21,7 @@ window.POLITICS.addUnit("sa_ae", {
         { type: "image", kind: "illustration", src: "img/sa_ae/sa_ae-1-hero.webp",
           alt: "Illustration of two desert cities' skylines facing each other across sand dunes at dusk, one with a tall needle tower and one with glass skyscrapers.",
           caption: "Riyadh and Abu Dhabi were close partners in the late 2010s; now they compete.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Two modern desert city skylines facing each other across wide golden sand dunes at dusk, one with a tall needle-like tower, the other with gleaming glass skyscrapers by the sea, warm orange sky, rivalry and ambition, no people, no flags, no legible text." },
         { type: "timeline", head: "Partnership", items: [
           ["1971", "The UAE is founded"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("sa_ae", {
         { type: "image", kind: "illustration", src: "img/sa_ae/sa_ae-2-hero.webp",
           alt: "Illustration of an old harbour town of white houses at the foot of brown mountains on the Arabian Sea, with smoke rising from the port.",
           caption: "Saudi aircraft struck the port of Mukalla in southern Yemen on 30 December 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An old harbour town of white and ochre houses at the foot of steep brown mountains on the Arabian Sea, a small port with cranes, a column of dark smoke rising near the docks, hazy afternoon light, tense, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Southern Yemen, 2025–26", items: [
           ["2017", "The UAE-backed Southern Transitional Council (STC) is formed"],
@@ -121,7 +121,7 @@ window.POLITICS.addUnit("sa_ae", {
         { type: "image", kind: "illustration", src: "img/sa_ae/sa_ae-3-hero.webp",
           alt: "Illustration of offshore oil platforms in a calm turquoise Gulf sea with a city skyline faint on the horizon.",
           caption: "The UAE has invested heavily to raise its oil production capacity toward 5 million barrels a day.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several offshore oil platforms standing in a calm turquoise Gulf sea, a faint modern city skyline on the hazy horizon, bright midday sun, industrial and wealthy, no people, no flags, no legible text." },
         { type: "facts", head: "The OPEC exit", rows: [
           ["Announced", "28 April 2026"],
