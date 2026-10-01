@@ -210,6 +210,50 @@ Object.assign(Scene.prototype, {
   },
 
   /* ---------- landmarks ---------- */
+  /* mud-brick fort: walls with square crenellated towers */
+  mudFort(x, y, s, o) {
+    o = o || {};
+    const d = o.depth || 0, col = this.c(o.color || "#b8875a", d), w = (o.w || 520) * s;
+    this.rect(x - w / 2, y - 120 * s, w, 120 * s, col);
+    for (let i = 0; i < Math.floor(w / (24 * s)); i++) this.poly([[x - w / 2 + i * 24 * s, y - 120 * s], [x - w / 2 + i * 24 * s + 12 * s, y - 120 * s], [x - w / 2 + i * 24 * s + 6 * s, y - 136 * s]], col);
+    (o.towers || [-0.5, -0.15, 0.25, 0.5]).forEach((t, i) => {
+      const tx = x + t * w, th = (180 + (i % 2) * 50) * s;
+      this.poly([[tx - 34 * s, y], [tx + 34 * s, y], [tx + 26 * s, y - th], [tx - 26 * s, y - th]], shade(col, -0.04 * (i % 2)));
+      for (let k = 0; k < 3; k++) this.poly([[tx - 26 * s + k * 18 * s, y - th], [tx - 14 * s + k * 18 * s, y - th], [tx - 20 * s + k * 18 * s, y - th - 16 * s]], col);
+      this.rect(tx - 5 * s, y - th * 0.7, 10 * s, 18 * s, this.c("#4a3426", d));
+    });
+    return this.rect(x - 22 * s, y - 70 * s, 44 * s, 70 * s, this.c("#5a3e2a", d));
+  },
+  /* Gulf wind tower house */
+  windTower(x, y, s, o) {
+    o = o || {};
+    const col = this.c(o.color || "#d4b88a", o.depth);
+    this.rect(x - 70 * s, y - 70 * s, 140 * s, 70 * s, col);
+    this.rect(x - 20 * s, y - 150 * s, 40 * s, 80 * s, shade(col, -0.04));
+    for (let k = 0; k < 3; k++) this.rect(x - 14 * s + k * 11 * s, y - 140 * s, 6 * s, 40 * s, this.c("#5a4a3a", o.depth));
+    return this.rect(x - 10 * s, y - 40 * s, 20 * s, 40 * s, this.c("#6a5038", o.depth));
+  },
+  /* interceptor trails rising from the ground and small bursts high above */
+  intercepts(x0, x1, yGround, count, o) {
+    o = o || {};
+    const r = this.r;
+    for (let i = 0; i < count; i++) {
+      const x = r.range(x0, x1), top = r.range(80, 320), bend = r.range(-160, 160);
+      this.add(`<path d="M${n(x)},${yGround} Q${n(x + bend * 0.3)},${n((yGround + top) / 2)} ${n(x + bend)},${n(top)}" stroke="#fff4dc" stroke-width="2.5" fill="none" opacity="0.8"/>`);
+      if (r() < 0.7) { this.glow(x + bend, top, 40, "#ffcf7a", 0.8); this.add(`<circle cx="${n(x + bend)}" cy="${n(top)}" r="4" fill="#fff8e0"/>`); }
+    }
+    return this;
+  },
+  /* a very tall glass tower with a tapering top */
+  tower(x, y, w, h, o) {
+    o = o || {};
+    const col = this.c(o.color || "#8fa6b8", o.depth);
+    this.rect(x - w / 2, y - h, w, h, col);
+    this.rect(x - w / 2, y - h, w * 0.3, h, shade(col, 0.12));
+    if (o.spire) this.poly([[x - w * 0.2, y - h], [x + w * 0.2, y - h], [x, y - h - o.spire]], col);
+    if (o.lit || this.m.lit) for (let i = 0; i < h / 14; i++) if (this.r() < 0.5) this.rect(x - w / 2 + 3 + this.r() * (w - 8), y - h + i * 14, 4, 5, this.m.light);
+    return this;
+  },
   onion(x, y, rr, o) {
     o = o || {};
     const col = this.c(o.color || "#d7aa3c", o.depth);
