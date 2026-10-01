@@ -223,4 +223,7 @@
   L({ id: "tr_ua", a: "tr", b: "ua", lessons: 3, color: "#3a7a8a",
       title: "Crimea, drones and Istanbul",
       blurb: "Ottoman Crimea and the Tatars; Bayraktar drones, closed straits and the grain deal; Istanbul as the talks city." });
+  L({ id: "us_fr", a: "us", b: "fr", lessons: 3, color: "#3a4a7a",
+      title: "Yorktown, Iraq and Greenland",
+      blurb: "America's oldest ally: Yorktown and D-Day, de Gaulle and 'freedom fries', AUKUS, Greenland tariffs and a dinner at Versailles." });
 })();
