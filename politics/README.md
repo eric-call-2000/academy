@@ -120,6 +120,18 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇺🇸🇫🇷 United States & France | Yorktown, Iraq and Greenland | 3 of 3 | 1 Oct 2026 | illustrations pending |
 | 🇬🇧🇮🇳 United Kingdom & India | Raj, diaspora and a trade deal | 3 of 3 | 1 Oct 2026 | illustrations pending |
 | 🇰🇷🇨🇳 South Korea & China | War, THAAD and a reset | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇯🇵🇦🇺 Japan & Australia | War, gas and frigates | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇮🇳🇸🇦 India & Saudi Arabia | Oil, workers and a Pakistan pact | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇮🇹 United States & Italy | Emigrants, bases and Meloni | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇩🇪 United States & Germany | Airlift, spies and a rift | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇨🇦🇮🇳 Canada & India | A reactor, a killing and a reset | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇲🇽🇧🇷 Mexico & Brazil | Two giants, two paths | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇮🇱🇷🇺 Israel & Russia | Refuseniks, Putin and Iran | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇳🇬 United States & Nigeria | Oil, Chibok and Christmas missiles | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇦🇪🇮🇳 United Arab Emirates & India | Workers, a temple and gas | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇹🇷🇪🇬 Turkey & Egypt | Sultans, Morsi and a handshake | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇮🇩 United States & Indonesia | 1965, Obama and Prabowo | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇬🇧🇳🇬 United Kingdom & Nigeria | Lugard, Biafra and bronzes | 3 of 3 | 1 Oct 2026 | illustrations pending |
 
 ## Run it
 

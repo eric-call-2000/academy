@@ -325,8 +325,25 @@ An eighth set of twelve followed:
 | 🇬🇧🇮🇳 UK & India | The Raj, Amritsar and Partition | Diaspora, a diamond and a prime minister | A trade deal at last |
 | 🇰🇷🇨🇳 South Korea & China | From enemies to partners | THAAD and the boycott | Lee's reset |
 
-Candidates for later relationships: Japan–Australia, India–Saudi Arabia, Italy–US, Germany–US,
-Canada–India, Mexico–Brazil, Israel–Russia, Nigeria–US.
+A ninth set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇯🇵🇦🇺 Japan & Australia | From war to trade | Gas, whales and a lost submarine deal | Frigates and a quasi-alliance |
+| 🇮🇳🇸🇦 India & Saudi Arabia | Pilgrims, oil and a Pakistani shadow | A hundred billion promised | A pact with Pakistan, a war next door |
+| 🇺🇸🇮🇹 US & Italy | Four million emigrants | 1948, bases and Sigonella | The Trump whisperer |
+| 🇺🇸🇩🇪 US & Germany | The airlift and the Wall | Iraq, spies and pipelines | The end of unconditional friendship |
+| 🇨🇦🇮🇳 Canada & India | A ship, a reactor and a bomb | The Nijjar affair | Carney's reset |
+| 🇲🇽🇧🇷 Mexico & Brazil | Two giants, two paths | Cars, planes and oil | Between Trump and China |
+| 🇮🇱🇷🇺 Israel & Russia | Midwife, then enemy | Netanyahu and Putin | Hamas, Iran and a cold peace |
+| 🇺🇸🇳🇬 US & Nigeria | Oil and an American-style constitution | Chibok, arms and human rights | Christmas missiles |
+| 🇦🇪🇮🇳 UAE & India | Dhows, rupees and workers | Modi, MBZ and a temple | Gas, defence and a war |
+| 🇹🇷🇪🇬 Turkey & Egypt | Sultans, pashas and Nasser | Morsi, Rabaa and a cold war | The handshake and the drills |
+| 🇺🇸🇮🇩 US & Indonesia | Rebels, massacres and East Timor | Obama's Jakarta and a democratic partner | Prabowo's bet on Trump |
+| 🇬🇧🇳🇬 UK & Nigeria | Lugard's creation | Biafra and Abacha | Bronzes, diaspora and a state visit |
+
+Candidates for later relationships: Australia–India, Germany–Italy, Saudi Arabia–Turkey,
+Germany–Ukraine, Canada–Mexico, Japan–Taiwan, Poland–US, South Africa–US.
 
 ---
 
