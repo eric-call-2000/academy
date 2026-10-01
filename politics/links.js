@@ -253,4 +253,7 @@
   L({ id: "il_ru", a: "il", b: "ru", lessons: 3, color: "#4a5a8a",
       title: "Refuseniks, Putin and Iran",
       blurb: "The USSR recognised Israel, then armed its enemies; a million immigrants and a Netanyahu–Putin hotline; now Russia sides with Iran." });
+  L({ id: "us_ng", a: "us", b: "ng", lessons: 3, color: "#2a6a3a",
+      title: "Oil, Chibok and Christmas missiles",
+      blurb: "An American-style constitution and oil; Chibok and arms rows; Trump's Christian-persecution charge, strikes and a travel ban." });
 })();
