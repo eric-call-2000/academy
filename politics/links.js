@@ -247,4 +247,7 @@
   L({ id: "ca_in", a: "ca", b: "in", lessons: 3, color: "#8a3a2a",
       title: "A reactor, a killing and a reset",
       blurb: "The Komagata Maru, a Canadian reactor and the Air India bombing; the Nijjar killing; and Carney's 2026 uranium-and-trade reset." });
+  L({ id: "mx_br", a: "mx", b: "br", lessons: 3, color: "#3a7a3a",
+      title: "Two giants, two paths",
+      blurb: "Latin America's giants chose NAFTA and Mercosur, compete for leadership, and split between Trump's Washington and China." });
 })();
