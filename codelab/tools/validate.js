@@ -276,6 +276,8 @@ function phase0() {
        A tolerance of 1 absorbs adding a lesson without a manifest edit; more
        than that means the number stopped describing the content. */
     const CH = window.CODELAB.CREDIT_HOURS;
+    const COURSE_LEVELS = ["Beginner", "Intermediate", "Advanced", "Senior"];
+    if (!COURSE_LEVELS.includes(course.level)) fail(`course ${course.id}: level must be one of ${COURSE_LEVELS.join(", ")} (got "${course.level}")`);
     if (course.stub) {
       if (course.credits) fail(`course ${course.id}: stub courses must pay 0 credits (has ${course.credits})`);
       if (course.files.length) fail(`course ${course.id}: stub course must have files: []`);
@@ -629,12 +631,49 @@ function positionGates() {
     if (reqCredits > p.total)
       fail(`position ${p.id}: required courses pay ${reqCredits} credits (stubs at planned value) but the sheet only asks for ${p.total}`);
 
+    /* Senior sheets: honest by construction. A senior sheet extends a real
+       junior sheet, adds only Senior-level courses, and lists what no course
+       can award — always including years — so coursework alone can never
+       meet it. A junior sheet carries none of that. */
+    const LEVELS = ["junior", "senior"];
+    if (!LEVELS.includes(p.level)) fail(`position ${p.id}: level must be one of ${LEVELS.join(", ")} (got "${p.level}")`);
+    if (p.level === "senior") {
+      const base = window.CODELAB._posById[p.extends];
+      if (!p.extends) fail(`position ${p.id}: a senior sheet must name the junior sheet it extends`);
+      else if (!base) fail(`position ${p.id}: extends unknown sheet "${p.extends}" (define the junior sheet first)`);
+      else if (base.level !== "junior") fail(`position ${p.id}: extends "${p.extends}", which is not a junior sheet`);
+      else {
+        const lost = base.required.filter(cid => !reqIds.includes(cid));
+        if (lost.length) fail(`position ${p.id}: lost ${lost.join(", ")} from the junior sheet it extends`);
+      }
+      const adds = p.adds || [];
+      if (!adds.length) fail(`position ${p.id}: a senior sheet must add at least one senior course`);
+      for (const cid of adds) {
+        const c = window.CODELAB._byId[cid];
+        if (c && c.level !== "Senior") fail(`position ${p.id}: adds "${cid}", which is level "${c.level}", not "Senior"`);
+      }
+      const off = p.offPlatform || [];
+      const offIds = off.map(o => o.id);
+      if (!offIds.includes("years"))
+        fail(`position ${p.id}: a senior sheet must list off-platform "years" — coursework alone must never meet it`);
+      if (new Set(offIds).size !== offIds.length) fail(`position ${p.id}: an off-platform requirement is listed twice`);
+      for (const o of off) {
+        if (!o.id || !o.label || !o.why) fail(`position ${p.id}: off-platform requirement ${o.id || "?"} needs an id, a label and a why`);
+      }
+    } else {
+      if (p.extends) fail(`position ${p.id}: only a senior sheet can extend another sheet`);
+      if ((p.offPlatform || []).length) fail(`position ${p.id}: off-platform requirements belong on senior sheets only`);
+      const senior = reqIds.filter(cid => (window.CODELAB._byId[cid] || {}).level === "Senior");
+      if (senior.length) fail(`position ${p.id}: a junior sheet requires senior course(s) ${senior.join(", ")}`);
+    }
+
     const gaps = Object.keys(p.min || {}).filter(c => built[c] < p.min[c]);
     const stubReq = (p.required || []).filter(cid => window.CODELAB._byId[cid].stub);
     const shortTotal = Math.max(0, p.total - builtTotal);
+    const offNote = (p.offPlatform || []).length ? ` + ${p.offPlatform.length} off-platform, never awardable` : "";
     if (!gaps.length && !stubReq.length && !shortTotal) {
       reachable++;
-      console.log(`  ✅ ${p.title} — reachable today (${p.total}cr)`);
+      console.log(`  ✅ ${p.title} — ${offNote ? "coursework" : ""}reachable today (${p.total}cr)${offNote}`);
     } else {
       blocked++;
       const why = [];
@@ -642,7 +681,7 @@ function positionGates() {
       stubReq.forEach(cid => why.push(`requires unwritten ${cid}`));
       if (shortTotal) why.push(`total short ${shortTotal}`);
       const everFixable = gaps.every(c => built[c] + road[c] >= p.min[c]);
-      console.log(`  ⛔ ${p.title} — ${why.join(" · ")}${everFixable ? "" : "  [roadmap does NOT close this]"}`);
+      console.log(`  ⛔ ${p.title} — ${why.join(" · ")}${everFixable ? "" : "  [roadmap does NOT close this]"}${offNote}`);
     }
   }
   console.log(`  ${reachable} reachable · ${blocked} blocked by missing content`);

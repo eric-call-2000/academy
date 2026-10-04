@@ -230,3 +230,56 @@ window.CODELAB.defineCourse({
   blurb: "Getting data in without getting it wrong: CSV parsed by the RFC, encodings and chunked input, JSON Lines, types converted on purpose, bad rows quarantined with their reasons, schema drift and duplicates caught before loading, and pipelines that plan their tasks, retry safely and run for their logical date. Idempotent loads, incremental updates and history follow.",
   files: ["etl/u1.js", "etl/u2.js", "etl/u3.js", "etl/u4.js", "etl/u5.js", "etl/u6.js", "etl/u7.js", "etl/u8.js"]
 });
+
+/* Senior Track — on the roadmap. Planned in senior-curriculum.md (repo root);
+   each gets a tools/course-research file before it is written. Senior
+   courses use the senior lesson format (vaguer briefs, hidden checks, messy
+   starters) and are what the senior sheets in positions.js add on top of
+   their junior sheet. */
+window.CODELAB.defineCourse({
+  id: "review", prefix: "review", title: "Code Review",
+  icon: "🔍", color: "#0f766e", level: "Senior", stub: true,
+  plannedCredits: 4, plannedCategories: { qa: 2, arch: 2 },
+  blurb: "Read someone else's change and find what's wrong before it ships: understand the change first, then correctness, design, tests and security, AI-drafted pull requests, and writing a review someone can act on. Graded on what you catch and on what you flag that was fine.",
+  files: []
+});
+
+window.CODELAB.defineCourse({
+  id: "oncall", prefix: "oncall", title: "On-Call & Incidents",
+  icon: "🚨", color: "#b91c1c", level: "Senior", stub: true,
+  plannedCredits: 4, plannedCategories: { ops: 3, arch: 1 },
+  blurb: "Something is down and the logs are all you have. Triage, find the failing piece, restore service first and fix the cause second, then write the postmortem that keeps it from happening again.",
+  files: []
+});
+
+window.CODELAB.defineCourse({
+  id: "design", prefix: "design", title: "System Design in Practice",
+  icon: "🏛️", color: "#7e22ce", level: "Senior", stub: true,
+  plannedCredits: 4, plannedCategories: { arch: 4 },
+  blurb: "Turn a vague product ask into a design you can defend: requirements and numbers first, then caches, queues, replication and the trade-offs between them, worked through models you can poke. A theory course: you predict and decide before you're told.",
+  files: []
+});
+
+window.CODELAB.defineCourse({
+  id: "refactor", prefix: "refactor", title: "Refactoring Legacy Code",
+  icon: "🧹", color: "#4d7c0f", level: "Senior", stub: true,
+  plannedCredits: 3, plannedCategories: { arch: 2, qa: 1 },
+  blurb: "Change code you didn't write without breaking it: pin today's behavior with tests first, then untangle, rename and split in small safe steps, with hidden checks proving nothing moved.",
+  files: []
+});
+
+window.CODELAB.defineCourse({
+  id: "change", prefix: "change", title: "Changing Live Systems",
+  icon: "🔄", color: "#1d4ed8", level: "Senior", stub: true,
+  plannedCredits: 4, plannedCategories: { be: 2, data: 1, arch: 1 },
+  blurb: "Ship changes while old clients are still calling: expand-and-contract schema migrations, versioned APIs, deprecations, backfills and feature flags, graded on old and new callers both still working.",
+  files: []
+});
+
+window.CODELAB.defineCourse({
+  id: "teststrat", prefix: "teststrat", title: "Testing Strategy at Scale",
+  icon: "🧭", color: "#be185d", level: "Senior", stub: true,
+  plannedCredits: 3, plannedCategories: { qa: 3 },
+  blurb: "Decide what \"safe to ship\" means for a whole codebase: which layer to test at, contract tests between services, flaky tests and what they cost, and suites graded on the bugs they would really catch. Take it after Testing Fundamentals.",
+  files: []
+});

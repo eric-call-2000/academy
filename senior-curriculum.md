@@ -1,7 +1,7 @@
 # CodeLab Senior — Plan (honest senior sheets + six senior courses)
 
 Design doc for adding senior-level courses and senior job sheets to [CodeLab](codelab/).
-Written 2026-10-04. **Status: plan only. Nothing in `codelab/` is changed yet.**
+Written 2026-10-04. **Status: Phase 1 is built** — the Architecture category, the senior-sheet model, validator rules, the board's senior section, the six senior courses as roadmap stubs and the four senior sheets. Phases 2–5 (writing the courses) are next.
 
 ## At a glance
 
@@ -82,17 +82,12 @@ window.CODELAB.definePosition({
   id: "sr-be", title: "Senior Backend Engineer", level: "senior",
   extends: "be",                      // every junior requirement carries over
   icon: "⚙️", color: "#4c3fbf",
-  blurb: "Owns backend systems end to end: designs them, reviews them, keeps them running, and changes them without breaking the people who depend on them.",
-  screen: "System design you can defend, code review that catches real defects, incident diagnosis, and migrations without downtime — plus years of doing it for real.",
-  total: 72,
-  min: { be: 14, data: 4, qa: 7, arch: 6 },
-  required: [/* junior be list, merged automatically */ "review", "oncall", "design", "change", "refactor"],
-  offPlatform: [
-    { id: "years",   label: "About 5 years of shipped work",            why: "Most senior postings ask for 5+ years. No course can stand in for it." },
-    { id: "led",     label: "A project you led from design to launch",  why: "Senior scope is owning something end to end." },
-    { id: "oncall",  label: "Time on a real on-call rotation",          why: "The simulator teaches diagnosis; only production teaches the pager." },
-    { id: "mentor",  label: "Mentoring at least one other engineer",    why: "Every ladder lists raising others as a senior expectation." }
-  ]
+  blurb: "Owns backend systems end to end: …",
+  screen: "A system design you can defend, reviews that catch real defects, …",
+  total: 63,
+  min: { be: 12, data: 4, qa: 7, arch: 8 },
+  required: ["review", "oncall", "design", "change", "refactor"],   // only what it ADDS
+  offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_ONCALL, SENIOR_MENTOR]   // { id, label, why }
 });
 ```
 
@@ -175,8 +170,15 @@ Required courses are the junior list (via `extends`) plus these senior courses.
 | Senior Frontend Engineer | `fe` | review, refactor, teststrat, design | years, led, mentor |
 | Senior DevOps / SRE Engineer | `devops` | review, oncall, design, change | years, led, oncall, mentor |
 
-Totals and floors are set once each course's credits are real (Phase 1 uses planned
-values, as stubs already do). Per the honesty rule, floors are set against what a senior
+Built with these numbers (planned credits for the stubs; revisit each when its course
+is written and its credits are real):
+
+| Sheet | Required credits | `total` | Floors |
+|---|---|---|---|
+| Senior Backend | 60 | 63 | be 12 · data 4 · qa 7 · arch 8 |
+| Senior Full-Stack | 68 | 71 | fnd 12 · fe 8 · be 8 · qa 8 · integ 1 · arch 8 |
+| Senior Frontend | 52 | 55 | fnd 12 · fe 10 · qa 8 · arch 6 |
+| Senior DevOps / SRE | 53 | 56 | ops 13 · be 6 · qa 6 · arch 6 | Per the honesty rule, floors are set against what a senior
 is screened on, not against what CodeLab holds.
 
 ## Build phases

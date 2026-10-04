@@ -568,8 +568,14 @@
       if (c && !creditLive(creditState(u, c))) missing.push(c);
     });
     var short = Math.max(0, pos.total - L.total);
+    /* `coursework` is the degree audit; `met` also needs the off-platform
+       lines, which nothing in CodeLab ever ticks — so a senior sheet is
+       never met here, however many courses are finished. */
+    var coursework = !short && !gaps.length && !missing.length;
+    var off = pos.offPlatform || [];
     return {
-      met: !short && !gaps.length && !missing.length,
+      met: coursework && !off.length,
+      coursework: coursework, offPlatform: off,
       have: L.total, need: pos.total, short: short,
       gaps: gaps, missing: missing, ledger: L,
       pct: pos.total ? Math.min(100, Math.round(L.total / pos.total * 100)) : 100
@@ -613,6 +619,13 @@
   }
 
   function positionById(id) { return window.CODELAB._posById[id] || null; }
+
+  /* "about 5 years of shipped work, a project you led …" for one-line notes. */
+  function offSummary(pos) {
+    return (pos.offPlatform || []).map(function (o) {
+      return o.label.charAt(0).toLowerCase() + o.label.slice(1);
+    }).join(", ");
+  }
 
   /* Positions this course moves the needle on — the reverse index that lets a
      course card say what it is FOR. */
@@ -925,7 +938,9 @@
       var nxg = nextForPosition(u, goal);
       strip.appendChild(el("div", "gs-meta", ga.met
         ? "✓ You meet every requirement — open Careers for the sheet."
-        : ga.have + " / " + goal.total + " credits" + (nxg ? " · next: " + esc(nxg.title) : "")));
+        : ga.coursework
+          ? "✓ Coursework complete · still needed: " + esc(offSummary(goal))
+          : ga.have + " / " + goal.total + " credits" + (nxg ? " · next: " + esc(nxg.title) : "")));
       strip.onclick = function () { showPosition(goal); };
       hero.appendChild(strip);
     }
@@ -959,8 +974,13 @@
          positions it advances — same table, read the other way. */
       var forPos = positionsFor(c);
       if (forPos.length) {
-        body.appendChild(el("div", "cc-for", "Counts toward: " +
-          forPos.map(function (pp) { return esc(pp.title.replace(/^Junior /, "")); }).join(" · ")));
+        /* Every senior sheet carries its junior sheet's courses, so naming
+           them all would double the line; juniors by name, seniors counted. */
+        var forJr = forPos.filter(function (pp) { return pp.level !== "senior"; });
+        var nSr = forPos.length - forJr.length;
+        var forTxt = forJr.map(function (pp) { return esc(pp.title.replace(/^Junior /, "")); });
+        if (nSr) forTxt.push(nSr + " senior " + (nSr === 1 ? "sheet" : "sheets"));
+        body.appendChild(el("div", "cc-for", "Counts toward: " + forTxt.join(" · ")));
       }
 
       if (c.stub) {
@@ -1045,6 +1065,7 @@
   function statusOf(u, pos) {
     var a = audit(u, pos);
     if (a.met) return { key: "met", label: "✓ Qualified", a: a };
+    if (a.coursework) return { key: "course", label: "✓ Coursework complete", a: a };
     if (blockers(pos).length) return { key: "blocked", label: "Needs new courses", a: a };
     return { key: "open", label: a.short ? creditWord(a.short) + " to go" : "Almost there", a: a };
   }
@@ -1105,46 +1126,67 @@
        satisfy — last precisely because they are not the learner's fault and
        nothing they do this week will change them. */
     var rows = POSITIONS.map(function (p2) { return { pos: p2, st: statusOf(u, p2) }; });
-    var rank = { met: 0, open: 1, blocked: 2 };
+    var rank = { met: 0, course: 0, open: 1, blocked: 2 };
     rows.sort(function (x, y) {
       if (rank[x.st.key] !== rank[y.st.key]) return rank[x.st.key] - rank[y.st.key];
       return y.st.a.pct - x.st.a.pct;
     });
 
-    var grid = el("div", "jobs");
-    rows.forEach(function (r) {
-      var pos = r.pos, st = r.st, a = st.a;
-      var card = el("button", "job-card " + st.key);
-      var head = el("div", "job-head");
-      head.appendChild(el("div", "job-ic", pos.icon || "💼"));
-      var ht = el("div", "job-ht");
-      ht.appendChild(el("div", "job-title", esc(pos.title)));
-      ht.appendChild(el("div", "job-pill " + st.key, esc(st.label)));
-      head.appendChild(ht);
-      card.appendChild(head);
-      card.appendChild(el("div", "job-blurb", esc(pos.blurb || "")));
+    /* Junior sheets first, then senior ones under their own heading: a
+       senior sheet is a different promise (coursework plus years), and
+       mixing the two in one ranked list would bury that. */
+    function jobGrid(list) {
+      var grid = el("div", "jobs");
+      list.forEach(function (r) {
+        var pos = r.pos, st = r.st, a = st.a;
+        var card = el("button", "job-card " + st.key);
+        var head = el("div", "job-head");
+        head.appendChild(el("div", "job-ic", pos.icon || "💼"));
+        var ht = el("div", "job-ht");
+        ht.appendChild(el("div", "job-title", esc(pos.title)));
+        ht.appendChild(el("div", "job-pill " + st.key, esc(st.label)));
+        head.appendChild(ht);
+        card.appendChild(head);
+        card.appendChild(el("div", "job-blurb", esc(pos.blurb || "")));
 
-      var bar = el("div", "job-bar", "<i></i>");
-      bar.firstChild.style.width = a.pct + "%";
-      bar.firstChild.style.background = st.key === "met" ? "var(--success)" : (pos.color || "var(--accent)");
-      card.appendChild(bar);
-      card.appendChild(el("div", "job-meta", a.have + " / " + pos.total + " credits"));
+        var bar = el("div", "job-bar", "<i></i>");
+        bar.firstChild.style.width = a.pct + "%";
+        bar.firstChild.style.background = (st.key === "met" || st.key === "course") ? "var(--success)" : (pos.color || "var(--accent)");
+        card.appendChild(bar);
+        card.appendChild(el("div", "job-meta", a.have + " / " + pos.total + " credits"));
 
-      if (st.key === "met") {
-        card.appendChild(el("div", "job-note ok", "You meet every requirement on this sheet."));
-      } else if (st.key === "blocked") {
-        var b = blockers(pos)[0];
-        card.appendChild(el("div", "job-note warn", b && b.cat
-          ? esc(window.CODELAB.catLabel(b.cat)) + " tops out at " + b.max + " credits in the catalog so far — this sheet needs " + b.need + "."
-          : "Requires a course that has not been written yet."));
-      } else {
-        var nx = nextForPosition(u, pos);
-        card.appendChild(el("div", "job-note", nx ? "Next: " + esc(nx.title) : "Finish what you have started."));
-      }
-      card.onclick = function () { showPosition(pos); };
-      grid.appendChild(card);
-    });
-    wrap.appendChild(grid);
+        if (st.key === "met") {
+          card.appendChild(el("div", "job-note ok", "You meet every requirement on this sheet."));
+        } else if (st.key === "course") {
+          card.appendChild(el("div", "job-note ok", "Every course on this sheet is done. Still needed: " + esc(offSummary(pos)) + "."));
+        } else if (st.key === "blocked") {
+          var b = blockers(pos)[0];
+          card.appendChild(el("div", "job-note warn", b && b.cat
+            ? esc(window.CODELAB.catLabel(b.cat)) + " tops out at " + b.max + " credits in the catalog so far — this sheet needs " + b.need + "."
+            : "Requires a course that has not been written yet."));
+        } else {
+          var nx = nextForPosition(u, pos);
+          card.appendChild(el("div", "job-note", nx ? "Next: " + esc(nx.title) : "Finish what you have started."));
+        }
+        if (st.key !== "course" && (pos.offPlatform || []).length) {
+          card.appendChild(el("div", "job-note off", "+ " + plural(pos.offPlatform.length, "requirement", "requirements") + " CodeLab can't award"));
+        }
+        card.onclick = function () { showPosition(pos); };
+        grid.appendChild(card);
+      });
+      return grid;
+    }
+    var jrRows = rows.filter(function (r) { return r.pos.level !== "senior"; });
+    var srRows = rows.filter(function (r) { return r.pos.level === "senior"; });
+    wrap.appendChild(jobGrid(jrRows));
+    if (srRows.length) {
+      var srHead = el("div", "jobs-sec");
+      srHead.appendChild(el("h2", "jobs-sec-title", "Senior positions"));
+      srHead.appendChild(el("p", "jobs-sec-sub",
+        "Each one builds on a junior sheet and adds the senior courses. Every senior sheet also needs years of shipped work and things only a job can give you, so finishing its courses shows <b>Coursework complete</b>, never Qualified."));
+      wrap.appendChild(srHead);
+      wrap.appendChild(jobGrid(srRows));
+    }
 
     var foot = el("div", "footer-note");
     foot.innerHTML = "Credits expire after " + Math.round(EXPIRY_DAYS / 365) +
@@ -1163,6 +1205,14 @@
     o.sheet.appendChild(el("h2", "pos-title", esc(pos.title)));
     o.sheet.appendChild(el("div", "pos-blurb", esc(pos.blurb || "")));
     if (pos.screen) o.sheet.appendChild(el("div", "pos-screen", "<b>Screened on:</b> " + esc(pos.screen)));
+    var basePos = pos.extends && positionById(pos.extends);
+    if (basePos) {
+      o.sheet.appendChild(el("div", "pos-screen", "<b>Builds on:</b> every course on the " + esc(basePos.title) +
+        " sheet, plus " + plural((pos.adds || []).length, "senior course", "senior courses") + "."));
+    }
+    if (a.coursework && a.offPlatform.length) {
+      o.sheet.appendChild(el("div", "pos-done", "✓ Coursework complete. What's left is below, and no course can give it to you."));
+    }
 
     o.sheet.appendChild(el("div", "pos-sec", "Credits"));
     var tot = el("div", "pos-total" + (a.have >= pos.total ? " ok" : ""));
@@ -1195,6 +1245,22 @@
         rl.appendChild(row);
       });
       o.sheet.appendChild(rl);
+    }
+
+    if (a.offPlatform.length) {
+      o.sheet.appendChild(el("div", "pos-sec", "Off-platform — CodeLab can't award these"));
+      var ol = el("div", "req-list");
+      a.offPlatform.forEach(function (req) {
+        var row = el("div", "req-row off");
+        row.appendChild(el("span", "req-ic", "◇"));
+        var mid = el("span", "req-name");
+        mid.appendChild(el("span", "off-label", esc(req.label)));
+        mid.appendChild(el("span", "off-why", esc(req.why)));
+        row.appendChild(mid);
+        row.appendChild(el("span", "req-cr", "can't award"));
+        ol.appendChild(row);
+      });
+      o.sheet.appendChild(ol);
     }
 
     if (bl.length) {

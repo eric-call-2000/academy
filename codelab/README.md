@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus five roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus seven roadmap courses (six of them the senior courses) that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -73,12 +73,22 @@ per-category minimums, and required courses that cannot be substituted. Every sh
 names **at least eight** required courses (the validator enforces it), and required
 courses **stack** — they are named *and* their credits count toward the totals, which sit
 about one elective above what the required courses pay. There is
-one sheet per job title and every sheet is junior-level; seniority comes from shipped
-work, not coursework. Thresholds are set against what juniors are actually screened on,
-**not** against what CodeLab happens to hold: three of the seven sheets are currently
-unreachable because they require courses still on the roadmap, and the board reports
-the shortfall as a number ("Operations tops out at 8 credits — this sheet needs 10")
-rather than quietly hiding the gap.
+one sheet per job title. Thresholds are set against what each level is actually
+screened on, **not** against what CodeLab happens to hold: when a sheet needs courses
+still on the roadmap, the board reports the shortfall as a number ("Architecture tops
+out at 0 credits — this sheet needs 8") rather than quietly hiding the gap.
+
+**Junior and senior sheets.** The seven junior sheets can be met by coursework. The four
+senior sheets (Backend, Full-Stack, Frontend, DevOps / SRE) can't, and say so. Each one
+*extends* its junior sheet (that sheet's required courses are copied in), adds senior
+courses, and lists **off-platform requirements** — about five years of shipped work, a
+project you led, real on-call time, mentoring — each marked "CodeLab can't award this".
+Finishing every course on a senior sheet shows **Coursework complete**, never Qualified:
+seniority still comes from shipped work and years, and the sheet is honest about it.
+The validator enforces that every senior sheet lists `years`, extends a real junior
+sheet and adds only Senior-level courses. The plan and the research behind it are in
+[`senior-curriculum.md`](../senior-curriculum.md); all six senior courses are on the
+roadmap, so the senior sheets currently show as blocked.
 
 **Credits expire after two years — unless you keep them.** Any Recall drill or card you
 do not miss resets that course's clock, so the transcript measures what you can still

@@ -869,6 +869,13 @@ input { font-family: var(--font); }
 .job-note { font-size: 12px; font-weight: 700; color: var(--muted); line-height: 1.5; }
 .job-note.ok { color: var(--success-dark); }
 .job-note.warn { color: var(--gold-dark); }
+/* Senior sheets: coursework done is shown as done, never as qualified. */
+.job-card.course { border-color: var(--success); border-style: dashed; }
+.job-pill.course { background: var(--item-hover); color: var(--success-dark); }
+.job-note.off { color: var(--ink-soft); font-weight: 800; }
+.jobs-sec { margin-top: 28px; }
+.jobs-sec-title { font-weight: 900; font-size: 18px; color: var(--ink); margin: 0 0 4px; }
+.jobs-sec-sub { font-size: 13px; color: var(--ink-soft); font-weight: 600; line-height: 1.55; margin: 0; }
 
 /* --- position sheet --- */
 .sheet-pos, .sheet-trans { max-width: 520px; }
@@ -903,6 +910,13 @@ input { font-family: var(--font); }
 .req-ic { font-weight: 900; }
 .req-name { flex: 1; min-width: 0; }
 .req-cr { font-size: 11.5px; font-weight: 900; color: var(--muted); }
+.req-row.off { align-items: flex-start; border-left: 3px solid var(--line); }
+.off-label { display: block; color: var(--ink); }
+.off-why { display: block; font-size: 12px; font-weight: 600; color: var(--muted); line-height: 1.5; margin-top: 2px; }
+.pos-done {
+  font-size: 12.5px; font-weight: 800; color: var(--success-dark); background: var(--item-hover);
+  border-radius: 10px; padding: 9px 12px; margin-top: 12px; line-height: 1.5;
+}
 .block-row {
   font-size: 12.5px; line-height: 1.55; font-weight: 600; color: var(--ink-soft);
   padding: 10px 12px; border-radius: 10px; background: var(--item-hover);
