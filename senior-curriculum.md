@@ -1,7 +1,7 @@
 # CodeLab Senior — Plan (honest senior sheets + six senior courses)
 
 Design doc for adding senior-level courses and senior job sheets to [CodeLab](codelab/).
-Written 2026-10-04. **Status: Phase 1 is built** — the Architecture category, the senior-sheet model, validator rules, the board's senior section, the six senior courses as roadmap stubs and the four senior sheets. Phases 2–5 (writing the courses) are next.
+Written 2026-10-04. **Status: Phase 1 is built** — the Architecture category, the senior-sheet model, validator rules, the board's senior section, the six senior courses as roadmap stubs and the four senior sheets. Phase 2 is under way: the review lesson kind is built and Code Review has Units 1–3 of 8.
 
 ## At a glance
 

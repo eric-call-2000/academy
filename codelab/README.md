@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus seven roadmap courses (six of them the senior courses) that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus six roadmap courses (five of them senior courses) that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -87,8 +87,8 @@ Finishing every course on a senior sheet shows **Coursework complete**, never Qu
 seniority still comes from shipped work and years, and the sheet is honest about it.
 The validator enforces that every senior sheet lists `years`, extends a real junior
 sheet and adds only Senior-level courses. The plan and the research behind it are in
-[`senior-curriculum.md`](../senior-curriculum.md); all six senior courses are on the
-roadmap, so the senior sheets currently show as blocked.
+[`senior-curriculum.md`](../senior-curriculum.md); the six senior courses are on the
+roadmap or partly written, so the senior sheets currently show as blocked.
 
 **Credits expire after two years — unless you keep them.** Any Recall drill or card you
 do not miss resets that course's clock, so the transcript measures what you can still
@@ -210,6 +210,7 @@ codelab/
 ├── positions.js          # job positions: the requirement sheets the board audits against
 ├── core.js               # course registry + credit model (defineCourse / definePosition / addUnit)
 ├── review.js             # Recall: the spaced-repetition scheduler (pure, Node-testable)
+├── reviewkit.js          # review lessons: the diff, the key and the grading (pure, Node-testable)
 ├── editor.js             # mobile code editor + syntax highlighting
 ├── runner.js             # sandbox runner + checkpoint grader (worker/iframe)
 ├── app.js                # screens: profiles → catalog → course → lesson
@@ -226,6 +227,7 @@ codelab/
 ├── git/u1.js … u8.js     # Git & Version Control     (37 items)
 ├── cli/u1.js … u7.js     # The Command Line          (35 items)
 ├── docker/u1.js … u8.js  # Docker & Containers       (36 items)
+├── review/u1.js … u3.js  # Code Review (senior; 3 of 8 units so far)  (13 items)
 ├── shell.js              # a virtual filesystem + POSIX-ish shell (kind: "shell" lessons)
 ├── gitsim.js             # a real git inside that shell — the Git course's engine
 ├── dockersim.js          # a Docker daemon inside that shell — the Docker course's engine
@@ -435,7 +437,7 @@ grades them, and the rest of the catalog simply reads better for them:
 
 ```js
 {
-  id: "html-u2-9", title: "…", kind: "web",        // "web" | "js" | "shell" | "quiz" | "concept"
+  id: "html-u2-9", title: "…", kind: "web",        // "web" | "js" | "shell" | "quiz" | "concept" | "review"
   chip: "HTML", xp: 15, mins: 10,                   // project: true for projects
   brief: "Markdown-ish teaching text.",
   steps: [{ text: "Do X.", test: "T.expect(T.$('h1'), 'No h1 yet.');" }],
@@ -458,6 +460,23 @@ grades them, and the rest of the catalog simply reads better for them:
 ```
 
 Ask types: `predict` (typed), `pick` (a `why` per choice: the refutation for wrong ones, the explanation for the answer), `order` (Parsons; `distractors`, `groups` of swappable lines), `trace` (a table of values; `given` leading columns), `lab` (an interactive model from `labs.js`, opened only after its `predict`/`pick` is answered) and `explain` (self-checked against a `rubric`; never counted as graded). Phase 0 enforces it: `run: true` executes the code (or hidden `check` code) and the printed output must match the key; `mins` must sit between the modelled floor (words ÷ 200 + 1.5 per graded ask + 3 per lab or explain) and twice it; at least two `transfer` asks per lesson feed **Test out**. A course with `theory: true` must spend at least 60% of its minutes in concept lessons. Preview any lesson object in the browser with `CODELAB.dev.concept(lesson)`.
+
+**A review lesson** (`kind: "review"`, the Code Review course) — someone else's change, no editor. The learner taps lines, files each comment under a category (`bug`, `security`, `design`, `tests`, `readability`, `nit`) and a severity (`blocking` / `nonblocking`), then picks a verdict. `reviewkit.js` diffs `base` against `head` and grades against the key; its contract is the header of `tools/test-reviewkit.js`:
+
+```js
+{
+  id: "review-u3-1", title: "…", kind: "review", xp: 20, mins: 7,
+  brief: "The author's description: what the change is FOR.",
+  base: { "pages.js": "…" }, head: { "pages.js": "…" },   // a file in both and unchanged is shown as context
+  findings: [{ id: "floor", file: "pages.js", lines: [2, 2], category: "bug", severity: "blocking", why: "…" }],
+  decoys:   [{ file: "pages.js", lines: [8, 8], why: "Looks wrong, isn't: …" }],
+  verdict: "request",          // "approve" (also accepts "comment") | "comment" | "request"
+  mustFind: [],                // non-blocking findings that also gate (an approve lesson needs one)
+  rubric: ["…", "…"]           // self-check for the comment text: a claim, never graded
+}
+```
+
+Lines are numbered on the `head` side (added and unchanged lines) unless a finding says `side: "base"` (deleted lines). A comment finds a finding when it is within one line of its range and in its category (or `alsoOk`); right line, wrong category is a near miss, not a false alarm. Anything else is a false alarm costing 1, or 2 if marked blocking; a lesson allows 1 (`maxFalse`), a project 0. A miss reports counts, never locations; after two misses the learner may reveal the answers. Phase 0 enforces: the key passes, an empty review fails, commenting on every line in any one category fails, decoys sit at least two lines from any finding, `mins` sits between the modelled floor (changed lines ÷ 8 + context ÷ 16 + 2) and twice it plus 4, and across a course at least a quarter of findings are on unchanged lines and about one review in eight is a clean Approve.
 
 **Growth checkpoints** (`count: true`, kind `js`) — `T.growth(make, work)` runs `work` at n = 250, 500, 1000 and 2000 and returns `{ band, counts, ratios }`, where `band` is `sublinear`, `linear`, `quadratic` or `unclear`. It counts passes of the learner's own braced loops plus the elements built-in scanners like `includes` may visit, never time, and refuses code with a brace-less loop anywhere in the file. Also `T.counted(array)` (a Proxy that counts element accesses), `T.reads()` (those accesses only, without loop passes, for bounds like "binary search reads at most 21"), `T.ops()`, `T.resetOps()` and `T.calls(fn)`.
 

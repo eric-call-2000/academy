@@ -85,13 +85,15 @@ function phase0() {
   }
 
   const ids = new Set();
-  let totals = { lessons: 0, quizzes: 0, projects: 0, steps: 0, questions: 0, mins: 0, concepts: 0, asks: 0 };
+  let totals = { lessons: 0, quizzes: 0, projects: 0, steps: 0, questions: 0, mins: 0, concepts: 0, asks: 0, reviews: 0, findings: 0 };
   const CX = require(path.join(ROOT, "concept.js"));
+  const RK = require(path.join(ROOT, "reviewkit.js"));
   for (const course of window.CODELAB.courses) {
     let count = 0;
     let courseMins = 0;
     let conceptMins = 0;
     let pickTotal = 0, pickLongest = 0;
+    let reviewCount = 0, approveCount = 0, findingCount = 0, contextFindings = 0;
     for (const unit of course.units) {
       if (!unit.cheat || !unit.cheat.length) fail(`unit ${unit.id || unit.title} (${course.id}): missing cheatsheet`);
       for (const l of unit.lessons) {
@@ -130,6 +132,21 @@ function phase0() {
                 if (a.choices[a.answer].length > Math.max(...others)) pickLongest++;
               }
             }
+          }
+        } else if (l.kind === "review") {
+          /* Review lessons have no checkpoints: the key is the findings, and
+             reviewkit.checkLesson also runs the key's own review (must
+             pass), an empty review (must fail) and a reviewer who flags
+             every line in each category (must fail). */
+          totals.reviews++;
+          reviewCount++;
+          if (l.project) totals.projects++;
+          RK.checkLesson(l).forEach(fail);
+          if (l.verdict === "approve") approveCount++;
+          for (const f of (l.findings || [])) {
+            findingCount++;
+            totals.findings++;
+            try { if (RK.onContext(l, f)) contextFindings++; } catch (e) { /* reported by checkLesson */ }
           }
         } else {
           totals.lessons++;
@@ -311,11 +328,25 @@ function phase0() {
     if (pickTotal && Math.round(pickLongest / pickTotal * 100) > 40)
       fail(`course ${course.id}: in concept picks the correct answer is the longest choice ${Math.round(pickLongest / pickTotal * 100)}% of the time (max 40%) — lengthen a distractor`);
 
+    /* Review courses: "only read the green lines" must not work, so at
+       least a quarter of the findings sit on lines the change didn't
+       touch; and approving must sometimes be right, so about one review
+       lesson in eight is a clean Approve. Both scale with the course, so
+       a course built in tranches is held to them from its first unit. */
+    if (reviewCount) {
+      const CONTEXT_SHARE = 0.25;
+      if (findingCount >= 8 && contextFindings / findingCount < CONTEXT_SHARE)
+        fail(`course ${course.id}: only ${contextFindings} of ${findingCount} review findings are on unchanged lines (needs ${CONTEXT_SHARE * 100}%) — reading only the changed lines would pass`);
+      const wantApprove = Math.floor(reviewCount / 8);
+      if (approveCount < wantApprove)
+        fail(`course ${course.id}: ${approveCount} of ${reviewCount} review lessons are an Approve (needs ${wantApprove}) — a reviewer who always requests changes would pass`);
+    }
+
     const target = course.targetHours ? `, target ${course.targetHours}h` : "";
     const crLabel = course.stub ? `stub, planned ${course.plannedCredits || 0}cr` : `${course.credits}cr`;
     console.log(`  ${course.id}: ${count} items (manifest ${course.items}) ~${course.hours}h (model ~${modelHours.toFixed(1)}h${target}) ${crLabel}`);
   }
-  console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ${totals.concepts} concept lessons (${totals.asks} asks), ~${Math.round(totals.mins / 60)}h of material`);
+  console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ${totals.concepts} concept lessons (${totals.asks} asks), ${totals.reviews} review lessons (${totals.findings} findings), ~${Math.round(totals.mins / 60)}h of material`);
 
   positionGates();
   stepSolutionGates();   // needs the loaded catalog, which recallAndSyncGates clears
@@ -327,6 +358,7 @@ function phase0() {
   warehouseGates();
   authsimGates();
   conceptGates();
+  reviewkitGates();
 }
 
 /* ---------------- concept lessons ----------------
@@ -428,6 +460,19 @@ function conceptGates() {
     ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
   } catch (e) {
     fail("concept tests failed:\n" + String(e.stdout || e.message));
+  }
+}
+
+/* Review lessons grade where a learner points against a key. The contract
+   for the diff, the matching and the schema is tools/test-reviewkit.js. */
+function reviewkitGates() {
+  console.log("\n== Phase 0l: review grading ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-reviewkit.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
+  } catch (e) {
+    fail("reviewkit tests failed:\n" + String(e.stdout || e.message));
   }
 }
 
@@ -1050,6 +1095,13 @@ async function main() {
       const r = await page.evaluate((i) => window.CODELAB.dev.run(i, true), id);
       if (r.problems.length) r.problems.forEach(pr => fail(pr));
       else ok(`${id} (concept, ${r.screens} screens)`);
+      continue;
+    }
+    if (kind === "review") {
+      const r = await page.evaluate((i) => window.CODELAB.dev.run(i, true), id);
+      if (r.problems.length) r.problems.forEach(pr => fail(pr));
+      else if (!r.keyPasses) fail(`${id}: the key's review does not pass in the app`);
+      else ok(`${id} (review, ${r.findings} findings)`);
       continue;
     }
     const nSteps = await page.evaluate((i) => (window.CODELAB.dev.lesson(i).steps || []).length, id);

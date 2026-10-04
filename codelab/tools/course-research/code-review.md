@@ -87,6 +87,14 @@ After submitting, every finding and decoy is revealed on the diff with its `why`
   the quiz length-tell gate: block the shortcut in the build.)
 - At least 3 lessons in the course have verdict `approve` with no blocking finding.
 
+## Status (2026-10-04)
+BUILT: the `review` lesson kind (`reviewkit.js`, `tools/test-reviewkit.js`, the review screen in
+app.js, phase 0 gates) and Units 1–3 (13 items: 2 concept lessons, 8 review lessons, 3 quizzes).
+NOT YET: Units 4–8 and both projects, and the two `js` "fix what you flagged" follow-ups
+(Units 3 and 6). Built differently from the plan below: decoys must sit two lines from any
+finding (one line of slack would make a comment between them ambiguous), and an approve lesson
+names a non-blocking finding in `mustFind`, so tapping Approve is never the whole lesson.
+
 ## Teachable today
 ~10 OF 36 ITEMS SHIP ON TODAY'S ENGINES.
 - Unit 1 (why review exists, what to look for) is concept lessons + a quiz.
