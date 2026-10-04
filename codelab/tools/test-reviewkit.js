@@ -11,7 +11,7 @@
    A review lesson:
      { id, kind: "review", title, mins, xp?, project?, brief,
        base: { file: text }, head: { file: text },     the change, as two versions
-       findings: [{ id, file, side?, lines: [a, b], category, alsoOk?, severity, why }],
+       findings: [{ id, file, side?, lines: [a, b], category, alsoOk?, severity, optional?, why }],
        decoys:   [{ file, side?, lines: [a, b], why }],  lines that look wrong and aren't
        verdict: "approve" | "comment" | "request",
        mustFind?: [finding ids],                        non-blocking findings that also gate
@@ -32,7 +32,8 @@
      one line of its range, and its category is the finding's (or in alsoOk).
      Right place + wrong category = nearMiss: not found, not a false alarm.
      Anywhere else = a false alarm costing 1, or 2 if marked blocking.
-     pass = every blocking (and mustFind) finding found, the verdict fits
+     pass = every blocking (and mustFind) finding found, except ones marked
+     optional (the same problem again elsewhere), the verdict fits
      (an "approve" key also accepts "comment"), and falseCost <= maxFalse.
 
    Also: diffLines(a, b), lessonDiff(lesson), keyReview(lesson),
@@ -171,6 +172,14 @@ test("grade: right place, wrong category is a near miss, not a false alarm", () 
   const r = RK.grade(lesson(), { comments: [C(6, "design")], verdict: "request" });
   eq(r.found, []); eq(r.nearMiss, ["avg"]); eq(r.falseCost, 0); eq(r.pass, false);
 });
+test("grade: an optional blocking finding counts when found but never gates", () => {
+  const l = lesson();
+  l.findings.push({ id: "again", file: "cart.js", lines: [9, 9], category: "bug", severity: "blocking", optional: true, why: "w" });
+  l.findings.splice(1, 1);
+  eq(RK.grade(l, { comments: [C(6, "bug")], verdict: "request" }).pass, true, "not required");
+  const r = RK.grade(l, { comments: [C(6, "bug"), C(9, "bug")], verdict: "request" });
+  eq(r.falseCost, 0); eq(r.found.sort(), ["again", "avg"]);
+});
 test("grade: perComment says what each comment did", () => {
   const r = RK.grade(lesson(), { comments: [C(6, "bug"), C(6, "design"), C(1, "nit", "nonblocking"), C(7, "bug")], verdict: "request" });
   eq(r.perComment, ["found", "near", "false", "found"]);
@@ -256,6 +265,10 @@ test("checkLesson: verdict and severity must agree", () => {
 test("checkLesson: an approve lesson needs mustFind", () => {
   const l = lesson({ findings: [lesson().findings[1]], verdict: "approve" });
   has(RK.checkLesson(l), /mustFind/);
+});
+test("checkLesson: a comment lesson needs mustFind too", () => {
+  const l = lesson({ findings: [lesson().findings[1]], verdict: "comment" });
+  has(RK.checkLesson(l), /"comment" lesson must name/);
 });
 test("checkLesson: every non-project lesson needs a decoy", () => {
   has(RK.checkLesson(lesson({ decoys: [] })), /decoy/);

@@ -82,7 +82,7 @@
       {
         id: "review-u3-2",
         title: "Saved, or was it?",
-        kind: "review", xp: 20, mins: 6,
+        kind: "review", xp: 20, mins: 7,
         brief: "**Save settings to the server**\n\nSettings used to live only in the browser. Now they're saved to the API, so they follow you to other devices. Shows the usual \"Settings saved\" toast afterwards.",
         base: { "settings.js": src([
           "function onSaveClick() {",
@@ -90,7 +90,14 @@
           "  localStorage.setItem(\"settings\", JSON.stringify(settings));",
           "  showToast(\"Settings saved\");",
           "}"
-        ]) },
+        ]),
+          "app-start.js": src([
+            "// Runs once when the app loads.",
+            "function loadSettings() {",
+            "  const saved = localStorage.getItem(\"settings\");",
+            "  applySettings(saved ? JSON.parse(saved) : DEFAULT_SETTINGS);",
+            "}"
+          ]) },
         head: { "settings.js": src([
           "async function onSaveClick() {",
           "  const settings = readSettingsForm();",
@@ -101,10 +108,19 @@
           "  }",
           "  showToast(\"Settings saved\");",
           "}"
-        ]) },
+        ]),
+          "app-start.js": src([
+            "// Runs once when the app loads.",
+            "function loadSettings() {",
+            "  const saved = localStorage.getItem(\"settings\");",
+            "  applySettings(saved ? JSON.parse(saved) : DEFAULT_SETTINGS);",
+            "}"
+          ]) },
         findings: [
           { id: "swallow", file: "settings.js", lines: [5, 8], category: "bug", severity: "blocking",
-            why: "If the request fails, the `catch` only logs it, and the code carries on to say **Settings saved**. The user believes their settings are on the server when they aren't. Show an error instead, and only show the toast on success." }
+            why: "If the request fails, the `catch` only logs it, and the code carries on to say **Settings saved**. The user believes their settings are on the server when they aren't. Show an error instead, and only show the toast on success." },
+          { id: "load", file: "app-start.js", lines: [3, 4], category: "bug", severity: "blocking",
+            why: "Saving moved to the server, but loading didn't: startup still reads `localStorage`, which nothing writes any more. A new device always starts from the defaults, and this one keeps showing whatever was saved before the change. The settings never actually follow anyone. Load them from the API too." }
         ],
         decoys: [
           { file: "settings.js", lines: [1, 1], why: "Making the handler `async` is needed for the `await` inside it. A click handler can be async." }
@@ -116,14 +132,22 @@
       {
         id: "review-u3-3",
         title: "Deleted, probably",
-        kind: "review", xp: 20, mins: 6,
+        kind: "review", xp: 20, mins: 7,
         brief: "**Let users delete their account**\n\nNew endpoint handler: deletes the user, records it in the audit log, and returns `{ ok: true }` for the settings page to show a goodbye message.",
         base: { "account.js": src([
           "async function getAccount(req) {",
           "  const user = await db.users.find(req.userId);",
           "  return { ok: true, user: user };",
           "}"
-        ]) },
+        ]),
+          "auth.js": src([
+            "// Runs before every signed-in request.",
+            "async function loadUser(req) {",
+            "  const user = await db.users.find(req.session.userId);",
+            "  req.userId = user.id;",
+            "  req.user = user;",
+            "}"
+          ]) },
         head: { "account.js": src([
           "async function getAccount(req) {",
           "  const user = await db.users.find(req.userId);",
@@ -135,10 +159,20 @@
           "  await audit.log(\"account.deleted\", req.userId);",
           "  return { ok: true };",
           "}"
-        ]) },
+        ]),
+          "auth.js": src([
+            "// Runs before every signed-in request.",
+            "async function loadUser(req) {",
+            "  const user = await db.users.find(req.session.userId);",
+            "  req.userId = user.id;",
+            "  req.user = user;",
+            "}"
+          ]) },
         findings: [
           { id: "await", file: "account.js", lines: [7, 7], category: "bug", severity: "blocking",
-            why: "`db.users.delete` isn't awaited. The handler logs and returns `{ ok: true }` without knowing whether the delete worked; if it fails, the user is told their account is gone when it isn't, and the error surfaces as an unhandled rejection." }
+            why: "`db.users.delete` isn't awaited. The handler logs and returns `{ ok: true }` without knowing whether the delete worked; if it fails, the user is told their account is gone when it isn't, and the error surfaces as an unhandled rejection." },
+          { id: "sessions", file: "auth.js", lines: [3, 4], category: "bug", alsoOk: ["design"], severity: "blocking",
+            why: "The account is deleted, but its other sessions aren't. The next request from the user's phone runs `loadUser`, `find` returns nothing, and `user.id` throws on every request: an error page instead of being signed out. Delete the user's sessions too, or have `loadUser` treat a missing user as signed out." }
         ],
         decoys: [
           { file: "account.js", lines: [2, 2], why: "The existing `getAccount` already awaits correctly. It's unchanged and fine." }

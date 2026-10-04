@@ -227,7 +227,7 @@ codelab/
 ├── git/u1.js … u8.js     # Git & Version Control     (37 items)
 ├── cli/u1.js … u7.js     # The Command Line          (35 items)
 ├── docker/u1.js … u8.js  # Docker & Containers       (36 items)
-├── review/u1.js … u3.js  # Code Review (senior; 3 of 8 units so far)  (13 items)
+├── review/u1.js … u8.js  # Code Review (senior)      (38 items)
 ├── shell.js              # a virtual filesystem + POSIX-ish shell (kind: "shell" lessons)
 ├── gitsim.js             # a real git inside that shell — the Git course's engine
 ├── dockersim.js          # a Docker daemon inside that shell — the Docker course's engine
@@ -472,6 +472,7 @@ Ask types: `predict` (typed), `pick` (a `why` per choice: the refutation for wro
   decoys:   [{ file: "pages.js", lines: [8, 8], why: "Looks wrong, isn't: …" }],
   verdict: "request",          // "approve" (also accepts "comment") | "comment" | "request"
   mustFind: [],                // non-blocking findings that also gate (an approve lesson needs one)
+  // a finding with optional: true is the same problem again elsewhere: found if flagged, never required
   rubric: ["…", "…"]           // self-check for the comment text: a claim, never graded
 }
 ```

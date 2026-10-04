@@ -236,16 +236,17 @@ window.CODELAB.defineCourse({
    courses use the senior lesson format (vaguer briefs, hidden checks, messy
    starters) and are what the senior sheets in positions.js add on top of
    their junior sheet. */
-/* Built in tranches on reviewkit.js (kind: "review" lessons): units 1–3 of
-   the eight planned in tools/course-research/code-review.md. hours, items
-   and credits restate what is written so far; the plan is 4 credits,
-   { qa: 2, arch: 2 }, once all eight units exist. */
+/* Built on reviewkit.js (kind: "review" lessons); the plan is
+   tools/course-research/code-review.md. All eight units are written. The
+   plan guessed 4 credits; the lessons model at ~4.5h (review minutes are
+   set by reading speed, ~8 lines a minute), so the course pays the 2
+   that restate them. */
 window.CODELAB.defineCourse({
   id: "review", prefix: "review", title: "Code Review",
-  icon: "🔍", color: "#0f766e", level: "Senior", hours: 2, items: 13,
-  credits: 1, categories: { arch: 1 },
+  icon: "🔍", color: "#0f766e", level: "Senior", hours: 5, items: 38,
+  credits: 2, categories: { qa: 1, arch: 1 },
   blurb: "Read someone else's change and find what's wrong before it ships: understand the change first, then correctness, design, tests and security, AI-drafted pull requests, and writing a review someone can act on. Graded on what you catch and on what you flag that was fine.",
-  files: ["review/u1.js", "review/u2.js", "review/u3.js"]
+  files: ["review/u1.js", "review/u2.js", "review/u3.js", "review/u4.js", "review/u5.js", "review/u6.js", "review/u7.js", "review/u8.js"]
 });
 
 window.CODELAB.defineCourse({

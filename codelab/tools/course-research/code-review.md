@@ -89,9 +89,15 @@ After submitting, every finding and decoy is revealed on the diff with its `why`
 
 ## Status (2026-10-04)
 BUILT: the `review` lesson kind (`reviewkit.js`, `tools/test-reviewkit.js`, the review screen in
-app.js, phase 0 gates) and Units 1–3 (13 items: 2 concept lessons, 8 review lessons, 3 quizzes).
-NOT YET: Units 4–8 and both projects, and the two `js` "fix what you flagged" follow-ups
-(Units 3 and 6). Built differently from the plan below: decoys must sit two lines from any
+app.js, phase 0 gates) and all eight units: 38 items (4 concept lessons, 24 review lessons, 2
+review projects, 8 quizzes), 43 findings, 11 of them on lines the change didn't touch.
+NOT BUILT: the two `js` "fix what you flagged" follow-ups (Units 3 and 6) — dropped, because
+fixing code is what every other course already grades. The projects are smaller than planned
+(~25 and ~30 changed lines rather than 150–200): their difficulty comes from no false alarms and
+findings in files the change didn't touch, not length. The course models at ~4.5h and pays 2
+credits, not the 4 planned: review minutes are set by reading speed (~8 lines a minute).
+Also added while writing: `optional: true` on a finding, for the same problem a second time —
+found if flagged, never required, so a learner who flags both copies isn't penalised. Built differently from the plan below: decoys must sit two lines from any
 finding (one line of slack would make a comment between them ambiguous), and an approve lesson
 names a non-blocking finding in `mustFind`, so tapping Approve is never the whole lesson.
 

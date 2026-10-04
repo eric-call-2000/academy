@@ -146,10 +146,13 @@
   }
   /* What gates the lesson: every blocking finding, plus any non-blocking
      one the key names in mustFind (an "approve" lesson is only worth
-     doing if approving is not the whole answer). */
+     doing if approving is not the whole answer). A finding marked
+     optional never gates: it's the same problem again somewhere else,
+     so flagging it is right but one comment on the first is enough. */
   function gating(lesson) {
     var must = lesson.mustFind || [];
     return (lesson.findings || []).filter(function (f) {
+      if (f.optional) return false;
       return f.severity === "blocking" || must.indexOf(f.id) !== -1;
     });
   }
@@ -323,10 +326,14 @@
     });
     (l.mustFind || []).forEach(function (mid) { if (!ids[mid]) bad("mustFind names unknown finding " + mid); });
     var blocking = findings.filter(function (f) { return f.severity === "blocking"; });
+    findings.forEach(function (f) {
+      if (f.optional && (l.mustFind || []).indexOf(f.id) !== -1) bad("finding " + f.id + " is optional and in mustFind");
+    });
+    if (findings.length && findings.every(function (f) { return f.optional; })) bad("every finding is optional, so nothing gates the lesson");
     if (l.verdict === "request" && !blocking.length) bad('verdict "request" needs at least one blocking finding');
     if (l.verdict !== "request" && blocking.length) bad("a blocking finding means the verdict must be \"request\"");
-    if (l.verdict === "approve" && !gating(l).length)
-      bad('an "approve" lesson must name at least one non-blocking finding in mustFind — otherwise tapping Approve is the whole lesson');
+    if (l.verdict !== "request" && !gating(l).length)
+      bad('an "' + l.verdict + '" lesson must name at least one non-blocking finding in mustFind — otherwise picking the verdict is the whole lesson');
     if (!decoys.length && !l.project) bad("needs at least one decoy: a line that looks wrong and isn't");
     if (l.rubric && (!Array.isArray(l.rubric) || l.rubric.length < 2)) bad("rubric, when given, needs at least 2 points");
     if (!p.length) {

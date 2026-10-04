@@ -2760,6 +2760,8 @@
     inner.appendChild(foot);
 
     function keyOf(a) { return a.file + "|" + a.side + "|" + a.line; }
+    var gateIds = RK.gating(lesson).map(function (f) { return f.id; });
+    function required(f) { return gateIds.indexOf(f.id) !== -1; }
     function langFor(name) { return window.CODELAB.langOf ? window.CODELAB.langOf(name) : "text"; }
     function setBadge() {
       badge.textContent = comments.length ? comments.length + " 💬" : "";
@@ -2808,7 +2810,7 @@
       var cls = "";
       (lesson.findings || []).forEach(function (f) {
         if (f.file === anchor.file && (f.side || "head") === anchor.side && anchor.line >= f.lines[0] && anchor.line <= f.lines[1])
-          cls = result && result.found.indexOf(f.id) !== -1 ? " rv-hit" : " rv-miss";
+          cls = result && result.found.indexOf(f.id) !== -1 ? " rv-hit" : required(f) ? " rv-miss" : " rv-note";
       });
       (lesson.decoys || []).forEach(function (d) {
         if (d.file === anchor.file && (d.side || "head") === anchor.side && anchor.line >= d.lines[0] && anchor.line <= d.lines[1]) cls = " rv-decoy";
@@ -2892,8 +2894,9 @@
         return el("div", "rvw-reveal decoy", "<b>Looks wrong, isn't.</b> " + mdInline(f.why));
       }
       var got = result && result.found.indexOf(f.id) !== -1;
-      return el("div", "rvw-reveal " + (got ? "hit" : "miss"),
-        "<b>" + (got ? "✓ Found" : "Missed") + " · " + esc(RK.CATEGORY_LABELS[f.category]) + " · " +
+      var state = got ? "hit" : required(f) ? "miss" : "note";
+      return el("div", "rvw-reveal " + state,
+        "<b>" + { hit: "✓ Found", miss: "Missed", note: "Worth a note" }[state] + " · " + esc(RK.CATEGORY_LABELS[f.category]) + " · " +
         (f.severity === "blocking" ? "blocking" : "non-blocking") + ".</b> " + mdInline(f.why));
     }
 
@@ -2978,8 +2981,11 @@
       if (r.pass) parts.push("<b>Review accepted.</b>");
       else parts.push("<b>Not yet.</b>");
       parts.push("You found " + (gate - r.missedGating.length) + " of " + plural(gate, "problem that has", "problems that have") + " to be caught.");
-      var extra = (lesson.findings || []).length - gate;
-      if (extra) parts.push("There " + (extra === 1 ? "is" : "are") + " also " + plural(extra, "minor issue", "minor issues") + " worth a note (not required).");
+      var extras = (lesson.findings || []).filter(function (f) { return !required(f); });
+      var extraFound = extras.filter(function (f) { return r.found.indexOf(f.id) !== -1; }).length;
+      if (extras.length && extraFound === extras.length) parts.push("You also caught " + (extras.length === 1 ? "the one thing" : extras.length === 2 ? "both things" : "all " + extras.length + " things") + " worth a note that weren't required.");
+      else if (extras.length) parts.push((extraFound ? "You caught " + extraFound + " of " + extras.length : "There " + (extras.length === 1 ? "is" : "are") + " also " + extras.length) +
+        " more " + (extras.length === 1 ? "thing" : "things") + " worth a note (not required).");
       if (r.falseAlarms.length) parts.push(plural(r.falseAlarms.length, "comment", "comments") + " flagged code that is fine (cost " + r.falseCost + ", limit " + r.maxFalse + ").");
       if (r.nearMiss.length && !full) parts.push(plural(r.nearMiss.length, "comment is", "comments are") + " on the right line but filed under the wrong kind of problem.");
       if (!r.verdictRight) parts.push(lesson.verdict === "request" ? "Something here should block the merge, so the verdict is wrong." : "Nothing here needs to block the merge, so the verdict is wrong.");

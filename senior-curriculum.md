@@ -1,7 +1,7 @@
 # CodeLab Senior — Plan (honest senior sheets + six senior courses)
 
 Design doc for adding senior-level courses and senior job sheets to [CodeLab](codelab/).
-Written 2026-10-04. **Status: Phase 1 is built** — the Architecture category, the senior-sheet model, validator rules, the board's senior section, the six senior courses as roadmap stubs and the four senior sheets. Phase 2 is under way: the review lesson kind is built and Code Review has Units 1–3 of 8.
+Written 2026-10-04. **Status: Phase 1 is built** — the Architecture category, the senior-sheet model, validator rules, the board's senior section, the six senior courses as roadmap stubs and the four senior sheets. Phase 2 is built: the review lesson kind, and all eight units of Code Review (38 items, 2 credits).
 
 ## At a glance
 
@@ -84,7 +84,7 @@ window.CODELAB.definePosition({
   icon: "⚙️", color: "#4c3fbf",
   blurb: "Owns backend systems end to end: …",
   screen: "A system design you can defend, reviews that catch real defects, …",
-  total: 63,
+  total: 61,
   min: { be: 12, data: 4, qa: 7, arch: 8 },
   required: ["review", "oncall", "design", "change", "refactor"],   // only what it ADDS
   offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_ONCALL, SENIOR_MENTOR]   // { id, label, why }
@@ -143,7 +143,7 @@ Planned credits use the existing model (one credit per two modelled hours).
 
 | Course id | Title | Planned size | Planned credits | Engine | Research skill rows |
 |---|---|---|---|---|---|
-| `review` | 🔍 Code Review | ~36 items, ~8h | 4: `{ qa: 2, arch: 2 }` | **New `review` lesson kind** | 3, 8, 9 |
+| `review` | 🔍 Code Review | **built**: 38 items, ~5h | 2: `{ qa: 1, arch: 1 }` (planned 4) | **`review` lesson kind (built)** | 3, 8, 9 |
 | `oncall` | 🚨 On-Call & Incidents | ~32 items, ~7h | 4: `{ ops: 3, arch: 1 }` | shell + dockersim + cisim, today | 4 |
 | `design` | 🏛️ System Design in Practice | ~36 items, ~8h, `theory: true` | 4: `{ arch: 4 }` | concept + labs (a few new labs) | 2, 10 |
 | `refactor` | 🧹 Refactoring Legacy Code | ~30 items, ~7h | 3: `{ arch: 2, qa: 1 }` | `js` + `spec`, today | 5, 6 |
@@ -175,10 +175,13 @@ is written and its credits are real):
 
 | Sheet | Required credits | `total` | Floors |
 |---|---|---|---|
-| Senior Backend | 60 | 63 | be 12 · data 4 · qa 7 · arch 8 |
-| Senior Full-Stack | 68 | 71 | fnd 12 · fe 8 · be 8 · qa 8 · integ 1 · arch 8 |
-| Senior Frontend | 52 | 55 | fnd 12 · fe 10 · qa 8 · arch 6 |
-| Senior DevOps / SRE | 53 | 56 | ops 13 · be 6 · qa 6 · arch 6 | Per the honesty rule, floors are set against what a senior
+| Senior Backend | 58 | 61 | be 12 · data 4 · qa 7 · arch 8 |
+| Senior Full-Stack | 66 | 69 | fnd 12 · fe 8 · be 8 · qa 8 · integ 1 · arch 8 |
+| Senior Frontend | 50 | 53 | fnd 12 · fe 10 · qa 8 · arch 6 |
+| Senior DevOps / SRE | 51 | 54 | ops 13 · be 6 · qa 6 · arch 6 |
+
+(Totals dropped by 2 when Code Review was written: it models at ~4.5h and pays
+2 credits, not the planned 4.) Per the honesty rule, floors are set against what a senior
 is screened on, not against what CodeLab holds.
 
 ## Build phases
