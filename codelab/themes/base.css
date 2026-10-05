@@ -1035,3 +1035,6 @@ input { font-family: var(--font); }
   .rvw-row { grid-template-columns: 26px 26px 12px 1fr; }
   .rvw-cmt, .rvw-compose, .rvw-reveal { margin-left: 8px; margin-right: 8px; }
 }
+
+/* Hidden checkpoints (senior lessons): the text is withheld until it passes. */
+.chk-text.chk-hidden { font-style: italic; color: var(--muted); }

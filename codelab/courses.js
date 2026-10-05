@@ -249,12 +249,17 @@ window.CODELAB.defineCourse({
   files: ["review/u1.js", "review/u2.js", "review/u3.js", "review/u4.js", "review/u5.js", "review/u6.js", "review/u7.js", "review/u8.js"]
 });
 
+/* Built on shell.js + dockersim.js; the plan is
+   tools/course-research/on-call-incidents.md. All seven units are written.
+   The plan guessed 4 credits { ops: 3, arch: 1 }; the lessons model at
+   ~4h, so it pays the 2 that restate them, both Operations: responding,
+   communicating and postmortems are operations work. */
 window.CODELAB.defineCourse({
   id: "oncall", prefix: "oncall", title: "On-Call & Incidents",
-  icon: "🚨", color: "#b91c1c", level: "Senior", stub: true,
-  plannedCredits: 4, plannedCategories: { ops: 3, arch: 1 },
+  icon: "🚨", color: "#b91c1c", level: "Senior", hours: 5, items: 24,
+  credits: 2, categories: { ops: 2 },
   blurb: "Something is down and the logs are all you have. Triage, find the failing piece, restore service first and fix the cause second, then write the postmortem that keeps it from happening again.",
-  files: []
+  files: ["oncall/u1.js", "oncall/u2.js", "oncall/u3.js", "oncall/u4.js", "oncall/u5.js", "oncall/u6.js", "oncall/u7.js"]
 });
 
 window.CODELAB.defineCourse({

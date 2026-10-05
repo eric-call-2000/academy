@@ -1653,7 +1653,7 @@
         return {
           id: c.id, name: c.name, image: c.image, status: c.status, exitCode: c.exitCode, health: c.health,
           ports: copy(c.ports), networks: c.networks.slice(), mounts: copy(c.mounts), env: copy(c.env),
-          user: c.user, command: c.command.slice(), restartCount: c.restartCount || 0,
+          user: c.user, command: c.command.slice(), restart: c.restart || "no", restartCount: c.restartCount || 0,
           stoppedAfter: c.stoppedAfter == null ? null : c.stoppedAfter
         };
       },

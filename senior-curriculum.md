@@ -2,6 +2,7 @@
 
 Design doc for adding senior-level courses and senior job sheets to [CodeLab](codelab/).
 Written 2026-10-04. **Status: Phase 1 is built** — the Architecture category, the senior-sheet model, validator rules, the board's senior section, the six senior courses as roadmap stubs and the four senior sheets. Phase 2 is built: the review lesson kind, and all eight units of Code Review (38 items, 2 credits).
+Phase 3 has begun: On-Call & Incidents is built (24 items, 2 credits); Refactoring Legacy Code is next.
 
 ## At a glance
 
@@ -144,7 +145,7 @@ Planned credits use the existing model (one credit per two modelled hours).
 | Course id | Title | Planned size | Planned credits | Engine | Research skill rows |
 |---|---|---|---|---|---|
 | `review` | 🔍 Code Review | **built**: 38 items, ~5h | 2: `{ qa: 1, arch: 1 }` (planned 4) | **`review` lesson kind (built)** | 3, 8, 9 |
-| `oncall` | 🚨 On-Call & Incidents | ~32 items, ~7h | 4: `{ ops: 3, arch: 1 }` | shell + dockersim + cisim, today | 4 |
+| `oncall` | 🚨 On-Call & Incidents | **built**: 24 items, ~4h | 2: `{ ops: 2 }` (planned 4) | shell + dockersim (built; adds `sort -k`, hidden checks) | 4 |
 | `design` | 🏛️ System Design in Practice | ~36 items, ~8h, `theory: true` | 4: `{ arch: 4 }` | concept + labs (a few new labs) | 2, 10 |
 | `refactor` | 🧹 Refactoring Legacy Code | ~30 items, ~7h | 3: `{ arch: 2, qa: 1 }` | `js` + `spec`, today | 5, 6 |
 | `change` | 🔄 Changing Live Systems | ~32 items, ~7h | 4: `{ be: 2, data: 1, arch: 1 }` | `js` + `db`/`srv` patterns | 6 |
@@ -175,13 +176,13 @@ is written and its credits are real):
 
 | Sheet | Required credits | `total` | Floors |
 |---|---|---|---|
-| Senior Backend | 58 | 61 | be 12 · data 4 · qa 7 · arch 8 |
+| Senior Backend | 56 | 59 | be 12 · data 4 · qa 7 · arch 8 |
 | Senior Full-Stack | 66 | 69 | fnd 12 · fe 8 · be 8 · qa 8 · integ 1 · arch 8 |
 | Senior Frontend | 50 | 53 | fnd 12 · fe 10 · qa 8 · arch 6 |
-| Senior DevOps / SRE | 51 | 54 | ops 13 · be 6 · qa 6 · arch 6 |
+| Senior DevOps / SRE | 49 | 52 | ops 13 · be 6 · qa 6 · arch 6 |
 
-(Totals dropped by 2 when Code Review was written: it models at ~4.5h and pays
-2 credits, not the planned 4.) Per the honesty rule, floors are set against what a senior
+(Totals dropped by 2 each time a course came in under its plan: Code Review and
+On-Call & Incidents each model at ~4–4.5h and pay 2 credits, not the planned 4.) Per the honesty rule, floors are set against what a senior
 is screened on, not against what CodeLab holds.
 
 ## Build phases

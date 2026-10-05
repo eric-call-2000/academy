@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus six roadmap courses (five of them senior courses) that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus five roadmap courses (four of them senior courses) that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -228,6 +228,7 @@ codelab/
 ├── cli/u1.js … u7.js     # The Command Line          (35 items)
 ├── docker/u1.js … u8.js  # Docker & Containers       (36 items)
 ├── review/u1.js … u8.js  # Code Review (senior)      (38 items)
+├── oncall/u1.js … u7.js  # On-Call & Incidents (senior) (24 items)
 ├── shell.js              # a virtual filesystem + POSIX-ish shell (kind: "shell" lessons)
 ├── gitsim.js             # a real git inside that shell — the Git course's engine
 ├── dockersim.js          # a Docker daemon inside that shell — the Docker course's engine
@@ -266,7 +267,10 @@ command substitution, no shell functions, no real signals, and **no
 concurrency** — a backgrounded command has already run to completion by the
 time you see its pid, and what is modelled is the bookkeeping (the pid, the
 job, and the port that really is held until you kill it). `>` redirects stdout
-only; `2>` is not modelled. `tools/test-shell.js` is 85 pure-Node cases
+only; `2>` is not modelled. `grep` matches fixed strings, not patterns.
+`sort` takes `-n -r -u` plus `-k N[,M]` and `-t SEP` (On-Call's "slowest
+requests" needs a key); any other option is refused with an error rather than
+silently ignored. `tools/test-shell.js` is 88 pure-Node cases
 covering all of it, a third of them regressions pinning the quoting,
 redirection and sequencing the Git course rides on.
 
@@ -347,7 +351,7 @@ JavaScript.
 Checkpoints get `T.images()`, `T.image(ref)` (size, base, layers, user, env,
 cmd, workdir, exposed, files), `T.containers({all})`, `T.container(name)`
 (status, exitCode, health, ports, networks, mounts, env, user, command,
-restartCount, stoppedAfter), `T.fileIn`, `T.logs`, `T.build(n)` (per-step
+restart, restartCount, stoppedAfter), `T.fileIn`, `T.logs`, `T.build(n)` (per-step
 `cached`), `T.volumes()`, `T.networks()`, `T.compose()`, `T.curl(url, {from})`
 and `T.inRegistry(ref)`. `tools/test-dockersim.js` is the engine's own suite —
 57 tests, pure Node, about a second, and run as validate.js phase 0f.
@@ -445,6 +449,8 @@ grades them, and the rest of the catalog simply reads better for them:
   hints: ["…"], solution: { "index.html": "…passes every step…" }
 }
 ```
+
+**Hidden checks** (senior courses only) — `hidden: true` on a step keeps its text back as "Hidden check" until it passes or the lesson is done; its failure message still shows, so write it as a nudge, not the answer. Phase 0 allows them only in `level: "Senior"` courses, never with per-checkpoint solutions, and never on every step of a lesson.
 
 **A concept lesson** (theory, no editor) — screens of short reading, each followed by one question the learner commits to before the explanation appears. `concept.js` grades them; its contract is the header of `tools/test-concept.js`:
 

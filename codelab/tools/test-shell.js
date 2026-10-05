@@ -172,6 +172,21 @@ test("pipes carry stdout onward and a classic count pipeline works", () => {
   const r = sh(spec, 'cut -d" " -f2 access.log | sort | uniq -c | sort -rn');
   eq(r.out, "   3 200\n   2 404\n   1 500\n");
 });
+test("sort -k N sorts by a field, and -n by its value", () => {
+  const spec = { "/home/you/access.log": "10:01 GET /a 200 12\n10:01 GET /b 500 900\n10:02 GET /b 500 950\n10:03 POST /c 502 30\n" };
+  eq(sh(spec, "sort -k5 -n access.log | tail -n 1").out, "10:02 GET /b 500 950\n", "-k5 glued to the flag");
+  eq(sh(spec, "sort -n -k 5 access.log | head -n 1").out, "10:01 GET /a 200 12\n", "-k 5 as a separate word");
+  eq(sh(spec, "sort -rn -k5 access.log | head -n 1").out, "10:02 GET /b 500 950\n", "-r with a key");
+});
+test("sort -t splits fields on a separator", () => {
+  const spec = { "/home/you/t.csv": "b,3\na,10\nc,2\n" };
+  eq(sh(spec, "sort -t , -k 2 -n t.csv").out, "c,2\nb,3\na,10\n");
+  eq(sh(spec, "sort -t, -k2n t.csv").err.indexOf("invalid key") !== -1, true, "-k2n is not modelled, and says so");
+});
+test("sort refuses options it doesn't model instead of ignoring them", () => {
+  const r = sh({ "/home/you/a.txt": "b\na\n" }, "sort -z a.txt");
+  has(r.err, "invalid option -- 'z'");
+});
 test("/dev/null swallows output without becoming a file", () => {
   const r = sh(FILES, "grep apple a.txt > /dev/null\necho $?\ngrep zebra a.txt > /dev/null\necho $?");
   eq(r.out, "0\n1\n", "the exit code survives; the matched line does not");

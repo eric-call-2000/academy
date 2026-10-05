@@ -1939,9 +1939,14 @@
           var ic = st.state === "pass" ? "✓" : (st.state === "fail" ? "✕" : (i + 1));
           d.appendChild(el("div", "chk-ic", "" + ic));
           var tx = el("div", "chk-tx");
-          tx.appendChild(el("div", "chk-text", mdInline(s.text)));
+          /* A hidden check (the senior lesson format) keeps its text to itself
+             until it passes or the lesson is done: the learner has to work out
+             what "done" means, the way an incident or a ticket asks. Its
+             failure message still shows, so authors write it as a nudge. */
+          var hide = s.hidden && st.state !== "pass" && !isDone(lesson.id);
+          tx.appendChild(el("div", "chk-text" + (hide ? " chk-hidden" : ""), hide ? "Hidden check" : mdInline(s.text)));
           if (st.state === "fail" && st.msg) tx.appendChild(el("div", "chk-msg", esc(st.msg)));
-          if (stepSol && stepSol.steps[i] && current.failedOnce[i]) tx.appendChild(solutionBlock(stepSol.steps[i], i));
+          if (!hide && stepSol && stepSol.steps[i] && current.failedOnce[i]) tx.appendChild(solutionBlock(stepSol.steps[i], i));
           d.appendChild(tx);
           box.appendChild(d);
         });

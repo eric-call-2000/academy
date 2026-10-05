@@ -588,16 +588,55 @@
     },
 
     sort: function (ctx, args, stdin) {
-      var flags = args.filter(function (a) { return a.charAt(0) === "-"; }).join("");
-      var src = readInput(ctx, args.filter(function (a) { return a.charAt(0) !== "-"; }), stdin, "sort");
+      /* -k and -t take a value ("-k 5", "-k5", "-t ,", "-t,"), so flags are
+         parsed one by one instead of by spelling. An option the shell doesn't
+         model is refused out loud: `sort -k5 -n` once ignored the key and
+         sorted whole lines, a quietly wrong answer to "which requests were
+         slowest?". */
+      var o = { n: false, r: false, u: false, key: null, sep: null }, paths = [];
+      for (var i = 0; i < args.length; i++) {
+        var a = args[i];
+        if (a.charAt(0) !== "-" || a === "-") { paths.push(a); continue; }
+        for (var j = 1; j < a.length; j++) {
+          var ch = a.charAt(j);
+          if (ch === "n" || ch === "r" || ch === "u") { o[ch] = true; continue; }
+          if (ch === "k" || ch === "t") {
+            var v = a.slice(j + 1);
+            if (v === "") { v = args[++i]; if (v == null) return fail("sort: option requires an argument -- '" + ch + "'\n"); }
+            if (ch === "t") o.sep = v;
+            else {
+              var km = /^(\d+)(?:,(\d+))?$/.exec(v);
+              if (!km || Number(km[1]) < 1) return fail("sort: invalid key: " + v + " (this shell takes -k N or -k N,M)\n");
+              o.key = [Number(km[1]), km[2] ? Number(km[2]) : null];
+            }
+            break;
+          }
+          return fail("sort: invalid option -- '" + ch + "'\n");
+        }
+      }
+      var src = readInput(ctx, paths, stdin, "sort");
       if (src.err) return fail(src.err);
       var lines = src.text.replace(/\n$/, "").split("\n").filter(function (l) { return l !== ""; });
+      /* The key: fields N..M (to the end of the line without M), split on -t
+         or, by default, on runs of blanks with leading blanks ignored. */
+      function keyOf(line) {
+        if (!o.key) return line;
+        var f = o.sep != null ? line.split(o.sep) : line.replace(/^\s+/, "").split(/\s+/);
+        var end = o.key[1] == null ? f.length : o.key[1];
+        return f.slice(o.key[0] - 1, end).join(o.sep != null ? o.sep : " ");
+      }
       /* -n compares magnitude, not spelling, which is the difference between
-         2 < 10 and "10" < "2". It is the flag people forget and then misread. */
-      if (flags.indexOf("n") !== -1) lines.sort(function (a, b) { return parseFloat(a) - parseFloat(b); });
-      else lines.sort();
-      if (flags.indexOf("r") !== -1) lines.reverse();
-      if (flags.indexOf("u") !== -1) lines = lines.filter(function (l, i) { return i === 0 || lines[i - 1] !== l; });
+         2 < 10 and "10" < "2". It is the flag people forget and then misread.
+         Equal keys fall back to the whole line, as GNU sort does. */
+      lines.sort(function (a, b) {
+        var ka = keyOf(a), kb = keyOf(b), c;
+        if (o.n) c = (parseFloat(ka) || 0) - (parseFloat(kb) || 0);
+        else c = ka < kb ? -1 : ka > kb ? 1 : 0;
+        if (c === 0 && o.key) c = a < b ? -1 : a > b ? 1 : 0;
+        return c;
+      });
+      if (o.r) lines.reverse();
+      if (o.u) lines = lines.filter(function (l, i) { return i === 0 || keyOf(lines[i - 1]) !== keyOf(l); });
       return ok(lines.join("\n") + (lines.length ? "\n" : ""));
     },
     uniq: function (ctx, args, stdin) {
@@ -982,7 +1021,7 @@
     echo: { use: "echo [-n] text...", sum: "Print its arguments.", flags: [["-n", "no trailing newline"]] },
     grep: { use: "grep [-i] [-v] [-n] [-r] [-c] [-l] pattern [file...]", sum: "Print the lines that contain a pattern. Exits 1 when nothing matched.", flags: [["-i", "ignore case"], ["-v", "invert: lines that do NOT match"], ["-n", "show line numbers"], ["-r", "search every file under a directory"], ["-c", "print a count instead of the lines"], ["-l", "print only the names of matching files"]] },
     find: { use: "find [path] [-name pattern]", sum: "Walk a directory tree and print what is in it.", flags: [["-name P", "only names matching P — quote it, or the shell expands it first"]] },
-    sort: { use: "sort [-r] [-n] [-u] [file]", sum: "Sort lines.", flags: [["-r", "reverse"], ["-n", "compare as numbers, so 2 comes before 10"], ["-u", "drop duplicates"]] },
+    sort: { use: "sort [-r] [-n] [-u] [-t SEP] [-k N[,M]] [file]", sum: "Sort lines.", flags: [["-r", "reverse"], ["-n", "compare as numbers, so 2 comes before 10"], ["-u", "drop duplicates"], ["-k N", "sort by field N (fields split on blanks, or on -t)"], ["-t SEP", "split fields on SEP instead of blanks"]] },
     uniq: { use: "uniq [-c]", sum: "Collapse ADJACENT duplicate lines. Almost always used after sort.", flags: [["-c", "prefix each line with how many times it occurred"]] },
     cut: { use: "cut -d DELIM -f LIST [file]", sum: "Pick columns out of each line.", flags: [["-d D", "the character between columns"], ["-f N", "which columns, counting from 1"]] },
     tr: { use: "tr SET1 SET2   |   tr -d SET", sum: "Translate or delete characters.", flags: [["-d", "delete every character in SET"]] },

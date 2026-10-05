@@ -157,6 +157,15 @@ function phase0() {
           if (!l.solution) fail(`${l.id}: no solution`);
           if (!l.hints || !l.hints.length) fail(`${l.id}: no hints`);
           if (!l.brief) fail(`${l.id}: no brief`);
+          /* Hidden checks are the senior format: they withhold what "done"
+             means. A per-checkpoint solution would hand it back, and a lesson
+             whose every check is hidden gives no foothold at all. */
+          const hiddenSteps = (l.steps || []).filter(st => st.hidden);
+          if (hiddenSteps.length) {
+            if (course.level !== "Senior") fail(`${l.id}: hidden checks are for Senior courses (this one is ${course.level})`);
+            if (course.stepSolutions) fail(`${l.id}: hidden checks can't be used with per-checkpoint solutions — they'd reveal them`);
+            if (hiddenSteps.length === (l.steps || []).length) fail(`${l.id}: every check is hidden — leave at least one visible`);
+          }
           if (l.solution) for (const k of Object.keys(l.solution)) {
             if (!(l.files || []).some(f => f.name === k)) fail(`${l.id}: solution file ${k} not in files[]`);
           }
