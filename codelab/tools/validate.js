@@ -281,6 +281,10 @@ function phase0() {
                with "T.shape is not a function". */
             if (!l.refactor && (l.steps || []).some(st => /T\.(shape|sameBehavior|expectSame|legacy|repeats)\(/.test(st.test || "")))
               fail(`${l.id}: uses the refactoring helpers (T.shape, T.expectSame, …) — add \`refactor: true\``);
+            if (l.live && l.kind !== "js")
+              fail(`${l.id}: \`live\` runs in the JS Worker, so the lesson must be kind "js" (it is "${l.kind}")`);
+            if (!l.live && (l.steps || []).some(st => /T\.(db|rollout|expectRollout)\(/.test(st.test || "")))
+              fail(`${l.id}: uses the live-change helpers (T.db, T.rollout, …) — add \`live: true\``);
             /* How Code Scales grades growth by counting, never by the clock:
                a timing passes on a fast machine and fails on a slow one. */
             if (/^algo-/.test(l.id) && /performance\.now\s*\(|Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
@@ -376,6 +380,7 @@ function phase0() {
   conceptGates();
   reviewkitGates();
   refactorGates();
+  liveGates();
 }
 
 /* ---------------- concept lessons ----------------
@@ -490,6 +495,19 @@ function refactorGates() {
     ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
   } catch (e) {
     fail("refactor tests failed:\n" + String(e.stdout || e.message));
+  }
+}
+
+/* Live-change lessons grade a migration plan by the traffic it breaks. The
+   contract for T.db / T.rollout is tools/test-live.js. */
+function liveGates() {
+  console.log("\n== Phase 0n: live-change harness ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-live.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
+  } catch (e) {
+    fail("live tests failed:\n" + String(e.stdout || e.message));
   }
 }
 

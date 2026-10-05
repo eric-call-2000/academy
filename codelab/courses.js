@@ -283,12 +283,18 @@ window.CODELAB.defineCourse({
   files: ["refactor/u1.js", "refactor/u2.js", "refactor/u3.js", "refactor/u4.js", "refactor/u5.js", "refactor/u6.js"]
 });
 
+/* Built on the `live: true` harness (runner.js harnessLive: a schema-
+   enforcing database and a rolling-deploy runner); the plan is
+   tools/course-research/changing-live-systems.md. The plan guessed 4
+   credits { be: 2, data: 1, arch: 1 }; the lessons model at ~5.6h, so it
+   pays 3: schema changes are Data, API versions and deprecations Backend,
+   rollout strategy and flags Architecture. */
 window.CODELAB.defineCourse({
   id: "change", prefix: "change", title: "Changing Live Systems",
-  icon: "🔄", color: "#1d4ed8", level: "Senior", stub: true,
-  plannedCredits: 4, plannedCategories: { be: 2, data: 1, arch: 1 },
-  blurb: "Ship changes while old clients are still calling: expand-and-contract schema migrations, versioned APIs, deprecations, backfills and feature flags, graded on old and new callers both still working.",
-  files: []
+  icon: "🔄", color: "#1d4ed8", level: "Senior", hours: 7, items: 23,
+  credits: 3, categories: { be: 1, data: 1, arch: 1 },
+  blurb: "Ship changes while old code and old clients are still running: expand-and-contract schema migrations, batched backfills, versioned APIs, deprecations and feature flags, graded on live traffic that must never fail.",
+  files: ["change/u1.js", "change/u2.js", "change/u3.js", "change/u4.js", "change/u5.js", "change/u6.js", "change/u7.js"]
 });
 
 window.CODELAB.defineCourse({

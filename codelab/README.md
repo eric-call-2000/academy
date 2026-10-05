@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus four roadmap courses (three of them senior courses) that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**18 built courses · ~143 hours · 69 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus three roadmap courses (two of them senior courses) that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -11,7 +11,7 @@ Finishing a course pays **credits**, and credits qualify you for **job positions
 **Hours describe the material that is actually in the files.** The validator models each
 item at 10 min (30 for a project, 5 for a quiz) and **fails the build if a course
 advertises more than 2× what it holds** — so these numbers cannot drift back into fiction.
-The model puts the catalog at **~133h**; the advertised ~136h is the same material at a
+The model puts the catalog at **~139h**; the advertised ~143h is the same material at a
 learner's pace rather than an author's.
 
 Course sizes are aimed at real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS 14h,
@@ -230,6 +230,7 @@ codelab/
 ├── review/u1.js … u8.js  # Code Review (senior)      (38 items)
 ├── oncall/u1.js … u7.js  # On-Call & Incidents (senior) (24 items)
 ├── refactor/u1.js … u6.js # Refactoring Legacy Code (senior) (19 items)
+├── change/u1.js … u7.js  # Changing Live Systems (senior) (23 items)
 ├── shell.js              # a virtual filesystem + POSIX-ish shell (kind: "shell" lessons)
 ├── gitsim.js             # a real git inside that shell — the Git course's engine
 ├── dockersim.js          # a Docker daemon inside that shell — the Docker course's engine
@@ -380,6 +381,7 @@ and injected ahead of the learner's code (see `runner.js`):
 | `cspLab: true` | a nested sandboxed frame with a real `<meta>` CSP |
 | `node: true` | `Buffer`, `process`, `setImmediate`, `EventEmitter`, `MockReadable`, `MockWritable` |
 | `refactor: true` | `T.legacy(src)`, `T.sameBehavior` / `T.expectSame` (original vs refactored on many inputs: results, errors and changes to arguments), `T.shape(fn)` (lines, nesting depth, params, branches), `T.repeats(fn)`; contract in `tools/test-refactor.js` |
+| `live: true` | `T.db(tables)` (a database that enforces its schema: NOT NULL, unknown columns, Postgres-style errors, migrations, and a statement timeout over `db.maxRows` rows), `T.rollout` / `T.expectRollout` (a plan of migrations and rolling deploys run against live traffic, old and new versions overlapping); contract in `tools/test-live.js` |
 
 `node: true` exists because a Node course cannot otherwise run a single line:
 `Buffer` and `process` simply are not there. The stand-ins are faithful on the

@@ -147,7 +147,7 @@ window.CODELAB.definePosition({
   icon: "⚙️", color: "#4c3fbf",
   blurb: "Owns backend systems end to end: designs them, reviews them, keeps them running, and changes them without breaking the people who depend on them.",
   screen: "A system design you can defend, reviews that catch real defects, incident diagnosis, and migrations without downtime — on top of years of doing it for real.",
-  total: 58,
+  total: 57,
   min: { be: 12, data: 4, qa: 7, arch: 8 },
   required: ["review", "oncall", "design", "change", "refactor"],
   offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_ONCALL, SENIOR_MENTOR]
@@ -158,7 +158,7 @@ window.CODELAB.definePosition({
   icon: "🚀", color: "#c2410c",
   blurb: "Owns a product area across both sides: decides how it's built, reviews the work going into it, and keeps it changeable as it grows.",
   screen: "Design trade-offs across client and server, code review, safe refactoring and live changes, and a testing strategy — on top of years of shipping.",
-  total: 68,
+  total: 67,
   min: { fnd: 12, fe: 8, be: 8, qa: 8, integ: 1, arch: 8 },
   required: ["review", "design", "change", "refactor", "teststrat"],
   offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_MENTOR]
@@ -180,7 +180,7 @@ window.CODELAB.definePosition({
   icon: "🛠️", color: "#0e7490",
   blurb: "Owns how software reaches production and how it stays up: designs the path, leads the incident, and changes running systems safely.",
   screen: "Incident command and postmortems, reliability design, reviewing infrastructure changes, and migrations without downtime — on top of years on call.",
-  total: 52,
+  total: 51,
   min: { ops: 13, be: 6, qa: 6, arch: 6 },
   required: ["review", "oncall", "design", "change"],
   offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_ONCALL, SENIOR_MENTOR]
