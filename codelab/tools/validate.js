@@ -274,6 +274,13 @@ function phase0() {
             }
             if (l.count && l.kind !== "js")
               fail(`${l.id}: \`count\` instruments the JS Worker, so the lesson must be kind "js" (it is "${l.kind}")`);
+            if (l.refactor && l.kind !== "js")
+              fail(`${l.id}: \`refactor\` runs in the JS Worker, so the lesson must be kind "js" (it is "${l.kind}")`);
+            /* The refactoring helpers only exist when the lesson opts in; a
+               checkpoint calling them without the flag would fail every run
+               with "T.shape is not a function". */
+            if (!l.refactor && (l.steps || []).some(st => /T\.(shape|sameBehavior|expectSame|legacy|repeats)\(/.test(st.test || "")))
+              fail(`${l.id}: uses the refactoring helpers (T.shape, T.expectSame, …) — add \`refactor: true\``);
             /* How Code Scales grades growth by counting, never by the clock:
                a timing passes on a fast machine and fails on a slow one. */
             if (/^algo-/.test(l.id) && /performance\.now\s*\(|Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
@@ -368,6 +375,7 @@ function phase0() {
   authsimGates();
   conceptGates();
   reviewkitGates();
+  refactorGates();
 }
 
 /* ---------------- concept lessons ----------------
@@ -469,6 +477,19 @@ function conceptGates() {
     ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
   } catch (e) {
     fail("concept tests failed:\n" + String(e.stdout || e.message));
+  }
+}
+
+/* Refactoring lessons grade "same behavior, better shape". The contract for
+   T.sameBehavior / T.shape / T.repeats is tools/test-refactor.js. */
+function refactorGates() {
+  console.log("\n== Phase 0m: refactoring harness ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-refactor.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
+  } catch (e) {
+    fail("refactor tests failed:\n" + String(e.stdout || e.message));
   }
 }
 

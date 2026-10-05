@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus five roadmap courses (four of them senior courses) that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus four roadmap courses (three of them senior courses) that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -229,6 +229,7 @@ codelab/
 ├── docker/u1.js … u8.js  # Docker & Containers       (36 items)
 ├── review/u1.js … u8.js  # Code Review (senior)      (38 items)
 ├── oncall/u1.js … u7.js  # On-Call & Incidents (senior) (24 items)
+├── refactor/u1.js … u6.js # Refactoring Legacy Code (senior) (19 items)
 ├── shell.js              # a virtual filesystem + POSIX-ish shell (kind: "shell" lessons)
 ├── gitsim.js             # a real git inside that shell — the Git course's engine
 ├── dockersim.js          # a Docker daemon inside that shell — the Docker course's engine
@@ -378,6 +379,7 @@ and injected ahead of the learner's code (see `runner.js`):
 | `mock` / `mockFn` | a stubbed `fetch` that records calls on `__CALLS` |
 | `cspLab: true` | a nested sandboxed frame with a real `<meta>` CSP |
 | `node: true` | `Buffer`, `process`, `setImmediate`, `EventEmitter`, `MockReadable`, `MockWritable` |
+| `refactor: true` | `T.legacy(src)`, `T.sameBehavior` / `T.expectSame` (original vs refactored on many inputs: results, errors and changes to arguments), `T.shape(fn)` (lines, nesting depth, params, branches), `T.repeats(fn)`; contract in `tools/test-refactor.js` |
 
 `node: true` exists because a Node course cannot otherwise run a single line:
 `Buffer` and `process` simply are not there. The stand-ins are faithful on the

@@ -1130,6 +1130,156 @@
     return { src: out, braceless: braceless };
   }
 
+  /* --- refactoring (Refactoring Legacy Code) ---
+     A refactor is graded on two things: the behavior did NOT move, and the
+     shape DID. `refactor: true` opts a lesson in to:
+       T.legacy(src)              the original function, from its source
+       T.sameBehavior(a, b, inputs)  -> { ok } or { ok: false, input, what, a, b }
+                                  calls both on deep copies of every input
+                                  (each an array of arguments) and compares
+                                  the result, any thrown error, and what the
+                                  call did to its arguments
+       T.expectSame(a, b, inputs, label)  the same, throwing a readable message
+       T.shape(fn)                -> { lines, depth, params, branches }
+       T.repeats(fn, minLen)      lines (trimmed, >= minLen chars) that occur twice or more
+     Shape is measured from fn.toString() with strings, template literals and
+     comments blanked first, so a "{" in a string never counts as nesting.
+     It is a heuristic, not a parser: `branches` counts decision points
+     (if, for, while, case, catch, ?:, &&, ||), the usual approximation of
+     cyclomatic complexity minus one. */
+  function harnessRefactor() {
+    var g = (typeof self !== "undefined") ? self : window;
+    var T = g.T;
+
+    /* Blank out the insides of strings, templates and comments, keeping
+       line breaks, so counting braces and keywords sees only code. */
+    function codeOnly(src) {
+      var out = "", i = 0, n = src.length;
+      while (i < n) {
+        var c = src.charAt(i), d = src.charAt(i + 1);
+        if (c === "/" && d === "/") {
+          while (i < n && src.charAt(i) !== "\n") { out += " "; i++; }
+          continue;
+        }
+        if (c === "/" && d === "*") {
+          out += "  "; i += 2;
+          while (i < n && !(src.charAt(i) === "*" && src.charAt(i + 1) === "/")) { out += src.charAt(i) === "\n" ? "\n" : " "; i++; }
+          out += "  "; i += 2;
+          continue;
+        }
+        if (c === "'" || c === '"' || c === "`") {
+          out += c; i++;
+          while (i < n && src.charAt(i) !== c) {
+            if (src.charAt(i) === "\\") { out += " "; i++; }
+            out += src.charAt(i) === "\n" ? "\n" : " "; i++;
+          }
+          out += c; i++;
+          continue;
+        }
+        out += c; i++;
+      }
+      return out;
+    }
+    function fnSource(fn) {
+      if (typeof fn === "function") return Function.prototype.toString.call(fn);
+      if (typeof fn === "string" && typeof g[fn] === "function") return Function.prototype.toString.call(g[fn]);
+      throw new Error("The checks expected a function" + (typeof fn === "string" ? " called " + fn + "()" : "") + ". Keep it declared with `function`.");
+    }
+
+    T.shape = function (fn) {
+      var src = fnSource(fn), code = codeOnly(src);
+      var lines = src.split("\n").filter(function (l) { return l.trim() !== ""; }).length;
+      /* Parameters: commas at the top level of the parameter list only, so
+         a destructured { a, b } or a default [1, 2] counts as one. */
+      var open = code.indexOf("("), depth = 0, max = 0, params = 0, pd = 0, inner = 0, seen = false;
+      for (var i = open; i >= 0 && i < code.length; i++) {
+        var ch = code.charAt(i);
+        if (ch === "(") pd++;
+        else if (ch === ")") { if (--pd === 0) break; }
+        else if (ch === "{" || ch === "[") inner++;
+        else if (ch === "}" || ch === "]") inner--;
+        else if (pd === 1 && inner === 0 && ch === ",") params++;
+        if (pd >= 1 && i > open && ch.trim()) seen = true;
+      }
+      if (seen) params++;
+      var body = code.indexOf("{", code.indexOf(")", open));
+      for (var j = body; j >= 0 && j < code.length; j++) {
+        var b = code.charAt(j);
+        if (b === "{") { depth++; if (depth - 1 > max) max = depth - 1; }
+        else if (b === "}") depth--;
+      }
+      var words = code.match(new RegExp("\\b(if|for|while|case|catch)\\b", "g")) || [];
+      var ops = code.match(new RegExp("&&|\\|\\||(?<!\\?)\\?(?![.?])", "g")) || [];
+      return { lines: lines, depth: body >= 0 ? max : 0, params: params, branches: words.length + ops.length };
+    };
+
+    T.repeats = function (fn, minLen) {
+      var min = minLen || 25, seen = {}, dup = [];
+      fnSource(fn).split("\n").forEach(function (l) {
+        var t = l.trim().replace(new RegExp("\\s+", "g"), " ");
+        if (t.length < min) return;
+        seen[t] = (seen[t] || 0) + 1;
+        if (seen[t] === 2) dup.push(t);
+      });
+      return dup;
+    };
+
+    T.legacy = function (src) {
+      var f = (0, eval)("(" + src + ")");
+      if (typeof f !== "function") throw new Error("lesson error: T.legacy needs a function's source");
+      return f;
+    };
+
+    /* A comparable form of any value: key order doesn't matter, but types,
+       undefined, NaN and -0 do, since a refactor that changes them changes
+       what callers see. */
+    function canon(v, depth) {
+      if (depth > 20) return "…";
+      if (v === undefined) return "undefined";
+      if (typeof v === "number") return isNaN(v) ? "NaN" : (v === 0 && 1 / v < 0 ? "-0" : String(v));
+      if (typeof v === "function") return "[function]";
+      if (v === null || typeof v !== "object") return JSON.stringify(v);
+      if (v instanceof Date) return "Date(" + v.toISOString() + ")";
+      if (Array.isArray(v)) return "[" + v.map(function (x) { return canon(x, depth + 1); }).join(",") + "]";
+      return "{" + Object.keys(v).sort().map(function (k) { return JSON.stringify(k) + ":" + canon(v[k], depth + 1); }).join(",") + "}";
+    }
+    function clone(v) {
+      if (v === null || typeof v !== "object") return v;
+      if (v instanceof Date) return new Date(v.getTime());
+      if (Array.isArray(v)) return v.map(clone);
+      var o = {};
+      Object.keys(v).forEach(function (k) { o[k] = clone(v[k]); });
+      return o;
+    }
+    function call(fn, args) {
+      var a = args.map(clone);
+      try { return { value: canon(fn.apply(null, a), 0), args: canon(a, 0) }; }
+      catch (e) { return { threw: (e && e.name) + ": " + (e && e.message), args: canon(a, 0) }; }
+    }
+    function show(r) { return r.threw ? "throws " + r.threw : r.value; }
+
+    T.sameBehavior = function (a, b, inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+        var args = Array.isArray(inputs[i]) ? inputs[i] : [inputs[i]];
+        var ra = call(a, args), rb = call(b, args);
+        if (ra.threw || rb.threw) {
+          if (ra.threw !== rb.threw) return { ok: false, input: canon(args, 0), what: "error", a: show(ra), b: show(rb) };
+        } else if (ra.value !== rb.value) return { ok: false, input: canon(args, 0), what: "result", a: ra.value, b: rb.value };
+        if (ra.args !== rb.args) return { ok: false, input: canon(args, 0), what: "arguments", a: ra.args, b: rb.args };
+      }
+      return { ok: true };
+    };
+
+    T.expectSame = function (a, b, inputs, label) {
+      var r = T.sameBehavior(a, b, inputs);
+      if (r.ok) return true;
+      var head = (label ? label + ": " : "") + "with arguments " + r.input + ", ";
+      if (r.what === "arguments")
+        throw new Error(head + "the original left them as " + r.a + " but yours leaves them as " + r.b + ". Changing an argument is behavior too.");
+      throw new Error(head + "the original " + (r.what === "error" ? "" : "returns ") + r.a + " but yours " + (r.what === "error" ? "" : "returns ") + r.b + ".");
+    };
+  }
+
   function harnessCount(BRACELESS) {
     var g = (typeof self !== "undefined") ? self : window;
     g.__OPS = 0;
@@ -1538,6 +1688,7 @@
       lesson.clock != null ? "(" + harnessClock.toString() + ")(" + JSON.stringify(lesson.clock) + ");" : "",
       lesson.warehouse ? "(" + harnessWarehouse.toString() + ")(" + JSON.stringify(lesson.warehouse) + ");" : "",
       counting ? "(" + harnessCount.toString() + ")(" + counting.braceless + ");" : "",
+      lesson.refactor ? "(" + harnessRefactor.toString() + ")();" : "",
       /* authsim.js (a simulated browser, cookie jar and web sites) is one
          self-contained function, copied in like the harnesses above. */
       lesson.browser ? (window.CODELAB_AUTHSIM ? "(" + window.CODELAB_AUTHSIM.toString() + ")(self);" : "throw new Error('authsim.js is not loaded — add it to index.html');") : "",

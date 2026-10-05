@@ -147,7 +147,7 @@ window.CODELAB.definePosition({
   icon: "⚙️", color: "#4c3fbf",
   blurb: "Owns backend systems end to end: designs them, reviews them, keeps them running, and changes them without breaking the people who depend on them.",
   screen: "A system design you can defend, reviews that catch real defects, incident diagnosis, and migrations without downtime — on top of years of doing it for real.",
-  total: 59,
+  total: 58,
   min: { be: 12, data: 4, qa: 7, arch: 8 },
   required: ["review", "oncall", "design", "change", "refactor"],
   offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_ONCALL, SENIOR_MENTOR]
@@ -158,7 +158,7 @@ window.CODELAB.definePosition({
   icon: "🚀", color: "#c2410c",
   blurb: "Owns a product area across both sides: decides how it's built, reviews the work going into it, and keeps it changeable as it grows.",
   screen: "Design trade-offs across client and server, code review, safe refactoring and live changes, and a testing strategy — on top of years of shipping.",
-  total: 69,
+  total: 68,
   min: { fnd: 12, fe: 8, be: 8, qa: 8, integ: 1, arch: 8 },
   required: ["review", "design", "change", "refactor", "teststrat"],
   offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_MENTOR]
@@ -169,7 +169,7 @@ window.CODELAB.definePosition({
   icon: "🖥️", color: "#3f8f00",
   blurb: "Sets the bar for the interface a team ships: how it's structured, how it's tested, and what gets through review.",
   screen: "Front-end architecture you can explain, code review, refactoring a large UI safely, and a testing strategy — on top of years of shipping.",
-  total: 53,
+  total: 52,
   min: { fnd: 12, fe: 10, qa: 8, arch: 6 },
   required: ["review", "refactor", "teststrat", "design"],
   offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_MENTOR]

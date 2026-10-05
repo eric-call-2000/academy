@@ -270,12 +270,17 @@ window.CODELAB.defineCourse({
   files: []
 });
 
+/* Built on the `refactor: true` harness (runner.js harnessRefactor) and
+   the spec harness; the plan is tools/course-research/refactoring-legacy-code.md.
+   All six units are written. The plan guessed 3 credits { arch: 2, qa: 1 };
+   the lessons model at ~3.8h, so it pays 2, both Architecture: the
+   characterization tests serve the refactoring, which is the subject. */
 window.CODELAB.defineCourse({
   id: "refactor", prefix: "refactor", title: "Refactoring Legacy Code",
-  icon: "🧹", color: "#4d7c0f", level: "Senior", stub: true,
-  plannedCredits: 3, plannedCategories: { arch: 2, qa: 1 },
+  icon: "🧹", color: "#4d7c0f", level: "Senior", hours: 5, items: 19,
+  credits: 2, categories: { arch: 2 },
   blurb: "Change code you didn't write without breaking it: pin today's behavior with tests first, then untangle, rename and split in small safe steps, with hidden checks proving nothing moved.",
-  files: []
+  files: ["refactor/u1.js", "refactor/u2.js", "refactor/u3.js", "refactor/u4.js", "refactor/u5.js", "refactor/u6.js"]
 });
 
 window.CODELAB.defineCourse({
