@@ -38,3 +38,21 @@ window.POLITICS.addUpdate({
     { title: "Brazil election runoff takeaways", publisher: "CNN", url: "https://www.cnn.com/2026/10/05/americas/brazil-election-runoff-takeaways-intl-hnk", date: "2026-10-05" }
   ]
 });
+
+window.POLITICS.addUpdate({
+  id: "ca-2026-10-06-quebec",
+  unit: "ca",
+  date: "2026-10-06",
+  title: "Quebec: Parti Québécois wins a minority, referendum promise intact",
+  md:
+    "The sovereigntist Parti Québécois (PQ) won Quebec's provincial election on 5 October and will form a minority government under Paul St-Pierre Plamondon. CBC News projected 59 seats for the PQ, five short of a majority in the 127-seat National Assembly, up from 3 in 2022. The Liberals of Charles Milliard become the official opposition with about 40 seats; the Conservatives of Éric Duhaime won about 19 and Québec solidaire about 9, CBC reported. The Coalition Avenir Québec, in power since 2018, was wiped out: it won no seats and its leader, Premier Christine Fréchette, lost her own. CNN noted the PQ won with less than 30% of the popular vote.\n\n" +
+    "St-Pierre Plamondon campaigned on holding a third referendum on independence, after those of 1980 and 1995; U.S. News & World Report (Reuters) reported he has promised to hold it once Donald Trump leaves office. Without a majority, the Globe and Mail reported, the PQ would need support from other parties or individual members both to call a referendum and to stay in power.\n\n" +
+    "Prime Minister Mark Carney congratulated St-Pierre Plamondon and said Ottawa would work with the new government: \"Building a stronger Québec is core to our mission of building a stronger Canada,\" he said, according to CNN, naming support for workers hit by U.S. tariffs, jobs and housing. In his victory speech, St-Pierre Plamondon said he would be \"direct\" and \"transparent\" with Ottawa, CBC reported.",
+  sources: [
+    { title: "Quebec election: Parti Québécois will form minority government, CBC News projects", publisher: "CBC News", url: "https://www.cbc.ca/news/canada/montreal/livestory/quebec-election-2026-results-9.7369473", date: "2026-10-05" },
+    { title: "PQ in power, CAQ wiped off the map: Key takeaways from Quebec's election", publisher: "CBC News", url: "https://www.cbc.ca/news/canada/montreal/parti-quebecois-victory-quebec-election-2026-9.7370571", date: "2026-10-06" },
+    { title: "Parti Québécois to form minority government in Quebec, setting up referendum fight", publisher: "The Globe and Mail", url: "https://www.theglobeandmail.com/canada/article-provincial-quebec-election-winner-parti-quebecois/", date: "2026-10-06" },
+    { title: "Quebec separatists vowing independence vote win provincial election but fall short of majority", publisher: "CNN", url: "https://www.cnn.com/2026/10/06/americas/quebec-separatist-party-elections-result-win-intl-hnk", date: "2026-10-06" },
+    { title: "Quebec election win for separatists could crimp Carney's response to Trump", publisher: "U.S. News & World Report (Reuters)", url: "https://www.usnews.com/news/world/articles/2026-10-05/quebec-heads-to-the-polls-with-focus-more-on-trump-than-independence", date: "2026-10-05" }
+  ]
+});
