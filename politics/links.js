@@ -268,4 +268,40 @@
   L({ id: "gb_ng", a: "gb", b: "ng", lessons: 3, color: "#3a6a3a",
       title: "Lugard, Biafra and bronzes",
       blurb: "Britain made Nigeria in 1914 and armed Lagos against Biafra; now bronzes are going home and a big diaspora links the two." });
+  L({ id: "us_ir", a: "us", b: "ir", lessons: 3, color: "#7a3a3a",
+      title: "Coup, hostages and a war",
+      blurb: "A CIA coup and an American Shah, hostages and a downed airliner, and a nuclear deal that ended in war." });
+  L({ id: "us_kp", a: "us", b: "kp", lessons: 3, color: "#3a4a7a",
+      title: "Armistice, bombs and summits",
+      blurb: "A war that never formally ended, nuclear deals that collapsed, and Trump's summits with Kim Jong Un." });
+  L({ id: "us_za", a: "us", b: "za", lessons: 3, color: "#4a6a3a",
+      title: "Apartheid, AIDS and Afrikaners",
+      blurb: "Cold War ties to apartheid and a sanctions law, trade and HIV aid, and Trump's campaign against Pretoria." });
+  L({ id: "us_pl", a: "us", b: "pl", lessons: 3, color: "#7a2f45",
+      title: "Solidarity, NATO and Fort Trump",
+      blurb: "Revolutionary heroes and Yalta, Solidarity and NATO, and the American troops Poland wants to keep." });
+  L({ id: "gb_ru", a: "gb", b: "ru", lessons: 3, color: "#5a3f6a",
+      title: "Spies, poison and sanctions",
+      blurb: "Imperial rivals and wartime allies, poisonings in London and Salisbury, and a shadow war over Ukraine." });
+  L({ id: "gb_ua", a: "gb", b: "ua", lessons: 3, color: "#2f5f8a",
+      title: "Budapest, NLAWs and a century's pact",
+      blurb: "A broken promise of 1994, Britain's arms and training in the war, and a pledge to help guard any peace." });
+  L({ id: "ru_kp", a: "ru", b: "kp", lessons: 3, color: "#6a2a3a",
+      title: "Patron, stranger, ally again",
+      blurb: "The Soviet creation of North Korea, Moscow's turn to Seoul and the famine, and soldiers for Russia's war." });
+  L({ id: "ru_ve", a: "ru", b: "ve", lessons: 3, color: "#8a4a2a",
+      title: "Arms, oil and a lost ally",
+      blurb: "Chávez's Russian arsenal, Rosneft's oil-for-loans and the 2019 standoff, and what Moscow lost with Maduro." });
+  L({ id: "jp_kp", a: "jp", b: "kp", lessons: 3, color: "#4a3a6a",
+      title: "Exiles, abductees and missiles",
+      blurb: "Koreans lured to a false paradise, Japanese citizens kidnapped by spies, and missiles over Japan." });
+  L({ id: "jp_tw", a: "jp", b: "tw", lessons: 3, color: "#3a7a7a",
+      title: "Colony, chips and a strait",
+      blurb: "Fifty years of Japanese rule, close ties without recognition, and Japan's growing stake in Taiwan's defence." });
+  L({ id: "sa_il", a: "sa", b: "il", lessons: 3, color: "#2f6a4a",
+      title: "Oil, Iran and a Palestinian state",
+      blurb: "Enemies at a distance, a quiet alliance against Iran and a deal nearly done, and a Palestinian state first." });
+  L({ id: "sa_pk", a: "sa", b: "pk", lessons: 3, color: "#3a6a2a",
+      title: "Soldiers, money and a pact",
+      blurb: "Pakistani troops for Saudi money, workers and bailouts, and a defence pact that now includes Turkey." });
 })();
