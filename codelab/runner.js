@@ -1130,6 +1130,399 @@
     return { src: out, braceless: braceless };
   }
 
+  /* --- refactoring (Refactoring Legacy Code) ---
+     A refactor is graded on two things: the behavior did NOT move, and the
+     shape DID. `refactor: true` opts a lesson in to:
+       T.legacy(src)              the original function, from its source
+       T.sameBehavior(a, b, inputs)  -> { ok } or { ok: false, input, what, a, b }
+                                  calls both on deep copies of every input
+                                  (each an array of arguments) and compares
+                                  the result, any thrown error, and what the
+                                  call did to its arguments
+       T.expectSame(a, b, inputs, label)  the same, throwing a readable message
+       T.shape(fn)                -> { lines, depth, params, branches }
+       T.repeats(fn, minLen)      lines (trimmed, >= minLen chars) that occur twice or more
+     Shape is measured from fn.toString() with strings, template literals and
+     comments blanked first, so a "{" in a string never counts as nesting.
+     It is a heuristic, not a parser: `branches` counts decision points
+     (if, for, while, case, catch, ?:, &&, ||), the usual approximation of
+     cyclomatic complexity minus one. */
+  function harnessRefactor() {
+    var g = (typeof self !== "undefined") ? self : window;
+    var T = g.T;
+
+    /* Blank out the insides of strings, templates and comments, keeping
+       line breaks, so counting braces and keywords sees only code. */
+    function codeOnly(src) {
+      var out = "", i = 0, n = src.length;
+      while (i < n) {
+        var c = src.charAt(i), d = src.charAt(i + 1);
+        if (c === "/" && d === "/") {
+          while (i < n && src.charAt(i) !== "\n") { out += " "; i++; }
+          continue;
+        }
+        if (c === "/" && d === "*") {
+          out += "  "; i += 2;
+          while (i < n && !(src.charAt(i) === "*" && src.charAt(i + 1) === "/")) { out += src.charAt(i) === "\n" ? "\n" : " "; i++; }
+          out += "  "; i += 2;
+          continue;
+        }
+        if (c === "'" || c === '"' || c === "`") {
+          out += c; i++;
+          while (i < n && src.charAt(i) !== c) {
+            if (src.charAt(i) === "\\") { out += " "; i++; }
+            out += src.charAt(i) === "\n" ? "\n" : " "; i++;
+          }
+          out += c; i++;
+          continue;
+        }
+        out += c; i++;
+      }
+      return out;
+    }
+    function fnSource(fn) {
+      if (typeof fn === "function") return Function.prototype.toString.call(fn);
+      if (typeof fn === "string" && typeof g[fn] === "function") return Function.prototype.toString.call(g[fn]);
+      throw new Error("The checks expected a function" + (typeof fn === "string" ? " called " + fn + "()" : "") + ". Keep it declared with `function`.");
+    }
+
+    T.shape = function (fn) {
+      var src = fnSource(fn), code = codeOnly(src);
+      var lines = src.split("\n").filter(function (l) { return l.trim() !== ""; }).length;
+      /* Parameters: commas at the top level of the parameter list only, so
+         a destructured { a, b } or a default [1, 2] counts as one. */
+      var open = code.indexOf("("), depth = 0, max = 0, params = 0, pd = 0, inner = 0, seen = false;
+      for (var i = open; i >= 0 && i < code.length; i++) {
+        var ch = code.charAt(i);
+        if (ch === "(") pd++;
+        else if (ch === ")") { if (--pd === 0) break; }
+        else if (ch === "{" || ch === "[") inner++;
+        else if (ch === "}" || ch === "]") inner--;
+        else if (pd === 1 && inner === 0 && ch === ",") params++;
+        if (pd >= 1 && i > open && ch.trim()) seen = true;
+      }
+      if (seen) params++;
+      var body = code.indexOf("{", code.indexOf(")", open));
+      for (var j = body; j >= 0 && j < code.length; j++) {
+        var b = code.charAt(j);
+        if (b === "{") { depth++; if (depth - 1 > max) max = depth - 1; }
+        else if (b === "}") depth--;
+      }
+      var words = code.match(new RegExp("\\b(if|for|while|case|catch)\\b", "g")) || [];
+      var ops = code.match(new RegExp("&&|\\|\\||(?<!\\?)\\?(?![.?])", "g")) || [];
+      return { lines: lines, depth: body >= 0 ? max : 0, params: params, branches: words.length + ops.length };
+    };
+
+    T.repeats = function (fn, minLen) {
+      var min = minLen || 25, seen = {}, dup = [];
+      fnSource(fn).split("\n").forEach(function (l) {
+        var t = l.trim().replace(new RegExp("\\s+", "g"), " ");
+        if (t.length < min) return;
+        seen[t] = (seen[t] || 0) + 1;
+        if (seen[t] === 2) dup.push(t);
+      });
+      return dup;
+    };
+
+    T.legacy = function (src) {
+      var f = (0, eval)("(" + src + ")");
+      if (typeof f !== "function") throw new Error("lesson error: T.legacy needs a function's source");
+      return f;
+    };
+
+    /* A comparable form of any value: key order doesn't matter, but types,
+       undefined, NaN and -0 do, since a refactor that changes them changes
+       what callers see. */
+    function canon(v, depth) {
+      if (depth > 20) return "…";
+      if (v === undefined) return "undefined";
+      if (typeof v === "number") return isNaN(v) ? "NaN" : (v === 0 && 1 / v < 0 ? "-0" : String(v));
+      if (typeof v === "function") return "[function]";
+      if (v === null || typeof v !== "object") return JSON.stringify(v);
+      if (v instanceof Date) return "Date(" + v.toISOString() + ")";
+      if (Array.isArray(v)) return "[" + v.map(function (x) { return canon(x, depth + 1); }).join(",") + "]";
+      return "{" + Object.keys(v).sort().map(function (k) { return JSON.stringify(k) + ":" + canon(v[k], depth + 1); }).join(",") + "}";
+    }
+    function clone(v) {
+      if (v === null || typeof v !== "object") return v;
+      if (v instanceof Date) return new Date(v.getTime());
+      if (Array.isArray(v)) return v.map(clone);
+      var o = {};
+      Object.keys(v).forEach(function (k) { o[k] = clone(v[k]); });
+      return o;
+    }
+    function call(fn, args) {
+      var a = args.map(clone);
+      try { return { value: canon(fn.apply(null, a), 0), args: canon(a, 0) }; }
+      catch (e) { return { threw: (e && e.name) + ": " + (e && e.message), args: canon(a, 0) }; }
+    }
+    function show(r) { return r.threw ? "throws " + r.threw : r.value; }
+
+    T.sameBehavior = function (a, b, inputs) {
+      for (var i = 0; i < inputs.length; i++) {
+        var args = Array.isArray(inputs[i]) ? inputs[i] : [inputs[i]];
+        var ra = call(a, args), rb = call(b, args);
+        if (ra.threw || rb.threw) {
+          if (ra.threw !== rb.threw) return { ok: false, input: canon(args, 0), what: "error", a: show(ra), b: show(rb) };
+        } else if (ra.value !== rb.value) return { ok: false, input: canon(args, 0), what: "result", a: ra.value, b: rb.value };
+        if (ra.args !== rb.args) return { ok: false, input: canon(args, 0), what: "arguments", a: ra.args, b: rb.args };
+      }
+      return { ok: true };
+    };
+
+    T.expectSame = function (a, b, inputs, label) {
+      var r = T.sameBehavior(a, b, inputs);
+      if (r.ok) return true;
+      var head = (label ? label + ": " : "") + "with arguments " + r.input + ", ";
+      if (r.what === "arguments")
+        throw new Error(head + "the original left them as " + r.a + " but yours leaves them as " + r.b + ". Changing an argument is behavior too.");
+      throw new Error(head + "the original " + (r.what === "error" ? "" : "returns ") + r.a + " but yours " + (r.what === "error" ? "" : "returns ") + r.b + ".");
+    };
+  }
+
+  /* --- live changes (Changing Live Systems) ---
+     A schema change is graded by what it does to the traffic that is still
+     arriving while it runs. `live: true` opts a lesson in to:
+       T.db(tables)        a small database with a schema it enforces
+                           tables: { name: { columns: { col: { notNull, default } }, rows: [...] } }
+                           insert / select / update / delete / count, and the
+                           migrations addColumn / dropColumn / renameColumn /
+                           setNotNull / dropNotNull / setDefault. An "id"
+                           column is filled in automatically. Errors read
+                           like Postgres's. One UPDATE may touch at most
+                           db.maxRows rows (default 500): more is a statement
+                           timeout, which is how a lesson makes a backfill
+                           batch. db.log records every statement.
+       T.rollout(opts)     runs a deployment plan against live traffic
+                           opts: { db, apps: { v1: fn(db, req), … }, start,
+                           plan: [{ migrate: fn(db), name } | { deploy: "v2" }],
+                           instances (3), perTick (4), traffic: fn(n) -> req,
+                           check: fn(req, res, version) -> problem text or null }
+                           A tick of traffic follows the start and every
+                           migration, and every instance switched during a
+                           rolling deploy, so old and new versions overlap.
+                           -> { ok, problems: [{ step, label, version, req, error }],
+                                requests, versions }
+                           A migration that throws stops the plan there.
+       T.expectRollout(opts)  the same, throwing a readable message about the first problem */
+  function harnessLive() {
+    var g = (typeof self !== "undefined") ? self : window;
+    var T = g.T;
+
+    function copy(v) { return v == null ? v : JSON.parse(JSON.stringify(v)); }
+    function sqlErr(msg) { var e = new Error(msg); e.name = "DatabaseError"; return e; }
+
+    T.db = function (spec) {
+      var tables = {}, db = { maxRows: 500, log: [] };
+      Object.keys(spec || {}).forEach(function (name) {
+        var t = spec[name] || {}, cols = {};
+        Object.keys(t.columns || {}).forEach(function (c) {
+          var s = t.columns[c] || {};
+          cols[c] = { notNull: !!s.notNull, def: s["default"] };
+        });
+        var rows = (t.rows || []).map(function (r) {
+          var row = {};
+          Object.keys(cols).forEach(function (c) { row[c] = r[c] === undefined ? (cols[c].def === undefined ? null : cols[c].def) : r[c]; });
+          return row;
+        });
+        var next = 1;
+        rows.forEach(function (r) { if (typeof r.id === "number" && r.id >= next) next = r.id + 1; });
+        tables[name] = { cols: cols, rows: rows, next: next };
+      });
+
+      function table(name) {
+        if (!Object.prototype.hasOwnProperty.call(tables, name)) throw sqlErr('relation "' + name + '" does not exist');
+        return tables[name];
+      }
+      function column(name, t, c) {
+        if (!Object.prototype.hasOwnProperty.call(t.cols, c)) throw sqlErr('column "' + c + '" of relation "' + name + '" does not exist');
+        return t.cols[c];
+      }
+      function matcher(name, t, where) {
+        if (where == null) return function () { return true; };
+        if (typeof where === "function") return function (r) { return !!where(copy(r)); };
+        var keys = Object.keys(where);
+        keys.forEach(function (k) { column(name, t, k); });
+        return function (r) {
+          return keys.every(function (k) { return where[k] === null ? r[k] == null : r[k] === where[k]; });
+        };
+      }
+      function setValue(name, t, row, c, v) {
+        var col = column(name, t, c);
+        if (v === undefined) v = null;
+        if (v === null && col.notNull) throw sqlErr('null value in column "' + c + '" of relation "' + name + '" violates not-null constraint');
+        row[c] = v;
+      }
+
+      db.insert = function (name, values) {
+        var t = table(name), row = {};
+        Object.keys(values || {}).forEach(function (c) { column(name, t, c); });
+        Object.keys(t.cols).forEach(function (c) {
+          var v = values && values[c] !== undefined ? values[c] : t.cols[c].def;
+          if (c === "id" && v == null) v = t.next;
+          setValue(name, t, row, c, v);
+        });
+        if (typeof row.id === "number" && row.id >= t.next) t.next = row.id + 1;
+        t.rows.push(row);
+        db.log.push({ op: "insert", table: name, rows: 1 });
+        return copy(row);
+      };
+      db.select = function (name, where, cols) {
+        var t = table(name), m = matcher(name, t, where);
+        if (cols) cols.forEach(function (c) { column(name, t, c); });
+        var out = t.rows.filter(m).map(function (r) {
+          if (!cols) return copy(r);
+          var o = {};
+          cols.forEach(function (c) { o[c] = copy(r[c]); });
+          return o;
+        });
+        db.log.push({ op: "select", table: name, rows: out.length });
+        return out;
+      };
+      db.count = function (name, where) {
+        var t = table(name);
+        return t.rows.filter(matcher(name, t, where)).length;
+      };
+      db.update = function (name, where, set, limit) {
+        var t = table(name), m = matcher(name, t, where);
+        if (set && typeof set === "object") Object.keys(set).forEach(function (c) { column(name, t, c); });
+        var hit = t.rows.filter(m);
+        if (limit != null) hit = hit.slice(0, limit);
+        if (hit.length > db.maxRows)
+          throw sqlErr("canceling statement due to statement timeout: one UPDATE on " + name + " touched " + hit.length + " rows (this database allows " + db.maxRows + " per statement). Update in batches.");
+        /* All or nothing: compute every new row before writing any. */
+        var next = hit.map(function (r) {
+          var changes = typeof set === "function" ? set(copy(r)) : set;
+          var row = copy(r);
+          Object.keys(changes || {}).forEach(function (c) { setValue(name, t, row, c, changes[c]); });
+          return row;
+        });
+        hit.forEach(function (r, i) { Object.keys(next[i]).forEach(function (c) { r[c] = next[i][c]; }); });
+        db.log.push({ op: "update", table: name, rows: hit.length });
+        return hit.length;
+      };
+      db["delete"] = function (name, where) {
+        var t = table(name), m = matcher(name, t, where), before = t.rows.length;
+        t.rows = t.rows.filter(function (r) { return !m(r); });
+        db.log.push({ op: "delete", table: name, rows: before - t.rows.length });
+        return before - t.rows.length;
+      };
+      db.columns = function (name) { return Object.keys(table(name).cols); };
+      db.isNotNull = function (name, c) { var t = table(name); return column(name, t, c).notNull; };
+
+      function ddl(op, name, detail) { db.log.push({ op: op, table: name, column: detail }); }
+      db.addColumn = function (name, c, opts) {
+        var t = table(name), o = opts || {};
+        if (Object.prototype.hasOwnProperty.call(t.cols, c)) throw sqlErr('column "' + c + '" of relation "' + name + '" already exists');
+        var def = o["default"];
+        if (o.notNull && def == null && t.rows.length) throw sqlErr('column "' + c + '" of relation "' + name + '" contains null values');
+        t.cols[c] = { notNull: !!o.notNull, def: def };
+        t.rows.forEach(function (r) { r[c] = def == null ? null : copy(def); });
+        ddl("addColumn", name, c);
+      };
+      db.dropColumn = function (name, c) {
+        var t = table(name);
+        column(name, t, c);
+        delete t.cols[c];
+        t.rows.forEach(function (r) { delete r[c]; });
+        ddl("dropColumn", name, c);
+      };
+      db.renameColumn = function (name, from, to) {
+        var t = table(name);
+        column(name, t, from);
+        if (Object.prototype.hasOwnProperty.call(t.cols, to)) throw sqlErr('column "' + to + '" of relation "' + name + '" already exists');
+        var cols = {};
+        Object.keys(t.cols).forEach(function (c) { cols[c === from ? to : c] = t.cols[c]; });
+        t.cols = cols;
+        t.rows.forEach(function (r) { r[to] = r[from]; delete r[from]; });
+        ddl("renameColumn", name, from + " -> " + to);
+      };
+      db.setNotNull = function (name, c) {
+        var t = table(name), col = column(name, t, c);
+        if (t.rows.some(function (r) { return r[c] == null; })) throw sqlErr('column "' + c + '" of relation "' + name + '" contains null values');
+        col.notNull = true;
+        ddl("setNotNull", name, c);
+      };
+      db.dropNotNull = function (name, c) {
+        column(name, table(name), c).notNull = false;
+        ddl("dropNotNull", name, c);
+      };
+      db.setDefault = function (name, c, v) {
+        column(name, table(name), c).def = v == null ? undefined : copy(v);
+        ddl("setDefault", name, c);
+      };
+      return db;
+    };
+
+    function show(v) {
+      try { var s = JSON.stringify(v); return s && s.length > 120 ? s.slice(0, 117) + "..." : String(s); }
+      catch (e) { return String(v); }
+    }
+
+    T.rollout = function (o) {
+      if (!o || !o.db || !o.apps || !o.traffic) throw new Error("lesson error: T.rollout needs db, apps and traffic");
+      var n = o.instances || 3, perTick = o.perTick || 4;
+      if (!o.apps[o.start]) throw new Error("lesson error: T.rollout start version \"" + o.start + "\" is not in apps");
+      var versions = [];
+      for (var i = 0; i < n; i++) versions.push(o.start);
+      var problems = [], sent = 0;
+
+      function tick(step, label) {
+        for (var k = 0; k < perTick; k++) {
+          var ver = versions[sent % n], req = o.traffic(sent);
+          sent++;
+          var res, error = null;
+          try {
+            res = o.apps[ver](o.db, copy(req));
+            if (o.check) error = o.check(copy(req), res, ver) || null;
+          } catch (e) {
+            error = "threw " + ((e && e.message) || String(e));
+          }
+          if (error) problems.push({ step: step, label: label, version: ver, req: req, error: error });
+        }
+      }
+
+      tick(0, "before the plan");
+      var plan = o.plan;
+      if (!Array.isArray(plan)) throw new Error("The plan should be an array of steps, like [{ migrate: addColumn }, { deploy: \"v2\" }].");
+      for (var s = 0; s < plan.length; s++) {
+        var st = plan[s], num = s + 1;
+        if (typeof st === "function") st = { migrate: st };
+        if (st && typeof st.migrate === "function") {
+          /* An arrow function written inline is named after the property,
+             "migrate", which says nothing. */
+          var nm = st.name || (st.migrate.name !== "migrate" && st.migrate.name) || "";
+          var label = nm ? "migrate " + nm : "an unnamed migration";
+          try { st.migrate(o.db); }
+          catch (e) {
+            problems.push({ step: num, label: label, version: null, req: null, error: "the migration failed: " + ((e && e.message) || String(e)) });
+            return { ok: false, problems: problems, requests: sent, versions: versions, stopped: num };
+          }
+          tick(num, label);
+        } else if (st && typeof st.deploy === "string") {
+          if (!o.apps[st.deploy])
+            throw new Error("Step " + num + " deploys \"" + st.deploy + "\", but the versions are " + Object.keys(o.apps).join(", ") + ".");
+          for (var j = 0; j < n; j++) {
+            versions[j] = st.deploy;
+            tick(num, "deploy " + st.deploy + " (" + (j + 1) + " of " + n + " instances switched)");
+          }
+        } else {
+          throw new Error("Step " + num + " of the plan should be { migrate: someFunction } or { deploy: \"v2\" }, got " + show(st) + ".");
+        }
+      }
+      return { ok: problems.length === 0, problems: problems, requests: sent, versions: versions };
+    };
+
+    T.expectRollout = function (o, what) {
+      var r = T.rollout(o);
+      if (r.ok) return r;
+      var p = r.problems[0], where = p.step === 0 ? "Before the plan" : "Step " + p.step + " (" + p.label + ")";
+      var more = r.problems.length > 1 ? " (" + r.problems.length + " problems in all)" : "";
+      if (!p.req) throw new Error((what ? what + ": " : "") + where + ": " + p.error + more);
+      throw new Error((what ? what + ": " : "") + where + ": a request to " + p.version + " " + show(p.req) + " " + p.error + more);
+    };
+  }
+
   function harnessCount(BRACELESS) {
     var g = (typeof self !== "undefined") ? self : window;
     g.__OPS = 0;
@@ -1538,6 +1931,8 @@
       lesson.clock != null ? "(" + harnessClock.toString() + ")(" + JSON.stringify(lesson.clock) + ");" : "",
       lesson.warehouse ? "(" + harnessWarehouse.toString() + ")(" + JSON.stringify(lesson.warehouse) + ");" : "",
       counting ? "(" + harnessCount.toString() + ")(" + counting.braceless + ");" : "",
+      lesson.refactor ? "(" + harnessRefactor.toString() + ")();" : "",
+      lesson.live ? "(" + harnessLive.toString() + ")();" : "",
       /* authsim.js (a simulated browser, cookie jar and web sites) is one
          self-contained function, copied in like the harnesses above. */
       lesson.browser ? (window.CODELAB_AUTHSIM ? "(" + window.CODELAB_AUTHSIM.toString() + ")(self);" : "throw new Error('authsim.js is not loaded — add it to index.html');") : "",

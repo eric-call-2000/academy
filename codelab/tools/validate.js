@@ -85,13 +85,15 @@ function phase0() {
   }
 
   const ids = new Set();
-  let totals = { lessons: 0, quizzes: 0, projects: 0, steps: 0, questions: 0, mins: 0, concepts: 0, asks: 0 };
+  let totals = { lessons: 0, quizzes: 0, projects: 0, steps: 0, questions: 0, mins: 0, concepts: 0, asks: 0, reviews: 0, findings: 0 };
   const CX = require(path.join(ROOT, "concept.js"));
+  const RK = require(path.join(ROOT, "reviewkit.js"));
   for (const course of window.CODELAB.courses) {
     let count = 0;
     let courseMins = 0;
     let conceptMins = 0;
     let pickTotal = 0, pickLongest = 0;
+    let reviewCount = 0, approveCount = 0, findingCount = 0, contextFindings = 0;
     for (const unit of course.units) {
       if (!unit.cheat || !unit.cheat.length) fail(`unit ${unit.id || unit.title} (${course.id}): missing cheatsheet`);
       for (const l of unit.lessons) {
@@ -131,6 +133,21 @@ function phase0() {
               }
             }
           }
+        } else if (l.kind === "review") {
+          /* Review lessons have no checkpoints: the key is the findings, and
+             reviewkit.checkLesson also runs the key's own review (must
+             pass), an empty review (must fail) and a reviewer who flags
+             every line in each category (must fail). */
+          totals.reviews++;
+          reviewCount++;
+          if (l.project) totals.projects++;
+          RK.checkLesson(l).forEach(fail);
+          if (l.verdict === "approve") approveCount++;
+          for (const f of (l.findings || [])) {
+            findingCount++;
+            totals.findings++;
+            try { if (RK.onContext(l, f)) contextFindings++; } catch (e) { /* reported by checkLesson */ }
+          }
         } else {
           totals.lessons++;
           if (l.project) totals.projects++;
@@ -140,6 +157,15 @@ function phase0() {
           if (!l.solution) fail(`${l.id}: no solution`);
           if (!l.hints || !l.hints.length) fail(`${l.id}: no hints`);
           if (!l.brief) fail(`${l.id}: no brief`);
+          /* Hidden checks are the senior format: they withhold what "done"
+             means. A per-checkpoint solution would hand it back, and a lesson
+             whose every check is hidden gives no foothold at all. */
+          const hiddenSteps = (l.steps || []).filter(st => st.hidden);
+          if (hiddenSteps.length) {
+            if (course.level !== "Senior") fail(`${l.id}: hidden checks are for Senior courses (this one is ${course.level})`);
+            if (course.stepSolutions) fail(`${l.id}: hidden checks can't be used with per-checkpoint solutions — they'd reveal them`);
+            if (hiddenSteps.length === (l.steps || []).length) fail(`${l.id}: every check is hidden — leave at least one visible`);
+          }
           if (l.solution) for (const k of Object.keys(l.solution)) {
             if (!(l.files || []).some(f => f.name === k)) fail(`${l.id}: solution file ${k} not in files[]`);
           }
@@ -248,6 +274,17 @@ function phase0() {
             }
             if (l.count && l.kind !== "js")
               fail(`${l.id}: \`count\` instruments the JS Worker, so the lesson must be kind "js" (it is "${l.kind}")`);
+            if (l.refactor && l.kind !== "js")
+              fail(`${l.id}: \`refactor\` runs in the JS Worker, so the lesson must be kind "js" (it is "${l.kind}")`);
+            /* The refactoring helpers only exist when the lesson opts in; a
+               checkpoint calling them without the flag would fail every run
+               with "T.shape is not a function". */
+            if (!l.refactor && (l.steps || []).some(st => /T\.(shape|sameBehavior|expectSame|legacy|repeats)\(/.test(st.test || "")))
+              fail(`${l.id}: uses the refactoring helpers (T.shape, T.expectSame, …) — add \`refactor: true\``);
+            if (l.live && l.kind !== "js")
+              fail(`${l.id}: \`live\` runs in the JS Worker, so the lesson must be kind "js" (it is "${l.kind}")`);
+            if (!l.live && (l.steps || []).some(st => /T\.(db|rollout|expectRollout)\(/.test(st.test || "")))
+              fail(`${l.id}: uses the live-change helpers (T.db, T.rollout, …) — add \`live: true\``);
             /* How Code Scales grades growth by counting, never by the clock:
                a timing passes on a fast machine and fails on a slow one. */
             if (/^algo-/.test(l.id) && /performance\.now\s*\(|Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
@@ -276,6 +313,8 @@ function phase0() {
        A tolerance of 1 absorbs adding a lesson without a manifest edit; more
        than that means the number stopped describing the content. */
     const CH = window.CODELAB.CREDIT_HOURS;
+    const COURSE_LEVELS = ["Beginner", "Intermediate", "Advanced", "Senior"];
+    if (!COURSE_LEVELS.includes(course.level)) fail(`course ${course.id}: level must be one of ${COURSE_LEVELS.join(", ")} (got "${course.level}")`);
     if (course.stub) {
       if (course.credits) fail(`course ${course.id}: stub courses must pay 0 credits (has ${course.credits})`);
       if (course.files.length) fail(`course ${course.id}: stub course must have files: []`);
@@ -309,11 +348,25 @@ function phase0() {
     if (pickTotal && Math.round(pickLongest / pickTotal * 100) > 40)
       fail(`course ${course.id}: in concept picks the correct answer is the longest choice ${Math.round(pickLongest / pickTotal * 100)}% of the time (max 40%) — lengthen a distractor`);
 
+    /* Review courses: "only read the green lines" must not work, so at
+       least a quarter of the findings sit on lines the change didn't
+       touch; and approving must sometimes be right, so about one review
+       lesson in eight is a clean Approve. Both scale with the course, so
+       a course built in tranches is held to them from its first unit. */
+    if (reviewCount) {
+      const CONTEXT_SHARE = 0.25;
+      if (findingCount >= 8 && contextFindings / findingCount < CONTEXT_SHARE)
+        fail(`course ${course.id}: only ${contextFindings} of ${findingCount} review findings are on unchanged lines (needs ${CONTEXT_SHARE * 100}%) — reading only the changed lines would pass`);
+      const wantApprove = Math.floor(reviewCount / 8);
+      if (approveCount < wantApprove)
+        fail(`course ${course.id}: ${approveCount} of ${reviewCount} review lessons are an Approve (needs ${wantApprove}) — a reviewer who always requests changes would pass`);
+    }
+
     const target = course.targetHours ? `, target ${course.targetHours}h` : "";
     const crLabel = course.stub ? `stub, planned ${course.plannedCredits || 0}cr` : `${course.credits}cr`;
     console.log(`  ${course.id}: ${count} items (manifest ${course.items}) ~${course.hours}h (model ~${modelHours.toFixed(1)}h${target}) ${crLabel}`);
   }
-  console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ${totals.concepts} concept lessons (${totals.asks} asks), ~${Math.round(totals.mins / 60)}h of material`);
+  console.log(`  TOTAL: ${totals.lessons} coding (${totals.projects} projects), ${totals.quizzes} quizzes, ${totals.questions} questions, ${totals.steps} checkpoints, ${totals.concepts} concept lessons (${totals.asks} asks), ${totals.reviews} review lessons (${totals.findings} findings), ~${Math.round(totals.mins / 60)}h of material`);
 
   positionGates();
   stepSolutionGates();   // needs the loaded catalog, which recallAndSyncGates clears
@@ -325,6 +378,9 @@ function phase0() {
   warehouseGates();
   authsimGates();
   conceptGates();
+  reviewkitGates();
+  refactorGates();
+  liveGates();
 }
 
 /* ---------------- concept lessons ----------------
@@ -426,6 +482,45 @@ function conceptGates() {
     ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
   } catch (e) {
     fail("concept tests failed:\n" + String(e.stdout || e.message));
+  }
+}
+
+/* Refactoring lessons grade "same behavior, better shape". The contract for
+   T.sameBehavior / T.shape / T.repeats is tools/test-refactor.js. */
+function refactorGates() {
+  console.log("\n== Phase 0m: refactoring harness ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-refactor.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
+  } catch (e) {
+    fail("refactor tests failed:\n" + String(e.stdout || e.message));
+  }
+}
+
+/* Live-change lessons grade a migration plan by the traffic it breaks. The
+   contract for T.db / T.rollout is tools/test-live.js. */
+function liveGates() {
+  console.log("\n== Phase 0n: live-change harness ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-live.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
+  } catch (e) {
+    fail("live tests failed:\n" + String(e.stdout || e.message));
+  }
+}
+
+/* Review lessons grade where a learner points against a key. The contract
+   for the diff, the matching and the schema is tools/test-reviewkit.js. */
+function reviewkitGates() {
+  console.log("\n== Phase 0l: review grading ==");
+  const { execFileSync } = require("child_process");
+  try {
+    const out = execFileSync(process.execPath, [path.join(ROOT, "tools", "test-reviewkit.js")], { encoding: "utf8" });
+    ok(out.trim().split("\n")[0].replace(/^\s*✓\s*/, ""));
+  } catch (e) {
+    fail("reviewkit tests failed:\n" + String(e.stdout || e.message));
   }
 }
 
@@ -629,12 +724,49 @@ function positionGates() {
     if (reqCredits > p.total)
       fail(`position ${p.id}: required courses pay ${reqCredits} credits (stubs at planned value) but the sheet only asks for ${p.total}`);
 
+    /* Senior sheets: honest by construction. A senior sheet extends a real
+       junior sheet, adds only Senior-level courses, and lists what no course
+       can award — always including years — so coursework alone can never
+       meet it. A junior sheet carries none of that. */
+    const LEVELS = ["junior", "senior"];
+    if (!LEVELS.includes(p.level)) fail(`position ${p.id}: level must be one of ${LEVELS.join(", ")} (got "${p.level}")`);
+    if (p.level === "senior") {
+      const base = window.CODELAB._posById[p.extends];
+      if (!p.extends) fail(`position ${p.id}: a senior sheet must name the junior sheet it extends`);
+      else if (!base) fail(`position ${p.id}: extends unknown sheet "${p.extends}" (define the junior sheet first)`);
+      else if (base.level !== "junior") fail(`position ${p.id}: extends "${p.extends}", which is not a junior sheet`);
+      else {
+        const lost = base.required.filter(cid => !reqIds.includes(cid));
+        if (lost.length) fail(`position ${p.id}: lost ${lost.join(", ")} from the junior sheet it extends`);
+      }
+      const adds = p.adds || [];
+      if (!adds.length) fail(`position ${p.id}: a senior sheet must add at least one senior course`);
+      for (const cid of adds) {
+        const c = window.CODELAB._byId[cid];
+        if (c && c.level !== "Senior") fail(`position ${p.id}: adds "${cid}", which is level "${c.level}", not "Senior"`);
+      }
+      const off = p.offPlatform || [];
+      const offIds = off.map(o => o.id);
+      if (!offIds.includes("years"))
+        fail(`position ${p.id}: a senior sheet must list off-platform "years" — coursework alone must never meet it`);
+      if (new Set(offIds).size !== offIds.length) fail(`position ${p.id}: an off-platform requirement is listed twice`);
+      for (const o of off) {
+        if (!o.id || !o.label || !o.why) fail(`position ${p.id}: off-platform requirement ${o.id || "?"} needs an id, a label and a why`);
+      }
+    } else {
+      if (p.extends) fail(`position ${p.id}: only a senior sheet can extend another sheet`);
+      if ((p.offPlatform || []).length) fail(`position ${p.id}: off-platform requirements belong on senior sheets only`);
+      const senior = reqIds.filter(cid => (window.CODELAB._byId[cid] || {}).level === "Senior");
+      if (senior.length) fail(`position ${p.id}: a junior sheet requires senior course(s) ${senior.join(", ")}`);
+    }
+
     const gaps = Object.keys(p.min || {}).filter(c => built[c] < p.min[c]);
     const stubReq = (p.required || []).filter(cid => window.CODELAB._byId[cid].stub);
     const shortTotal = Math.max(0, p.total - builtTotal);
+    const offNote = (p.offPlatform || []).length ? ` + ${p.offPlatform.length} off-platform, never awardable` : "";
     if (!gaps.length && !stubReq.length && !shortTotal) {
       reachable++;
-      console.log(`  ✅ ${p.title} — reachable today (${p.total}cr)`);
+      console.log(`  ✅ ${p.title} — ${offNote ? "coursework" : ""}reachable today (${p.total}cr)${offNote}`);
     } else {
       blocked++;
       const why = [];
@@ -642,7 +774,7 @@ function positionGates() {
       stubReq.forEach(cid => why.push(`requires unwritten ${cid}`));
       if (shortTotal) why.push(`total short ${shortTotal}`);
       const everFixable = gaps.every(c => built[c] + road[c] >= p.min[c]);
-      console.log(`  ⛔ ${p.title} — ${why.join(" · ")}${everFixable ? "" : "  [roadmap does NOT close this]"}`);
+      console.log(`  ⛔ ${p.title} — ${why.join(" · ")}${everFixable ? "" : "  [roadmap does NOT close this]"}${offNote}`);
     }
   }
   console.log(`  ${reachable} reachable · ${blocked} blocked by missing content`);
@@ -1011,6 +1143,13 @@ async function main() {
       const r = await page.evaluate((i) => window.CODELAB.dev.run(i, true), id);
       if (r.problems.length) r.problems.forEach(pr => fail(pr));
       else ok(`${id} (concept, ${r.screens} screens)`);
+      continue;
+    }
+    if (kind === "review") {
+      const r = await page.evaluate((i) => window.CODELAB.dev.run(i, true), id);
+      if (r.problems.length) r.problems.forEach(pr => fail(pr));
+      else if (!r.keyPasses) fail(`${id}: the key's review does not pass in the app`);
+      else ok(`${id} (review, ${r.findings} findings)`);
       continue;
     }
     const nSteps = await page.evaluate((i) => (window.CODELAB.dev.lesson(i).steps || []).length, id);

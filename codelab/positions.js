@@ -7,8 +7,14 @@
      required — courses that must be completed outright
    Required courses STACK: they are named AND their credits count
    toward `total` and toward their categories. There is one sheet
-   per job title and every sheet is junior-level — seniority comes
-   from shipped work and years, not from coursework.
+   per job title.
+
+   JUNIOR AND SENIOR. Junior sheets can be met by coursework. Senior
+   sheets can't: each one extends its junior sheet, adds the senior
+   courses, and lists the shipped work and years no course can award
+   (`offPlatform`), saying so on the board. The best a senior sheet
+   ever shows is "Coursework complete" — seniority still comes from
+   shipped work and years, and the sheet is honest about it.
 
    A learner never picks a track. Courses pay credits, credits
    accumulate, and positions unlock when all three tests pass. One
@@ -110,3 +116,73 @@ window.CODELAB.definePosition({
   min: { data: 6, be: 6, fnd: 8 },
   required: ["js", "cli", "git", "db", "srv", "nodejs", "test", "etl"]
 });
+
+/* ============================================================
+   SENIOR SHEETS — see senior-curriculum.md at the repo root.
+   Each `extends` its junior sheet (that list is copied in first),
+   `required` here is only what the senior sheet ADDS, and
+   `offPlatform` is what no course can award. validate.js requires
+   every senior sheet to list `years`, so none can be reached from
+   coursework alone.
+
+   What employers expect from a senior and not a junior — scope,
+   design, review, running production, changing live systems,
+   mentoring — comes from public career ladders (Google, Dropbox,
+   CircleCI, GitLab) and 2025–26 hiring data; sources in the plan.
+   `total` = required credits (stubs at planned value) + ~3, the
+   same one-elective rule as the junior sheets.
+   ============================================================ */
+(function () {
+var SENIOR_YEARS = { id: "years", label: "About 5 years of shipped work",
+  why: "Most senior postings ask for five or more years. No course can stand in for them." };
+var SENIOR_LED = { id: "led", label: "A project you led from design to launch",
+  why: "Senior scope is owning something end to end with little direction, not finishing assigned tasks." };
+var SENIOR_ONCALL = { id: "oncall", label: "Time on a real on-call rotation",
+  why: "The incident course teaches diagnosis on a simulator. Only production teaches the pager." };
+var SENIOR_MENTOR = { id: "mentor", label: "Mentoring at least one other engineer",
+  why: "Every published ladder lists raising other engineers as a senior expectation." };
+
+window.CODELAB.definePosition({
+  id: "sr-be", title: "Senior Backend Engineer", level: "senior", extends: "be",
+  icon: "⚙️", color: "#4c3fbf",
+  blurb: "Owns backend systems end to end: designs them, reviews them, keeps them running, and changes them without breaking the people who depend on them.",
+  screen: "A system design you can defend, reviews that catch real defects, incident diagnosis, and migrations without downtime — on top of years of doing it for real.",
+  total: 57,
+  min: { be: 12, data: 4, qa: 7, arch: 8 },
+  required: ["review", "oncall", "design", "change", "refactor"],
+  offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_ONCALL, SENIOR_MENTOR]
+});
+
+window.CODELAB.definePosition({
+  id: "sr-fs", title: "Senior Full-Stack Engineer", level: "senior", extends: "fs",
+  icon: "🚀", color: "#c2410c",
+  blurb: "Owns a product area across both sides: decides how it's built, reviews the work going into it, and keeps it changeable as it grows.",
+  screen: "Design trade-offs across client and server, code review, safe refactoring and live changes, and a testing strategy — on top of years of shipping.",
+  total: 67,
+  min: { fnd: 12, fe: 8, be: 8, qa: 8, integ: 1, arch: 8 },
+  required: ["review", "design", "change", "refactor", "teststrat"],
+  offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_MENTOR]
+});
+
+window.CODELAB.definePosition({
+  id: "sr-fe", title: "Senior Frontend Engineer", level: "senior", extends: "fe",
+  icon: "🖥️", color: "#3f8f00",
+  blurb: "Sets the bar for the interface a team ships: how it's structured, how it's tested, and what gets through review.",
+  screen: "Front-end architecture you can explain, code review, refactoring a large UI safely, and a testing strategy — on top of years of shipping.",
+  total: 52,
+  min: { fnd: 12, fe: 10, qa: 8, arch: 6 },
+  required: ["review", "refactor", "teststrat", "design"],
+  offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_MENTOR]
+});
+
+window.CODELAB.definePosition({
+  id: "sr-devops", title: "Senior DevOps / SRE Engineer", level: "senior", extends: "devops",
+  icon: "🛠️", color: "#0e7490",
+  blurb: "Owns how software reaches production and how it stays up: designs the path, leads the incident, and changes running systems safely.",
+  screen: "Incident command and postmortems, reliability design, reviewing infrastructure changes, and migrations without downtime — on top of years on call.",
+  total: 51,
+  min: { ops: 13, be: 6, qa: 6, arch: 6 },
+  required: ["review", "oncall", "design", "change"],
+  offPlatform: [SENIOR_YEARS, SENIOR_LED, SENIOR_ONCALL, SENIOR_MENTOR]
+});
+})();

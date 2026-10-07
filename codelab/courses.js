@@ -230,3 +230,77 @@ window.CODELAB.defineCourse({
   blurb: "Getting data in without getting it wrong: CSV parsed by the RFC, encodings and chunked input, JSON Lines, types converted on purpose, bad rows quarantined with their reasons, schema drift and duplicates caught before loading, and pipelines that plan their tasks, retry safely and run for their logical date. Idempotent loads, incremental updates and history follow.",
   files: ["etl/u1.js", "etl/u2.js", "etl/u3.js", "etl/u4.js", "etl/u5.js", "etl/u6.js", "etl/u7.js", "etl/u8.js"]
 });
+
+/* Senior Track — on the roadmap. Planned in senior-curriculum.md (repo root);
+   each gets a tools/course-research file before it is written. Senior
+   courses use the senior lesson format (vaguer briefs, hidden checks, messy
+   starters) and are what the senior sheets in positions.js add on top of
+   their junior sheet. */
+/* Built on reviewkit.js (kind: "review" lessons); the plan is
+   tools/course-research/code-review.md. All eight units are written. The
+   plan guessed 4 credits; the lessons model at ~4.5h (review minutes are
+   set by reading speed, ~8 lines a minute), so the course pays the 2
+   that restate them. */
+window.CODELAB.defineCourse({
+  id: "review", prefix: "review", title: "Code Review",
+  icon: "🔍", color: "#0f766e", level: "Senior", hours: 5, items: 38,
+  credits: 2, categories: { qa: 1, arch: 1 },
+  blurb: "Read someone else's change and find what's wrong before it ships: understand the change first, then correctness, design, tests and security, AI-drafted pull requests, and writing a review someone can act on. Graded on what you catch and on what you flag that was fine.",
+  files: ["review/u1.js", "review/u2.js", "review/u3.js", "review/u4.js", "review/u5.js", "review/u6.js", "review/u7.js", "review/u8.js"]
+});
+
+/* Built on shell.js + dockersim.js; the plan is
+   tools/course-research/on-call-incidents.md. All seven units are written.
+   The plan guessed 4 credits { ops: 3, arch: 1 }; the lessons model at
+   ~4h, so it pays the 2 that restate them, both Operations: responding,
+   communicating and postmortems are operations work. */
+window.CODELAB.defineCourse({
+  id: "oncall", prefix: "oncall", title: "On-Call & Incidents",
+  icon: "🚨", color: "#b91c1c", level: "Senior", hours: 5, items: 24,
+  credits: 2, categories: { ops: 2 },
+  blurb: "Something is down and the logs are all you have. Triage, find the failing piece, restore service first and fix the cause second, then write the postmortem that keeps it from happening again.",
+  files: ["oncall/u1.js", "oncall/u2.js", "oncall/u3.js", "oncall/u4.js", "oncall/u5.js", "oncall/u6.js", "oncall/u7.js"]
+});
+
+window.CODELAB.defineCourse({
+  id: "design", prefix: "design", title: "System Design in Practice",
+  icon: "🏛️", color: "#7e22ce", level: "Senior", stub: true,
+  plannedCredits: 4, plannedCategories: { arch: 4 },
+  blurb: "Turn a vague product ask into a design you can defend: requirements and numbers first, then caches, queues, replication and the trade-offs between them, worked through models you can poke. A theory course: you predict and decide before you're told.",
+  files: []
+});
+
+/* Built on the `refactor: true` harness (runner.js harnessRefactor) and
+   the spec harness; the plan is tools/course-research/refactoring-legacy-code.md.
+   All six units are written. The plan guessed 3 credits { arch: 2, qa: 1 };
+   the lessons model at ~3.8h, so it pays 2, both Architecture: the
+   characterization tests serve the refactoring, which is the subject. */
+window.CODELAB.defineCourse({
+  id: "refactor", prefix: "refactor", title: "Refactoring Legacy Code",
+  icon: "🧹", color: "#4d7c0f", level: "Senior", hours: 5, items: 19,
+  credits: 2, categories: { arch: 2 },
+  blurb: "Change code you didn't write without breaking it: pin today's behavior with tests first, then untangle, rename and split in small safe steps, with hidden checks proving nothing moved.",
+  files: ["refactor/u1.js", "refactor/u2.js", "refactor/u3.js", "refactor/u4.js", "refactor/u5.js", "refactor/u6.js"]
+});
+
+/* Built on the `live: true` harness (runner.js harnessLive: a schema-
+   enforcing database and a rolling-deploy runner); the plan is
+   tools/course-research/changing-live-systems.md. The plan guessed 4
+   credits { be: 2, data: 1, arch: 1 }; the lessons model at ~5.6h, so it
+   pays 3: schema changes are Data, API versions and deprecations Backend,
+   rollout strategy and flags Architecture. */
+window.CODELAB.defineCourse({
+  id: "change", prefix: "change", title: "Changing Live Systems",
+  icon: "🔄", color: "#1d4ed8", level: "Senior", hours: 7, items: 23,
+  credits: 3, categories: { be: 1, data: 1, arch: 1 },
+  blurb: "Ship changes while old code and old clients are still running: expand-and-contract schema migrations, batched backfills, versioned APIs, deprecations and feature flags, graded on live traffic that must never fail.",
+  files: ["change/u1.js", "change/u2.js", "change/u3.js", "change/u4.js", "change/u5.js", "change/u6.js", "change/u7.js"]
+});
+
+window.CODELAB.defineCourse({
+  id: "teststrat", prefix: "teststrat", title: "Testing Strategy at Scale",
+  icon: "🧭", color: "#be185d", level: "Senior", stub: true,
+  plannedCredits: 3, plannedCategories: { qa: 3 },
+  blurb: "Decide what \"safe to ship\" means for a whole codebase: which layer to test at, contract tests between services, flaky tests and what they cost, and suites graded on the bugs they would really catch. Take it after Testing Fundamentals.",
+  files: []
+});

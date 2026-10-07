@@ -49,7 +49,10 @@ window.CODELAB.CATEGORIES = [
   { id: "qa",    label: "Quality",     color: "#e11d48" },
   { id: "sec",   label: "Security",    color: "#dc2626" },
   { id: "ops",   label: "Operations",  color: "#0891b2" },
-  { id: "integ", label: "Integration", color: "#f59e0b" }
+  { id: "integ", label: "Integration", color: "#f59e0b" },
+  /* Senior work: design, review and changing live systems safely. Only the
+     senior courses pay into it, so only senior sheets set a floor on it. */
+  { id: "arch",  label: "Architecture", color: "#9333ea" }
 ];
 window.CODELAB._catById = {};
 window.CODELAB.CATEGORIES.forEach(function (c) { window.CODELAB._catById[c.id] = c; });
@@ -81,10 +84,33 @@ window.CODELAB.defineCourse = function (c) {
      min      — per-category floors, e.g. { be: 10, data: 3 }
      required — courses that must be completed outright; no substitution.
    Required courses STACK: their credits also count toward `total` and
-   toward their categories. One sheet per title, all at junior level. */
+   toward their categories. One sheet per title.
+
+   Junior sheets (the default level) can be met by coursework. Senior
+   sheets (level: "senior") cannot, and say so:
+     extends     — a junior sheet id; its required courses are copied in
+                   first, so the two lists can never drift apart. `adds`
+                   keeps the senior sheet's own list for display.
+     offPlatform — [{ id, label, why }]: what no course can award (years of
+                   shipped work, a project you led, …). Nothing ever ticks
+                   these, so a senior sheet's audit is never `met`; the best
+                   it reports is "coursework complete". */
 window.CODELAB.definePosition = function (p) {
   p.min = p.min || {};
   p.required = p.required || [];
+  p.level = p.level || "junior";
+  p.offPlatform = p.offPlatform || [];
+  if (p.extends) {
+    var base = window.CODELAB._posById[p.extends];
+    p.adds = p.required.slice();
+    /* An unknown base is left for validate.js to report by name rather than
+       thrown here, where it would blank the whole app. */
+    if (base) {
+      p.required = base.required.concat(p.adds.filter(function (id) {
+        return base.required.indexOf(id) === -1;
+      }));
+    }
+  }
   window.CODELAB.positions.push(p);
   window.CODELAB._posById[p.id] = p;
 };

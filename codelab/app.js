@@ -202,6 +202,7 @@
     if (lesson.project) return "PROJECT";
     if (lesson.kind === "quiz") return "QUIZ";
     if (lesson.kind === "concept") return lesson.chip || "THEORY";
+    if (lesson.kind === "review") return lesson.chip || "REVIEW";
     if (lesson.kind === "shell") return lesson.chip || "SHELL";
     return lesson.chip || (lesson.kind === "js" ? "JS" : "WEB");
   }
@@ -568,8 +569,14 @@
       if (c && !creditLive(creditState(u, c))) missing.push(c);
     });
     var short = Math.max(0, pos.total - L.total);
+    /* `coursework` is the degree audit; `met` also needs the off-platform
+       lines, which nothing in CodeLab ever ticks — so a senior sheet is
+       never met here, however many courses are finished. */
+    var coursework = !short && !gaps.length && !missing.length;
+    var off = pos.offPlatform || [];
     return {
-      met: !short && !gaps.length && !missing.length,
+      met: coursework && !off.length,
+      coursework: coursework, offPlatform: off,
       have: L.total, need: pos.total, short: short,
       gaps: gaps, missing: missing, ledger: L,
       pct: pos.total ? Math.min(100, Math.round(L.total / pos.total * 100)) : 100
@@ -613,6 +620,13 @@
   }
 
   function positionById(id) { return window.CODELAB._posById[id] || null; }
+
+  /* "about 5 years of shipped work, a project you led …" for one-line notes. */
+  function offSummary(pos) {
+    return (pos.offPlatform || []).map(function (o) {
+      return o.label.charAt(0).toLowerCase() + o.label.slice(1);
+    }).join(", ");
+  }
 
   /* Positions this course moves the needle on — the reverse index that lets a
      course card say what it is FOR. */
@@ -925,7 +939,9 @@
       var nxg = nextForPosition(u, goal);
       strip.appendChild(el("div", "gs-meta", ga.met
         ? "✓ You meet every requirement — open Careers for the sheet."
-        : ga.have + " / " + goal.total + " credits" + (nxg ? " · next: " + esc(nxg.title) : "")));
+        : ga.coursework
+          ? "✓ Coursework complete · still needed: " + esc(offSummary(goal))
+          : ga.have + " / " + goal.total + " credits" + (nxg ? " · next: " + esc(nxg.title) : "")));
       strip.onclick = function () { showPosition(goal); };
       hero.appendChild(strip);
     }
@@ -959,8 +975,13 @@
          positions it advances — same table, read the other way. */
       var forPos = positionsFor(c);
       if (forPos.length) {
-        body.appendChild(el("div", "cc-for", "Counts toward: " +
-          forPos.map(function (pp) { return esc(pp.title.replace(/^Junior /, "")); }).join(" · ")));
+        /* Every senior sheet carries its junior sheet's courses, so naming
+           them all would double the line; juniors by name, seniors counted. */
+        var forJr = forPos.filter(function (pp) { return pp.level !== "senior"; });
+        var nSr = forPos.length - forJr.length;
+        var forTxt = forJr.map(function (pp) { return esc(pp.title.replace(/^Junior /, "")); });
+        if (nSr) forTxt.push(nSr + " senior " + (nSr === 1 ? "sheet" : "sheets"));
+        body.appendChild(el("div", "cc-for", "Counts toward: " + forTxt.join(" · ")));
       }
 
       if (c.stub) {
@@ -1045,6 +1066,7 @@
   function statusOf(u, pos) {
     var a = audit(u, pos);
     if (a.met) return { key: "met", label: "✓ Qualified", a: a };
+    if (a.coursework) return { key: "course", label: "✓ Coursework complete", a: a };
     if (blockers(pos).length) return { key: "blocked", label: "Needs new courses", a: a };
     return { key: "open", label: a.short ? creditWord(a.short) + " to go" : "Almost there", a: a };
   }
@@ -1105,46 +1127,67 @@
        satisfy — last precisely because they are not the learner's fault and
        nothing they do this week will change them. */
     var rows = POSITIONS.map(function (p2) { return { pos: p2, st: statusOf(u, p2) }; });
-    var rank = { met: 0, open: 1, blocked: 2 };
+    var rank = { met: 0, course: 0, open: 1, blocked: 2 };
     rows.sort(function (x, y) {
       if (rank[x.st.key] !== rank[y.st.key]) return rank[x.st.key] - rank[y.st.key];
       return y.st.a.pct - x.st.a.pct;
     });
 
-    var grid = el("div", "jobs");
-    rows.forEach(function (r) {
-      var pos = r.pos, st = r.st, a = st.a;
-      var card = el("button", "job-card " + st.key);
-      var head = el("div", "job-head");
-      head.appendChild(el("div", "job-ic", pos.icon || "💼"));
-      var ht = el("div", "job-ht");
-      ht.appendChild(el("div", "job-title", esc(pos.title)));
-      ht.appendChild(el("div", "job-pill " + st.key, esc(st.label)));
-      head.appendChild(ht);
-      card.appendChild(head);
-      card.appendChild(el("div", "job-blurb", esc(pos.blurb || "")));
+    /* Junior sheets first, then senior ones under their own heading: a
+       senior sheet is a different promise (coursework plus years), and
+       mixing the two in one ranked list would bury that. */
+    function jobGrid(list) {
+      var grid = el("div", "jobs");
+      list.forEach(function (r) {
+        var pos = r.pos, st = r.st, a = st.a;
+        var card = el("button", "job-card " + st.key);
+        var head = el("div", "job-head");
+        head.appendChild(el("div", "job-ic", pos.icon || "💼"));
+        var ht = el("div", "job-ht");
+        ht.appendChild(el("div", "job-title", esc(pos.title)));
+        ht.appendChild(el("div", "job-pill " + st.key, esc(st.label)));
+        head.appendChild(ht);
+        card.appendChild(head);
+        card.appendChild(el("div", "job-blurb", esc(pos.blurb || "")));
 
-      var bar = el("div", "job-bar", "<i></i>");
-      bar.firstChild.style.width = a.pct + "%";
-      bar.firstChild.style.background = st.key === "met" ? "var(--success)" : (pos.color || "var(--accent)");
-      card.appendChild(bar);
-      card.appendChild(el("div", "job-meta", a.have + " / " + pos.total + " credits"));
+        var bar = el("div", "job-bar", "<i></i>");
+        bar.firstChild.style.width = a.pct + "%";
+        bar.firstChild.style.background = (st.key === "met" || st.key === "course") ? "var(--success)" : (pos.color || "var(--accent)");
+        card.appendChild(bar);
+        card.appendChild(el("div", "job-meta", a.have + " / " + pos.total + " credits"));
 
-      if (st.key === "met") {
-        card.appendChild(el("div", "job-note ok", "You meet every requirement on this sheet."));
-      } else if (st.key === "blocked") {
-        var b = blockers(pos)[0];
-        card.appendChild(el("div", "job-note warn", b && b.cat
-          ? esc(window.CODELAB.catLabel(b.cat)) + " tops out at " + b.max + " credits in the catalog so far — this sheet needs " + b.need + "."
-          : "Requires a course that has not been written yet."));
-      } else {
-        var nx = nextForPosition(u, pos);
-        card.appendChild(el("div", "job-note", nx ? "Next: " + esc(nx.title) : "Finish what you have started."));
-      }
-      card.onclick = function () { showPosition(pos); };
-      grid.appendChild(card);
-    });
-    wrap.appendChild(grid);
+        if (st.key === "met") {
+          card.appendChild(el("div", "job-note ok", "You meet every requirement on this sheet."));
+        } else if (st.key === "course") {
+          card.appendChild(el("div", "job-note ok", "Every course on this sheet is done. Still needed: " + esc(offSummary(pos)) + "."));
+        } else if (st.key === "blocked") {
+          var b = blockers(pos)[0];
+          card.appendChild(el("div", "job-note warn", b && b.cat
+            ? esc(window.CODELAB.catLabel(b.cat)) + " tops out at " + b.max + " credits in the catalog so far — this sheet needs " + b.need + "."
+            : "Requires a course that has not been written yet."));
+        } else {
+          var nx = nextForPosition(u, pos);
+          card.appendChild(el("div", "job-note", nx ? "Next: " + esc(nx.title) : "Finish what you have started."));
+        }
+        if (st.key !== "course" && (pos.offPlatform || []).length) {
+          card.appendChild(el("div", "job-note off", "+ " + plural(pos.offPlatform.length, "requirement", "requirements") + " CodeLab can't award"));
+        }
+        card.onclick = function () { showPosition(pos); };
+        grid.appendChild(card);
+      });
+      return grid;
+    }
+    var jrRows = rows.filter(function (r) { return r.pos.level !== "senior"; });
+    var srRows = rows.filter(function (r) { return r.pos.level === "senior"; });
+    wrap.appendChild(jobGrid(jrRows));
+    if (srRows.length) {
+      var srHead = el("div", "jobs-sec");
+      srHead.appendChild(el("h2", "jobs-sec-title", "Senior positions"));
+      srHead.appendChild(el("p", "jobs-sec-sub",
+        "Each one builds on a junior sheet and adds the senior courses. Every senior sheet also needs years of shipped work and things only a job can give you, so finishing its courses shows <b>Coursework complete</b>, never Qualified."));
+      wrap.appendChild(srHead);
+      wrap.appendChild(jobGrid(srRows));
+    }
 
     var foot = el("div", "footer-note");
     foot.innerHTML = "Credits expire after " + Math.round(EXPIRY_DAYS / 365) +
@@ -1163,6 +1206,14 @@
     o.sheet.appendChild(el("h2", "pos-title", esc(pos.title)));
     o.sheet.appendChild(el("div", "pos-blurb", esc(pos.blurb || "")));
     if (pos.screen) o.sheet.appendChild(el("div", "pos-screen", "<b>Screened on:</b> " + esc(pos.screen)));
+    var basePos = pos.extends && positionById(pos.extends);
+    if (basePos) {
+      o.sheet.appendChild(el("div", "pos-screen", "<b>Builds on:</b> every course on the " + esc(basePos.title) +
+        " sheet, plus " + plural((pos.adds || []).length, "senior course", "senior courses") + "."));
+    }
+    if (a.coursework && a.offPlatform.length) {
+      o.sheet.appendChild(el("div", "pos-done", "✓ Coursework complete. What's left is below, and no course can give it to you."));
+    }
 
     o.sheet.appendChild(el("div", "pos-sec", "Credits"));
     var tot = el("div", "pos-total" + (a.have >= pos.total ? " ok" : ""));
@@ -1195,6 +1246,22 @@
         rl.appendChild(row);
       });
       o.sheet.appendChild(rl);
+    }
+
+    if (a.offPlatform.length) {
+      o.sheet.appendChild(el("div", "pos-sec", "Off-platform — CodeLab can't award these"));
+      var ol = el("div", "req-list");
+      a.offPlatform.forEach(function (req) {
+        var row = el("div", "req-row off");
+        row.appendChild(el("span", "req-ic", "◇"));
+        var mid = el("span", "req-name");
+        mid.appendChild(el("span", "off-label", esc(req.label)));
+        mid.appendChild(el("span", "off-why", esc(req.why)));
+        row.appendChild(mid);
+        row.appendChild(el("span", "req-cr", "can't award"));
+        ol.appendChild(row);
+      });
+      o.sheet.appendChild(ol);
     }
 
     if (bl.length) {
@@ -1515,6 +1582,7 @@
     if (!entry) { renderCourse(course); return; }
     if (entry.lesson.kind === "quiz") { renderQuiz(entry); return; }
     if (entry.lesson.kind === "concept") { renderConcept(entry); return; }
+    if (entry.lesson.kind === "review") { renderCodeReview(entry); return; }
     renderWorkspace(entry, false, drill);
   }
   function openPlayground() {
@@ -1871,9 +1939,14 @@
           var ic = st.state === "pass" ? "✓" : (st.state === "fail" ? "✕" : (i + 1));
           d.appendChild(el("div", "chk-ic", "" + ic));
           var tx = el("div", "chk-tx");
-          tx.appendChild(el("div", "chk-text", mdInline(s.text)));
+          /* A hidden check (the senior lesson format) keeps its text to itself
+             until it passes or the lesson is done: the learner has to work out
+             what "done" means, the way an incident or a ticket asks. Its
+             failure message still shows, so authors write it as a nudge. */
+          var hide = s.hidden && st.state !== "pass" && !isDone(lesson.id);
+          tx.appendChild(el("div", "chk-text" + (hide ? " chk-hidden" : ""), hide ? "Hidden check" : mdInline(s.text)));
           if (st.state === "fail" && st.msg) tx.appendChild(el("div", "chk-msg", esc(st.msg)));
-          if (stepSol && stepSol.steps[i] && current.failedOnce[i]) tx.appendChild(solutionBlock(stepSol.steps[i], i));
+          if (!hide && stepSol && stepSol.steps[i] && current.failedOnce[i]) tx.appendChild(solutionBlock(stepSol.steps[i], i));
           d.appendChild(tx);
           box.appendChild(d);
         });
@@ -2636,6 +2709,339 @@
     }
 
     if (mode) show(); else intro();
+  }
+
+  /* ============================================================
+     REVIEW LESSONS — someone else's change, no editor
+     ------------------------------------------------------------
+     The learner reads a diff, taps lines to leave comments (each
+     with a category and a severity), and submits a verdict.
+     reviewkit.js grades it. A miss says how many problems are
+     still unfound, never where: the point is to read, not to
+     probe. After two misses the answers can be shown.
+     ============================================================ */
+  var REVIEW_COLLAPSE = 8;    // unchanged runs longer than this fold away
+  var REVIEW_KEEP = 3;        // lines kept visible either side of a change
+  function renderCodeReview(entry) {
+    clear();
+    var RK = window.CODELAB.reviewkit;
+    var lesson = entry.lesson;
+    var course = entry.course;
+    var diff = RK.lessonDiff(lesson);
+    var comments = [];        // { file, side, line, category, severity, text }
+    var verdict = null;
+    var attempts = 0;
+    var revealed = false;     // answers shown on the diff
+    var result = null;        // the last grade
+    var openKey = null;       // the row whose composer is open
+    var expanded = {};        // "file#start" -> true for folds the learner opened
+
+    var scr = el("div", "lesson quiz review");
+    var top = el("div", "l-top");
+    var back = el("button", "l-x", "✕");
+    back.onclick = function () { renderCourse(course); };
+    top.appendChild(back);
+    var tt = el("div", "l-tt");
+    tt.appendChild(el("div", "l-kicker", esc(course.title).toUpperCase() + (lesson.project ? " · PROJECT" : " · REVIEW")));
+    tt.appendChild(el("div", "l-title", esc(lesson.title)));
+    top.appendChild(tt);
+    var badge = el("div", "l-badge", "");
+    top.appendChild(badge);
+    scr.appendChild(top);
+    var body = el("div", "quiz-body");
+    scr.appendChild(body);
+    app.appendChild(scr);
+
+    var inner = el("div", "quiz-in rvw-in");
+    body.appendChild(inner);
+    inner.appendChild(el("div", "q-kicker", "The change"));
+    inner.appendChild(el("div", "quiz-brief", mdBlock(lesson.brief)));
+    inner.appendChild(el("div", "cx-note", "Tap any line to comment on it. Unchanged lines count too: some problems are in what the change didn't touch. " +
+      "When you're done, pick a verdict and submit." +
+      (lesson.project ? " This is a project: no false alarms allowed." : " One minor false alarm is allowed.")));
+    var filesHost = el("div", "rvw-files");
+    inner.appendChild(filesHost);
+    var foot = el("div", "rvw-foot");
+    inner.appendChild(foot);
+
+    function keyOf(a) { return a.file + "|" + a.side + "|" + a.line; }
+    var gateIds = RK.gating(lesson).map(function (f) { return f.id; });
+    function required(f) { return gateIds.indexOf(f.id) !== -1; }
+    function langFor(name) { return window.CODELAB.langOf ? window.CODELAB.langOf(name) : "text"; }
+    function setBadge() {
+      badge.textContent = comments.length ? comments.length + " 💬" : "";
+      badge.style.visibility = comments.length ? "" : "hidden";
+    }
+
+    /* Which rows to show: every changed row, REVIEW_KEEP lines of context
+       around it, and folds for the long unchanged runs in between. Short
+       runs are never folded, so a short unchanged file shows in full. */
+    function visibleRuns(fd) {
+      var rows = fd.rows, show = rows.map(function () { return false; });
+      rows.forEach(function (r, i) {
+        if (r.type === "ctx") return;
+        for (var k = Math.max(0, i - REVIEW_KEEP); k <= Math.min(rows.length - 1, i + REVIEW_KEEP); k++) show[k] = true;
+      });
+      var runs = [], i = 0;
+      while (i < rows.length) {
+        var j = i;
+        while (j < rows.length && show[j] === show[i]) j++;
+        if (!show[i] && j - i <= REVIEW_COLLAPSE) for (var k = i; k < j; k++) show[k] = true;
+        i = j;
+      }
+      i = 0;
+      while (i < rows.length) {
+        var e = i;
+        while (e < rows.length && show[e] === show[i]) e++;
+        runs.push({ start: i, end: e, fold: !show[i] && !expanded[fd.file + "#" + i] });
+        i = e;
+      }
+      return runs;
+    }
+
+    function revealFor(anchor) {
+      if (!revealed) return [];
+      var out = [];
+      (lesson.findings || []).forEach(function (f) {
+        if (f.file === anchor.file && (f.side || "head") === anchor.side && f.lines[0] === anchor.line) out.push({ kind: "finding", item: f });
+      });
+      (lesson.decoys || []).forEach(function (d) {
+        if (d.file === anchor.file && (d.side || "head") === anchor.side && d.lines[0] === anchor.line) out.push({ kind: "decoy", item: d });
+      });
+      return out;
+    }
+    function markedLine(anchor) {
+      if (!revealed) return "";
+      var cls = "";
+      (lesson.findings || []).forEach(function (f) {
+        if (f.file === anchor.file && (f.side || "head") === anchor.side && anchor.line >= f.lines[0] && anchor.line <= f.lines[1])
+          cls = result && result.found.indexOf(f.id) !== -1 ? " rv-hit" : required(f) ? " rv-miss" : " rv-note";
+      });
+      (lesson.decoys || []).forEach(function (d) {
+        if (d.file === anchor.file && (d.side || "head") === anchor.side && anchor.line >= d.lines[0] && anchor.line <= d.lines[1]) cls = " rv-decoy";
+      });
+      return cls;
+    }
+
+    function drawFiles() {
+      filesHost.innerHTML = "";
+      diff.forEach(function (fd) {
+        var card = el("div", "rvw-file");
+        var head = el("div", "rvw-fhead");
+        head.appendChild(el("span", "rvw-fname", esc(fd.file)));
+        if (fd.status !== "modified") head.appendChild(el("span", "rvw-fstat " + fd.status,
+          { added: "new file", deleted: "deleted", unchanged: "not changed in this PR" }[fd.status]));
+        card.appendChild(head);
+        var tbl = el("div", "rvw-diff");
+        var lang = langFor(fd.file);
+        visibleRuns(fd).forEach(function (run) {
+          if (run.fold) {
+            var n = run.end - run.start;
+            var fold = el("button", "rvw-fold", "⋯ Show " + n + " unchanged line" + (n === 1 ? "" : "s"));
+            fold.onclick = function () { expanded[fd.file + "#" + run.start] = true; drawFiles(); };
+            tbl.appendChild(fold);
+            return;
+          }
+          for (var i = run.start; i < run.end; i++) drawRow(tbl, fd, fd.rows[i], lang);
+        });
+        card.appendChild(tbl);
+        filesHost.appendChild(card);
+      });
+      setBadge();
+    }
+
+    function drawRow(tbl, fd, r, lang) {
+      var anchor = RK.anchorOf(fd.file, r);
+      var key = keyOf(anchor);
+      var row = el("button", "rvw-row " + r.type + markedLine(anchor));
+      row.appendChild(el("span", "rvw-no", r.base == null ? "" : String(r.base)));
+      row.appendChild(el("span", "rvw-no", r.head == null ? "" : String(r.head)));
+      row.appendChild(el("span", "rvw-sign", r.type === "add" ? "+" : r.type === "del" ? "−" : ""));
+      var code = el("span", "rvw-code");
+      code.innerHTML = window.CODELAB.hl(r.text, lang) || "&nbsp;";
+      row.appendChild(code);
+      row.onclick = function () {
+        if (revealed && result && result.pass) return;
+        openKey = openKey === key ? null : key;
+        drawFiles();
+      };
+      tbl.appendChild(row);
+      comments.forEach(function (c, ci) {
+        if (keyOf(c) === key) tbl.appendChild(commentCard(c, ci));
+      });
+      revealFor(anchor).forEach(function (x) { tbl.appendChild(revealCard(x)); });
+      if (openKey === key) tbl.appendChild(composer(anchor));
+    }
+
+    function verdictOf(ci) {
+      if (!revealed || !result) return "";
+      return { found: " rv-ok", near: " rv-near", "false": " rv-false" }[result.perComment[ci]] || "";
+    }
+
+    function commentCard(c, ci) {
+      var card = el("div", "rvw-cmt" + verdictOf(ci));
+      var meta = el("div", "rvw-cmeta");
+      meta.appendChild(el("span", "rvw-tag " + c.category, esc(RK.CATEGORY_LABELS[c.category])));
+      meta.appendChild(el("span", "rvw-sev " + c.severity, c.severity === "blocking" ? "Blocking" : "Non-blocking"));
+      if (!revealed) {
+        var del = el("button", "rvw-del", "Delete");
+        del.onclick = function () { comments.splice(ci, 1); drawFiles(); };
+        meta.appendChild(del);
+      }
+      card.appendChild(meta);
+      if (c.text) card.appendChild(el("div", "rvw-ctext", esc(c.text)));
+      return card;
+    }
+
+    function revealCard(x) {
+      var f = x.item;
+      if (x.kind === "decoy") {
+        return el("div", "rvw-reveal decoy", "<b>Looks wrong, isn't.</b> " + mdInline(f.why));
+      }
+      var got = result && result.found.indexOf(f.id) !== -1;
+      var state = got ? "hit" : required(f) ? "miss" : "note";
+      return el("div", "rvw-reveal " + state,
+        "<b>" + { hit: "✓ Found", miss: "Missed", note: "Worth a note" }[state] + " · " + esc(RK.CATEGORY_LABELS[f.category]) + " · " +
+        (f.severity === "blocking" ? "blocking" : "non-blocking") + ".</b> " + mdInline(f.why));
+    }
+
+    function composer(anchor) {
+      var box = el("div", "rvw-compose");
+      var cat = null, sev = null;
+      box.appendChild(el("div", "rvw-clabel", "What kind of problem?"));
+      var cats = el("div", "rvw-chips");
+      var catBtns = RK.CATEGORIES.map(function (c) {
+        var b = el("button", "rvw-chip", esc(RK.CATEGORY_LABELS[c]));
+        b.onclick = function () {
+          cat = c;
+          catBtns.forEach(function (x) { x.classList.toggle("on", x === b); });
+          sync();
+        };
+        cats.appendChild(b);
+        return b;
+      });
+      box.appendChild(cats);
+      box.appendChild(el("div", "rvw-clabel", "Should it block the merge?"));
+      var sevs = el("div", "rvw-chips");
+      var sevBtns = [["blocking", "Blocking"], ["nonblocking", "Non-blocking"]].map(function (p) {
+        var b = el("button", "rvw-chip", p[1]);
+        b.onclick = function () {
+          sev = p[0];
+          sevBtns.forEach(function (x) { x.classList.toggle("on", x === b); });
+          sync();
+        };
+        sevs.appendChild(b);
+        return b;
+      });
+      box.appendChild(sevs);
+      var ta = el("textarea", "rvw-text");
+      ta.placeholder = "Your comment to the author (optional, not graded)";
+      ta.rows = 2;
+      box.appendChild(ta);
+      var acts = el("div", "rvw-cacts");
+      var save = el("button", "btn btn-green", "Add comment");
+      var cancel = el("button", "btn btn-ghost", "Cancel");
+      function sync() { save.disabled = !(cat && sev); }
+      sync();
+      save.onclick = function () {
+        if (!cat || !sev) return;
+        comments.push({ file: anchor.file, side: anchor.side, line: anchor.line, category: cat, severity: sev, text: ta.value.trim() });
+        openKey = null;
+        drawFiles();
+      };
+      cancel.onclick = function () { openKey = null; drawFiles(); };
+      acts.appendChild(save); acts.appendChild(cancel);
+      box.appendChild(acts);
+      return box;
+    }
+
+    function drawFoot(message) {
+      foot.innerHTML = "";
+      if (message) foot.appendChild(message);
+      if (revealed && result && result.pass) { drawDone(); return; }
+      foot.appendChild(el("div", "q-kicker", "Your verdict"));
+      var vs = el("div", "rvw-verdicts");
+      RK.VERDICTS.forEach(function (v) {
+        var b = el("button", "rvw-verdict " + v + (verdict === v ? " on" : ""), esc(RK.VERDICT_LABELS[v]));
+        b.onclick = function () { verdict = v; drawFoot(message); };
+        vs.appendChild(b);
+      });
+      foot.appendChild(vs);
+      var submit = el("button", "btn btn-green", "Submit review");
+      submit.disabled = !verdict;
+      submit.onclick = submitReview;
+      foot.appendChild(submit);
+      if (attempts >= 2 && !revealed) {
+        var show = el("button", "btn btn-ghost", "Show the answers");
+        show.onclick = function () { revealed = true; drawFiles(); drawFoot(summary(result, true)); };
+        foot.appendChild(show);
+      }
+    }
+
+    /* Counts, never locations: "1 of 2 blocking problems still unfound". */
+    function summary(r, full) {
+      var box = el("div", "q-fb " + (r.pass ? "ok" : "no"));
+      var gate = RK.gating(lesson).length;
+      var parts = [];
+      if (r.pass) parts.push("<b>Review accepted.</b>");
+      else parts.push("<b>Not yet.</b>");
+      parts.push("You found " + (gate - r.missedGating.length) + " of " + plural(gate, "problem that has", "problems that have") + " to be caught.");
+      var extras = (lesson.findings || []).filter(function (f) { return !required(f); });
+      var extraFound = extras.filter(function (f) { return r.found.indexOf(f.id) !== -1; }).length;
+      if (extras.length && extraFound === extras.length) parts.push("You also caught " + (extras.length === 1 ? "the one thing" : extras.length === 2 ? "both things" : "all " + extras.length + " things") + " worth a note that weren't required.");
+      else if (extras.length) parts.push((extraFound ? "You caught " + extraFound + " of " + extras.length : "There " + (extras.length === 1 ? "is" : "are") + " also " + extras.length) +
+        " more " + (extras.length === 1 ? "thing" : "things") + " worth a note (not required).");
+      if (r.falseAlarms.length) parts.push(plural(r.falseAlarms.length, "comment", "comments") + " flagged code that is fine (cost " + r.falseCost + ", limit " + r.maxFalse + ").");
+      if (r.nearMiss.length && !full) parts.push(plural(r.nearMiss.length, "comment is", "comments are") + " on the right line but filed under the wrong kind of problem.");
+      if (!r.verdictRight) parts.push(lesson.verdict === "request" ? "Something here should block the merge, so the verdict is wrong." : "Nothing here needs to block the merge, so the verdict is wrong.");
+      if (r.pass && r.severityWrong.length) parts.push("Severity: " + plural(r.severityWrong.length, "finding was", "findings were") + " marked at the wrong level. The notes on the diff say which.");
+      if (!r.pass && !full) parts.push("Edit your comments and submit again." + (attempts >= 2 ? " Or show the answers." : ""));
+      box.innerHTML = parts.join(" ");
+      return box;
+    }
+
+    function submitReview() {
+      if (!verdict) return;
+      attempts++;
+      result = RK.grade(lesson, { comments: comments, verdict: verdict });
+      if (result.pass) revealed = true;
+      drawFiles();
+      drawFoot(summary(result, revealed));
+      foot.scrollIntoView({ block: "nearest" });
+    }
+
+    function drawDone() {
+      var written = comments.filter(function (c) { return c.text; }).length;
+      if (lesson.rubric && written) {
+        foot.appendChild(el("div", "q-kicker", "Check your own comments"));
+        foot.appendChild(el("div", "cx-note", "Tick what your written comments did. This is self-checked and never graded."));
+        var rub = el("div", "cx-rubric");
+        lesson.rubric.forEach(function (pt) {
+          var lab = el("label", "cx-rubric-item");
+          var cb = el("input");
+          cb.type = "checkbox";
+          lab.appendChild(cb);
+          lab.appendChild(el("span", "", mdInline(pt)));
+          rub.appendChild(lab);
+        });
+        foot.appendChild(rub);
+      }
+      var acts = el("div", "done-actions");
+      if (!isDone(lesson.id)) {
+        var claim = el("button", "btn btn-green", "Claim +" + xpOf(lesson) + " XP");
+        claim.onclick = function () { completeLesson(entry); };
+        acts.appendChild(claim);
+      } else {
+        var b2 = el("button", "btn btn-green", "Back to course");
+        b2.onclick = function () { renderCourse(course); };
+        acts.appendChild(b2);
+      }
+      foot.appendChild(acts);
+    }
+
+    drawFiles();
+    drawFoot(null);
+    window.scrollTo(0, 0);
   }
 
   /* ============================================================
@@ -3502,6 +3908,11 @@
         return Promise.resolve({ concept: true, screens: (lesson.screens || []).length,
           problems: window.CODELAB.concept.checkLesson(lesson) });
       }
+      if (lesson.kind === "review") {
+        var RK = window.CODELAB.reviewkit;
+        return Promise.resolve({ review: true, findings: (lesson.findings || []).length,
+          problems: RK.checkLesson(lesson), keyPasses: RK.grade(lesson, RK.keyReview(lesson)).pass });
+      }
       var files = starterFiles(lesson);
       if (useSolution && lesson.solution) {
         Object.keys(lesson.solution).forEach(function (n) { files[n] = lesson.solution[n]; });
@@ -3513,7 +3924,7 @@
        to learn which checkpoint each change is for. */
     runFiles: function (id, files) {
       var lesson = window.CODELAB.dev.lesson(id);
-      if (!lesson || lesson.kind === "quiz" || lesson.kind === "concept") return Promise.reject(new Error("No coding lesson " + id));
+      if (!lesson || lesson.kind === "quiz" || lesson.kind === "concept" || lesson.kind === "review") return Promise.reject(new Error("No coding lesson " + id));
       var host = document.createElement("div");
       host.style.cssText = "position:fixed;left:-12000px;top:0;width:1000px;height:700px;";
       document.body.appendChild(host);

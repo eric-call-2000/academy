@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus five roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**18 built courses · ~143 hours · 69 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus three roadmap courses (two of them senior courses) that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
@@ -11,7 +11,7 @@ Finishing a course pays **credits**, and credits qualify you for **job positions
 **Hours describe the material that is actually in the files.** The validator models each
 item at 10 min (30 for a project, 5 for a quiz) and **fails the build if a course
 advertises more than 2× what it holds** — so these numbers cannot drift back into fiction.
-The model puts the catalog at **~133h**; the advertised ~136h is the same material at a
+The model puts the catalog at **~139h**; the advertised ~143h is the same material at a
 learner's pace rather than an author's.
 
 Course sizes are aimed at real Codecademy course lengths (Learn HTML ≈ 9h, Learn CSS 14h,
@@ -73,12 +73,22 @@ per-category minimums, and required courses that cannot be substituted. Every sh
 names **at least eight** required courses (the validator enforces it), and required
 courses **stack** — they are named *and* their credits count toward the totals, which sit
 about one elective above what the required courses pay. There is
-one sheet per job title and every sheet is junior-level; seniority comes from shipped
-work, not coursework. Thresholds are set against what juniors are actually screened on,
-**not** against what CodeLab happens to hold: three of the seven sheets are currently
-unreachable because they require courses still on the roadmap, and the board reports
-the shortfall as a number ("Operations tops out at 8 credits — this sheet needs 10")
-rather than quietly hiding the gap.
+one sheet per job title. Thresholds are set against what each level is actually
+screened on, **not** against what CodeLab happens to hold: when a sheet needs courses
+still on the roadmap, the board reports the shortfall as a number ("Architecture tops
+out at 0 credits — this sheet needs 8") rather than quietly hiding the gap.
+
+**Junior and senior sheets.** The seven junior sheets can be met by coursework. The four
+senior sheets (Backend, Full-Stack, Frontend, DevOps / SRE) can't, and say so. Each one
+*extends* its junior sheet (that sheet's required courses are copied in), adds senior
+courses, and lists **off-platform requirements** — about five years of shipped work, a
+project you led, real on-call time, mentoring — each marked "CodeLab can't award this".
+Finishing every course on a senior sheet shows **Coursework complete**, never Qualified:
+seniority still comes from shipped work and years, and the sheet is honest about it.
+The validator enforces that every senior sheet lists `years`, extends a real junior
+sheet and adds only Senior-level courses. The plan and the research behind it are in
+[`senior-curriculum.md`](../senior-curriculum.md); the six senior courses are on the
+roadmap or partly written, so the senior sheets currently show as blocked.
 
 **Credits expire after two years — unless you keep them.** Any Recall drill or card you
 do not miss resets that course's clock, so the transcript measures what you can still
@@ -200,6 +210,7 @@ codelab/
 ├── positions.js          # job positions: the requirement sheets the board audits against
 ├── core.js               # course registry + credit model (defineCourse / definePosition / addUnit)
 ├── review.js             # Recall: the spaced-repetition scheduler (pure, Node-testable)
+├── reviewkit.js          # review lessons: the diff, the key and the grading (pure, Node-testable)
 ├── editor.js             # mobile code editor + syntax highlighting
 ├── runner.js             # sandbox runner + checkpoint grader (worker/iframe)
 ├── app.js                # screens: profiles → catalog → course → lesson
@@ -216,6 +227,10 @@ codelab/
 ├── git/u1.js … u8.js     # Git & Version Control     (37 items)
 ├── cli/u1.js … u7.js     # The Command Line          (35 items)
 ├── docker/u1.js … u8.js  # Docker & Containers       (36 items)
+├── review/u1.js … u8.js  # Code Review (senior)      (38 items)
+├── oncall/u1.js … u7.js  # On-Call & Incidents (senior) (24 items)
+├── refactor/u1.js … u6.js # Refactoring Legacy Code (senior) (19 items)
+├── change/u1.js … u7.js  # Changing Live Systems (senior) (23 items)
 ├── shell.js              # a virtual filesystem + POSIX-ish shell (kind: "shell" lessons)
 ├── gitsim.js             # a real git inside that shell — the Git course's engine
 ├── dockersim.js          # a Docker daemon inside that shell — the Docker course's engine
@@ -254,7 +269,10 @@ command substitution, no shell functions, no real signals, and **no
 concurrency** — a backgrounded command has already run to completion by the
 time you see its pid, and what is modelled is the bookkeeping (the pid, the
 job, and the port that really is held until you kill it). `>` redirects stdout
-only; `2>` is not modelled. `tools/test-shell.js` is 85 pure-Node cases
+only; `2>` is not modelled. `grep` matches fixed strings, not patterns.
+`sort` takes `-n -r -u` plus `-k N[,M]` and `-t SEP` (On-Call's "slowest
+requests" needs a key); any other option is refused with an error rather than
+silently ignored. `tools/test-shell.js` is 88 pure-Node cases
 covering all of it, a third of them regressions pinning the quoting,
 redirection and sequencing the Git course rides on.
 
@@ -335,7 +353,7 @@ JavaScript.
 Checkpoints get `T.images()`, `T.image(ref)` (size, base, layers, user, env,
 cmd, workdir, exposed, files), `T.containers({all})`, `T.container(name)`
 (status, exitCode, health, ports, networks, mounts, env, user, command,
-restartCount, stoppedAfter), `T.fileIn`, `T.logs`, `T.build(n)` (per-step
+restart, restartCount, stoppedAfter), `T.fileIn`, `T.logs`, `T.build(n)` (per-step
 `cached`), `T.volumes()`, `T.networks()`, `T.compose()`, `T.curl(url, {from})`
 and `T.inRegistry(ref)`. `tools/test-dockersim.js` is the engine's own suite —
 57 tests, pure Node, about a second, and run as validate.js phase 0f.
@@ -362,6 +380,8 @@ and injected ahead of the learner's code (see `runner.js`):
 | `mock` / `mockFn` | a stubbed `fetch` that records calls on `__CALLS` |
 | `cspLab: true` | a nested sandboxed frame with a real `<meta>` CSP |
 | `node: true` | `Buffer`, `process`, `setImmediate`, `EventEmitter`, `MockReadable`, `MockWritable` |
+| `refactor: true` | `T.legacy(src)`, `T.sameBehavior` / `T.expectSame` (original vs refactored on many inputs: results, errors and changes to arguments), `T.shape(fn)` (lines, nesting depth, params, branches), `T.repeats(fn)`; contract in `tools/test-refactor.js` |
+| `live: true` | `T.db(tables)` (a database that enforces its schema: NOT NULL, unknown columns, Postgres-style errors, migrations, and a statement timeout over `db.maxRows` rows), `T.rollout` / `T.expectRollout` (a plan of migrations and rolling deploys run against live traffic, old and new versions overlapping); contract in `tools/test-live.js` |
 
 `node: true` exists because a Node course cannot otherwise run a single line:
 `Buffer` and `process` simply are not there. The stand-ins are faithful on the
@@ -425,7 +445,7 @@ grades them, and the rest of the catalog simply reads better for them:
 
 ```js
 {
-  id: "html-u2-9", title: "…", kind: "web",        // "web" | "js" | "shell" | "quiz" | "concept"
+  id: "html-u2-9", title: "…", kind: "web",        // "web" | "js" | "shell" | "quiz" | "concept" | "review"
   chip: "HTML", xp: 15, mins: 10,                   // project: true for projects
   brief: "Markdown-ish teaching text.",
   steps: [{ text: "Do X.", test: "T.expect(T.$('h1'), 'No h1 yet.');" }],
@@ -433,6 +453,8 @@ grades them, and the rest of the catalog simply reads better for them:
   hints: ["…"], solution: { "index.html": "…passes every step…" }
 }
 ```
+
+**Hidden checks** (senior courses only) — `hidden: true` on a step keeps its text back as "Hidden check" until it passes or the lesson is done; its failure message still shows, so write it as a nudge, not the answer. Phase 0 allows them only in `level: "Senior"` courses, never with per-checkpoint solutions, and never on every step of a lesson.
 
 **A concept lesson** (theory, no editor) — screens of short reading, each followed by one question the learner commits to before the explanation appears. `concept.js` grades them; its contract is the header of `tools/test-concept.js`:
 
@@ -448,6 +470,24 @@ grades them, and the rest of the catalog simply reads better for them:
 ```
 
 Ask types: `predict` (typed), `pick` (a `why` per choice: the refutation for wrong ones, the explanation for the answer), `order` (Parsons; `distractors`, `groups` of swappable lines), `trace` (a table of values; `given` leading columns), `lab` (an interactive model from `labs.js`, opened only after its `predict`/`pick` is answered) and `explain` (self-checked against a `rubric`; never counted as graded). Phase 0 enforces it: `run: true` executes the code (or hidden `check` code) and the printed output must match the key; `mins` must sit between the modelled floor (words ÷ 200 + 1.5 per graded ask + 3 per lab or explain) and twice it; at least two `transfer` asks per lesson feed **Test out**. A course with `theory: true` must spend at least 60% of its minutes in concept lessons. Preview any lesson object in the browser with `CODELAB.dev.concept(lesson)`.
+
+**A review lesson** (`kind: "review"`, the Code Review course) — someone else's change, no editor. The learner taps lines, files each comment under a category (`bug`, `security`, `design`, `tests`, `readability`, `nit`) and a severity (`blocking` / `nonblocking`), then picks a verdict. `reviewkit.js` diffs `base` against `head` and grades against the key; its contract is the header of `tools/test-reviewkit.js`:
+
+```js
+{
+  id: "review-u3-1", title: "…", kind: "review", xp: 20, mins: 7,
+  brief: "The author's description: what the change is FOR.",
+  base: { "pages.js": "…" }, head: { "pages.js": "…" },   // a file in both and unchanged is shown as context
+  findings: [{ id: "floor", file: "pages.js", lines: [2, 2], category: "bug", severity: "blocking", why: "…" }],
+  decoys:   [{ file: "pages.js", lines: [8, 8], why: "Looks wrong, isn't: …" }],
+  verdict: "request",          // "approve" (also accepts "comment") | "comment" | "request"
+  mustFind: [],                // non-blocking findings that also gate (an approve lesson needs one)
+  // a finding with optional: true is the same problem again elsewhere: found if flagged, never required
+  rubric: ["…", "…"]           // self-check for the comment text: a claim, never graded
+}
+```
+
+Lines are numbered on the `head` side (added and unchanged lines) unless a finding says `side: "base"` (deleted lines). A comment finds a finding when it is within one line of its range and in its category (or `alsoOk`); right line, wrong category is a near miss, not a false alarm. Anything else is a false alarm costing 1, or 2 if marked blocking; a lesson allows 1 (`maxFalse`), a project 0. A miss reports counts, never locations; after two misses the learner may reveal the answers. Phase 0 enforces: the key passes, an empty review fails, commenting on every line in any one category fails, decoys sit at least two lines from any finding, `mins` sits between the modelled floor (changed lines ÷ 8 + context ÷ 16 + 2) and twice it plus 4, and across a course at least a quarter of findings are on unchanged lines and about one review in eight is a clean Approve.
 
 **Growth checkpoints** (`count: true`, kind `js`) — `T.growth(make, work)` runs `work` at n = 250, 500, 1000 and 2000 and returns `{ band, counts, ratios }`, where `band` is `sublinear`, `linear`, `quadratic` or `unclear`. It counts passes of the learner's own braced loops plus the elements built-in scanners like `includes` may visit, never time, and refuses code with a brace-less loop anywhere in the file. Also `T.counted(array)` (a Proxy that counts element accesses), `T.reads()` (those accesses only, without loop passes, for bounds like "binary search reads at most 21"), `T.ops()`, `T.resetOps()` and `T.calls(fn)`.
 
