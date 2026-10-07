@@ -178,13 +178,14 @@ test("the Academy mirror has Academy's track shape", () => {
 
 /* ---------- dispatches ---------- */
 test("dispatches seeded before boot survive and sort newest first", () => {
-  const ids = P.unseenUpdates(P.freshProfile()).map((u) => u.id);
+  // real dispatches in updates.js are left out: only the two seeded here are checked
+  const ids = P.unseenUpdates(P.freshProfile()).map((u) => u.id).filter((id) => id.startsWith("t-"));
   same(ids, ["t-new", "t-old"]);
 });
 test("opened dispatches drop out of what's new", () => {
   const p = P.freshProfile();
   p.seen["t-new"] = 1;
-  same(P.unseenUpdates(p).map((u) => u.id), ["t-old"]);
+  same(P.unseenUpdates(p).map((u) => u.id).filter((id) => id.startsWith("t-")), ["t-old"]);
   same(P.unseenUpdates(p, "cn"), []);
 });
 test("addUpdate ignores a repeated id", () => {

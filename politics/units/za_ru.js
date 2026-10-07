@@ -22,7 +22,7 @@ window.POLITICS.addUnit("za_ru", {
         { type: "image", kind: "illustration", src: "img/za_ru/za_ru-1-hero.webp",
           alt: "Illustration of a guerrilla training camp in African bush, with wooden huts, a flagpole without a flag and young recruits in drill formation.",
           caption: "Soviet and Cuban instructors trained ANC fighters in camps in Angola.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A 1970s guerrilla training camp in dry African bushland, simple wooden huts and canvas tents, young recruits in plain uniforms in drill formation seen from a distance, acacia trees, warm dusty evening light, historical documentary painting style, no flags, no legible text." },
         { type: "timeline", head: "Allies against apartheid", items: [
           ["1961", "The ANC launches its armed wing, Umkhonto we Sizwe (MK)"],
@@ -70,7 +70,7 @@ window.POLITICS.addUnit("za_ru", {
         { type: "image", kind: "illustration", src: "img/za_ru/za_ru-2-hero.webp",
           alt: "Illustration of a cargo ship docked at a naval base in a harbour at night, with mountains behind and cranes lit up.",
           caption: "The sanctioned Russian ship Lady R docked at the Simon's Town naval base in December 2022.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A dark cargo ship docked at a quiet naval base harbour at night, grey warships moored nearby, dock cranes lit by floodlights, steep mountains behind the bay under a starry sky, mysterious mood, no people close up, no flags, no legible text." },
         { type: "timeline", head: "A year of controversy", items: [
           ["2022", "South Africa abstains on UN votes condemning the invasion"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("za_ru", {
         { type: "image", kind: "illustration", src: "img/za_ru/za_ru-3-hero.webp",
           alt: "Illustration of an airport arrivals hall with families waiting behind a barrier, some holding blank welcome signs.",
           caption: "Most of the 17 South African men lured to Russia's war came home in early 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy airport arrivals hall with anxious families waiting behind a metal barrier, some holding blank handmade welcome signs and flowers, bright modern lighting, emotional atmosphere, people seen from behind, no faces in close-up, no flags, no legible text." },
         { type: "timeline", head: "From scandal to summit", items: [
           ["2025", "17 South African men end up in Russian forces in Donetsk"],

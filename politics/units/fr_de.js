@@ -21,7 +21,7 @@ window.POLITICS.addUnit("fr_de", {
         { type: "image", kind: "illustration", src: "img/fr_de/fr_de-1-hero.webp",
           alt: "Illustration of a vast military cemetery of white crosses on green hills under a grey sky, with a tall memorial tower.",
           caption: "Verdun, where about 700,000 French and German soldiers were killed or wounded in 1916; Mitterrand and Kohl held hands there in 1984.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast military cemetery of white crosses in neat rows across rolling green hills, a tall stone memorial tower and ossuary behind, grey overcast sky, solemn and immense, no people, no flags, no legible text." },
         { type: "timeline", head: "From war to friendship", items: [
           ["1870–71", "Prussia defeats France; the German Empire is proclaimed at Versailles"],
@@ -73,7 +73,7 @@ window.POLITICS.addUnit("fr_de", {
         { type: "image", kind: "illustration", src: "img/fr_de/fr_de-2-hero.webp",
           alt: "Illustration of a modern glass European parliament building beside a river at dusk with lights reflecting in the water.",
           caption: "Strasbourg, on the Franco-German border, is home to the European Parliament.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large modern curved glass and steel parliament building beside a calm river at dusk, lights reflecting in the water, a pedestrian bridge and trees, blue evening sky, calm and civic, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Deals and disputes", items: [
           ["1957", "Treaty of Rome founds the European Economic Community"],
@@ -124,7 +124,7 @@ window.POLITICS.addUnit("fr_de", {
         { type: "image", kind: "illustration", src: "img/fr_de/fr_de-3-hero.webp",
           alt: "Illustration of two sleek fighter jets flying in formation above clouds at sunset.",
           caption: "The joint Future Combat Air System was meant to replace French Rafales and German Eurofighters from the 2040s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Two sleek modern fighter jets flying in formation above a sea of clouds at sunset, orange and violet sky, sharp silhouettes, dynamic and futuristic, no markings, no flags, no legible text." },
         { type: "timeline", head: "Defence ties", items: [
           ["1989", "Franco-German brigade formed"],

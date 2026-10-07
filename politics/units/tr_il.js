@@ -21,7 +21,7 @@ window.POLITICS.addUnit("tr_il", {
         { type: "image", kind: "illustration", src: "img/tr_il/tr_il-1-hero.webp",
           alt: "Illustration of a large white passenger ship at sea at dawn, surrounded by several small grey military boats.",
           caption: "On 31 May 2010 Israeli commandos boarded the Mavi Marmara, a Turkish ship trying to break the blockade of Gaza; ten Turkish activists died.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large white passenger ferry at sea at dawn, surrounded by several small grey fast military boats, a helicopter in the pale sky, choppy water, tense and ominous, seen from a distance, no people visible, no flags, no legible text." },
         { type: "timeline", head: "Rise and fall", items: [
           ["1949", "Turkey recognises Israel"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("tr_il", {
         { type: "image", kind: "illustration", src: "img/tr_il/tr_il-2-hero.webp",
           alt: "Illustration of a busy container port in Turkey with stacked containers and cranes, and a cargo ship leaving the harbour.",
           caption: "Before 2024 Turkey and Israel traded about $6.8 billion of goods a year.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy Mediterranean container port with colourful stacked shipping containers and tall cranes, a cargo ship leaving the harbour, hills and a mosque dome faint in the background, bright afternoon light, industrial, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Escalation", items: [
           ["Oct 2023", "Erdoğan calls Hamas a 'liberation group'"],
@@ -122,7 +122,7 @@ window.POLITICS.addUnit("tr_il", {
         { type: "image", kind: "illustration", src: "img/tr_il/tr_il-3-hero.webp",
           alt: "Illustration of a desert military airfield with a cratered runway and empty hangars under a hazy sky.",
           caption: "Israel has struck Syrian air bases, including T4 in April 2025, to stop Turkey setting up air defences there.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A desert military airfield with a long runway marked by several craters, empty concrete aircraft shelters, a control tower, hazy pale sky and flat brown land, desolate aftermath, no people, no aircraft, no flags, no legible text." },
         { type: "timeline", head: "The new front", items: [
           ["Dec 2024", "Assad falls; Turkish-backed forces take power in Damascus"],

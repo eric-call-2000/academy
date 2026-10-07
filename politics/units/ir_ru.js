@@ -21,7 +21,7 @@ window.POLITICS.addUnit("ir_ru", {
         { type: "image", kind: "illustration", src: "img/ir_ru/ir_ru-1-hero.webp",
           alt: "Illustration of snow-capped Caucasus mountains above a green valley with an old stone fortress.",
           caption: "Iran lost its Caucasus provinces to Russia in the wars of 1804–1813 and 1826–1828.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Snow-capped Caucasus mountains rising above a green valley with a winding river and an old stone fortress on a hill, early morning mist, historical oil painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Centuries of pressure", items: [
           ["1813", "Treaty of Gulistan: Iran cedes much of the Caucasus"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("ir_ru", {
         { type: "image", kind: "illustration", src: "img/ir_ru/ir_ru-2-hero.webp",
           alt: "Illustration of a triangular delta-wing drone flying low over a snowy field at dusk.",
           caption: "Russia's Geran-2 drones are copies of Iran's Shahed-136, now made in Russia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A triangular delta-wing drone with a small propeller at the back flying low over a snowy field at dusk, bare trees and power lines in the distance, grey-blue sky, tense documentary style, no people, no flags, no legible text." },
         { type: "timeline", head: "A working alliance", items: [
           ["1995", "Russia agrees to finish the Bushehr nuclear plant"],
@@ -122,7 +122,7 @@ window.POLITICS.addUnit("ir_ru", {
         { type: "image", kind: "illustration", src: "img/ir_ru/ir_ru-3-hero.webp",
           alt: "Illustration of a coastal nuclear power plant with a domed reactor building beside a calm sea at dusk.",
           caption: "Russian engineers left the Bushehr nuclear plant during the 2026 war and began returning in August.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A coastal nuclear power plant with a large domed reactor building and cooling structures beside a calm sea at dusk, palm trees and dry land around, warm hazy light, documentary style, no people, no flags, no legible text." },
         { type: "timeline", head: "Tested by war", items: [
           ["17 Jan 2025", "Putin and Pezeshkian sign the partnership treaty"],

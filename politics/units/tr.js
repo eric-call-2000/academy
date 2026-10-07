@@ -109,7 +109,7 @@ window.POLITICS.addUnit("tr", {
         { type: "image", kind: "illustration", src: "img/tr/tr-9-hero.webp",
           alt: "Illustration of a monumental stone mausoleum with a colonnade on a hilltop above a city, approached by a long avenue lined with stone lions.",
           caption: "Anıtkabir in Ankara, Atatürk's mausoleum, visited by millions of Turks every year.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A monumental pale stone mausoleum with a tall square colonnade on a hilltop above a city, approached by a long wide avenue lined with carved stone lions, bright clear sky, solemn and grand, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From empire to republic", items: [
           ["1453", "The Ottomans take Constantinople"],
@@ -160,7 +160,7 @@ window.POLITICS.addUnit("tr", {
         { type: "image", kind: "illustration", src: "img/tr/tr-3-hero.webp",
           alt: "Illustration of Istanbul's skyline at dusk seen across the Bosphorus, with domes and minarets and a long suspension bridge lit up.",
           caption: "Istanbul, the former Ottoman capital and Turkey's largest city, sits on both sides of the Bosphorus.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Istanbul's historic skyline at dusk seen from across the Bosphorus strait, silhouettes of great domes and slender minarets, a long suspension bridge glowing with lights, ferries crossing, purple and gold sky, timeless and grand, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1923", "Mustafa Kemal Atatürk founds the Turkish Republic"],
@@ -208,7 +208,7 @@ window.POLITICS.addUnit("tr", {
         { type: "image", kind: "illustration", src: "img/tr/tr-10-hero.webp",
           alt: "Illustration of a ruined stone medieval church with a conical dome standing alone in an empty highland landscape at dusk.",
           caption: "Ruined Armenian churches still stand across eastern Anatolia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A ruined medieval stone church with a conical dome and carved walls standing alone on an empty highland plateau at dusk, distant mountains, long shadows, melancholy and silent, no people, no legible text." },
         { type: "facts", head: "The facts in brief", rows: [
           ["Began", "24 April 1915, with arrests of Armenian leaders in Constantinople"],
@@ -257,7 +257,7 @@ window.POLITICS.addUnit("tr", {
         { type: "image", kind: "illustration", src: "img/tr/tr-11-hero.webp",
           alt: "Illustration of a long suspension bridge over a strait at night, lit by streetlights, with tanks silhouetted at one end and crowds gathering.",
           caption: "On 15 July 2016 soldiers blocked Istanbul's Bosphorus bridge; crowds came out to stop them.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long suspension bridge over a dark strait at night lit by rows of streetlights, the silhouettes of military tanks at one end and a large crowd of people seen from behind gathering, tense and dramatic, no faces, no flags, no legible text." },
         { type: "timeline", head: "Army and politics", items: [
           ["1960", "Coup; Prime Minister Adnan Menderes later hanged"],
@@ -307,7 +307,7 @@ window.POLITICS.addUnit("tr", {
         { type: "image", kind: "illustration", src: "img/tr/tr-4-hero.webp",
           alt: "Illustration of a vast modern presidential palace complex on a hill outside Ankara at dusk, with long lit colonnades.",
           caption: "The presidential complex in Ankara, completed in 2014, has over 1,000 rooms.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast modern palace complex with long lit colonnades on a low hill at dusk, wide ceremonial stairs, landscaped gardens, a city skyline far away, deep blue sky, imposing and grand, no people close up, no flags or legible text." },
         { type: "people", head: "Six to know", items: [
           { name: "Recep Tayyip Erdoğan", role: "President, since 2014; AKP leader",
@@ -362,7 +362,7 @@ window.POLITICS.addUnit("tr", {
         { type: "image", kind: "illustration", src: "img/tr/tr-5-hero.webp",
           alt: "Illustration of a huge nighttime crowd holding phone lights in front of a modern city hall building in Istanbul.",
           caption: "Hundreds of thousands protested in Istanbul after İmamoğlu's arrest in March 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge nighttime crowd seen from above and behind holding up glowing phone lights in front of a modern city hall building, a rainy street reflecting the lights, riot police vans at the edge, tense but peaceful mood, no faces in close-up, no legible text or flags." },
         { type: "section", head: "What happened", md:
           "On 18 March 2025, Istanbul University annulled Ekrem İmamoğlu's degree, which Turkish law requires for presidential candidates. The next morning police detained him on corruption charges, and days later a court jailed him pending trial. Hundreds of thousands protested in Istanbul and other cities, the largest demonstrations since 2013; nearly 2,000 people were detained. The CHP went ahead with its primary and chose him as its presidential candidate.\n\n" +
@@ -414,7 +414,7 @@ window.POLITICS.addUnit("tr", {
         { type: "image", kind: "illustration", src: "img/tr/tr-6-hero.webp",
           alt: "Illustration of rugged mountains in south-eastern Turkey at dawn, with a small village of stone houses in a valley and mist in the passes.",
           caption: "The PKK's insurgency was fought largely in the mountains of Turkey's south-east and northern Iraq.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rugged brown mountains at dawn with mist in the passes, a small village of flat-roofed stone houses in a green valley, a winding dirt road, a shepherd with sheep far away, soft golden light, peaceful but with a sense of history, no people close up, no text." },
         { type: "section", head: "What happened", md:
           "In October 2024 Devlet Bahçeli, leader of the nationalist MHP and a long-time hardliner, suggested that Abdullah Öcalan, the [[PKK]]'s founder, jailed since 1999, could call on the group to disarm. In February 2025 Öcalan did exactly that. In May 2025 the PKK announced it would dissolve and end its armed struggle, and in July a group of fighters burned their weapons at a ceremony in northern Iraq. A parliamentary commission was set up to prepare the legal steps." },
@@ -466,7 +466,7 @@ window.POLITICS.addUnit("tr", {
         { type: "image", kind: "illustration", src: "img/tr/tr-7-hero.webp",
           alt: "Illustration of a large cargo ship passing through the Bosphorus strait at sunrise, with the shores of Europe and Asia on either side.",
           caption: "Under the 1936 Montreux Convention, Turkey controls the passage of warships through its straits.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large cargo ship passing through a narrow strait at sunrise, wooded hills and old waterside mansions on both shores, a fortress tower on a hillside, a small ferry in the foreground, soft mist, calm strategic importance, no legible text or flags." },
         { type: "section", head: "What happened", md:
           "In [[unit:ua|Ukraine's]] war, Turkey sold Kyiv its Bayraktar drones, closed its straits to warships under the [[Montreux Convention]], hosted Russian–Ukrainian talks in Istanbul in 2025 and helped broker prisoner swaps, while refusing to join Western [[sanctions]] on [[unit:ru|Russia]].\n\n" +
@@ -517,7 +517,7 @@ window.POLITICS.addUnit("tr", {
         { type: "image", kind: "illustration", src: "img/tr/tr-12-hero.webp",
           alt: "Illustration of a sandbagged checkpoint across a narrow street between old stone houses, with barrels and a watchtower, in afternoon light.",
           caption: "The UN buffer zone, the 'Green Line', still runs through the old city of Nicosia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A narrow old street of weathered stone houses blocked by sandbags, rusty oil barrels and barbed wire, a small watchtower beyond, bougainvillea on a wall, afternoon light, frozen in time, no people, no flags, no legible text." },
         { type: "facts", head: "A divided island", rows: [
           ["Independence from Britain", "1960"],
@@ -566,7 +566,7 @@ window.POLITICS.addUnit("tr", {
         { type: "image", kind: "illustration", src: "img/tr/tr-8-hero.webp",
           alt: "Illustration of a busy Istanbul covered bazaar with shoppers and stalls of spices and lamps, prices on blank tags.",
           caption: "Inflation, still above 30%, is the everyday political issue for most Turks.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Inside a historic covered bazaar in Istanbul, vaulted painted ceilings, stalls piled with spices and glowing mosaic lamps, shoppers seen from behind, blank price tags, warm light and bustle, a sense of daily life under pressure, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Power:** Erdoğan governs with the MHP; his current term ends in 2028.\n" +

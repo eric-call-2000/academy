@@ -22,7 +22,7 @@ window.POLITICS.addUnit("us_kr", {
         { type: "image", kind: "illustration", src: "img/us_kr/us_kr-1-hero.webp",
           alt: "Illustration of soldiers in winter coats marching along a snowy mountain road in Korea in the 1950s.",
           caption: "More than 36,000 Americans died in the Korean War of 1950–53.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A column of 1950s soldiers in heavy winter coats and helmets marching along a snowy mountain road in Korea, bare trees and grey sky, breath visible in the cold, a jeep in the distance, historical documentary painting style, faces not visible, no flags, no legible text." },
         { type: "timeline", head: "Forging the alliance", items: [
           ["Jun 1950", "North Korea invades; US and UN forces intervene"],
@@ -70,7 +70,7 @@ window.POLITICS.addUnit("us_kr", {
         { type: "image", kind: "illustration", src: "img/us_kr/us_kr-2-hero.webp",
           alt: "Illustration of a missile-defence radar and launcher trucks on a hilltop surrounded by fields and a small village.",
           caption: "America's THAAD missile-defence system was installed on a former golf course in 2017.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large missile-defence radar and several launcher trucks on a cleared green hilltop, rice fields and a small Korean village with tiled roofs in the valley below, misty mountains behind, overcast light, documentary style, no people, no flags, no legible text." },
         { type: "facts", head: "The alliance today", rows: [
           ["US Forces Korea", "About 28,500 troops, mainly at Camp Humphreys"],
@@ -117,7 +117,7 @@ window.POLITICS.addUnit("us_kr", {
         { type: "image", kind: "illustration", src: "img/us_kr/us_kr-3-hero.webp",
           alt: "Illustration of a large shipyard with cranes and a submarine hull under construction beside a river.",
           caption: "Hanwha's Philadelphia shipyard is at the centre of plans for a Korean nuclear-powered submarine.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large riverside shipyard with tall cranes and a long dark submarine hull under construction in a dry dock, industrial buildings and a bridge in the background, late afternoon light, documentary style, no people close up, no logos, no flags, no legible text." },
         { type: "timeline", head: "Trump and Lee", items: [
           ["Sep 2025", "US immigration raid on a Korean battery plant in Georgia"],

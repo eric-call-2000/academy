@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_au", {
         { type: "image", kind: "illustration", src: "img/us_au/us_au-1-hero.webp",
           alt: "Illustration of several large white radar domes in the red desert of central Australia under a blue sky.",
           caption: "The joint intelligence base at Pine Gap, near Alice Springs, began operating in 1970.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several large white spherical radar domes and low buildings in the red desert of central Australia, spinifex grass and rocky ranges behind, clear deep blue sky, heat shimmer, quiet and secretive mood, no people, no flags, no legible text." },
         { type: "timeline", head: "Building the alliance", items: [
           ["27 Dec 1941", "Curtin: 'Australia looks to America'"],
@@ -70,7 +70,7 @@ window.POLITICS.addUnit("us_au", {
         { type: "image", kind: "illustration", src: "img/us_au/us_au-2-hero.webp",
           alt: "Illustration of a long black nuclear-powered submarine on the surface of a calm harbour at dawn.",
           caption: "Under AUKUS, Australia plans to buy American Virginia-class submarines from 2032.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long sleek black nuclear-powered attack submarine sailing on the surface of a calm harbour at dawn, a few sailors on the tower seen from far away, city skyline and hills behind in soft pink light, no flags, no legible text." },
         { type: "timeline", head: "A deepening alliance", items: [
           ["14 Sep 2001", "Howard invokes ANZUS for the first time after 9/11"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("us_au", {
         { type: "image", kind: "illustration", src: "img/us_au/us_au-3-hero.webp",
           alt: "Illustration of a huge open-pit mine with terraced red walls and giant haul trucks in the Australian outback.",
           caption: "Australia's minerals are central to Washington's plans to reduce reliance on China.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge open-pit mine with terraced rust-red walls in the Australian outback, giant yellow haul trucks on winding ramps, processing plant in the distance, bright hard sunlight and clear sky, wide aerial documentary view, no logos, no flags, no legible text." },
         { type: "timeline", head: "Trump's second term", items: [
           ["Apr 2025", "10% US tariff on Australian goods"],

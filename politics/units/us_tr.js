@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_tr", {
         { type: "image", kind: "illustration", src: "img/us_tr/us_tr-1-hero.webp",
           alt: "Illustration of tall white missiles standing upright at a launch site on a dry hillside in the 1960s.",
           caption: "American Jupiter nuclear missiles were based in Turkey until 1963.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Three tall white 1960s ballistic missiles standing upright on launch pads on a dry Anatolian hillside, service towers and trucks beside them, clear sky, historical documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Building an alliance", items: [
           ["1947", "Truman Doctrine: US aid to Turkey and Greece"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("us_tr", {
         { type: "image", kind: "illustration", src: "img/us_tr/us_tr-2-hero.webp",
           alt: "Illustration of a bridge across a strait at night with military vehicles on it and city lights beyond.",
           caption: "Soldiers blocked the Bosphorus Bridge in Istanbul during the coup attempt of July 2016.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large suspension bridge across a strait at night with military vehicles and tanks blocking it, city lights and mosque domes on the far shore, dark sky with searchlights, tense documentary mood, faces not visible, no flags, no legible text." },
         { type: "timeline", head: "A relationship in crisis", items: [
           ["2014–15", "US arms Syrian Kurds whom Turkey sees as the PKK"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("us_tr", {
         { type: "image", kind: "illustration", src: "img/us_tr/us_tr-3-hero.webp",
           alt: "Illustration of a stealth fighter jet parked in a hangar with its canopy open, lit by overhead lights.",
           caption: "Turkey wants to rejoin the F-35 programme it was expelled from in 2019.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grey stealth fighter jet with angular lines parked inside a large clean hangar with its canopy open, bright overhead lights reflecting on the floor, technicians' tools nearby, no people, no markings, no flags, no legible text." },
         { type: "timeline", head: "Personal diplomacy", items: [
           ["Dec 2024", "Assad falls; Turkey becomes the key outside power in Syria"],

@@ -20,7 +20,7 @@ window.POLITICS.addUnit("jp_cn", {
         { type: "image", kind: "illustration", src: "img/jp_cn/jp_cn-1-hero.webp",
           alt: "Illustration of a large Japanese shrine gate at dawn, with rows of stone lanterns and an empty gravel path.",
           caption: "Visits by Japanese leaders to the Yasukuni Shrine in Tokyo, which honours convicted war criminals among Japan's war dead, have repeatedly angered China.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large dark wooden Shinto shrine gate at dawn, rows of stone lanterns lining an empty gravel path, bare cherry trees, mist and pale light, solemn and quiet, no people, no flags, no legible text." },
         { type: "timeline", head: "From war to wary neighbours", items: [
           ["1894–95", "Japan defeats Qing China and takes Taiwan"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("jp_cn", {
         { type: "image", kind: "illustration", src: "img/jp_cn/jp_cn-2-hero.webp",
           alt: "Illustration of a steep, rocky, uninhabited island in open sea, with two grey patrol ships in the distance.",
           caption: "Chinese coast guard ships were in the waters around the Senkakus on 357 days of 2025, a record.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A steep rocky uninhabited island covered in scrub rising from a choppy blue-grey sea, two grey patrol ships at a distance on either side, overcast sky, tense and lonely, no people, no flags, no legible text or markings." },
         { type: "facts", head: "The islands", rows: [
           ["Names", "Senkaku (Japan), Diaoyu (China), Tiaoyutai (Taiwan)"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("jp_cn", {
         { type: "image", kind: "illustration", src: "img/jp_cn/jp_cn-3-hero.webp",
           alt: "Illustration of an empty fish market hall in Japan early in the morning, with rows of unused stalls and stacked styrofoam boxes.",
           caption: "China reimposed a ban on Japanese seafood in November 2025, after Takaichi's Taiwan remark.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty Japanese fish market hall early in the morning, rows of unused stalls and stacked white styrofoam boxes, wet concrete floor reflecting fluorescent lights, a single forklift parked, quiet and gloomy, no people, no legible text or signs." },
         { type: "timeline", head: "Pressure points", items: [
           ["Sep 2010", "Rare earth shipments halted after a trawler clash"],

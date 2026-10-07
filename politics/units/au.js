@@ -108,7 +108,7 @@ window.POLITICS.addUnit("au", {
         { type: "image", kind: "illustration", src: "img/au/au-9-hero.webp",
           alt: "Illustration of a large crowd in Edwardian clothing seen from behind in a Sydney park in 1901, facing a white domed pavilion decorated for a ceremony.",
           caption: "The Commonwealth was proclaimed in Sydney's Centennial Park on 1 January 1901.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large crowd in Edwardian clothing with hats and parasols seen from behind in a green Sydney park in 1901, facing an ornate white domed pavilion decorated with garlands for a ceremony, summer sunshine, eucalyptus trees, festive and historic, no faces, no flags, no legible text." },
         { type: "timeline", head: "The road to federation", items: [
           ["1788", "British First Fleet arrives at Sydney Cove"],
@@ -160,7 +160,7 @@ window.POLITICS.addUnit("au", {
         { type: "image", kind: "illustration", src: "img/au/au-3-hero.webp",
           alt: "Illustration of a vast red outback landscape at sunset with a huge rock formation on the horizon and spinifex grass in the foreground.",
           caption: "Aboriginal and Torres Strait Islander peoples have lived in Australia for at least 65,000 years.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast red outback landscape at sunset, a huge monolithic rock formation glowing on the horizon, spinifex grass and desert oaks in the foreground, deep orange and violet sky, ancient and timeless, no people, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1788", "British colonisation begins in Sydney"],
@@ -208,7 +208,7 @@ window.POLITICS.addUnit("au", {
         { type: "image", kind: "illustration", src: "img/au/au-10-hero.webp",
           alt: "Illustration of a red dirt road across the Australian outback leading to a distant, lonely brick building, with an empty child's shoe in the foreground.",
           caption: "Many children were sent to institutions or missions far from their communities.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long red dirt road across the flat Australian outback leading to a distant, lonely old brick institutional building, spinifex and a single gum tree, an empty small child's shoe on the road in the foreground, vast blue sky, melancholy, no people, no legible text." },
         { type: "timeline", head: "Removal and recognition", items: [
           ["1910–1970", "Peak period of forced removals"],
@@ -258,7 +258,7 @@ window.POLITICS.addUnit("au", {
         { type: "image", kind: "illustration", src: "img/au/au-11-hero.webp",
           alt: "Illustration of a steep scrubby hillside above a narrow beach at dawn, with small wooden boats approaching over calm water.",
           caption: "Australian and New Zealand troops landed at Gallipoli at dawn on 25 April 1915.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A steep scrub-covered hillside rising above a narrow pebbly beach at dawn on the Gallipoli peninsula, a few small wooden rowing boats approaching over calm grey-blue water, soft pink sky, solemn and historical, no people visible up close, no weapons, no legible text." },
         { type: "facts", head: "The First World War", rows: [
           ["Enlisted", "About 417,000, all volunteers"],
@@ -307,7 +307,7 @@ window.POLITICS.addUnit("au", {
         { type: "image", kind: "illustration", src: "img/au/au-4-hero.webp",
           alt: "Illustration of Parliament House in Canberra with its grass-covered roof and tall flagpole structure, at dusk under a clear sky.",
           caption: "Parliament House in Canberra, built into a hill with a lawn on its roof.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern parliament building built into a hill with a grass-covered sloping roof and a tall four-legged steel flagpole structure on top, at dusk under a clear violet sky, long reflecting pool in front, calm and civic, no flags or legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Anthony Albanese", role: "Prime minister, since May 2022",
@@ -361,7 +361,7 @@ window.POLITICS.addUnit("au", {
         { type: "image", kind: "illustration", src: "img/au/au-5-hero.webp",
           alt: "Illustration of a country pub at night with patrons watching a TV showing blank result bars, and a sausage sizzle outside.",
           caption: "Election night, 3 May 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Inside a country pub at night, patrons seen from behind watching a wall-mounted TV showing blank coloured result bars, beer glasses on the bar, a veranda outside with a barbecue sausage sizzle, warm and convivial, no legible text or faces." },
         { type: "section", head: "What happened", md:
           "In the federal election on 3 May 2025, Labor won 94 of the 150 seats in the House of Representatives, up from 77, its best result since the Second World War by some measures. The Liberal–National Coalition fell to around 43 seats. The Liberal leader, Peter Dutton, lost his Queensland seat of Dickson to Labor, the first opposition leader to lose his own seat at a federal election. The Greens lost seats in the lower house, including their leader's." },
@@ -411,7 +411,7 @@ window.POLITICS.addUnit("au", {
         { type: "image", kind: "illustration", src: "img/au/au-6-hero.webp",
           alt: "Illustration of a long sandy beach at dusk with rows of small candles and flowers on the sand and people standing quietly, seen from behind.",
           caption: "Mourners gathered at Bondi Beach after the attack.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long sandy city beach at dusk, rows of small glowing candles and bunches of flowers laid on the sand, people seen from behind standing quietly, gentle surf, a pink and grey sky, grief and solidarity, no faces, no legible text." },
         { type: "section", head: "What happened", md:
           "On the evening of 14 December 2025, the first night of Hanukkah, two gunmen, a father and son, opened fire on about 1,000 people at a Jewish community celebration near Bondi Beach in Sydney. Fifteen people were killed and more than 40 wounded before police stopped the attack. Authorities said the gunmen were inspired by the Islamic State group and motivated by antisemitism. It was the deadliest mass shooting in Australia since the Port Arthur massacre in 1996." },
@@ -463,7 +463,7 @@ window.POLITICS.addUnit("au", {
         { type: "image", kind: "illustration", src: "img/au/au-7-hero.webp",
           alt: "Illustration of a rural Australian town main street with a grain silo, a pub with a wide veranda and utes parked outside, under a big sky.",
           caption: "One Nation's strongest support is in regional and outer-suburban Australia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The main street of a small rural Australian town, tall grain silos, an old two-storey pub with a wide iron-lace veranda, pickup trucks parked diagonally, a wide empty sky, dry golden light, quiet and weathered, no legible text or people close up." },
         { type: "section", head: "What happened", md:
           "In December 2025 the former deputy prime minister Barnaby Joyce defected from the Nationals to One Nation. On 9 May 2026 One Nation's David Farley won the Farrer by-election in rural New South Wales, triggered by Sussan Ley's resignation, with 39.5% of first preferences, a swing of 33 points, beating an independent 57.5% to 42.5% after preferences. It was One Nation's first win of a lower-house seat at the ballot box.\n\n" +
@@ -512,7 +512,7 @@ window.POLITICS.addUnit("au", {
         { type: "image", kind: "illustration", src: "img/au/au-12-hero.webp",
           alt: "Illustration of a grey patrol ship on a wide open ocean under a heavy sky, with a small wooden fishing boat far in the distance.",
           caption: "Under Operation Sovereign Borders, the navy turns back boats heading for Australia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grey naval patrol ship on a wide open tropical ocean under a heavy overcast sky, a small old wooden fishing boat far in the distance on the horizon, long swell, tense and lonely mood, no people visible, no flags, no legible text." },
         { type: "timeline", head: "Two decades of policy", items: [
           ["Aug 2001", "Tampa affair; the 'Pacific Solution' begins"],
@@ -564,7 +564,7 @@ window.POLITICS.addUnit("au", {
         { type: "image", kind: "illustration", src: "img/au/au-8-hero.webp",
           alt: "Illustration of a submarine hull under construction in a large dry dock, with cranes and scaffolding around it and workers far below.",
           caption: "AUKUS aims to give Australia nuclear-powered submarines from the 2030s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The dark hull of a large submarine under construction in a huge covered dry dock, scaffolding and yellow cranes around it, tiny workers far below, bright industrial lights, scale and ambition, no flags or legible text." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Labor holds 94 of 150 lower-house seats; the next election is due by 2028.\n" +

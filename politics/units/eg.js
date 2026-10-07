@@ -108,7 +108,7 @@ window.POLITICS.addUnit("eg", {
         { type: "image", kind: "illustration", src: "img/eg/eg-9-hero.webp",
           alt: "Illustration of a wide boulevard along the Nile in Cairo at dusk, with 1950s cars, palm trees and ornate belle époque buildings.",
           caption: "Cairo in the early 1950s, the capital of a kingdom about to become a republic.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wide boulevard along the Nile in Cairo at dusk in the early 1950s, vintage cars, tall palm trees, ornate belle époque buildings with balconies, feluccas on the river, warm nostalgic light, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From khedive to republic", items: [
           ["1805", "Muhammad Ali takes power and modernises Egypt"],
@@ -158,7 +158,7 @@ window.POLITICS.addUnit("eg", {
         { type: "image", kind: "illustration", src: "img/eg/eg-3-hero.webp",
           alt: "Illustration of a vast crowd filling a circular city square at night, with tents, lights and a large roundabout, seen from above.",
           caption: "Tahrir Square in Cairo, centre of the 2011 revolution.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast crowd filling a large circular city square at night seen from above, tents and makeshift stages, strings of lights, a grand old museum building at one edge, a river beyond with bridges, electric and hopeful, no legible banners, no faces in close-up." },
         { type: "timeline", head: "The short version", items: [
           ["1952", "The Free Officers overthrow the monarchy"],
@@ -206,7 +206,7 @@ window.POLITICS.addUnit("eg", {
         { type: "image", kind: "illustration", src: "img/eg/eg-10-hero.webp",
           alt: "Illustration of a large ship passing through a narrow canal in the desert at sunset, with sand on both banks.",
           caption: "The Suez Canal, linking the Mediterranean and the Red Sea, carries about a tenth of world trade in normal times.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large cargo ship passing through a narrow straight canal cutting across flat desert at sunset, pale sand on both banks, a small lighthouse, warm orange sky reflected in the water, calm and strategic, no people close up, no flags, no legible text or logos." },
         { type: "facts", head: "The crisis", rows: [
           ["Canal nationalised", "26 July 1956"],
@@ -255,7 +255,7 @@ window.POLITICS.addUnit("eg", {
         { type: "image", kind: "illustration", src: "img/eg/eg-11-hero.webp",
           alt: "Illustration of a reviewing stand with empty chairs under a canopy beside a parade ground, with military jets trailing coloured smoke in the sky.",
           caption: "Sadat was assassinated on 6 October 1981 while watching a military parade marking the 1973 war.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An official reviewing stand with rows of empty chairs under a canopy beside a wide parade ground, military jets trailing coloured smoke across a pale sky, bright harsh light, ominous stillness, no people, no flags, no legible text." },
         { type: "timeline", head: "From war to peace", items: [
           ["6 Oct 1973", "Egypt and Syria attack Israel"],
@@ -305,7 +305,7 @@ window.POLITICS.addUnit("eg", {
         { type: "image", kind: "illustration", src: "img/eg/eg-4-hero.webp",
           alt: "Illustration of a vast new government district in the desert, with a tall tower, wide empty boulevards and ministry buildings under a hazy sky.",
           caption: "Egypt's new administrative capital, east of Cairo, where ministries have moved.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast new government district in the desert, a very tall slender tower, wide empty boulevards lined with young palm trees, rows of identical cream ministry buildings, hazy sky, a sense of grand ambition and emptiness, no people close up, no legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Abdel Fattah el-Sisi", role: "President, since 2014",
@@ -359,7 +359,7 @@ window.POLITICS.addUnit("eg", {
         { type: "image", kind: "illustration", src: "img/eg/eg-5-hero.webp",
           alt: "Illustration of a Red Sea resort conference centre at dusk, with rows of flags on poles along a palm-lined drive and a line of black cars.",
           caption: "World leaders met at Sharm el-Sheikh in October 2025 to back the Gaza ceasefire.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern conference centre at a Red Sea resort at dusk, a long palm-lined drive with rows of empty flagpoles, a line of black cars, turquoise sea and red mountains beyond, calm diplomatic grandeur, no people close up, no flags or legible text." },
         { type: "section", head: "What happened", md:
           "Egypt, with Qatar and Turkey, mediated between Israel and Hamas throughout the Gaza war. When the US-brokered ceasefire took effect in October 2025, Sisi hosted a summit at Sharm el-Sheikh on 13 October, where Trump and dozens of leaders endorsed the plan. Egypt has pledged to train Palestinian police and to contribute to the International Stabilisation Force, and in February 2026 the Rafah crossing reopened for limited travel, with Egypt approving who crosses.\n\n" +
@@ -408,7 +408,7 @@ window.POLITICS.addUnit("eg", {
         { type: "image", kind: "illustration", src: "img/eg/eg-6-hero.webp",
           alt: "Illustration of the Suez Canal from above in the desert, a single container ship passing along an otherwise empty waterway.",
           caption: "Attacks on Red Sea shipping, and then the Iran war, drove many ships away from the Suez Canal.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An aerial view of a long straight canal cutting through a pale desert, a single large container ship passing along the otherwise empty waterway, a small town and palm groves on one bank, hazy golden light, quiet and uneasy, no legible text or logos." },
         { type: "section", head: "What happened", md:
           "Egypt's economy lurched from crisis to crisis in the 2020s. Heavy borrowing for megaprojects, the pandemic and the Ukraine war's spike in wheat and energy prices left it short of dollars. The pound was devalued several times, most sharply in March 2024, when it lost about a third of its value in a day, and inflation peaked near 38% in 2023.\n\n" +
@@ -459,7 +459,7 @@ window.POLITICS.addUnit("eg", {
         { type: "image", kind: "illustration", src: "img/eg/eg-7-hero.webp",
           alt: "Illustration of the Nile river from above at dusk, a ribbon of green fields on either side of the water surrounded by desert.",
           caption: "Almost all Egyptians live in the narrow green strip along the Nile and its delta.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An aerial view of a great river at dusk winding through desert, a narrow ribbon of bright green fields and palm groves on both banks, small villages, the sand turning purple, the water catching the last light, vital and fragile, no legible text." },
         { type: "section", head: "What happened", md:
           "On 9 September 2025 Ethiopia inaugurated the Grand Ethiopian Renaissance Dam (GERD) on the Blue Nile, the river's main tributary. The $5 billion dam has a capacity of 5.15 gigawatts, making it Africa's largest hydroelectric project. Egypt condemned the inauguration as a unilateral act that violates international law and wrote to the UN Security Council to defend its 'historic rights' to Nile water." },
@@ -503,7 +503,7 @@ window.POLITICS.addUnit("eg", {
         { type: "image", kind: "illustration", src: "img/eg/eg-12-hero.webp",
           alt: "Illustration of a large mosque with a slender minaret at the edge of a wide square in Cairo at dawn, with scattered debris on the ground.",
           caption: "Rabaa al-Adawiya square in Cairo, where security forces broke up a pro-Morsi sit-in in August 2013.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large modern mosque with a slender minaret at the edge of a wide city square at dawn, scattered debris and abandoned tents on the ground, faint smoke, grey-pink light, sorrowful and still, no people, no legible text." },
         { type: "facts", head: "The Brotherhood", rows: [
           ["Founded", "1928, in Ismailia, by Hassan al-Banna"],
@@ -552,7 +552,7 @@ window.POLITICS.addUnit("eg", {
         { type: "image", kind: "illustration", src: "img/eg/eg-8-hero.webp",
           alt: "Illustration of a busy Cairo street at dusk with a bakery counter selling flatbread, people queuing and minarets on the skyline.",
           caption: "Subsidised bread remains a lifeline, and a political barometer, for millions of Egyptians.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy old Cairo street at dusk, a small bakery counter stacked with round flatbreads, a queue of people seen from behind, minarets and domes on the skyline, warm lamplight and dust, everyday life under strain, no faces, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Power:** Sisi rules with a two-thirds majority in parliament; his term runs to 2030.\n" +

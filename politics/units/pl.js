@@ -110,7 +110,7 @@ window.POLITICS.addUnit("pl", {
         { type: "image", kind: "illustration", src: "img/pl/pl-9-hero.webp",
           alt: "Illustration of a Renaissance royal castle on a hill above a river, with brick walls, towers and a cathedral, in autumn light.",
           caption: "Wawel Castle in Kraków, seat of Polish kings for five centuries.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A Renaissance royal castle with red brick walls, towers and a cathedral with golden domes on a hill above a wide river, autumn trees in gold and red, soft afternoon light, historic and proud, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Rise, fall and rebirth", items: [
           ["966", "Mieszko I is baptised; the Polish state is born"],
@@ -161,7 +161,7 @@ window.POLITICS.addUnit("pl", {
         { type: "image", kind: "illustration", src: "img/pl/pl-3-hero.webp",
           alt: "Illustration of shipyard workers gathered at a tall iron gate decorated with flowers, with cranes behind them, in 1980s style.",
           caption: "Strikes at the Gdańsk shipyard in 1980 gave birth to Solidarity, the first independent trade union in the Soviet bloc.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Shipyard workers in 1980s work clothes gathered at a tall iron gate decorated with flowers and hand-drawn blank placards, huge harbour cranes behind them, overcast summer sky, a sense of peaceful defiance, muted film colours, no legible text or faces in close-up." },
         { type: "timeline", head: "The short version", items: [
           ["1795", "Poland partitioned by Russia, Prussia and Austria"],
@@ -207,7 +207,7 @@ window.POLITICS.addUnit("pl", {
         { type: "image", kind: "illustration", src: "img/pl/pl-10-hero.webp",
           alt: "Illustration of a city of ruined buildings under a smoky sky, with the shell of a church tower standing among the rubble.",
           caption: "Warsaw was about 85% destroyed by the end of the war.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A ruined European city of shattered brick buildings under a smoky grey sky, the gutted shell of a church tower standing among mountains of rubble, winter light, silent and devastated, no people, no flags, no legible text." },
         { type: "facts", head: "Poland's war", rows: [
           ["Invaded", "1 September 1939 by Germany; 17 September by the USSR"],
@@ -256,7 +256,7 @@ window.POLITICS.addUnit("pl", {
         { type: "image", kind: "illustration", src: "img/pl/pl-11-hero.webp",
           alt: "Illustration of a misty birch forest in early spring with candles and flowers laid on the ground in the foreground.",
           caption: "Mourners laid candles for the victims of the crash near Smolensk, in western Russia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A misty birch forest in early spring, rows of small glowing candles in red and white glass holders and bunches of flowers laid on the damp ground in the foreground, grey morning light, grief and silence, no people, no legible text." },
         { type: "facts", head: "The disaster", rows: [
           ["Date", "10 April 2010"],
@@ -305,7 +305,7 @@ window.POLITICS.addUnit("pl", {
         { type: "image", kind: "illustration", src: "img/pl/pl-4-hero.webp",
           alt: "Illustration of a classical palace on a Warsaw avenue at night, with a statue of a horseman in front and lamps along the street.",
           caption: "The Presidential Palace in Warsaw, from which Nawrocki has issued a record number of vetoes.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A neoclassical palace on a wide city avenue at night, a bronze equestrian statue in front, street lamps glowing along the pavement, a few passers-by in coats, light snow, dignified and cold, no flags or legible text." },
         { type: "people", head: "Six to know", items: [
           { name: "Donald Tusk", role: "Prime minister, since December 2023",
@@ -360,7 +360,7 @@ window.POLITICS.addUnit("pl", {
         { type: "image", kind: "illustration", src: "img/pl/pl-5-hero.webp",
           alt: "Illustration of a row of modern tanks on a snowy training ground at dawn, with a forest edge and soldiers in winter gear.",
           caption: "Poland is building one of the largest land armies in Europe.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A row of modern main battle tanks on a snowy military training ground at dawn, a dark pine forest edge, soldiers in winter camouflage seen from behind, vapour in the cold air, pale sunrise, powerful and still, no insignia or legible markings." },
         { type: "section", head: "What happened", md:
           "On the night of 9–10 September 2025, around 20 Russian drones crossed into Polish airspace during an attack on western Ukraine. Polish and allied jets shot some of them down, the first time NATO aircraft had fired on Russian military assets over alliance territory in the war. Poland asked for NATO consultations under Article 4. In November 2025 an explosion damaged a railway line used to carry aid to Ukraine, which Warsaw blamed on saboteurs working for Russia.\n\n" +
@@ -410,7 +410,7 @@ window.POLITICS.addUnit("pl", {
         { type: "image", kind: "illustration", src: "img/pl/pl-6-hero.webp",
           alt: "Illustration of a modern court building with tall columns in Warsaw at dusk, with a small crowd holding candles on the steps.",
           caption: "Protests in defence of judicial independence were a feature of the PiS years.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large modern court building with tall green columns at dusk, a small crowd seen from behind holding candles on the wide steps, blue evening light, quiet and determined, no legible text or signs." },
         { type: "section", head: "What happened", md:
           "Between 2015 and 2023, PiS reshaped Poland's courts. It filled the Constitutional Tribunal with its own appointees, including judges chosen for seats that had already been filled, took control of the National Council of the Judiciary (KRS), which nominates judges, and created a disciplinary chamber to punish judges. The EU's Court of Justice ruled against several reforms and Brussels froze billions in funds.\n\n" +
@@ -456,7 +456,7 @@ window.POLITICS.addUnit("pl", {
         { type: "image", kind: "illustration", src: "img/pl/pl-7-hero.webp",
           alt: "Illustration of a polling station in a Polish village school gymnasium, with voters queueing at wooden booths.",
           caption: "Turnout in the 2023 election, 74%, was the highest since the fall of communism.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small school gymnasium in a Polish village set up as a polling station, voters of different ages queueing at simple wooden booths with curtains, a ballot box on a table, autumn light through high windows, calm civic mood, no legible text." },
         { type: "section", head: "What happened", md:
           "Polls through 2026 put Tusk's Civic Coalition first, 11 to 15 points ahead of PiS in September. But its partners, the Third Way and The Left, are struggling to reach the thresholds for seats. On the right, PiS is weaker than before, while the Confederation and Grzegorz Braun's Confederation of the Polish Crown have grown.\n\n" +
@@ -501,7 +501,7 @@ window.POLITICS.addUnit("pl", {
         { type: "image", kind: "illustration", src: "img/pl/pl-12-hero.webp",
           alt: "Illustration of a modern city skyline of glass towers beside a grand socialist-realist palace with a spire, at dusk.",
           caption: "Warsaw's skyline, where new towers rise around the Stalin-era Palace of Culture and Science.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern city skyline of glass skyscrapers at dusk rising around a massive socialist-realist palace with a tall spire, lit windows, a wide avenue with light trails, confident and dynamic, no people close up, no legible text or logos." },
         { type: "facts", head: "The miracle in numbers", rows: [
           ["Shock therapy", "The Balcerowicz plan, January 1990"],
@@ -550,7 +550,7 @@ window.POLITICS.addUnit("pl", {
         { type: "image", kind: "illustration", src: "img/pl/pl-8-hero.webp",
           alt: "Illustration of Warsaw's skyline at sunset, with glass towers beside a tall wedding-cake-style Soviet-era palace.",
           caption: "Warsaw's skyline, where glass towers now surround the Palace of Culture, Stalin's 'gift' to Poland.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A city skyline at sunset with modern glass skyscrapers surrounding a tall ornate 1950s socialist-realist palace tower, a river in the foreground with a bridge, warm orange and pink sky, sense of transformation, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Tusk's coalition holds a Sejm majority but not the three-fifths needed to beat vetoes.\n" +

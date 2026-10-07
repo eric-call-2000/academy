@@ -22,7 +22,7 @@ window.POLITICS.addUnit("ir_cn", {
         { type: "image", kind: "illustration", src: "img/ir_cn/ir_cn-1-hero.webp",
           alt: "Illustration of a tanker burning at sea in the 1980s, with a missile trail in the sky above.",
           caption: "Iran fired Chinese-made Silkworm missiles at shipping in the Gulf during the Iran–Iraq war.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An oil tanker on fire at sea in the Persian Gulf in the 1980s, black smoke rising, a white missile trail curving across a hazy sky, a small patrol boat nearby, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Old ties", items: [
           ["Aug 1971", "Iran recognises the People's Republic"],
@@ -74,7 +74,7 @@ window.POLITICS.addUnit("ir_cn", {
         { type: "image", kind: "illustration", src: "img/ir_cn/ir_cn-2-hero.webp",
           alt: "Illustration of two rusty oil tankers side by side at sea, transferring oil through hoses at night.",
           caption: "Iranian oil reaches China through ship-to-ship transfers and a 'shadow fleet' of old tankers.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Two old rusty oil tankers moored side by side on a calm dark sea at night, thick hoses between them, deck lights glowing, a distant coastline with refinery lights, documentary painting style, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Customer of last resort", items: [
           ["2006–10", "China votes for UN sanctions on Iran's nuclear programme"],
@@ -127,7 +127,7 @@ window.POLITICS.addUnit("ir_cn", {
         { type: "image", kind: "illustration", src: "img/ir_cn/ir_cn-3-hero.webp",
           alt: "Illustration of a crowded refinery complex on a flat coast, with storage tanks and idle flare stacks under a grey sky.",
           caption: "China's independent 'teapot' refineries in Shandong buy most of Iran's oil.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A dense oil refinery complex on a flat grey coast, rows of storage tanks, tall columns and idle flare stacks, a few tankers at a jetty, overcast sky, documentary painting style, no people, no logos, no flags, no legible text." },
         { type: "timeline", head: "War and the oil squeeze", items: [
           ["28 Feb 2026", "US–Israeli strikes kill Ali Khamenei"],

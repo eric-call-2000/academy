@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_ar", {
         { type: "image", kind: "illustration", src: "img/us_ar/us_ar-1-hero.webp",
           alt: "Illustration of a huge crowd filling a plaza in front of a pink government palace in Buenos Aires in the 1940s.",
           caption: "Perón turned an American ambassador's opposition into a campaign slogan in 1946.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge 1940s crowd filling a plaza in front of a pink neoclassical government palace in Buenos Aires, men in hats, banners without text, palm trees, sunny sky, historical documentary painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "A pendulum", items: [
           ["1945", "Ambassador Spruille Braden campaigns against Perón"],
@@ -74,7 +74,7 @@ window.POLITICS.addUnit("us_ar", {
         { type: "image", kind: "illustration", src: "img/us_ar/us_ar-2-hero.webp",
           alt: "Illustration of a large grey naval training ship tied up at a foreign port, with officials on the dock.",
           caption: "In 2012 a creditor had an Argentine navy ship impounded in Ghana.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A tall three-masted naval training sailing ship tied up at a tropical African port, officials with documents on the dock, cranes and containers behind, hazy afternoon light, documentary painting style, no faces close up, no flags, no legible text." },
         { type: "timeline", head: "Debt and Washington", items: [
           ["Dec 2001", "Argentina defaults on about $100 billion"],
@@ -127,7 +127,7 @@ window.POLITICS.addUnit("us_ar", {
         { type: "image", kind: "illustration", src: "img/us_ar/us_ar-3-hero.webp",
           alt: "Illustration of gas processing plants and pipelines across a dry Patagonian plain at sunset.",
           caption: "Most of the new US financing is for a gas export project in Vaca Muerta.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Gas processing plants, drilling rigs and long pipelines stretching across a dry flat Patagonian plain at sunset, distant hills, orange sky, documentary painting style, no people, no logos, no flags, no legible text." },
         { type: "timeline", head: "A rescue and its rewards", items: [
           ["Apr 2025", "IMF approves a $20 billion programme"],

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("mx_br", {
         { type: "image", kind: "illustration", src: "img/mx_br/mx_br-1-hero.webp",
           alt: "Illustration of a 1940s fighter plane flying over a green tropical island, with other planes in formation.",
           caption: "Mexico's Squadron 201, the 'Aztec Eagles', fought in the Philippines in 1945.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A 1940s propeller fighter plane flying over a green tropical island with jungle and a bay, other fighters in formation behind it, puffy clouds, historical documentary painting style, no people visible, no markings, no flags, no legible text." },
         { type: "timeline", head: "Parallel lives", items: [
           ["1821–22", "Mexico and Brazil both become independent"],
@@ -74,7 +74,7 @@ window.POLITICS.addUnit("mx_br", {
         { type: "image", kind: "illustration", src: "img/mx_br/mx_br-2-hero.webp",
           alt: "Illustration of a modern regional passenger jet on a runway in a dry landscape with mountains.",
           caption: "Brazil's Embraer builds parts in Mexico and sells jets to Mexican airlines.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern white regional passenger jet taxiing on a runway in a dry northern Mexican landscape with brown mountains behind, clear blue sky, documentary painting style, no people, no logos, no flags, no legible text." },
         { type: "timeline", head: "Building trade", items: [
           ["2002", "ACE 53 and ACE 55 trade agreements"],
@@ -128,7 +128,7 @@ window.POLITICS.addUnit("mx_br", {
         { type: "image", kind: "illustration", src: "img/mx_br/mx_br-3-hero.webp",
           alt: "Illustration of a fork in a road through green hills, one path heading north and one south.",
           caption: "Mexico and Brazil have taken different roads between Washington and Beijing.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A country road forking into two paths through green rolling hills, one heading toward a distant city to the north and one toward distant mountains to the south, late afternoon light, documentary painting style, no people, no flags, no legible text." },
         { type: "timeline", head: "Same pressures, different answers", items: [
           ["Aug 2024", "Brazil, Mexico and Colombia call on Venezuela to publish vote tallies"],

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("id_cn", {
         { type: "image", kind: "illustration", src: "img/id_cn/id_cn-1-hero.webp",
           alt: "Illustration of a colonial-era meeting hall in Bandung with delegates arriving and flags on poles without markings.",
           caption: "Zhou Enlai attended the Asian–African Conference in Bandung in April 1955.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A white 1920s art-deco meeting hall in a tropical city, 1950s delegates in suits and robes arriving in a crowd, old cars parked outside, palm trees and blue sky, historical painting style, faces not in close-up, plain empty flagpoles, no legible text." },
         { type: "timeline", head: "Friendship and rupture", items: [
           ["13 Apr 1950", "Indonesia establishes relations with the People's Republic"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("id_cn", {
         { type: "image", kind: "illustration", src: "img/id_cn/id_cn-2-hero.webp",
           alt: "Illustration of a sprawling industrial park with smelter chimneys on a tropical coast beside green hills.",
           caption: "The Chinese-backed Morowali industrial park in Sulawesi processes nickel for batteries and steel.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A sprawling industrial park with smelter chimneys and smoke on a tropical coast, green jungle-covered hills behind, a jetty with bulk carriers, hazy humid light, wide aerial documentary view, no people, no logos, no flags, no legible text." },
         { type: "facts", head: "China and Indonesian industry", rows: [
           ["Nickel ore export ban", "Announced 2019, in force from January 2020"],
@@ -123,7 +123,7 @@ window.POLITICS.addUnit("id_cn", {
         { type: "image", kind: "illustration", src: "img/id_cn/id_cn-3-hero.webp",
           alt: "Illustration of a grey coastguard ship shadowing a fishing boat on a blue sea near green islands.",
           caption: "Indonesian and Chinese coastguard ships have faced off off the Natuna Islands.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grey coastguard patrol ship shadowing a large fishing trawler on a deep blue tropical sea, small green islands with white beaches in the distance, bright sunlight and scattered clouds, tense documentary mood, no flags, no markings, no legible text." },
         { type: "timeline", head: "A disputed sea", items: [
           ["2016", "Jokowi holds a cabinet meeting on a warship off Natuna"],

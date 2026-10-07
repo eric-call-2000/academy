@@ -22,7 +22,7 @@ window.POLITICS.addUnit("pl_ru", {
         { type: "image", kind: "illustration", src: "img/pl_ru/pl_ru-1-hero.webp",
           alt: "Illustration of cavalry charging across a misty plain towards a river, with a town's church spires behind.",
           caption: "In August 1920 Polish forces defeated the Red Army outside Warsaw.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Early twentieth-century cavalry and infantry advancing across a misty flat plain towards a river, church spires of a town on the horizon, smoke in the sky, dramatic historical oil painting style, faces not visible, no flags, no legible text." },
         { type: "timeline", head: "Centuries of conflict", items: [
           ["1610", "Polish troops occupy Moscow during Russia's 'Time of Troubles'"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("pl_ru", {
         { type: "image", kind: "illustration", src: "img/pl_ru/pl_ru-2-hero.webp",
           alt: "Illustration of a quiet birch forest in autumn with a row of simple crosses among the trees.",
           caption: "Polish officers were shot and buried in the Katyń forest near Smolensk in 1940.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A quiet birch forest in autumn with white trunks and golden leaves, a row of simple crosses among the trees, mist on the ground, soft grey light, solemn mood, no people, no flags, no legible text." },
         { type: "timeline", head: "Wounds of the 20th century", items: [
           ["17 Sep 1939", "The Soviet Union invades eastern Poland"],
@@ -121,7 +121,7 @@ window.POLITICS.addUnit("pl_ru", {
         { type: "image", kind: "illustration", src: "img/pl_ru/pl_ru-3-hero.webp",
           alt: "Illustration of a railway line through a pine forest with a damaged section of track and investigators in the distance.",
           caption: "In November 2025 an explosion damaged the railway between Warsaw and Lublin.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A railway line running straight through a pine forest, a damaged buckled section of track in the foreground, police tape and small distant figures of investigators, grey overcast November light, tense documentary mood, no faces, no flags, no legible text." },
         { type: "timeline", head: "On the front line", items: [
           ["2022", "Poland takes in millions of Ukrainian refugees and arms Ukraine"],

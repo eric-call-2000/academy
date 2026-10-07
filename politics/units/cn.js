@@ -110,7 +110,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-9-hero.webp",
           alt: "Illustration of a vast red gate tower with golden roofs above a huge empty square in autumn light.",
           caption: "Tiananmen, the Gate of Heavenly Peace, where Mao proclaimed the People's Republic on 1 October 1949.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast red imperial gate tower with sweeping golden-tiled roofs above a huge empty stone square, autumn morning light, a few distant figures, monumental and solemn, no portraits, no flags, no legible text." },
         { type: "timeline", head: "From empire to People's Republic", items: [
           ["1839–42", "First Opium War with Britain"],
@@ -161,7 +161,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-3-hero.webp",
           alt: "Illustration of a vast city square at dawn, empty, with a long red gatehouse under grey sky and pigeons rising.",
           caption: "Tiananmen Square has seen the founding of the People's Republic, mass rallies and the crackdown of 1989.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast, empty city square at dawn seen from ground level, a long red gatehouse with a tiled roof in the distance, grey sky, a flock of pigeons rising, puddles reflecting the light, stillness and scale." },
         { type: "timeline", head: "The short version", items: [
           ["1949", "Mao Zedong's Communists win the civil war and found the People's Republic"],
@@ -209,7 +209,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-10-hero.webp",
           alt: "Illustration of a row of small clay backyard furnaces glowing in a bare village at dusk, with leafless trees.",
           caption: "During the Great Leap Forward, villages melted down pots and tools in backyard furnaces to meet steel quotas.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A bare rural village at dusk, a row of small crude clay backyard furnaces glowing orange with smoke rising, leafless trees, empty dry fields beyond, a sense of desperation and waste, figures only in the far distance, no legible text." },
         { type: "facts", head: "Two catastrophes", rows: [
           ["Great Leap Forward", "1958–62"],
@@ -260,7 +260,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-11-hero.webp",
           alt: "Illustration of a wide empty avenue at night with streetlights, a line of bicycles abandoned by the kerb and scattered papers blowing in the wind.",
           caption: "Chang'an Avenue, Beijing's main boulevard, where troops advanced on the night of 3–4 June 1989.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A very wide empty city avenue at night under orange streetlights, a row of abandoned bicycles by the kerb, scattered leaflets blowing across the asphalt, dark buildings, eerie and sorrowful, no people, no vehicles, no legible text." },
         { type: "timeline", head: "Spring 1989", items: [
           ["15 April", "Death of the reformist leader Hu Yaobang; students gather"],
@@ -309,7 +309,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-4-hero.webp",
           alt: "Illustration of a long, empty conference hall with rows of red-draped tables beneath a huge ceiling of lights.",
           caption: "China's leaders are rarely seen arguing in public. Their decisions come out of closed meetings like the Party's plenums.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast, empty ceremonial conference hall with long rows of tables draped in red cloth, identical white teacups laid out, a ceiling studded with hundreds of small lights, a single attendant seen from far away adjusting a chair, hush and order." },
         { type: "people", head: "Six to know", items: [
           { name: "Xi Jinping", role: "General secretary of the Communist Party, president, chair of the Central Military Commission",
@@ -363,7 +363,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-5-hero.webp",
           alt: "Illustration of a giant container port at night, cranes lit up, with a lone cargo ship waiting offshore.",
           caption: "Trade between the US and China fell sharply during the 2025 tariff war, then partly recovered under a truce.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A giant container port at night seen from a hill, rows of gantry cranes lit orange, stacks of containers in muted colours, one large cargo ship waiting offshore under a hazy moon, a sense of pause." },
         { type: "section", head: "What happened", md:
           "In April 2025, as [[unit:us]] imposed [[tariff|tariffs]] on almost every country, the United States and China escalated against each other until US tariffs on Chinese goods reached 145% and China's on American goods 125%. Trade between them nearly froze.\n\n" +
@@ -416,7 +416,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-6-hero.webp",
           alt: "Illustration of rows of unfinished apartment towers at dusk, cranes standing still, with a bright new electric-car factory in the foreground.",
           caption: "Two economies in one: an unfinished housing boom, and new industries racing ahead.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rows of identical unfinished concrete apartment towers at dusk with idle cranes and empty windows, and in the foreground a bright, modern factory with rows of new electric cars under white light, a quiet contrast between old and new." },
         { type: "section", head: "What happened", md:
           "For two decades, building homes and infrastructure drove China's growth. That ended when the government cracked down on debt-fuelled developers in 2020. Giants such as Evergrande collapsed, home prices fell for years, and families, who hold much of their wealth in property, felt poorer and spent less.\n\n" +
@@ -469,7 +469,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-7-hero.webp",
           alt: "Illustration of a line of grey warships on a hazy sea at dawn, seen from a distant coastline.",
           caption: "China's navy is now the world's largest by number of ships. In December 2025 it rehearsed a blockade of Taiwan.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A line of grey warships on a hazy, calm sea at dawn, seen from a distant rocky coastline, a patrol aircraft as a small silhouette overhead, muted blues and greys, tension without combat." },
         { type: "section", head: "What happened: the purge", md:
           "In October 2025 the Party expelled He Weidong, a vice chair of the [[Central Military Commission]], and eight other senior generals for corruption. In January 2026 it announced investigations into the most senior uniformed officer of all, Zhang Youxia, a long-time Xi ally, and into Liu Zhenli, head of the Joint Staff. Zhang was later removed from the commission.\n\n" +
@@ -515,7 +515,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-12-hero.webp",
           alt: "Illustration of a high mountain plateau with a white-walled monastery on a hillside, prayer flags fluttering and snow peaks behind.",
           caption: "The Tibetan plateau, where China has ruled since 1950.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast high mountain plateau under a deep blue sky, a white-walled monastery with dark red trim on a hillside, strings of faded prayer flags fluttering in the wind, snow-capped peaks beyond, serene and remote, no people close up, no legible text." },
         { type: "facts", head: "Three frontiers", rows: [
           ["Tibet", "Under Chinese rule since 1950; the Dalai Lama in exile in India since 1959"],
@@ -563,7 +563,7 @@ window.POLITICS.addUnit("cn", {
         { type: "image", kind: "illustration", src: "img/cn/cn-8-hero.webp",
           alt: "Illustration of a modern southern Chinese city skyline at dusk across a bay, lights coming on.",
           caption: "Shenzhen, where China hosts APEC's leaders in November 2026, grew from a fishing town into a tech capital in four decades.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern coastal city skyline at dusk seen across a calm bay, glass towers catching the last light, ferries crossing, mountains behind in haze, no legible signs, a feeling of energy and scale." },
         { type: "section", head: "The state of play", md:
           "- **Washington:** a trade truce to 10 January 2027 after two state visits in 2026, but rivalry over chips, AI and [[unit:tw]] continues.\n" +

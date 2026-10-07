@@ -21,7 +21,7 @@ window.POLITICS.addUnit("ir_pk", {
         { type: "image", kind: "illustration", src: "img/ir_pk/ir_pk-1-hero.webp",
           alt: "Illustration of a mosque with a turquoise tiled dome and minarets in a dusty desert town, with mountains behind.",
           caption: "Iran and Pakistan share Islam, Persian-influenced culture and poetry, but differ in their dominant sects.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A mosque with a turquoise tiled dome and two slender minarets in a dusty desert town, low mud-brick houses, rugged brown mountains behind, warm late-afternoon light, peaceful, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From friends to wary neighbours", items: [
           ["14 Aug 1947", "Iran is the first country to recognise Pakistan"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("ir_pk", {
         { type: "image", kind: "illustration", src: "img/ir_pk/ir_pk-2-hero.webp",
           alt: "Illustration of a barren desert borderland with a long fence and a watchtower running across rocky hills.",
           caption: "Iran and Pakistan share a 900-kilometre border through the deserts and mountains of Balochistan.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A barren desert borderland with a long wire fence and a lonely stone watchtower running across rocky brown hills, a dirt track alongside, harsh sunlight and dust haze, remote and tense, no people, no flags, no legible text." },
         { type: "timeline", head: "Across the border", items: [
           ["2012", "Jaish al-Adl formed, fighting Iran from Baloch areas"],
@@ -124,7 +124,7 @@ window.POLITICS.addUnit("ir_pk", {
         { type: "image", kind: "illustration", src: "img/ir_pk/ir_pk-3-hero.webp",
           alt: "Illustration of a large gas pipeline ending abruptly in a desert, with rusting sections of pipe stacked beside it.",
           caption: "Iran says it built its side of the pipeline to the border; Pakistan's side was never built.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large steel gas pipeline running across a flat desert and ending abruptly, rusting sections of unused pipe stacked beside it, distant mountains, dusty haze, abandoned and symbolic, no people, no flags, no legible text." },
         { type: "facts", head: "The pipeline", rows: [
           ["Agreed", "2009–10, after years of talks that once included India"],

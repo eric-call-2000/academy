@@ -21,7 +21,7 @@ window.POLITICS.addUnit("jp_ru", {
         { type: "image", kind: "illustration", src: "img/jp_ru/jp_ru-1-hero.webp",
           alt: "Illustration of rugged volcanic islands rising from a cold grey sea under low clouds.",
           caption: "Japan calls the four islands the Northern Territories; Russia calls them the southern Kurils.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rugged volcanic islands with a snow-capped cone rising from a cold grey-blue sea under low heavy clouds, rocky shoreline with drifting sea ice, a small fishing boat far away, bleak and beautiful northern mood, no people, no flags, no legible text." },
         { type: "timeline", head: "A border that moved", items: [
           ["1855", "Treaty of Shimoda: border drawn north of Etorofu"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("jp_ru", {
         { type: "image", kind: "illustration", src: "img/jp_ru/jp_ru-2-hero.webp",
           alt: "Illustration of a traditional Japanese hot-spring inn in winter, with snow on the roof and steam rising from an outdoor bath.",
           caption: "Abe hosted Putin at a hot-spring resort in his home town of Nagato in December 2016.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A traditional Japanese hot-spring inn in winter with snow on its curved tiled roofs, steam rising from an outdoor stone bath, pine trees and a small garden, lanterns glowing at dusk, calm and elegant mood, no people, no flags, no legible text." },
         { type: "timeline", head: "Hopes and failure", items: [
           ["Nov 2010", "Medvedev visits Kunashiri, the first Russian leader on the islands"],
@@ -117,7 +117,7 @@ window.POLITICS.addUnit("jp_ru", {
         { type: "image", kind: "illustration", src: "img/jp_ru/jp_ru-3-hero.webp",
           alt: "Illustration of a liquefied natural gas tanker with large round tanks sailing through icy grey water.",
           caption: "Gas from Sakhalin-2 still supplies about a tenth of Japan's liquefied natural gas.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A liquefied natural gas tanker with four large white spherical tanks sailing through icy grey northern water, snowy coastal mountains behind, pale winter light, documentary style, no people, no logos, no flags, no legible text." },
         { type: "timeline", head: "A deep freeze", items: [
           ["Feb–Mar 2022", "Japan joins Western sanctions on Russia"],

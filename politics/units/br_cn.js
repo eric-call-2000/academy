@@ -21,7 +21,7 @@ window.POLITICS.addUnit("br_cn", {
         { type: "image", kind: "illustration", src: "img/br_cn/br_cn-1-hero.webp",
           alt: "Illustration of combine harvesters working across an enormous soybean field under a big sky, with trucks waiting.",
           caption: "Most of Brazil's soybean exports go to China, to feed its pigs and poultry.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several green combine harvesters working in a line across an enormous flat golden soybean field in central Brazil, grain trucks waiting at the edge, huge blue sky with white clouds, red earth track, wide documentary view, no logos, no flags, no legible text." },
         { type: "timeline", head: "Building the partnership", items: [
           ["15 Aug 1974", "Brazil's military government establishes relations with Beijing"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("br_cn", {
         { type: "image", kind: "illustration", src: "img/br_cn/br_cn-2-hero.webp",
           alt: "Illustration of rows of vaccine vials on a laboratory production line under bright light.",
           caption: "Brazil's first Covid vaccine was a Chinese one, produced with the Butantan Institute in São Paulo.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rows of small glass vaccine vials with blue caps moving along a stainless steel laboratory production line under bright white light, gloved hands in the background, clean clinical mood, no logos, no flags, no legible text." },
         { type: "timeline", head: "From hostility to pragmatism", items: [
           ["28 Feb 2018", "Candidate Bolsonaro visits Taiwan; Beijing protests"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("br_cn", {
         { type: "image", kind: "illustration", src: "img/br_cn/br_cn-3-hero.webp",
           alt: "Illustration of a new car factory in a tropical landscape with rows of electric cars outside.",
           caption: "China's BYD is building its biggest car plant outside Asia in Camaçari, in Bahia.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large new white car factory in a green tropical landscape with palm trees, rows of new electric cars parked outside, a charging station, bright sun and scattered clouds, modern documentary style, no logos, no flags, no legible text." },
         { type: "timeline", head: "A closer embrace", items: [
           ["Apr 2023", "Lula visits Beijing early in his third term"],

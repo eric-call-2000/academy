@@ -20,7 +20,7 @@ window.POLITICS.addUnit("ca_cn", {
         { type: "image", kind: "illustration", src: "img/ca_cn/ca_cn-1-hero.webp",
           alt: "Illustration of workers laying a railway track through steep forested mountains in the 1880s.",
           caption: "Thousands of Chinese labourers worked on the Canadian Pacific Railway through British Columbia's mountains.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Nineteenth-century labourers in wide hats laying a wooden-sleeper railway track along a steep forested mountainside, a rough trestle bridge over a river gorge, misty snow-capped peaks, sepia-toned historical painting style, no legible text." },
         { type: "timeline", head: "From exclusion to recognition", items: [
           ["1881–85", "Chinese labourers help build the Canadian Pacific Railway"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("ca_cn", {
         { type: "image", kind: "illustration", src: "img/ca_cn/ca_cn-2-hero.webp",
           alt: "Illustration of an airport runway at night with a passenger jet taking off under floodlights.",
           caption: "On 24 September 2021 Meng flew home to China, and the two Michaels flew home to Canada.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A passenger jet taking off from an airport runway at night under bright floodlights, wet tarmac reflecting the lights, a second plane waiting in the distance, quiet dramatic mood, no people, no airline logos, no flags, no legible text." },
         { type: "timeline", head: "1,020 days", items: [
           ["1 Dec 2018", "Meng Wanzhou arrested in Vancouver at US request"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("ca_cn", {
         { type: "image", kind: "illustration", src: "img/ca_cn/ca_cn-3-hero.webp",
           alt: "Illustration of a vast yellow canola field on the prairies with grain elevators and a line of electric cars on a road.",
           caption: "The 2026 deal traded lower Chinese tariffs on canola for a quota of Chinese electric cars.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast bright yellow canola field on the Canadian prairies under a big blue sky, old wooden grain elevators on the horizon, a straight road with a line of sleek modern electric cars, crisp summer light, no people close up, no flags, no logos, no legible text." },
         { type: "facts", head: "The January 2026 deal", rows: [
           ["Chinese EVs", "Up to 49,000 a year at a 6.1% tariff, rising to about 70,000"],

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("in_pk", {
         { type: "image", kind: "illustration", src: "img/in_pk/in_pk-1-hero.webp",
           alt: "Illustration of a remote desert test range at dawn, with a distant plume of dust rising above flat sand and scrub.",
           caption: "India tested nuclear weapons in the Rajasthan desert in May 1998; Pakistan answered within weeks.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A remote flat desert test range at dawn, sparse scrub and sand, a distant plume of dust rising from the ground on the horizon, pale orange sky, silent and ominous atmosphere, no people, no flags, no legible text." },
         { type: "timeline", head: "The crisis cycle", items: [
           ["May 1998", "India, then Pakistan, test nuclear weapons"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("in_pk", {
         { type: "image", kind: "illustration", src: "img/in_pk/in_pk-2-hero.webp",
           alt: "Illustration of a wide river flowing out of snowy Himalayan mountains into a green plain, with a concrete barrage and irrigation canals.",
           caption: "The Indus rivers rise in the Himalayas and water most of Pakistan's farms.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wide turquoise river flowing out of snow-capped Himalayan mountains into a green agricultural plain, a long concrete barrage across the river with sluice gates, irrigation canals branching into wheat fields, clear morning light, vast and vital, no people up close, no flags, no legible text." },
         { type: "facts", head: "The treaty", rows: [
           ["Signed", "19 September 1960, in Karachi, brokered by the World Bank"],
@@ -122,7 +122,7 @@ window.POLITICS.addUnit("in_pk", {
         { type: "image", kind: "illustration", src: "img/in_pk/in_pk-3-hero.webp",
           alt: "Illustration of a border gate on a tree-lined road at sunset, with two ornate gates facing each other and empty grandstands on both sides.",
           caption: "Attari–Wagah, the only road crossing, was closed to travel and trade after April 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A border crossing on a straight tree-lined road at sunset, two ornate iron gates facing each other a short distance apart, empty tiered grandstands on both sides, long golden shadows, quiet and melancholy, no people, no flags, no legible text." },
         { type: "facts", head: "A closed frontier", rows: [
           ["Direct trade", "Suspended by both sides since 2025; most trade already routed via Dubai"],

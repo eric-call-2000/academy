@@ -111,7 +111,7 @@ function checkPicture(where, b, lesson) {
   if (b.type === "image") {
     if (b.kind !== "illustration" && b.kind !== "photo") err(where, "image kind must be 'illustration' or 'photo'");
     if (b.kind === "illustration") {
-      if (!/AI illustration/.test(b.credit || "")) err(where, "AI illustrations must be credited 'AI illustration — not a photograph'");
+      if (!/^(AI illustration|Illustration) — not a photograph$/.test(b.credit || "")) err(where, "illustrations must be credited 'Illustration — not a photograph' (drawn) or 'AI illustration — not a photograph'");
       if (!b.prompt || P.words(b.prompt) < 12) err(where, "AI illustration needs a scene prompt of at least 12 words");
     }
     if (b.kind === "photo" && !/licen[cs]e|public domain|CC /i.test(b.credit || "")) err(where, "photos must name their licence in the credit");

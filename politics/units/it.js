@@ -110,7 +110,7 @@ window.POLITICS.addUnit("it", {
         { type: "image", kind: "illustration", src: "img/it/it-9-hero.webp",
           alt: "Illustration of a line of volunteers in red shirts seen from behind marching along a dusty Sicilian road toward a hill town at sunset.",
           caption: "Garibaldi's 'Thousand' landed in Sicily in 1860 and conquered the south for the new Italy.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long line of 19th-century volunteers in red shirts seen from behind marching along a dusty road through olive groves toward a hilltop town in Sicily at sunset, warm golden light, heroic and romantic, no faces visible, no flags, no legible text." },
         { type: "timeline", head: "Making Italy", items: [
           ["1815", "Congress of Vienna restores a divided Italy"],
@@ -161,7 +161,7 @@ window.POLITICS.addUnit("it", {
         { type: "image", kind: "illustration", src: "img/it/it-3-hero.webp",
           alt: "Illustration of a Roman piazza at dusk with a baroque church, a crowd gathered around a stage, and scooters parked at the edge.",
           caption: "Italian politics has been reinvented repeatedly since 1946, often from the piazza.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A Roman piazza at dusk with a baroque church facade and an obelisk, a crowd gathered in front of a small stage with warm lights, scooters parked along the edge, terracotta buildings, an energetic but ordinary evening, no legible banners or flags." },
         { type: "timeline", head: "The short version", items: [
           ["1946", "Italians vote to abolish the monarchy"],
@@ -209,7 +209,7 @@ window.POLITICS.addUnit("it", {
         { type: "image", kind: "illustration", src: "img/it/it-10-hero.webp",
           alt: "Illustration of a stark white marble building with rows of identical arches in a severe geometric style, under a clear blue sky.",
           caption: "Fascist architecture in Rome's EUR district, built for a world's fair planned for 1942.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A stark white travertine building with many rows of identical arches in a severe geometric rationalist style, under a clear deep blue sky, long shadows, empty square in front, imposing and cold, no people, no legible text." },
         { type: "facts", head: "The Fascist era", rows: [
           ["March on Rome", "October 1922"],
@@ -261,7 +261,7 @@ window.POLITICS.addUnit("it", {
         { type: "image", kind: "illustration", src: "img/it/it-11-hero.webp",
           alt: "Illustration of a motorway through dry Sicilian hills with a simple memorial of two columns beside the road and flowers at their base.",
           caption: "Near Capaci in Sicily, where Judge Giovanni Falcone was killed by a bomb under the motorway in May 1992.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A motorway through dry golden Sicilian hills near the sea, a simple memorial of two tall red columns beside the road with flowers at their base, bright afternoon light, solemn and quiet, no people, no legible text." },
         { type: "timeline", head: "A decade of upheaval", items: [
           ["1986–87", "The Maxi Trial convicts 338 mafiosi"],
@@ -311,7 +311,7 @@ window.POLITICS.addUnit("it", {
         { type: "image", kind: "illustration", src: "img/it/it-4-hero.webp",
           alt: "Illustration of a grand Roman palazzo housing the prime minister's office, with a colonnade and a guard at the door, at golden hour.",
           caption: "Palazzo Chigi in Rome, the seat of the Italian prime minister.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand ochre Roman palazzo facing a square with an ancient carved column, golden hour light, a ceremonial guard at a tall wooden door, a few pedestrians and a tram, warm and dignified, no legible text or flags." },
         { type: "people", head: "Six to know", items: [
           { name: "Giorgia Meloni", role: "Prime minister, since October 2022",
@@ -366,7 +366,7 @@ window.POLITICS.addUnit("it", {
         { type: "image", kind: "illustration", src: "img/it/it-5-hero.webp",
           alt: "Illustration of the steps and columns of a monumental Italian courthouse under a grey sky, with lawyers in dark robes climbing the steps.",
           caption: "The justice reform would have changed how Italy's judges and prosecutors are appointed and disciplined.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The monumental white stone steps and columns of an Italian palace of justice under a grey spring sky, a few lawyers in black robes climbing the steps seen from behind, statues on the roofline, stern and solemn, no legible text." },
         { type: "section", head: "What happened", md:
           "On 22–23 March 2026 Italians voted in a constitutional referendum on the government's justice reform. It would have separated the careers of judges and prosecutors, who in Italy belong to the same profession and can switch between roles, and split the body that governs them into two. The reform lost: 53.2% voted No and 46.8% Yes.\n\n" +
@@ -412,7 +412,7 @@ window.POLITICS.addUnit("it", {
         { type: "image", kind: "illustration", src: "img/it/it-6-hero.webp",
           alt: "Illustration of a quiet southern Italian hill town at dawn, with a young person carrying a suitcase down a stone street toward a bus stop.",
           caption: "Italy's population is shrinking, and many young graduates move abroad for work.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A quiet southern Italian hill town at dawn, stone houses and a bell tower, a young person seen from behind wheeling a suitcase down a steep cobbled street toward a small bus stop, soft pink light, washing lines, bittersweet, no legible text." },
         { type: "section", head: "What happened", md:
           "When Meloni took office in 2022, many investors feared a spending spree. Instead her government has been cautious with money. The deficit, which hit 8% of GDP in 2022 partly because of generous building subsidies, has fallen sharply. The government's target for 2026 is 2.9% of GDP, just below the EU's 3% limit, which would allow Italy to leave the EU's [[excessive deficit procedure]]. Ratings agencies upgraded Italy in 2025, and the gap between Italian and German borrowing costs fell to its lowest in years." },
@@ -462,7 +462,7 @@ window.POLITICS.addUnit("it", {
         { type: "image", kind: "illustration", src: "img/it/it-7-hero.webp",
           alt: "Illustration of an Italian parliamentary chamber with curved wooden benches and a large electronic voting board lit with blank coloured lights.",
           caption: "The new electoral law has passed the Chamber and the Senate once each, and returns to the Chamber for a final vote.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An ornate Italian parliamentary chamber with curved dark wooden benches in a semicircle, a large illuminated voting board showing rows of blank green and red lights, art nouveau skylight above, members as small distant silhouettes, formal tension, no legible text or numbers." },
         { type: "section", head: "What happened", md:
           "Meloni's coalition is replacing the 2017 electoral law. The new system is proportional, but with a large 'governability bonus': whichever party or coalition wins at least 42% of the vote gets an extra 70 seats in the Chamber and 35 in the Senate, enough to guarantee a majority. Voters would also be able to pick preferred candidates, though each list's top name would still be chosen by party leaders. Coalitions need 10% to win seats, single parties 3%.\n\n" +
@@ -513,7 +513,7 @@ window.POLITICS.addUnit("it", {
         { type: "image", kind: "illustration", src: "img/it/it-12-hero.webp",
           alt: "Illustration of a small island harbour with fishing boats and a coast guard vessel at dawn, a lighthouse on the rocks and calm sea.",
           caption: "Lampedusa, an Italian island closer to Tunisia than to Sicily, where many migrant boats land.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small island harbour at dawn with colourful fishing boats and a grey coast guard vessel moored, a white lighthouse on pale rocks, calm turquoise sea, soft pink light, quiet and poignant, no people close up, no legible text." },
         { type: "facts", head: "The crossing", rows: [
           ["Peak arrivals by sea", "About 181,000 in 2016"],
@@ -562,7 +562,7 @@ window.POLITICS.addUnit("it", {
         { type: "image", kind: "illustration", src: "img/it/it-8-hero.webp",
           alt: "Illustration of a Mediterranean harbour at sunset with fishing boats, a lighthouse and a coast guard vessel on the horizon.",
           caption: "Migration across the Mediterranean remains one of Italy's defining political issues.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small Mediterranean harbour at sunset, colourful wooden fishing boats moored, a white lighthouse on the breakwater, a grey coast guard vessel far out on the horizon, warm orange sky over calm sea, peaceful but watchful, no people close up, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Meloni's coalition is intact after nearly four years, and her party still polls near 30%.\n" +

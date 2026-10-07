@@ -21,7 +21,7 @@ window.POLITICS.addUnit("de_cn", {
         { type: "image", kind: "illustration", src: "img/de_cn/de_cn-1-hero.webp",
           alt: "Illustration of a busy car factory assembly line with robot arms welding car bodies.",
           caption: "Volkswagen began building cars in Shanghai in the 1980s, and China became its largest market.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long busy car factory assembly line with orange robot arms welding silver car bodies, sparks flying, workers in overalls in the background, bright industrial lighting, clean modern documentary style, no logos, no flags, no legible text." },
         { type: "timeline", head: "Building the partnership", items: [
           ["11 Oct 1972", "West Germany and China establish diplomatic relations"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("de_cn", {
         { type: "image", kind: "illustration", src: "img/de_cn/de_cn-2-hero.webp",
           alt: "Illustration of orange industrial robot arms in a quiet factory hall.",
           caption: "Midea's 2016 takeover of the robot maker Kuka made Germany rethink Chinese investment.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Several large orange industrial robot arms standing still in a quiet clean factory hall, cool blue light through high windows, reflections on a polished floor, calm and slightly ominous mood, no people, no logos, no flags, no legible text." },
         { type: "timeline", head: "The mood shifts", items: [
           ["2016", "Midea bids for Kuka, the robot maker"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("de_cn", {
         { type: "image", kind: "illustration", src: "img/de_cn/de_cn-3-hero.webp",
           alt: "Illustration of a port with rows of new cars lined up beside a giant car-carrier ship.",
           caption: "Chinese car exports have surged while German carmakers lose ground in China.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge port terminal with thousands of new shiny cars in neat rows beside a giant car-carrier ship, cranes in the background, low evening sun, wide aerial view, documentary style, no logos, no flags, no legible text." },
         { type: "facts", head: "Trade in 2025", rows: [
           ["Total trade", "€251.8 billion, again ahead of the US (€240.5 billion)"],

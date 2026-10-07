@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_in", {
         { type: "image", kind: "illustration", src: "img/us_in/us_in-1-hero.webp",
           alt: "Illustration of a large aircraft carrier steaming across a hazy tropical bay, with fishing boats in the foreground.",
           caption: "In December 1971 the US sent the carrier Enterprise into the Bay of Bengal during India's war with Pakistan.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large grey aircraft carrier steaming across a hazy tropical bay, small wooden fishing boats in the foreground, humid pale sky, tense and historic atmosphere, seen from a distance, no flags, no legible text or hull numbers." },
         { type: "timeline", head: "Cold War distance", items: [
           ["1947", "India independent; Nehru chooses non-alignment"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("us_in", {
         { type: "image", kind: "illustration", src: "img/us_in/us_in-2-hero.webp",
           alt: "Illustration of a nuclear power station with two domed reactors on a coastline at sunset, with palm trees.",
           caption: "The 2008 deal ended decades of restrictions on nuclear trade with India.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A nuclear power station with two large domed reactor buildings on a tropical coastline at sunset, palm trees and a calm sea, orange sky, modern and peaceful, no people, no flags, no legible text." },
         { type: "timeline", head: "Building a partnership", items: [
           ["Jul 2005", "Bush and Manmohan Singh announce the nuclear deal"],
@@ -120,7 +120,7 @@ window.POLITICS.addUnit("us_in", {
         { type: "image", kind: "illustration", src: "img/us_in/us_in-3-hero.webp",
           alt: "Illustration of a modern tech office campus at dusk with glass buildings, a palm-lined walkway and people walking home.",
           caption: "Indian engineers make up a large share of the workforce at American technology companies.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern technology office campus at dusk with glass buildings lit from inside, a palm-lined walkway and a few people seen from behind walking home, warm evening light, calm and prosperous, no legible text or logos." },
         { type: "facts", head: "The human bridge", rows: [
           ["Indian-Americans", "About 5 million people"],

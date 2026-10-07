@@ -108,7 +108,7 @@ window.POLITICS.addUnit("gb", {
         { type: "image", kind: "illustration", src: "img/gb/gb-9-hero.webp",
           alt: "Illustration of a medieval stone castle on a rock above a city of old grey tenements and spires, under a moody sky.",
           caption: "Edinburgh Castle. Scotland kept its own law, church and schools after the 1707 union with England.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A medieval stone castle on top of a steep volcanic rock above an old city of tall grey stone tenements and church spires, dramatic moody sky with a shaft of sunlight, historic and proud, no people close up, no flags, no legible text." },
         { type: "timeline", head: "How the union was built", items: [
           ["1284–1542", "England conquers and annexes Wales"],
@@ -159,7 +159,7 @@ window.POLITICS.addUnit("gb", {
         { type: "image", kind: "illustration", src: "img/gb/gb-3-hero.webp",
           alt: "Illustration of white chalk cliffs above a grey sea, with a ferry heading out toward a misty horizon.",
           caption: "The 2016 referendum decided that Britain would leave the European Union; it left in January 2020.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Tall white chalk cliffs above a grey-green sea, a single ferry sailing out toward a misty horizon, seagulls, a dramatic sky with sun breaking through clouds, a sense of departure, no people close up, no flags or legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1945–60s", "Empire gives way to independence for most colonies"],
@@ -207,7 +207,7 @@ window.POLITICS.addUnit("gb", {
         { type: "image", kind: "illustration", src: "img/gb/gb-10-hero.webp",
           alt: "Illustration of a coal mine's winding tower silhouetted against a grey sky above rows of terraced houses in a valley.",
           caption: "Mining towns were at the centre of the 1984–85 strike.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A tall iron colliery winding tower silhouetted against a heavy grey sky above rows of brick terraced houses climbing a valley side, chimney smoke, damp and working-class, no people close up, no legible text." },
         { type: "facts", head: "The Thatcher years", rows: [
           ["Prime minister", "1979–1990, the longest continuous term of the 20th century"],
@@ -256,7 +256,7 @@ window.POLITICS.addUnit("gb", {
         { type: "image", kind: "illustration", src: "img/gb/gb-11-hero.webp",
           alt: "Illustration of a tall wall of corrugated steel and brick separating two rows of terraced houses in a city, under a grey sky.",
           caption: "'Peace walls' still separate some Catholic and Protestant neighbourhoods in Belfast.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A tall wall of brick topped with high steel mesh fencing running between two rows of red-brick terraced houses in a city, a grey sky, a gate in the wall, quiet and divided, no people, no flags, no murals, no legible text." },
         { type: "facts", head: "The Troubles", rows: [
           ["Years", "Late 1960s to 1998"],
@@ -305,7 +305,7 @@ window.POLITICS.addUnit("gb", {
         { type: "image", kind: "illustration", src: "img/gb/gb-4-hero.webp",
           alt: "Illustration of a black front door with a lion-head knocker on a quiet London street, with photographers waiting outside.",
           caption: "Downing Street has had six prime ministers since the 2016 referendum.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A glossy black Georgian front door with a brass lion-head knocker on a quiet London street, a row of photographers with cameras waiting behind a barrier seen from behind, soft grey morning light, iron railings, no legible numbers or text." },
         { type: "people", head: "Six to know", items: [
           { name: "Andy Burnham", role: "Prime minister and Labour leader, since July 2026",
@@ -362,7 +362,7 @@ window.POLITICS.addUnit("gb", {
         { type: "image", kind: "illustration", src: "img/gb/gb-5-hero.webp",
           alt: "Illustration of a sports hall at night during a vote count, with long tables of paper ballots and tellers counting under bright lights.",
           caption: "Counts ran through the night of 7–8 May 2026 across England, Scotland and Wales.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A school sports hall at night during an election count, long rows of trestle tables piled with paper ballots, counters in lanyards sorting votes, observers standing behind, bright overhead lights, tired but tense atmosphere, no legible text or party colours." },
         { type: "section", head: "What happened", md:
           "On 7 May 2026 voters elected thousands of local councillors across England, as well as the Scottish Parliament and the Welsh Senedd. Labour lost 1,496 councillors and control of 38 councils. Reform UK gained 1,451 councillors and 14 councils. The Conservatives lost 563 councillors.\n\n" +
@@ -414,7 +414,7 @@ window.POLITICS.addUnit("gb", {
         { type: "image", kind: "illustration", src: "img/gb/gb-6-hero.webp",
           alt: "Illustration of a red-brick northern English town high street on a rainy evening, with a campaign office window glowing.",
           caption: "Burnham returned to Parliament through a by-election in Makerfield, near Wigan, in June 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A red-brick high street in a northern English town on a rainy evening, terraced shops, a campaign office window glowing warm with volunteers inside seen as silhouettes, wet pavements reflecting streetlights, hills in the distance, no legible text or party logos." },
         { type: "section", head: "What happened", md:
           "After the May elections, pressure on Starmer grew fast. On 14 May his health secretary, Wes Streeting, resigned. The same day, Josh Simons, Labour MP for Makerfield in Greater Manchester, gave up his seat so that Andy Burnham, then mayor of Greater Manchester, could return to Parliament. Burnham won the [[by-election]] on 18 June with a majority of more than 9,000.\n\n" +
@@ -468,7 +468,7 @@ window.POLITICS.addUnit("gb", {
         { type: "image", kind: "illustration", src: "img/gb/gb-7-hero.webp",
           alt: "Illustration of a trading floor in the City of London at dawn, screens showing rising lines, with the dome of a cathedral visible through the window.",
           caption: "Britain's borrowing costs, set by trading in government bonds known as gilts, limit what any chancellor can do.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern trading floor at dawn with rows of screens showing abstract rising line charts, a few traders at desks, a large window revealing the dome of a baroque cathedral and city towers in soft pink light, calm tension, no legible text or numbers." },
         { type: "section", head: "What happened", md:
           "Britain borrows by selling bonds called [[gilts]], and the interest rates on them have risen to some of the highest among rich countries. In September 2026, a new surge in gilt yields raised the cost of servicing the national debt. Analysts estimate it could cut the roughly £23.6 billion buffer the Treasury had left itself against its borrowing rules by about half.\n\n" +
@@ -517,7 +517,7 @@ window.POLITICS.addUnit("gb", {
         { type: "image", kind: "illustration", src: "img/gb/gb-12-hero.webp",
           alt: "Illustration of a modern parliament building with unusual angled roofs and wooden details at the foot of a green hill, beside an old palace.",
           caption: "The Scottish Parliament at Holyrood in Edinburgh, reopened in 1999 after almost three centuries.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A striking modern parliament building with leaf-shaped roofs, angular windows and wooden trellis details at the foot of a steep green hill with rocky crags, an old stone palace nearby, bright changeable sky, no people close up, no flags, no legible text." },
         { type: "facts", head: "Scotland in numbers", rows: [
           ["Population", "About 5.5 million"],
@@ -566,7 +566,7 @@ window.POLITICS.addUnit("gb", {
         { type: "image", kind: "illustration", src: "img/gb/gb-8-hero.webp",
           alt: "Illustration of the Houses of Parliament beside the River Thames at dusk, with lights reflecting in the water.",
           caption: "Westminster, where Burnham's government must now deliver.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A gothic parliament building with a tall clock tower beside a wide river at dusk, lights reflecting in the water, a red double-decker bus crossing a bridge, soft purple sky, calm and anticipatory, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Government:** Andy Burnham, prime minister since 20 July, leads Labour with the large Commons majority won in 2024.\n" +

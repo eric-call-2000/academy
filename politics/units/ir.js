@@ -107,7 +107,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-9-hero.webp",
           alt: "Illustration of a vast crowd seen from behind filling a wide boulevard toward a tall white arched monument, under a grey winter sky.",
           caption: "Tehran's Azadi (Freedom) Tower, built by the Shah in 1971, became a gathering point for the crowds of 1978–79.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast crowd seen from behind filling a wide boulevard toward a tall white inverted-Y shaped arched monument, a grey winter sky, snow-capped mountains faint in the distance, overwhelming and historic, no faces, no flags, no portraits, no legible text." },
         { type: "timeline", head: "From Shah to Leader", items: [
           ["1925", "Reza Khan founds the Pahlavi dynasty"],
@@ -158,7 +158,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-3-hero.webp",
           alt: "Illustration of a huge crowd filling a wide Tehran avenue in 1979, seen from above, with a tall white monument in the distance.",
           caption: "The 1979 revolution brought millions onto the streets and ended the monarchy.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast crowd filling a wide city avenue seen from high above in late 1970s film colours, a tall white modernist arch monument in the distance, snow-capped mountains beyond, a sense of historic upheaval, no legible banners, no faces in close-up." },
         { type: "timeline", head: "The short version", items: [
           ["1953", "A US- and British-backed coup topples Prime Minister Mossadegh"],
@@ -206,7 +206,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-10-hero.webp",
           alt: "Illustration of a mid-century oil refinery with towers and storage tanks beside a river at dusk, with flares burning.",
           caption: "The Abadan refinery, once the world's largest, at the heart of the 1951 oil nationalisation.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large mid-20th-century oil refinery with distillation towers, pipes and storage tanks beside a wide river at dusk, gas flares burning orange, palm trees, industrial and historic, no people close up, no flags, no legible text or logos." },
         { type: "facts", head: "The coup", rows: [
           ["Oil nationalised", "March 1951"],
@@ -255,7 +255,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-11-hero.webp",
           alt: "Illustration of a flat marshland battlefield with trenches, barbed wire and burned-out palm trees under a hazy orange sky.",
           caption: "The southern front, where much of the fighting took place in marshes and deserts.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A flat marshland battlefield with muddy trenches, coils of barbed wire and burned-out palm tree trunks under a hazy orange sky, distant smoke, desolate and haunting, no people, no flags, no legible text." },
         { type: "facts", head: "The war", rows: [
           ["Dates", "September 1980 – August 1988"],
@@ -304,7 +304,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-4-hero.webp",
           alt: "Illustration of a wide Tehran boulevard at night, almost empty, with shuttered shops, a few cars and the Alborz mountains dark in the background.",
           caption: "Tehran after the war: a capital of millions under sanctions, blackouts and a security clampdown.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A wide city boulevard at night almost empty, shuttered shops, a few passing cars with headlights, plane trees, dark mountains looming behind the skyline, sodium streetlights, a mood of quiet tension, no people close up, no legible signs." },
         { type: "people", head: "Four to know", items: [
           { name: "Mojtaba Khamenei", role: "Supreme Leader, since March 2026",
@@ -355,7 +355,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-5-hero.webp",
           alt: "Illustration of a tunnel entrance cut into a barren mountainside, partly collapsed and covered in dust, with craters on the slope above.",
           caption: "Iran's deepest enrichment site, Fordow, is built inside a mountain near Qom.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A reinforced tunnel entrance cut into a barren brown mountainside, partly collapsed and covered in pale dust, several craters on the slope above, a damaged access road, harsh midday light, desolate, no people, no legible text." },
         { type: "section", head: "What happened", md:
           "On 13 June 2025 Israel attacked Iran's nuclear facilities, air defences and missile launchers, and killed senior commanders and nuclear scientists. Iran fired hundreds of ballistic missiles and drones at Israel. On 22 June the United States struck Fordow, Natanz and Isfahan with bunker-busting bombs. After a symbolic Iranian strike on a US base in Qatar, a ceasefire took hold on 24 June.\n\n" +
@@ -405,7 +405,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-6-hero.webp",
           alt: "Illustration of a dark city street at night in winter with scattered small fires and smoke, and a line of darkened apartment blocks.",
           caption: "The deadliest crackdown took place under a nationwide internet blackout.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A dark city street at night in winter, scattered small fires and drifting smoke, darkened apartment blocks with no lights, a single streetlamp, snow on the pavement, silent and ominous aftermath, no people, no faces, no legible text." },
         { type: "section", head: "What happened", md:
           "In late December 2025 the rial's collapse and rising prices set off protests that spread from bazaars to cities across Iran. They quickly turned against the system itself. On the evening of 8 January 2026 the authorities cut the internet nationwide. Over that night and the next day, the Revolutionary Guards, the Basij and the police fired on crowds with rifles and shotguns, often from rooftops, according to Amnesty International and other rights groups." },
@@ -454,7 +454,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-7-hero.webp",
           alt: "Illustration of a line of oil tankers in a narrow strait at dusk, with a warship on the horizon and barren mountains on the shore.",
           caption: "The Strait of Hormuz, where Iranian attacks and a US blockade have disrupted shipping since March.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A convoy of large oil tankers moving through a narrow strait at dusk, a grey warship silhouetted on the horizon, barren rocky mountains on the shore, a hazy orange sky, tension and scale, no flags or legible text." },
         { type: "section", head: "What happened", md:
           "On 28 February 2026 the United States and Israel launched nearly 900 strikes in 12 hours on Iran's missiles, air defences, military bases and leadership. Ali Khamenei was killed. Iran retaliated with missiles and drones against Israel and against Gulf states hosting US forces, hitting oil facilities in [[unit:sa|Saudi Arabia]] and [[unit:ae|the UAE]], and it attacked ships to close the [[Strait of Hormuz]]. Oil prices passed $100 a barrel.\n\n" +
@@ -505,7 +505,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-12-hero.webp",
           alt: "Illustration of a young woman seen from behind with long uncovered hair walking down a busy city street at dusk, among other pedestrians.",
           caption: "Since 2022 many Iranian women have stopped wearing the compulsory hijab in public.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A young woman seen from behind with long dark uncovered hair walking down a busy city street at dusk among other pedestrians, shop lights and traffic, a mountain range faint in the distance, quiet defiance, no faces, no legible text or signs." },
         { type: "facts", head: "The protests", rows: [
           ["Trigger", "Death of Mahsa (Jina) Amini, 22, on 16 September 2022"],
@@ -554,7 +554,7 @@ window.POLITICS.addUnit("ir", {
         { type: "image", kind: "illustration", src: "img/ir/ir-8-hero.webp",
           alt: "Illustration of a covered bazaar in an Iranian city with half the shops shuttered and a few shoppers walking under skylights.",
           caption: "Sanctions, war and a collapsing currency have hit every Iranian household.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long vaulted brick bazaar corridor with skylights, half the shops shuttered, a few shoppers seen from behind, dusty light beams, rugs and copper pots in the open stalls, quiet and strained, no faces, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Leadership:** Mojtaba Khamenei is Supreme Leader; President Pezeshkian and Foreign Minister Araghchi lead diplomacy.\n" +

@@ -21,7 +21,7 @@ window.POLITICS.addUnit("ua_pl", {
         { type: "image", kind: "illustration", src: "img/ua_pl/ua_pl-1-hero.webp",
           alt: "Illustration of a simple wooden cross in a field of tall grass at the edge of a forest, where a village once stood.",
           caption: "Many Polish villages in Volhynia were destroyed in 1943; often only crosses mark where they stood.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A simple weathered wooden cross in a field of tall summer grass at the edge of a dark forest, no buildings, a few wildflowers, soft overcast light, quiet and mournful, no people, no legible text." },
         { type: "timeline", head: "Shared and divided", items: [
           ["1569–1795", "Much of Ukraine is ruled by the Polish-Lithuanian Commonwealth"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("ua_pl", {
         { type: "image", kind: "illustration", src: "img/ua_pl/ua_pl-2-hero.webp",
           alt: "Illustration of a long line of lorries stopped on a rural road at a border crossing in winter, with farm tractors parked across the road.",
           caption: "Polish truckers and farmers blocked border crossings with Ukraine in 2023–24.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long line of cargo lorries stopped on a flat rural road in winter at a border crossing, several farm tractors parked across the road, bare trees and snowy fields, grey sky, frustrated standstill, no people close up, no flags, no legible text." },
         { type: "facts", head: "The strains", rows: [
           ["Refugees", "Millions crossed in 2022; about 1 million remain under protection"],
@@ -121,7 +121,7 @@ window.POLITICS.addUnit("ua_pl", {
         { type: "image", kind: "illustration", src: "img/ua_pl/ua_pl-3-hero.webp",
           alt: "Illustration of an ornate enamel medal in the shape of a white eagle on a red ribbon, lying in an open presentation box.",
           caption: "Poland's Order of the White Eagle, awarded to Zelensky in 2023 and withdrawn in June 2026.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An ornate enamel and gold medal shaped like a white eagle with outstretched wings on a deep red ribbon, lying in an open velvet presentation box on a dark wooden table, soft dramatic light, formal and symbolic, no legible text." },
         { type: "timeline", head: "Crisis and repair", items: [
           ["Jan 2025", "Agreement to allow exhumations of Volhynia victims"],

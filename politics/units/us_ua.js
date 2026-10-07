@@ -23,7 +23,7 @@ window.POLITICS.addUnit("us_ua", {
         { type: "image", kind: "illustration", src: "img/us_ua/us_ua-1-hero.webp",
           alt: "Illustration of an empty missile silo in a snowy steppe, its heavy concrete lid pushed aside.",
           caption: "Ukraine's Soviet-era nuclear missiles were removed and their silos destroyed in the 1990s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty Soviet-era missile silo in a flat snowy steppe, its huge round concrete lid pushed aside, rusting fences and a small guard hut nearby, grey winter sky, bleak and quiet atmosphere, no people, no flags, no legible text." },
         { type: "timeline", head: "From assurances to a phone call", items: [
           ["1991", "Ukraine inherits about 1,900 strategic nuclear warheads"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("us_ua", {
         { type: "image", kind: "illustration", src: "img/us_ua/us_ua-2-hero.webp",
           alt: "Illustration of a mobile rocket launcher truck firing a rocket at dusk across a flat field.",
           caption: "American HIMARS rocket launchers helped Ukraine strike Russian supply lines in 2022.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A mobile rocket launcher truck firing a rocket with a bright trail at dusk across a flat muddy farm field, smoke and dust around the vehicle, tree line in the distance, dramatic documentary style, no people close up, no flags, no legible text." },
         { type: "facts", head: "American support, 2022–24", rows: [
           ["Approved by Congress", "About $174 billion in five bills (FY2022–24)"],
@@ -119,7 +119,7 @@ window.POLITICS.addUnit("us_ua", {
         { type: "image", kind: "illustration", src: "img/us_ua/us_ua-3-hero.webp",
           alt: "Illustration of an ornate office with two armchairs facing each other in front of a fireplace, empty.",
           caption: "Zelensky's Oval Office meeting with Trump on 28 February 2025 ended in a public shouting match.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An ornate oval office with two empty armchairs facing each other in front of a marble fireplace, tall windows with golden curtains, a portrait on the wall, soft afternoon light, tense quiet mood, no people, no flags, no legible text." },
         { type: "timeline", head: "Trump and Ukraine", items: [
           ["28 Feb 2025", "Oval Office clash; aid and intelligence briefly paused"],

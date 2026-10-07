@@ -226,9 +226,11 @@ politics/
    `briefings [[lesson:ar-4|#]] and [[lesson:ar-7|#]]`): it shows the briefing's place in the
    reading order ("briefing 5") as a link. Never type briefing numbers by hand; ids and reading
    positions differ, and the validator rejects them.
-4. **Pictures.** An AI illustration carries `kind: "illustration"`, its alt text, caption,
-   the credit *"AI illustration — not a photograph"* and a scene `prompt`. Real people
-   appear only as credited public-domain or Creative Commons portraits, never as AI faces.
+4. **Pictures.** An illustration carries `kind: "illustration"`, its alt text, caption, a
+   credit and a scene `prompt`. Draw it in `tools/art/scenes/<unit>.js` and render it with
+   `node tools/build-art.js <lesson id>`, which also sets the credit to *"Illustration — not a
+   photograph"*. Real people appear only as credited public-domain or Creative Commons
+   portraits, never as drawn or AI faces.
    Build the map with `node tools/build-maps.js <id>` (countries with disputed territory need
    a review of how it's drawn, then `--reviewed`), and add a diagram spec to
    `tools/build-diagrams.js`.

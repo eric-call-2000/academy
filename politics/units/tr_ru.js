@@ -21,7 +21,7 @@ window.POLITICS.addUnit("tr_ru", {
         { type: "image", kind: "illustration", src: "img/tr_ru/tr_ru-1-hero.webp",
           alt: "Illustration of a narrow strait between two hilly shores lined with old stone fortresses, with a large ship passing through at sunset.",
           caption: "Control of the Bosphorus and Dardanelles, the only route between the Black Sea and the Mediterranean, has been at the heart of the rivalry.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A narrow strait between two green hilly shores, old stone fortresses with round towers on both banks, a large cargo ship passing through at sunset, domes and minarets faint in the distance, golden light on the water, historic and strategic, no flags, no legible text." },
         { type: "timeline", head: "Four centuries", items: [
           ["1568–1918", "Twelve Russo-Turkish wars"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("tr_ru", {
         { type: "image", kind: "illustration", src: "img/tr_ru/tr_ru-2-hero.webp",
           alt: "Illustration of a fighter jet trailing smoke and falling over forested hills, with two parachutes in the sky.",
           caption: "On 24 November 2015 a Turkish F-16 shot down a Russian Su-24 near the Syrian border; both crew ejected.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A military jet trailing black smoke and falling toward forested mountain ridges, two small parachutes drifting in a pale blue sky, a second jet far away, dramatic and sudden, seen from a distance, no markings, no flags, no legible text." },
         { type: "timeline", head: "From crisis to partnership", items: [
           ["Sep 2015", "Russia intervenes in Syria for Assad; Turkey backs rebels"],
@@ -121,7 +121,7 @@ window.POLITICS.addUnit("tr_ru", {
         { type: "image", kind: "illustration", src: "img/tr_ru/tr_ru-3-hero.webp",
           alt: "Illustration of a nuclear power plant with large domed reactor buildings on a rocky Mediterranean coast, with cranes and blue sea.",
           caption: "Russia's Rosatom is building, and will own and run, the Akkuyu nuclear plant on Turkey's southern coast.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A nuclear power plant under construction with large pale domed reactor buildings and tall cranes on a rocky Mediterranean coastline, turquoise sea, pine-covered hills, bright sunlight, modern and imposing, no people, no flags, no legible text." },
         { type: "facts", head: "The ties", rows: [
           ["Gas", "Russia supplied about 41% of Turkey's gas imports in 2024"],

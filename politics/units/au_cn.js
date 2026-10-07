@@ -21,7 +21,7 @@ window.POLITICS.addUnit("au_cn", {
         { type: "image", kind: "illustration", src: "img/au_cn/au_cn-1-hero.webp",
           alt: "Illustration of a vast open-cut iron ore mine with terraced red earth and huge haul trucks, under a blue outback sky.",
           caption: "Most of Australia's iron ore comes from the Pilbara in Western Australia, and most of it goes to China.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast open-cut iron ore mine with terraced deep red earth walls, enormous yellow haul trucks on winding ramps, a long ore train in the distance, a hard blue outback sky, heat haze, industrial and immense, no people close up, no legible text or logos." },
         { type: "facts", head: "The economic ties", rows: [
           ["China's share of exports", "About a third of Australia's goods exports"],
@@ -68,7 +68,7 @@ window.POLITICS.addUnit("au_cn", {
         { type: "image", kind: "illustration", src: "img/au_cn/au_cn-2-hero.webp",
           alt: "Illustration of rows of grapevines in a sunny valley with rolling hills and a winery shed, under a clear sky.",
           caption: "Tariffs of up to 218% closed China, then Australian wine's biggest market, from 2020 to 2024.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Neat rows of grapevines in a sunny South Australian valley, rolling golden hills, a corrugated-iron winery shed and gum trees, clear blue sky, peaceful rural scene, no people, no legible text or labels." },
         { type: "timeline", head: "Punishment and thaw", items: [
           ["Apr 2020", "Australia calls for an independent inquiry into Covid's origins"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("au_cn", {
         { type: "image", kind: "illustration", src: "img/au_cn/au_cn-3-hero.webp",
           alt: "Illustration of a tropical harbour with container cranes and a wharf at sunset, with a grey warship anchored offshore.",
           caption: "The Port of Darwin, leased to China's Landbridge in 2015, faces American marines stationed nearby.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A tropical harbour at sunset with a few container cranes and a long wharf, palm trees and mangroves on the shore, a grey warship anchored offshore, warm orange sky reflected in calm water, strategic and quiet, no people, no flags, no legible text." },
         { type: "timeline", head: "Security rivalry", items: [
           ["2015", "Darwin port leased to China's Landbridge for 99 years"],

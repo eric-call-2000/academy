@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_il", {
         { type: "image", kind: "illustration", src: "img/us_il/us_il-1-hero.webp",
           alt: "Illustration of a large military cargo plane unloading crates onto a desert airfield at dawn.",
           caption: "In October 1973 an American airlift resupplied Israel in the middle of a war.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge grey 1970s military cargo plane with its rear ramp open on a desert airfield at dawn, crates and pallets being unloaded by forklifts, heat haze, distant hills, historical documentary mood, no flags, no legible text." },
         { type: "timeline", head: "How the bond was built", items: [
           ["14 May 1948", "Truman recognises Israel 11 minutes after its founding"],
@@ -70,7 +70,7 @@ window.POLITICS.addUnit("us_il", {
         { type: "image", kind: "illustration", src: "img/us_il/us_il-2-hero.webp",
           alt: "Illustration of an air-defence missile battery on a hillside launching an interceptor into a night sky.",
           caption: "The United States helps pay for Israel's missile defences, including Iron Dome.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A mobile air-defence missile battery on a rocky hillside at night launching a bright interceptor missile that leaves a glowing trail into a dark sky, city lights far below, tense documentary mood, no flags, no legible text." },
         { type: "facts", head: "The money", rows: [
           ["Total since 1946", "About $298 billion in 2024 dollars"],
@@ -118,7 +118,7 @@ window.POLITICS.addUnit("us_il", {
         { type: "image", kind: "illustration", src: "img/us_il/us_il-3-hero.webp",
           alt: "Illustration of the US Capitol dome at dusk with a small crowd of protesters holding blank signs on the lawn.",
           caption: "Support for Israel, once shared across both parties, has become a divisive issue in American politics.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The white dome of the United States Capitol at dusk, a small crowd of protesters holding blank signs on the lawn in front, soft purple sky, street lamps coming on, calm but charged documentary mood, no flags, no legible text." },
         { type: "timeline", head: "War and politics", items: [
           ["22 Jun 2025", "US bombers strike Iran's nuclear sites during the 12-day war"],

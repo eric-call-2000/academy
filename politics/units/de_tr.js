@@ -21,7 +21,7 @@ window.POLITICS.addUnit("de_tr", {
         { type: "image", kind: "illustration", src: "img/de_tr/de_tr-1-hero.webp",
           alt: "Illustration of an ornate railway station with a clock tower on the Istanbul waterfront, with a steam train and ferry boats.",
           caption: "Haydarpaşa station in Istanbul, built by German engineers, was the start of the Baghdad Railway.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An ornate stone railway station with a steep slate roof and turrets on a waterfront, a steam train at the platform, ferry boats on the water in front, early twentieth-century atmosphere, soft golden light, historical painting style, no flags, no legible text." },
         { type: "timeline", head: "An old partnership", items: [
           ["1898", "Kaiser Wilhelm II visits Constantinople and Jerusalem"],
@@ -72,7 +72,7 @@ window.POLITICS.addUnit("de_tr", {
         { type: "image", kind: "illustration", src: "img/de_tr/de_tr-2-hero.webp",
           alt: "Illustration of a 1960s railway platform with young men carrying suitcases stepping off a train.",
           caption: "Many Turkish 'guest workers' arrived by train at Munich station in the 1960s.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A 1960s railway station platform with a long train, young men in suits and caps carrying suitcases stepping off, steam and a large station clock, muted colours, historical documentary painting style, faces not in close-up, no flags, no legible text." },
         { type: "timeline", head: "From guests to citizens", items: [
           ["30 Oct 1961", "West Germany and Turkey sign the recruitment agreement"],
@@ -123,7 +123,7 @@ window.POLITICS.addUnit("de_tr", {
         { type: "image", kind: "illustration", src: "img/de_tr/de_tr-3-hero.webp",
           alt: "Illustration of a grey fighter jet taking off from a runway with mountains in the background.",
           caption: "Germany lifted its veto in 2025, letting Turkey buy Eurofighter Typhoons.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A sleek grey twin-engine delta-wing fighter jet taking off from a runway with its landing gear up, heat shimmer behind it, dry brown mountains in the background, clear blue sky, dynamic documentary style, no markings, no flags, no legible text." },
         { type: "timeline", head: "Ups and downs", items: [
           ["18 Mar 2016", "EU–Turkey refugee deal, shaped by Merkel"],

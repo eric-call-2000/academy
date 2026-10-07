@@ -109,7 +109,7 @@ window.POLITICS.addUnit("il", {
         { type: "image", kind: "illustration", src: "img/il/il-9-hero.webp",
           alt: "Illustration of a modest whitewashed Bauhaus-style building on a tree-lined boulevard in a Mediterranean city, in bright afternoon light.",
           caption: "Independence Hall on Rothschild Boulevard in Tel Aviv, where David Ben-Gurion declared the State of Israel on 14 May 1948.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modest two-storey whitewashed building on a wide tree-lined boulevard in a Mediterranean city, Bauhaus-style buildings around it, bright afternoon light through the trees, calm and historic, no people close up, no flags, no legible text." },
         { type: "timeline", head: "From idea to state", items: [
           ["1897", "First Zionist Congress in Basel"],
@@ -160,7 +160,7 @@ window.POLITICS.addUnit("il", {
         { type: "image", kind: "illustration", src: "img/il/il-3-hero.webp",
           alt: "Illustration of the stone walls of Jerusalem's Old City at golden hour, with domes and bell towers behind them and olive trees in the foreground.",
           caption: "Jerusalem, sacred to Jews, Christians and Muslims, has been at the centre of the conflict since 1948.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The ancient honey-coloured stone walls of an old Middle Eastern city at golden hour, a golden dome and church bell towers rising behind them, olive trees and a winding path in the foreground, long shadows, timeless and contested, no people close up, no flags or legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1948", "Israel declares independence; war with Arab states; about 700,000 Palestinians flee or are expelled"],
@@ -205,7 +205,7 @@ window.POLITICS.addUnit("il", {
         { type: "image", kind: "illustration", src: "img/il/il-10-hero.webp",
           alt: "Illustration of the golden-domed shrine and the ancient stone wall of Jerusalem's Old City at dawn, seen from a hillside.",
           caption: "Jerusalem's Old City, divided until 1967, when Israel captured the east of the city.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "The Old City of Jerusalem at dawn seen from a hillside, a golden dome and ancient pale stone walls and gates, cypress trees, soft golden light over the domes and rooftops, timeless and contested, no people close up, no flags, no legible text." },
         { type: "facts", head: "The Six-Day War", rows: [
           ["Dates", "5–10 June 1967"],
@@ -254,7 +254,7 @@ window.POLITICS.addUnit("il", {
         { type: "image", kind: "illustration", src: "img/il/il-11-hero.webp",
           alt: "Illustration of a large city square at night with a memorial of stones and flickering candles in the foreground and apartment buildings around.",
           caption: "Rabin Square in Tel Aviv, renamed after the prime minister was shot there on 4 November 1995.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large city square at night surrounded by modernist apartment buildings, in the foreground a simple memorial of dark basalt stones with many flickering candles, quiet grief, no people close up, no flags, no legible text." },
         { type: "timeline", head: "Hope and violence", items: [
           ["1987", "First intifada begins"],
@@ -304,7 +304,7 @@ window.POLITICS.addUnit("il", {
         { type: "image", kind: "illustration", src: "img/il/il-4-hero.webp",
           alt: "Illustration of a modern stone parliament building on a hill in Jerusalem at dusk, with a large menorah sculpture in front and lit windows.",
           caption: "The Knesset in Jerusalem. After 27 October, 61 of its 120 seats will decide who governs.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A modern rectangular stone parliament building on a hill at dusk, a large bronze candelabrum sculpture on the lawn in front, lit windows, rows of cypress trees, dusky blue sky, calm and civic, no flags or legible text." },
         { type: "people", head: "Six to know", items: [
           { name: "Benjamin Netanyahu", role: "Prime minister; Likud leader",
@@ -360,7 +360,7 @@ window.POLITICS.addUnit("il", {
         { type: "image", kind: "illustration", src: "img/il/il-5-hero.webp",
           alt: "Illustration of a wall covered in rows of blank paper posters in a city square at dusk, with a small crowd standing before it, seen from behind.",
           caption: "For two years, posters of the hostages covered walls across Israel.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long concrete wall in a city square at dusk covered in rows of blank white paper posters, some weathered and torn, a small quiet crowd seen from behind standing before it, candles on the ground, yellow ribbons tied to a railing, sombre, no faces, no legible text." },
         { type: "section", head: "What happened", md:
           "After 7 October Israel launched an air and ground campaign to destroy Hamas and bring home the hostages. The war lasted two years. Israel killed most of Hamas's leaders, including Yahya Sinwar, and destroyed much of its tunnel network. Hundreds of Israeli soldiers were killed in the fighting.\n\n" +
@@ -410,7 +410,7 @@ window.POLITICS.addUnit("il", {
         { type: "image", kind: "illustration", src: "img/il/il-6-hero.webp",
           alt: "Illustration of a night sky over a coastal city with the bright streaks of interceptor missiles rising and small flashes high above.",
           caption: "Israel's air defences intercepted most of the missiles Iran fired, but not all.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A coastal city skyline at night seen from a distance, bright thin streaks of interceptor missiles rising into a dark sky, small flashes high above, apartment windows dark, the sea reflecting light, tense and eerie, no people close up, no legible text." },
         { type: "section", head: "What happened", md:
           "For decades Israel and [[unit:ir|Iran]] fought a shadow war of assassinations, sabotage and proxies. In April and October 2024 they exchanged direct strikes for the first time. Then, on 13 June 2025, Israel launched a full air campaign against Iran's nuclear sites, missile forces and commanders. Iran fired hundreds of ballistic missiles at Israeli cities. On 22 June the United States bombed the nuclear sites at Fordow, Natanz and Isfahan, and a ceasefire followed two days later: the 12-day war.\n\n" +
@@ -460,7 +460,7 @@ window.POLITICS.addUnit("il", {
         { type: "image", kind: "illustration", src: "img/il/il-7-hero.webp",
           alt: "Illustration of a flattened urban landscape with a few standing buildings, a road cleared through rubble and a line of aid trucks at dawn.",
           caption: "Gaza's reconstruction will take years, and depends on who governs it.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast landscape of rubble and damaged concrete buildings at dawn, a cleared road running through it with a line of white aid trucks, a few people walking far away, dust in soft pink light, the sea on the horizon, quiet devastation and fragile hope, no faces, no legible text." },
         { type: "section", head: "What happened", md:
           "Under a US-brokered plan, a ceasefire took effect in Gaza on 10 October 2025. On 13 October Hamas released the 20 living hostages, and Israel released nearly 2,000 Palestinian prisoners and detainees. The remains of deceased hostages were returned over the following months, the last by January 2026. Israeli troops pulled back to a line inside Gaza, but after the ceasefire still held around half of the territory.\n\n" +
@@ -511,7 +511,7 @@ window.POLITICS.addUnit("il", {
         { type: "image", kind: "illustration", src: "img/il/il-12-hero.webp",
           alt: "Illustration of a narrow stone-paved street in an old Jerusalem neighbourhood at dusk, with men in black coats and hats seen from behind walking away.",
           caption: "The ultra-Orthodox, or Haredim, are about 14% of Israel's population and growing fast.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A narrow stone-paved street in an old Jerusalem neighbourhood at dusk, pale stone buildings with wrought-iron balconies, several men in long black coats and wide black hats seen from behind walking away, warm streetlamps, quiet and devout, no faces, no legible text." },
         { type: "facts", head: "Religion in Israel", rows: [
           ["Jewish Israelis", "About three-quarters of the population"],
@@ -560,7 +560,7 @@ window.POLITICS.addUnit("il", {
         { type: "image", kind: "illustration", src: "img/il/il-8-hero.webp",
           alt: "Illustration of a school gymnasium set up as a polling station, with a blue ballot box and small booths behind cardboard screens.",
           caption: "Israelis vote on 27 October 2026, the first national election since the 7 October attack.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A school gymnasium set up as a polling station, a pale blue ballot box on a table, small voting booths behind cardboard screens, trays of blank paper ballots, basketball hoops above, soft morning light, a few voters seen from behind, calm civic mood, no legible text." },
         { type: "section", head: "The state of play", md:
           "- **Election:** 27 October 2026, for all 120 Knesset seats.\n" +

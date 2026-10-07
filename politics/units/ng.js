@@ -108,7 +108,7 @@ window.POLITICS.addUnit("ng", {
         { type: "image", kind: "illustration", src: "img/ng/ng-9-hero.webp",
           alt: "Illustration of a crowd in colourful 1960 clothing, agbadas and wrappers, seen from behind in a stadium at night, with fireworks overhead.",
           caption: "Nigeria celebrated independence at midnight on 1 October 1960 in Lagos.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large festive crowd in colourful 1960 West African clothing, flowing agbadas, wrappers and head ties, seen from behind in an open stadium at night, fireworks bursting in the sky, joyful and historic, no faces, no flags, no legible text." },
         { type: "timeline", head: "Making Nigeria", items: [
           ["1861", "Britain annexes Lagos"],
@@ -159,7 +159,7 @@ window.POLITICS.addUnit("ng", {
         { type: "image", kind: "illustration", src: "img/ng/ng-3-hero.webp",
           alt: "Illustration of a vast granite monolith rising above a modern capital city with a large gold-domed mosque and green hills.",
           caption: "Abuja, the planned capital built in the centre of the country, beneath the granite of Aso Rock.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A vast smooth granite monolith rising above a modern planned capital city, a large mosque with a golden dome and slender minarets in the foreground, green hills, wide boulevards, bright tropical afternoon light, grand and calm, no people, no flags, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1914", "Britain merges north and south into one colony"],
@@ -208,7 +208,7 @@ window.POLITICS.addUnit("ng", {
         { type: "image", kind: "illustration", src: "img/ng/ng-10-hero.webp",
           alt: "Illustration of a small rural airstrip at night in dense palm forest, lit by lanterns, with an old propeller cargo plane landing.",
           caption: "Relief flights landed at night on a road turned airstrip at Uli, Biafra's lifeline.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A narrow road used as an airstrip at night in dense palm forest in south-eastern Nigeria, lined with dim lanterns, an old four-engine propeller cargo plane landing with its lights on, a few figures seen from far behind waiting with carts, tense and dramatic, no faces, no legible text, no flags." },
         { type: "timeline", head: "The war", items: [
           ["Jan 1966", "Coup by mostly Igbo officers"],
@@ -259,7 +259,7 @@ window.POLITICS.addUnit("ng", {
         { type: "image", kind: "illustration", src: "img/ng/ng-11-hero.webp",
           alt: "Illustration of a long line of voters in colourful clothing seen from behind queueing in the open air at a polling station under a large tree.",
           caption: "Voters queued across the country on 12 June 1993 in an election observers praised as fair.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long orderly line of Nigerian voters in colourful early-1990s clothing seen from behind queueing in the open air at a rural polling station under a large shade tree, a simple wooden table ahead, bright midday sun, hopeful civic mood, no faces, no legible text." },
         { type: "timeline", head: "From annulment to democracy", items: [
           ["12 Jun 1993", "Presidential election; Abiola wins"],
@@ -311,7 +311,7 @@ window.POLITICS.addUnit("ng", {
         { type: "image", kind: "illustration", src: "img/ng/ng-4-hero.webp",
           alt: "Illustration of a busy Lagos highway at dusk with yellow minibuses, a lagoon bridge and a skyline of towers.",
           caption: "Lagos, Tinubu's political base and Africa's largest city.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A busy multi-lane highway in a huge West African coastal city at dusk, many yellow minibuses and cars, a long bridge over a lagoon, a skyline of glass towers under an orange sky, energetic and crowded, no people close up, no legible text or logos." },
         { type: "people", head: "Five to know", items: [
           { name: "Bola Ahmed Tinubu", role: "President (APC), since May 2023",
@@ -363,7 +363,7 @@ window.POLITICS.addUnit("ng", {
         { type: "image", kind: "illustration", src: "img/ng/ng-5-hero.webp",
           alt: "Illustration of a long queue of cars and motorbikes at a petrol station in a hot city, with jerry cans lined up on the ground.",
           caption: "Petrol prices roughly tripled after the subsidy ended in 2023.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long queue of cars and motorbike taxis at a busy petrol station in a hot West African city, colourful plastic jerry cans lined up on the ground, hazy sunlight, street vendors under umbrellas nearby, crowded and tense, no faces, no legible text or logos." },
         { type: "section", head: "What happened", md:
           "For decades Nigeria held petrol prices far below the market rate, a subsidy that cost more than the entire health and education budgets and was riddled with fraud. On 29 May 2023 Tinubu declared that 'the fuel subsidy is gone'. Pump prices roughly tripled within weeks. Weeks later the central bank unified the official and black-market exchange rates, letting the naira fall; it lost about two-thirds of its value against the dollar.\n\n" +
@@ -413,7 +413,7 @@ window.POLITICS.addUnit("ng", {
         { type: "image", kind: "illustration", src: "img/ng/ng-6-hero.webp",
           alt: "Illustration of an empty rural school compound with simple classroom blocks, a dusty yard and an open metal gate, under a pale sky.",
           caption: "Schools in the north have been targeted by kidnapping gangs.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty rural school compound in the dry savanna, simple single-storey classroom blocks with painted walls, a dusty yard with a lone tree, a metal gate left open, pale hazy sky, eerie silence, no people, no legible text." },
         { type: "section", head: "What happened", md:
           "Nigeria faces several overlapping conflicts. In the north-east, Boko Haram and the Islamic State's West Africa Province (ISWAP) attack soldiers and villages. In the north-west, armed gangs known as bandits kidnap for ransom on an industrial scale, sometimes seizing entire schools. In the central Middle Belt, clashes between mainly Muslim Fulani herders and mainly Christian farmers over land have killed thousands.\n\n" +
@@ -463,7 +463,7 @@ window.POLITICS.addUnit("ng", {
         { type: "image", kind: "illustration", src: "img/ng/ng-7-hero.webp",
           alt: "Illustration of a military barracks gate at night under floodlights, with an empty guard post and a flagpole without a flag.",
           caption: "West Africa has seen a wave of coups since 2020. Nigeria says it foiled one.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A military barracks gate at night under harsh floodlights, an empty concrete guard post, a barrier arm lowered, a bare flagpole, a dark road leading in, moths around the lights, tense and ominous, no people, no flags, no legible text." },
         { type: "section", head: "What happened", md:
           "In late September and October 2025, 16 military officers, ranging from captain to brigadier-general, were quietly arrested. The army first said they were held for 'indiscipline'. In January 2026, after a three-month investigation, the Defence Headquarters confirmed that they had been found to have plotted to overthrow Tinubu's government and would face a military tribunal. In April 2026 prosecutors also charged six people, including a retired major-general and a serving police inspector, with terrorism and treason in the civilian courts. Those accused deny the charges." },
@@ -513,7 +513,7 @@ window.POLITICS.addUnit("ng", {
         { type: "image", kind: "illustration", src: "img/ng/ng-12-hero.webp",
           alt: "Illustration of a winding creek in the Niger Delta lined with mangroves, with a small wooden canoe and a distant gas flare burning on the horizon.",
           caption: "Gas flares still burn across the Delta's creeks and mangroves.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A winding creek in the Niger Delta lined with dense mangroves, a small wooden dugout canoe with a fisherman seen from behind, oily sheen on the water, a distant orange gas flare burning on the horizon under a hazy dusk sky, beautiful but troubled mood, no faces, no legible text." },
         { type: "facts", head: "Oil in numbers", rows: [
           ["First commercial oil", "Oloibiri, 1956"],
@@ -563,7 +563,7 @@ window.POLITICS.addUnit("ng", {
         { type: "image", kind: "illustration", src: "img/ng/ng-8-hero.webp",
           alt: "Illustration of a huge open-air market with colourful umbrellas and stalls of produce, crowds of shoppers seen from above.",
           caption: "Food prices are the issue that matters most to voters.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A huge open-air market seen from above, a sea of colourful umbrellas and stalls piled with tomatoes, peppers, yams and grains, crowds of shoppers as small figures, warm late-morning light, vibrant and busy, no faces, no legible text or logos." },
         { type: "section", head: "The state of play", md:
           "- **Election:** president and National Assembly on 16 January 2027; governors on 6 February.\n" +

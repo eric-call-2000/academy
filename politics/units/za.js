@@ -106,7 +106,7 @@ window.POLITICS.addUnit("za", {
         { type: "image", kind: "illustration", src: "img/za/za-9-hero.webp",
           alt: "Illustration of a grand sandstone government building with colonnades on a hill above Pretoria, with terraced gardens and jacaranda trees.",
           caption: "The Union Buildings in Pretoria, completed in 1913, became the seat of government.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A grand sandstone government building with long curved colonnades and two domed towers on a hill above a city, terraced gardens with purple jacaranda trees in bloom, clear highveld sky, stately and historic, a few small figures seen from behind, no faces, no flags, no legible text." },
         { type: "timeline", head: "From colonies to Union", items: [
           ["1652", "Dutch station at the Cape"],
@@ -158,7 +158,7 @@ window.POLITICS.addUnit("za", {
         { type: "image", kind: "illustration", src: "img/za/za-3-hero.webp",
           alt: "Illustration of a small rocky island off a coastal city with a flat-topped mountain behind, seen across the sea at dawn.",
           caption: "Robben Island, where Nelson Mandela spent 18 of his 27 years in prison, with Table Mountain beyond.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A low rocky island with a small lighthouse and plain prison buildings in the foreground sea, a large flat-topped mountain and a coastal city in the distance, dawn light, calm water, solemn and historic, no people, no flags, no legible text." },
         { type: "timeline", head: "The short version", items: [
           ["1652", "Dutch settlement at the Cape"],
@@ -205,7 +205,7 @@ window.POLITICS.addUnit("za", {
         { type: "image", kind: "illustration", src: "img/za/za-10-hero.webp",
           alt: "Illustration of schoolchildren in 1970s school uniforms seen from behind marching down a dusty township street lined with small brick houses.",
           caption: "Soweto's students marched against Afrikaans-language teaching on 16 June 1976.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large group of teenage schoolchildren in 1970s school uniforms seen from behind marching down a wide dusty township street lined with small matchbox brick houses, raised fists and plain cardboard signs without text, winter morning light, courageous and tense mood, no faces, no legible text." },
         { type: "timeline", head: "The resistance", items: [
           ["1955", "Freedom Charter adopted"],
@@ -256,7 +256,7 @@ window.POLITICS.addUnit("za", {
         { type: "image", kind: "illustration", src: "img/za/za-11-hero.webp",
           alt: "Illustration of a simple community hall with a long table covered in a white cloth, microphones and headphones, and rows of chairs with people seen from behind.",
           caption: "Commission hearings were held in town halls and churches across the country, and broadcast live.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A simple community hall in 1990s South Africa with a long table covered in a white cloth, microphones and translation headphones, rows of plastic chairs with people seen from behind listening intently, afternoon light from high windows, solemn and hopeful mood, no faces, no legible text, no flags." },
         { type: "facts", head: "The commission", rows: [
           ["Chair", "Archbishop Desmond Tutu"],
@@ -307,7 +307,7 @@ window.POLITICS.addUnit("za", {
         { type: "image", kind: "illustration", src: "img/za/za-4-hero.webp",
           alt: "Illustration of a long sandstone government building with colonnades and terraced gardens on a hill, overlooking a city.",
           caption: "The Union Buildings in Pretoria, seat of the presidency.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long, grand sandstone government building with two wings, colonnades and a semicircular amphitheatre, set on a hill with terraced green gardens descending in front, a city spread below, clear morning light, dignified and calm, no people, no flags, no legible text." },
         { type: "people", head: "Five to know", items: [
           { name: "Cyril Ramaphosa", role: "President, since 2018",
@@ -361,7 +361,7 @@ window.POLITICS.addUnit("za", {
         { type: "image", kind: "illustration", src: "img/za/za-5-hero.webp",
           alt: "Illustration of a large conference hall set for a summit with a ring of tables and many empty chairs, and one section conspicuously empty with no nameplates.",
           caption: "The United States boycotted the G20 summit that South Africa hosted in November 2025.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large modern conference hall set for an international summit, a huge ring of tables with microphones and water glasses, many empty chairs, one section with no chairs at all, soft blue lighting, diplomatic and uneasy, no people, no flags, no legible text." },
         { type: "section", head: "What happened", md:
           "Relations collapsed soon after Donald Trump returned. In February 2025 he cut aid to South Africa, citing a new land expropriation law and the country's genocide case against Israel. In March the US expelled South Africa's ambassador, Ebrahim Rasool, over remarks criticising Trump. From May, Washington admitted white Afrikaners as refugees, claiming they faced persecution. At a White House meeting on 21 May, Trump confronted Ramaphosa with a video and articles he said showed a 'white genocide', claims that South African officials, courts and independent researchers have rejected." },
@@ -411,7 +411,7 @@ window.POLITICS.addUnit("za", {
         { type: "image", kind: "illustration", src: "img/za/za-6-hero.webp",
           alt: "Illustration of a hearing room with a long table covered in thick files, microphones and a witness chair facing a panel's empty seats.",
           caption: "The Madlanga Commission has heard months of testimony about the police and justice system.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A formal hearing room with a long wooden table stacked with thick document binders and microphones, a single witness chair facing an elevated panel's three empty chairs, wood panelling and fluorescent light, serious and investigative, no people, no flags, no legible text." },
         { type: "section", head: "What happened", md:
           "On 6 July 2025, Lieutenant General Nhlanhla Mkhwanazi, the police commissioner of KwaZulu-Natal, called a press conference in uniform, flanked by armed officers, and accused the police minister, Senzo Mchunu, of interfering in investigations to protect a criminal syndicate. He said Mchunu had disbanded a task team investigating political killings, which had uncovered links between politicians, police, prosecutors and organised crime.\n\n" +
@@ -462,7 +462,7 @@ window.POLITICS.addUnit("za", {
         { type: "image", kind: "illustration", src: "img/za/za-7-hero.webp",
           alt: "Illustration of a long queue of voters outside a community hall in a township on a sunny morning, with election posters without text on lamp posts.",
           caption: "South Africans queue to vote; turnout in local elections has been falling.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long patient queue of voters seen from behind outside a simple community hall in a township on a bright sunny morning, small colourful houses, plain blank election posters on lamp posts, a jacaranda tree, hopeful and ordinary, no faces, no legible text." },
         { type: "section", head: "What's happening", md:
           "On 4 November 2026 voters choose councils in all 257 municipalities, including the eight big metros. The ANC, DA, MK and EFF will compete head to head, even though the ANC and DA govern together nationally. The results will decide who runs Johannesburg, Pretoria and Durban, and will be read as a verdict on the GNU and on Ramaphosa's party a year before it chooses his successor." },
@@ -512,7 +512,7 @@ window.POLITICS.addUnit("za", {
         { type: "image", kind: "illustration", src: "img/za/za-12-hero.webp",
           alt: "Illustration of wide farmland in the Free State with fenced fields, a farmhouse and, in the distance, a cluster of small houses of an informal settlement.",
           caption: "Land ownership remains one of the starkest markers of apartheid's legacy.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Wide golden farmland in the Free State of South Africa with fenced maize fields and a farmhouse among trees, and in the far distance a cluster of small tin-roofed informal houses, big sky with afternoon clouds, contrasting and reflective mood, no people up close, no legible text." },
         { type: "facts", head: "Land in numbers", rows: [
           ["1913 Land Act", "About 7% (later 13%) of land reserved for Black South Africans"],
@@ -561,7 +561,7 @@ window.POLITICS.addUnit("za", {
         { type: "image", kind: "illustration", src: "img/za/za-8-hero.webp",
           alt: "Illustration of a large container port with gantry cranes at dusk, and a coal-fired power station's cooling towers in the distance.",
           caption: "Fixing ports, railways and power is central to the government's growth plans.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large container port at dusk with tall gantry cranes and stacked containers, a freight train alongside, the cooling towers of a distant power station on the horizon, orange and violet sky, industrial and hopeful, no people close up, no flags, no legible text or logos." },
         { type: "section", head: "The state of play", md:
           "- **Government:** the ANC–DA-led GNU, now in its third year.\n" +

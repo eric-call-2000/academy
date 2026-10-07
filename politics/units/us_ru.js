@@ -21,7 +21,7 @@ window.POLITICS.addUnit("us_ru", {
         { type: "image", kind: "illustration", src: "img/us_ru/us_ru-1-hero.webp",
           alt: "Illustration of an empty concrete missile silo with its heavy lid open, in a snowy field under a grey sky.",
           caption: "Arms-control treaties limited how many missiles and warheads each side could deploy, and let each inspect the other.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An empty concrete missile silo with its heavy round lid slid open, set in a flat snowy field with a wire fence, a grey winter sky, bleak and quiet, Cold War atmosphere, no people, no flags, no legible text." },
         { type: "timeline", head: "Treaties made and unmade", items: [
           ["1972", "SALT I and the Anti-Ballistic Missile Treaty"],
@@ -73,7 +73,7 @@ window.POLITICS.addUnit("us_ru", {
         { type: "image", kind: "illustration", src: "img/us_ru/us_ru-2-hero.webp",
           alt: "Illustration of a large red button on a small pedestal on a polished conference table, with two empty chairs facing each other.",
           caption: "In 2009 Hillary Clinton gave Sergei Lavrov a symbolic 'reset' button. The Russian word printed on it meant 'overload'.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large round red button on a small grey pedestal sitting on a polished dark wood conference table, two empty leather chairs facing each other across it, soft window light, symbolic and slightly ironic, no people, no flags, no legible text." },
         { type: "timeline", head: "Hopes and ruptures", items: [
           ["1991", "Soviet Union collapses"],
@@ -124,7 +124,7 @@ window.POLITICS.addUnit("us_ru", {
         { type: "image", kind: "illustration", src: "img/us_ru/us_ru-3-hero.webp",
           alt: "Illustration of two small passenger jets parked side by side on an airport apron at dusk, with an empty stretch of tarmac between them.",
           caption: "The largest swap since the Cold War took place on the tarmac of Ankara's airport on 1 August 2024.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Two small white passenger jets parked side by side on an airport apron at dusk, an empty stretch of tarmac between them, runway lights and a control tower in the distance, quiet and tense, no people visible, no markings, no flags, no legible text." },
         { type: "timeline", head: "Recent swaps", items: [
           ["Apr 2022", "Trevor Reed freed"],

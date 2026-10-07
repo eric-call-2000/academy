@@ -20,7 +20,7 @@ window.POLITICS.addUnit("gb_ar", {
         { type: "image", kind: "illustration", src: "img/gb_ar/gb_ar-1-hero.webp",
           alt: "Illustration of a small harbour town of brightly painted houses with red and green roofs on a windswept treeless shore, under a big grey sky.",
           caption: "Stanley, the islands' capital, is home to most of the Falklands' roughly 3,600 people.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A small harbour town of brightly painted wooden houses with red, green and blue roofs on a windswept treeless shore, a church, a calm grey bay with a small boat, low hills of pale grass, huge sky with fast clouds, remote and tidy, no people, no flags, no legible text." },
         { type: "timeline", head: "A contested history", items: [
           ["1764–67", "French, then British, then Spanish settlements"],
@@ -71,7 +71,7 @@ window.POLITICS.addUnit("gb_ar", {
         { type: "image", kind: "illustration", src: "img/gb_ar/gb_ar-2-hero.webp",
           alt: "Illustration of rows of white wooden crosses in a fenced cemetery on a windswept hillside, with a stone wall and low grey sky.",
           caption: "The Argentine military cemetery at Darwin in the Falklands, where families of the fallen have been allowed to visit.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Rows of simple white wooden crosses in a fenced cemetery on a windswept grassy hillside, a curved stone memorial wall, a few plastic flowers, low grey sky over a distant inlet, quiet and mournful, no people, no flags, no legible text." },
         { type: "timeline", head: "Thaws and chills", items: [
           ["Jun 1982", "Argentina surrenders after 74 days"],
@@ -122,7 +122,7 @@ window.POLITICS.addUnit("gb_ar", {
         { type: "image", kind: "illustration", src: "img/gb_ar/gb_ar-3-hero.webp",
           alt: "Illustration of a large oil production ship moored in a rough grey ocean, with a supply boat alongside and seabirds overhead.",
           caption: "Sea Lion, 220 km north of the islands, is due to start producing oil from a converted production ship in 2028.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A large floating oil production ship moored in a rough grey South Atlantic ocean, a small orange supply boat alongside, albatrosses gliding overhead, heavy clouds and spray, remote and industrial, no people visible, no flags, no legible text." },
         { type: "facts", head: "Sea Lion", rows: [
           ["Discovered", "2010, by Rockhopper Exploration"],

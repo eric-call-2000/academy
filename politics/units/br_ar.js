@@ -20,7 +20,7 @@ window.POLITICS.addUnit("br_ar", {
         { type: "image", kind: "illustration", src: "img/br_ar/br_ar-1-hero.webp",
           alt: "Illustration of enormous waterfalls plunging into a misty gorge surrounded by subtropical forest.",
           caption: "The Iguazu Falls on the border, near where the two presidents signed their 1985 declaration on nuclear cooperation.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "Enormous curtains of waterfalls plunging into a misty horseshoe gorge surrounded by lush green subtropical forest, a rainbow in the spray, birds in the air, powerful and majestic, no people, no walkways, no flags, no legible text." },
         { type: "timeline", head: "From rivals to partners", items: [
           ["1825–28", "War over the Banda Oriental ends with an independent Uruguay"],
@@ -69,7 +69,7 @@ window.POLITICS.addUnit("br_ar", {
         { type: "image", kind: "illustration", src: "img/br_ar/br_ar-2-hero.webp",
           alt: "Illustration of a long line of trucks on a highway approaching a border checkpoint on a bridge over a wide river.",
           caption: "Car parts, grain and machinery cross the Brazil–Argentina border every day.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "A long line of cargo trucks on a highway approaching a border checkpoint on a bridge over a wide brown river, flat green farmland on both sides, a hazy morning sun, busy and industrial, no people close up, no flags, no legible text or logos." },
         { type: "facts", head: "Mercosur", rows: [
           ["Founded", "26 March 1991, Treaty of Asunción"],
@@ -117,7 +117,7 @@ window.POLITICS.addUnit("br_ar", {
         { type: "image", kind: "illustration", src: "img/br_ar/br_ar-3-hero.webp",
           alt: "Illustration of an empty grand embassy building behind a closed iron gate on a leafy city street at dusk.",
           caption: "Since August 2026 neither country has an ambassador in the other's capital.",
-          credit: "AI illustration — not a photograph",
+          credit: "Illustration — not a photograph",
           prompt: "An elegant empty embassy building of pale stone behind a closed black iron gate on a leafy city street at dusk, street lamps just lit, one window glowing, quiet and chilly atmosphere, no people, no flags, no legible text." },
         { type: "timeline", head: "A personal feud", items: [
           ["2023", "Candidate Milei calls Lula a 'corrupt communist'"],
