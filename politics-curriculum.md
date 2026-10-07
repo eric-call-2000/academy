@@ -342,14 +342,31 @@ A ninth set of twelve followed:
 | 🇺🇸🇮🇩 US & Indonesia | Rebels, massacres and East Timor | Obama's Jakarta and a democratic partner | Prabowo's bet on Trump |
 | 🇬🇧🇳🇬 UK & Nigeria | Lugard's creation | Biafra and Abacha | Bronzes, diaspora and a state visit |
 
+A tenth set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇺🇸🇮🇷 US & Iran | Oil, a coup and the Shah | Hostages and a hidden war | A deal, its collapse and war |
+| 🇺🇸🇰🇵 US & North Korea | A war that never ended | Deals that didn't hold | Fire and fury, then love letters |
+| 🇺🇸🇿🇦 US & South Africa | Apartheid and sanctions | Trade, AIDS and drift | Refugees, HIV money and visa bans |
+| 🇺🇸🇵🇱 US & Poland | Heroes, emigrants and Yalta | Solidarity, NATO and Iraq | Troops, missiles and 'Fort Trump' |
+| 🇬🇧🇷🇺 UK & Russia | Rivals, allies and spies | Polonium, Novichok and 'Londongrad' | Ukraine, sanctions and sabotage |
+| 🇬🇧🇺🇦 UK & Ukraine | A promise signed in Budapest | NLAWs, tanks and Storm Shadow | A hundred-year partnership |
+| 🇷🇺🇰🇵 Russia & North Korea | Made in Moscow | Betrayal, famine and Putin's train | Shells, soldiers and a bridge |
+| 🇷🇺🇻🇪 Russia & Venezuela | Chávez's arsenal | Oil for loans, and guards for Maduro | The ally Moscow couldn't save |
+| 🇯🇵🇰🇵 Japan & North Korea | Colony, exiles and a 'paradise' | The abductions | Missiles overhead and a summit offer |
+| 🇯🇵🇹🇼 Japan & Taiwan | Fifty years a colony | Friends without relations | A war next door |
+| 🇸🇦🇮🇱 Saudi Arabia & Israel | Enemies at a distance | A common enemy and a near-deal | A Palestinian state first |
+| 🇸🇦🇵🇰 Saudi Arabia & Pakistan | Soldiers and money | Workers, bailouts and a 'no' over Yemen | A pact, a war and a third partner |
+
 Candidates for later relationships: Australia–India, Germany–Italy, Saudi Arabia–Turkey,
-Germany–Ukraine, Canada–Mexico, Japan–Taiwan, Poland–US, South Africa–US.
+Germany–Ukraine, Canada–Mexico, France–Ukraine, Iran–Turkey, Egypt–UAE.
 
 ---
 
 ## Images
 
-About 2 images per briefing gives **~720 images**: 555 illustrations and 165 portraits. The
+About 2 images per briefing gives **~755 images**: 591 illustrations and 165 portraits. The
 illustrations are drawn, not generated: each is layered vector art built in code
 (`politics/tools/art/`) and rendered to a 1600×900 WebP of about 20–40 KB, so all of them
 together come to roughly 15 MB, lazy-loaded per unit.

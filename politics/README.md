@@ -12,126 +12,138 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 
 | Unit | Country | Briefings | Current as of | Pictures |
 |------|---------|-----------|---------------|----------|
-| 1 | 🇺🇸 United States | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 2 | 🇨🇳 China | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 3 | 🇷🇺 Russia | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 4 | 🇮🇳 India | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 5 | 🇺🇦 Ukraine | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 6 | 🇩🇪 Germany | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 7 | 🇬🇧 United Kingdom | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 8 | 🇫🇷 France | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 9 | 🇮🇹 Italy | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 10 | 🇵🇱 Poland | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 11 | 🇹🇷 Turkey | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 12 | 🇮🇱 Israel | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 13 | 🇮🇷 Iran | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 14 | 🇸🇦 Saudi Arabia | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 15 | 🇦🇪 United Arab Emirates | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 16 | 🇪🇬 Egypt | 12 of 12 | 28 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 17 | 🇯🇵 Japan | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 18 | 🇰🇷 South Korea | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 19 | 🇰🇵 North Korea | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 20 | 🇹🇼 Taiwan | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 21 | 🇵🇰 Pakistan | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 22 | 🇮🇩 Indonesia | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 23 | 🇦🇺 Australia | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 24 | 🇨🇦 Canada | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 25 | 🇲🇽 Mexico | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 26 | 🇧🇷 Brazil | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 27 | 🇦🇷 Argentina | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 28 | 🇻🇪 Venezuela | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 29 | 🇿🇦 South Africa | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
-| 30 | 🇳🇬 Nigeria | 12 of 12 | 29 Sep 2026 | map and diagram done; illustrations and portraits pending |
+| 1 | 🇺🇸 United States | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 2 | 🇨🇳 China | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 3 | 🇷🇺 Russia | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 4 | 🇮🇳 India | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 5 | 🇺🇦 Ukraine | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 6 | 🇩🇪 Germany | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 7 | 🇬🇧 United Kingdom | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 8 | 🇫🇷 France | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 9 | 🇮🇹 Italy | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 10 | 🇵🇱 Poland | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 11 | 🇹🇷 Turkey | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 12 | 🇮🇱 Israel | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 13 | 🇮🇷 Iran | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 14 | 🇸🇦 Saudi Arabia | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 15 | 🇦🇪 United Arab Emirates | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 16 | 🇪🇬 Egypt | 12 of 12 | 28 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 17 | 🇯🇵 Japan | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 18 | 🇰🇷 South Korea | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 19 | 🇰🇵 North Korea | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 20 | 🇹🇼 Taiwan | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 21 | 🇵🇰 Pakistan | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 22 | 🇮🇩 Indonesia | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 23 | 🇦🇺 Australia | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 24 | 🇨🇦 Canada | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 25 | 🇲🇽 Mexico | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 26 | 🇧🇷 Brazil | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 27 | 🇦🇷 Argentina | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 28 | 🇻🇪 Venezuela | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 29 | 🇿🇦 South Africa | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 30 | 🇳🇬 Nigeria | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
 
 **Relationships** (briefings on how two countries deal with each other; `links.js`):
 
 | Relationship | Title | Briefings | Current as of | Pictures |
 |--------------|-------|-----------|---------------|----------|
-| 🇺🇸🇨🇳 United States & China | Steel, tariffs and soybeans | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇲🇽 United States & Mexico | Factories, migrants and guns | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇨🇦 United States & Canada | Allies, lumber and oil | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇷🇺🇺🇦 Russia & Ukraine | One people? Gas and captives | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇮🇱🇮🇷 Israel & Iran | From allies to arch-enemies | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇮🇳🇵🇰 India & Pakistan | Wars, water and cricket | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇨🇳🇹🇼 China & Taiwan | Consensus, trade and Kinmen | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇯🇵🇨🇳 Japan & China | History, islands and pressure | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇸🇦🇮🇷 Saudi Arabia & Iran | Pilgrims, oil and proxies | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇰🇷🇰🇵 South Korea & North Korea | Summits, factories and balloons | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇬🇧🇦🇷 United Kingdom & Argentina | The Falklands: claims, war and oil | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇹🇷🇷🇺 Turkey & Russia | Old enemies, awkward partners | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇷🇺 United States & Russia | Treaties, resets and swaps | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇩🇪🇷🇺 Germany & Russia | Gas, sabotage and spies | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇬🇧🇫🇷 United Kingdom & France | Rivals, boats and bombs | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇯🇵🇰🇷 Japan & South Korea | History, chips and a thaw | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇵🇱🇩🇪 Poland & Germany | Borders, reparations and trade | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇨🇳🇮🇳 China & India | Border, trade and Tibet | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇦🇺🇨🇳 Australia & China | Iron ore, trade war and submarines | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇧🇷🇦🇷 Brazil & Argentina | Rivals, Mercosur and a feud | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇨🇳🇷🇺 China & Russia | Split, 'no limits' and pipelines | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇳🇬🇿🇦 Nigeria & South Africa | Solidarity, rivalry and xenophobia | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇮🇩🇦🇺 Indonesia & Australia | Timor, spies and a treaty | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇻🇪 United States & Venezuela | Monroe, Citgo and CECOT | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇪🇬🇮🇱 Egypt & Israel | Cold peace, gas and Rafah | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇯🇵 United States & Japan | Alliance, Okinawa and trade | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇫🇷🇩🇪 France & Germany | Enemies, engine and the bomb | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇹🇷🇮🇱 Turkey & Israel | Allies to rivals | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇸🇦🇦🇪 Saudi Arabia & United Arab Emirates | Mentor, rival, OPEC exit | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇮🇳 United States & India | Estrangement, nukes and visas | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇵🇰🇨🇳 Pakistan & China | Iron brothers, corridor, jets | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇦🇵🇱 Ukraine & Poland | Volhynia, refugees and grain | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇮🇹🇫🇷 Italy & France | Latin sisters, migrants and a treaty | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇮🇷🇵🇰 Iran & Pakistan | Brothers, borders and a pipeline | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇮🇱 United States & Israel | Recognition, aid and a divided public | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇨🇦🇨🇳 Canada & China | Head tax, hostages and canola | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇹🇼 United States & Taiwan | Ambiguity, arms and bargaining | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇸🇦 United States & Saudi Arabia | Oil, terror and a crown prince | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇬🇧 United States & United Kingdom | Special, unequal and tested | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇩🇪🇨🇳 Germany & China | Cars, rivals and a deficit | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇯🇵🇷🇺 Japan & Russia | Four islands and no peace | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇮🇳🇷🇺 India & Russia | Old friends, arms and oil | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇧🇷🇨🇳 Brazil & China | Soybeans, vaccines and BRICS | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇪🇬🇸🇦 Egypt & Saudi Arabia | Rivals, patrons and partners | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇿🇦🇷🇺 South Africa & Russia | Comrades, drills and recruits | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇦🇺 United States & Australia | ANZUS, AUKUS and minerals | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇰🇷 United States & South Korea | Troops, subs and a snub | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇨🇳🇰🇵 China & North Korea | Lips, teeth and a parade | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇺🇦 United States & Ukraine | Assurances, arms and a deal | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇲🇽🇨🇳 Mexico & China | Silver, chemicals and tariffs | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇮🇷🇷🇺 Iran & Russia | Old predator, new partner | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇩🇪🇹🇷 Germany & Turkey | Allies, guest workers and jets | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇳🇬🇨🇳 Nigeria & China | Railways, loans and traders | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇮🇩🇨🇳 Indonesia & China | Nickel, a bullet train and Natuna | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇦🇪🇮🇱 United Arab Emirates & Israel | Accords, a red line and Iran | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇯🇵🇮🇳 Japan & India | Goodwill, trains and the Quad | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇵🇱🇷🇺 Poland & Russia | Partitions, Katyń and drones | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇹🇷 United States & Turkey | Allies, missiles and F-35s | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇺🇸🇪🇬 United States & Egypt | Aid, a coup and the canal | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇬🇧🇨🇳 United Kingdom & China | Opium, Huawei and an embassy | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇻🇪🇨🇳 Venezuela & China | Oil for loans, then a raid | 3 of 3 | 30 Sep 2026 | illustrations pending |
-| 🇸🇦🇨🇳 Saudi Arabia & China | Missiles, oil and a broken peace | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇮🇷🇨🇳 Iran & China | Silkworms, oil and limits | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇫🇷🇷🇺 France & Russia | Napoleon, Minsk and the bomb | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇺🇸🇧🇷 United States & Brazil | A coup, spies and a vote | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇦🇷🇨🇳 Argentina & China | Soy, dams and a swap | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇺🇸🇦🇷 United States & Argentina | Perón, debts and a bailout | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇿🇦🇨🇳 South Africa & China | Taiwan, BRICS and cheap steel | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇺🇸🇵🇰 United States & Pakistan | Spy planes, bin Laden, a field marshal | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇹🇷🇺🇦 Turkey & Ukraine | Crimea, drones and Istanbul | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇺🇸🇫🇷 United States & France | Yorktown, Iraq and Greenland | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇬🇧🇮🇳 United Kingdom & India | Raj, diaspora and a trade deal | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇰🇷🇨🇳 South Korea & China | War, THAAD and a reset | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇯🇵🇦🇺 Japan & Australia | War, gas and frigates | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇮🇳🇸🇦 India & Saudi Arabia | Oil, workers and a Pakistan pact | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇺🇸🇮🇹 United States & Italy | Emigrants, bases and Meloni | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇺🇸🇩🇪 United States & Germany | Airlift, spies and a rift | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇨🇦🇮🇳 Canada & India | A reactor, a killing and a reset | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇲🇽🇧🇷 Mexico & Brazil | Two giants, two paths | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇮🇱🇷🇺 Israel & Russia | Refuseniks, Putin and Iran | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇺🇸🇳🇬 United States & Nigeria | Oil, Chibok and Christmas missiles | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇦🇪🇮🇳 United Arab Emirates & India | Workers, a temple and gas | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇹🇷🇪🇬 Turkey & Egypt | Sultans, Morsi and a handshake | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇺🇸🇮🇩 United States & Indonesia | 1965, Obama and Prabowo | 3 of 3 | 1 Oct 2026 | illustrations pending |
-| 🇬🇧🇳🇬 United Kingdom & Nigeria | Lugard, Biafra and bronzes | 3 of 3 | 1 Oct 2026 | illustrations pending |
+| 🇺🇸🇨🇳 United States & China | Steel, tariffs and soybeans | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇲🇽 United States & Mexico | Factories, migrants and guns | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇨🇦 United States & Canada | Allies, lumber and oil | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇷🇺🇺🇦 Russia & Ukraine | One people? Gas and captives | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇮🇱🇮🇷 Israel & Iran | From allies to arch-enemies | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇮🇳🇵🇰 India & Pakistan | Wars, water and cricket | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇨🇳🇹🇼 China & Taiwan | Consensus, trade and Kinmen | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇯🇵🇨🇳 Japan & China | History, islands and pressure | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇸🇦🇮🇷 Saudi Arabia & Iran | Pilgrims, oil and proxies | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇰🇷🇰🇵 South Korea & North Korea | Summits, factories and balloons | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇬🇧🇦🇷 United Kingdom & Argentina | The Falklands: claims, war and oil | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇹🇷🇷🇺 Turkey & Russia | Old enemies, awkward partners | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇷🇺 United States & Russia | Treaties, resets and swaps | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇩🇪🇷🇺 Germany & Russia | Gas, sabotage and spies | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇬🇧🇫🇷 United Kingdom & France | Rivals, boats and bombs | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇯🇵🇰🇷 Japan & South Korea | History, chips and a thaw | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇵🇱🇩🇪 Poland & Germany | Borders, reparations and trade | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇨🇳🇮🇳 China & India | Border, trade and Tibet | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇦🇺🇨🇳 Australia & China | Iron ore, trade war and submarines | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇧🇷🇦🇷 Brazil & Argentina | Rivals, Mercosur and a feud | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇨🇳🇷🇺 China & Russia | Split, 'no limits' and pipelines | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇳🇬🇿🇦 Nigeria & South Africa | Solidarity, rivalry and xenophobia | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇮🇩🇦🇺 Indonesia & Australia | Timor, spies and a treaty | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇻🇪 United States & Venezuela | Monroe, Citgo and CECOT | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇪🇬🇮🇱 Egypt & Israel | Cold peace, gas and Rafah | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇯🇵 United States & Japan | Alliance, Okinawa and trade | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇫🇷🇩🇪 France & Germany | Enemies, engine and the bomb | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇹🇷🇮🇱 Turkey & Israel | Allies to rivals | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇸🇦🇦🇪 Saudi Arabia & United Arab Emirates | Mentor, rival, OPEC exit | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇮🇳 United States & India | Estrangement, nukes and visas | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇵🇰🇨🇳 Pakistan & China | Iron brothers, corridor, jets | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇦🇵🇱 Ukraine & Poland | Volhynia, refugees and grain | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇮🇹🇫🇷 Italy & France | Latin sisters, migrants and a treaty | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇮🇷🇵🇰 Iran & Pakistan | Brothers, borders and a pipeline | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇮🇱 United States & Israel | Recognition, aid and a divided public | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇨🇦🇨🇳 Canada & China | Head tax, hostages and canola | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇹🇼 United States & Taiwan | Ambiguity, arms and bargaining | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇸🇦 United States & Saudi Arabia | Oil, terror and a crown prince | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇬🇧 United States & United Kingdom | Special, unequal and tested | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇩🇪🇨🇳 Germany & China | Cars, rivals and a deficit | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇯🇵🇷🇺 Japan & Russia | Four islands and no peace | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇮🇳🇷🇺 India & Russia | Old friends, arms and oil | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇧🇷🇨🇳 Brazil & China | Soybeans, vaccines and BRICS | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇪🇬🇸🇦 Egypt & Saudi Arabia | Rivals, patrons and partners | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇿🇦🇷🇺 South Africa & Russia | Comrades, drills and recruits | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇦🇺 United States & Australia | ANZUS, AUKUS and minerals | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇰🇷 United States & South Korea | Troops, subs and a snub | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇨🇳🇰🇵 China & North Korea | Lips, teeth and a parade | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇺🇦 United States & Ukraine | Assurances, arms and a deal | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇲🇽🇨🇳 Mexico & China | Silver, chemicals and tariffs | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇮🇷🇷🇺 Iran & Russia | Old predator, new partner | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇩🇪🇹🇷 Germany & Turkey | Allies, guest workers and jets | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇳🇬🇨🇳 Nigeria & China | Railways, loans and traders | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇮🇩🇨🇳 Indonesia & China | Nickel, a bullet train and Natuna | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇦🇪🇮🇱 United Arab Emirates & Israel | Accords, a red line and Iran | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇯🇵🇮🇳 Japan & India | Goodwill, trains and the Quad | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇵🇱🇷🇺 Poland & Russia | Partitions, Katyń and drones | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇹🇷 United States & Turkey | Allies, missiles and F-35s | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇺🇸🇪🇬 United States & Egypt | Aid, a coup and the canal | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇬🇧🇨🇳 United Kingdom & China | Opium, Huawei and an embassy | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇻🇪🇨🇳 Venezuela & China | Oil for loans, then a raid | 3 of 3 | 30 Sep 2026 | illustrated |
+| 🇸🇦🇨🇳 Saudi Arabia & China | Missiles, oil and a broken peace | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇮🇷🇨🇳 Iran & China | Silkworms, oil and limits | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇫🇷🇷🇺 France & Russia | Napoleon, Minsk and the bomb | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇺🇸🇧🇷 United States & Brazil | A coup, spies and a vote | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇦🇷🇨🇳 Argentina & China | Soy, dams and a swap | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇺🇸🇦🇷 United States & Argentina | Perón, debts and a bailout | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇿🇦🇨🇳 South Africa & China | Taiwan, BRICS and cheap steel | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇺🇸🇵🇰 United States & Pakistan | Spy planes, bin Laden, a field marshal | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇹🇷🇺🇦 Turkey & Ukraine | Crimea, drones and Istanbul | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇺🇸🇫🇷 United States & France | Yorktown, Iraq and Greenland | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇬🇧🇮🇳 United Kingdom & India | Raj, diaspora and a trade deal | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇰🇷🇨🇳 South Korea & China | War, THAAD and a reset | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇯🇵🇦🇺 Japan & Australia | War, gas and frigates | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇮🇳🇸🇦 India & Saudi Arabia | Oil, workers and a Pakistan pact | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇺🇸🇮🇹 United States & Italy | Emigrants, bases and Meloni | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇺🇸🇩🇪 United States & Germany | Airlift, spies and a rift | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇨🇦🇮🇳 Canada & India | A reactor, a killing and a reset | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇲🇽🇧🇷 Mexico & Brazil | Two giants, two paths | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇮🇱🇷🇺 Israel & Russia | Refuseniks, Putin and Iran | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇺🇸🇳🇬 United States & Nigeria | Oil, Chibok and Christmas missiles | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇦🇪🇮🇳 United Arab Emirates & India | Workers, a temple and gas | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇹🇷🇪🇬 Turkey & Egypt | Sultans, Morsi and a handshake | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇺🇸🇮🇩 United States & Indonesia | 1965, Obama and Prabowo | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇬🇧🇳🇬 United Kingdom & Nigeria | Lugard, Biafra and bronzes | 3 of 3 | 1 Oct 2026 | illustrated |
+| 🇺🇸🇮🇷 United States & Iran | Coup, hostages and a war | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇺🇸🇰🇵 United States & North Korea | Armistice, bombs and summits | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇺🇸🇿🇦 United States & South Africa | Apartheid, AIDS and Afrikaners | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇺🇸🇵🇱 United States & Poland | Solidarity, NATO and Fort Trump | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇬🇧🇷🇺 United Kingdom & Russia | Spies, poison and sanctions | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇬🇧🇺🇦 United Kingdom & Ukraine | Budapest, NLAWs and a century's pact | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇷🇺🇰🇵 Russia & North Korea | Patron, stranger, ally again | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇷🇺🇻🇪 Russia & Venezuela | Arms, oil and a lost ally | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇯🇵🇰🇵 Japan & North Korea | Exiles, abductees and missiles | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇯🇵🇹🇼 Japan & Taiwan | Colony, chips and a strait | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇸🇦🇮🇱 Saudi Arabia & Israel | Oil, Iran and a Palestinian state | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇸🇦🇵🇰 Saudi Arabia & Pakistan | Soldiers, money and a pact | 3 of 3 | 7 Oct 2026 | illustrated |
 
 ## Run it
 
