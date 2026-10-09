@@ -325,6 +325,7 @@ function phase0() {
   warehouseGates();
   authsimGates();
   conceptGates();
+  i18nGates();
 }
 
 /* ---------------- concept lessons ----------------
@@ -492,6 +493,23 @@ function authsimGates() {
     ok(out.trim().split("\n").pop());
   } catch (e) {
     fail("authsim tests failed:\n" + String(e.stdout || e.message));
+  }
+}
+
+/* Translations may change words and nothing else: every interface string
+   translated, every layer lined up with the English it was written from,
+   code spans untouched, and nothing stale. Both run in child processes
+   because they load the catalog into their own global. */
+function i18nGates() {
+  console.log("\n== Phase 0l: translations ==");
+  const { execFileSync } = require("child_process");
+  for (const tool of ["test-i18n.js", "validate-i18n.js"]) {
+    try {
+      const out = execFileSync(process.execPath, [path.join(ROOT, "tools", tool), "--quiet"], { encoding: "utf8" });
+      ok(out.trim().split("\n").pop());
+    } catch (e) {
+      fail(tool + " failed:\n" + String(e.stdout || e.message));
+    }
   }
 }
 

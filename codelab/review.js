@@ -205,13 +205,14 @@
             /* No quiz score to engage with: finishing the lesson (or testing
                out of it) is what introduces its questions. */
             if (u && !(u.done && u.done[l.id])) return;
-            (l.screens || []).forEach(function (s) {
+            (l.screens || []).forEach(function (s, si) {
               var ask = s.ask;
               if (!conceptCardable(ask)) return;
               var pick = ask.type === "pick";
               out.push({
                 key: conceptKeyOf(l.id, ask),
                 quizId: l.id,
+                si: si,           // display only: where i18n finds the translation
                 kind: ask.type,
                 ask: ask,
                 courseId: c.id,
@@ -229,11 +230,12 @@
           }
           if (l.kind !== "quiz") return;
           if (u && !quizEngaged(u, l.id)) return;
-          (l.questions || []).forEach(function (q) {
+          (l.questions || []).forEach(function (q, qi) {
             if (illPosed(q)) return;
             out.push({
               key: keyOf(l.id, q),
               quizId: l.id,
+              qi: qi,             // display only: where i18n finds the translation
               kind: "quiz",
               courseId: c.id,
               courseTitle: c.title,
