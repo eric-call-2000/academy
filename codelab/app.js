@@ -27,6 +27,17 @@
   var EXPIRY_DAYS = window.CODELAB.CREDIT_EXPIRY_DAYS;
   var WARN_DAYS = window.CODELAB.CREDIT_WARN_DAYS;
   var runner = window.CODELAB.runner;
+  /* Interface language (i18n.js). T("Start: {0}", x) — the English is the
+     key and the fallback; Tn picks the singular or plural form. Content goes
+     through the I18N views instead, and only for DISPLAY: runners, graders
+     and Recall keys always get the original English objects. */
+  var I18N = window.CODELAB.i18n;
+  var T = I18N.t, Tn = I18N.tn, Tc = I18N.tc;
+  function cv(c) { return I18N.course(c); }
+  function pv(p) { return I18N.position(p); }
+  function uv(u) { return I18N.unit(u); }
+  function lv(l) { return I18N.lesson(l); }
+  function catName(id) { return window.CODELAB.catLabel(id); }
 
   /* Used on the whole-catalog certificate. The CATALOG hero no longer names a
      single role — with credits, one learner walks out a QA engineer and
@@ -103,7 +114,7 @@
     
     var content = el("div", "sheet");
     var header = el("div", "sheet-head");
-    header.appendChild(el("div", "sheet-title", "Choose Theme"));
+    header.appendChild(el("div", "sheet-title", T("Choose Theme")));
     var closeBtn = el("button", "sheet-x", "×");
     closeBtn.onclick = function () { modal.remove(); };
     header.appendChild(closeBtn);
@@ -112,7 +123,7 @@
     var themeList = el("div", "");
     Object.keys(THEMES).forEach(function (themeId) {
       var theme = THEMES[themeId];
-      var themeOption = el("button", "btn btn-ghost", theme.name);
+      var themeOption = el("button", "btn btn-ghost", T(theme.name));
       themeOption.style.width = "100%";
       themeOption.style.marginBottom = "8px";
       themeOption.style.textAlign = "left";
@@ -134,6 +145,39 @@
       if (e.target === modal) modal.remove();
     };
     document.body.appendChild(modal);
+  }
+  /* Same sheet as the theme picker. Changing language reloads the page:
+     every screen, the catalog text and the course layers already loaded
+     are all chosen at boot, and a reload is the one way to swap them all
+     at once. The profile and the screen's progress are in localStorage. */
+  function renderLangSwitcher() {
+    var o = overlay("");
+    var header = el("div", "sheet-head");
+    header.appendChild(el("div", "sheet-title", "🌐 " + T("Language")));
+    var closeBtn = el("button", "sheet-x", "×");
+    closeBtn.onclick = function () { o.back.remove(); };
+    header.appendChild(closeBtn);
+    o.sheet.appendChild(header);
+    Object.keys(I18N.LANGS).forEach(function (id) {
+      var L = I18N.LANGS[id];
+      var b = el("button", "btn btn-ghost", esc(L.native) + (L.native !== L.label ? ' <span class="lang-en">' + esc(L.label) + "</span>" : ""));
+      b.style.width = "100%";
+      b.style.marginBottom = "8px";
+      b.style.textAlign = "left";
+      if (id === I18N.lang) {
+        b.style.background = "var(--accent)";
+        b.style.color = "#fff";
+        b.style.borderColor = "var(--accent)";
+      }
+      b.onclick = function () {
+        if (id === I18N.lang) { o.back.remove(); return; }
+        flushStore();
+        I18N.setLang(id);
+        location.reload();
+      };
+      o.sheet.appendChild(b);
+    });
+    o.sheet.appendChild(el("div", "lang-note", T("Lessons are written in English first. Where a translation isn't ready yet, you'll see the English. Code always stays in English.")));
   }
   var REVIEW_MIN_SESSION = 5;   // graded cards that count as a real session
   var ACADEMY_TRACK = "fullstack";
@@ -160,6 +204,13 @@
       /* Generated per-checkpoint solutions ride along. A missing file only
          costs the Show-solution buttons, never the lessons themselves. */
       return course.stepSolutions ? loadScript(course.stepSolutions).catch(function () {}) : null;
+    }).then(function () {
+      /* The interface language's layer for this course, after the English
+         it sits on. Same rule as step solutions: a missing or broken file
+         costs the translation, never the lesson — the English shows. */
+      return I18N.overlayFiles(course).reduce(function (p, f) {
+        return p.then(function () { return loadScript(f).catch(function () {}); });
+      }, Promise.resolve());
     }).then(function () {
       course._loaded = true;
       course._loading = null;
@@ -628,7 +679,7 @@
   }
 
   function plural(n, one, many) { return n + " " + (n === 1 ? one : many); }
-  function creditWord(n) { return plural(n, "credit", "credits"); }
+  function creditWord(n) { return Tn(n, "{0} credit", "{0} credits"); }
 
   /* ---------- tiny DOM helpers ---------- */
   var app = document.getElementById("app");
@@ -717,7 +768,7 @@
     var due = REV.dueCount(u, REV.revToday());
     if (due > 0) {
       var pill = el("button", "stat rv-pill", '<span class="ico">🧠</span>' + due);
-      pill.title = due + " to recall";
+      pill.title = T("{0} to recall", due);
       pill.onclick = renderReview;
       stats.appendChild(pill);
     }
@@ -726,14 +777,18 @@
     
     /* Theme switcher button */
     var themeBtn = el("button", "stat", '<span class="ico">🎨</span>');
-    themeBtn.title = "Switch theme";
+    themeBtn.title = T("Switch theme");
     themeBtn.onclick = renderThemeSwitcher;
     stats.appendChild(themeBtn);
+    var langBtn = el("button", "stat lang-btn", '<span class="ico">🌐</span>' + I18N.lang.toUpperCase());
+    langBtn.title = T("Language");
+    langBtn.onclick = renderLangSwitcher;
+    stats.appendChild(langBtn);
     
     var chip = el("button", "user-chip");
     chip.innerHTML = '<span class="user-av" style="background:' + avatarColor(store.currentUser) + '">' + initial(store.currentUser) + "</span>" +
       '<span class="user-name">' + esc(store.currentUser) + "</span>";
-    chip.title = "Switch profile";
+    chip.title = T("Switch profile");
     chip.onclick = renderProfiles;
     stats.appendChild(chip);
     bar.appendChild(stats);
@@ -762,16 +817,20 @@
     clear();
     var scr = el("div", "profiles");
     scr.appendChild(el("div", "logo", '<span class="logo-ic">⚡</span> CodeLab'));
-    scr.appendChild(el("div", "logo-sub", PATH_TITLE));
+    scr.appendChild(el("div", "logo-sub", T(PATH_TITLE)));
     
-    /* Theme switcher button */
-    var themeBtn = el("button", "btn btn-ghost btn-small", "🎨 Theme");
-    themeBtn.style.marginTop = "12px";
+    /* Theme and language buttons */
+    var prefs = el("div", "profiles-prefs");
+    var themeBtn = el("button", "btn btn-ghost btn-small", "🎨 " + T("Theme"));
     themeBtn.onclick = renderThemeSwitcher;
-    scr.appendChild(themeBtn);
+    prefs.appendChild(themeBtn);
+    var langBtn = el("button", "btn btn-ghost btn-small", "🌐 " + esc(I18N.LANGS[I18N.lang].native));
+    langBtn.onclick = renderLangSwitcher;
+    prefs.appendChild(langBtn);
+    scr.appendChild(prefs);
     
     var names = allProfileNames();
-    scr.appendChild(el("h1", "profiles-title", names.length ? "Who's coding?" : "Welcome! Create your profile"));
+    scr.appendChild(el("h1", "profiles-title", names.length ? T("Who's coding?") : T("Welcome! Create your profile")));
 
     var grid = el("div", "profiles-grid");
     names.forEach(function (name) {
@@ -783,14 +842,14 @@
       card.appendChild(av);
       card.appendChild(el("div", "pcard-name", esc(name)));
       card.appendChild(el("div", "pcard-meta", u
-        ? (Object.keys(u.done).length + " done · " + u.xp + " XP")
-        : (fromAcademy ? "From your Academy app" : "New")));
+        ? T("{0} done · {1} XP", Object.keys(u.done).length, u.xp)
+        : (fromAcademy ? T("From your Academy app") : T("New"))));
       if (u) {
         var del = el("button", "pcard-del", "✕");
-        del.title = "Remove this profile from CodeLab";
+        del.title = T("Remove this profile from CodeLab");
         del.onclick = function (e) {
           e.stopPropagation();
-          if (confirm('Remove "' + name + '" from CodeLab? (Academy app data is untouched.)')) {
+          if (confirm(T('Remove "{0}" from CodeLab? (Academy app data is untouched.)', name))) {
             delete store.users[name];
             codeClearProfile(name);   // or their saved code outlives them
             if (store.currentUser === name) store.currentUser = null;
@@ -806,15 +865,15 @@
 
     var add = el("div", "pcard add");
     add.appendChild(el("div", "avatar add-avatar", "＋"));
-    add.appendChild(el("div", "pcard-name", "Add learner"));
-    add.appendChild(el("div", "pcard-meta", "New profile"));
+    add.appendChild(el("div", "pcard-name", T("Add learner")));
+    add.appendChild(el("div", "pcard-meta", T("New profile")));
     add.onclick = function () {
       add.classList.add("editing");
       add.innerHTML = "";
       var input = el("input", "pcard-input");
-      input.placeholder = "Your name";
+      input.placeholder = T("Your name");
       input.maxLength = 24;
-      var go = el("button", "btn btn-blue btn-small", "Create");
+      var go = el("button", "btn btn-blue btn-small", T("Create"));
       function create() {
         var name = (input.value || "").trim().slice(0, 24);
         if (!name) { input.focus(); return; }
@@ -834,9 +893,9 @@
     scr.appendChild(grid);
 
     if (academyConnected()) {
-      scr.appendChild(el("div", "profiles-hint", "🔗 Connected to your Academy app — profiles, XP and streaks are shared on this device."));
+      scr.appendChild(el("div", "profiles-hint", "🔗 " + T("Connected to your Academy app — profiles, XP and streaks are shared on this device.")));
     } else {
-      scr.appendChild(el("div", "profiles-hint", "Progress saves automatically on this device."));
+      scr.appendChild(el("div", "profiles-hint", T("Progress saves automatically on this device.")));
     }
     app.appendChild(scr);
   }
@@ -858,9 +917,9 @@
     var totalCredits = LIVE_COURSES.reduce(function (s, c) { return s + (c.credits || 0); }, 0);
     var heldCredits = ledger(u).total;
     var hero = el("div", "hero");
-    hero.appendChild(el("div", "hero-kicker", LIVE_COURSES.length + " COURSES · ~" + totalHours + " HOURS · " + totalCredits + " CREDITS"));
-    hero.appendChild(el("h1", "hero-title", "Learn to code, qualify for the job"));
-    hero.appendChild(el("p", "hero-sub", "Every course is a full, Codecademy-scale course, and finishing one pays credits toward every job position that needs it. Take them in order, or go straight at the position you want."));
+    hero.appendChild(el("div", "hero-kicker", T("{0} COURSES · ~{1} HOURS · {2} CREDITS", LIVE_COURSES.length, totalHours, totalCredits)));
+    hero.appendChild(el("h1", "hero-title", T("Learn to code, qualify for the job")));
+    hero.appendChild(el("p", "hero-sub", T("Every course is a full, Codecademy-scale course, and finishing one pays credits toward every job position that needs it. Take them in order, or go straight at the position you want.")));
     var pr = el("div", "hero-progress");
     pr.appendChild(el("div", "hero-bar", '<i style="width:' + pct + '%"></i>'));
     pr.appendChild(el("div", "hero-pct", pct + "%"));
@@ -875,37 +934,37 @@
     if (REV.hasEngagedQuiz(u) || REV.doneLessonCount(u) >= 5) {
       var dueNow = REV.dueCount(u, REV.revToday());
       var rvBtn = el("button", "btn " + (dueNow ? "btn-green" : "btn-ghost"),
-        "🧠 Recall" + (dueNow ? " · " + dueNow + " card" + (dueNow === 1 ? "" : "s") : ""));
+        "🧠 " + T("Recall") + (dueNow ? " · " + Tn(dueNow, "{0} card", "{0} cards") : ""));
       rvBtn.onclick = renderReview;
       heroBtns.appendChild(rvBtn);
       prefetchReviewCourses(u);
     }
     var last = u.lastCourse && window.CODELAB._byId[u.lastCourse];
     if (pathComplete()) {
-      var cert = el("button", "btn btn-gold", "🎓 Path certificate");
+      var cert = el("button", "btn btn-gold", "🎓 " + T("Path certificate"));
       cert.onclick = function () { showCertificate(null); };
       heroBtns.appendChild(cert);
     } else if (last && !courseComplete(last)) {
-      var cont = el("button", "btn btn-green", "Continue: " + esc(last.title));
+      var cont = el("button", "btn btn-green", T("Continue: {0}", esc(cv(last).title)));
       cont.onclick = function () { openCourse(last); };
       heroBtns.appendChild(cont);
     } else {
       var next = LIVE_COURSES.filter(function (c) { return !courseComplete(c); })[0];
       if (next) {
-        var start = el("button", "btn btn-green", (courseDoneCount(next) ? "Continue: " : "Start: ") + esc(next.title));
+        var start = el("button", "btn btn-green", T(courseDoneCount(next) ? "Continue: {0}" : "Start: {0}", esc(cv(next).title)));
         start.onclick = function () { openCourse(next); };
         heroBtns.appendChild(start);
       }
     }
-    var jobs = el("button", "btn btn-blue", "💼 Careers");
-    jobs.title = "Which job positions your credits qualify you for";
+    var jobs = el("button", "btn btn-blue", "💼 " + T("Careers"));
+    jobs.title = T("Which job positions your credits qualify you for");
     jobs.onclick = renderJobs;
     heroBtns.appendChild(jobs);
-    var play = el("button", "btn btn-ghost", "🧪 Free sandbox");
+    var play = el("button", "btn btn-ghost", "🧪 " + T("Free sandbox"));
     play.onclick = openPlayground;
     heroBtns.appendChild(play);
-    var handoff = el("button", "btn btn-ghost", "📲 Handoff");
-    handoff.title = "Move this profile between your phone and desktop";
+    var handoff = el("button", "btn btn-ghost", "📲 " + T("Handoff"));
+    handoff.title = T("Move this profile between your phone and desktop");
     handoff.onclick = renderSync;
     heroBtns.appendChild(handoff);
     hero.appendChild(heroBtns);
@@ -917,19 +976,19 @@
     if (goal) {
       var ga = audit(u, goal);
       var strip = el("div", "goal-strip");
-      strip.appendChild(el("div", "gs-kick", "GOAL"));
-      strip.appendChild(el("div", "gs-title", (goal.icon || "💼") + " " + esc(goal.title)));
+      strip.appendChild(el("div", "gs-kick", T("GOAL")));
+      strip.appendChild(el("div", "gs-title", (goal.icon || "💼") + " " + esc(pv(goal).title)));
       var gbar = el("div", "gs-bar", "<i></i>");
       gbar.firstChild.style.width = ga.pct + "%";
       strip.appendChild(gbar);
       var nxg = nextForPosition(u, goal);
       strip.appendChild(el("div", "gs-meta", ga.met
-        ? "✓ You meet every requirement — open Careers for the sheet."
-        : ga.have + " / " + goal.total + " credits" + (nxg ? " · next: " + esc(nxg.title) : "")));
+        ? "✓ " + T("You meet every requirement — open Careers for the sheet.")
+        : T("{0} / {1} credits", ga.have, goal.total) + (nxg ? " · " + T("next: {0}", esc(cv(nxg).title)) : "")));
       strip.onclick = function () { showPosition(goal); };
       hero.appendChild(strip);
     }
-    if (academyConnected()) hero.appendChild(el("div", "conn-pill", "🔗 Sharing profiles &amp; XP with your Academy app"));
+    if (academyConnected()) hero.appendChild(el("div", "conn-pill", "🔗 " + esc(T("Sharing profiles & XP with your Academy app"))));
     wrap.appendChild(hero);
 
     var grid = el("div", "catalog");
@@ -943,31 +1002,33 @@
       head.style.background = c.color || "#1cb0f6";
       head.appendChild(el("div", "cc-ic", c.icon || "📦"));
       var meta = el("div", "cc-chips");
-      if (c.stub) meta.appendChild(el("span", "cc-chip", "Roadmap"));
+      var cvw = cv(c);
+      if (c.stub) meta.appendChild(el("span", "cc-chip", T("Roadmap")));
       else meta.appendChild(el("span", "cc-chip", "~" + c.hours + "h"));
-      meta.appendChild(el("span", "cc-chip", esc(c.level || "Beginner")));
+      meta.appendChild(el("span", "cc-chip", esc(cvw.level)));
+      if (I18N.lang !== "en" && cvw.translated) meta.appendChild(el("span", "cc-chip lang", I18N.lang.toUpperCase()));
       var cr = c.stub ? (c.plannedCredits || 0) : (c.credits || 0);
-      if (cr) meta.appendChild(el("span", "cc-chip cr", cr + " cr"));
+      if (cr) meta.appendChild(el("span", "cc-chip cr", T("{0} cr", cr)));
       head.appendChild(meta);
       card.appendChild(head);
       var body = el("div", "cc-body");
-      body.appendChild(el("div", "cc-kicker", "Course " + (i + 1)));
-      body.appendChild(el("div", "cc-title", esc(c.title)));
-      body.appendChild(el("div", "cc-blurb", esc(c.blurb || "")));
+      body.appendChild(el("div", "cc-kicker", T("Course {0}", i + 1)));
+      body.appendChild(el("div", "cc-title", esc(cvw.title)));
+      body.appendChild(el("div", "cc-blurb", esc(cvw.blurb)));
       /* What this course is FOR. The reverse of the job board: there, a
          position names the courses it needs; here, a course names the
          positions it advances — same table, read the other way. */
       var forPos = positionsFor(c);
       if (forPos.length) {
-        body.appendChild(el("div", "cc-for", "Counts toward: " +
-          forPos.map(function (pp) { return esc(pp.title.replace(/^Junior /, "")); }).join(" · ")));
+        body.appendChild(el("div", "cc-for", T("Counts toward: {0}",
+          forPos.map(function (pp) { return esc(I18N.lang === "en" ? pp.title.replace(/^Junior /, "") : pv(pp).title); }).join(" · "))));
       }
 
       if (c.stub) {
-        body.appendChild(el("div", "cc-cta stub", "🚧 Not written yet"));
+        body.appendChild(el("div", "cc-cta stub", "🚧 " + T("Not written yet")));
         card.classList.add("stub");
         card.onclick = function () {
-          toast(c.title + " is on the roadmap — no lessons yet.");
+          toast(T("{0} is on the roadmap — no lessons yet.", cvw.title));
         };
         card.appendChild(body);
         grid.appendChild(card);
@@ -976,20 +1037,20 @@
 
       var prog = el("div", "cc-progress");
       prog.appendChild(el("div", "cc-bar", '<i style="width:' + cpct + '%;background:' + (c.color || "#1cb0f6") + '"></i>'));
-      prog.appendChild(el("div", "cc-count", complete ? "🏅 Complete" : (done ? done + "/" + total : total + " items")));
+      prog.appendChild(el("div", "cc-count", complete ? "🏅 " + T("Complete") : (done ? done + "/" + total : T("{0} items", total))));
       body.appendChild(prog);
 
       var cst = creditState(u, c);
       if (cst.state === "expired") {
-        body.appendChild(el("div", "cc-credit gone", "⚠️ " + (c.credits || 0) + " credits expired — refresh with Recall"));
+        body.appendChild(el("div", "cc-credit gone", "⚠️ " + T("{0} credits expired — refresh with Recall", c.credits || 0)));
       } else if (cst.state === "warn") {
-        body.appendChild(el("div", "cc-credit warn", "⏳ " + (c.credits || 0) + " credits expire in " + cst.left + " days"));
+        body.appendChild(el("div", "cc-credit warn", "⏳ " + T("{0} credits expire in {1} days", c.credits || 0, cst.left)));
       } else if (cst.state === "live") {
-        body.appendChild(el("div", "cc-credit ok", "✓ " + (c.credits || 0) + " credits on your transcript"));
+        body.appendChild(el("div", "cc-credit ok", "✓ " + T("{0} credits on your transcript", c.credits || 0)));
       }
 
       body.appendChild(el("div", "cc-cta " + (complete ? "done" : done ? "cont" : ""),
-        complete ? "🎓 Review · certificate" : (done ? "Continue →" : "Start course →")));
+        complete ? "🎓 " + T("Review · certificate") : (done ? T("Continue →") : T("Start course →"))));
       card.appendChild(body);
       card.onclick = function () { openCourse(c); };
       grid.appendChild(card);
@@ -997,11 +1058,11 @@
     wrap.appendChild(grid);
 
     var foot = el("div", "footer-note");
-    foot.innerHTML = LIVE_COURSES.length + " courses · ~" + totalHours + " hours of hands-on material · you hold " +
-      heldCredits + " of " + totalCredits + " credits · progress saves automatically<br>";
-    var reset = el("button", "reset-link", "Reset my CodeLab progress");
+    foot.innerHTML = esc(T("{0} courses · ~{1} hours of hands-on material · you hold {2} of {3} credits · progress saves automatically",
+      LIVE_COURSES.length, totalHours, heldCredits, totalCredits)) + "<br>";
+    var reset = el("button", "reset-link", T("Reset my CodeLab progress"));
     reset.onclick = function () {
-      if (confirm("Reset " + store.currentUser + "'s CodeLab progress, XP, streak and saved code? (Academy app tracks are untouched.)")) {
+      if (confirm(T("Reset {0}'s CodeLab progress, XP, streak and saved code? (Academy app tracks are untouched.)", store.currentUser))) {
         store.users[store.currentUser] = freshUser();
         codeClearProfile(store.currentUser);   // freshUser() no longer carries code
         saveStore();
@@ -1044,16 +1105,16 @@
 
   function statusOf(u, pos) {
     var a = audit(u, pos);
-    if (a.met) return { key: "met", label: "✓ Qualified", a: a };
-    if (blockers(pos).length) return { key: "blocked", label: "Needs new courses", a: a };
-    return { key: "open", label: a.short ? creditWord(a.short) + " to go" : "Almost there", a: a };
+    if (a.met) return { key: "met", label: "✓ " + T("Qualified"), a: a };
+    if (blockers(pos).length) return { key: "blocked", label: T("Needs new courses"), a: a };
+    return { key: "open", label: a.short ? T("{0} to go", creditWord(a.short)) : T("Almost there"), a: a };
   }
 
   function catBar(cat, have, need) {
     var row = el("div", "cat-row");
     var pct = need ? Math.min(100, Math.round(have / need * 100)) : 100;
     var c = window.CODELAB._catById[cat] || {};
-    row.appendChild(el("div", "cat-name", esc(c.label || cat)));
+    row.appendChild(el("div", "cat-name", esc(catName(cat))));
     var bar = el("div", "cat-bar", "<i></i>");
     var fill = bar.firstChild;
     fill.style.width = pct + "%";
@@ -1072,30 +1133,30 @@
     var L = ledger(u);
 
     var hero = el("div", "hero");
-    hero.appendChild(el("div", "hero-kicker", "CAREERS · " + POSITIONS.length + " POSITIONS"));
-    hero.appendChild(el("h1", "hero-title", "What you qualify for"));
+    hero.appendChild(el("div", "hero-kicker", T("CAREERS · {0} POSITIONS", POSITIONS.length)));
+    hero.appendChild(el("h1", "hero-title", T("What you qualify for")));
     hero.appendChild(el("p", "hero-sub",
-      "Every course you finish pays credits into your transcript. Positions unlock when you hold enough — one course counts toward every position that needs it."));
+      T("Every course you finish pays credits into your transcript. Positions unlock when you hold enough — one course counts toward every position that needs it.")));
 
     var tot = el("div", "credit-total");
     tot.appendChild(el("div", "ct-num", String(L.total)));
-    tot.appendChild(el("div", "ct-lab", "credits held" + (L.expired.length ? " · " + L.expired.length + " expired" : "")));
+    tot.appendChild(el("div", "ct-lab", T("credits held") + (L.expired.length ? " · " + T("{0} expired", L.expired.length) : "")));
     hero.appendChild(tot);
 
     var chips = el("div", "cat-chips");
     CATEGORIES.forEach(function (c) {
       var n = L.byCat[c.id] || 0;
-      var chip = el("span", "cat-chip" + (n ? "" : " zero"), esc(c.label) + " " + n);
+      var chip = el("span", "cat-chip" + (n ? "" : " zero"), esc(catName(c.id)) + " " + n);
       if (n) chip.style.borderColor = c.color;
       chips.appendChild(chip);
     });
     hero.appendChild(chips);
 
     var hb = el("div", "hero-btns");
-    var back = el("button", "btn btn-ghost", "← Courses");
+    var back = el("button", "btn btn-ghost", "← " + T("Courses"));
     back.onclick = renderCatalog;
     hb.appendChild(back);
-    var tr = el("button", "btn btn-blue", "📜 Transcript");
+    var tr = el("button", "btn btn-blue", "📜 " + T("Transcript"));
     tr.onclick = showTranscript;
     hb.appendChild(tr);
     hero.appendChild(hb);
@@ -1118,28 +1179,28 @@
       var head = el("div", "job-head");
       head.appendChild(el("div", "job-ic", pos.icon || "💼"));
       var ht = el("div", "job-ht");
-      ht.appendChild(el("div", "job-title", esc(pos.title)));
+      ht.appendChild(el("div", "job-title", esc(pv(pos).title)));
       ht.appendChild(el("div", "job-pill " + st.key, esc(st.label)));
       head.appendChild(ht);
       card.appendChild(head);
-      card.appendChild(el("div", "job-blurb", esc(pos.blurb || "")));
+      card.appendChild(el("div", "job-blurb", esc(pv(pos).blurb)));
 
       var bar = el("div", "job-bar", "<i></i>");
       bar.firstChild.style.width = a.pct + "%";
       bar.firstChild.style.background = st.key === "met" ? "var(--success)" : (pos.color || "var(--accent)");
       card.appendChild(bar);
-      card.appendChild(el("div", "job-meta", a.have + " / " + pos.total + " credits"));
+      card.appendChild(el("div", "job-meta", T("{0} / {1} credits", a.have, pos.total)));
 
       if (st.key === "met") {
-        card.appendChild(el("div", "job-note ok", "You meet every requirement on this sheet."));
+        card.appendChild(el("div", "job-note ok", T("You meet every requirement on this sheet.")));
       } else if (st.key === "blocked") {
         var b = blockers(pos)[0];
         card.appendChild(el("div", "job-note warn", b && b.cat
-          ? esc(window.CODELAB.catLabel(b.cat)) + " tops out at " + b.max + " credits in the catalog so far — this sheet needs " + b.need + "."
-          : "Requires a course that has not been written yet."));
+          ? T("{0} tops out at {1} credits in the catalog so far — this sheet needs {2}.", esc(catName(b.cat)), b.max, b.need)
+          : T("Requires a course that has not been written yet.")));
       } else {
         var nx = nextForPosition(u, pos);
-        card.appendChild(el("div", "job-note", nx ? "Next: " + esc(nx.title) : "Finish what you have started."));
+        card.appendChild(el("div", "job-note", nx ? T("Next: {0}", esc(cv(nx).title)) : T("Finish what you have started.")));
       }
       card.onclick = function () { showPosition(pos); };
       grid.appendChild(card);
@@ -1147,8 +1208,7 @@
     wrap.appendChild(grid);
 
     var foot = el("div", "footer-note");
-    foot.innerHTML = "Credits expire after " + Math.round(EXPIRY_DAYS / 365) +
-      " years — keeping a course's Recall drills current resets its clock.";
+    foot.innerHTML = esc(T("Credits expire after {0} years — keeping a course's Recall drills current resets its clock.", Math.round(EXPIRY_DAYS / 365)));
     wrap.appendChild(foot);
     app.appendChild(wrap);
   }
@@ -1160,18 +1220,19 @@
     var bl = blockers(pos);
 
     o.sheet.appendChild(el("div", "pos-ic", pos.icon || "💼"));
-    o.sheet.appendChild(el("h2", "pos-title", esc(pos.title)));
-    o.sheet.appendChild(el("div", "pos-blurb", esc(pos.blurb || "")));
-    if (pos.screen) o.sheet.appendChild(el("div", "pos-screen", "<b>Screened on:</b> " + esc(pos.screen)));
+    var pvw = pv(pos);
+    o.sheet.appendChild(el("h2", "pos-title", esc(pvw.title)));
+    o.sheet.appendChild(el("div", "pos-blurb", esc(pvw.blurb)));
+    if (pos.screen) o.sheet.appendChild(el("div", "pos-screen", "<b>" + esc(T("Screened on:")) + "</b> " + esc(pvw.screen)));
 
-    o.sheet.appendChild(el("div", "pos-sec", "Credits"));
+    o.sheet.appendChild(el("div", "pos-sec", T("Credits")));
     var tot = el("div", "pos-total" + (a.have >= pos.total ? " ok" : ""));
-    tot.innerHTML = "<b>" + a.have + "</b> of <b>" + pos.total + "</b> required" +
-      (a.short ? " · " + esc(creditWord(a.short)) + " short" : " ✓");
+    tot.innerHTML = T("{0} of {1} required", "<b>" + a.have + "</b>", "<b>" + pos.total + "</b>") +
+      (a.short ? " · " + esc(T("{0} short", creditWord(a.short))) : " ✓");
     o.sheet.appendChild(tot);
 
     if (Object.keys(pos.min || {}).length) {
-      o.sheet.appendChild(el("div", "pos-sec", "Category minimums"));
+      o.sheet.appendChild(el("div", "pos-sec", T("Category minimums")));
       var cats = el("div", "cat-list");
       Object.keys(pos.min).forEach(function (cat) {
         cats.appendChild(catBar(cat, a.ledger.byCat[cat] || 0, pos.min[cat]));
@@ -1180,7 +1241,7 @@
     }
 
     if ((pos.required || []).length) {
-      o.sheet.appendChild(el("div", "pos-sec", "Required courses"));
+      o.sheet.appendChild(el("div", "pos-sec", T("Required courses")));
       var rl = el("div", "req-list");
       pos.required.forEach(function (cid) {
         var c = window.CODELAB._byId[cid];
@@ -1189,27 +1250,27 @@
         var live = creditLive(st);
         var row = el("div", "req-row" + (live ? " ok" : c.stub ? " stub" : ""));
         row.appendChild(el("span", "req-ic", live ? "✓" : c.stub ? "🚧" : "○"));
-        row.appendChild(el("span", "req-name", esc(c.title)));
-        row.appendChild(el("span", "req-cr", c.stub ? "not written yet"
-          : ((c.credits || 0) + " cr" + (st.state === "expired" ? " · expired" : ""))));
+        row.appendChild(el("span", "req-name", esc(cv(c).title)));
+        row.appendChild(el("span", "req-cr", c.stub ? T("not written yet")
+          : (T("{0} cr", c.credits || 0) + (st.state === "expired" ? " · " + T("expired") : ""))));
         rl.appendChild(row);
       });
       o.sheet.appendChild(rl);
     }
 
     if (bl.length) {
-      o.sheet.appendChild(el("div", "pos-sec", "Why this is blocked"));
+      o.sheet.appendChild(el("div", "pos-sec", T("Why this is blocked")));
       var bw = el("div", "block-list");
       bl.forEach(function (b) {
         var txt;
         if (b.cat) {
-          txt = "<b>" + esc(window.CODELAB.catLabel(b.cat)) + "</b> needs " + b.need +
-                " credits but every course written so far supplies only " + b.max + ". Short " + b.short + ".";
+          txt = T("{0} needs {1} credits but every course written so far supplies only {2}. Short {3}.",
+                "<b>" + esc(catName(b.cat)) + "</b>", b.need, b.max, b.short);
         } else {
-          txt = "<b>" + esc(b.course.title) + "</b> is required but has no lessons yet.";
+          txt = T("{0} is required but has no lessons yet.", "<b>" + esc(cv(b.course).title) + "</b>");
         }
         if (b.courses && b.courses.length) {
-          txt += " On the roadmap: " + b.courses.map(function (c) { return esc(c.title); }).join(", ") + ".";
+          txt += " " + T("On the roadmap: {0}.", b.courses.map(function (c) { return esc(cv(c).title); }).join(", "));
         }
         bw.appendChild(el("div", "block-row", txt));
       });
@@ -1218,22 +1279,22 @@
 
     var acts = el("div", "pos-actions");
     var pinned = u.goal === pos.id;
-    var pin = el("button", "btn " + (pinned ? "btn-ghost" : "btn-green"), pinned ? "📌 Unpin goal" : "📌 Pin as my goal");
+    var pin = el("button", "btn " + (pinned ? "btn-ghost" : "btn-green"), "📌 " + (pinned ? T("Unpin goal") : T("Pin as my goal")));
     pin.onclick = function () {
       u.goal = pinned ? null : pos.id;
       saveStore();
       o.back.remove();
       renderJobs();
-      toast(pinned ? "Goal cleared" : "Goal set: " + pos.title);
+      toast(pinned ? T("Goal cleared") : T("Goal set: {0}", pvw.title));
     };
     acts.appendChild(pin);
     var nx = nextForPosition(u, pos);
     if (nx) {
-      var go = el("button", "btn btn-blue", "Start: " + esc(nx.title));
+      var go = el("button", "btn btn-blue", T("Start: {0}", esc(cv(nx).title)));
       go.onclick = function () { o.back.remove(); openCourse(nx); };
       acts.appendChild(go);
     }
-    var cl = el("button", "btn btn-ghost", "Close");
+    var cl = el("button", "btn btn-ghost", T("Close"));
     cl.onclick = function () { o.back.remove(); };
     acts.appendChild(cl);
     o.sheet.appendChild(acts);
@@ -1243,11 +1304,11 @@
     var u = me();
     var L = ledger(u);
     var o = overlay("sheet-trans");
-    o.sheet.appendChild(el("h2", "pos-title", "📜 Transcript"));
-    o.sheet.appendChild(el("div", "pos-blurb", esc(store.currentUser) + " · " + esc(creditWord(L.total)) + " currently held"));
+    o.sheet.appendChild(el("h2", "pos-title", "📜 " + T("Transcript")));
+    o.sheet.appendChild(el("div", "pos-blurb", esc(store.currentUser) + " · " + esc(T("{0} currently held", creditWord(L.total)))));
 
     if (!L.live.length && !L.expired.length) {
-      o.sheet.appendChild(el("div", "trans-empty", "No credits yet. Finish a course — credits are awarded for the whole course, never for single lessons."));
+      o.sheet.appendChild(el("div", "trans-empty", T("No credits yet. Finish a course — credits are awarded for the whole course, never for single lessons.")));
     }
 
     function rowFor(entry, expired) {
@@ -1255,43 +1316,43 @@
       var row = el("div", "trans-row" + (expired ? " gone" : st.state === "warn" ? " warn" : ""));
       row.appendChild(el("span", "trans-ic", c.icon || "📦"));
       var mid = el("span", "trans-mid");
-      mid.appendChild(el("span", "trans-name", esc(c.title)));
+      mid.appendChild(el("span", "trans-name", esc(cv(c).title)));
       mid.appendChild(el("span", "trans-cats", Object.keys(c.categories || {}).map(function (k) {
-        return esc(window.CODELAB.catLabel(k)) + " " + c.categories[k];
+        return esc(catName(k)) + " " + c.categories[k];
       }).join(" · ")));
       row.appendChild(mid);
       row.appendChild(el("span", "trans-cr",
-        expired ? "expired" : (st.state === "warn" ? st.left + "d left" : (c.credits || 0) + " cr")));
+        expired ? T("expired") : (st.state === "warn" ? T("{0}d left", st.left) : T("{0} cr", c.credits || 0))));
       return row;
     }
 
     if (L.live.length) {
-      o.sheet.appendChild(el("div", "pos-sec", "Current"));
+      o.sheet.appendChild(el("div", "pos-sec", T("Current")));
       var lw = el("div", "trans-list");
       L.live.forEach(function (e) { lw.appendChild(rowFor(e, false)); });
       o.sheet.appendChild(lw);
     }
     if (L.expired.length) {
-      o.sheet.appendChild(el("div", "pos-sec", "Expired — refresh with Recall to restore"));
+      o.sheet.appendChild(el("div", "pos-sec", T("Expired — refresh with Recall to restore")));
       var ew = el("div", "trans-list");
       L.expired.forEach(function (e) { ew.appendChild(rowFor(e, true)); });
       o.sheet.appendChild(ew);
     }
 
-    o.sheet.appendChild(el("div", "pos-sec", "By category"));
+    o.sheet.appendChild(el("div", "pos-sec", T("By category")));
     var cl2 = el("div", "cat-chips");
     CATEGORIES.forEach(function (c) {
       var n = L.byCat[c.id] || 0;
-      var chip = el("span", "cat-chip" + (n ? "" : " zero"), esc(c.label) + " " + n);
+      var chip = el("span", "cat-chip" + (n ? "" : " zero"), esc(catName(c.id)) + " " + n);
       if (n) chip.style.borderColor = c.color;
       cl2.appendChild(chip);
     });
     o.sheet.appendChild(cl2);
 
     var acts = el("div", "pos-actions");
-    var pr = el("button", "btn btn-blue", "🖨 Print / save as PDF");
+    var pr = el("button", "btn btn-blue", "🖨 " + T("Print / save as PDF"));
     pr.onclick = function () { document.body.classList.add("printing-cert"); window.print(); setTimeout(function () { document.body.classList.remove("printing-cert"); }, 500); };
-    var cl3 = el("button", "btn btn-ghost", "Close");
+    var cl3 = el("button", "btn btn-ghost", T("Close"));
     cl3.onclick = function () { o.back.remove(); };
     acts.appendChild(pr); acts.appendChild(cl3);
     o.sheet.appendChild(acts);
@@ -1301,19 +1362,19 @@
      COURSE SCREEN (units → lessons)
      ============================================================ */
   function openCourse(course) {
-    if (!course || course.stub) { toast("That course has not been written yet."); return; }
+    if (!course || course.stub) { toast(T("That course has not been written yet.")); return; }
     var u = me();
     u.lastCourse = course.id;
     saveStore();
     if (!course._loaded) {
       clear();
       var load = el("div", "loading-screen",
-        '<div class="loading-ic">' + (course.icon || "📦") + '</div><div class="loading-tx">Loading ' + esc(course.title) + "…</div>");
+        '<div class="loading-ic">' + (course.icon || "📦") + '</div><div class="loading-tx">' + T("Loading {0}…", esc(cv(course).title)) + "</div>");
       app.appendChild(load);
     }
     loadCourse(course).then(function () { renderCourse(course); })
       .catch(function (e) {
-        toast("⚠️ " + e.message + " — check your connection and try again");
+        toast("⚠️ " + T("{0} — check your connection and try again", e.message));
         renderCatalog();
       });
   }
@@ -1332,15 +1393,16 @@
 
     var head = el("div", "course-head");
     head.style.background = course.color || "#1cb0f6";
-    var back = el("button", "course-back", "← All courses");
+    var back = el("button", "course-back", "← " + T("All courses"));
     back.onclick = renderCatalog;
     head.appendChild(back);
     var hrow = el("div", "course-hrow");
     hrow.appendChild(el("div", "course-ic", course.icon || "📦"));
     var hc = el("div", "course-hc");
-    hc.appendChild(el("div", "course-kicker", "COURSE · ~" + course.hours + " HOURS · " + esc(course.level || "")));
-    hc.appendChild(el("h1", "course-title", esc(course.title)));
-    hc.appendChild(el("p", "course-blurb", esc(course.blurb || "")));
+    var cvw = cv(course);
+    hc.appendChild(el("div", "course-kicker", T("COURSE · ~{0} HOURS · {1}", course.hours, esc(cvw.level))));
+    hc.appendChild(el("h1", "course-title", esc(cvw.title)));
+    hc.appendChild(el("p", "course-blurb", esc(cvw.blurb)));
     hrow.appendChild(hc);
     head.appendChild(hrow);
     var pr = el("div", "hero-progress");
@@ -1349,13 +1411,13 @@
     head.appendChild(pr);
     var hb = el("div", "hero-btns");
     if (complete) {
-      var cert = el("button", "btn btn-gold", "🎓 View certificate");
+      var cert = el("button", "btn btn-gold", "🎓 " + T("View certificate"));
       cert.onclick = function () { showCertificate(course); };
       hb.appendChild(cert);
     } else if (total) {
       var next = list[firstIncomplete(course)];
       if (next) {
-        var cont = el("button", "btn btn-green", (done ? "Continue: " : "Start: ") + esc(next.lesson.title));
+        var cont = el("button", "btn btn-green", T(done ? "Continue: {0}" : "Start: {0}", esc(lv(next.lesson).title)));
         cont.onclick = function () { openLesson(course, next.gi); };
         hb.appendChild(cont);
       }
@@ -1368,11 +1430,12 @@
       var uh = el("div", "unit-head");
       uh.style.background = unit.color || course.color || "#1cb0f6";
       var left = el("div", "unit-head-left");
-      left.appendChild(el("div", "unit-kicker", "Unit " + (ui + 1)));
-      left.appendChild(el("div", "unit-title", esc(unit.title)));
-      if (unit.blurb) left.appendChild(el("div", "unit-blurb", esc(unit.blurb)));
+      var uvw = uv(unit);
+      left.appendChild(el("div", "unit-kicker", T("Unit {0}", ui + 1)));
+      left.appendChild(el("div", "unit-title", esc(uvw.title)));
+      if (unit.blurb) left.appendChild(el("div", "unit-blurb", esc(uvw.blurb)));
       if (unit.cheat && unit.cheat.length) {
-        var cs = el("button", "cheat-btn", "📋 Cheatsheet");
+        var cs = el("button", "cheat-btn", "📋 " + T("Cheatsheet"));
         cs.onclick = function () { showCheatsheet(unit); };
         left.appendChild(cs);
       }
@@ -1393,12 +1456,14 @@
         if (doneL) st.classList.add("ok");
         row.appendChild(st);
         var mid = el("div", "lrow-mid");
-        mid.appendChild(el("div", "lrow-title", esc(l.title)));
-        mid.appendChild(el("div", "lrow-meta", "+" + xpOf(l) + " XP · ~" + minsOf(l) + " min"));
+        mid.appendChild(el("div", "lrow-title", esc(lv(l).title)));
+        mid.appendChild(el("div", "lrow-meta", T("+{0} XP · ~{1} min", xpOf(l), minsOf(l))));
         row.appendChild(mid);
-        row.appendChild(el("div", "lrow-chip chip-" + chipOf(l).toLowerCase().replace(/[^a-z]/g, ""), chipOf(l)));
+        /* The chip's CSS class is keyed on the English label; only its text
+           is translated. */
+        row.appendChild(el("div", "lrow-chip chip-" + chipOf(l).toLowerCase().replace(/[^a-z]/g, ""), esc(T(chipOf(l)))));
         row.onclick = function () {
-          if (!unlocked) { toast("🔒 Finish the previous lesson first"); return; }
+          if (!unlocked) { toast("🔒 " + T("Finish the previous lesson first")); return; }
           openLesson(course, gi);
         };
         rows.appendChild(row);
@@ -1407,7 +1472,7 @@
       wrap.appendChild(card);
     });
 
-    wrap.appendChild(el("div", "footer-note", total + " items in this course · ~" + course.hours + " hours"));
+    wrap.appendChild(el("div", "footer-note", T("{0} items in this course · ~{1} hours", total, course.hours)));
     app.appendChild(wrap);
   }
 
@@ -1423,7 +1488,7 @@
       '<text x="29" y="30" text-anchor="middle" dominant-baseline="central" font-size="22">' + emoji + "</text></svg>";
     var col = el("div", "unit-ring");
     col.innerHTML = svg;
-    col.appendChild(el("div", "unit-ring-count", complete ? "🏅 Done" : done + "/" + total));
+    col.appendChild(el("div", "unit-ring-count", complete ? "🏅 " + T("Done") : done + "/" + total));
     return col;
   }
 
@@ -1442,13 +1507,14 @@
   function showCheatsheet(unit) {
     var o = overlay("sheet-cheat");
     var head = el("div", "sheet-head");
-    head.appendChild(el("div", "sheet-title", "📋 " + esc(unit.title) + " — cheatsheet"));
+    var uvw = uv(unit);
+    head.appendChild(el("div", "sheet-title", "📋 " + T("{0} — cheatsheet", esc(uvw.title))));
     var x = el("button", "sheet-x", "✕");
     x.onclick = function () { o.back.remove(); };
     head.appendChild(x);
     o.sheet.appendChild(head);
     var body = el("div", "sheet-body");
-    (unit.cheat || []).forEach(function (c) {
+    uvw.cheat.forEach(function (c) {
       var item = el("div", "cheat-item");
       item.appendChild(el("div", "cheat-h", mdInline(c.h)));
       if (c.code) {
@@ -1459,6 +1525,17 @@
       if (c.note) item.appendChild(el("div", "cheat-note", mdInline(c.note)));
       body.appendChild(item);
     });
+    /* A translation can add a glossary: the English term the code uses,
+       next to the word the lesson uses for it. */
+    if (uvw.glossary.length) {
+      body.appendChild(el("div", "cheat-h glossary-h", "📖 " + T("Glossary")));
+      var gl = el("dl", "glossary");
+      uvw.glossary.forEach(function (g) {
+        gl.appendChild(el("dt", "", "<code>" + esc(g.en) + "</code>" + (g.term ? " · " + esc(g.term) : "")));
+        if (g.note) gl.appendChild(el("dd", "", mdInline(g.note)));
+      });
+      body.appendChild(gl);
+    }
     o.sheet.appendChild(body);
   }
 
@@ -1468,33 +1545,33 @@
     var u = me();
     var o = overlay("sheet-cert");
     var d = new Date();
-    var date = d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
-    var title = course ? course.title : PATH_TITLE;
+    var date = d.toLocaleDateString(I18N.lang === "en" ? undefined : I18N.lang, { year: "numeric", month: "long", day: "numeric" });
+    var title = course ? cv(course).title : T(PATH_TITLE);
     var stats;
     if (course) {
       var list = courseLessons(course);
       var projects = list.filter(function (e) { return e.lesson.project && isDone(e.lesson.id); }).length;
-      stats = list.length + " items · " + projects + " projects · ~" + course.hours + " hours";
+      stats = T("{0} items · {1} projects · ~{2} hours", list.length, projects, course.hours);
     } else {
       var totals = pathTotals();
-      stats = COURSES.length + " courses · " + totals.total + " items · " + u.xp + " XP";
+      stats = T("{0} courses · {1} items · {2} XP", COURSES.length, totals.total, u.xp);
     }
     var cert = el("div", "cert");
     cert.innerHTML =
       '<div class="cert-inner">' +
       '<div class="cert-logo">⚡ CodeLab</div>' +
-      '<div class="cert-cap">Certificate of Completion</div>' +
+      '<div class="cert-cap">' + esc(T("Certificate of Completion")) + "</div>" +
       '<div class="cert-path">' + esc(title) + "</div>" +
-      '<div class="cert-award">awarded to</div>' +
+      '<div class="cert-award">' + esc(T("awarded to")) + "</div>" +
       '<div class="cert-name">' + esc(store.currentUser) + "</div>" +
       '<div class="cert-stats">' + esc(stats) + "</div>" +
       '<div class="cert-date">' + esc(date) + "</div>" +
       "</div>";
     o.sheet.appendChild(cert);
     var row = el("div", "cert-actions");
-    var print = el("button", "btn btn-blue", "🖨 Print / save as PDF");
+    var print = el("button", "btn btn-blue", "🖨 " + T("Print / save as PDF"));
     print.onclick = function () { document.body.classList.add("printing-cert"); window.print(); setTimeout(function () { document.body.classList.remove("printing-cert"); }, 500); };
-    var close = el("button", "btn btn-ghost", "Close");
+    var close = el("button", "btn btn-ghost", T("Close"));
     close.onclick = function () { o.back.remove(); };
     row.appendChild(print); row.appendChild(close);
     o.sheet.appendChild(row);
@@ -1519,10 +1596,10 @@
   }
   function openPlayground() {
     renderWorkspace({
-      gi: -1, unitIndex: -1, course: null, unit: { title: "Sandbox" },
+      gi: -1, unitIndex: -1, course: null, unit: { title: T("Sandbox") },
       lesson: {
-        id: "playground", kind: "web", title: "Free sandbox", chip: "WEB",
-        brief: "Your own scratchpad — build anything. **Run** shows your page in Result. Code autosaves per profile.\n\nNothing is graded here; it's just you and the browser.",
+        id: "playground", kind: "web", title: T("Free sandbox"), chip: "WEB",
+        brief: T("Your own scratchpad — build anything. **Run** shows your page in Result. Code autosaves per profile.\n\nNothing is graded here; it's just you and the browser."),
         steps: [],
         files: [
           { name: "index.html", content: "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n  <h1>Hello, sandbox!</h1>\n  <p>Edit me, then press Run.</p>\n  <script src=\"script.js\"></script>\n</body>\n</html>\n" },
@@ -1537,6 +1614,7 @@
   function renderWorkspace(entry, freeplay, drill) {
     clear();
     var lesson = entry.lesson;
+    var lx = lv(lesson);    // what the learner reads; `lesson` is what gets graded
     var course = entry.course;
     var u = me();
     /* A drill NEVER loads your saved solution — that is the whole point of
@@ -1580,7 +1658,7 @@
       /* Walking away from an unfinished drill IS the answer: it counts as a
          miss, or the ladder only ever hears about successes. */
       if (drill && !drillSettled) {
-        if (!confirm("Leave this drill? It counts as a miss and comes back tomorrow.")) return;
+        if (!confirm(T("Leave this drill? It counts as a miss and comes back tomorrow."))) return;
         settleDrill(false);
       }
       current = null;
@@ -1590,22 +1668,22 @@
     top.appendChild(back);
     var tt = el("div", "l-tt");
     function drillKicker() {
-      return "🎯 RECALL · DRILL " + (drillK + 1) + "/" + (lesson.steps || []).length;
+      return "🎯 " + T("RECALL · DRILL {0}/{1}", drillK + 1, (lesson.steps || []).length);
     }
     var kicker = el("div", "l-kicker" + (drill ? " drill" : ""), drill
       ? drillKicker()
-      : (freeplay ? "PLAYGROUND" : (esc(course.title).toUpperCase() + " · UNIT " + (entry.unitIndex + 1))));
+      : (freeplay ? T("PLAYGROUND") : (esc(cv(course).title).toUpperCase() + " · " + T("UNIT {0}", entry.unitIndex + 1))));
     tt.appendChild(kicker);
-    tt.appendChild(el("div", "l-title", esc(lesson.title)));
+    tt.appendChild(el("div", "l-title", esc(lx.title)));
     top.appendChild(tt);
     var badge = el("div", "l-badge", stepBadgeText());
     top.appendChild(badge);
     scr.appendChild(top);
 
     var tabs = el("div", "l-tabs");
-    var resultLabel = lesson.kind === "shell" ? "▶ Terminal" : (lesson.kind === "js" ? "▶ Output" : "▶ Result");
-    var codeLabel = lesson.kind === "shell" ? "⌨️ Commands" : "✏️ Code";
-    var tabDefs = [["learn", "📖 Learn"], ["code", codeLabel], ["result", resultLabel]];
+    var resultLabel = "▶ " + (lesson.kind === "shell" ? T("Terminal") : (lesson.kind === "js" ? T("Output") : T("Result")));
+    var codeLabel = lesson.kind === "shell" ? "⌨️ " + T("Commands") : "✏️ " + T("Code");
+    var tabDefs = [["learn", "📖 " + T("Learn")], ["code", codeLabel], ["result", resultLabel]];
     var tabBtns = {};
     tabDefs.forEach(function (t) {
       var b = el("button", "l-tab", t[1]);
@@ -1620,32 +1698,41 @@
     // — Learn
     var learn = el("div", "pane pane-learn");
     var learnIn = el("div", "pane-in");
-    learnIn.appendChild(el("div", "brief", mdBlock(lesson.brief || "")));
+    learnIn.appendChild(el("div", "brief", mdBlock(lx.brief || "")));
     if (lesson.example) {
       var ex = el("pre", "cheat-code brief-code");
       ex.innerHTML = "<code>" + window.CODELAB.hl(lesson.example.code, lesson.example.lang || "js") + "</code>";
       learnIn.appendChild(ex);
     }
+    /* A translation can carry a longer explanation than the English. It
+       sits after the example, folded, so the brief still reads first. */
+    if (lx.more) {
+      var more = el("details", "more-box");
+      more.appendChild(el("summary", "", "➕ " + T("More explanation")));
+      more.appendChild(el("div", "brief", mdBlock(lx.more)));
+      learnIn.appendChild(more);
+    }
     var checksBox = el("div", "checkpoints");
     if (!freeplay && (lesson.steps || []).length) {
-      checksBox.appendChild(el("div", "pane-label", "Checkpoints"));
+      checksBox.appendChild(el("div", "pane-label", T("Checkpoints")));
     }
     learnIn.appendChild(checksBox);
 
     var editor;
     if (!freeplay) {
       var helpRow = el("div", "help-row");
-      if (lesson.hints && lesson.hints.length) {
-        var hintBtn = el("button", "btn btn-ghost btn-small", "💡 Hint (" + lesson.hints.length + ")");
+      var hints = lx.hints;
+      if (hints && hints.length) {
+        var hintBtn = el("button", "btn btn-ghost btn-small", "💡 " + T("Hint ({0})", hints.length));
         var hintsBox = el("div", "hints");
         hintBtn.onclick = function () {
-          if (current.hintsShown < lesson.hints.length) {
+          if (current.hintsShown < hints.length) {
             current.hintsShown++;
-            hintsBox.appendChild(el("div", "hint", "💡 " + mdInline(lesson.hints[current.hintsShown - 1])));
-            hintBtn.textContent = current.hintsShown < lesson.hints.length
-              ? "💡 Next hint (" + (lesson.hints.length - current.hintsShown) + " left)"
-              : "💡 That's every hint";
-            if (current.hintsShown >= lesson.hints.length) hintBtn.disabled = true;
+            hintsBox.appendChild(el("div", "hint", "💡 " + mdInline(hints[current.hintsShown - 1])));
+            hintBtn.textContent = "💡 " + (current.hintsShown < hints.length
+              ? T("Next hint ({0} left)", hints.length - current.hintsShown)
+              : T("That's every hint"));
+            if (current.hintsShown >= hints.length) hintBtn.disabled = true;
           }
         };
         helpRow.appendChild(hintBtn);
@@ -1655,29 +1742,29 @@
         learnIn.appendChild(helpRow);
       }
       if (lesson.solution) {
-        var solBtn = el("button", "btn btn-ghost btn-small", "🔓 View solution");
+        var solBtn = el("button", "btn btn-ghost btn-small", "🔓 " + T("View solution"));
         /* In a drill the solution is the answer to the question being asked,
            so it stays locked until at least one real attempt has been graded.
            Retrieval you abandon before trying is not retrieval. */
-        if (drill) { solBtn.disabled = true; solBtn.textContent = "🔒 Solution (after a run)"; }
+        if (drill) { solBtn.disabled = true; solBtn.textContent = "🔒 " + T("Solution (after a run)"); }
         solBtn.onclick = function () {
-          if (!confirm("Load the solution into the editor? Your current code for this lesson will be replaced (try the hints first!).")) return;
+          if (!confirm(T("Load the solution into the editor? Your current code for this lesson will be replaced (try the hints first!)."))) return;
           Object.keys(lesson.solution).forEach(function (n) { editor.setFile(n, lesson.solution[n]); });
           persistCode();
-          toast("Solution loaded — read it, run it, tweak it 🧠");
+          toast(T("Solution loaded — read it, run it, tweak it 🧠"));
         };
         helpRow.appendChild(solBtn);
         if (drill) current.unlockSolution = function () {
-          solBtn.disabled = false; solBtn.textContent = "🔓 View solution";
+          solBtn.disabled = false; solBtn.textContent = "🔓 " + T("View solution");
         };
       }
-      var resetBtn = el("button", "btn btn-ghost btn-small", "↺ Reset code");
+      var resetBtn = el("button", "btn btn-ghost btn-small", "↺ " + T("Reset code"));
       resetBtn.onclick = function () {
-        if (!confirm("Reset this lesson's files back to the starter code?")) return;
+        if (!confirm(T("Reset this lesson's files back to the starter code?"))) return;
         var fresh = starterFiles(lesson);
         Object.keys(fresh).forEach(function (n) { editor.setFile(n, fresh[n]); });
         persistCode();
-        toast("Starter code restored");
+        toast(T("Starter code restored"));
       };
       helpRow.appendChild(resetBtn);
 
@@ -1689,15 +1776,15 @@
          pending — that ordering is exactly how you overwrite the answer
          you were protecting. */
       if (isDone(lesson.id)) {
-        var practiceBtn = el("button", "btn btn-ghost btn-small", "🎯 Practice from scratch");
+        var practiceBtn = el("button", "btn btn-ghost btn-small", "🎯 " + T("Practice from scratch"));
         practiceBtn.onclick = function () {
           practice = true;
           var blank = starterFiles(lesson);
           Object.keys(blank).forEach(function (n) { editor.setFile(n, blank[n]); });
           practiceBtn.disabled = true;
-          savedDot.textContent = "Practice — not saving";
+          savedDot.textContent = T("Practice — not saving");
           savedDot.classList.add("show");
-          toast("Practice mode — your saved solution is safe 🔒");
+          toast(T("Practice mode — your saved solution is safe 🔒"));
         };
         helpRow.appendChild(practiceBtn);
       }
@@ -1709,7 +1796,7 @@
     var codePane = el("div", "pane pane-code");
     var edRoot = el("div", "ed-root");
     codePane.appendChild(edRoot);
-    var savedDot = el("div", "saved-dot", "Saved ✓");
+    var savedDot = el("div", "saved-dot", T("Saved ✓"));
     codePane.appendChild(savedDot);
     main.appendChild(codePane);
 
@@ -1719,13 +1806,13 @@
     var previewHost = null;
     if (lesson.kind !== "js") {
       var previewWrap = el("div", "res-block");
-      previewWrap.appendChild(el("div", "pane-label", lesson.kind === "shell" ? "Terminal" : "Preview"));
+      previewWrap.appendChild(el("div", "pane-label", lesson.kind === "shell" ? T("Terminal") : T("Preview")));
       previewHost = el("div", "preview-host");
       previewWrap.appendChild(previewHost);
       resultIn.appendChild(previewWrap);
     }
     var checksOut = el("div", "res-block");
-    if (!freeplay && (lesson.steps || []).length) checksOut.appendChild(el("div", "pane-label", "Checkpoints"));
+    if (!freeplay && (lesson.steps || []).length) checksOut.appendChild(el("div", "pane-label", T("Checkpoints")));
     var checksOutList = el("div", "checks-out");
     checksOut.appendChild(checksOutList);
     resultIn.appendChild(checksOut);
@@ -1734,12 +1821,12 @@
        Jest/Vitest run. Hidden until the sandbox streams its first run. */
     var specBlock = el("div", "res-block spec-block");
     specBlock.style.display = "none";
-    specBlock.appendChild(el("div", "pane-label", "Your tests"));
+    specBlock.appendChild(el("div", "pane-label", T("Your tests")));
     var specList = el("div", "spec-lines");
     specBlock.appendChild(specList);
     resultIn.appendChild(specBlock);
     var consoleBlock = el("div", "res-block");
-    consoleBlock.appendChild(el("div", "pane-label", "Console"));
+    consoleBlock.appendChild(el("div", "pane-label", T("Console")));
     var consoleList = el("div", "console-lines");
     consoleBlock.appendChild(consoleList);
     resultIn.appendChild(consoleBlock);
@@ -1749,7 +1836,7 @@
     scr.appendChild(main);
 
     var foot = el("div", "l-foot");
-    var runBtn = el("button", "btn btn-run", "▶ Run");
+    var runBtn = el("button", "btn btn-run", "▶ " + T("Run"));
     runBtn.onclick = doRun;
     foot.appendChild(runBtn);
     scr.appendChild(foot);
@@ -1799,7 +1886,7 @@
       if (passed) codeDel(store.currentUser, DRILL_TAG + lesson.id);
       flushStore();
       if (passed) {
-        toast(outcome === "got" ? "Drill cleared 🎯" : "Cleared — logged as close");
+        toast(outcome === "got" ? T("Drill cleared 🎯") : T("Cleared — logged as close"));
       }
       if (drill.onDone) drill.onDone(outcome);
     }
@@ -1810,7 +1897,7 @@
       /* Writes one key holding one lesson's files. Nothing in the progress
          store changes, so typing never triggers a full serialization. */
       var ok = codeSet(store.currentUser, (drill ? DRILL_TAG : "") + lesson.id, editor.getFiles());
-      if (!ok) { toast("⚠ Couldn't save your code — storage may be full"); return; }
+      if (!ok) { toast("⚠ " + T("Couldn't save your code — storage may be full")); return; }
       savedDot.classList.add("show");
       setTimeout(function () { savedDot.classList.remove("show"); }, 900);
     }
@@ -1836,25 +1923,25 @@
     function solutionBlock(sol, i) {
       var wrap = el("div", "chk-sol");
       var open = !!current.solOpen[i];
-      var btn = el("button", "chk-sol-btn", open ? "Hide solution" : "💡 Show solution");
+      var btn = el("button", "chk-sol-btn", open ? T("Hide solution") : "💡 " + T("Show solution"));
       btn.onclick = function () { current.solOpen[i] = !open; paintChecks(); };
       wrap.appendChild(btn);
       if (!open) return wrap;
       var body = el("div", "chk-sol-body");
-      if (sol.why) body.appendChild(el("div", "chk-sol-why", mdInline(sol.why)));
+      if (sol.why) body.appendChild(el("div", "chk-sol-why", mdInline(I18N.stepWhy(lesson.id, i, sol.why))));
       if (sol.chunks.length) {
         var multi = (lesson.files || []).length > 1;
         sol.chunks.forEach(function (c) {
-          body.appendChild(el("div", "chk-sol-where", esc((multi ? c.file + " · " : "") + "line " + c.line)));
+          body.appendChild(el("div", "chk-sol-where", esc((multi ? c.file + " · " : "") + T("line {0}", c.line))));
           var lines = c.del.map(function (t) { return '<span class="d-del">- ' + esc(t) + "</span>"; })
             .concat(c.add.map(function (t) { return '<span class="d-add">+ ' + esc(t) + "</span>"; }));
           body.appendChild(el("pre", "chk-diff", lines.join("")));
         });
       } else if (sol.after && sol.after.length) {
-        body.appendChild(el("div", "chk-sol-why", "No new code for this checkpoint: it passes once " +
-          sol.after.map(function (k) { return "checkpoint " + (k + 1); }).join(" and ") + " passes."));
+        body.appendChild(el("div", "chk-sol-why", T("No new code for this checkpoint: it passes once {0} passes.",
+          sol.after.map(function (k) { return T("checkpoint {0}", k + 1); }).join(T(" and ")))));
       } else {
-        body.appendChild(el("div", "chk-sol-why", "No new code for this checkpoint: the starter already passes it. If it fails now, compare your file with the starter (↺ Reset code)."));
+        body.appendChild(el("div", "chk-sol-why", T("No new code for this checkpoint: the starter already passes it. If it fails now, compare your file with the starter (↺ Reset code).")));
       }
       wrap.appendChild(body);
       return wrap;
@@ -1871,7 +1958,11 @@
           var ic = st.state === "pass" ? "✓" : (st.state === "fail" ? "✕" : (i + 1));
           d.appendChild(el("div", "chk-ic", "" + ic));
           var tx = el("div", "chk-tx");
-          tx.appendChild(el("div", "chk-text", mdInline(s.text)));
+          /* shownSteps is a prefix of lesson.steps, so i lines up with the
+             translated view. */
+          var sx = lx.steps[i] || { text: s.text };
+          tx.appendChild(el("div", "chk-text", mdInline(sx.text)));
+          if (sx.detail) tx.appendChild(el("div", "chk-detail", mdInline(sx.detail)));
           if (st.state === "fail" && st.msg) tx.appendChild(el("div", "chk-msg", esc(st.msg)));
           if (stepSol && stepSol.steps[i] && current.failedOnce[i]) tx.appendChild(solutionBlock(stepSol.steps[i], i));
           d.appendChild(tx);
@@ -1889,8 +1980,8 @@
       }
       if (m.type === "specdone") {
         var sum = el("div", "spec-sum " + (m.failed ? "spec-red" : "spec-green"));
-        sum.textContent = m.total === 0 ? "no tests registered — write one with it()"
-          : (m.failed ? m.failed + " failed, " + m.passed + " passed" : "✓ " + m.passed + " passed");
+        sum.textContent = m.total === 0 ? T("no tests registered — write one with it()")
+          : (m.failed ? T("{0} failed, {1} passed", m.failed, m.passed) : "✓ " + T("{0} passed", m.passed));
         specList.appendChild(sum);
         specList.scrollTop = specList.scrollHeight;
         return;
@@ -1916,7 +2007,7 @@
       if (current.running) return;
       current.running = true;
       runBtn.disabled = true;
-      runBtn.textContent = "⏳ Running…";
+      runBtn.textContent = "⏳ " + T("Running…");
       consoleList.innerHTML = "";
       specList.innerHTML = "";
       persistCode();
@@ -1937,27 +2028,29 @@
         var allPass = steps.length > 0;
         steps.forEach(function (s, i) {
           var r = byIndex[i];
-          if (res.timeout) { current.stepState[i] = { state: "fail", msg: "Your code ran too long — check for an infinite loop." }; allPass = false; }
-          else if (!r) { current.stepState[i] = { state: "fail", msg: res.fatal ? ("Your code crashed: " + res.fatal) : "This check never ran." }; allPass = false; }
+          if (res.timeout) { current.stepState[i] = { state: "fail", msg: T("Your code ran too long — check for an infinite loop.") }; allPass = false; }
+          else if (!r) { current.stepState[i] = { state: "fail", msg: res.fatal ? T("Your code crashed: {0}", res.fatal) : T("This check never ran.") }; allPass = false; }
           else if (r.pass) { current.stepState[i] = { state: "pass", msg: "" }; }
-          else { current.stepState[i] = { state: "fail", msg: r.msg || "Check failed" }; allPass = false; }
+          /* The test is English code; its message is translated on the way
+             out (i18n.js, `messages`). */
+          else { current.stepState[i] = { state: "fail", msg: r.msg ? I18N.msg(lesson.id, r.msg) : T("Check failed") }; allPass = false; }
         });
         /* A checkpoint's solution unlocks once a real run has failed it, and
            stays unlocked for this sitting even after it passes. */
         steps.forEach(function (s, i) { if (current.stepState[i].state === "fail") current.failedOnce[i] = true; });
         current.allPass = allPass;
         paintChecks();
-        if (res.timeout) toast("⏱ Took too long — maybe an infinite loop?");
+        if (res.timeout) toast("⏱ " + T("Took too long — maybe an infinite loop?"));
 
         if (window.matchMedia("(max-width: 979px)").matches) setTab("result");
 
         if (freeplay || !steps.length) {
-          runBtn.textContent = "▶ Run";
+          runBtn.textContent = "▶ " + T("Run");
           return;
         }
         if (drill) {
           if (current.unlockSolution) { current.unlockSolution(); current.unlockSolution = null; }
-          if (!allPass) { drillFailedRuns++; runBtn.textContent = "▶ Run"; return; }
+          if (!allPass) { drillFailedRuns++; runBtn.textContent = "▶ " + T("Run"); return; }
           /* A prefix the STARTER already satisfies would hand out a free pass.
              validate.js proves a starter fails some checkpoint, not the first,
              so detect it exactly: untouched files plus a clean pass means this
@@ -1970,16 +2063,16 @@
             current.allPass = false;
             kicker.textContent = drillKicker();
             paintChecks();
-            runBtn.textContent = "▶ Run";
-            toast("The starter already passed that far — going one deeper 🎯");
+            runBtn.textContent = "▶ " + T("Run");
+            toast(T("The starter already passed that far — going one deeper 🎯"));
             return;
           }
-          runBtn.textContent = "▶ Run again";
+          runBtn.textContent = "▶ " + T("Run again");
           settleDrill(true);
           return;
         }
         if (allPass) {
-          runBtn.textContent = "▶ Run again";
+          runBtn.textContent = "▶ " + T("Run again");
           if (!isDone(lesson.id)) completeLesson(entry);
           else {
             /* Re-solving a finished lesson is real work, so it holds the
@@ -1988,11 +2081,11 @@
                per day, so this cannot be farmed. */
             var ru = me();
             if (ru) { bumpStreak(ru); saveStore(); syncAcademy(function (t) { bumpStreak(t); }); }
-            toast("Still passing ✓ nice");
+            toast(T("Still passing ✓ nice"));
             showContinueFoot();
           }
         } else {
-          runBtn.textContent = "▶ Run";
+          runBtn.textContent = "▶ " + T("Run");
         }
       });
     }
@@ -2000,7 +2093,7 @@
     function showContinueFoot() {
       var nxt = nextAfter(course, entry.gi);
       if (foot.querySelector(".btn-continue")) return;
-      var c = el("button", "btn btn-green btn-continue", nxt ? "Continue →" : "Back to course");
+      var c = el("button", "btn btn-green btn-continue", nxt ? T("Continue →") : T("Back to course"));
       c.onclick = function () { nxt ? openLesson(course, nxt.gi) : renderCourse(course); };
       foot.appendChild(c);
     }
@@ -2045,37 +2138,37 @@
     var finishedPath = pathComplete();
     o.sheet.appendChild(el("div", "done-emoji", finishedPath ? "🏆" : (finishedCourse ? "🎓" : (isProject ? "🏆" : "🎉"))));
     o.sheet.appendChild(el("h2", "done-title",
-      finishedPath ? "PATH COMPLETE!" : (finishedCourse ? "Course complete!" : (isProject ? "Project complete!" : "Lesson complete!"))));
-    o.sheet.appendChild(el("div", "done-sub", esc(finishedCourse ? course.title : lesson.title)));
+      finishedPath ? T("PATH COMPLETE!") : (finishedCourse ? T("Course complete!") : (isProject ? T("Project complete!") : T("Lesson complete!")))));
+    o.sheet.appendChild(el("div", "done-sub", esc(finishedCourse ? cv(course).title : lv(lesson).title)));
     var rr = el("div", "reward-row");
-    rr.appendChild(reward("XP earned", "+" + gained));
-    rr.appendChild(reward("Streak", "🔥 " + u.streak));
-    if (creditFirst) rr.appendChild(reward("Credits", "+" + course.credits));
+    rr.appendChild(reward(T("XP earned"), "+" + gained));
+    rr.appendChild(reward(T("Streak"), "🔥 " + u.streak));
+    if (creditFirst) rr.appendChild(reward(T("Credits"), "+" + course.credits));
     o.sheet.appendChild(rr);
     if (creditFirst) {
       var unlocked = POSITIONS.filter(function (pp) { return audit(u, pp).met; });
       o.sheet.appendChild(el("div", "done-credit",
-        "🎓 " + esc(course.title) + " added " + creditWord(course.credits) + " to your transcript" +
-        (unlocked.length ? " — you now qualify for " + plural(unlocked.length, "position", "positions") : "")));
+        "🎓 " + T("{0} added {1} to your transcript", esc(cv(course).title), creditWord(course.credits)) +
+        (unlocked.length ? T(" — you now qualify for {0}", Tn(unlocked.length, "{0} position", "{0} positions")) : "")));
     }
-    if (academyConnected()) o.sheet.appendChild(el("div", "done-conn", "🔗 Synced to your Academy profile"));
+    if (academyConnected()) o.sheet.appendChild(el("div", "done-conn", "🔗 " + T("Synced to your Academy profile")));
 
     var acts = el("div", "done-actions");
     if (finishedCourse) {
-      var cert = el("button", "btn btn-gold", "🎓 View your certificate");
+      var cert = el("button", "btn btn-gold", "🎓 " + T("View your certificate"));
       cert.onclick = function () { o.back.remove(); showCertificate(finishedPath ? null : course); };
       acts.appendChild(cert);
-      var toCat = el("button", "btn btn-ghost", "Back to all courses");
+      var toCat = el("button", "btn btn-ghost", T("Back to all courses"));
       toCat.onclick = function () { o.back.remove(); renderCatalog(); };
       acts.appendChild(toCat);
     } else {
       var nxt = nextAfter(course, entry.gi);
       if (nxt) {
-        var go = el("button", "btn btn-green", "Next: " + esc(nxt.lesson.title));
+        var go = el("button", "btn btn-green", T("Next: {0}", esc(lv(nxt.lesson).title)));
         go.onclick = function () { o.back.remove(); openLesson(course, nxt.gi); };
         acts.appendChild(go);
       }
-      var stay = el("button", "btn btn-ghost", "Stay & tinker");
+      var stay = el("button", "btn btn-ghost", esc(T("Stay & tinker")));
       stay.onclick = function () {
         o.back.remove();
         if (current && current.showContinueFoot) current.showContinueFoot();
@@ -2099,8 +2192,11 @@
   function renderQuiz(entry) {
     clear();
     var lesson = entry.lesson;
+    var lx = lv(lesson);
     var course = entry.course;
-    var qs = lesson.questions || [];
+    /* The translated view keeps every question's `answer` index, so grading
+       is unchanged; only the words differ. */
+    var qs = lx.questions || [];
     var idx = 0, correct = 0;
 
     var scr = el("div", "lesson quiz");
@@ -2109,8 +2205,8 @@
     back.onclick = function () { renderCourse(course); };
     top.appendChild(back);
     var tt = el("div", "l-tt");
-    tt.appendChild(el("div", "l-kicker", esc(course.title).toUpperCase() + " · QUIZ"));
-    tt.appendChild(el("div", "l-title", esc(lesson.title)));
+    tt.appendChild(el("div", "l-kicker", esc(cv(course).title).toUpperCase() + " · " + T("QUIZ")));
+    tt.appendChild(el("div", "l-title", esc(lx.title)));
     top.appendChild(tt);
     var prog = el("div", "l-badge", "1/" + qs.length);
     top.appendChild(prog);
@@ -2126,8 +2222,8 @@
       if (idx >= qs.length) { finish(); return; }
       var q = qs[idx];
       var inner = el("div", "quiz-in");
-      if (idx === 0 && lesson.brief) inner.appendChild(el("div", "quiz-brief", mdBlock(lesson.brief)));
-      inner.appendChild(el("div", "q-kicker", "Question " + (idx + 1)));
+      if (idx === 0 && lx.brief) inner.appendChild(el("div", "quiz-brief", mdBlock(lx.brief)));
+      inner.appendChild(el("div", "q-kicker", T("Question {0}", idx + 1)));
       inner.appendChild(el("div", "q-prompt", mdInline(q.q)));
       if (q.code) {
         var pre = el("pre", "q-code");
@@ -2155,9 +2251,9 @@
             else if (order[j] === orig) n.classList.add("wrong");
           });
           var fb = el("div", "q-fb " + (right ? "ok" : "no"),
-            "<b>" + (right ? "Correct!" : "Not quite.") + "</b> " + mdInline(q.explain || ""));
+            "<b>" + (right ? T("Correct!") : T("Not quite.")) + "</b> " + mdInline(q.explain || ""));
           inner.appendChild(fb);
-          var cont = el("button", "btn " + (right ? "btn-green" : "btn-red"), "Continue");
+          var cont = el("button", "btn " + (right ? "btn-green" : "btn-red"), T("Continue"));
           cont.onclick = function () { idx++; show(); };
           inner.appendChild(cont);
           cont.scrollIntoView({ block: "nearest" });
@@ -2179,25 +2275,25 @@
       body.innerHTML = "";
       var inner = el("div", "quiz-in center");
       inner.appendChild(el("div", "done-emoji", passed ? "🧠" : "📚"));
-      inner.appendChild(el("h2", "done-title", passed ? "Quiz passed!" : "Almost there"));
-      inner.appendChild(el("div", "done-sub", "You scored " + Math.round(pct * 100) + "% (" + correct + "/" + qs.length + ")" +
-        (passed ? "" : " — you need " + Math.round(QUIZ_PASS * 100) + "% to pass.")));
+      inner.appendChild(el("h2", "done-title", passed ? T("Quiz passed!") : T("Almost there")));
+      inner.appendChild(el("div", "done-sub", T("You scored {0}% ({1}/{2})", Math.round(pct * 100), correct, qs.length) +
+        (passed ? "" : T(" — you need {0}% to pass.", Math.round(QUIZ_PASS * 100)))));
       var acts = el("div", "done-actions");
       if (passed) {
         if (!isDone(lesson.id)) {
-          var btn = el("button", "btn btn-green", "Claim +" + xpOf(lesson) + " XP");
+          var btn = el("button", "btn btn-green", T("Claim +{0} XP", xpOf(lesson)));
           btn.onclick = function () { completeLesson(entry); };
           acts.appendChild(btn);
         } else {
-          var b2 = el("button", "btn btn-green", "Back to course");
+          var b2 = el("button", "btn btn-green", T("Back to course"));
           b2.onclick = function () { renderCourse(course); };
           acts.appendChild(b2);
         }
       } else {
-        var retry = el("button", "btn btn-green", "Try again");
+        var retry = el("button", "btn btn-green", T("Try again"));
         retry.onclick = function () { renderQuiz(entry); };
         acts.appendChild(retry);
-        var home = el("button", "btn btn-ghost", "Back to course");
+        var home = el("button", "btn btn-ghost", T("Back to course"));
         home.onclick = function () { renderCourse(course); };
         acts.appendChild(home);
       }
@@ -2234,8 +2330,8 @@
     var items = ask.lines.concat(ask.distractors || []);
     var pool = shuffledIndexes(items.length);
     var built = [], locked = false;
-    host.appendChild(el("div", "cx-note", "Tap the lines in order to build your answer. Tap a placed line to take it back." +
-      ((ask.distractors || []).length ? " Not every line belongs." : "")));
+    host.appendChild(el("div", "cx-note", T("Tap the lines in order to build your answer. Tap a placed line to take it back.") +
+      ((ask.distractors || []).length ? " " + T("Not every line belongs.") : "")));
     var builtBox = el("div", "cx-built");
     var poolBox = el("div", "cx-pool");
     host.appendChild(builtBox); host.appendChild(poolBox);
@@ -2252,7 +2348,7 @@
     }
     function draw(wrongAt) {
       builtBox.innerHTML = ""; poolBox.innerHTML = "";
-      if (!built.length) builtBox.appendChild(el("div", "cx-empty", "Your answer appears here"));
+      if (!built.length) builtBox.appendChild(el("div", "cx-empty", T("Your answer appears here")));
       built.forEach(function (i, p) {
         var b = line(i, "built");
         if (p === wrongAt) b.classList.add("wrong");
@@ -2294,7 +2390,7 @@
           inp.setAttribute("autocomplete", "off");
           inp.setAttribute("autocapitalize", "off");
           inp.setAttribute("spellcheck", "false");
-          inp.setAttribute("aria-label", ask.columns[ci] + ", row " + (ri + 1));
+          inp.setAttribute("aria-label", T("{0}, row {1}", ask.columns[ci], ri + 1));
           td.appendChild(inp);
           inputs[ri].push(inp);
         }
@@ -2327,7 +2423,10 @@
     var CX = window.CODELAB.concept;
     var lesson = entry.lesson;
     var course = entry.course;
-    var screens = lesson.screens || [];
+    /* Translated screens: every ask keeps its English answer, lines, rows
+       and checks (i18n.js mergeAsk), so the graders below are unchanged. */
+    var lx = lv(lesson);
+    var screens = lx.screens || [];
     var transfers = CX.transferIndexes(lesson);
     var testOut = mode === "testout";
     var order = testOut ? transfers : screens.map(function (_, i) { return i; });
@@ -2341,8 +2440,8 @@
     back.onclick = function () { renderCourse(course); };
     top.appendChild(back);
     var tt = el("div", "l-tt");
-    tt.appendChild(el("div", "l-kicker", esc(course.title).toUpperCase() + (testOut ? " · TEST OUT" : " · THEORY")));
-    tt.appendChild(el("div", "l-title", esc(lesson.title)));
+    tt.appendChild(el("div", "l-kicker", esc(cv(course).title).toUpperCase() + " · " + (testOut ? T("TEST OUT") : T("THEORY"))));
+    tt.appendChild(el("div", "l-title", esc(lx.title)));
     top.appendChild(tt);
     var prog = el("div", "l-badge", "");
     top.appendChild(prog);
@@ -2364,18 +2463,18 @@
       body.innerHTML = "";
       var inner = el("div", "quiz-in");
       var graded = screens.filter(function (s) { return CX.isEvidence(s.ask); }).length;
-      inner.appendChild(el("div", "q-kicker", "Theory lesson"));
+      inner.appendChild(el("div", "q-kicker", T("Theory lesson")));
       inner.appendChild(el("div", "quiz-brief",
-        mdBlock("**" + plural(graded, "question", "questions") + " · about " + minsOf(lesson) + " min**\n\n" +
-          "You answer before each explanation appears, so expect to get some wrong at first. That's how it's meant to work.")));
-      var start = el("button", "btn btn-green", "Start");
+        mdBlock("**" + T("{0} · about {1} min", Tn(graded, "{0} question", "{0} questions"), minsOf(lesson)) + "**\n\n" +
+          T("You answer before each explanation appears, so expect to get some wrong at first. That's how it's meant to work."))));
+      var start = el("button", "btn btn-green", T("Start"));
       start.onclick = function () { renderConcept(entry, "full"); };
       inner.appendChild(start);
       if (transfers.length >= 2) {
-        var skip = el("button", "btn btn-ghost", "Test out · " + plural(transfers.length, "question", "questions"));
+        var skip = el("button", "btn btn-ghost", T("Test out · {0}", Tn(transfers.length, "{0} question", "{0} questions")));
         skip.onclick = function () { renderConcept(entry, "testout"); };
         inner.appendChild(skip);
-        inner.appendChild(el("div", "cx-note", "Already know this? Answer the test-out questions with no reading. Get them all right the first time and the lesson is done; miss one and you start the lesson."));
+        inner.appendChild(el("div", "cx-note", T("Already know this? Answer the test-out questions with no reading. Get them all right the first time and the lesson is done; miss one and you start the lesson.")));
       }
       body.appendChild(inner);
       window.scrollTo(0, 0);
@@ -2394,7 +2493,7 @@
 
       function next() {
         var last = pos === order.length - 1;
-        var cont = el("button", "btn btn-green", last ? "Finish" : "Continue");
+        var cont = el("button", "btn btn-green", last ? T("Finish") : T("Continue"));
         cont.onclick = function () { pos++; show(); };
         inner.appendChild(cont);
         cont.scrollIntoView({ block: "nearest" });
@@ -2415,7 +2514,7 @@
           host.appendChild(lh);
           var lab = window.CODELAB.labs && window.CODELAB.labs[ask.lab];
           if (lab) lab(lh, ask.params || {});
-          else lh.appendChild(el("div", "cx-note", "This lab didn't load. Reload the page to try again."));
+          else lh.appendChild(el("div", "cx-note", T("This lab didn't load. Reload the page to try again.")));
           done(res);
         });
         return;
@@ -2435,12 +2534,12 @@
       function missed(whyHtml) {
         misses++;
         if (testOut) { testOutFailed(); return false; }
-        if (misses === 1) { feedback(false, "<b>Not quite.</b> " + (whyHtml ? whyHtml + " " : "") + "Try again."); return false; }
+        if (misses === 1) { feedback(false, "<b>" + T("Not quite.") + "</b> " + (whyHtml ? whyHtml + " " : "") + T("Try again.")); return false; }
         revealed = true;
         return true;
       }
       function right(whyText) {
-        feedback(true, (revealed ? "<b>That's it.</b> " : "<b>Correct!</b> ") + mdInline(whyText || ""));
+        feedback(true, "<b>" + (revealed ? T("That's it.") : T("Correct!")) + "</b> " + mdInline(whyText || ""));
         done({ graded: true, first: misses === 0 });
       }
 
@@ -2451,8 +2550,8 @@
         input.setAttribute("autocapitalize", "off");
         input.setAttribute("spellcheck", "false");
         input.setAttribute("enterkeyhint", "done");
-        input.placeholder = "Your answer";
-        var check = el("button", "btn btn-green", "Check");
+        input.placeholder = T("Your answer");
+        var check = el("button", "btn btn-green", T("Check"));
         row.appendChild(input); row.appendChild(check);
         host.appendChild(row);
         var submit = function () {
@@ -2461,7 +2560,7 @@
             input.disabled = true; check.disabled = true;
             right(ask.why);
           } else if (missed("")) {
-            feedback(false, "<b>The answer is " + mdInline("`" + ask.answer + "`") + ".</b> " + mdInline(ask.why) + " Type it to continue.");
+            feedback(false, "<b>" + T("The answer is {0}.", mdInline("`" + ask.answer + "`")) + "</b> " + mdInline(ask.why) + " " + T("Type it to continue."));
             input.value = ""; input.focus();
           }
         };
@@ -2486,7 +2585,7 @@
               b.disabled = true;
               if (missed(mdInline(ask.why[orig] || ""))) {
                 buttons.forEach(function (x) { if (x.orig === ask.answer) x.btn.classList.add("cx-target"); });
-                feedback(false, "<b>Not quite.</b> " + mdInline(ask.why[orig] || "") + " The right answer is outlined. Tap it to continue.");
+                feedback(false, "<b>" + T("Not quite.") + "</b> " + mdInline(ask.why[orig] || "") + " " + T("The right answer is outlined. Tap it to continue."));
               }
             }
           };
@@ -2500,8 +2599,8 @@
       if (ask.type === "order") {
         var board = orderBoard(ask, host);
         var acts = el("div", "cx-acts");
-        var checkO = el("button", "btn btn-green", "Check");
-        var fill = el("button", "btn btn-ghost", "Use the correct order");
+        var checkO = el("button", "btn btn-green", T("Check"));
+        var fill = el("button", "btn btn-ghost", T("Use the correct order"));
         fill.style.display = "none";
         acts.appendChild(checkO); acts.appendChild(fill);
         host.appendChild(acts);
@@ -2512,9 +2611,9 @@
             right(ask.why);
           } else {
             board.mark(res.firstWrong);
-            if (missed(res.firstWrong < board.texts().length ? "The first line out of place is marked." : "Some lines are still missing.")) {
+            if (missed(res.firstWrong < board.texts().length ? T("The first line out of place is marked.") : T("Some lines are still missing."))) {
               fill.style.display = "";
-              feedback(false, "<b>Not quite.</b> " + mdInline(ask.why) + " Tap **Use the correct order**, read it, then Check.");
+              feedback(false, "<b>" + T("Not quite.") + "</b> " + mdInline(ask.why) + " " + mdInline(T("Tap **Use the correct order**, read it, then Check.")));
             }
           }
         };
@@ -2525,8 +2624,8 @@
       if (ask.type === "trace") {
         var grid = traceTable(ask, host);
         var actsT = el("div", "cx-acts");
-        var checkT = el("button", "btn btn-green", "Check");
-        var fillT = el("button", "btn btn-ghost", "Fill in the answers");
+        var checkT = el("button", "btn btn-green", T("Check"));
+        var fillT = el("button", "btn btn-ghost", T("Fill in the answers"));
         fillT.style.display = "none";
         actsT.appendChild(checkT); actsT.appendChild(fillT);
         host.appendChild(actsT);
@@ -2539,9 +2638,9 @@
             right(ask.why);
           } else {
             grid.mark(res.firstWrong);
-            if (missed("The first cell that's off is marked.")) {
+            if (missed(T("The first cell that's off is marked."))) {
               fillT.style.display = "";
-              feedback(false, "<b>Not quite.</b> " + mdInline(ask.why) + " Tap **Fill in the answers**, read them, then Check.");
+              feedback(false, "<b>" + T("Not quite.") + "</b> " + mdInline(ask.why) + " " + mdInline(T("Tap **Fill in the answers**, read them, then Check.")));
             }
           }
         };
@@ -2553,17 +2652,17 @@
     function explainView(ask, host, done) {
       var ta = el("textarea", "rv-input cx-text");
       ta.rows = 3;
-      ta.placeholder = "One or two sentences, in your own words";
+      ta.placeholder = T("One or two sentences, in your own words");
       host.appendChild(ta);
-      var reveal = el("button", "btn btn-green", "Show the model answer");
+      var reveal = el("button", "btn btn-green", T("Show the model answer"));
       reveal.disabled = true;
       ta.oninput = function () { reveal.disabled = !ta.value.trim(); };
       host.appendChild(reveal);
       reveal.onclick = function () {
         if (!ta.value.trim()) return;
         ta.disabled = true; reveal.remove();
-        host.appendChild(el("div", "quiz-brief cx-model", "<b>Model answer</b>" + mdBlock(ask.model)));
-        host.appendChild(el("div", "cx-note", "Tick what your answer covered. This is your own check: it isn't graded, and it's reported separately."));
+        host.appendChild(el("div", "quiz-brief cx-model", "<b>" + T("Model answer") + "</b>" + mdBlock(ask.model)));
+        host.appendChild(el("div", "cx-note", T("Tick what your answer covered. This is your own check: it isn't graded, and it's reported separately.")));
         var boxes = [];
         var list = el("div", "cx-rubric");
         ask.rubric.forEach(function (r) {
@@ -2576,7 +2675,7 @@
           boxes.push(cb);
         });
         host.appendChild(list);
-        var ok = el("button", "btn btn-ghost", "Done checking");
+        var ok = el("button", "btn btn-ghost", T("Done checking"));
         ok.onclick = function () {
           ok.remove();
           boxes.forEach(function (cb) { cb.disabled = true; });
@@ -2595,13 +2694,13 @@
       setProg("");
       var inner = el("div", "quiz-in center");
       inner.appendChild(el("div", "done-emoji", "📘"));
-      inner.appendChild(el("h2", "done-title", "Not yet"));
-      inner.appendChild(el("div", "done-sub", "That answer was off, so the full lesson is the quicker route. Nothing was recorded."));
+      inner.appendChild(el("h2", "done-title", T("Not yet")));
+      inner.appendChild(el("div", "done-sub", T("That answer was off, so the full lesson is the quicker route. Nothing was recorded.")));
       var acts = el("div", "done-actions");
-      var go = el("button", "btn btn-green", "Start the lesson");
+      var go = el("button", "btn btn-green", T("Start the lesson"));
       go.onclick = function () { renderConcept(entry, "full"); };
       acts.appendChild(go);
-      var home = el("button", "btn btn-ghost", "Back to course");
+      var home = el("button", "btn btn-ghost", T("Back to course"));
       home.onclick = function () { renderCourse(course); };
       acts.appendChild(home);
       inner.appendChild(acts);
@@ -2615,17 +2714,17 @@
       var firstRight = keys.filter(function (k) { return firstTry[k]; }).length;
       var inner = el("div", "quiz-in center");
       inner.appendChild(el("div", "done-emoji", testOut ? "⚡" : "🧠"));
-      inner.appendChild(el("h2", "done-title", testOut ? "Tested out!" : "Lesson finished"));
-      var sub = "Right the first time: " + firstRight + " of " + keys.length + " graded answers";
-      if (claims.count) sub += "<br>Explanations: you ticked " + claims.ticked + " of " + claims.points + " rubric points (self-checked, not graded)";
+      inner.appendChild(el("h2", "done-title", testOut ? T("Tested out!") : T("Lesson finished")));
+      var sub = esc(T("Right the first time: {0} of {1} graded answers", firstRight, keys.length));
+      if (claims.count) sub += "<br>" + esc(T("Explanations: you ticked {0} of {1} rubric points (self-checked, not graded)", claims.ticked, claims.points));
       inner.appendChild(el("div", "done-sub", sub));
       var acts = el("div", "done-actions");
       if (!isDone(lesson.id)) {
-        var claim = el("button", "btn btn-green", "Claim +" + xpOf(lesson) + " XP");
+        var claim = el("button", "btn btn-green", T("Claim +{0} XP", xpOf(lesson)));
         claim.onclick = function () { completeLesson(entry); };
         acts.appendChild(claim);
       } else {
-        var b2 = el("button", "btn btn-green", "Back to course");
+        var b2 = el("button", "btn btn-green", T("Back to course"));
         b2.onclick = function () { renderCourse(course); };
         acts.appendChild(b2);
       }
@@ -2679,16 +2778,29 @@
      renderWorkspace the key and the depth. */
   function startDrill(drill) {
     var course = window.CODELAB._byId[drill.courseId];
-    if (!course) { toast("Couldn't find that lesson"); return; }
+    if (!course) { toast(T("Couldn't find that lesson")); return; }
     loadCourse(course).then(function () {
       var hit = lessonById(course, drill.lessonId);
-      if (!hit) { toast("Couldn't find that lesson"); return; }
+      if (!hit) { toast(T("Couldn't find that lesson")); return; }
       openLesson(course, hit.gi, {
         key: drill.key,
         k: drill.k,
         onDone: function () { renderReview(); }
       });
-    })["catch"](function () { toast("Couldn't load that course"); });
+    })["catch"](function () { toast(T("Couldn't load that course")); });
+  }
+
+  /* Drills carry the English titles they were picked with; show the
+     translated ones when the course is loaded (it always is by then). */
+  function drillTitle(d) {
+    var c = window.CODELAB._byId[d.courseId];
+    var hit = c && c._loaded && lessonById(c, d.lessonId);
+    return hit ? lv(hit.lesson).title : d.title;
+  }
+  function drillUnitTitle(d) {
+    var c = window.CODELAB._byId[d.courseId];
+    var unit = c && (c.units || []).filter(function (un) { return un.id === d.unitId; })[0];
+    return unit ? uv(unit).title : d.unitTitle;
   }
 
   function renderReview() {
@@ -2701,7 +2813,7 @@
 
     var pending = reviewCourses(u).filter(function (c) { return !c._loaded; });
     if (pending.length) {
-      wrap.appendChild(el("div", "rv-loading", "Loading your cards…"));
+      wrap.appendChild(el("div", "rv-loading", T("Loading your cards…")));
       Promise.all(pending.map(function (c) { return loadCourse(c)["catch"](function () { return c; }); }))
         .then(function () { renderReview(); });
       return;
@@ -2715,13 +2827,13 @@
     var skipped = Object.keys(u.revSkip || {}).length;
 
     var head = el("div", "rv-head");
-    head.appendChild(el("div", "hero-kicker", "RECALL"));
-    head.appendChild(el("h1", "hero-title", offered ? offered + " card" + (offered === 1 ? "" : "s") + " today" : "Nothing due"));
+    head.appendChild(el("div", "hero-kicker", T("RECALL")));
+    head.appendChild(el("h1", "hero-title", offered ? Tn(offered, "{0} card today", "{0} cards today") : T("Nothing due")));
 
     if (offered) {
       var mins = Math.max(1, Math.round(offered * 12 / 60));
-      head.appendChild(el("p", "hero-sub", "About " + mins + " minute" + (mins === 1 ? "" : "s") + ". Answers are hidden — say it before you look."));
-      var go = el("button", "btn btn-green", "Start recall");
+      head.appendChild(el("p", "hero-sub", Tn(mins, "About {0} minute.", "About {0} minutes.") + " " + T("Answers are hidden — say it before you look.")));
+      var go = el("button", "btn btn-green", T("Start recall"));
       go.onclick = function () { renderReviewSession(queue, pool); };
       head.appendChild(go);
     } else {
@@ -2729,15 +2841,15 @@
       /* A caught-up SRS looks broken when it shows an empty screen, so say
          when the next one lands. */
       head.appendChild(el("p", "hero-sub", next === null
-        ? "Finish a quiz or a theory lesson to start building your recall deck."
-        : "Next review in " + (next - today) + " day" + (next - today === 1 ? "" : "s") + "."));
+        ? T("Finish a quiz or a theory lesson to start building your recall deck.")
+        : Tn(next - today, "Next review in {0} day.", "Next review in {0} days.")));
       if (pool.length) {
-        var practice = el("button", "btn btn-ghost", "Practice 5 anyway");
+        var practice = el("button", "btn btn-ghost", T("Practice 5 anyway"));
         practice.onclick = function () {
           var soon = pool.filter(function (it) { return REV.recOf(u, it.key); })
             .sort(function (a, b) { return REV.recOf(u, a.key)[1] - REV.recOf(u, b.key)[1]; })
             .slice(0, 5);
-          if (!soon.length) { toast("Nothing to practice yet"); return; }
+          if (!soon.length) { toast(T("Nothing to practice yet")); return; }
           /* Off-schedule study records misses but never promotions: forgetting
              early is evidence, remembering early is not. */
           renderReviewSession({ day: today, keys: soon.map(function (i) { return i.key; }), i: 0, ok: 0, n: soon.length, redo: [], noPromote: true }, pool);
@@ -2752,29 +2864,27 @@
     var homeDrill = REV.pickDrill(u, reviewCourses(u).filter(function (c) { return c._loaded; }), pool, today);
     if (homeDrill) {
       var dRow = el("div", "rv-drill");
-      dRow.appendChild(el("div", "rv-line strong", "🎯 Code drill ready"));
-      dRow.appendChild(el("div", "rv-line dim", esc(homeDrill.title) + " · rebuild "
-        + (homeDrill.k + 1) + " of " + homeDrill.steps + " checkpoint" + (homeDrill.steps === 1 ? "" : "s")
-        + " from the starter files"));
-      var dGo = el("button", "btn " + (offered ? "btn-ghost" : "btn-green"), "Start drill");
+      dRow.appendChild(el("div", "rv-line strong", "🎯 " + T("Code drill ready")));
+      dRow.appendChild(el("div", "rv-line dim", esc(drillTitle(homeDrill)) + " · "
+        + esc(Tn(homeDrill.steps, "rebuild {1} of {0} checkpoint from the starter files", "rebuild {1} of {0} checkpoints from the starter files", homeDrill.k + 1))));
+      var dGo = el("button", "btn " + (offered ? "btn-ghost" : "btn-green"), T("Start drill"));
       dGo.onclick = function () { startDrill(homeDrill); };
       dRow.appendChild(dGo);
       wrap.appendChild(dRow);
     }
 
     var stats = el("div", "rv-stats");
-    stats.appendChild(el("div", "rv-line", introduced + " of " + pool.length + " questions introduced"
-      + (skipped ? " · " + skipped + " set aside" : "")));
+    stats.appendChild(el("div", "rv-line", T("{0} of {1} questions introduced", introduced, pool.length)
+      + (skipped ? " · " + T("{0} set aside", skipped) : "")));
     /* The only number here that can go DOWN when he is actually forgetting. */
-    stats.appendChild(el("div", "rv-line strong", "🛡️ Holding at " + REV.HOLDING_DAYS + "+ days: " + REV.holdingCount(u)));
+    stats.appendChild(el("div", "rv-line strong", "🛡️ " + T("Holding at {0}+ days: {1}", REV.HOLDING_DAYS, REV.holdingCount(u))));
     var st = u.revStats || {};
     if (st.a) {
-      stats.appendChild(el("div", "rv-line dim", "Lifetime — typed " + (st.tc || 0) + "/" + (st.ta || 0)
-        + " · self-reported " + (st.c || 0) + "/" + (st.a || 0)));
+      stats.appendChild(el("div", "rv-line dim", T("Lifetime — typed {0}/{1} · self-reported {2}/{3}", st.tc || 0, st.ta || 0, st.c || 0, st.a || 0)));
     }
     wrap.appendChild(stats);
 
-    var back = el("button", "btn btn-ghost", "← All courses");
+    var back = el("button", "btn btn-ghost", "← " + T("All courses"));
     back.onclick = renderCatalog;
     wrap.appendChild(back);
   }
@@ -2791,8 +2901,8 @@
     x.onclick = function () { flushStore(); renderReview(); };
     top.appendChild(x);
     var tt = el("div", "l-tt");
-    tt.appendChild(el("div", "l-kicker", "RECALL"));
-    var ttl = el("div", "l-title", "Say it before you look");
+    tt.appendChild(el("div", "l-kicker", T("RECALL")));
+    var ttl = el("div", "l-title", T("Say it before you look"));
     tt.appendChild(ttl);
     top.appendChild(tt);
     var badge = el("div", "l-badge", "1/" + denom);
@@ -2818,12 +2928,15 @@
 
       var doneCount = Math.min(queue.i + 1, denom);
       badge.textContent = doneCount + "/" + denom
-        + (queue.redo && queue.redo.length ? " · " + queue.redo.length + " to redo" : "");
+        + (queue.redo && queue.redo.length ? " · " + T("{0} to redo", queue.redo.length) : "");
       body.innerHTML = "";
       var inner = el("div", "quiz-in");
+      /* What the card SHOWS, in the interface language. The key, the
+         English answer and the graders below all still use `item`. */
+      var view = I18N.card(item);
 
-      var src = el("button", "rv-src", esc(item.courseTitle) + " · " + esc(item.unitTitle));
-      src.title = "Open the cheatsheet";
+      var src = el("button", "rv-src", esc(view.courseTitle) + " · " + esc(view.unitTitle));
+      src.title = T("Open the cheatsheet");
       src.onclick = function () {
         var course = window.CODELAB._byId[item.courseId];
         var unit = (course.units || []).filter(function (un) { return un.id === item.unitId; })[0];
@@ -2831,7 +2944,7 @@
       };
       inner.appendChild(src);
 
-      inner.appendChild(el("div", "q-prompt", mdInline(item.q)));
+      inner.appendChild(el("div", "q-prompt", mdInline(view.q)));
       if (item.code) {
         var pre = el("pre", "q-code");
         pre.innerHTML = "<code>" + window.CODELAB.hl(item.code, item.lang || "js") + "</code>";
@@ -2859,15 +2972,16 @@
         }
         if (item.kind === "predict") return mdInline("`" + item.answer + "`");
         if (item.kind === "explain") {
-          return mdInline(item.answer) + "<br><span class=\"rv-why\">A full answer covers: "
-            + (ask.rubric || []).map(function (r) { return mdInline(r); }).join(" · ") + "</span>";
+          var vask = view.ask || ask;
+          return mdInline(view.answer) + "<br><span class=\"rv-why\">" + T("A full answer covers:") + " "
+            + (vask.rubric || []).map(function (r) { return mdInline(r); }).join(" · ") + "</span>";
         }
-        return mdInline(item.answer);
+        return mdInline(view.answer);
       }
       function reveal(graded) {
         var fb = el("div", "q-fb " + (graded === true ? "ok" : graded === false ? "no" : ""));
-        fb.innerHTML = "<b>" + (graded === true ? "Correct!" : graded === false ? "Not quite." : "Answer") + "</b> "
-          + answerHtml() + (item.explain ? "<br><span class=\"rv-why\">" + mdInline(item.explain) + "</span>" : "");
+        fb.innerHTML = "<b>" + (graded === true ? T("Correct!") : graded === false ? T("Not quite.") : T("Answer")) + "</b> "
+          + answerHtml() + (view.explain ? "<br><span class=\"rv-why\">" + mdInline(view.explain) + "</span>" : "");
         inner.appendChild(fb);
         fb.scrollIntoView({ block: "nearest" });
       }
@@ -2876,7 +2990,7 @@
          the order of lines has no alternative spelling to learn. */
       function boardCard(board, grader) {
         var acts = el("div", "cx-acts");
-        var checkB = el("button", "btn btn-green", "Check");
+        var checkB = el("button", "btn btn-green", T("Check"));
         acts.appendChild(checkB);
         inner.appendChild(acts);
         checkB.onclick = function () {
@@ -2887,7 +3001,7 @@
           if (res.ok) { reveal(true); settle("got"); return; }
           board.mark(res.firstWrong);
           reveal(false);
-          var cont = el("button", "btn btn-red", "Continue");
+          var cont = el("button", "btn btn-red", T("Continue"));
           cont.onclick = function () { settle("missed"); };
           inner.appendChild(cont);
         };
@@ -2915,10 +3029,12 @@
       } else if (item.kind === "trace") {
         var grid = traceTable(item.ask, inner);
         boardCard(grid, function () { return CX.gradeTrace(item.ask, grid.cells()); });
-      } else if (item.typed) {
+      } else if (view.typed) {
+        /* view.typed, not item.typed: a prose answer that was translated is
+           self-graded, since a Spanish answer can't match the English key. */
         var row = el("div", "rv-input-row");
         var input = el("input", "rv-input");
-        input.setAttribute("placeholder", "Type your answer…");
+        input.setAttribute("placeholder", T("Type your answer…"));
         /* Without these iOS ships "Const" and autocorrects identifiers, and
            every code card becomes a false negative. */
         input.setAttribute("autocapitalize", "off");
@@ -2926,7 +3042,7 @@
         input.setAttribute("autocomplete", "off");
         input.setAttribute("spellcheck", "false");
         row.appendChild(input);
-        var check = el("button", "btn btn-green btn-small", "Check");
+        var check = el("button", "btn btn-green btn-small", T("Check"));
         row.appendChild(check);
         inner.appendChild(row);
 
@@ -2942,27 +3058,27 @@
           /* Offered, but it does NOT regrade this attempt. A learner who can
              re-mark their own miss on a phone at 11pm has a ladder that
              tracks mood rather than memory. */
-          var alt = el("button", "btn btn-ghost btn-small", "That should have counted");
+          var alt = el("button", "btn btn-ghost btn-small", T("That should have counted"));
           alt.onclick = function () {
             REV.noteAlt(u, key, typedWrong);
             alt.disabled = true;
-            alt.textContent = "Noted — it'll count next time";
+            alt.textContent = T("Noted — it'll count next time");
             saveStoreSoon();
           };
           inner.appendChild(alt);
-          var cont = el("button", "btn btn-red", "Continue");
+          var cont = el("button", "btn btn-red", T("Continue"));
           cont.onclick = function () { settle("missed"); };
           inner.appendChild(cont);
         };
         input.onkeydown = function (e) { if (e.key === "Enter") check.onclick(); };
         setTimeout(function () { input.focus(); }, 50);
       } else {
-        var showBtn = el("button", "btn btn-green", "Show answer");
+        var showBtn = el("button", "btn btn-green", T("Show answer"));
         showBtn.onclick = function () {
           showBtn.remove();
           reveal(null);
           var grades = el("div", "rv-grade");
-          [["Missed", "missed", "btn-red"], ["Close", "close", "btn-ghost"], ["Got it", "got", "btn-green"]]
+          [[T("Missed"), "missed", "btn-red"], [Tc("grade", "Close"), "close", "btn-ghost"], [T("Got it"), "got", "btn-green"]]
             .forEach(function (g) {
               var b = el("button", "btn btn-small " + g[2], g[0]);
               b.onclick = function () { settle(g[1]); };
@@ -2973,13 +3089,13 @@
         inner.appendChild(showBtn);
       }
 
-      var cant = el("button", "rv-cant", "Can't answer this one");
-      cant.title = "Set this card aside for good";
+      var cant = el("button", "rv-cant", T("Can't answer this one"));
+      cant.title = T("Set this card aside for good");
       cant.onclick = function () {
         REV.skipItem(u, key);
         if (queue.i < queue.keys.length) queue.i++;
         saveStoreSoon();
-        toast("Set aside 🗂");
+        toast(T("Set aside 🗂"));
         show();
       };
       inner.appendChild(cant);
@@ -3001,32 +3117,31 @@
         bumped = true;
       }
       u.revQueue = null;
-      if (!flushStore()) toast("⚠ Couldn't save — storage may be full");
+      if (!flushStore()) toast("⚠ " + T("Couldn't save — storage may be full"));
 
       body.innerHTML = "";
       var inner = el("div", "quiz-in center");
       inner.appendChild(el("div", "done-emoji", "🧠"));
-      inner.appendChild(el("h2", "done-title", "Recall done"));
-      inner.appendChild(el("div", "done-sub", queue.ok + " of " + graded + " remembered"));
+      inner.appendChild(el("h2", "done-title", T("Recall done")));
+      inner.appendChild(el("div", "done-sub", T("{0} of {1} remembered", queue.ok, graded)));
 
       var rr = el("div", "reward-row");
-      rr.appendChild(reward("Holding 35+ days", "🛡️ " + REV.holdingCount(u)));
-      if (bumped) rr.appendChild(reward("Streak", "🔥 " + u.streak));
+      rr.appendChild(reward(T("Holding {0}+ days", REV.HOLDING_DAYS), "🛡️ " + REV.holdingCount(u)));
+      if (bumped) rr.appendChild(reward(T("Streak"), "🔥 " + u.streak));
       inner.appendChild(rr);
 
       /* Two numbers, never merged — the gap between them is the only estimate
          this system has of its own self-grading inflation. */
       if (st.a) {
-        inner.appendChild(el("div", "rv-line dim", "Lifetime — typed " + (st.tc || 0) + "/" + (st.ta || 0)
-          + " · self-reported " + (st.c || 0) + "/" + (st.a || 0)));
+        inner.appendChild(el("div", "rv-line dim", T("Lifetime — typed {0}/{1} · self-reported {2}/{3}", st.tc || 0, st.ta || 0, st.c || 0, st.a || 0)));
       }
       var alts = Object.keys(u.revAlt || {});
       if (alts.length) {
-        inner.appendChild(el("div", "rv-line dim", alts.length + " answer" + (alts.length === 1 ? "" : "s")
-          + " you flagged as should-have-counted — see CODELAB.dev.rev.alts()"));
+        inner.appendChild(el("div", "rv-line dim", Tn(alts.length, "{0} answer you flagged as should-have-counted — see CODELAB.dev.rev.alts()",
+          "{0} answers you flagged as should-have-counted — see CODELAB.dev.rev.alts()")));
       }
       var next = REV.nextDueDay(u, queue.day);
-      if (next != null) inner.appendChild(el("div", "rv-line", "Next review in " + (next - queue.day) + " day" + (next - queue.day === 1 ? "" : "s")));
+      if (next != null) inner.appendChild(el("div", "rv-line", Tn(next - queue.day, "Next review in {0} day.", "Next review in {0} days.")));
 
       var acts = el("div", "done-actions");
       /* Offered, never queued. Cards are the daily habit; a 10-minute coding
@@ -3034,14 +3149,14 @@
          into a chore. */
       var drill = REV.pickDrill(u, COURSES.filter(function (c) { return c._loaded; }), pool, queue.day);
       if (drill) {
-        var dBtn = el("button", "btn btn-green", "🎯 Drill: " + esc(drill.title));
+        var dBtn = el("button", "btn btn-green", "🎯 " + T("Drill: {0}", esc(drillTitle(drill))));
         dBtn.onclick = function () { startDrill(drill); };
         acts.appendChild(dBtn);
         inner.appendChild(el("div", "rv-line dim",
-          "Rebuild " + (drill.k + 1) + " of " + drill.steps + " checkpoint" + (drill.steps === 1 ? "" : "s")
-          + " from the starter files · " + esc(drill.unitTitle)));
+          esc(Tn(drill.steps, "Rebuild {1} of {0} checkpoint from the starter files", "Rebuild {1} of {0} checkpoints from the starter files", drill.k + 1))
+          + " · " + esc(drillUnitTitle(drill))));
       }
-      var toCat = el("button", "btn " + (drill ? "btn-ghost" : "btn-green"), "Back to courses");
+      var toCat = el("button", "btn " + (drill ? "btn-ghost" : "btn-green"), T("Back to courses"));
       toCat.onclick = renderCatalog;
       acts.appendChild(toCat);
       inner.appendChild(acts);
@@ -3124,39 +3239,37 @@
     app.appendChild(wrap);
 
     var head = el("div", "rv-head");
-    head.appendChild(el("div", "hero-kicker", "HANDOFF"));
-    head.appendChild(el("h1", "hero-title", "Move this profile"));
+    head.appendChild(el("div", "hero-kicker", T("HANDOFF")));
+    head.appendChild(el("h1", "hero-title", T("Move this profile")));
     head.appendChild(el("p", "hero-sub",
-      "Your phone and your desktop keep separate storage — nothing crosses on its own. Copy the code below, "
-      + "send it to yourself however you like, and paste it on the other device. Importing the same code twice does nothing."));
+      T("Your phone and your desktop keep separate storage — nothing crosses on its own. Copy the code below, send it to yourself however you like, and paste it on the other device. Importing the same code twice does nothing.")));
     wrap.appendChild(head);
 
     /* ---- export ---- */
     var env = currentEnvelope();
     var text = JSON.stringify(env);
     var box = el("div", "rv-stats");
-    box.appendChild(el("div", "rv-line strong", "📤 Copy from this device"));
+    box.appendChild(el("div", "rv-line strong", "📤 " + T("Copy from this device")));
     box.appendChild(el("div", "rv-line dim",
-      env.counts.done + " lessons · " + env.counts.rev + " cards · " + env.counts.days + " study days · "
-      + (text.length / 1024).toFixed(1) + "KB"));
+      T("{0} lessons · {1} cards · {2} study days · {3}KB", env.counts.done, env.counts.rev, env.counts.days, (text.length / 1024).toFixed(1))));
     var ta = el("textarea", "sync-code");
     ta.value = text;
     ta.setAttribute("readonly", "readonly");
     ta.setAttribute("spellcheck", "false");
     box.appendChild(ta);
     var row = el("div", "sync-row");
-    var copy = el("button", "btn btn-green btn-small", "Copy code");
+    var copy = el("button", "btn btn-green btn-small", T("Copy code"));
     copy.onclick = function () {
       ta.select();
       var done = false;
       try { done = document.execCommand("copy"); } catch (e) {}
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () { toast("Copied ✓ paste it on the other device"); },
-          function () { if (!done) toast("Select the code and copy it manually"); });
-      } else toast(done ? "Copied ✓" : "Select the code and copy it manually");
+        navigator.clipboard.writeText(text).then(function () { toast(T("Copied ✓ paste it on the other device")); },
+          function () { if (!done) toast(T("Select the code and copy it manually")); });
+      } else toast(done ? T("Copied ✓") : T("Select the code and copy it manually"));
     };
     row.appendChild(copy);
-    var dl = el("button", "btn btn-ghost btn-small", "Save as file");
+    var dl = el("button", "btn btn-ghost btn-small", T("Save as file"));
     dl.onclick = function () {
       try {
         var blob = new Blob([text], { type: "application/json" });
@@ -3165,28 +3278,32 @@
         a.download = "codelab-" + store.currentUser + "-" + SYNC.dayStr(REV.revToday()) + ".json";
         document.body.appendChild(a); a.click(); a.remove();
         setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
-      } catch (e) { toast("Couldn't save a file — copy the code instead"); }
+      } catch (e) { toast(T("Couldn't save a file — copy the code instead")); }
     };
     row.appendChild(dl);
     box.appendChild(row);
     box.appendChild(el("div", "rv-line dim",
-      "Saved lesson code is not included — it is most of the bytes and none of what gets stranded."));
+      T("Saved lesson code is not included — it is most of the bytes and none of what gets stranded.")));
     wrap.appendChild(box);
 
     /* ---- import ---- */
     var inBox = el("div", "rv-stats");
-    inBox.appendChild(el("div", "rv-line strong", "📥 Paste a code from the other device"));
+    inBox.appendChild(el("div", "rv-line strong", "📥 " + T("Paste a code from the other device")));
     var inTa = el("textarea", "sync-code");
-    inTa.setAttribute("placeholder", "Paste the code here…");
+    inTa.setAttribute("placeholder", T("Paste the code here…"));
     inTa.setAttribute("spellcheck", "false");
     inTa.setAttribute("autocapitalize", "off");
     inBox.appendChild(inTa);
     var previewHost = el("div", "sync-preview");
-    var check = el("button", "btn btn-green btn-small", "Check this code");
+    var check = el("button", "btn btn-green btn-small", T("Check this code"));
     check.onclick = function () {
       previewHost.innerHTML = "";
       var parsed = SYNC.parseEnvelope(inTa.value);
-      if (!parsed.ok) { previewHost.appendChild(el("div", "sync-warn", esc(parsed.error))); return; }
+      if (!parsed.ok) {
+        var msg = parsed.errorKey ? T.apply(null, [parsed.errorKey].concat(parsed.errorArgs || [])) : parsed.error;
+        previewHost.appendChild(el("div", "sync-warn", esc(msg)));
+        return;
+      }
       showPreview(parsed.env, previewHost);
     };
     inBox.appendChild(check);
@@ -3198,25 +3315,24 @@
     try { undoRaw = JSON.parse(localStorage.getItem(UNDO_KEY)); } catch (e) {}
     if (undoRaw && undoRaw.profile === store.currentUser) {
       var ub = el("div", "rv-stats");
-      ub.appendChild(el("div", "rv-line strong", "↩ Undo the last merge"));
+      ub.appendChild(el("div", "rv-line strong", "↩ " + T("Undo the last merge")));
       ub.appendChild(el("div", "rv-line dim",
-        "Restores this profile to exactly how it was before you imported on " + esc(undoRaw.when || "?") + "."
-        + " Anything you have studied since then would be rolled back too."));
-      var ub2 = el("button", "btn btn-ghost btn-small", "Undo that merge");
+        T("Restores this profile to exactly how it was before you imported on {0}. Anything you have studied since then would be rolled back too.", esc(undoRaw.when || "?"))));
+      var ub2 = el("button", "btn btn-ghost btn-small", T("Undo that merge"));
       ub2.onclick = function () {
-        if (!confirm("Roll this profile back to before the last import? Anything studied since is lost.")) return;
+        if (!confirm(T("Roll this profile back to before the last import? Anything studied since is lost."))) return;
         store.users[store.currentUser] = undoRaw.user;
         try { localStorage.removeItem(UNDO_KEY); } catch (e) {}
         flushStore();
         syncAcademyXp(me());
-        toast("Rolled back ↩");
+        toast(T("Rolled back ↩"));
         renderSync();
       };
       ub.appendChild(ub2);
       wrap.appendChild(ub);
     }
 
-    var back = el("button", "btn btn-ghost", "← All courses");
+    var back = el("button", "btn btn-ghost", "← " + T("All courses"));
     back.onclick = renderCatalog;
     wrap.appendChild(back);
   }
@@ -3231,44 +3347,44 @@
 
     var card = el("div", "sync-card");
     card.appendChild(el("div", "rv-line strong",
-      "From " + esc(env.from || "another device") + (env.profile !== store.currentUser
-        ? ' — profile "' + esc(env.profile) + '"' : "")));
+      T("From {0}", esc(env.from || T("another device"))) + (env.profile !== store.currentUser
+        ? " — " + T('profile "{0}"', esc(env.profile)) : "")));
 
     if (env.profile !== store.currentUser) {
       card.appendChild(el("div", "sync-warn",
-        'That code is from the profile "' + esc(env.profile) + '" and you are signed in as "'
-        + esc(store.currentUser) + '". It will merge into ' + esc(store.currentUser) + "."));
+        T('That code is from the profile "{0}" and you are signed in as "{1}". It will merge into {1}.', esc(env.profile), esc(store.currentUser))));
     }
     if (env.day > REV.revToday() + 1) {
       card.appendChild(el("div", "sync-warn",
-        "That code is dated in the future — the other device's clock may be wrong. Future-dated study days are ignored."));
+        T("That code is dated in the future — the other device's clock may be wrong. Future-dated study days are ignored.")));
     }
 
     if (d.empty) {
-      card.appendChild(el("div", "rv-line", "Nothing to change — this profile already has everything in that code."));
+      card.appendChild(el("div", "rv-line", T("Nothing to change — this profile already has everything in that code.")));
     } else {
       var list = el("ul", "sync-list");
       function line(t) { list.appendChild(el("li", "", t)); }
-      if (d.lessons) line("<b>" + d.lessons + "</b> lesson" + (d.lessons === 1 ? "" : "s") + " marked complete");
-      if (d.xp) line("<b>+" + d.xp + "</b> XP");
-      if (d.owed) line(d.owed + " lesson" + (d.owed === 1 ? "" : "s") + " whose course isn't loaded — XP arrives when it is");
-      if (d.cardsAdded) line("<b>" + d.cardsAdded + "</b> new review card" + (d.cardsAdded === 1 ? "" : "s"));
-      if (d.cardsChanged) line("<b>" + d.cardsChanged + "</b> card schedule" + (d.cardsChanged === 1 ? "" : "s") + " updated");
-      if (d.quizzesImproved) line("<b>" + d.quizzesImproved + "</b> quiz score" + (d.quizzesImproved === 1 ? "" : "s") + " improved");
-      if (d.daysAdded) line("<b>" + d.daysAdded + "</b> extra study day" + (d.daysAdded === 1 ? "" : "s"));
+      function b(n) { return "<b>" + n + "</b>"; }
+      if (d.lessons) line(Tn(d.lessons, "{1} lesson marked complete", "{1} lessons marked complete", b(d.lessons)));
+      if (d.xp) line(b("+" + d.xp) + " XP");
+      if (d.owed) line(Tn(d.owed, "{0} lesson whose course isn't loaded — XP arrives when it is", "{0} lessons whose course isn't loaded — XP arrives when it is"));
+      if (d.cardsAdded) line(Tn(d.cardsAdded, "{1} new review card", "{1} new review cards", b(d.cardsAdded)));
+      if (d.cardsChanged) line(Tn(d.cardsChanged, "{1} card schedule updated", "{1} card schedules updated", b(d.cardsChanged)));
+      if (d.quizzesImproved) line(Tn(d.quizzesImproved, "{1} quiz score improved", "{1} quiz scores improved", b(d.quizzesImproved)));
+      if (d.daysAdded) line(Tn(d.daysAdded, "{1} extra study day", "{1} extra study days", b(d.daysAdded)));
       card.appendChild(list);
       if (d.streakAfter !== d.streakBefore) {
         card.appendChild(el("div", d.streakAfter < d.streakBefore ? "sync-warn" : "rv-line",
-          "🔥 Streak " + d.streakBefore + " → " + d.streakAfter
+          "🔥 " + T("Streak {0} → {1}", d.streakBefore, d.streakAfter)
           + (d.streakAfter < d.streakBefore
-            ? ". The higher number was a run that had already ended — it would have reset on your next study day anyway."
+            ? ". " + T("The higher number was a run that had already ended — it would have reset on your next study day anyway.")
             : ".")));
       }
-      var go = el("button", "btn btn-green btn-small", "Merge this in");
+      var go = el("button", "btn btn-green btn-small", T("Merge this in"));
       go.onclick = function () { commitMerge(env, res); };
       card.appendChild(go);
     }
-    var cancel = el("button", "btn btn-ghost btn-small", d.empty ? "Close" : "Cancel");
+    var cancel = el("button", "btn btn-ghost btn-small", d.empty ? T("Close") : T("Cancel"));
     cancel.onclick = function () { host.innerHTML = ""; };
     card.appendChild(cancel);
     host.innerHTML = "";
@@ -3295,10 +3411,10 @@
     merged.code = undefined;
     merged.goal = (store.users[name] || {}).goal || null;
     store.users[name] = merged;
-    if (!flushStore()) { toast("⚠ Couldn't save — storage may be full"); return; }
+    if (!flushStore()) { toast("⚠ " + T("Couldn't save — storage may be full")); return; }
     payXpOwed();
     syncAcademyXp(me());
-    toast("Merged ✓");
+    toast(T("Merged ✓"));
     renderSync();
   }
 
@@ -3526,7 +3642,7 @@
   /* ---------- boot ---------- */
   initTheme(); // Initialize theme system
   if (!COURSES.length) {
-    app.innerHTML = '<div style="padding:40px;text-align:center;font-weight:800;color:#777">No courses found. Make sure courses.js is present.</div>';
+    app.innerHTML = '<div style="padding:40px;text-align:center;font-weight:800;color:#777">' + esc(T("No courses found. Make sure courses.js is present.")) + "</div>";
   } else if (store.currentUser && store.users[store.currentUser]) {
     renderCatalog();
   } else {

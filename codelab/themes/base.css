@@ -941,3 +941,23 @@ input { font-family: var(--font); }
   margin-top: 12px; font-size: 13px; font-weight: 800; line-height: 1.5;
   color: var(--success-dark); background: var(--item-hover); border-radius: 12px; padding: 10px 12px;
 }
+
+/* --- interface language (i18n.js) --- */
+.profiles-prefs { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+.lang-btn { font-size: 12px; font-weight: 900; }
+.lang-en { font-weight: 700; color: var(--muted); margin-left: 6px; font-size: .9em; }
+.lang-note { font-size: 12.5px; font-weight: 600; color: var(--ink-soft); line-height: 1.55; margin-top: 6px; }
+.cc-chip.lang { background: rgba(0,0,0,.22); border-color: rgba(255,255,255,.5); }
+/* A translation's longer explanation, folded under the brief. */
+.more-box { margin-top: 14px; border: 2px solid var(--line, #e5e7eb); border-radius: 12px; padding: 10px 14px; }
+.more-box > summary { cursor: pointer; font-weight: 900; font-size: 13.5px; color: var(--accent); }
+.more-box[open] > summary { margin-bottom: 8px; }
+.chk-detail { margin-top: 4px; font-size: 12.5px; font-weight: 600; color: var(--ink-soft); line-height: 1.5; }
+.chk-detail code, .more-box code {
+  font-family: var(--mono); font-size: .88em; background: var(--code-inline-bg, #eef2ff); color: var(--code-inline-color, #4338ca);
+  padding: 1px 5px; border-radius: 5px; word-break: break-word;
+}
+.glossary { margin: 0; font-size: 13px; }
+.glossary dt { font-weight: 800; margin-top: 8px; }
+.glossary dt code { font-family: var(--mono); font-size: .9em; }
+.glossary dd { margin: 2px 0 0; color: var(--ink-soft); font-weight: 600; }

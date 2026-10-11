@@ -185,6 +185,55 @@ Grading a *single* checkpoint in isolation is impossible: the runner executes st
 
 Hosted on the same origin as [Academy](https://github.com/eric-call-2000/academy) (e.g. `…github.io/academy/` + `…github.io/academy/codelab/`), the two apps **share profiles automatically**: CodeLab records completed items, XP and streaks into Academy's store (`academy_users_v1`) as track `fullstack`, and Academy's picker card shows live progress. No backend, no accounts — same-origin localStorage.
 
+## 🌐 Español — the interface language
+
+The 🌐 button (top bar, and on the profile screen) switches CodeLab between **English**
+and **Español**. A browser set to Spanish starts in Spanish; the choice is remembered
+per device (`codelab_lang_v1`).
+
+**English is the source of truth; Spanish is a layer on top.** Every lesson, test,
+solution and Recall key is computed from the English files and never changes with the
+language. A translation only replaces the words a learner reads. Code is never
+translated.
+
+| What | Where | Status |
+|---|---|---|
+| Interface (buttons, screens, messages) | `es/ui.js`, ~350 strings | ✅ complete |
+| Course names, job positions, categories | `es/catalog.js` | ✅ complete |
+| Lessons (briefs, checkpoints, hints, quizzes, theory) | `es/<course>/uN.js` | Learn HTML Unit 1 (8 of 849 items, pilot). Everything else shows in English until its layer exists |
+
+**How a lesson layer works.** `es/html/u1.js` calls
+`CODELAB.i18n.addUnit("es", "html-u1", { … })` with only the fields it translates,
+matched to the English by lesson id and position. Anything left out shows in English.
+A layer can also say **more** than the English, because Spanish readers learning in a
+second language benefit from fuller explanations:
+
+- `more`: a longer explanation, folded under the brief as **➕ Más explicación**
+- per-step `detail`: an extra line under a checkpoint
+- unit `glossary`: the English term the code uses next to the Spanish word for it, shown in the cheatsheet
+- `messages`: Spanish for the failure messages the (English) tests produce. `{*}` marks a part that varies at run time
+- `why`: Spanish for the per-checkpoint solution explanations
+
+List the file in the course's `units` in `es/catalog.js` so the app loads it.
+
+**Recall in Spanish.** Cards show the Spanish prompt and explanation. A typed card stays
+typed only while its answer reads the same in both languages (code, numbers, keywords).
+A prose answer that was translated becomes self-graded, since a Spanish answer can't
+match the English key.
+
+**Keeping it honest:** `node tools/validate-i18n.js` (also phase 0l of `validate.js`):
+
+- Fails on a missing or unused interface string, or a lost `{0}` placeholder.
+- Fails on a layer that names a lesson, step, question, choice or screen the English
+  doesn't have, or has the wrong number of them.
+- Fails on a `` `code span` `` that changed in translation.
+- Fails on a `messages` key the tests can't produce.
+- Fails on a **stale** translation. Each translated lesson records `src`, a hash of the
+  English it came from. Edit the English and the layer is flagged until someone
+  re-reads it and sets the new hash, which the message prints.
+
+Run without `--quiet` to see coverage per course. `tools/test-i18n.js` is the engine's own suite.
+
 ## Run it
 
 - **Hosted**: serve the folder from any static host (GitHub Pages included — `pages.yml` workflow deploys `main` when this lives in its own repo).
@@ -199,6 +248,9 @@ codelab/
 ├── courses.js            # the catalog: metadata, credits, and which files each course loads
 ├── positions.js          # job positions: the requirement sheets the board audits against
 ├── core.js               # course registry + credit model (defineCourse / definePosition / addUnit)
+├── i18n.js               # interface language + translation layers (T(), lesson views)
+├── es/ui.js              # Spanish interface strings
+├── es/catalog.js         # Spanish course/position/category names + which lesson layers exist
 ├── review.js             # Recall: the spaced-repetition scheduler (pure, Node-testable)
 ├── editor.js             # mobile code editor + syntax highlighting
 ├── runner.js             # sandbox runner + checkpoint grader (worker/iframe)
@@ -224,6 +276,8 @@ codelab/
 ├── tools/validate-unit.js # one unit through the real sandbox (~20s inner loop)
 ├── tools/test-shell.js   # the shell's own suite — pure Node, also run by phase 0
 ├── tools/test-gitsim.js  # gitsim's own suite — pure Node, ~1s, also run by phase 0
+├── tools/validate-i18n.js # translation checks + coverage — pure Node, also run by phase 0
+├── tools/test-i18n.js    # i18n.js's own suite — pure Node, also run by phase 0
 └── tools/dump-lesson.js  # print a lesson's starter, solution and checkpoints
                           #   `--phase0` skips the browser: static + credit +
                           #   position + merge-algebra gates in ~1s

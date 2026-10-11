@@ -55,7 +55,10 @@ window.CODELAB._catById = {};
 window.CODELAB.CATEGORIES.forEach(function (c) { window.CODELAB._catById[c.id] = c; });
 window.CODELAB.catLabel = function (id) {
   var c = window.CODELAB._catById[id];
-  return c ? c.label : id;
+  var en = c ? c.label : id;
+  /* i18n.js loads after this file, so it is looked up at call time. */
+  var I = window.CODELAB.i18n;
+  return I ? I.catLabel(id, en) : en;
 };
 
 window.CODELAB.defineCourse = function (c) {

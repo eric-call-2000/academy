@@ -366,23 +366,31 @@
     };
   }
 
+  /* `error` stays English (tests read it); `errorKey` + `errorArgs` let the
+     app show it in the interface language through i18n.js. */
+  function bad(key, args) {
+    args = args || [];
+    var msg = key.replace(/\{(\d+)\}/g, function (m, n) { return args[n] != null ? String(args[n]) : m; });
+    return { ok: false, error: msg, errorKey: key, errorArgs: args };
+  }
+
   function parseEnvelope(text) {
     var raw = String(text == null ? "" : text);
     /* Compact JSON contains no raw newline bytes, so stripping them is
        lossless — and it repairs exactly the soft line breaks that mail and
        chat clients insert into a long single-line paste. */
     raw = raw.replace(/^﻿/, "").replace(/[\r\n]/g, "").trim();
-    if (!raw) return { ok: false, error: "Nothing pasted." };
+    if (!raw) return bad("Nothing pasted.");
     var env;
     try { env = JSON.parse(raw); }
-    catch (e) { return { ok: false, error: "That is not a valid sync code — it looks truncated or partly copied." }; }
-    if (!env || env.app !== "codelab") return { ok: false, error: "That code is not from CodeLab." };
-    if (env.kind !== "progress") return { ok: false, error: 'Expected a progress code, got "' + env.kind + '".' };
+    catch (e) { return bad("That is not a valid sync code — it looks truncated or partly copied."); }
+    if (!env || env.app !== "codelab") return bad("That code is not from CodeLab.");
+    if (env.kind !== "progress") return bad('Expected a progress code, got "{0}".', [env.kind]);
     /* Refused loudly rather than best-effort parsed: guessing at the
        semantics of a newer format is how you corrupt a schedule. */
-    if (env.v !== ENVELOPE_V) return { ok: false, error: "That code is version " + env.v + "; this app reads version " + ENVELOPE_V + ". Update the other device." };
-    if (!env.p) return { ok: false, error: "That code has no progress in it." };
-    if (env.sum && env.sum !== checksum(env.p)) return { ok: false, error: "That code is damaged — the checksum does not match. Copy it again, all of it." };
+    if (env.v !== ENVELOPE_V) return bad("That code is version {0}; this app reads version {1}. Update the other device.", [env.v, ENVELOPE_V]);
+    if (!env.p) return bad("That code has no progress in it.");
+    if (env.sum && env.sum !== checksum(env.p)) return bad("That code is damaged — the checksum does not match. Copy it again, all of it.");
     return { ok: true, env: env };
   }
 
