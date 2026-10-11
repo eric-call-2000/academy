@@ -24,7 +24,8 @@
   });
 
   course("html", "Aprende HTML",
-    "Estructura, texto, tablas, formularios, marcado semántico y accesibilidad: la base completa de todo sitio web.");
+    "Estructura, texto, tablas, formularios, marcado semántico y accesibilidad: la base completa de todo sitio web.",
+    ["html/u1.js"]);
   course("css", "Aprende CSS",
     "Selectores, el modelo de caja, colores, tipografía, efectos, transiciones y animación: diseño listo para publicar.");
   course("resp", "Diseño adaptable y maquetación",

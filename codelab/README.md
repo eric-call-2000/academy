@@ -200,7 +200,7 @@ translated.
 |---|---|---|
 | Interface (buttons, screens, messages) | `es/ui.js`, ~350 strings | ✅ complete |
 | Course names, job positions, categories | `es/catalog.js` | ✅ complete |
-| Lessons (briefs, checkpoints, hints, quizzes, theory) | `es/<course>/uN.js` | not started yet: lessons show in English until their layer exists |
+| Lessons (briefs, checkpoints, hints, quizzes, theory) | `es/<course>/uN.js` | Learn HTML Unit 1 (8 of 849 items, pilot). Everything else shows in English until its layer exists |
 
 **How a lesson layer works.** `es/html/u1.js` calls
 `CODELAB.i18n.addUnit("es", "html-u1", { … })` with only the fields it translates,
