@@ -304,4 +304,40 @@
   L({ id: "sa_pk", a: "sa", b: "pk", lessons: 3, color: "#3a6a2a",
       title: "Soldiers, money and a pact",
       blurb: "Pakistani troops for Saudi money, workers and bailouts, and a defence pact that now includes Turkey." });
+  L({ id: "au_in", a: "au", b: "in", lessons: 3, color: "#b07a2a",
+      title: "Cricket, uranium and the Quad",
+      blurb: "Distant cousins of empire, students and a long uranium fight, and partners against China's rise." });
+  L({ id: "de_it", a: "de", b: "it", lessons: 3, color: "#5a6a3a",
+      title: "Axis, euro and 'Merzoni'",
+      blurb: "Late-unified allies and guest workers, the euro crisis and 'the spread', and Merz and Meloni's new partnership." });
+  L({ id: "sa_tr", a: "sa", b: "tr", lessons: 3, color: "#7a5a2a",
+      title: "Sultans, Khashoggi and a pact",
+      blurb: "Ottomans against the first Saudi state, rivalry and the Khashoggi killing, and drones and a defence pact." });
+  L({ id: "de_ua", a: "de", b: "ua", lessons: 3, color: "#4a5a8a",
+      title: "Guilt, helmets and Leopards",
+      blurb: "Nazi occupation and a long blind spot, slow steps to arm Kyiv, and Germany as Ukraine's biggest European backer." });
+  L({ id: "fr_ua", a: "fr", b: "ua", lessons: 3, color: "#3a5a9a",
+      title: "A queen, Minsk and Rafales",
+      blurb: "A Kyivan queen of France, years of mediating with Putin, and French arms and a force to guard the peace." });
+  L({ id: "ca_mx", a: "ca", b: "mx", lessons: 3, color: "#8a3a4a",
+      title: "NAFTA, visas and Trump",
+      blurb: "Neighbours of a neighbour joined by NAFTA and farm workers, a visa fight, and two targets of Trump's tariffs." });
+  L({ id: "ir_tr", a: "ir", b: "tr", lessons: 3, color: "#6a4a7a",
+      title: "Empires, gas and a war",
+      blurb: "Ottomans and Safavids and a border from 1639, gas, gold and Syria, and Turkey beside Iran's 2026 war." });
+  L({ id: "ae_eg", a: "ae", b: "eg", lessons: 3, color: "#8a6a2a",
+      title: "Teachers, billions and a coastline",
+      blurb: "Egyptians who built the young UAE, Gulf billions for Sisi, and a 5 billion coastline deal." });
+  L({ id: "gb_au", a: "gb", b: "au", lessons: 3, color: "#3a4a7a",
+      title: "Empire, a crown and AUKUS",
+      blurb: "Convicts, Gallipoli and Singapore, a dismissal and a republic vote, and a 50-year submarine pact." });
+  L({ id: "fr_cn", a: "fr", b: "cn", lessons: 3, color: "#8a2a3a",
+      title: "A palace, de Gaulle and cognac",
+      blurb: "A looted palace and de Gaulle's early recognition, Taiwan and Airbus, and Macron's 'third pole'." });
+  L({ id: "br_ve", a: "br", b: "ve", lessons: 3, color: "#4a7a3a",
+      title: "Builders, refugees and a break",
+      blurb: "Lula and Chávez's alliance and unpaid loans, half a million refugees in Roraima, and Lula's break with Maduro." });
+  L({ id: "kr_ru", a: "kr", b: "ru", lessons: 3, color: "#6a3a4a",
+      title: "A refuge, cars and a rupture",
+      blurb: "A king in the Russian legation and KAL 007, thirty years of trade, and North Korean troops for Russia." });
 })();

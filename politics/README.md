@@ -144,6 +144,18 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇯🇵🇹🇼 Japan & Taiwan | Colony, chips and a strait | 3 of 3 | 7 Oct 2026 | illustrated |
 | 🇸🇦🇮🇱 Saudi Arabia & Israel | Oil, Iran and a Palestinian state | 3 of 3 | 7 Oct 2026 | illustrated |
 | 🇸🇦🇵🇰 Saudi Arabia & Pakistan | Soldiers, money and a pact | 3 of 3 | 7 Oct 2026 | illustrated |
+| 🇦🇺🇮🇳 Australia & India | Cricket, uranium and the Quad | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇩🇪🇮🇹 Germany & Italy | Axis, euro and 'Merzoni' | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇸🇦🇹🇷 Saudi Arabia & Turkey | Sultans, Khashoggi and a pact | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇩🇪🇺🇦 Germany & Ukraine | Guilt, helmets and Leopards | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇨🇦🇲🇽 Canada & Mexico | NAFTA, visas and Trump | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇫🇷🇺🇦 France & Ukraine | A queen, Minsk and Rafales | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇮🇷🇹🇷 Iran & Turkey | Empires, gas and a war | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇦🇪🇪🇬 United Arab Emirates & Egypt | Teachers, billions and a coastline | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇬🇧🇦🇺 United Kingdom & Australia | Empire, a crown and AUKUS | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇫🇷🇨🇳 France & China | A palace, de Gaulle and cognac | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇧🇷🇻🇪 Brazil & Venezuela | Builders, refugees and a break | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇰🇷🇷🇺 South Korea & Russia | A refuge, cars and a rupture | 3 of 3 | 11 Oct 2026 | illustrated |
 
 ## Run it
 

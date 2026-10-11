@@ -359,14 +359,31 @@ A tenth set of twelve followed:
 | 🇸🇦🇮🇱 Saudi Arabia & Israel | Enemies at a distance | A common enemy and a near-deal | A Palestinian state first |
 | 🇸🇦🇵🇰 Saudi Arabia & Pakistan | Soldiers and money | Workers, bailouts and a 'no' over Yemen | A pact, a war and a third partner |
 
-Candidates for later relationships: Australia–India, Germany–Italy, Saudi Arabia–Turkey,
-Germany–Ukraine, Canada–Mexico, France–Ukraine, Iran–Turkey, Egypt–UAE.
+An eleventh set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇦🇺🇮🇳 Australia & India | Empire, cricket and distance | Students, a diaspora and uranium | The Quad and the Melbourne summit |
+| 🇩🇪🇮🇹 Germany & Italy | Unification, the Axis and guest workers | The euro, 'the spread' and austerity | Merz, Meloni and a new axis? |
+| 🇸🇦🇹🇷 Saudi Arabia & Turkey | Ottomans and Wahhabis | Brotherhood, Qatar and Khashoggi | Reconciliation, drones and a defence pact |
+| 🇩🇪🇺🇦 Germany & Ukraine | Occupation and a blind spot | Helmets, tanks and the Zeitenwende | Europe's paymaster for Ukraine |
+| 🇨🇦🇲🇽 Canada & Mexico | Neighbours of a neighbour | Visas and asylum | Two targets of Trump |
+| 🇫🇷🇺🇦 France & Ukraine | A queen from Kyiv | Normandy, Minsk and calls to Putin | Caesars, Mirages and 100 Rafales |
+| 🇮🇷🇹🇷 Iran & Turkey | Sultans, shahs and a lasting border | Gas, gold and Syria | A war next door |
+| 🇦🇪🇪🇬 UAE & Egypt | Teachers, oil and a common enemy | Billions for Sisi | Ras El Hekma, Sudan and the war |
+| 🇬🇧🇦🇺 UK & Australia | Convicts, Gallipoli and Singapore | Europe, the dismissal and the republic | A trade deal, AUKUS and a 50-year treaty |
+| 🇫🇷🇨🇳 France & China | A burned palace and de Gaulle's gamble | Tiananmen, Taiwan and Airbus | Macron's 'third pole', cognac and cars |
+| 🇧🇷🇻🇪 Brazil & Venezuela | Lula, Chávez and the builders | The crossing at Pacaraima | Lula's break with Maduro |
+| 🇰🇷🇷🇺 South Korea & Russia | A king's refuge and a downed airliner | Cars, ships and gas | North Korean troops and a lost factory |
+
+Candidates for later relationships: Germany–Israel, India–Indonesia, Japan–Indonesia,
+France–Nigeria, UAE–Iran, Italy–Russia, South Korea–Australia.
 
 ---
 
 ## Images
 
-About 2 images per briefing gives **~755 images**: 591 illustrations and 165 portraits. The
+About 2 images per briefing gives **~790 images**: 627 illustrations and 165 portraits. The
 illustrations are drawn, not generated: each is layered vector art built in code
 (`politics/tools/art/`) and rendered to a 1600×900 WebP of about 20–40 KB, so all of them
 together come to roughly 15 MB, lazy-loaded per unit.
