@@ -40,3 +40,27 @@ window.ACADEMY.defineTrack({ id: "culture", prefix: "culture", count: 25, title:
 window.ACADEMY.defineTrack({ id: "behaviorism", prefix: "behavior", count: 25, title: "Behaviorism", icon: "🐕", color: "#14a58f", blurb: "The science of learning — Pavlov, Skinner, conditioning, schedules and behavior change." });
 window.ACADEMY.defineTrack({ id: "attachment", prefix: "attachment", count: 25, title: "Attachment Theory", icon: "🧸", color: "#e0518a", blurb: "How early bonds shape us — Bowlby, Ainsworth, the Strange Situation, and adult love." });
 window.ACADEMY.defineTrack({ id: "egt", prefix: "egt", count: 25, title: "Evolutionary Game Theory", icon: "♟️", color: "#3b74e0", blurb: "The math of cooperation and conflict — ESS, Hawk-Dove, and the evolution of strategy." });
+
+/* ------------------------------------------------------------
+   GROUPS: a group shows as ONE card on the main picker; tapping it opens
+   a second picker with just its courses. Put a track in a group by giving
+   it `group: "<group id>"`. Each course is still a normal track — its own
+   unit files, progress and streak.
+   ------------------------------------------------------------ */
+window.ACADEMY.groups = window.ACADEMY.groups || [];
+window.ACADEMY.defineGroup = function (g) { window.ACADEMY.groups.push(g); };
+
+/* Science & Math — high school courses. Plans: math-curriculum.md and
+   science-curriculum.md. A course with count 0 shows as "Coming soon". */
+window.ACADEMY.defineGroup({ id: "stem", title: "Science & Math", icon: "🧪", color: "#0b7285", blurb: "High school math and science — separate courses from Algebra I to Calculus, Biology to Physics." });
+window.ACADEMY.defineTrack({ group: "stem", id: "algebra1", prefix: "algebra1", count: 1, title: "Algebra I", icon: "🔢", color: "#1c7ed6", blurb: "Number sense, equations, functions, lines, systems and quadratics." });
+window.ACADEMY.defineTrack({ group: "stem", id: "geometry", prefix: "geometry", count: 0, title: "Geometry", icon: "📏", color: "#e8590c", blurb: "Proof, transformations, triangles, circles, area and volume." });
+window.ACADEMY.defineTrack({ group: "stem", id: "algebra2", prefix: "algebra2", count: 0, title: "Algebra II", icon: "📈", color: "#5f3dc4", blurb: "Radicals, complex numbers, polynomials, exponentials, logs and sequences." });
+window.ACADEMY.defineTrack({ group: "stem", id: "precalc", prefix: "precalc", count: 0, title: "Precalculus", icon: "🌊", color: "#0c8599", blurb: "Trigonometry, identities, vectors, matrices and conic sections." });
+window.ACADEMY.defineTrack({ group: "stem", id: "stats", prefix: "stats", count: 0, title: "Statistics & Probability", icon: "🎲", color: "#c2255c", blurb: "Counting, chance, data, distributions and drawing conclusions from samples." });
+window.ACADEMY.defineTrack({ group: "stem", id: "calculus", prefix: "calculus", count: 0, title: "Intro to Calculus", icon: "🚀", color: "#f08c00", blurb: "Limits, rates of change, derivatives and the idea of the integral." });
+window.ACADEMY.defineTrack({ group: "stem", id: "sciskills", prefix: "sciskills", count: 1, title: "How Science Works", icon: "🔬", color: "#9c36b5", blurb: "The habits every science shares — experiments, measurement, data and evidence. Start here." });
+window.ACADEMY.defineTrack({ group: "stem", id: "biology", prefix: "biology", count: 0, title: "Biology", icon: "🧬", color: "#2f9e44", blurb: "Cells, energy, genetics, DNA, evolution, ecology and the human body." });
+window.ACADEMY.defineTrack({ group: "stem", id: "chemistry", prefix: "chemistry", count: 0, title: "Chemistry", icon: "⚗️", color: "#e03131", blurb: "Atoms, the periodic table, bonding, reactions, gases, acids and bases." });
+window.ACADEMY.defineTrack({ group: "stem", id: "physics", prefix: "physics", count: 0, title: "Physics", icon: "🍎", color: "#1864ab", blurb: "Motion, forces, energy, waves, electricity and modern physics." });
+window.ACADEMY.defineTrack({ group: "stem", id: "earthspace", prefix: "earthspace", count: 0, title: "Earth & Space Science", icon: "🌋", color: "#a0522d", blurb: "Plate tectonics, rocks, weather, climate and astronomy." });

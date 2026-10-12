@@ -225,10 +225,21 @@
   /* ============================================================
      TRACK PICKER  ("What do you want to learn?")
      ============================================================ */
-  function renderTracks() {
+  function lessonCount(t) {
+    return (t.units || []).reduce(function (s, un) { return s + (un.lessons || []).length; }, 0);
+  }
+  function groupById(id) {
+    return ((window.ACADEMY && window.ACADEMY.groups) || []).filter(function (g) { return g.id === id; })[0] || null;
+  }
+
+  // groupId omitted -> the top-level picker, where every track that belongs to a
+  // group is folded into one card for that group. groupId given -> that group's
+  // own picker, listing just its courses (with a back link to all tracks).
+  function renderTracks(groupId) {
     document.querySelectorAll(".lesson-screen, .center-screen").forEach(function (n) { n.remove(); });
     app.innerHTML = "";
     var scr = el("div", "tracks-screen");
+    var group = groupId ? groupById(groupId) : null;
 
     var head = el("div", "tracks-head");
     head.appendChild(el("div", "profiles-logo small", '<span class="hat">🎓</span> <span>Academy</span>'));
@@ -240,16 +251,58 @@
     head.appendChild(userBtn);
     scr.appendChild(head);
 
-    scr.appendChild(el("h1", "tracks-title", "What do you want to learn?"));
-    scr.appendChild(el("div", "tracks-sub", "Pick a track — each keeps its own progress and streak."));
+    if (group) {
+      var back = el("button", "tracks-back", "← All tracks");
+      back.onclick = function () { renderTracks(); };
+      scr.appendChild(back);
+      scr.appendChild(el("h1", "tracks-title", esc(group.icon + " " + group.title)));
+      scr.appendChild(el("div", "tracks-sub", esc(group.blurb || "Pick a course — each keeps its own progress and streak.")));
+    } else {
+      scr.appendChild(el("h1", "tracks-title", "What do you want to learn?"));
+      scr.appendChild(el("div", "tracks-sub", "Pick a track — each keeps its own progress and streak."));
+    }
 
     var grid = el("div", "tracks-grid");
     var u = store.users[store.currentUser] || { tracks: {} };
+    function doneIn(t) {
+      var prog = u.tracks && u.tracks[t.id];
+      return prog ? Object.keys(prog.completed || {}).length : 0;
+    }
+    function xpIn(t) { var prog = u.tracks && u.tracks[t.id]; return (prog && prog.xp) || 0; }
+
+    var shownGroups = {};
     TRACKS.forEach(function (t) {
-      var prog = (u.tracks && u.tracks[t.id]) || null;
-      var lessonTotal = (t.units || []).reduce(function (s, un) { return s + (un.lessons || []).length; }, 0);
-      var doneCount = prog ? Object.keys(prog.completed || {}).length : 0;
+      if (group && t.group !== group.id) return;
+      if (!group && t.group) {
+        // Fold the group's tracks into one card, placed where its first track sits.
+        if (shownGroups[t.group]) return;
+        shownGroups[t.group] = true;
+        var g = groupById(t.group);
+        if (g) { grid.appendChild(groupCard(g)); return; }
+      }
+      grid.appendChild(trackCard(t));
+    });
+
+    function groupCard(g) {
+      var members = TRACKS.filter(function (t) { return t.group === g.id; });
+      var total = 0, done = 0, xp = 0, live = 0;
+      members.forEach(function (t) { var n = lessonCount(t); total += n; if (n) live++; done += doneIn(t); xp += xpIn(t); });
       var card = el("button", "track-card");
+      card.style.background = g.color || "#58cc02";
+      card.appendChild(el("div", "track-ic", g.icon || "🎓"));
+      card.appendChild(el("div", "track-title", esc(g.title)));
+      if (g.blurb) card.appendChild(el("div", "track-blurb", esc(g.blurb)));
+      card.appendChild(el("div", "track-meta", members.length + " courses · " +
+        (done > 0 ? (done + "/" + total + " lessons · " + xp + " XP") : ("pick a course ›"))));
+      card.onclick = function () { renderTracks(g.id); };
+      return card;
+    }
+
+    function trackCard(t) {
+      var lessonTotal = lessonCount(t);
+      var doneCount = doneIn(t);
+      var soon = !t.link && lessonTotal === 0;
+      var card = el("button", "track-card" + (soon ? " soon" : ""));
       card.style.background = t.color || "#58cc02";
       card.appendChild(el("div", "track-ic", t.icon || "🎓"));
       card.appendChild(el("div", "track-title", esc(t.title)));
@@ -260,19 +313,23 @@
         // app that syncs its progress back into this store under the same
         // track id. `cta` is the card's call to action before any progress.
         meta = doneCount > 0
-          ? (doneCount + " done · " + (prog.xp || 0) + " XP · open ↗")
+          ? (doneCount + " done · " + xpIn(t) + " XP · open ↗")
           : (t.cta || "Open") + " · open ↗";
+      } else if (soon) {
+        meta = "Coming soon";
       } else {
         meta = doneCount > 0
-          ? (doneCount + "/" + lessonTotal + " lessons · " + (prog.xp || 0) + " XP")
+          ? (doneCount + "/" + lessonTotal + " lessons · " + xpIn(t) + " XP")
           : (lessonTotal + " lessons · start here");
       }
       card.appendChild(el("div", "track-meta", meta));
+      if (soon) { card.disabled = true; return card; }
       card.onclick = t.link
         ? function () { window.location.href = t.link; }
         : function () { selectTrack(t.id); renderHome(); };
-      grid.appendChild(card);
-    });
+      return card;
+    }
+
     scr.appendChild(grid);
     app.appendChild(scr);
     window.scrollTo(0, 0);
@@ -291,7 +348,7 @@
     var brand = el("div", "brand brand-btn");
     brand.innerHTML = '<span class="hat">' + (tr.icon || "🎓") + '</span><span class="name">' + esc(tr.title || "Academy") + '</span><span class="brand-switch">⌄</span>';
     brand.title = "Switch track";
-    brand.onclick = function () { renderTracks(); };
+    brand.onclick = function () { renderTracks(tr.group); };   // back to its group's courses, if any
     bar.appendChild(brand);
     var stats = el("div", "stats");
     stats.appendChild(el("div", "stat streak", '<span class="ico">🔥</span>' + state.streak));
