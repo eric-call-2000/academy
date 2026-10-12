@@ -156,6 +156,18 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 🇫🇷🇨🇳 France & China | A palace, de Gaulle and cognac | 3 of 3 | 11 Oct 2026 | illustrated |
 | 🇧🇷🇻🇪 Brazil & Venezuela | Builders, refugees and a break | 3 of 3 | 11 Oct 2026 | illustrated |
 | 🇰🇷🇷🇺 South Korea & Russia | A refuge, cars and a rupture | 3 of 3 | 11 Oct 2026 | illustrated |
+| 🇩🇪🇮🇱 Germany & Israel | Atonement, submarines and Gaza | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇮🇳🇮🇩 India & Indonesia | Bandung, palm oil and BrahMos | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇯🇵🇮🇩 Japan & Indonesia | Occupation, cars and patrol boats | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇫🇷🇳🇬 France & Nigeria | Biafra, oil and Tinubu's turn | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇦🇪🇮🇷 United Arab Emirates & Iran | Islands, trade and missiles | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇮🇹🇷🇺 Italy & Russia | Fiat, gas and a firmer line | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇰🇷🇦🇺 South Korea & Australia | Kapyong, ore and Redbacks | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇸🇦🇷🇺 Saudi Arabia & Russia | A red pasha and OPEC+ | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇪🇬🇷🇺 Egypt & Russia | A dam, wheat and a reactor | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇿🇦🇮🇳 South Africa & India | Gandhi, BRICS and cheetahs | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇧🇷🇮🇳 Brazil & India | Cattle, clubs and superlatives | 3 of 3 | 12 Oct 2026 | illustrated |
+| 🇬🇧🇮🇷 United Kingdom & Iran | Oil, a fatwa and the Guards | 3 of 3 | 12 Oct 2026 | illustrated |
 
 ## Run it
 

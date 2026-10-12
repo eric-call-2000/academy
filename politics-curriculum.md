@@ -376,14 +376,31 @@ An eleventh set of twelve followed:
 | 🇧🇷🇻🇪 Brazil & Venezuela | Lula, Chávez and the builders | The crossing at Pacaraima | Lula's break with Maduro |
 | 🇰🇷🇷🇺 South Korea & Russia | A king's refuge and a downed airliner | Cars, ships and gas | North Korean troops and a lost factory |
 
-Candidates for later relationships: Germany–Israel, India–Indonesia, Japan–Indonesia,
-France–Nigeria, UAE–Iran, Italy–Russia, South Korea–Australia.
+A twelfth set of twelve followed:
+
+| Relationship | Briefing 1 | Briefing 2 | Briefing 3 |
+|---|---|---|---|
+| 🇩🇪🇮🇱 Germany & Israel | Reparations and recognition | Submarines and 'Staatsräson' | Gaza, a pause and record licences |
+| 🇮🇳🇮🇩 India & Indonesia | Temples, a pilot and Bandung | Palm oil, coal and a sea border | A parade, BRICS and BrahMos |
+| 🇯🇵🇮🇩 Japan & Indonesia | Occupation and independence | Aid, riots and cars | Patrol boats and a defence pact |
+| 🇫🇷🇳🇬 France & Nigeria | A bomb, Biafra and suspicion | Oil, Lagos and the Niger coup | Tinubu's French turn |
+| 🇦🇪🇮🇷 UAE & Iran | Merchants and three islands | Dubai, the back door | Missiles over the Emirates |
+| 🇮🇹🇷🇺 Italy & Russia | Architects, the Don and Fiat | Berlusconi, Putin and gas | Sanctions, insults and an envoy |
+| 🇰🇷🇦🇺 South Korea & Australia | Kapyong and the Korean War | Iron ore, coal and KAFTA | Redbacks, frigates and Hormuz |
+| 🇸🇦🇷🇺 Saudi Arabia & Russia | The Red Pasha and a long freeze | OPEC+ and a price war | Neutral ground and a centenary |
+| 🇪🇬🇷🇺 Egypt & Russia | The dam and the expulsion | Wheat, tourists and a bomb | Dabaa, BRICS and a grain hub |
+| 🇿🇦🇮🇳 South Africa & India | Gandhi, Natal and apartheid | IBSA, BRICS and the Guptas | Cheetahs, tariffs and Delhi |
+| 🇧🇷🇮🇳 Brazil & India | Cattle, Goa and distance | Clubs of the South | Tariffs and 'superlatives' |
+| 🇬🇧🇮🇷 UK & Iran | Oil, an invasion and a coup | Sieges, a fatwa and hostages | Plots, prisoners and the IRGC |
+
+Candidates for later relationships: India–Israel, Turkey–Pakistan, Germany–Japan, UK–Japan,
+Canada–UK, South Korea–India.
 
 ---
 
 ## Images
 
-About 2 images per briefing gives **~790 images**: 627 illustrations and 165 portraits. The
+About 2 images per briefing gives **~830 images**: 663 illustrations and 165 portraits. The
 illustrations are drawn, not generated: each is layered vector art built in code
 (`politics/tools/art/`) and rendered to a 1600×900 WebP of about 20–40 KB, so all of them
 together come to roughly 15 MB, lazy-loaded per unit.
