@@ -26,12 +26,14 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | 🐕 Behaviorism | 25 | 184 | The science of learning — Pavlov, Skinner, conditioning, schedules, behavior change |
 | 🧸 Attachment Theory | 25 | 200 | How early bonds shape us — Bowlby, Ainsworth, the Strange Situation, adult love |
 | ♟️ Evolutionary Game Theory | 25 | 192 | The math of cooperation and conflict — ESS, Hawk-Dove, the evolution of strategy |
+| 🧮 Secondary Mathematics *(draft)* | 1 of 25 | 8 | High school math — algebra, geometry, trig, statistics and a first look at calculus ([plan](math-curriculum.md)) |
+| 🔬 High School Science *(draft)* | 1 of 25 | 8 | Biology, chemistry, physics and Earth & space science ([plan](science-curriculum.md)) |
 
-**14,235 quiz questions across 2,056 lessons in 261 units, over 17 quiz tracks** — plus
-CodeLab's 205 interactive coding items as an eighteenth, external track, and Political
-Academy's 615 reading briefings as a nineteenth.
+**14,347 quiz questions across 2,072 lessons in 263 units, over 19 quiz tracks** — plus
+CodeLab's 205 interactive coding items as a twentieth, external track, and Political
+Academy's 615 reading briefings as a twenty-first.
 
-*(Counted from the unit files on 2026-09-19. If you add units, recount rather than
+*(Counted from the unit files on 2026-10-12. If you add units, recount rather than
 guessing — this table was wrong by more than double before it was last checked.)*
 
 ## How to use it
@@ -76,11 +78,13 @@ academy/
 ├── behavior-unit1.js … behavior-unit25.js
 ├── attachment-unit1.js … attachment-unit25.js
 ├── egt-unit1.js … egt-unit25.js
+├── math-unit1.js …          # Secondary Mathematics (draft; plan in math-curriculum.md)
+├── science-unit1.js …       # High School Science (draft; plan in science-curriculum.md)
 ├── codelab/                # the external Full-Stack Coding Lab app
 ├── politics/               # the external Political Academy app (daily briefings)
 └── obs/                     # overlay assets the OBS Overlays track teaches
 ```
-261 unit files, all flat at the root — no subfolders — so uploading to a static host is
+263 unit files, all flat at the root — no subfolders — so uploading to a static host is
 drag-and-drop simple. Three folders are the exceptions: `codelab/` and `politics/` are whole apps of their own,
 and `obs/` holds the stream-overlay assets (standby, facecam, alerts, goal bar, stinger)
 that the OBS Overlays track is built around — hosted alongside Academy so the course can

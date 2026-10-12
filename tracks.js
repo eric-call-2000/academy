@@ -40,3 +40,8 @@ window.ACADEMY.defineTrack({ id: "culture", prefix: "culture", count: 25, title:
 window.ACADEMY.defineTrack({ id: "behaviorism", prefix: "behavior", count: 25, title: "Behaviorism", icon: "🐕", color: "#14a58f", blurb: "The science of learning — Pavlov, Skinner, conditioning, schedules and behavior change." });
 window.ACADEMY.defineTrack({ id: "attachment", prefix: "attachment", count: 25, title: "Attachment Theory", icon: "🧸", color: "#e0518a", blurb: "How early bonds shape us — Bowlby, Ainsworth, the Strange Situation, and adult love." });
 window.ACADEMY.defineTrack({ id: "egt", prefix: "egt", count: 25, title: "Evolutionary Game Theory", icon: "♟️", color: "#3b74e0", blurb: "The math of cooperation and conflict — ESS, Hawk-Dove, and the evolution of strategy." });
+
+/* High school courses (drafts in progress — see math-curriculum.md and
+   science-curriculum.md for the full 25-unit outlines; bump `count` as units land). */
+window.ACADEMY.defineTrack({ id: "math", prefix: "math", count: 1, title: "Secondary Mathematics", icon: "🧮", color: "#2f9e44", blurb: "High school math from the ground up — algebra, geometry, trig, statistics and a first look at calculus." });
+window.ACADEMY.defineTrack({ id: "science", prefix: "science", count: 1, title: "High School Science", icon: "🔬", color: "#9c36b5", blurb: "Biology, chemistry, physics and Earth & space — how the natural world works and how we know." });
