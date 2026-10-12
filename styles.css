@@ -404,6 +404,10 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 .track-card:hover { filter: brightness(1.05); }
 .track-card:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.18); }
+.track-card.soon { opacity: 0.55; cursor: default; filter: saturate(0.6); }
+.track-card.soon:active { transform: none; box-shadow: 0 4px 0 rgba(0,0,0,0.18); }
+.tracks-back { background: none; border: none; font-weight: 800; font-size: 14px; color: var(--gray-text); cursor: pointer; padding: 4px 0; }
+.tracks-back:hover { color: var(--ink); }
 .track-ic { font-size: 40px; line-height: 1; }
 .track-title { font-weight: 900; font-size: 20px; }
 .track-blurb { font-weight: 700; font-size: 13px; opacity: 0.94; line-height: 1.35; }

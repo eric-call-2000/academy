@@ -1,7 +1,7 @@
-window.ACADEMY.addUnit("math", {
+window.ACADEMY.addUnit("algebra1", {
   id: "unit-1",
   title: "Number Sense & the Real Numbers",
-  color: "#2f9e44",
+  color: "#1c7ed6",
   icon: "\u{1F522}",
   description: "The number system everything else is built on, and the arithmetic habits algebra quietly assumes you already have.",
   lessons: [

@@ -1,4 +1,4 @@
-window.ACADEMY.addUnit("science", {
+window.ACADEMY.addUnit("sciskills", {
   id: "unit-1",
   title: "How Science Works",
   color: "#9c36b5",

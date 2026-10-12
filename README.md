@@ -26,10 +26,9 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | 🐕 Behaviorism | 25 | 184 | The science of learning — Pavlov, Skinner, conditioning, schedules, behavior change |
 | 🧸 Attachment Theory | 25 | 200 | How early bonds shape us — Bowlby, Ainsworth, the Strange Situation, adult love |
 | ♟️ Evolutionary Game Theory | 25 | 192 | The math of cooperation and conflict — ESS, Hawk-Dove, the evolution of strategy |
-| 🧮 Secondary Mathematics *(draft)* | 1 of 25 | 8 | High school math — algebra, geometry, trig, statistics and a first look at calculus ([plan](math-curriculum.md)) |
-| 🔬 High School Science *(draft)* | 1 of 25 | 8 | Biology, chemistry, physics and Earth & space science ([plan](science-curriculum.md)) |
+| 🧪 Science & Math *(group, draft)* | 2 of 55 | 16 | **One card that opens 11 separate courses:** Algebra I, Geometry, Algebra II, Precalculus, Statistics & Probability, Intro to Calculus, How Science Works, Biology, Chemistry, Physics, Earth & Space ([math plan](math-curriculum.md), [science plan](science-curriculum.md)) |
 
-**14,347 quiz questions across 2,072 lessons in 263 units, over 19 quiz tracks** — plus
+**14,347 quiz questions across 2,072 lessons in 263 units, over 19 quiz tracks (counting each Science & Math course that has units)** — plus
 CodeLab's 205 interactive coding items as a twentieth, external track, and Political
 Academy's 615 reading briefings as a twenty-first.
 
@@ -78,8 +77,7 @@ academy/
 ├── behavior-unit1.js … behavior-unit25.js
 ├── attachment-unit1.js … attachment-unit25.js
 ├── egt-unit1.js … egt-unit25.js
-├── math-unit1.js …          # Secondary Mathematics (draft; plan in math-curriculum.md)
-├── science-unit1.js …       # High School Science (draft; plan in science-curriculum.md)
+├── algebra1-unit1.js …, sciskills-unit1.js …   # Science & Math courses (one prefix per course)
 ├── codelab/                # the external Full-Stack Coding Lab app
 ├── politics/               # the external Political Academy app (daily briefings)
 └── obs/                     # overlay assets the OBS Overlays track teaches
@@ -114,6 +112,7 @@ External cards take a `cta` in `tracks.js` for the text shown before any progres
 
 ## Adding content
 - **Add a unit to a track:** drop in `<track>-unitN.js` (next number) and bump that track's `count` in `tracks.js`. See `unit-template.txt` for the shape.
+- **Group several tracks under one card:** `defineGroup({ id, title, icon, color, blurb })` in `tracks.js`, then add `group: "<id>"` to each track. The main picker shows one card for the group; tapping it opens a picker of just those courses. A grouped track with `count: 0` shows as "Coming soon". Science & Math (`stem`) is the first group.
 - **Add a whole new track:** add a `defineTrack({...})` line in `tracks.js` with a new `id`/`prefix`, then add `<prefix>-unit1.js …` files. It appears on the picker automatically.
 
 ## Hosting
