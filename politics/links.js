@@ -340,4 +340,40 @@
   L({ id: "kr_ru", a: "kr", b: "ru", lessons: 3, color: "#6a3a4a",
       title: "A refuge, cars and a rupture",
       blurb: "A king in the Russian legation and KAL 007, thirty years of trade, and North Korean troops for Russia." });
+  L({ id: "de_il", a: "de", b: "il", lessons: 3, color: "#3a5a8a",
+      title: "Atonement, submarines and Gaza",
+      blurb: "Reparations after the Holocaust, Merkel's 'reason of state' and submarines, and a Gaza arms pause and record sales." });
+  L({ id: "in_id", a: "in", b: "id", lessons: 3, color: "#8a5a2a",
+      title: "Bandung, palm oil and BrahMos",
+      blurb: "Indic kingdoms and Bandung, palm oil and coal across the Andaman Sea, and a missile deal in 2026." });
+  L({ id: "jp_id", a: "jp", b: "id", lessons: 3, color: "#7a3a3a",
+      title: "Occupation, cars and patrol boats",
+      blurb: "Wartime occupation and independence, aid, riots and Japanese cars, and patrol boats and a defence pact." });
+  L({ id: "fr_ng", a: "fr", b: "ng", lessons: 3, color: "#3a6a4a",
+      title: "Biafra, oil and Tinubu's turn",
+      blurb: "A Sahara bomb and French arms for Biafra, oil and the Niger coup, and Tinubu's warm ties with Macron." });
+  L({ id: "ae_ir", a: "ae", b: "ir", lessons: 3, color: "#7a5a3a",
+      title: "Islands, trade and missiles",
+      blurb: "Three islands seized in 1971, Dubai as Iran's back door, and thousands of Iranian missiles in 2026." });
+  L({ id: "it_ru", a: "it", b: "ru", lessons: 3, color: "#6a4a3a",
+      title: "Fiat, gas and a firmer line",
+      blurb: "Kremlin architects and the Togliatti car plant, Berlusconi's friendship with Putin, and a turn after 2022." });
+  L({ id: "kr_au", a: "kr", b: "au", lessons: 3, color: "#3a6a7a",
+      title: "Kapyong, ore and Redbacks",
+      blurb: "Australians in the Korean War, iron ore and a free trade deal, and Korean tanks and Hormuz energy worries." });
+  L({ id: "sa_ru", a: "sa", b: "ru", lessons: 3, color: "#7a6a3a",
+      title: "A red pasha and OPEC+",
+      blurb: "Early Soviet recognition and a long freeze, oil diplomacy and a price war, and neutrality on Ukraine." });
+  L({ id: "eg_ru", a: "eg", b: "ru", lessons: 3, color: "#8a4a3a",
+      title: "A dam, wheat and a reactor",
+      blurb: "Nasser's Soviet dam and Sadat's U-turn, wheat and tourists, and Russia's nuclear plant at Dabaa." });
+  L({ id: "za_in", a: "za", b: "in", lessons: 3, color: "#6a5a2a",
+      title: "Gandhi, BRICS and cheetahs",
+      blurb: "Gandhi's South African years and India's fight against apartheid, IBSA, BRICS and the Guptas, and cheetahs and tariffs." });
+  L({ id: "br_in", a: "br", b: "in", lessons: 3, color: "#4a7a5a",
+      title: "Cattle, clubs and superlatives",
+      blurb: "Indian cattle on Brazilian ranches, a team of the global South, and Lula's 2026 state visit amid US tariffs." });
+  L({ id: "gb_ir", a: "gb", b: "ir", lessons: 3, color: "#5a3a5a",
+      title: "Oil, a fatwa and the Guards",
+      blurb: "Anglo-Persian oil and the 1953 coup, Rushdie, a stormed embassy and hostages, and plots and an IRGC ban." });
 })();
