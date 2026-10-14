@@ -827,7 +827,7 @@
         g.innerHTML = "<title>" + esc(s.name + " · " + s.title) + "</title>" +
           (tie ? '<line class="wm-lb-tie" x1="0" y1="0" x2="' + (tie[0] - p[0]).toFixed(1) + '" y2="' + (tie[1] - p[1]).toFixed(1) + '"/>' : "") +
           '<rect class="wm-lb-pill" x="-26" y="-12" width="52" height="24" rx="12"/>' +
-          '<text class="wm-lb-txt" dy="0.36em">' + P.country(l.a).flag + P.country(l.b).flag + "</text>";
+          '<text class="wm-lb-txt" dy="0.36em"><tspan>' + P.country(l.a).flag + '</tspan><tspan dx="3">' + P.country(l.b).flag + "</tspan></text>";
         labels.appendChild(g);
       });
       ids.forEach(function (id) {

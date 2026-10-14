@@ -425,7 +425,11 @@ figcaption { padding: 8px 16px 0; font-size: 14.5px; color: var(--ink-2); line-h
 .wm-lb-pill { fill: var(--surface); stroke: var(--c); stroke-width: 2.5; }
 .wm-lb:hover .wm-lb-pill, .wm-lb.on .wm-lb-pill { stroke: var(--ink); stroke-width: 3; }
 .wm-lb:focus-visible .wm-lb-pill { stroke: var(--accent); stroke-width: 4; }
-.wm-lb-txt { font-size: 14px; letter-spacing: 1px; text-anchor: middle; pointer-events: none; }
+/* No letter-spacing here: Safari splits a flag emoji back into its two
+   letters when letter-spacing is set. The gap between the flags is a dx
+   on the second tspan instead. Fill is explicit so the text follows the
+   theme (SVG text defaults to black, unreadable on the dark pill). */
+.wm-lb-txt { font-size: 14px; fill: var(--ink); text-anchor: middle; pointer-events: none; font-variant-ligatures: normal; }
 .wm-lb-tie { stroke: var(--c); stroke-width: 1.5; stroke-dasharray: 2 2; }
 .wmap-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 10px 14px; font-size: 13px; font-weight: 700; color: var(--ink-2); border-top: 1px solid var(--line); }
 .wmap-legend span { display: inline-flex; align-items: center; gap: 7px; }
