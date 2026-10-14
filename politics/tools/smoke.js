@@ -122,6 +122,7 @@ function check(name, ok, detail) {
   await page.click(".btn-finish");
   await page.waitForSelector(".celebrate");
   check("finishing pays +10 XP", /\+10 XP/.test(await page.textContent(".celebrate")));
+  check("…and adds its cards to the review deck", /added to your review deck/.test(await page.textContent(".celebrate")));
   await page.waitForTimeout(700);   // let the scroll and pop animation settle
   await shot(page, "phone-finished");
 
@@ -198,6 +199,50 @@ function check(name, ok, detail) {
   await page.goto(base + "/politics/#/c/cn");
   await page.waitForSelector(".link-row");
   check("China's page lists the relationship", /Steel, tariffs and soybeans/.test(await page.textContent(".link-row")));
+
+  /* 5c. Interactive practice: glossary terms found in the text, the
+     "put it in order" game, and the review deck. */
+  await page.goto(base + "/politics/#/read/de_il-3");
+  await page.waitForSelector(".reader .order");
+  check("an automatically found term is a tappable chip", !!(await page.$('.reader .sec .term[data-term="bundestag"]')));
+  const nChips = (await page.$$(".reader .order-chip")).length;
+  check("a timeline becomes a 'put it in order' game", nChips >= 3, String(nChips));
+  for (let k = 0; k < nChips; k++) {
+    const ranks = await page.$$eval(".reader .order-chip", (bs) => bs.map((b) => +b.dataset.rank));
+    await page.click('.reader .order-chip[data-rank="' + Math.min(...ranks) + '"]');
+  }
+  check("…which says so when every event is in place", /All \d+ in the right order/.test(await page.textContent(".reader .order-msg")));
+  check("…and marks each one right", (await page.$$(".reader .order-slot.right")).length === nChips);
+  await shot(page, "phone-order-game");
+  /* Pretend us-1 was read two days ago, so its cards are due. */
+  await page.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem("politics_v1"));
+    const d = new Date(Date.now() - 2 * 86400000);
+    s.users.Sam.read["us-1"] = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    localStorage.setItem("politics_v1", JSON.stringify(s));
+  });
+  await page.goto(base + "/politics/#/");
+  await page.reload();
+  await page.waitForSelector(".review-card");
+  check("Today offers the review deck when cards are due", /Review · \d+ cards? due/.test(await page.textContent(".review-card")));
+  await page.click(".review-card");
+  await page.waitForSelector(".rcard");
+  let reviewed = 0;
+  while (!(await page.$(".review-done")) && reviewed < 10) {
+    if (await page.$(".rcard .check-choice")) await page.click(".rcard .check-choice >> nth=0");
+    else {
+      while (await page.$(".rcard .order-chip")) {
+        const ranks = await page.$$eval(".rcard .order-chip", (bs) => bs.map((b) => +b.dataset.rank));
+        await page.click('.rcard .order-chip[data-rank="' + Math.min(...ranks) + '"]');
+      }
+    }
+    await page.click(".rcard-next");
+    reviewed++;
+  }
+  check("a review session runs to its summary", !!(await page.$(".review-done")), String(reviewed));
+  const deck = await page.evaluate(() => JSON.parse(localStorage.getItem("politics_v1")).users.Sam.review);
+  check("…and schedules every card it showed", Object.keys(deck).length === reviewed, JSON.stringify(deck));
+  await shot(page, "phone-review-done");
 
   /* 6. Academy's picker shows the card with live progress. */
   await page.goto(base + "/index.html");

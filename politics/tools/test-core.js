@@ -271,4 +271,85 @@ test("reading a relationship counts, pays XP once and a completion bonus", () =>
   assert.strictEqual(P.nextLessonId(prof), "us-1", "after a link, next walks the country path");
 });
 
+/* ---------- glossary terms found automatically ---------- */
+test("autoTerms chips the first plain mention of each term, once per briefing", () => {
+  const used = {};
+  const a = P.autoTerms("New sanctions and more sanctions, and NATO.", used);
+  assert.strictEqual(a, "New [[sanctions|sanctions]] and more sanctions, and [[nato|NATO]].");
+  const b = P.autoTerms("Sanctions again.", used);
+  assert.strictEqual(b, "Sanctions again.", "a term already chipped in this briefing stays plain");
+});
+test("autoTerms leaves references and links alone and respects writer-linked terms", () => {
+  const used = {};
+  assert.strictEqual(P.autoTerms("See [NATO](https://example.org/NATO) and [[nato|the alliance]] and NATO.", used),
+    "See [NATO](https://example.org/NATO) and [[nato|the alliance]] and NATO.");
+});
+test("autoTerms: acronyms match only in capitals; plurals match", () => {
+  assert.strictEqual(P.autoTerms("a safe place, under SAFE", {}), "a safe place, under [[safe|SAFE]]");
+  assert.strictEqual(P.autoTerms("higher tariffs", {}), "higher [[tariff|tariffs]]");
+  assert.strictEqual(P.autoTerms("unvetoed overtariffing", {}), "unvetoed overtariffing");
+});
+test("autoTerms: country-specific terms only in their own units", () => {
+  assert.strictEqual(P.autoTerms("chosen by an electoral college", {}, "br"), "chosen by an electoral college");
+  assert.strictEqual(P.autoTerms("chosen by an electoral college", {}, "us"), "chosen by an [[electoral-college|electoral college]]");
+  assert.strictEqual(P.autoTerms("the next five-year plan", {}, "us_cn"), "the next [[five-year-plan|five-year plan]]");
+});
+
+/* ---------- put it in order ---------- */
+test("dateKey reads the start of timeline dates", () => {
+  same(P.dateKey("17 Aug 1945"), { y: 1945, m: 8, d: 17 });
+  same(P.dateKey("Aug 2025"), { y: 2025, m: 8, d: 0 });
+  same(P.dateKey("1942–45"), { y: 1942, m: 0, d: 0 });
+  same(P.dateKey("c. 1900"), { y: 1900, m: 0, d: 0 });
+  assert.strictEqual(P.dateKey("7th–13th c."), null);
+});
+test("orderItems keeps only entries that can go one way, up to five", () => {
+  const items = [["1990", "a"], ["2001", "b"], ["2001", "c"], ["Mar 2005", "d"], ["2005", "e"], ["Jun 2005", "f"], ["2010", "g"]];
+  same(P.orderItems(items).map((x) => x.what), ["a", "b", "d", "f", "g"]);
+  assert.strictEqual(P.orderItems([["1990", "a"], ["1991", "b"]]), null, "fewer than three is no game");
+  const many = [];
+  for (let y = 1900; y < 1920; y++) many.push([String(y), "e" + y]);
+  const picked = P.orderItems(many);
+  assert.strictEqual(picked.length, 5);
+  assert.strictEqual(picked[0].what, "e1900");
+  assert.strictEqual(picked[4].what, "e1919");
+});
+
+/* ---------- the review deck ---------- */
+test("a read briefing's cards come due the next day", () => {
+  const p = P.freshProfile();
+  const l = unit.lessons.find((x) => P.cardsOf(x).length === 2);
+  assert.ok(l, "some US briefing has both a question and a timeline game");
+  P.markRead(p, unit, l.id, "2026-10-01");
+  const ids = JSON.parse(JSON.stringify(P.cardsOf(l)));
+  same(ids, [l.id + ":q", l.id + ":t"]);
+  same(P.dueCards(p, ids, "2026-10-01"), []);
+  same(P.dueCards(p, ids, "2026-10-02"), ids);
+  same(P.dueCards(P.freshProfile(), ids, "2026-10-02"), [], "unread briefings have no cards");
+});
+test("right answers space a card out; a miss brings it back tomorrow", () => {
+  const p = P.freshProfile();
+  p.read["us-1"] = "2026-10-01";
+  const id = "us-1:q";
+  assert.strictEqual(P.gradeCard(p, id, true, "2026-10-02").due, "2026-10-03");
+  assert.strictEqual(P.gradeCard(p, id, true, "2026-10-03").due, "2026-10-06");
+  assert.strictEqual(P.gradeCard(p, id, true, "2026-10-06").due, "2026-10-13");
+  const miss = P.gradeCard(p, id, false, "2026-10-13");
+  same(miss, { box: 0, due: "2026-10-14", last: "2026-10-13" });
+  for (let i = 0; i < 10; i++) P.gradeCard(p, id, true, "2026-10-14");
+  assert.strictEqual(p.review[id].due, P.addDays("2026-10-14", 90), "the gap tops out at 90 days");
+});
+test("reviews never change XP or the streak", () => {
+  const p = P.freshProfile();
+  P.markRead(p, unit, "us-1", "2026-10-01");
+  const xp = P.xp(p), days = JSON.parse(JSON.stringify(p.days));
+  P.gradeCard(p, "us-1:q", true, "2026-10-05");
+  assert.strictEqual(P.xp(p), xp);
+  same(p.days, days);
+});
+test("normalizeProfile adds an empty review deck to old profiles", () => {
+  same(P.normalizeProfile({ read: {} }).review, {});
+  same(P.normalizeProfile({ review: [1] }).review, {});
+});
+
 console.log(passed + " passed" + (process.exitCode ? ", some FAILED" : ""));

@@ -187,18 +187,27 @@ It is static files, so any of these work:
   `completed`, `xp`, `streak` and `lastDay`. Academy's picker card shows "N done · XP" from it.
   This is the same bridge CodeLab uses.
 - **This app's own store.** Detailed progress lives in `politics_v1`: the day each briefing
-  was read, study days, the daily goal and quick-check answers. Theme and text size are in
+  was read, study days, the daily goal, quick-check answers and the review deck's schedule.
+  Theme and text size are in
   `politics_prefs_v1`.
 - **XP and streaks.** A briefing is worth 10 XP the first time; finishing a country adds a
   20 XP bonus; re-reading earns nothing. The streak is derived from the set of days you
-  read, never stored as a bare count, so it can't drift.
+  read, never stored as a bare count, so it can't drift. Reviews and the ordering game never
+  change XP or the streak; those stay about reading.
 - **Per device.** Progress is per browser, as with CodeLab. A Handoff-style sync code is on
   the plan's list.
 
 ## Screens
 
-- **Today** shows the next briefing, the daily goal (1–3 a day, set under the avatar), a
-  seven-day strip, briefings updated since you read them, and dispatches.
+- **Today** shows the daily goal (1–3 a day, set under the avatar) with a seven-day strip,
+  a **Review** card when cards are due, the next briefing, briefings updated since you read
+  them, and dispatches.
+- **Review** (`#/review`) is a spaced-repetition deck built from what you've read. Each
+  finished briefing adds up to two cards: its quick-check question and its "put it in order"
+  timeline. A card is first due the day after you read the briefing; a right answer pushes it
+  out to 1, 3, 7, 16, 35 and then 90 days, and a miss brings it back tomorrow. A session is
+  at most 10 cards, oldest due first. Nothing new needs writing: the cards come from the
+  unit files (`P.cardsOf`, `P.dueCards`, `P.gradeCard` in `core.js`).
 - **Map** is a world map of all 30 countries, with no lines until you pick one. Tapping a
   country draws its relationships: a line to each partner, with a label of the two flags
   near the partner's end (labels that would overlap slide along their line or step aside
@@ -211,8 +220,14 @@ It is static files, so any of these work:
   its relationships and connected countries.
 - **Relationship** (`#/c/us_cn`) shows the 2–3 briefings on two countries, and links to both.
 - **Reader** is one serif column with a reading-progress bar and adjustable text size.
-  Glossary terms are tappable. Each briefing ends with three takeaways, an optional quick
-  check that never blocks progress, and its sources.
+  Glossary terms are tappable: the ones writers mark with `[[term]]`, plus the first plain
+  mention of any other glossary term in the briefing, found automatically (`P.autoTerms`).
+  Terms that name one country's institution ("electoral college", "five-year plan") are only
+  found in that country's briefings and its relationships (`P.AUTO_TERM_ONLY`). With a mouse,
+  hovering a term shows its definition; a tap or click opens the full card. Each briefing
+  ends with three takeaways, a **"Put it in order"** game built from its timeline (up to five
+  events that can only go one way, `P.orderItems`; you can try again), an optional quick check
+  that never blocks progress, and its sources.
 - **Glossary** lists every term, searchable.
 
 ## Files

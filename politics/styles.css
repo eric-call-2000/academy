@@ -449,3 +449,58 @@ figcaption { padding: 8px 16px 0; font-size: 14.5px; color: var(--ink-2); line-h
 .link-hero .unit-flag { font-size: 40px; white-space: nowrap; }
 .atlas-map { display: flex; align-items: center; gap: 12px; margin-top: 14px; text-decoration: none; }
 .atlas-map .row-ic { font-size: 28px; }
+
+/* ---------- glossary hover card (mouse only) ---------- */
+.term-pop { position: absolute; z-index: 80; max-width: 320px; padding: 12px 14px; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); pointer-events: none; }
+.term-pop-name { font-weight: 900; font-size: 14px; margin-bottom: 4px; }
+.term-pop-def { font-family: var(--serif); font-size: 15px; line-height: 1.45; }
+.term-pop-more { margin-top: 6px; font-size: 12px; font-weight: 800; color: var(--muted); }
+
+/* ---------- put it in order ---------- */
+.order-wrap { margin: 22px 0; }
+.order { padding: 16px 18px; background: var(--surface-2); border: 1px dashed var(--line); border-radius: 16px; }
+.order-head { font-weight: 900; font-size: 14px; }
+.order-head .muted { font-weight: 700; }
+.order-sub { font-size: 14px; color: var(--ink-2); margin: 4px 0 12px; }
+.order-placed { list-style: none; display: grid; gap: 6px; margin: 0 0 12px; padding: 0; }
+.order-slot { display: flex; gap: 10px; align-items: flex-start; min-height: 46px; padding: 10px 12px; border-radius: 12px;
+  border: 2px dashed var(--line); background: transparent; }
+.order-slot.filled { border-style: solid; border-color: var(--c, var(--accent)); background: var(--surface); cursor: pointer; }
+.order-slot.right { border-color: var(--ok); background: var(--ok-soft); cursor: default; }
+.order-slot.wrong { border-color: var(--bad); background: var(--bad-soft); cursor: default; }
+.order-n { flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 900;
+  background: var(--surface-2); color: var(--muted); }
+.order-slot.filled .order-n { background: var(--c, var(--accent)); color: #fff; }
+.order-slot.right .order-n { background: var(--ok); }
+.order-slot.wrong .order-n { background: var(--bad); }
+.order-txt { font-family: var(--serif); font-size: calc(var(--read-size) - 2px); line-height: 1.4; }
+.order-when { display: block; font-family: var(--ui); font-weight: 900; font-size: 13px; color: var(--ink-2); }
+.order-answer .order-when { display: inline; margin-right: 4px; }
+.order-pool { display: grid; gap: 8px; }
+.order-chip { text-align: left; padding: 11px 14px; background: var(--surface); border: 2px solid var(--line); border-radius: 12px;
+  font-family: var(--serif); font-size: calc(var(--read-size) - 2px); line-height: 1.4; }
+.order-chip:hover { border-color: var(--accent); }
+.order-foot .btn { margin-top: 10px; }
+.order-msg { font-size: 15px; line-height: 1.5; }
+.order-msg.good b { color: var(--ok); }
+.order-answer { margin: 6px 0 0 1.2em; font-family: var(--serif); font-size: 15px; line-height: 1.5; }
+
+/* ---------- review deck ---------- */
+.review-card { display: flex; gap: 14px; align-items: center; margin-top: 18px; text-decoration: none; color: inherit; border: 2px solid var(--accent); }
+.review-ic { font-size: 30px; }
+.review-main { flex: 1; display: grid; gap: 2px; }
+.review-title { font-weight: 900; font-size: 17px; }
+.review-sub { font-size: 14px; color: var(--muted); }
+.review-go { font-weight: 900; color: var(--accent); white-space: nowrap; }
+.review { max-width: 720px; margin: 0 auto; }
+.review-bar { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.review-bar-fill { height: 100%; width: 0; background: var(--accent); transition: width 0.3s; }
+.review-count { font-size: 13px; font-weight: 800; color: var(--muted); margin: 8px 0 10px; }
+.rcard { border-top: 4px solid var(--c); }
+.rcard-from { display: block; font-size: 13px; font-weight: 800; color: var(--muted); text-decoration: none; margin-bottom: 10px; }
+.rcard-from:hover { color: var(--accent); }
+.rcard .order, .rcard .check { margin: 0; background: transparent; border: none; padding: 0; }
+.rcard-next { margin-top: 14px; width: 100%; }
+.review-empty, .review-done { text-align: center; }
+.review-empty p, .review-done p { color: var(--ink-2); margin: 8px 0 14px; line-height: 1.5; }
