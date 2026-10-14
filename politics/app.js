@@ -10,6 +10,7 @@
                    relationship between two (ids like "us_cn", links.js)
      #/read/<id>   the reader
      #/glossary    every term, searchable
+     #/review      the review deck: cards from briefings you've read
      #/profiles    who's reading
 
    Progress lives in localStorage ("politics_v1", one profile per
@@ -133,6 +134,7 @@
   var esc = P.esc;
   var cleanups = [];
   function clear() {
+    if (typeof hidePop === "function") hidePop();
     cleanups.forEach(function (f) { try { f(); } catch (e) {} });
     cleanups = [];
     closeSheet();
@@ -155,6 +157,10 @@
     }
   };
   function md(s) { return P.md(s, mdOpts); }
+  /* Reader prose: the first plain mention of each glossary term becomes a
+     chip too (P.autoTerms); termsUsed is reset for every briefing. */
+  var termsUsed = {}, termsUnit = "";
+  function mdT(s) { return md(P.autoTerms(s, termsUsed, termsUnit)); }
   function inline(s) { return P.inline(s, mdOpts); }
   function toast(msg) {
     var t = el("div", "toast", esc(msg));
@@ -192,8 +198,44 @@
   /* Glossary chips anywhere on the page open a sheet. */
   document.addEventListener("click", function (e) {
     var t = e.target && e.target.closest ? e.target.closest("[data-term]") : null;
-    if (t) { e.preventDefault(); openTerm(t.getAttribute("data-term")); }
+    if (t) { e.preventDefault(); hidePop(); openTerm(t.getAttribute("data-term")); }
   });
+  /* With a mouse, hovering a term shows its definition in a small card
+     beside it; a click still opens the full sheet. Touch screens skip
+     this and go straight to the sheet. */
+  var termPop = null, popTimer = null;
+  var canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  function hidePop() {
+    clearTimeout(popTimer);
+    if (termPop) { termPop.remove(); termPop = null; }
+  }
+  function showPop(chip) {
+    var g = P.glossary[chip.getAttribute("data-term")];
+    if (!g) return;
+    hidePop();
+    termPop = el("div", "term-pop", '<div class="term-pop-name">' + esc(g.term) + '</div><div class="term-pop-def">' + inline(g.def) +
+      '</div><div class="term-pop-more">Click for more</div>');
+    termPop.setAttribute("role", "tooltip");
+    document.body.appendChild(termPop);
+    var r = chip.getBoundingClientRect(), w = termPop.offsetWidth, h = termPop.offsetHeight;
+    var left = Math.max(8, Math.min(window.innerWidth - w - 8, r.left + r.width / 2 - w / 2));
+    var top = r.bottom + 8 + h > window.innerHeight ? r.top - h - 8 : r.bottom + 8;
+    termPop.style.left = (left + window.scrollX) + "px";
+    termPop.style.top = (top + window.scrollY) + "px";
+  }
+  if (canHover) {
+    document.addEventListener("mouseover", function (e) {
+      var chip = e.target && e.target.closest ? e.target.closest(".term[data-term]") : null;
+      if (!chip || chip.contains(e.relatedTarget)) return;
+      clearTimeout(popTimer);
+      popTimer = setTimeout(function () { showPop(chip); }, 250);
+    });
+    document.addEventListener("mouseout", function (e) {
+      var chip = e.target && e.target.closest ? e.target.closest(".term[data-term]") : null;
+      if (chip && !chip.contains(e.relatedTarget)) hidePop();
+    });
+    window.addEventListener("scroll", hidePop, { passive: true });
+  }
 
   /* ---------- pictures ----------
      Illustrations and portraits are added over time (see
@@ -418,6 +460,8 @@
       '<div class="goal-sub">' + (P.streak(prof.days, t) ? "🔥 " + P.streak(prof.days, t) + "-day streak" : "Read one to start a streak") +
       " · a few minutes each</div>" + weekStrip(prof, t) + "</div>";
     main.appendChild(goal);
+    var rev = el("section", "review-slot");
+    main.appendChild(rev);
 
     var nextId = P.nextLessonId(prof);
     var slot = el("section", "today-next");
@@ -439,12 +483,19 @@
         '<a class="btn" href="#/atlas">Open the Atlas</a>'));
     }
 
-    /* Refreshed briefings you've already read. */
-    var readUnits = {};
-    Object.keys(prof.read).forEach(function (id) { readUnits[P.unitIdOf(id)] = 1; });
+    /* The review deck, and refreshed briefings you've already read. */
     var upd = el("section", "updated-list");
     main.appendChild(upd);
-    Promise.all(Object.keys(readUnits).map(function (id) { return loadUnit(id).catch(function () { return null; }); })).then(function (units) {
+    loadReadUnits(prof).then(function (units) {
+      var due = P.dueCards(prof, deckIds(prof, units), t);
+      if (due.length) {
+        var a = el("a", "card review-card");
+        a.href = "#/review";
+        a.innerHTML = '<span class="review-ic" aria-hidden="true">🧠</span><span class="review-main"><span class="review-title">Review · ' +
+          plural(due.length, "card") + ' due</span><span class="review-sub">Questions and timelines from briefings you\'ve read, a few minutes a day</span></span>' +
+          '<span class="review-go">Start →</span>';
+        rev.appendChild(a);
+      }
       var items = [];
       units.forEach(function (u) {
         (u && u.lessons || []).forEach(function (l) {
@@ -1007,6 +1058,12 @@
 
     var art = el("article", "reader");
     art.style.setProperty("--c", c.color);
+    termsUsed = {};
+    termsUnit = unit.id;
+    (lesson.blocks || []).forEach(function (b) {
+      [b.md, b.left && b.left.md, b.right && b.right.md].concat((b.items || []).map(function (p) { return p && p.md; }))
+        .forEach(function (s) { if (typeof s === "string") P.scanRefs(s).terms.forEach(function (id) { termsUsed[id] = 1; }); });
+    });
     var readOn = prof.read[lesson.id];
     var updated = P.isUpdatedSince(lesson, readOn);
     var head = el("header", "reader-head");
@@ -1026,6 +1083,12 @@
       tk.innerHTML = "<h2>Three things to remember</h2><ol>" + lesson.takeaways.map(function (x) { return "<li>" + inline(x) + "</li>"; }).join("") + "</ol>";
       art.appendChild(tk);
     }
+    var tlBlock = P.timelineOf(lesson), order = tlBlock && P.orderItems(tlBlock.items);
+    if (order) {
+      var og = el("section", "order-wrap");
+      og.appendChild(orderGame(order, c, null));
+      art.appendChild(og);
+    }
     if (lesson.check) art.appendChild(drawCheck(lesson, prof));
     if (lesson.sources && lesson.sources.length) {
       var src = el("section", "sources");
@@ -1044,7 +1107,7 @@
       case "section": {
         var s = el("section", "sec");
         if (b.head) s.appendChild(el("h2", null, esc(b.head)));
-        s.appendChild(el("div", "prose", md(b.md)));
+        s.appendChild(el("div", "prose", mdT(b.md)));
         return s;
       }
       case "image": case "map": case "diagram":
@@ -1071,7 +1134,7 @@
         var icons = { why: ["💡", "Why it matters"], note: ["📝", "Worth knowing"], watch: ["👀", "What to watch"] };
         var ic = icons[b.tone] || icons.note;
         var co = el("aside", "callout callout-" + (b.tone || "note"));
-        co.innerHTML = '<div class="callout-head">' + ic[0] + " " + esc(b.head || ic[1]) + '</div><div class="prose">' + md(b.md) + "</div>";
+        co.innerHTML = '<div class="callout-head">' + ic[0] + " " + esc(b.head || ic[1]) + '</div><div class="prose">' + mdT(b.md) + "</div>";
         return co;
       }
       case "compare": {
@@ -1079,7 +1142,7 @@
         if (b.head) cmp.appendChild(el("h2", null, esc(b.head)));
         var cols = el("div", "compare-cols");
         [b.left, b.right].forEach(function (side, i) {
-          cols.appendChild(el("div", "compare-side side-" + i, "<h3>" + esc(side.head) + '</h3><div class="prose">' + md(side.md) + "</div>"));
+          cols.appendChild(el("div", "compare-side side-" + i, "<h3>" + esc(side.head) + '</h3><div class="prose">' + mdT(side.md) + "</div>"));
         });
         cmp.appendChild(cols);
         return cmp;
@@ -1108,7 +1171,7 @@
           } else face.appendChild(initialsEl());
           card.appendChild(face);
           card.appendChild(el("div", "person-body", '<div class="person-name">' + esc(p.name) + '</div><div class="person-role">' + esc(p.role) +
-            '</div><div class="prose">' + md(p.md) + "</div>"));
+            '</div><div class="prose">' + mdT(p.md) + "</div>"));
           pp.appendChild(card);
         });
         return pp;
@@ -1203,7 +1266,8 @@
         '<span class="pill pill-streak">🔥 ' + P.streak(prof.days, t) + "-day streak</span>" +
         (n >= prof.goal ? '<span class="pill pill-ok">Daily goal met</span>' : '<span class="pill">' + n + " of " + prof.goal + " today</span>") +
         "</div>" +
-        (res.unitDone ? '<p class="celebrate-note">You\'ve read all ' + unit.lessons.length + " briefings on " + esc(c.name) + ". +" + P.XP_PER_COUNTRY + " bonus XP.</p>" : "");
+        (res.unitDone ? '<p class="celebrate-note">You\'ve read all ' + unit.lessons.length + " briefings on " + esc(c.name) + ". +" + P.XP_PER_COUNTRY + " bonus XP.</p>" : "") +
+        (res.first && P.cardsOf(lesson).length ? '<p class="celebrate-note">🧠 ' + plural(P.cardsOf(lesson).length, "card") + " added to your review deck, due tomorrow.</p>" : "");
       box.appendChild(cel);
       nextButtons(box);
       cel.scrollIntoView({ block: "center", behavior: "smooth" });
@@ -1211,6 +1275,236 @@
       if (stat) stat.classList.add("done");
     };
     box.appendChild(btn);
+    return box;
+  }
+
+  /* ============================================================
+     PUT IT IN ORDER
+     ------------------------------------------------------------
+     A briefing's timeline, shuffled (P.orderItems picks up to five
+     entries that can only go one way). Tap events from earliest to
+     latest; tap a placed one to take it back. When all are placed the
+     dates appear and each is marked right or wrong. In the reader you
+     can try again; in a review, onDone(allRight) moves the session on.
+     ============================================================ */
+  function shuffled(n) {
+    var a = [];
+    for (var i = 0; i < n; i++) a.push(i);
+    do {
+      for (var j = n - 1; j > 0; j--) { var k = Math.floor(Math.random() * (j + 1)); var x = a[j]; a[j] = a[k]; a[k] = x; }
+    } while (n > 1 && a.every(function (v, i) { return v === i; }));
+    return a;
+  }
+  function orderGame(items, c, onDone) {
+    var box = el("div", "order");
+    box.style.setProperty("--c", c.color);
+    box.innerHTML = '<div class="order-head">🗓️ Put it in order <span class="muted">· earliest first</span></div>' +
+      '<div class="order-sub">Tap the events in the order they happened. Tap a placed one to take it back.</div>';
+    var placed = el("ol", "order-placed");
+    var pool = el("div", "order-pool");
+    var foot = el("div", "order-foot");
+    box.appendChild(placed);
+    box.appendChild(pool);
+    box.appendChild(foot);
+    var order, picked, checked;
+    function start() {
+      order = shuffled(items.length);
+      picked = [];
+      checked = false;
+      draw();
+    }
+    function draw() {
+      placed.innerHTML = "";
+      pool.innerHTML = "";
+      foot.innerHTML = "";
+      for (var s = 0; s < items.length; s++) {
+        var li = el("li", "order-slot");
+        var at = picked[s];
+        if (at == null) { li.classList.add("empty"); li.innerHTML = '<span class="order-n">' + (s + 1) + "</span>"; }
+        else {
+          var it = items[at];
+          var ok = checked && at === s;
+          li.className = "order-slot filled" + (checked ? (ok ? " right" : " wrong") : "");
+          li.innerHTML = '<span class="order-n">' + (checked ? (ok ? "✓" : "✗") : s + 1) + "</span>" +
+            '<span class="order-txt">' + (checked ? '<span class="order-when">' + esc(it.when) + "</span>" : "") + inline(it.what) + "</span>";
+          if (!checked) {
+            li.setAttribute("role", "button");
+            li.tabIndex = 0;
+            li.setAttribute("aria-label", "Take back: " + el("div", null, inline(it.what)).textContent);
+            (function (slot) {
+              function back() { picked.splice(slot, 1); draw(); }
+              li.onclick = back;
+              li.onkeydown = function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); back(); } };
+            })(s);
+          }
+        }
+        placed.appendChild(li);
+      }
+      if (!checked) {
+        order.forEach(function (i) {
+          if (picked.indexOf(i) > -1) return;
+          var b = el("button", "order-chip", inline(items[i].what));
+          b.type = "button";
+          b.setAttribute("data-rank", i);
+          b.onclick = function () {
+            picked.push(i);
+            if (picked.length === items.length) checked = true;
+            draw();
+            if (checked) finish();
+          };
+          pool.appendChild(b);
+        });
+      }
+    }
+    function finish() {
+      var right = picked.filter(function (at, s) { return at === s; }).length;
+      var all = right === items.length;
+      var msg = el("div", "order-msg " + (all ? "good" : "meh"), all ? "<b>All " + items.length + " in the right order.</b>" :
+        "<b>" + right + " of " + items.length + " in the right place.</b> The order was:");
+      foot.appendChild(msg);
+      if (!all) {
+        foot.appendChild(el("ol", "order-answer", items.map(function (it) {
+          return '<li><span class="order-when">' + esc(it.when) + "</span> " + inline(it.what) + "</li>";
+        }).join("")));
+      }
+      if (onDone) onDone(all);
+      else {
+        var again = el("button", "btn btn-ghost", "Try again");
+        again.type = "button";
+        again.onclick = start;
+        foot.appendChild(again);
+      }
+    }
+    start();
+    return box;
+  }
+
+  /* ============================================================
+     REVIEW DECK
+     ------------------------------------------------------------
+     Cards from briefings you've read (P.cardsOf): the quick-check
+     question and the timeline game. P.dueCards picks what's due, a
+     session is at most P.REVIEW_SESSION cards, and P.gradeCard spaces
+     each one out after a right answer. Reviews don't change XP or the
+     streak.
+     ============================================================ */
+  function loadReadUnits(prof) {
+    var ids = {};
+    Object.keys(prof.read).forEach(function (id) { ids[P.unitIdOf(id)] = 1; });
+    return Promise.all(Object.keys(ids).map(function (id) { return loadUnit(id).catch(function () { return null; }); }))
+      .then(function (us) { return us.filter(Boolean); });
+  }
+  function deckIds(prof, units) {
+    var out = [];
+    units.forEach(function (u) {
+      u.lessons.forEach(function (l) { if (prof.read[l.id]) out = out.concat(P.cardsOf(l)); });
+    });
+    return out;
+  }
+  function renderReview() {
+    var main = shell("today");
+    var prof = me(), t = today();
+    main.appendChild(el("h1", "page-title", "Review"));
+    var stage = el("div", "review");
+    stage.appendChild(el("div", "card loading", "Shuffling your cards…"));
+    main.appendChild(stage);
+    loadReadUnits(prof).then(function (units) {
+      var byLesson = {};
+      units.forEach(function (u) { u.lessons.forEach(function (l) { byLesson[l.id] = { unit: u, lesson: l }; }); });
+      var all = deckIds(prof, units);
+      var due = P.dueCards(prof, all, t);
+      var session = due.slice(0, P.REVIEW_SESSION);
+      stage.innerHTML = "";
+      if (!session.length) {
+        var next = all.map(function (id) { return P.cardState(prof, id); }).filter(Boolean)
+          .map(function (s) { return s.due; }).sort()[0];
+        stage.appendChild(el("div", "card review-empty",
+          '<div class="big-emoji">🧠</div><h2>' + (all.length ? "Nothing to review today." : "Your review deck is empty.") + "</h2><p>" +
+          (all.length ? "You have " + plural(all.length, "card") + " in your deck. The next one is due on " + esc(P.formatDate(next)) + "."
+            : "Each briefing you finish adds its question and its timeline to the deck, due the next day.") +
+          '</p><a class="btn" href="#/">Back to Today</a>'));
+        return;
+      }
+      main.querySelector(".page-title").insertAdjacentHTML("afterend", '<p class="page-sub">' + plural(due.length, "card") +
+        " due. Right answers come back later and later; misses come back tomorrow.</p>");
+      var i = 0, right = 0;
+      var bar = el("div", "review-bar", '<div class="review-bar-fill"></div>');
+      var count = el("div", "review-count");
+      var slot = el("div", "review-slot-card");
+      stage.appendChild(bar);
+      stage.appendChild(count);
+      stage.appendChild(slot);
+      function step() {
+        bar.firstChild.style.width = (i / session.length * 100) + "%";
+        slot.innerHTML = "";
+        if (i >= session.length) return done();
+        count.textContent = "Card " + (i + 1) + " of " + session.length;
+        var id = session[i], kind = id.split(":")[1];
+        var x = byLesson[P.cardLesson(id)];
+        var c = P.subject(x.unit.id);
+        var card = el("div", "card rcard");
+        card.style.setProperty("--c", c.color);
+        var from = el("a", "rcard-from", c.flag + " " + esc(c.name) + " · " + esc(x.lesson.title));
+        from.href = "#/read/" + x.lesson.id;
+        card.appendChild(from);
+        var nextBtn = el("button", "btn rcard-next", i + 1 < session.length ? "Next card →" : "Finish review");
+        nextBtn.type = "button";
+        nextBtn.onclick = function () { i++; step(); window.scrollTo(0, 0); };
+        function graded(ok) {
+          P.gradeCard(prof, id, ok, t);
+          saveStore();
+          if (ok) right++;
+          card.appendChild(nextBtn);
+          nextBtn.focus();
+        }
+        if (kind === "t") card.appendChild(orderGame(P.orderItems(P.timelineOf(x.lesson).items), c, graded));
+        else card.appendChild(reviewQuestion(x.lesson.check, graded));
+        slot.appendChild(card);
+      }
+      function done() {
+        count.textContent = "";
+        var left = P.dueCards(prof, all, t).length;
+        var end = el("div", "card review-done");
+        end.innerHTML = '<div class="big-emoji">' + (right === session.length ? "🎯" : "🧠") + "</div><h2>" + right + " of " + session.length + " right</h2><p>" +
+          (left ? plural(left, "more card") + " " + (left === 1 ? "is" : "are") + " due today." : "That's everything due today. Missed cards come back tomorrow.") + "</p>";
+        var row = el("div", "finish-row");
+        if (left) {
+          var more = el("button", "btn", "Keep going →");
+          more.type = "button";
+          more.onclick = renderReview;
+          row.appendChild(more);
+        }
+        var home = el("a", "btn btn-ghost", "Back to Today");
+        home.href = "#/";
+        row.appendChild(home);
+        end.appendChild(row);
+        slot.appendChild(end);
+      }
+      step();
+    }).catch(function (e) { stage.innerHTML = ""; errorCard(stage, e.message); });
+  }
+  function reviewQuestion(ck, onDone) {
+    var box = el("div", "check review-q");
+    box.innerHTML = '<div class="check-q">' + inline(ck.q) + "</div>";
+    var list = el("div", "check-choices");
+    var explain = el("div", "check-explain");
+    ck.choices.forEach(function (ch, i) {
+      var b = el("button", "check-choice", inline(ch));
+      b.type = "button";
+      b.onclick = function () {
+        Array.prototype.forEach.call(list.children, function (btn, j) {
+          btn.disabled = true;
+          if (j === ck.answer) btn.classList.add("right");
+          else if (j === i) btn.classList.add("wrong");
+        });
+        explain.innerHTML = (i === ck.answer ? "<b>Right.</b> " : "<b>Not quite.</b> ") + inline(ck.explain);
+        explain.classList.add("show");
+        onDone(i === ck.answer);
+      };
+      list.appendChild(b);
+    });
+    box.appendChild(list);
+    box.appendChild(explain);
     return box;
   }
 
@@ -1306,6 +1600,7 @@
       case "c": return renderUnit(parts[1]);
       case "read": return renderReader(parts[1]);
       case "glossary": return renderGlossary(decodeURIComponent(parts[1] || ""));
+      case "review": return renderReview();
       default: return renderToday();
     }
   }

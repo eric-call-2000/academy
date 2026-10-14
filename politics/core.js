@@ -321,7 +321,8 @@
       goal: 1,         // briefings per day
       last: null,      // lessonId most recently opened
       checks: {},      // lessonId -> chosen answer of the optional quick check
-      seen: {}         // updateId -> 1 once the dispatch has been opened
+      seen: {},        // updateId -> 1 once the dispatch has been opened
+      review: {}       // review card id -> { box, due, last } (see the review deck below)
     };
   };
   P.normalizeProfile = function (p) {
@@ -329,6 +330,7 @@
     p = p && typeof p === "object" ? p : {};
     Object.keys(f).forEach(function (k) { if (p[k] == null) p[k] = f[k]; });
     if (!Array.isArray(p.days)) p.days = [];
+    if (typeof p.review !== "object" || Array.isArray(p.review)) p.review = {};
     if ([1, 2, 3].indexOf(p.goal) === -1) p.goal = 1;
     return p;
   };
@@ -403,6 +405,159 @@
     return P.updates.filter(function (u) {
       return !(profile.seen || {})[u.id] && (!unitId || u.unit === unitId);
     }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+  };
+
+
+  /* ---------- glossary terms, found automatically ----------
+     Writers mark terms with [[term]], but a reader meets many more
+     glossary words than get marked. autoTerms() turns the FIRST plain
+     mention of each glossary term in a briefing into a chip too, so it
+     can be tapped. `used` is shared across a briefing's blocks (one chip
+     per term per briefing, and none for terms the writer already
+     linked). Acronyms (AUKUS, SAFE) match only in capitals; other terms
+     match any case, with an optional plural "s". Terms whose definition
+     describes one country's institution are added only in that country's
+     briefings and its relationships (an "electoral college" in Brazil is
+     not the US one); a few generic words are never added automatically. */
+  P.AUTO_TERM_SKIP = { veto: 1 };
+  P.AUTO_TERM_ONLY = {
+    congress: ["us"], "electoral-college": ["us"], filibuster: ["us"], "midterm-elections": ["us"], "swing-state": ["us"],
+    "generic-ballot": ["us"], "federal-reserve": ["us"], "war-powers-resolution": ["us"], "voting-rights-act": ["us"],
+    "five-year-plan": ["cn"], "central-military-commission": ["cn"], firewall: ["de"], "debt-brake": ["de"],
+    "article-49-3": ["fr"], gilts: ["gb"]
+  };
+  function autoAllowed(id, unitId) {
+    var only = P.AUTO_TERM_ONLY[id];
+    if (!only) return true;
+    var parts = String(unitId || "").split("_");
+    return only.some(function (c) { return parts.indexOf(c) > -1; });
+  }
+  var autoList = null, autoCount = -1;
+  function autoTermList() {
+    var ids = Object.keys(P.glossary);
+    if (autoList && autoCount === ids.length) return autoList;
+    autoCount = ids.length;
+    autoList = ids.filter(function (id) { return !P.AUTO_TERM_SKIP[id]; }).map(function (id) {
+      var term = P.glossary[id].term;
+      var acronym = term === term.toUpperCase() && /[A-Z]/.test(term);
+      var body = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+");
+      return { id: id, len: term.length, re: new RegExp("(^|[^A-Za-z0-9À-ɏ-])(" + body + (acronym ? "" : "s?") + ")(?![A-Za-z0-9À-ɏ-])", acronym ? "" : "i") };
+    }).sort(function (a, b) { return b.len - a.len; });
+    return autoList;
+  }
+  /* Markup segments that must not be touched: references and links. */
+  var PROTECTED = /\[\[[^\]]*\]\]|\[[^\]]*\]\([^)]*\)/g;
+  P.autoTerms = function (md, used, unitId) {
+    used = used || {};
+    var s = String(md || "");
+    P.scanRefs(s).terms.forEach(function (id) { used[id] = 1; });
+    autoTermList().forEach(function (t) {
+      if (used[t.id] || !autoAllowed(t.id, unitId)) return;
+      var out = "", last = 0, done = false, m;
+      PROTECTED.lastIndex = 0;
+      function tryText(text) {
+        if (done) return text;
+        var hit = t.re.exec(text);
+        if (!hit) return text;
+        done = true;
+        var at = hit.index + hit[1].length;
+        return text.slice(0, at) + "[[" + t.id + "|" + hit[2] + "]]" + text.slice(at + hit[2].length);
+      }
+      while ((m = PROTECTED.exec(s))) {
+        out += tryText(s.slice(last, m.index)) + m[0];
+        last = m.index + m[0].length;
+      }
+      out += tryText(s.slice(last));
+      if (done) { used[t.id] = 1; s = out; }
+    });
+    return s;
+  };
+
+  /* ---------- "Put it in order" ----------
+     A briefing's timeline becomes a sorting game. dateKey() reads the
+     start of a timeline date ("Aug 2025", "17 Aug 1945", "1942–45",
+     "c. 1900", "1960s", "H1 2026"); dates it can't place ("7th–13th c.")
+     return null. orderItems() keeps only entries that are unambiguously
+     later than the one before (two entries in the same year both need
+     months), then picks up to five spread across the timeline. Fewer
+     than three usable entries means no game. */
+  var MONTH_RE = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?/i;
+  var MONTH_IX = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
+  P.dateKey = function (s) {
+    s = String(s || "");
+    var y = s.match(/\d{4}/);
+    if (!y) return null;
+    var head = s.slice(0, y.index), mm = head.match(MONTH_RE) || s.match(MONTH_RE);
+    var month = mm ? MONTH_IX[mm[1].toLowerCase()] : 0;
+    var d = month ? head.match(/\b(\d{1,2})\b/) : null;
+    return { y: +y[0], m: month, d: d ? +d[1] : 0 };
+  };
+  function after(a, b) {   // is b unambiguously later than a?
+    if (b.y !== a.y) return b.y > a.y;
+    if (!a.m || !b.m) return false;
+    if (b.m !== a.m) return b.m > a.m;
+    return !!(a.d && b.d && b.d > a.d);
+  }
+  P.ORDER_MIN = 3;
+  P.ORDER_MAX = 5;
+  P.orderItems = function (items) {
+    var kept = [], prev = null;
+    (items || []).forEach(function (r, i) {
+      var k = P.dateKey(r[0]);
+      if (!k || (prev && !after(prev, k))) return;
+      kept.push({ i: i, when: r[0], what: r[1] });
+      prev = k;
+    });
+    if (kept.length < P.ORDER_MIN) return null;
+    if (kept.length <= P.ORDER_MAX) return kept;
+    var out = [];
+    for (var j = 0; j < P.ORDER_MAX; j++) out.push(kept[Math.round(j * (kept.length - 1) / (P.ORDER_MAX - 1))]);
+    return out;
+  };
+  P.timelineOf = function (lesson) {
+    var bs = (lesson && lesson.blocks) || [];
+    for (var i = 0; i < bs.length; i++) if (bs[i].type === "timeline") return bs[i];
+    return null;
+  };
+
+  /* ---------- the review deck ----------
+     Every briefing you finish adds up to two cards: its quick-check
+     question ("<lessonId>:q") and its "put it in order" timeline
+     ("<lessonId>:t"). A card first comes due the day after the briefing
+     was read; each right answer pushes it further out (1, 3, 7, 16, 35,
+     90 days), and a wrong one brings it back tomorrow. Reviews never
+     change XP or the streak, which stay about reading. */
+  P.REVIEW_GAPS = [1, 3, 7, 16, 35, 90];
+  P.REVIEW_SESSION = 10;
+  P.cardsOf = function (lesson) {
+    var out = [];
+    if (lesson.check && lesson.check.choices && lesson.check.choices.length) out.push(lesson.id + ":q");
+    var tl = P.timelineOf(lesson);
+    if (tl && P.orderItems(tl.items)) out.push(lesson.id + ":t");
+    return out;
+  };
+  P.cardLesson = function (cardId) { return String(cardId).split(":")[0]; };
+  P.cardState = function (profile, cardId) {
+    var s = (profile.review || {})[cardId];
+    if (s) return s;
+    var readOn = (profile.read || {})[P.cardLesson(cardId)];
+    return readOn ? { box: 0, due: P.addDays(readOn, 1), last: null } : null;
+  };
+  /* Due cards among `cardIds` (cards the loaded units can actually
+     build), oldest due first. */
+  P.dueCards = function (profile, cardIds, today) {
+    return (cardIds || []).map(function (id) { return [id, P.cardState(profile, id)]; })
+      .filter(function (x) { return x[1] && x[1].due <= today; })
+      .sort(function (a, b) { return a[1].due < b[1].due ? -1 : a[1].due > b[1].due ? 1 : a[0] < b[0] ? -1 : 1; })
+      .map(function (x) { return x[0]; });
+  };
+  P.gradeCard = function (profile, cardId, ok, today) {
+    var s = P.cardState(profile, cardId) || { box: 0 };
+    var box = ok ? Math.min(s.box + 1, P.REVIEW_GAPS.length) : 0;
+    var next = { box: box, due: P.addDays(today, ok ? P.REVIEW_GAPS[box - 1] : 1), last: today };
+    profile.review = profile.review || {};
+    profile.review[cardId] = next;
+    return next;
   };
 
   if (typeof module !== "undefined" && module.exports) module.exports = P;
