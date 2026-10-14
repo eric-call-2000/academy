@@ -377,10 +377,17 @@
       var ra = recOf(u, a.key), rb = recOf(u, b.key);
       return (ra[0] - rb[0]) || (ra[1] - rb[1]);
     });
-    due = due.slice(0, MAX_SESSION - NEW_PER_DAY);
+    /* Reserve only what can actually be filled. Once every card has been
+       introduced, a slot held for "new" holds nothing, and reserving it
+       anyway capped due reviews at half the session forever: with 1,326
+       cards at 95% accuracy, not one reached the holding line in 400
+       simulated days. The reservation still protects introductions while
+       there is something left to introduce. */
+    var unseen = pool.filter(function (it) { return !recOf(u, it.key) && !isSkipped(u, it.key); });
+    var reserve = Math.min(NEW_PER_DAY, unseen.length);
+    due = due.slice(0, MAX_SESSION - reserve);
 
     var slots = MAX_SESSION - due.length;
-    var unseen = pool.filter(function (it) { return !recOf(u, it.key) && !isSkipped(u, it.key); });
     var fresh = roundRobinByUnit(unseen, rnd).slice(0, Math.min(NEW_PER_DAY, slots));
 
     var all = deblock(shuffle(due.concat(fresh), rnd));
