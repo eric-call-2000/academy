@@ -220,7 +220,7 @@ function phase0() {
             }
             /* Bare now() is only checked in auth- and etl- lessons: elsewhere it is a
                learner's own injected clock parameter (test-u5-4 passes one). */
-            const callsNow = /^(auth|etl|web)-/.test(l.id) && /(^|[^.\w$])now\s*\(\s*\)/.test(srcs);
+            const callsNow = /^(auth|etl|web|api)-/.test(l.id) && /(^|[^.\w$])now\s*\(\s*\)/.test(srcs);
             if (l.clock == null && (callsNow || /T\.advance\s*\(/.test(srcs)) && !defines("now"))
               fail(`${l.id}: uses now() or T.advance() but does not set \`clock\` — harnessClock provides them (see runner.js)`);
             if (l.browser && l.kind !== "js")
@@ -252,7 +252,7 @@ function phase0() {
                a timing passes on a fast machine and fails on a slow one. */
             if (/^algo-/.test(l.id) && /performance\.now\s*\(|Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
               fail(`${l.id}: reads a clock — complexity lessons measure growth with T.growth (operation counts), never with timing`);
-            if (/^(auth|etl|web|cloud)-/.test(l.id) && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
+            if (/^(auth|etl|web|cloud|api)-/.test(l.id) && /Date\.now\s*\(|new Date\(\s*\)/.test(srcs))
               fail(`${l.id}: reads the real clock (Date.now / new Date()) — set \`clock\` and use now() and T.advance(ms), or the lesson passes or fails depending on when it runs`);
           }
         }
