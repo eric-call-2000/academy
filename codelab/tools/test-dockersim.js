@@ -551,6 +551,26 @@ test("compose logs; a YAML error starts nothing", () => {
   const U = sandbox({ fs: withDf(DF_GOOD), tabs: { "compose.yaml": "services:\n  web:\n   build: .\n    ports: oops\n" }, script: "docker compose up -d" });
   ok(U.said("yaml:")); eq(U.containers({ all: true }), []);
 });
+test("yaml: a list item whose FIRST key opens a nested map", () => {
+  /* Long-syntax compose entries are lists of maps, and nothing says the
+     nested key has to come last. Both halves of this used to be wrong: with
+     a sibling after it the parse threw, and without one the nested map was
+     silently flattened into the item — a wrong mount with no error at all. */
+  eq(D.parseYaml("a:\n  - x:\n      y: 2\n    z: 3\n"), { a: [{ x: { y: "2" }, z: "3" }] }, "sibling after a nested first key");
+  eq(D.parseYaml("a:\n  - x:\n      y: 2\n"), { a: [{ x: { y: "2" } }] }, "nested first key, no sibling");
+  eq(D.parseYaml("a:\n  - x: 1\n    y: 2\n"), { a: [{ x: "1", y: "2" }] }, "the ordinary scalar-first item still parses");
+  /* The drift check must still bite inside a list item. */
+  let threw = false;
+  try { D.parseYaml("a:\n  - x: 1\n     y: 2\n"); } catch (e) { threw = /yaml:/.test(e.message); }
+  ok(threw, "a misindented sibling is still an error");
+});
+test("compose: a long-syntax volume whose first key is a nested map mounts", () => {
+  const spec = COMPOSE("postgres://db:5432/shop").replace("    build: .\n",
+    "    build: .\n    volumes:\n      - bind:\n          create_host_path: true\n        type: bind\n        source: ./src\n        target: /app/src\n");
+  const T = sandbox({ fs: withDf(DF_GOOD), tabs: { "compose.yaml": spec }, script: "docker compose up -d" });
+  ok(!T.said("yaml:"), "valid compose must not be reported as a YAML error");
+  eq(T.compose().services.web.status, "running");
+});
 test("registry: tag, push, remove, pull back the same image; an unknown ref is not found", () => {
   const T = sandbox({ fs: withDf(DF_GOOD), setup: BUILT,
     script: "docker tag shop:1.0 registry.local/shop:1.0\ndocker push registry.local/shop:1.0\ndocker rmi registry.local/shop:1.0 shop:1.0\ndocker pull registry.local/shop:1.0\ndocker pull registry.local/shop:9.9" });

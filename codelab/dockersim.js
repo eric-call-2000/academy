@@ -1053,9 +1053,22 @@
         if (/:(\s|$)/.test(item) && item.charAt(0) !== '"' && item.charAt(0) !== "'") {
           var obj = {};
           var km = item.match(/^([^:]+):\s*(.*)$/);
-          obj[km[1].trim()] = scalar(km[2]);
+          var itemKey = km[1].trim();
+          /* The item's keys do not sit at the dash's indent, they start where
+             the first key does — `- type:` puts `type`, and every sibling
+             after it, two columns in. Recording that as childIndent is what
+             lets a later sibling at the same column read as another key of
+             this item rather than as a drifted mapping. */
+          var keyIndent = raw.indexOf(itemKey, indent);
           parent.value.push(obj);
-          stack.push({ indent: indent, value: obj, holder: obj });
+          stack.push({ indent: indent, value: obj, holder: obj, childIndent: keyIndent });
+          if (km[2] === "") {
+            /* `- bind:` with nothing after it opens a nested mapping, exactly
+               as `bind:` would anywhere else. Treating it as an empty scalar
+               instead silently flattened the lines below it into the item. */
+            obj[itemKey] = {};
+            stack.push({ indent: keyIndent, value: obj[itemKey], holder: obj, key: itemKey });
+          } else obj[itemKey] = scalar(km[2]);
         } else parent.value.push(scalar(item));
         continue;
       }
