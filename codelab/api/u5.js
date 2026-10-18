@@ -573,7 +573,7 @@ T.eq(handle(small, "k-1"), first, 'the original key still replays its original r
           {
             q: "Why does the server store a fingerprint of the request alongside the key?",
             choices: [
-              "To detect a replay attack, since an attacker could capture and resend the key",
+              "To detect a replay attack, since an attacker who captured the key could otherwise resend it and repeat the operation",
               "To refuse a key reused with a different request, rather than replaying the wrong response",
               "To avoid storing the full request body, which would make the key store too large",
               "To let the server merge the two requests when their bodies differ only slightly"

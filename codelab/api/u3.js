@@ -461,7 +461,7 @@ T.expect(last.headers["Link"] === undefined, 'and carries no Link header at all'
             q: "Your feed sorts by `createdAt` descending, and three posts share a timestamp. The cursor stores only `createdAt`. What goes wrong?",
             choices: [
               "Rows that tie with the cursor row are skipped, because the next page asks for strictly earlier timestamps",
-              "Rows that tie are returned twice, once on each page, since both pages match their timestamp",
+              "Rows that tie are returned twice, once on each page, because both pages match their shared timestamp and neither excludes the other",
               "Pagination is unaffected — ties are resolved by the order rows happen to sit in the table",
               "The cursor becomes ambiguous and the server must reject it with a 400"
             ],
@@ -474,7 +474,7 @@ T.expect(last.headers["Link"] === undefined, 'and carries no Link header at all'
               "Confidentiality, since the position cannot be read without the server's key",
               "Freedom to change the cursor's contents later, because clients never learned to build one",
               "A smaller token, as base64 compresses the JSON before it goes on the wire",
-              "Protection against a client paging through records it is not permitted to see"
+              "Protection against a client paging through records it is not permitted to see, since it cannot forge a cursor that reaches them"
             ],
             answer: 1,
             explain: "Base64 is encoding, not encryption — anyone can decode it in a second. The value is that an opaque token does not *invite* clients to construct their own, so the format stays yours. Base64 actually makes the token about a third larger, and access control is a separate concern entirely."
@@ -482,7 +482,7 @@ T.expect(last.headers["Link"] === undefined, 'and carries no Link header at all'
           {
             q: "Why should the server send the next page's full URL in a `Link` header instead of just returning the cursor token?",
             choices: [
-              "Because `Link` is required by RFC 8288 for any response that returns a partial collection",
+              "Because RFC 8288 requires a `Link` header on any response that returns part of a collection rather than all of it",
               "So the client follows a link rather than assembling a URL, leaving the parameters yours to change",
               "Because a header is read before the body, so the client can start the next request sooner",
               "Because cursors placed in a response body are not cacheable by intermediaries"

@@ -589,7 +589,7 @@ T.eq(handleRequest({ method: "GET", path: "/api/docs/temp", headers: {} }).statu
           {
             q: "When is `428 Precondition Required` the right answer?",
             choices: [
-              "When the client supplied a precondition that turned out not to hold",
+              "When the client supplied a precondition that turned out not to hold against the resource's current version",
               "When the client supplied no precondition and the server refuses to risk a lost update",
               "When the request body is missing a field the resource requires",
               "When the resource exists but the client is not permitted to modify it"
