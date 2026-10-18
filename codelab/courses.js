@@ -157,12 +157,17 @@ window.CODELAB.defineCourse({
   files: ["db/u1.js", "db/u2.js", "db/u3.js", "db/u4.js", "db/u5.js", "db/u6.js"]
 });
 
+/* Advanced API Design: what srv stops short of — the client retries, two
+   clients write at once, the list changes between pages, one caller floods
+   you, and the API is described by a document others build on. Graded by
+   calling the handler the way a hostile or unlucky client would. Versioning
+   and deprecation live in Changing Live Systems (change), not here. */
 window.CODELAB.defineCourse({
   id: "api", prefix: "api", title: "Advanced API Design",
-  icon: "🔌", color: "#8b5cf6", level: "Advanced", stub: true,
-  plannedCredits: 5, plannedCategories: { be: 5 },
-  blurb: "REST best practices, GraphQL fundamentals, API versioning, rate limiting, caching strategies, pagination, filtering, and documentation — production-grade APIs.",
-  files: []
+  icon: "🔌", color: "#8b5cf6", level: "Advanced", hours: 8, items: 35, targetHours: 9,
+  credits: 4, categories: { be: 3, integ: 1 },
+  blurb: "Design the API other people build on: resources and problem details, cursor pagination that survives writes, idempotency keys, ETags and If-Match, rate limits, caching and webhooks, GraphQL with a hand-built DataLoader, and OpenAPI contracts the server is tested against. Take it after Back-End Foundations and How the Web Works.",
+  files: ["api/u1.js", "api/u2.js", "api/u3.js", "api/u4.js", "api/u5.js", "api/u6.js", "api/u7.js"]
 });
 
 window.CODELAB.defineCourse({
