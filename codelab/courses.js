@@ -164,10 +164,10 @@ window.CODELAB.defineCourse({
    and deprecation live in Changing Live Systems (change), not here. */
 window.CODELAB.defineCourse({
   id: "api", prefix: "api", title: "Advanced API Design",
-  icon: "🔌", color: "#8b5cf6", level: "Advanced", hours: 4, items: 15, targetHours: 9,
+  icon: "🔌", color: "#8b5cf6", level: "Advanced", hours: 5, items: 20, targetHours: 9,
   credits: 2, categories: { be: 2 },
   blurb: "Design the API other people build on: resources and problem details, cursor pagination that survives writes, idempotency keys, ETags and If-Match, rate limits, caching and webhooks, GraphQL with a hand-built DataLoader, and OpenAPI contracts the server is tested against. Take it after Back-End Foundations and How the Web Works.",
-  files: ["api/u1.js", "api/u2.js", "api/u3.js"]
+  files: ["api/u1.js", "api/u2.js", "api/u3.js", "api/u4.js"]
 });
 
 window.CODELAB.defineCourse({
