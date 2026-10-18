@@ -67,18 +67,23 @@ client sets them, and what the two have agreed when they do.
 
 ## Size
 
-Grounded against the market, which is thin here in exactly the way the Docker and
-CI/CD research found:
+**38 items, ~7.9h modelled → 4 credits, all `be`.**
 
-| Course | Length | Graded? |
-|---|---|---|
-| Codecademy — Intermediate JavaScript: APIs | ~1h | no, explainer |
-| Codecademy — Learn GraphQL / API articles | under 1h each | article series |
-| Boot.dev — Learn HTTP Clients | multi-hour | yes, but client-side |
+The stub guessed `plannedCredits: 5` before any content existed. Credits restate
+content, so the number comes down to what actually got written: 28 lessons, 2
+projects and 8 quizzes. Four is what that is worth, and the validator re-derives it
+from the files rather than taking the manifest's word for it.
 
-The market teaches API *consumption* and REST *basics*. Nobody grades you on writing
-a limiter that returns the right `Retry-After`, or on a cursor that survives a
+The market is thin here in exactly the way the Docker and CI/CD research found —
+it teaches API *consumption* and REST *basics*. Nobody grades you on writing a
+limiter that returns the right `Retry-After`, or on a cursor that survives a
 concurrent insert. That gap is the course.
+
+**Not a required course on any sheet.** All seven position sheets are junior-level
+by design, and no junior is screened on RFC 9457 or keyset pagination. `api` is an
+elective that pays into `be`, which is what the README means by totals sitting
+"about one elective above what the required courses pay". Adding it to a sheet
+would be inventing a requirement the job market does not have.
 
 ## Syllabus
 
@@ -97,9 +102,32 @@ the one a real API uses, cited in the brief.
 | **7 · Changing a live API** | Breaking vs non-breaking, additive evolution, URL vs header versioning, `Deprecation`/`Sunset`, and a compatibility shim that serves two versions from one handler. |
 | **8 · Two projects** | **Ship it:** a complete resource with problem+json, cursors, conditional writes, idempotent POST and a limiter. **Fix it:** an API broken in six ways to diagnose from its responses alone. |
 
-CORS, GraphQL, webhooks and OpenAPI were all candidates (and all genuinely absent
-from the catalog). See "Deliberately out of scope" once the unit count is fixed —
-a course that covers everything absent would be three courses.
+Every unit is four lessons and a quiz, except unit 8, which is two projects and a
+quiz.
+
+## Deliberately out of scope, and why
+
+The survey found far more absent from the catalog than one course can hold. These
+were all candidates and are all genuinely untaught anywhere:
+
+- **CORS.** The largest single gap in the whole catalog, and the best-prepared —
+  `web-u1-2` is a full graded lesson on origin that literally promises "almost
+  every security rule you'll meet later is written in terms of it", and then the
+  promise is never kept. It belongs in `web` or `sec` next to that lesson, not
+  here: it is a *browser* rule, and this course is about the contract between any
+  client and a server.
+- **GraphQL.** Zero occurrences catalog-wide. It is a second API style, not an
+  advanced treatment of this one, and doing it honestly means schema, resolvers,
+  the N+1 problem and dataloader — a course, not a unit.
+- **Webhooks.** Server-to-server delivery, at-least-once semantics, HMAC
+  signatures and replay windows. The `crypto` harness already provides `hmac` and
+  `timingSafeEqual`, so it is cheap to build; it is simply a different direction
+  (delivery) from the one this course runs in (request/response).
+- **OpenAPI and contract testing.** Needs `test`'s vocabulary more than this
+  course's, and lands better as a unit there.
+
+A course that covered everything absent would be three courses. Each of these is a
+clean, verified gap for whoever picks one up.
 
 ## Authoring traps carried forward
 
