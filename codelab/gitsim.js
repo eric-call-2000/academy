@@ -359,7 +359,7 @@
      O(n·m) table is microseconds. A missing final newline is carried as a
      marker on the last line, which is how git can print
      "\ No newline at end of file" and still compare lines as strings. */
-  var NONL = " nonl";
+  var NONL = "\x00nonl";
   function toLines(text) {
     if (text == null || text === "") return [];
     var nl = text.charAt(text.length - 1) === "\n";
