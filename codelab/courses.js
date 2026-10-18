@@ -159,10 +159,10 @@ window.CODELAB.defineCourse({
 
 window.CODELAB.defineCourse({
   id: "api", prefix: "api", title: "Advanced API Design",
-  icon: "🔌", color: "#8b5cf6", level: "Advanced", hours: 2, items: 10,
+  icon: "🔌", color: "#8b5cf6", level: "Advanced", hours: 3, items: 15,
   credits: 1, categories: { be: 1 },
   blurb: "The contract, and what breaks it. Back-End Foundations stopped at { status, body }; everything that makes an API survive contact with real clients lives in the field it left out. Problem+json errors, cursors that survive concurrent writes, conditional writes that refuse to clobber, idempotency keys that make a retried POST safe, a real rate limiter, and changing a live API without breaking the clients already using it.",
-  files: ["api/u1.js", "api/u2.js"]
+  files: ["api/u1.js", "api/u2.js", "api/u3.js"]
 });
 
 window.CODELAB.defineCourse({
