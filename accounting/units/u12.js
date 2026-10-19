@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u12",
   title: "The Month-End Close",
-  icon: "🗓️",
   blurb: "Run a close like a controller: the checklist, reconciliations, flux analysis and entry review.",
   lessons: [
     {

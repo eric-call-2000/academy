@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u10",
   title: "Payroll Accounting",
-  icon: "👥",
   blurb: "Gross to net, employer payroll taxes, the payroll entries, accruals and the filings.",
   lessons: [
     {

@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u11",
   title: "Debt, Sales Tax and Equity",
-  icon: "🏛️",
   blurb: "Notes and interest, loan amortization, sales tax you collect for the state, and the owners' side.",
   lessons: [
     {

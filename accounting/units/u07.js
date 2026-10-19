@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u07",
   title: "Payables and Expenses",
-  icon: "📥",
   blurb: "Procure-to-pay, the three-way match, cutoff and accruals, vendor files and 1099s.",
   lessons: [
     {
