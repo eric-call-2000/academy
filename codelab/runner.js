@@ -723,7 +723,7 @@
       return tables[name];
     }
     function keyOf(t, row) {
-      return t.key.map(function (c) { return JSON.stringify(row[c]); }).join(" ");
+      return t.key.map(function (c) { return JSON.stringify(row[c]); }).join("\x00");
     }
     /* Validate one row against the table and return a fresh row holding
        exactly the declared columns. This throws before any write happens, so

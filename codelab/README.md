@@ -2,7 +2,7 @@
 
 Your own Codecademy: a **catalog of full-size courses** where you learn full-stack development by writing real code in the browser, checkpoint by checkpoint — built to work great on your phone.
 
-**17 built courses · ~136 hours · 66 credits** (each item is a checkpoint-graded coding lesson, a quiz, or a guided project), plus five roadmap courses that hold their place in the catalog without pretending to be finished. Courses lazy-load, so the app opens instantly however big the catalog gets.
+**24 built courses · ~194 hours · 95 credits** across 887 items (each item is a checkpoint-graded coding lesson, a quiz, or a guided project). **No roadmap stubs remain** — Advanced API Design was the last one, and every course in the catalog is now full-depth. Courses lazy-load, so the app opens instantly however big the catalog gets.
 
 Finishing a course pays **credits**, and credits qualify you for **job positions** — see below.
 
