@@ -107,20 +107,25 @@
   }
   function initial(name) { return ((name || "?").trim().charAt(0) || "?").toUpperCase(); }
 
-  function topbar() {
+  /* The bar's contents sit in the same column as the page below it
+     (wide on overview screens, narrow on reading screens). */
+  function topbar(wide) {
     var p = me();
     var bar = el("header", "topbar");
-    bar.innerHTML =
+    var streak = p ? L.streak(p.days, today()) : 0, xp = p ? L.xp(p) : 0;
+    bar.innerHTML = '<div class="bar-inner' + (wide ? " wide" : "") + '">' +
       '<a class="brand" href="#/"><span class="brand-ic">📒</span><span>Accounting Lab</span></a>' +
       '<nav class="top-nav"><a href="#/prep">Interview</a><a href="#/chart">Chart</a><a href="../" title="Back to Academy">Academy ↗</a></nav>' +
-      (p ? '<div class="stats"><span title="Day streak">🔥 ' + L.streak(p.days, today()) + '</span><span title="XP">⭐ ' + L.xp(p) + "</span>" +
-        '<a class="avatar" href="#/profiles" title="Switch profile">' + esc(initial(store.currentUser)) + "</a></div>" : "");
+      (p ? '<div class="stats"><span class="stat" title="Days in a row you\'ve studied">🔥 <b>' + streak + '</b><span class="lbl">-day streak</span></span>' +
+        '<span class="stat" title="XP earned in the Accounting Lab">⭐ <b>' + xp + '</b><span class="lbl"> XP</span></span>' +
+        '<a class="avatar" href="#/profiles" title="' + esc(store.currentUser) + ' — switch profile">' + esc(initial(store.currentUser)) + "</a></div>" : "") +
+      "</div>";
     return bar;
   }
-  function page() {
+  function page(wide) {
     clear();
-    app.appendChild(topbar());
-    var main = el("main", "page");
+    app.appendChild(topbar(wide));
+    var main = el("main", "page" + (wide ? " wide" : ""));
     app.appendChild(main);
     return main;
   }
@@ -155,51 +160,67 @@
   function renderHome() {
     var p = me();
     if (!p) return renderProfiles(true);
-    var main = page();
+    var main = page(true);
     var total = lessonCount(), done = L.doneCount(p);
+    var next = L.nextLessonId(p);
+    var nextUnit = next ? L.unitIdOf(next) : null;
+
     var hero = el("section", "hero");
     hero.innerHTML = '<div class="hero-text"><h1 class="h1">Professional accounting, hands-on</h1>' +
       '<p class="muted">Read a short lesson, then do the work: post journal entries, reconcile, close the month. ' +
       "Every answer is checked the way a reviewer would check it.</p></div>" +
-      '<div class="hero-ring">' + ring(done, total, 76) + '<div class="hero-num"><b>' + done + "</b>/" + total + "</div></div>";
+      '<div class="hero-progress">' + ring(done, total, 64) + '<div class="hero-stats"><b>' + done + " of " + total +
+      ' lessons</b><span class="muted">' + L.xp(p) + " XP · " + L.streak(p.days, today()) + "-day streak</span></div></div>";
     main.appendChild(hero);
 
-    var next = L.nextLessonId(p);
     if (next) {
-      var nl = L.lesson(next), nu = L.unit(L.unitIdOf(next));
+      var nl = L.lesson(next), nu = L.unit(nextUnit);
       var card = el("a", "continue");
       card.href = "#/l/" + next;
       card.innerHTML = '<span class="cont-ic">' + nu.icon + '</span><span class="cont-text"><span class="eyebrow">' +
-        (done ? "Up next" : "Start here") + " · Unit " + (L.units.indexOf(nu) + 1) + "</span><b>" + esc(nl.title) +
-        '</b><span class="muted">' + esc(nu.title) + '</span></span><span class="btn">' + (done ? "Continue" : "Start") + "</span>";
+        (done ? "Up next" : "Start here") + " · Unit " + (L.units.indexOf(nu) + 1) + " · ~" + Math.max(1, Math.round(L.lessonMinutes(nl))) +
+        " min</span><b>" + esc(nl.title) + '</b><span class="muted">' + esc(nu.title) + '</span></span><span class="btn">' +
+        (done ? "Continue →" : "Start →") + "</span>";
       main.appendChild(card);
     } else {
       main.appendChild(el("div", "continue done-all", "<b>🎓 Every lesson finished.</b> Redo any lesson for practice — the checks still run."));
     }
 
+    /* Interview prep is a secondary path: a slim banner, not a second hero. */
     var qs = L.allQuestions().length;
     if (qs) {
-      var prep = el("a", "prep-card");
+      var prep = el("a", "prep-banner");
       prep.href = "#/prep";
-      prep.innerHTML = '<span class="cont-ic">🎤</span><span class="cont-text"><span class="eyebrow">Interview prep · ' +
-        L.readyCount(p) + "/" + qs + ' ready</span><b>Get ready for the interview</b><span class="muted">' +
-        "The questions accounting interviewers actually ask, why they ask them, model answers — and your own, saved.</span></span>" +
-        '<span class="go">Open →</span>';
+      prep.innerHTML = '<span class="prep-ic">🎤</span><span class="prep-text"><b>Interview prep</b> <span class="muted">· ' +
+        L.readyCount(p) + "/" + qs + ' ready<span class="prep-more"> · common accounting interview questions with model answers</span></span></span>' +
+        '<span class="go">Practice →</span>';
       main.appendChild(prep);
     }
 
-    main.appendChild(el("h2", "h2", "Units"));
-    var grid = el("div", "units");
-    L.units.forEach(function (u, i) {
-      var d = L.doneCount(p, u.id), t = u.lessons.length;
-      var a = el("a", "unit-card" + (d === t ? " complete" : ""));
-      a.href = "#/u/" + u.id;
-      a.innerHTML = '<span class="unit-ring">' + ring(d, t, 46) + '<span class="unit-ic">' + u.icon + "</span></span>" +
-        '<span class="unit-text"><span class="eyebrow">Unit ' + (i + 1) + " · " + d + "/" + t + "</span><b>" + esc(u.title) +
-        '</b><span class="muted">' + esc(u.blurb) + "</span></span>";
-      grid.appendChild(a);
+    var n = 0;
+    L.PARTS.forEach(function (pt, pi) {
+      var units = pt.units.map(L.unit).filter(Boolean);
+      var pd = units.reduce(function (s2, u) { return s2 + L.doneCount(p, u.id); }, 0);
+      var pt2 = units.reduce(function (s2, u) { return s2 + u.lessons.length; }, 0);
+      var head = el("div", "part-head");
+      head.innerHTML = '<div><div class="eyebrow">Part ' + (pi + 1) + " · " + pd + "/" + pt2 + ' lessons</div><h2 class="h2">' +
+        esc(pt.title) + '</h2><p class="muted">' + esc(pt.blurb) + "</p></div>";
+      main.appendChild(head);
+      var grid = el("div", "units");
+      units.forEach(function (u) {
+        n = L.units.indexOf(u) + 1;
+        var d = L.doneCount(p, u.id), t = u.lessons.length;
+        var isNext = u.id === nextUnit;
+        var a = el("a", "unit-card" + (d === t ? " complete" : "") + (isNext ? " next" : ""));
+        a.href = "#/u/" + u.id;
+        a.innerHTML = '<span class="unit-ring">' + ring(d, t, 46) + '<span class="unit-ic">' + u.icon + "</span></span>" +
+          '<span class="unit-text"><span class="eyebrow">Unit ' + n + " · " + (d ? d + "/" + t + " done" : plural(t, "lesson")) +
+          " · ~" + L.unitMinutes(u) + " min" + (isNext ? ' <span class="badge">Next up</span>' : d === t ? ' <span class="badge done">✓ Done</span>' : "") +
+          "</span><b>" + esc(u.title) + '</b><span class="muted">' + esc(u.blurb) + "</span></span>";
+        grid.appendChild(a);
+      });
+      main.appendChild(grid);
     });
-    main.appendChild(grid);
   }
 
   /* ---------- unit ---------- */
@@ -543,7 +564,7 @@
   function renderPrep() {
     var p = me();
     if (!p) return renderProfiles(true);
-    var main = page();
+    var main = page(true);
     var all = L.allQuestions();
     main.appendChild(el("div", "eyebrow", "Interview prep"));
     main.appendChild(el("h1", "h1", "Get ready for the interview"));

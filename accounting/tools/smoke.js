@@ -112,6 +112,14 @@ async function answer(step, ex) {
   await page.waitForSelector(".continue");
   check("home shows the first lesson to start", (await page.textContent(".continue")).indexOf(L.allLessons()[0].title) !== -1);
   check("home lists every unit", (await page.locator(".unit-card").count()) === L.units.length);
+  check("home groups units into parts", (await page.locator(".part-head").count()) === L.PARTS.length);
+  check("the unit you're on is marked Next up", /Next up/.test(await page.locator(".unit-card.next").first().textContent()));
+  check("progress reads in words", /0 of \d+ lessons/.test(await page.textContent(".hero-stats")));
+  await page.setViewportSize({ width: 1854, height: 900 });
+  const bar = await page.locator(".bar-inner").boundingBox(), body = await page.locator(".page").boundingBox();
+  check("on a wide screen the top bar lines up with the page", bar.width <= 1060 && Math.abs(bar.x - (body.x + 16)) < 20,
+    "bar x " + Math.round(bar.x) + " w " + Math.round(bar.width) + ", page x " + Math.round(body.x));
+  await page.setViewportSize({ width: 1100, height: 900 });
 
   /* the chart */
   await page.goto(base + "/accounting/#/chart");
@@ -216,7 +224,7 @@ async function answer(step, ex) {
   if (SHOTS) {
     const sample = L.allLessons().find((l) => l.steps[0].type === "entry") || L.allLessons()[0];
     for (const scheme of ["light", "dark"]) {
-      for (const vp of [{ n: "phone", w: 390, h: 844 }, { n: "desktop", w: 1280, h: 900 }]) {
+      for (const vp of [{ n: "phone", w: 390, h: 844 }, { n: "desktop", w: 1280, h: 900 }, { n: "wide", w: 1854, h: 902 }]) {
         const c = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, colorScheme: scheme });
         const p = await c.newPage();
         await p.goto(base + "/accounting/");

@@ -1,7 +1,7 @@
 LEDGER.addUnit({
   id: "u02",
   title: "Journal Entries and the Ledger",
-  icon: "📒",
+  icon: "📝",
   blurb: "Write entries the way a reviewer expects, post them, and prove the books with a trial balance.",
   lessons: [
     {

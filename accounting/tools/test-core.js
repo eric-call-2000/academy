@@ -193,6 +193,14 @@ test("a list or table may follow its lead-in line directly", () => {
   assert.ok(/^<p>Controls:<\/p><ul><li>one<\/li><li>two<\/li><\/ul><p>After.<\/p><div class="tbl-wrap">/.test(html), html);
 });
 
+/* ---------- parts and time ---------- */
+test("unit time estimates are rounded to 5 minutes and never zero", () => {
+  L.units.forEach((u) => {
+    const m = L.unitMinutes(u);
+    assert.ok(m >= 5 && m % 5 === 0, u.id + " → " + m);
+  });
+});
+
 /* ---------- interview prep ---------- */
 test("saved interview answers: notes, ready marks, and blanks dropped", () => {
   const p = L.freshProfile();

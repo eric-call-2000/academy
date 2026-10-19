@@ -99,6 +99,20 @@ L.units.forEach((u, ui) => {
   });
 });
 
+/* ---------- parts ---------- */
+const inPart = {};
+L.PARTS.forEach((pt, i) => {
+  if (!pt.title || !pt.blurb) err("core.js PARTS[" + i + "]", "needs a title and blurb");
+  pt.units.forEach((id) => {
+    if (!L.unit(id)) err("core.js PARTS[" + i + "]", "unknown unit " + id);
+    if (inPart[id]) err("core.js PARTS[" + i + "]", id + " is already in " + inPart[id]);
+    inPart[id] = pt.title;
+  });
+});
+L.units.forEach((u) => { if (!inPart[u.id]) err("core.js PARTS", u.id + " isn't in any part"); });
+const order = [].concat.apply([], L.PARTS.map((pt) => pt.units));
+if (order.join() !== L.units.map((u) => u.id).join()) err("core.js PARTS", "parts must list the units in path order");
+
 /* ---------- interview prep ---------- */
 const qids = {};
 if (!L.interview.length) err("interview.js", "no interview sections registered");
