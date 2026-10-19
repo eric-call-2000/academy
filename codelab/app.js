@@ -67,11 +67,13 @@
   /* Four slots: the friendly Base, plus one each of Professional, Dark,
      and an alternative Light. Object order is the order shown in the picker.
      "original" keeps its id so existing saved preferences still resolve. */
+  /* `chrome` is the browser/OS toolbar colour (<meta name="theme-color">),
+     so a phone's status bar matches the theme instead of always Base blue. */
   var THEMES = {
-    "original": { name: "Base", path: "themes/original/theme.css" },
-    "professional": { name: "Professional", path: "themes/professional/theme.css" },
-    "dark": { name: "Dark", path: "themes/dark/theme.css" },
-    "light-alt": { name: "Alternative Light", path: "themes/light-alt/theme.css" }
+    "original": { name: "Base", path: "themes/original/theme.css", chrome: "#f5f7fb" },
+    "professional": { name: "Professional", path: "themes/professional/theme.css", chrome: "#f3f6f9" },
+    "dark": { name: "Dark", path: "themes/dark/theme.css", chrome: "#0d1117" },
+    "light-alt": { name: "Alternative Light", path: "themes/light-alt/theme.css", chrome: "#fdf6e3" }
   };
 
   function getCurrentTheme() {
@@ -87,6 +89,8 @@
     var themeCss = document.getElementById("theme-css");
     if (themeCss && THEMES[themeId]) {
       themeCss.href = THEMES[themeId].path;
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", THEMES[themeId].chrome);
       try {
         localStorage.setItem(THEME_KEY, themeId);
       } catch (e) {}
@@ -693,6 +697,20 @@
     requestAnimationFrame(function () { t.classList.add("show"); });
     setTimeout(function () { t.classList.remove("show"); setTimeout(function () { t.remove(); }, 250); }, 2200);
   }
+  /* look.js: the line-icon set and path stages. ico() returns inline SVG
+     markup, so it drops straight into the innerHTML strings below. */
+  var ico = window.CODELAB.icon;
+  var LOGO = '<span class="logo-mark">' + ico("bolt") + "</span>";
+  function stageColor(course) { return course && course.stage ? window.CODELAB.stageColor(course) : (course && course.color) || "var(--accent)"; }
+  /* The tinted square behind a course icon: the stage colour at 14% on the
+     surface, the glyph in the full stage colour. */
+  function iconTile(course, cls, size) {
+    var t = el("div", cls, window.CODELAB.courseIcon(course, size || 24));
+    var c = stageColor(course);
+    t.style.background = "color-mix(in srgb, " + c + " 14%, var(--surface))";
+    t.style.color = c;
+    return t;
+  }
   function initial(name) { return ((name || "?").trim().charAt(0) || "?").toUpperCase(); }
   var AVATAR_COLORS = ["#58cc02", "#1cb0f6", "#ff9600", "#ce82ff", "#ff4b4b", "#2bb3a3", "#6c5ce7", "#eb3b5a"];
   function avatarColor(name) {
@@ -708,7 +726,7 @@
   function topbar() {
     var u = me();
     var bar = el("div", "topbar");
-    var brand = el("button", "brand", '<span class="logo-ic">⚡</span> CodeLab');
+    var brand = el("button", "brand", LOGO + " CodeLab");
     brand.onclick = renderCatalog;
     bar.appendChild(brand);
     var stats = el("div", "stats");
@@ -716,17 +734,23 @@
        pill can render before a single course file has loaded. */
     var due = REV.dueCount(u, REV.revToday());
     if (due > 0) {
-      var pill = el("button", "stat rv-pill", '<span class="ico">🧠</span>' + due);
+      var pill = el("button", "stat rv-pill", '<span class="ico">' + ico("recall") + "</span>" + due);
       pill.title = due + " to recall";
+      pill.setAttribute("aria-label", due + " to recall");
       pill.onclick = renderReview;
       stats.appendChild(pill);
     }
-    stats.appendChild(el("div", "stat streak", '<span class="ico">🔥</span>' + u.streak));
-    stats.appendChild(el("div", "stat xp", '<span class="ico">⭐</span>' + u.xp));
-    
+    var streak = el("div", "stat streak", '<span class="ico">' + ico("flame") + "</span>" + u.streak);
+    streak.title = u.streak + "-day streak";
+    stats.appendChild(streak);
+    var xp = el("div", "stat xp", '<span class="ico">' + ico("star") + "</span>" + u.xp);
+    xp.title = u.xp + " XP";
+    stats.appendChild(xp);
+
     /* Theme switcher button */
-    var themeBtn = el("button", "stat", '<span class="ico">🎨</span>');
+    var themeBtn = el("button", "stat", '<span class="ico">' + ico("theme") + "</span>");
     themeBtn.title = "Switch theme";
+    themeBtn.setAttribute("aria-label", "Switch theme");
     themeBtn.onclick = renderThemeSwitcher;
     stats.appendChild(themeBtn);
     
@@ -761,11 +785,11 @@
   function renderProfiles() {
     clear();
     var scr = el("div", "profiles");
-    scr.appendChild(el("div", "logo", '<span class="logo-ic">⚡</span> CodeLab'));
+    scr.appendChild(el("div", "logo", LOGO + " CodeLab"));
     scr.appendChild(el("div", "logo-sub", PATH_TITLE));
-    
+
     /* Theme switcher button */
-    var themeBtn = el("button", "btn btn-ghost btn-small", "🎨 Theme");
+    var themeBtn = el("button", "btn btn-ghost btn-small", ico("theme", 16) + " Theme");
     themeBtn.style.marginTop = "12px";
     themeBtn.onclick = renderThemeSwitcher;
     scr.appendChild(themeBtn);
@@ -786,8 +810,9 @@
         ? (Object.keys(u.done).length + " done · " + u.xp + " XP")
         : (fromAcademy ? "From your Academy app" : "New")));
       if (u) {
-        var del = el("button", "pcard-del", "✕");
+        var del = el("button", "pcard-del", ico("x", 14));
         del.title = "Remove this profile from CodeLab";
+        del.setAttribute("aria-label", "Remove " + name);
         del.onclick = function (e) {
           e.stopPropagation();
           if (confirm('Remove "' + name + '" from CodeLab? (Academy app data is untouched.)')) {
@@ -805,7 +830,7 @@
     });
 
     var add = el("div", "pcard add");
-    add.appendChild(el("div", "avatar add-avatar", "＋"));
+    add.appendChild(el("div", "avatar add-avatar", ico("plus", 28)));
     add.appendChild(el("div", "pcard-name", "Add learner"));
     add.appendChild(el("div", "pcard-meta", "New profile"));
     add.onclick = function () {
@@ -844,6 +869,65 @@
   /* ============================================================
      COURSE CATALOG
      ============================================================ */
+
+  /* The home screen's lead card: the next lesson by name, and one button
+     that opens THAT lesson — not the course page. Naming the lesson needs
+     the course's unit files, so the card paints at once with what the
+     manifest knows ("Lesson 4 of 44") and fills the title in when they
+     arrive. course = null means the whole path is complete. */
+  function resumeCard(course) {
+    var card = el("div", "resume");
+    if (!course) {
+      var done0 = el("div", "resume-ic", ico("award", 28));
+      done0.style.background = "var(--gold)";
+      card.appendChild(done0);
+      var mid0 = el("div", "resume-mid");
+      mid0.appendChild(el("div", "resume-kicker", "Path complete"));
+      mid0.appendChild(el("div", "resume-title", esc(PATH_TITLE)));
+      mid0.appendChild(el("div", "resume-meta", "Every course is done. Recall keeps your credits live."));
+      card.appendChild(mid0);
+      var cert = el("button", "btn btn-gold", ico("award", 18) + " Path certificate");
+      cert.onclick = function () { showCertificate(null); };
+      card.appendChild(cert);
+      return card;
+    }
+    var done = courseDoneCount(course), total = courseTotal(course);
+    var tile = el("div", "resume-ic", window.CODELAB.courseIcon(course, 28));
+    tile.style.background = stageColor(course);
+    card.appendChild(tile);
+    var mid = el("div", "resume-mid");
+    mid.appendChild(el("div", "resume-kicker", (done ? "Continue · " : "Start · ") + esc(course.title)));
+    var title = el("div", "resume-title", done ? "Lesson " + (done + 1) : "Your first lesson");
+    mid.appendChild(title);
+    var meta = el("div", "resume-meta", "Lesson " + Math.min(done + 1, total) + " of " + total);
+    mid.appendChild(meta);
+    var bar = el("div", "resume-bar", "<i></i>");
+    bar.firstChild.style.width = (total ? Math.round(done / total * 100) : 0) + "%";
+    bar.firstChild.style.background = stageColor(course);
+    mid.appendChild(bar);
+    card.appendChild(mid);
+    var go = el("button", "btn btn-green", (done ? "Continue lesson " : "Start lesson ") + ico("arrow", 18));
+    go.onclick = function () {
+      me().lastCourse = course.id;
+      saveStore();
+      if (course._loaded) { openLesson(course, firstIncomplete(course)); return; }
+      go.disabled = true;
+      loadCourse(course).then(function () { openLesson(course, firstIncomplete(course)); })
+        .catch(function (e) { go.disabled = false; toast("⚠️ " + e.message + " — check your connection and try again"); });
+    };
+    card.appendChild(go);
+    function fill() {
+      var list = courseLessons(course);
+      var e = list[firstIncomplete(course)];
+      if (!e) return;
+      title.textContent = e.lesson.title;
+      meta.textContent = "Lesson " + (e.gi + 1) + " of " + list.length + " · Unit " + (e.unitIndex + 1) + " · ~" + minsOf(e.lesson) + " min";
+    }
+    if (course._loaded) fill();
+    else loadCourse(course).then(function () { if (card.isConnected) fill(); }).catch(function () {});
+    return card;
+  }
+
   function renderCatalog() {
     if (!store.currentUser || !me()) { renderProfiles(); return; }
     clear();
@@ -857,58 +941,75 @@
     var totalHours = LIVE_COURSES.reduce(function (s, c) { return s + (c.hours || 0); }, 0);
     var totalCredits = LIVE_COURSES.reduce(function (s, c) { return s + (c.credits || 0); }, 0);
     var heldCredits = ledger(u).total;
-    var hero = el("div", "hero");
-    hero.appendChild(el("div", "hero-kicker", LIVE_COURSES.length + " COURSES · ~" + totalHours + " HOURS · " + totalCredits + " CREDITS"));
-    hero.appendChild(el("h1", "hero-title", "Learn to code, qualify for the job"));
-    hero.appendChild(el("p", "hero-sub", "Every course is a full, Codecademy-scale course, and finishing one pays credits toward every job position that needs it. Take them in order, or go straight at the position you want."));
-    var pr = el("div", "hero-progress");
-    pr.appendChild(el("div", "hero-bar", '<i style="width:' + pct + '%"></i>'));
-    pr.appendChild(el("div", "hero-pct", pct + "%"));
-    hero.appendChild(pr);
+    /* — Resume first. A returning learner wants "where was I", so the top
+       of the screen is ONE lesson and ONE button; the whole-path percentage
+       moves down into the slim path bar below. */
+    var last = u.lastCourse && window.CODELAB._byId[u.lastCourse];
+    var resumeCourse = null;
+    if (!pathComplete()) {
+      resumeCourse = (last && !last.stub && !courseComplete(last)) ? last
+        : LIVE_COURSES.filter(function (c) { return !courseComplete(c); })[0] || null;
+    }
+    if (!totals.done) {
+      wrap.appendChild(el("h1", "home-title", "Learn to code, qualify for the job"));
+      wrap.appendChild(el("p", "resume-intro", "Every course is a full, Codecademy-scale course, and finishing one pays credits toward every job position that needs it. Take them in order, or go straight at the position you want."));
+    }
+    wrap.appendChild(resumeCard(resumeCourse));
 
-    var heroBtns = el("div", "hero-btns");
-    /* Review comes before Continue on purpose: memory decays on a clock,
-       lessons wait patiently. */
+    var actions = el("div", "home-actions");
+    /* Review comes before everything else on purpose: memory decays on a
+       clock, lessons wait patiently. */
     /* Cards need a finished quiz; drills only need finished lessons. The
        5-lesson floor keeps day one from offering to drill something learned
        ten minutes ago. */
     if (REV.hasEngagedQuiz(u) || REV.doneLessonCount(u) >= 5) {
       var dueNow = REV.dueCount(u, REV.revToday());
-      var rvBtn = el("button", "btn " + (dueNow ? "btn-green" : "btn-ghost"),
-        "🧠 Recall" + (dueNow ? " · " + dueNow + " card" + (dueNow === 1 ? "" : "s") : ""));
+      var rvBtn = el("button", "btn " + (dueNow ? "btn-blue" : "btn-ghost"),
+        ico("recall", 18) + " Recall" + (dueNow ? " · " + dueNow + " card" + (dueNow === 1 ? "" : "s") : ""));
       rvBtn.onclick = renderReview;
-      heroBtns.appendChild(rvBtn);
+      actions.appendChild(rvBtn);
       prefetchReviewCourses(u);
     }
-    var last = u.lastCourse && window.CODELAB._byId[u.lastCourse];
-    if (pathComplete()) {
-      var cert = el("button", "btn btn-gold", "🎓 Path certificate");
-      cert.onclick = function () { showCertificate(null); };
-      heroBtns.appendChild(cert);
-    } else if (last && !courseComplete(last)) {
-      var cont = el("button", "btn btn-green", "Continue: " + esc(last.title));
-      cont.onclick = function () { openCourse(last); };
-      heroBtns.appendChild(cont);
-    } else {
-      var next = LIVE_COURSES.filter(function (c) { return !courseComplete(c); })[0];
-      if (next) {
-        var start = el("button", "btn btn-green", (courseDoneCount(next) ? "Continue: " : "Start: ") + esc(next.title));
-        start.onclick = function () { openCourse(next); };
-        heroBtns.appendChild(start);
-      }
-    }
-    var jobs = el("button", "btn btn-blue", "💼 Careers");
+    var jobs = el("button", "btn btn-ghost", ico("briefcase", 18) + " Careers");
     jobs.title = "Which job positions your credits qualify you for";
     jobs.onclick = renderJobs;
-    heroBtns.appendChild(jobs);
-    var play = el("button", "btn btn-ghost", "🧪 Free sandbox");
+    actions.appendChild(jobs);
+    var play = el("button", "btn btn-ghost", ico("sandbox", 18) + " Free sandbox");
     play.onclick = openPlayground;
-    heroBtns.appendChild(play);
-    var handoff = el("button", "btn btn-ghost", "📲 Handoff");
+    actions.appendChild(play);
+    var handoff = el("button", "btn btn-ghost", ico("phone", 18) + " Handoff");
     handoff.title = "Move this profile between your phone and desktop";
     handoff.onclick = renderSync;
-    heroBtns.appendChild(handoff);
-    hero.appendChild(heroBtns);
+    actions.appendChild(handoff);
+    wrap.appendChild(actions);
+
+    /* — The path, as one slim bar split into its stages. Each segment is
+       as wide as the stage's share of the material and fills in its own
+       colour, so the bar doubles as a map. */
+    var hero = el("div", "path-box");
+    var prow = el("div", "path-row");
+    prow.appendChild(el("div", "path-label", PATH_TITLE));
+    var pbar = el("div", "path-bar");
+    pbar.setAttribute("role", "img");
+    pbar.setAttribute("aria-label", pct + "% of the path complete");
+    window.CODELAB.STAGES.forEach(function (s) {
+      var inStage = LIVE_COURSES.filter(function (c) { return window.CODELAB.stageOf(c) === s; });
+      var t = 0, d = 0;
+      inStage.forEach(function (c) { t += courseTotal(c); d += courseDoneCount(c); });
+      if (!t) return;
+      var seg = el("i");
+      var fill = Math.round(d / t * 100);
+      var col = "var(--stage-" + s.id + ")";
+      seg.style.flex = t + " 1 0";
+      seg.style.background = "linear-gradient(90deg, " + col + " " + fill + "%, color-mix(in srgb, " + col + " 18%, var(--surface-2)) " + fill + "%)";
+      seg.title = s.name + " · " + fill + "%";
+      pbar.appendChild(seg);
+    });
+    prow.appendChild(pbar);
+    prow.appendChild(el("div", "path-pct", pct + "%"));
+    hero.appendChild(prow);
+    hero.appendChild(el("div", "path-sub", LIVE_COURSES.length + " courses · ~" + totalHours + " hours · you hold " +
+      heldCredits + " of " + totalCredits + " credits"));
 
     /* The pinned goal is the ONLY thing on this screen that narrows the
        catalog to one job. It is opt-in and one tap to clear, because the
@@ -932,16 +1033,61 @@
     if (academyConnected()) hero.appendChild(el("div", "conn-pill", "🔗 Sharing profiles &amp; XP with your Academy app"));
     wrap.appendChild(hero);
 
-    var grid = el("div", "catalog");
+    /* — The catalog as a learning path: stages in order, each with its
+       courses, and the course you are on marked. A sticky strip of stage
+       chips jumps between them (and scrolls sideways on a phone). */
+    var hereStage = resumeCourse ? window.CODELAB.stageOf(resumeCourse) : null;
+    var strip = el("nav", "stage-strip");
+    strip.setAttribute("aria-label", "Path stages");
+    wrap.appendChild(strip);
+    var sections = {};
+    window.CODELAB.STAGES.forEach(function (s, si) {
+      var inStage = COURSES.filter(function (c) { return window.CODELAB.stageOf(c) === s; });
+      if (!inStage.length) return;
+      var nDone = inStage.filter(courseComplete).length;
+      var col = "var(--stage-" + s.id + ")";
+
+      var chip = el("button", "stage-chip" + (s === hereStage ? " here" : ""),
+        '<span class="dot"></span>' + esc(s.name) + ' <span class="n">' + nDone + "/" + inStage.length + "</span>");
+      chip.querySelector(".dot").style.background = col;
+      if (s === hereStage) chip.style.color = col;
+      chip.onclick = function () {
+        var target = document.getElementById("stage-" + s.id);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+      strip.appendChild(chip);
+
+      var sec = el("section", "stage");
+      sec.id = "stage-" + s.id;
+      var sh = el("div", "stage-head");
+      var num = el("span", "stage-num", String(si + 1));
+      num.style.background = col;
+      sh.appendChild(num);
+      sh.appendChild(el("h2", "stage-name", esc(s.name)));
+      if (s === hereStage) {
+        var tag = el("span", "here-tag", ico("pin") + " You are here");
+        tag.style.background = col;
+        sh.appendChild(tag);
+      }
+      sh.appendChild(el("span", "stage-count", nDone + " of " + plural(inStage.length, "course", "courses") + " complete"));
+      sec.appendChild(sh);
+      sec.appendChild(el("p", "stage-blurb", esc(s.blurb)));
+      sec.lastChild.style.margin = "-6px 2px 12px";
+      var g = el("div", "catalog");
+      sec.appendChild(g);
+      wrap.appendChild(sec);
+      sections[s.id] = g;
+    });
+
     COURSES.forEach(function (c, i) {
+      var grid = sections[window.CODELAB.stageOf(c).id];
       var done = courseDoneCount(c);
       var total = courseTotal(c);
       var cpct = total ? Math.round(done / total * 100) : 0;
       var complete = courseComplete(c);
-      var card = el("button", "course-card");
+      var card = el("button", "course-card" + (c === resumeCourse ? " here" : "") + (complete ? " done-card" : ""));
       var head = el("div", "cc-head");
-      head.style.background = c.color || "#1cb0f6";
-      head.appendChild(el("div", "cc-ic", c.icon || "📦"));
+      head.appendChild(iconTile(c, "cc-ic"));
       var meta = el("div", "cc-chips");
       if (c.stub) meta.appendChild(el("span", "cc-chip", "Roadmap"));
       else meta.appendChild(el("span", "cc-chip", "~" + c.hours + "h"));
@@ -964,7 +1110,7 @@
       }
 
       if (c.stub) {
-        body.appendChild(el("div", "cc-cta stub", "🚧 Not written yet"));
+        body.appendChild(el("div", "cc-cta stub", "On the roadmap · not written yet"));
         card.classList.add("stub");
         card.onclick = function () {
           toast(c.title + " is on the roadmap — no lessons yet.");
@@ -975,8 +1121,8 @@
       }
 
       var prog = el("div", "cc-progress");
-      prog.appendChild(el("div", "cc-bar", '<i style="width:' + cpct + '%;background:' + (c.color || "#1cb0f6") + '"></i>'));
-      prog.appendChild(el("div", "cc-count", complete ? "🏅 Complete" : (done ? done + "/" + total : total + " items")));
+      prog.appendChild(el("div", "cc-bar", '<i style="width:' + cpct + '%;background:' + stageColor(c) + '"></i>'));
+      prog.appendChild(el("div", "cc-count", complete ? ico("award") + " Complete" : (done ? done + "/" + total : total + " items")));
       body.appendChild(prog);
 
       var cst = creditState(u, c);
@@ -989,12 +1135,11 @@
       }
 
       body.appendChild(el("div", "cc-cta " + (complete ? "done" : done ? "cont" : ""),
-        complete ? "🎓 Review · certificate" : (done ? "Continue →" : "Start course →")));
+        complete ? "Review · certificate" : (done ? "Continue →" : "Start course →")));
       card.appendChild(body);
       card.onclick = function () { openCourse(c); };
       grid.appendChild(card);
     });
-    wrap.appendChild(grid);
 
     var foot = el("div", "footer-note");
     foot.innerHTML = LIVE_COURSES.length + " courses · ~" + totalHours + " hours of hands-on material · you hold " +
@@ -1308,7 +1453,8 @@
     if (!course._loaded) {
       clear();
       var load = el("div", "loading-screen",
-        '<div class="loading-ic">' + (course.icon || "📦") + '</div><div class="loading-tx">Loading ' + esc(course.title) + "…</div>");
+        '<div class="loading-ic">' + window.CODELAB.courseIcon(course, 32) + '</div><div class="loading-tx">Loading ' + esc(course.title) + "…</div>");
+      load.firstChild.style.background = stageColor(course);
       app.appendChild(load);
     }
     loadCourse(course).then(function () { renderCourse(course); })
@@ -1331,14 +1477,14 @@
     var complete = courseComplete(course);
 
     var head = el("div", "course-head");
-    head.style.background = course.color || "#1cb0f6";
-    var back = el("button", "course-back", "← All courses");
+    head.style.background = stageColor(course);
+    var back = el("button", "course-back", ico("back", 15) + " All courses");
     back.onclick = renderCatalog;
     head.appendChild(back);
     var hrow = el("div", "course-hrow");
-    hrow.appendChild(el("div", "course-ic", course.icon || "📦"));
+    hrow.appendChild(el("div", "course-ic", window.CODELAB.courseIcon(course, 28)));
     var hc = el("div", "course-hc");
-    hc.appendChild(el("div", "course-kicker", "COURSE · ~" + course.hours + " HOURS · " + esc(course.level || "")));
+    hc.appendChild(el("div", "course-kicker", esc(window.CODELAB.stageOf(course).name.toUpperCase()) + " · ~" + course.hours + " HOURS · " + esc((course.level || "").toUpperCase())));
     hc.appendChild(el("h1", "course-title", esc(course.title)));
     hc.appendChild(el("p", "course-blurb", esc(course.blurb || "")));
     hrow.appendChild(hc);
@@ -1349,13 +1495,13 @@
     head.appendChild(pr);
     var hb = el("div", "hero-btns");
     if (complete) {
-      var cert = el("button", "btn btn-gold", "🎓 View certificate");
+      var cert = el("button", "btn btn-gold", ico("award", 18) + " View certificate");
       cert.onclick = function () { showCertificate(course); };
       hb.appendChild(cert);
     } else if (total) {
       var next = list[firstIncomplete(course)];
       if (next) {
-        var cont = el("button", "btn btn-green", (done ? "Continue: " : "Start: ") + esc(next.lesson.title));
+        var cont = el("button", "btn btn-green", (done ? "Continue: " : "Start: ") + esc(next.lesson.title) + " " + ico("arrow", 18));
         cont.onclick = function () { openLesson(course, next.gi); };
         hb.appendChild(cont);
       }
@@ -1366,30 +1512,33 @@
     (course.units || []).forEach(function (unit, ui) {
       var card = el("section", "unit");
       var uh = el("div", "unit-head");
-      uh.style.background = unit.color || course.color || "#1cb0f6";
+      uh.style.background = stageColor(course);
       var left = el("div", "unit-head-left");
       left.appendChild(el("div", "unit-kicker", "Unit " + (ui + 1)));
       left.appendChild(el("div", "unit-title", esc(unit.title)));
       if (unit.blurb) left.appendChild(el("div", "unit-blurb", esc(unit.blurb)));
       if (unit.cheat && unit.cheat.length) {
-        var cs = el("button", "cheat-btn", "📋 Cheatsheet");
+        var cs = el("button", "cheat-btn", ico("sheet", 14) + " Cheatsheet");
         cs.onclick = function () { showCheatsheet(unit); };
         left.appendChild(cs);
       }
       uh.appendChild(left);
       var uDone = 0;
       (unit.lessons || []).forEach(function (l) { if (isDone(l.id)) uDone++; });
-      uh.appendChild(ringBadge(unit.icon || course.icon || "📦", uDone, (unit.lessons || []).length));
+      uh.appendChild(ringBadge(uDone, (unit.lessons || []).length));
       card.appendChild(uh);
 
       var rows = el("div", "lessons");
+      var nextGi = firstIncomplete(course);
       (unit.lessons || []).forEach(function (l) {
         var entry = lessonById(course, l.id);
         var gi = entry.gi;
         var unlocked = isUnlocked(course, gi);
         var doneL = isDone(l.id);
-        var row = el("button", "lrow" + (doneL ? " done" : "") + (unlocked ? "" : " locked") + (l.project ? " project" : ""));
-        var st = el("div", "lrow-status", doneL ? "✓" : (unlocked ? (gi + 1) : "🔒"));
+        var row = el("button", "lrow" + (doneL ? " done" : "") + (unlocked ? "" : " locked") +
+          (gi === nextGi ? " current" : "") + (l.project ? " project" : ""));
+        if (!unlocked) row.setAttribute("aria-label", l.title + " (locked)");
+        var st = el("div", "lrow-status", doneL ? ico("check") : (unlocked ? (gi + 1) : ico("lock")));
         if (doneL) st.classList.add("ok");
         row.appendChild(st);
         var mid = el("div", "lrow-mid");
@@ -1411,19 +1560,22 @@
     app.appendChild(wrap);
   }
 
-  function ringBadge(emoji, done, total) {
+  /* The count sits inside the ring (a check once the unit is done) — the
+     unit's emoji used to, which said nothing the title didn't. */
+  function ringBadge(done, total) {
     var pct = total ? done / total : 0;
     var complete = total > 0 && done >= total;
     var R = 24, C = 2 * Math.PI * R;
     var svg =
       '<svg width="58" height="58" viewBox="0 0 58 58" aria-hidden="true">' +
       '<circle cx="29" cy="29" r="' + R + '" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="5"></circle>' +
-      '<circle cx="29" cy="29" r="' + R + '" fill="none" stroke="' + (complete ? "#ffe27a" : "#fff") + '" stroke-width="5" stroke-linecap="round"' +
-      ' stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - pct)).toFixed(1) + '" transform="rotate(-90 29 29)"></circle>' +
-      '<text x="29" y="30" text-anchor="middle" dominant-baseline="central" font-size="22">' + emoji + "</text></svg>";
+      '<circle cx="29" cy="29" r="' + R + '" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"' +
+      ' stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - pct)).toFixed(1) + '" transform="rotate(-90 29 29)"></circle></svg>';
     var col = el("div", "unit-ring");
     col.innerHTML = svg;
-    col.appendChild(el("div", "unit-ring-count", complete ? "🏅 Done" : done + "/" + total));
+    col.appendChild(el("div", "unit-ring-count", complete ? ico("check", 22) : done + "/" + total));
+    col.setAttribute("role", "img");
+    col.setAttribute("aria-label", complete ? "Unit complete" : done + " of " + total + " done");
     return col;
   }
 
@@ -1505,6 +1657,77 @@
      ============================================================ */
   var current = null;
 
+  /* Desktop pane widths (Learn, Result), remembered across lessons the way
+     an IDE remembers its panels. Code takes whatever is left. */
+  var PANES_KEY = "codelab_panes_v1";
+  var PANE_MIN = 260, PANE_MAX = 720, CODE_MIN = 240;
+  function loadPanes(main) {
+    try {
+      var p = JSON.parse(localStorage.getItem(PANES_KEY) || "null");
+      if (p && p.learn) main.style.setProperty("--w-learn", p.learn + "px");
+      if (p && p.result) main.style.setProperty("--w-result", p.result + "px");
+    } catch (e) {}
+  }
+  function savePanes(main) {
+    var l = main.querySelector(".pane-learn"), r = main.querySelector(".pane-result");
+    try {
+      localStorage.setItem(PANES_KEY, JSON.stringify({
+        learn: Math.round(l.getBoundingClientRect().width), result: Math.round(r.getBoundingClientRect().width)
+      }));
+    } catch (e) {}
+  }
+  function paneResizer(main, scr, which) {
+    var h = el("div", "l-resize" + (which === "result" ? " dark" : ""));
+    var prop = which === "learn" ? "--w-learn" : "--w-result";
+    h.setAttribute("role", "separator");
+    h.setAttribute("aria-orientation", "vertical");
+    h.setAttribute("aria-label", "Resize the " + (which === "learn" ? "Learn" : "Result") + " pane (double-click to reset)");
+    h.tabIndex = 0;
+    function own() { return main.querySelector(which === "learn" ? ".pane-learn" : ".pane-result"); }
+    function other() { return main.querySelector(which === "learn" ? ".pane-result" : ".pane-learn"); }
+    /* Room for this pane = what's left after the other pane and a usable
+       editor. On a narrow desktop that can be less than the pane already
+       is, so the current width is a floor for the max: dragging to grow
+       must never shrink it. */
+    function setW(w) {
+      var cur = own().getBoundingClientRect().width;
+      var room = main.getBoundingClientRect().width - other().getBoundingClientRect().width - CODE_MIN - 12;
+      var max = Math.min(PANE_MAX, Math.max(room, cur));
+      main.style.setProperty(prop, Math.round(Math.max(PANE_MIN, Math.min(max, w))) + "px");
+    }
+    h.addEventListener("pointerdown", function (e) {
+      e.preventDefault();
+      var startX = e.clientX, startW = own().getBoundingClientRect().width;
+      h.setPointerCapture(e.pointerId);
+      h.classList.add("drag");
+      scr.classList.add("resizing");   // also stops the preview iframe eating the drag
+      function move(ev) { var dx = ev.clientX - startX; setW(which === "learn" ? startW + dx : startW - dx); }
+      function up() {
+        h.removeEventListener("pointermove", move);
+        h.removeEventListener("pointerup", up);
+        h.removeEventListener("pointercancel", up);
+        h.classList.remove("drag");
+        scr.classList.remove("resizing");
+        savePanes(main);
+      }
+      h.addEventListener("pointermove", move);
+      h.addEventListener("pointerup", up);
+      h.addEventListener("pointercancel", up);
+    });
+    h.addEventListener("keydown", function (e) {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      e.preventDefault();
+      var grow = (e.key === "ArrowRight") === (which === "learn");
+      setW(own().getBoundingClientRect().width + (grow ? 24 : -24));
+      savePanes(main);
+    });
+    h.addEventListener("dblclick", function () {
+      main.style.removeProperty(prop);
+      savePanes(main);
+    });
+    return h;
+  }
+
   function starterFiles(lesson) {
     var files = {};
     (lesson.files || []).forEach(function (f) { files[f.name] = f.content; });
@@ -1572,7 +1795,8 @@
     var scr = el("div", "lesson");
 
     var top = el("div", "l-top");
-    var back = el("button", "l-x", "✕");
+    var back = el("button", "l-x", ico("x", 22));
+    back.setAttribute("aria-label", "Close");
     back.onclick = function () {
       /* A pending debounced save would otherwise fire after unmount, with
          current already null. */
@@ -1603,9 +1827,9 @@
     scr.appendChild(top);
 
     var tabs = el("div", "l-tabs");
-    var resultLabel = lesson.kind === "shell" ? "▶ Terminal" : (lesson.kind === "js" ? "▶ Output" : "▶ Result");
-    var codeLabel = lesson.kind === "shell" ? "⌨️ Commands" : "✏️ Code";
-    var tabDefs = [["learn", "📖 Learn"], ["code", codeLabel], ["result", resultLabel]];
+    var resultLabel = ico("play", 15) + (lesson.kind === "shell" ? " Terminal" : (lesson.kind === "js" ? " Output" : " Result"));
+    var codeLabel = lesson.kind === "shell" ? ico("cli", 15) + " Commands" : ico("code", 15) + " Code";
+    var tabDefs = [["learn", ico("book", 15) + " Learn"], ["code", codeLabel], ["result", resultLabel]];
     var tabBtns = {};
     tabDefs.forEach(function (t) {
       var b = el("button", "l-tab", t[1]);
@@ -1636,15 +1860,15 @@
     if (!freeplay) {
       var helpRow = el("div", "help-row");
       if (lesson.hints && lesson.hints.length) {
-        var hintBtn = el("button", "btn btn-ghost btn-small", "💡 Hint (" + lesson.hints.length + ")");
+        var hintBtn = el("button", "btn btn-ghost btn-small", ico("bulb", 16) + " Hint (" + lesson.hints.length + ")");
         var hintsBox = el("div", "hints");
         hintBtn.onclick = function () {
           if (current.hintsShown < lesson.hints.length) {
             current.hintsShown++;
-            hintsBox.appendChild(el("div", "hint", "💡 " + mdInline(lesson.hints[current.hintsShown - 1])));
-            hintBtn.textContent = current.hintsShown < lesson.hints.length
-              ? "💡 Next hint (" + (lesson.hints.length - current.hintsShown) + " left)"
-              : "💡 That's every hint";
+            hintsBox.appendChild(el("div", "hint", "<b>Hint " + current.hintsShown + ".</b> " + mdInline(lesson.hints[current.hintsShown - 1])));
+            hintBtn.innerHTML = ico("bulb", 16) + (current.hintsShown < lesson.hints.length
+              ? " Next hint (" + (lesson.hints.length - current.hintsShown) + " left)"
+              : " That's every hint");
             if (current.hintsShown >= lesson.hints.length) hintBtn.disabled = true;
           }
         };
@@ -1655,11 +1879,11 @@
         learnIn.appendChild(helpRow);
       }
       if (lesson.solution) {
-        var solBtn = el("button", "btn btn-ghost btn-small", "🔓 View solution");
+        var solBtn = el("button", "btn btn-ghost btn-small", ico("unlock", 16) + " View solution");
         /* In a drill the solution is the answer to the question being asked,
            so it stays locked until at least one real attempt has been graded.
            Retrieval you abandon before trying is not retrieval. */
-        if (drill) { solBtn.disabled = true; solBtn.textContent = "🔒 Solution (after a run)"; }
+        if (drill) { solBtn.disabled = true; solBtn.innerHTML = ico("lock", 16) + " Solution (after a run)"; }
         solBtn.onclick = function () {
           if (!confirm("Load the solution into the editor? Your current code for this lesson will be replaced (try the hints first!).")) return;
           Object.keys(lesson.solution).forEach(function (n) { editor.setFile(n, lesson.solution[n]); });
@@ -1668,10 +1892,10 @@
         };
         helpRow.appendChild(solBtn);
         if (drill) current.unlockSolution = function () {
-          solBtn.disabled = false; solBtn.textContent = "🔓 View solution";
+          solBtn.disabled = false; solBtn.innerHTML = ico("unlock", 16) + " View solution";
         };
       }
-      var resetBtn = el("button", "btn btn-ghost btn-small", "↺ Reset code");
+      var resetBtn = el("button", "btn btn-ghost btn-small", ico("reset", 16) + " Reset code");
       resetBtn.onclick = function () {
         if (!confirm("Reset this lesson's files back to the starter code?")) return;
         var fresh = starterFiles(lesson);
@@ -1689,7 +1913,7 @@
          pending — that ordering is exactly how you overwrite the answer
          you were protecting. */
       if (isDone(lesson.id)) {
-        var practiceBtn = el("button", "btn btn-ghost btn-small", "🎯 Practice from scratch");
+        var practiceBtn = el("button", "btn btn-ghost btn-small", ico("target", 16) + " Practice from scratch");
         practiceBtn.onclick = function () {
           practice = true;
           var blank = starterFiles(lesson);
@@ -1697,6 +1921,7 @@
           practiceBtn.disabled = true;
           savedDot.textContent = "Practice — not saving";
           savedDot.classList.add("show");
+          paintStatus(false);
           toast("Practice mode — your saved solution is safe 🔒");
         };
         helpRow.appendChild(practiceBtn);
@@ -1745,14 +1970,48 @@
     resultIn.appendChild(consoleBlock);
     result.appendChild(resultIn);
     main.appendChild(result);
+    /* Drag handles between the panes (desktop only — CSS hides them in the
+       one-pane phone layout). Widths persist across lessons. */
+    main.insertBefore(paneResizer(main, scr, "learn"), codePane);
+    main.insertBefore(paneResizer(main, scr, "result"), result);
+    loadPanes(main);
 
     scr.appendChild(main);
 
     var foot = el("div", "l-foot");
+    /* IDE-style status bar: checkpoints, save state, languages. */
+    var status = el("div", "l-status");
+    status.setAttribute("aria-live", "polite");
+    var stChecks = el("span", "");
+    var stSave = el("span", "", '<i class="st-dot"></i><b style="font-weight:inherit">Not edited</b>');
+    var langs = [];
+    (lesson.files || []).forEach(function (f) {
+      var ext = (String(f.name).split(".").pop() || "").toUpperCase();
+      var nm = { JS: "JavaScript", MJS: "JavaScript", SH: "Shell", MD: "Markdown", TXT: "Text", YML: "YAML" }[ext] || ext;
+      if (nm && langs.indexOf(nm) === -1) langs.push(nm);
+    });
+    status.appendChild(stChecks);
+    status.appendChild(stSave);
+    if (langs.length) status.appendChild(el("span", "", ico("code") + esc(langs.join(" · "))));
+    foot.appendChild(status);
     var runBtn = el("button", "btn btn-run", "▶ Run");
     runBtn.onclick = doRun;
     foot.appendChild(runBtn);
     scr.appendChild(foot);
+    function paintStatus(saved) {
+      var total = shownSteps.length;
+      if (total && current) {
+        var pass = current.stepState.filter(function (s) { return s.state === "pass"; }).length;
+        stChecks.className = pass === total ? "st-pass" : "";
+        stChecks.innerHTML = ico(pass === total ? "check" : "target") + pass + "/" + total + " checkpoints";
+      } else {
+        stChecks.innerHTML = freeplay ? ico("sandbox") + "Sandbox · not graded" : "";
+      }
+      if (saved != null) {
+        stSave.firstChild.classList.toggle("saved", !!saved);
+        stSave.lastChild.textContent = saved ? "Saved" : "Practice · not saving";
+      }
+    }
 
     app.appendChild(scr);
 
@@ -1811,6 +2070,7 @@
          store changes, so typing never triggers a full serialization. */
       var ok = codeSet(store.currentUser, (drill ? DRILL_TAG : "") + lesson.id, editor.getFiles());
       if (!ok) { toast("⚠ Couldn't save your code — storage may be full"); return; }
+      paintStatus(true);
       savedDot.classList.add("show");
       setTimeout(function () { savedDot.classList.remove("show"); }, 900);
     }
@@ -1836,7 +2096,7 @@
     function solutionBlock(sol, i) {
       var wrap = el("div", "chk-sol");
       var open = !!current.solOpen[i];
-      var btn = el("button", "chk-sol-btn", open ? "Hide solution" : "💡 Show solution");
+      var btn = el("button", "chk-sol-btn", open ? "Hide solution" : "Show solution for this step");
       btn.onclick = function () { current.solOpen[i] = !open; paintChecks(); };
       wrap.appendChild(btn);
       if (!open) return wrap;
@@ -1862,14 +2122,21 @@
     function paintChecks() {
       badge.textContent = stepBadgeText();
       badge.classList.toggle("all", current.allPass);
+      paintStatus();
       [checksBox, checksOutList].forEach(function (box) {
         if (!box) return;
         Array.prototype.slice.call(box.querySelectorAll(".chk")).forEach(function (n) { n.remove(); });
+        /* The stepper highlights the first checkpoint not yet passing —
+           the one to work on next. */
+        var cur = -1;
+        for (var k = 0; k < shownSteps.length; k++) { if (current.stepState[k].state !== "pass") { cur = k; break; } }
         shownSteps.forEach(function (s, i) {
           var st = current.stepState[i];
-          var d = el("div", "chk chk-" + st.state);
-          var ic = st.state === "pass" ? "✓" : (st.state === "fail" ? "✕" : (i + 1));
-          d.appendChild(el("div", "chk-ic", "" + ic));
+          var d = el("div", "chk chk-" + st.state + (i === cur ? " chk-current" : ""));
+          var ic = st.state === "pass" ? ico("check") : (st.state === "fail" ? ico("x") : String(i + 1));
+          var icEl = el("div", "chk-ic", ic);
+          icEl.setAttribute("aria-label", "Checkpoint " + (i + 1) + (st.state === "pass" ? ", passing" : st.state === "fail" ? ", failing" : ""));
+          d.appendChild(icEl);
           var tx = el("div", "chk-tx");
           tx.appendChild(el("div", "chk-text", mdInline(s.text)));
           if (st.state === "fail" && st.msg) tx.appendChild(el("div", "chk-msg", esc(st.msg)));
@@ -2071,7 +2338,7 @@
     } else {
       var nxt = nextAfter(course, entry.gi);
       if (nxt) {
-        var go = el("button", "btn btn-green", "Next: " + esc(nxt.lesson.title));
+        var go = el("button", "btn btn-green btn-celebrate", "Next: " + esc(nxt.lesson.title));
         go.onclick = function () { o.back.remove(); openLesson(course, nxt.gi); };
         acts.appendChild(go);
       }
@@ -2105,7 +2372,8 @@
 
     var scr = el("div", "lesson quiz");
     var top = el("div", "l-top");
-    var back = el("button", "l-x", "✕");
+    var back = el("button", "l-x", ico("x", 22));
+    back.setAttribute("aria-label", "Close");
     back.onclick = function () { renderCourse(course); };
     top.appendChild(back);
     var tt = el("div", "l-tt");
@@ -2337,7 +2605,8 @@
 
     var scr = el("div", "lesson quiz concept");
     var top = el("div", "l-top");
-    var back = el("button", "l-x", "✕");
+    var back = el("button", "l-x", ico("x", 22));
+    back.setAttribute("aria-label", "Close");
     back.onclick = function () { renderCourse(course); };
     top.appendChild(back);
     var tt = el("div", "l-tt");
@@ -2787,7 +3056,8 @@
 
     var scr = el("div", "lesson quiz");
     var top = el("div", "l-top");
-    var x = el("button", "l-x", "✕");
+    var x = el("button", "l-x", ico("x", 22));
+    x.setAttribute("aria-label", "Close");
     x.onclick = function () { flushStore(); renderReview(); };
     top.appendChild(x);
     var tt = el("div", "l-tt");

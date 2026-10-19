@@ -1503,7 +1503,8 @@ async function main() {
       kicker: (document.querySelector(".l-kicker") || {}).textContent || "",
       badge: (document.querySelector(".l-badge") || {}).textContent || "",
       checkpoints: document.querySelectorAll(".pane-learn .chk").length,
-      solutionLocked: [...document.querySelectorAll(".help-row .btn")].some(b => /🔒/.test(b.textContent))
+      // The lock is the button being disabled, not its label (icons are SVG now).
+      solutionLocked: [...document.querySelectorAll(".help-row .btn")].some(b => b.disabled && /Solution/.test(b.textContent))
     };
   }, drill);
 

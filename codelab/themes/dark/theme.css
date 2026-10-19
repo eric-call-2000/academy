@@ -3,6 +3,10 @@
    "Eclipse": the developer default — blue-black surfaces, a calm
    blue accent, thin borders, no glow.
    Reference: GitHub Dark, VS Code.
+
+   base.css reads every surface and tint from tokens, so this theme
+   is almost all :root. The few rules below are the genuinely dark-
+   only bits (editor keys, Recall colours), not white-patching.
    ============================================================ */
 
 :root {
@@ -12,17 +16,17 @@
   --line: #2a313c;
   --bg: #0d1117;
   --card: #161b22;
-  --accent: #2f81f7;
-  --accent-dark: #1f6feb;
+  --accent: #1f6feb;            /* white text passes 4.5:1; #2f81f7 did not */
+  --accent-dark: #4493f8;
   --accent-secondary: #a371f7;
-  --success: #3fb950;
-  --success-dark: #2ea043;
-  --danger: #f85149;
-  --danger-dark: #da3633;
-  --gold: #d29922;
-  --gold-dark: #bb8009;
+  --success: #238636;
+  --success-dark: #196c2e;
+  --danger: #da3633;
+  --danger-dark: #b62324;
+  --gold: #9e6a03;
+  --gold-dark: #845306;
   --orange: #db6d28;
-  --yellow-dark: #bb8009;
+  --yellow-dark: #d29922;
   --code-bg: #010409;
   --code-bg2: #0d1117;
   --code-line: #21262d;
@@ -32,9 +36,28 @@
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
+  /* surfaces + tints (see base.css) */
+  --surface: #161b22;
+  --surface-2: #1c2230;
+  --line-strong: #3d444d;
+  --success-soft: #0d1f17;  --success-line: #238636;  --success-ink: #3fb950;
+  --danger-soft: #21110f;   --danger-line: #da3633;   --danger-ink: #ffa198;
+  --warn-soft: #1c1a12;     --warn-line: #3b3016;     --warn-ink: #e3b341;
+  --violet-soft: #1a1524;   --violet-line: #30264a;   --violet-ink: #bc8cff;
+  --info-soft: #0c2636;     --info-line: #1f4b73;
+
+  /* path stages, lifted so they read on near-black */
+  --stage-found: #1f6feb;
+  --stage-front: #8957e5;
+  --stage-back: #1a7f72;
+  --stage-qual: #da3633;
+  --stage-ops: #c4511a;
+  --stage-cap: #484f58;
+
   --btn-radius: 8px;
   --btn-shadow: none;
-  --card-radius: 8px;
+  --btn-lift: 0 3px 0 var(--success-dark);
+  --card-radius: 10px;
   --card-shadow: none;
   --item-radius: 6px;
   --item-hover: #1c2230;
@@ -47,60 +70,14 @@
   --cert-gradient: linear-gradient(135deg, #1f6feb, #8957e5);
 }
 
-/* ---- surfaces ---- */
-body { background: var(--bg); }
-.topbar { background: var(--topbar-bg); border-bottom: 1px solid var(--line); }
-.pcard, .unit, .course-card, .hero { box-shadow: none; border: 1px solid var(--line); }
-.user-chip { background: var(--card); border: 1px solid var(--line); }
-.avatar.add-avatar { background: var(--line); color: var(--ink-soft); }
-
-/* ---- buttons ---- */
-.btn-green, .btn-blue, .btn-red, .btn-gold { box-shadow: none; color: #fff; }
-.btn-ghost { background: #21262d; color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
-
-/* ---- overlays / toast / sheets ---- */
-.toast { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
-.sheet { background: var(--card); border: 1px solid var(--line); }
-.sheet-cert { background: var(--card); }
-.cert-inner { background: var(--card); border-color: var(--line); }
-
-/* ---- learn pane ---- */
-.brief { color: var(--ink); }
-.chk { background: var(--card); border: 1px solid var(--line); }
-.chk-pass { border-color: #238636; background: #0d1f17; }
-.chk-fail { border-color: #da3633; background: #21110f; }
-.chk-msg { color: #ffa198; }
-.hint { background: #1c1a12; border: 1px solid #3b3016; color: var(--ink); }
-.quiz-brief { background: var(--card); border: 1px solid var(--line); }
-
-/* ---- quiz ---- */
-.q-choice { background: var(--card); border: 1px solid var(--line); box-shadow: none; }
-.q-choice:not(:disabled):hover { border-color: var(--accent); }
-.q-choice.correct { border-color: var(--success); background: #0d1f17; box-shadow: none; }
-.q-choice.wrong { border-color: var(--danger); background: #21110f; box-shadow: none; }
-.q-fb.ok { background: #0d1f17; border: 2px solid #238636; }
-.q-fb.no { background: #21110f; border: 2px solid #da3633; }
-
-/* ---- lesson rows / chips ---- */
-.lrow.project { background: #16210b; border-color: #2c3b16; }
-.lrow.project:hover { background: #1c2a0e; }
-.lrow-chip { background: #1f2937; color: #79c0ff; }
-.chip-js { background: #26210f; color: #e3b341; }
-.chip-css { background: #1d1b2e; color: #bc8cff; }
-.chip-html { background: #2b1c11; color: #f0883e; }
-.chip-dom { background: #0f2417; color: #56d364; }
-.chip-api { background: #0c2636; color: #6cb6ff; }
-.chip-server { background: #1c2128; color: #9aa5b1; }
-.chip-quiz { background: #26182b; color: #e878d8; }
-.chip-project { background: #26210f; color: #e3b341; }
-.chip-theory { background: #1c1f3a; color: #a5b4fc; }
-.pcard-del:hover { background: #2d1315; color: var(--danger); }
-
-/* ---- lesson workspace chrome ---- */
-.l-top, .l-tabs { background: var(--card); border-bottom: 1px solid var(--line); }
-.l-foot { background: var(--card); border-top: 1px solid var(--line); }
-.l-tab { color: var(--muted); }
-.l-tab.on { color: var(--accent); border-bottom-color: var(--accent); }
+/* white text sits on the lifted success/danger fills, so the done ring and
+   checkpoint circles keep the darker fill rather than the bright ink */
+.lrow-status.ok, .chk-pass .chk-ic { background: var(--success); border-color: var(--success); }
+.chk-pass::before { background: var(--success); }
+.chk-pass .chk-text { color: var(--ink-soft); }
+.chip-project { background: #9e6a03; border-color: #9e6a03; }
+.toast { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); }
+.course-head .btn-green { background: var(--ink); color: #0d1117; }
 
 /* ---- editor + result ---- */
 .ed-tab { background: var(--code-bg2); color: var(--ink-soft); }
@@ -110,14 +87,10 @@ body { background: var(--bg); }
 .pane-result { background: var(--code-bg); }
 .console-lines { background: #010409; border-color: var(--code-line); }
 .cheat-code, .q-code { border: 1px solid var(--code-line); }
-
-/* ---- inputs ---- */
-.pcard-input, .rv-input, .sync-code { background: #0d1117; border: 1px solid var(--line); color: var(--ink); }
-.pcard-input:focus, .rv-input:focus, .sync-code:focus { border-color: var(--accent); }
-.rv-input:disabled { background: #161b22; color: var(--muted); }
+.sh-term { background: var(--code-bg); color: var(--ink); }
+.l-resize { background: var(--line); }
 
 /* ---- Recall ---- */
-.rv-stats { background: var(--card); border: 1px solid var(--line); }
 .rv-line { color: var(--ink-soft); }
 .rv-line.strong { color: var(--ink); }
 .rv-line.dim { color: var(--muted); }
@@ -125,14 +98,9 @@ body { background: var(--bg); }
 .rv-src:hover { background: #2a313c; }
 .rv-why { color: var(--ink-soft); }
 .rv-cant { color: var(--muted); }
-.rv-drill { background: #1a1524; border: 1px solid #30264a; }
+.rv-input:disabled { background: var(--surface-2); color: var(--muted); }
 .l-kicker.drill { color: var(--accent-secondary); }
-.stat.rv-pill { background: #1d1b2e; color: #bc8cff; }
 
 /* ---- Handoff ---- */
-.sync-card { background: #0c2636; border: 1px solid #1f4b73; }
 .sync-list { color: var(--ink-soft); }
-.sync-warn { background: #26210f; border: 1px solid #3b3016; color: #e3b341; }
-
-/* ---- terminal ---- */
-.sh-term { background: var(--code-bg); color: var(--ink); }
+.sync-warn { background: var(--warn-soft); border: 1px solid var(--warn-line); color: var(--warn-ink); }
