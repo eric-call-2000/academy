@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u08",
   title: "Inventory and Cost of Goods Sold",
-  icon: "📦",
   blurb: "Perpetual vs. periodic, FIFO/LIFO/average cost, write-downs, freight and shrinkage.",
   lessons: [
     {

@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u04",
   title: "The Financial Statements",
-  icon: "📊",
   blurb: "Build the income statement, balance sheet and cash flow statement — and close the year.",
   lessons: [
     {

@@ -105,6 +105,24 @@
       (f > 0 ? '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" class="ring-fill" stroke-dasharray="' +
         (c * f).toFixed(1) + " " + c.toFixed(1) + '" transform="rotate(-90 ' + size / 2 + " " + size / 2 + ')"/>' : "") + "</svg>";
   }
+  /* A unit's engraved plate (art.js). "art-sm" switches to coarse
+     hatching and heavier lines so it reads at card size. */
+  function unitArt(u, cls) {
+    var a = L.ART[u.id];
+    if (!a) return "";
+    return '<svg class="art ' + (cls || "") + '" viewBox="0 0 100 100" role="img" aria-label="' + esc(a.label) + '">' + a.svg + "</svg>";
+  }
+  /* The full framed plate, captioned like a page from an old manual. */
+  function unitPlate(u) {
+    var a = L.ART[u.id];
+    if (!a) return "";
+    var n = L.units.indexOf(u) + 1;
+    return '<svg class="art plate" viewBox="-9 -7 118 126" role="img" aria-label="' + esc(a.label) + '">' +
+      '<rect x="-9" y="-7" width="118" height="126" class="plate-bg"></rect>' +
+      '<rect x="-6" y="-4" width="112" height="120" class="frame"></rect>' +
+      '<rect x="-3" y="-1" width="106" height="114" class="frame-in"></rect>' + a.svg +
+      '<text x="50" y="108" class="plate-cap">PLATE ' + L.roman(n) + "</text></svg>";
+  }
   function initial(name) { return ((name || "?").trim().charAt(0) || "?").toUpperCase(); }
 
   /* The bar's contents sit in the same column as the page below it
@@ -177,7 +195,7 @@
       var nl = L.lesson(next), nu = L.unit(nextUnit);
       var card = el("a", "continue");
       card.href = "#/l/" + next;
-      card.innerHTML = '<span class="cont-ic">' + nu.icon + '</span><span class="cont-text"><span class="eyebrow">' +
+      card.innerHTML = '<span class="art-tile cont-art">' + unitArt(nu, "art-sm") + '</span><span class="cont-text"><span class="eyebrow">' +
         (done ? "Up next" : "Start here") + " · Unit " + (L.units.indexOf(nu) + 1) + " · ~" + Math.max(1, Math.round(L.lessonMinutes(nl))) +
         " min</span><b>" + esc(nl.title) + '</b><span class="muted">' + esc(nu.title) + '</span></span><span class="btn">' +
         (done ? "Continue →" : "Start →") + "</span>";
@@ -213,7 +231,8 @@
         var isNext = u.id === nextUnit;
         var a = el("a", "unit-card" + (d === t ? " complete" : "") + (isNext ? " next" : ""));
         a.href = "#/u/" + u.id;
-        a.innerHTML = '<span class="unit-ring">' + ring(d, t, 46) + '<span class="unit-ic">' + u.icon + "</span></span>" +
+        a.innerHTML = '<span class="unit-art"><span class="art-tile">' + unitArt(u, "art-sm") + '</span><span class="unit-bar" aria-hidden="true"><span style="width:' +
+          Math.round(100 * d / t) + '%"></span></span></span>' +
           '<span class="unit-text"><span class="eyebrow">Unit ' + n + " · " + (d ? d + "/" + t + " done" : plural(t, "lesson")) +
           " · ~" + L.unitMinutes(u) + " min" + (isNext ? ' <span class="badge">Next up</span>' : d === t ? ' <span class="badge done">✓ Done</span>' : "") +
           "</span><b>" + esc(u.title) + '</b><span class="muted">' + esc(u.blurb) + "</span></span>";
@@ -232,7 +251,8 @@
     var main = page();
     main.appendChild(el("a", "crumb", "← All units")).href = "#/";
     var head = el("div", "unit-head");
-    head.innerHTML = '<span class="unit-big">' + u.icon + '</span><div><div class="eyebrow">Unit ' + (L.units.indexOf(u) + 1) +
+    head.className = "unit-head with-plate";
+    head.innerHTML = '<span class="unit-plate">' + unitPlate(u) + '</span><div><div class="eyebrow">Unit ' + (L.units.indexOf(u) + 1) +
       '</div><h1 class="h1">' + esc(u.title) + '</h1><p class="muted">' + esc(u.blurb) + "</p></div>";
     main.appendChild(head);
     var list = el("ol", "lesson-list");
@@ -285,10 +305,12 @@
     p.last = id; saveStore();
     var main = page();
     main.classList.add("lesson-page");
-    main.appendChild(el("a", "crumb", "← " + u.icon + " " + esc(u.title))).href = "#/u/" + u.id;
+    main.appendChild(el("a", "crumb", "← " + esc(u.title))).href = "#/u/" + u.id;
     var pos = u.lessons.indexOf(lesson) + 1;
-    main.appendChild(el("div", "eyebrow", "Lesson " + pos + " of " + u.lessons.length + (p.done[id] ? " · finished" : "")));
-    main.appendChild(el("h1", "h1", esc(lesson.title)));
+    var lh = el("div", "lesson-head");
+    lh.innerHTML = '<span class="art-tile">' + unitArt(u, "art-sm") + '</span><div><div class="eyebrow">Unit ' + (L.units.indexOf(u) + 1) +
+      " · Lesson " + pos + " of " + u.lessons.length + (p.done[id] ? " · finished" : "") + '</div><h1 class="h1">' + esc(lesson.title) + "</h1></div>";
+    main.appendChild(lh);
     main.appendChild(el("article", "reading", L.md(lesson.read)));
 
     var practice = el("section", "practice");

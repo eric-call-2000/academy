@@ -6,7 +6,8 @@
    anything that would break a lesson or let a wrong answer key
    ship:
 
-   - units have an id, title, icon and blurb; ids are u01, u02, …
+   - units have an id, title and blurb, and an engraved plate in art.js;
+     ids are u01, u02, …
      in page order, and lesson ids are <unit>-1 … <unit>-N
    - every lesson has a title, a reading of 120–600 words and at
      least 3 exercises, each with an explanation ("why")
@@ -52,7 +53,10 @@ L.units.forEach((u, ui) => {
   const want = "u" + String(ui + 1).padStart(2, "0");
   if (u.id !== want) err(w, "unit " + (ui + 1) + " should have id " + want);
   if (unitScripts[ui] !== "units/" + u.id + ".js") err("index.html", "script " + (ui + 1) + " should be units/" + u.id + ".js");
-  ["title", "icon", "blurb"].forEach((k) => { if (!u[k]) err(w, "missing " + k); });
+  ["title", "blurb"].forEach((k) => { if (!u[k]) err(w, "missing " + k); });
+  const art = L.ART && L.ART[u.id];
+  if (!art || !art.svg || !art.label) err("art.js", u.id + " needs a plate (svg and label)");
+  else if (/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(art.svg)) err("art.js", u.id + " plate must be drawn, not emoji");
   if (!Array.isArray(u.lessons) || u.lessons.length < 2) { err(w, "needs at least 2 lessons"); return; }
   u.lessons.forEach((l, li) => {
     const lw = w + " " + l.id;

@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u14",
   title: "Analysis and Management Reporting",
-  icon: "📈",
   blurb: "Ratios lenders and owners watch, budget vs. actual, and consolidating multiple entities.",
   lessons: [
     {

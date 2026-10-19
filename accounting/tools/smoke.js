@@ -113,6 +113,8 @@ async function answer(step, ex) {
   check("home shows the first lesson to start", (await page.textContent(".continue")).indexOf(L.allLessons()[0].title) !== -1);
   check("home lists every unit", (await page.locator(".unit-card").count()) === L.units.length);
   check("home groups units into parts", (await page.locator(".part-head").count()) === L.PARTS.length);
+  check("every unit card has its engraved plate", (await page.locator(".unit-card svg.art").count()) === L.units.length);
+  check("unit cards show no emoji", !/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(await page.locator(".units").first().textContent()));
   check("the unit you're on is marked Next up", /Next up/.test(await page.locator(".unit-card.next").first().textContent()));
   check("progress reads in words", /0 of \d+ lessons/.test(await page.textContent(".hero-stats")));
   await page.setViewportSize({ width: 1854, height: 900 });
@@ -120,6 +122,10 @@ async function answer(step, ex) {
   check("on a wide screen the top bar lines up with the page", bar.width <= 1060 && Math.abs(bar.x - (body.x + 16)) < 20,
     "bar x " + Math.round(bar.x) + " w " + Math.round(bar.width) + ", page x " + Math.round(body.x));
   await page.setViewportSize({ width: 1100, height: 900 });
+
+  await page.goto(base + "/accounting/#/u/" + L.units[4].id);
+  await page.waitForSelector(".unit-plate svg");
+  check("a unit page shows its framed plate", /PLATE V/.test(await page.locator(".unit-plate").textContent()));
 
   /* the chart */
   await page.goto(base + "/accounting/#/chart");
@@ -232,6 +238,9 @@ async function answer(step, ex) {
         await p.reload();
         await p.waitForSelector(".continue");
         await p.screenshot({ path: path.join(SHOTS, "home-" + vp.n + "-" + scheme + ".png"), fullPage: false });
+        await p.goto(base + "/accounting/#/u/" + L.units[14].id);
+        await p.waitForSelector(".unit-plate svg");
+        await p.screenshot({ path: path.join(SHOTS, "unit-" + vp.n + "-" + scheme + ".png"), fullPage: false });
         await p.goto(base + "/accounting/#/l/" + sample.id);
         await p.waitForSelector(".step");
         await p.locator(".step").first().scrollIntoViewIfNeeded();

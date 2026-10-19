@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u01",
   title: "The Language of Business",
-  icon: "⚖️",
   blurb: "The accounting equation, the five account types, and how debits and credits really work.",
   lessons: [
     {

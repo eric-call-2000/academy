@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u03",
   title: "Accrual Accounting and Adjustments",
-  icon: "⏳",
   blurb: "Put revenue and expenses in the right period: accruals, deferrals and depreciation.",
   lessons: [
     {

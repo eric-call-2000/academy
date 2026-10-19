@@ -263,3 +263,39 @@ table.coa td.num { width: 70px; text-align: left; color: var(--muted); }
 .qcard-foot { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
 .saved { font-size: 13px; }
 .practice-stage { display: grid; gap: 12px; }
+
+/* ---- engraved unit plates (art.js) ---- */
+.art { display: block; width: 100%; height: 100%; }
+.art .e { fill: none; stroke: #3b2a1a; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.art .ef { fill: none; stroke: #3b2a1a; stroke-width: 0.8; stroke-linecap: round; }
+.art .hf { fill: url(#e-hatch); stroke: #3b2a1a; stroke-width: 1.6; stroke-linejoin: round; }
+.art .cf { fill: url(#e-cross); stroke: #3b2a1a; stroke-width: 1.6; stroke-linejoin: round; }
+.art .pf { fill: #efe4cc; stroke: #3b2a1a; stroke-width: 1.6; stroke-linejoin: round; }
+.art .dk { fill: #2a1d12; }
+.art .thick { stroke-width: 3.6; }
+.art .lens { fill: rgba(239, 228, 204, 0.35); stroke: #3b2a1a; stroke-width: 4; }
+.art .teeth { fill: none; stroke: #3b2a1a; stroke-width: 6; stroke-dasharray: 5 5.6; }
+.art .teeth-s { stroke-width: 4; stroke-dasharray: 3.4 3.4; }
+/* Small tiles: heavier lines, coarser hatching, so they read at card size. */
+.art-sm .e, .art-sm .hf, .art-sm .cf, .art-sm .pf { stroke-width: 2.8; }
+.art-sm .ef { stroke-width: 1.6; }
+.art-sm .thick { stroke-width: 5; }
+.art-sm .hf { fill: url(#e-hatch-c); }
+.art-sm .cf { fill: url(#e-cross-c); }
+.art-tile {
+  display: block; flex: none; width: 60px; height: 60px; padding: 5px; box-sizing: border-box; border-radius: 12px;
+  background: #efe4cc; box-shadow: inset 0 0 0 1.5px rgba(59, 42, 26, 0.35);
+}
+.cont-art { width: 64px; height: 64px; }
+.unit-art { display: flex; flex-direction: column; gap: 5px; flex: none; }
+.unit-bar { display: block; height: 4px; border-radius: 99px; background: var(--ring-track); overflow: hidden; }
+.unit-bar span { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
+.unit-head.with-plate { align-items: center; }
+.unit-plate { flex: none; width: 150px; }
+.art.plate { height: auto; filter: drop-shadow(0 2px 6px rgba(59, 42, 26, 0.18)); }
+.plate .plate-bg { fill: #efe4cc; }
+.plate .frame { fill: none; stroke: #3b2a1a; stroke-width: 1.2; }
+.plate .frame-in { fill: none; stroke: #3b2a1a; stroke-width: 0.5; }
+.plate .plate-cap { font-family: var(--serif); font-size: 7.5px; letter-spacing: 1.5px; fill: #3b2a1a; text-anchor: middle; }
+.lesson-head { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+@media (max-width: 520px) { .unit-plate { width: 110px; } .art-tile { width: 52px; height: 52px; } }

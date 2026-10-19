@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u15",
   title: "Tools of the Trade and Construction Accounting",
-  icon: "🧰",
   blurb: "QuickBooks Online and Excel the way pros use them, then job costing and the WIP schedule.",
   lessons: [
     {

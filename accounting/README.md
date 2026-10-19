@@ -12,21 +12,32 @@ streaks are shared with Academy.
 
 | # | Unit | Covers |
 |---|------|--------|
-| 1 | ⚖️ The Language of Business | The accounting equation, account types, debits and credits, normal balances, T-accounts |
-| 2 | 📒 Journal Entries and the Ledger | Entry anatomy and support, everyday transactions, posting, subledgers, the trial balance and error hunting |
-| 3 | ⏳ Accrual Accounting and Adjustments | Cash vs. accrual, accruals, prepaids and unearned revenue, depreciation, the adjusted TB |
-| 4 | 📊 The Financial Statements | Multi-step income statement, classified balance sheet, indirect cash flows, closing entries |
-| 5 | 🏦 Cash and Bank Reconciliations | Cash controls, petty cash, bank recs and their entries, company-card reconciliations |
-| 6 | 🧾 Receivables and Revenue | Terms and discounts, the allowance and aging, write-offs and recoveries, ASC 606 |
-| 7 | 📥 Payables and Expenses | Procure-to-pay, three-way match, purchase discounts, cutoff and accruals, W-9s and 1099s |
-| 8 | 📦 Inventory and COGS | Perpetual vs. periodic, FIFO/LIFO/average, inventory errors and LCNRV, freight and shrinkage |
-| 9 | 🏗️ Fixed Assets and Depreciation | Capitalization, SL/DDB/units of production, disposals, the asset register and impairment |
-| 10 | 👥 Payroll Accounting | Gross to net, employer taxes (FICA, FUTA, SUTA), payroll entries, accruals, 941/940/W-2 |
-| 11 | 🏛️ Debt, Sales Tax and Equity | Notes and interest, amortization and the current portion, sales tax, owners' equity |
-| 12 | 🗓️ The Month-End Close | Close checklist, balance-sheet reconciliations, flux analysis, JE review and materiality |
-| 13 | 🛡️ Controls, Audits and Ethics | COSO, segregation of duties, audits and PBC lists, the fraud triangle, professional ethics |
-| 14 | 📈 Analysis and Management Reporting | Liquidity, profitability and efficiency ratios, budget vs. actual, intercompany and consolidation |
-| 15 | 🧰 Tools of the Trade and Construction Accounting | QuickBooks Online, Excel for accountants, job costing and retainage, percentage of completion and the WIP schedule |
+| 1 | The Language of Business | The accounting equation, account types, debits and credits, normal balances, T-accounts |
+| 2 | Journal Entries and the Ledger | Entry anatomy and support, everyday transactions, posting, subledgers, the trial balance and error hunting |
+| 3 | Accrual Accounting and Adjustments | Cash vs. accrual, accruals, prepaids and unearned revenue, depreciation, the adjusted TB |
+| 4 | The Financial Statements | Multi-step income statement, classified balance sheet, indirect cash flows, closing entries |
+| 5 | Cash and Bank Reconciliations | Cash controls, petty cash, bank recs and their entries, company-card reconciliations |
+| 6 | Receivables and Revenue | Terms and discounts, the allowance and aging, write-offs and recoveries, ASC 606 |
+| 7 | Payables and Expenses | Procure-to-pay, three-way match, purchase discounts, cutoff and accruals, W-9s and 1099s |
+| 8 | Inventory and COGS | Perpetual vs. periodic, FIFO/LIFO/average, inventory errors and LCNRV, freight and shrinkage |
+| 9 | Fixed Assets and Depreciation | Capitalization, SL/DDB/units of production, disposals, the asset register and impairment |
+| 10 | Payroll Accounting | Gross to net, employer taxes (FICA, FUTA, SUTA), payroll entries, accruals, 941/940/W-2 |
+| 11 | Debt, Sales Tax and Equity | Notes and interest, amortization and the current portion, sales tax, owners' equity |
+| 12 | The Month-End Close | Close checklist, balance-sheet reconciliations, flux analysis, JE review and materiality |
+| 13 | Controls, Audits and Ethics | COSO, segregation of duties, audits and PBC lists, the fraud triangle, professional ethics |
+| 14 | Analysis and Management Reporting | Liquidity, profitability and efficiency ratios, budget vs. actual, intercompany and consolidation |
+| 15 | Tools of the Trade and Construction Accounting | QuickBooks Online, Excel for accountants, job costing and retainage, percentage of completion and the WIP schedule |
+
+## Unit plates
+Each unit has an engraved plate instead of an emoji, drawn in the style of old ledgers and
+business manuals: sepia ink, cross-hatching and parchment, numbered "Plate I" to "Plate XV".
+They're inline SVG in `art.js` (no image files), so they stay sharp at every size. Small
+tiles switch to heavier lines and coarser hatching so they stay readable on the home cards.
+
+In unit order: balance scale, quill and inkwell, hourglass, bound ledger volumes,
+counting-house safe, invoice scroll with wax seal, shipping crate, barrels and grain sack,
+meshing gears, pay envelope and coins, columned exchange, pocket watch, padlock and key,
+magnifying glass over a chart, and a timber derrick.
 
 ## 🎤 Interview prep
 A separate section (`#/prep`, linked from the top bar and home) with **43 commonly asked
@@ -71,10 +82,11 @@ card shows live "N done · XP".
 ## Files
 ```
 accounting/
-├── index.html        # loads core → accounts → units/u01…u15 → interview → app
+├── index.html        # loads core → accounts → units/u01…u15 → art → interview → app
 ├── core.js           # registry, answer checking, markup, progress rules (DOM-free)
 ├── accounts.js       # the chart of accounts every exercise draws from
 ├── units/u01.js …    # one file per unit: lessons, readings, exercises, answer keys
+├── art.js            # the engraved unit plates (inline SVG)
 ├── interview.js      # interview prep: sections, questions, why they're asked, model answers
 ├── app.js            # screens: home, unit, lesson, chart of accounts, profiles
 ├── styles.css

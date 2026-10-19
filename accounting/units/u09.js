@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u09",
   title: "Fixed Assets and Depreciation",
-  icon: "🏗️",
   blurb: "What to capitalize, three depreciation methods, disposals, the asset register and impairment.",
   lessons: [
     {

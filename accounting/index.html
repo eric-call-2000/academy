@@ -12,10 +12,30 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="app"><div class="boot">Opening the ledger… 📒</div></div>
+  <div id="app"><div class="boot">Opening the ledger…</div></div>
 
-  <!-- Rules first, then the chart of accounts, then every unit in path
-       order (tools/load.js reads this list, so tests see what you see). -->
+  <!-- Hatch patterns for the engraved unit plates (art.js). Fine ones
+       for large plates; coarse "-c" ones that small tiles switch to. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <pattern id="e-hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="3" height="3" fill="#efe4cc"/><line x1="0" y1="0" x2="0" y2="3" stroke="#3b2a1a" stroke-width="0.8"/>
+      </pattern>
+      <pattern id="e-cross" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="3" height="3" fill="#efe4cc"/><line x1="0" y1="0" x2="0" y2="3" stroke="#3b2a1a" stroke-width="0.9"/><line x1="0" y1="0" x2="3" y2="0" stroke="#3b2a1a" stroke-width="0.9"/>
+      </pattern>
+      <pattern id="e-hatch-c" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="6" height="6" fill="#efe4cc"/><line x1="0" y1="0" x2="0" y2="6" stroke="#3b2a1a" stroke-width="1.8"/>
+      </pattern>
+      <pattern id="e-cross-c" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="6" height="6" fill="#efe4cc"/><line x1="0" y1="0" x2="0" y2="6" stroke="#3b2a1a" stroke-width="2"/><line x1="0" y1="0" x2="6" y2="0" stroke="#3b2a1a" stroke-width="2"/>
+      </pattern>
+    </defs>
+  </svg>
+
+  <!-- Rules first, then the chart of accounts, every unit in path order,
+       the unit plates and interview prep (tools/load.js reads this list,
+       so tests see what you see). -->
   <script src="core.js"></script>
   <script src="accounts.js"></script>
   <script src="units/u01.js"></script>
@@ -33,6 +53,7 @@
   <script src="units/u13.js"></script>
   <script src="units/u14.js"></script>
   <script src="units/u15.js"></script>
+  <script src="art.js"></script>
   <script src="interview.js"></script>
   <script src="app.js"></script>
 </body>

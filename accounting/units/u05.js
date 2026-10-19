@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u05",
   title: "Cash and Bank Reconciliations",
-  icon: "🏦",
   blurb: "Protect cash, run petty cash, reconcile the bank and the company card — and book what you find.",
   lessons: [
     {

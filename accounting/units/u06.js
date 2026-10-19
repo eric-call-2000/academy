@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u06",
   title: "Receivables and Revenue",
-  icon: "🧾",
   blurb: "Invoices and terms, the allowance for bad debts, write-offs, and ASC 606 revenue recognition.",
   lessons: [
     {

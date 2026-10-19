@@ -1,7 +1,6 @@
 LEDGER.addUnit({
   id: "u13",
   title: "Controls, Audits and Ethics",
-  icon: "🛡️",
   blurb: "COSO, segregation of duties, surviving an audit, and recognizing fraud — and saying no.",
   lessons: [
     {
