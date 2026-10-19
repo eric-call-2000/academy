@@ -193,4 +193,29 @@ test("a list or table may follow its lead-in line directly", () => {
   assert.ok(/^<p>Controls:<\/p><ul><li>one<\/li><li>two<\/li><\/ul><p>After.<\/p><div class="tbl-wrap">/.test(html), html);
 });
 
+/* ---------- interview prep ---------- */
+test("saved interview answers: notes, ready marks, and blanks dropped", () => {
+  const p = L.freshProfile();
+  const q = L.allQuestions()[0].id;
+  L.setPrep(p, q, { note: "My answer" });
+  same(p.prep[q], { note: "My answer" });
+  L.setPrep(p, q, { ready: true });
+  same(p.prep[q], { note: "My answer", ready: true });
+  assert.strictEqual(L.readyCount(p), 1);
+  assert.strictEqual(L.readyCount(p, L.question(q).section), 1);
+  L.setPrep(p, q, { note: "", ready: false });
+  assert.strictEqual(q in p.prep, false, "an empty, un-ready entry is removed");
+  assert.strictEqual(L.readyCount(p), 0);
+});
+test("interview prep never touches XP or the Academy mirror", () => {
+  const p = L.freshProfile();
+  L.allQuestions().forEach((q) => L.setPrep(p, q.id, { note: "x", ready: true }));
+  assert.strictEqual(L.xp(p), 0);
+  same(L.academyMirror(p, "2026-10-19").completed, {});
+});
+test("old profiles gain an empty prep map", () => {
+  same(L.normalizeProfile({ done: {} }).prep, {});
+  same(L.normalizeProfile({ prep: [] }).prep, {});
+});
+
 console.log(passed + " tests passed" + (process.exitCode ? ", some FAILED" : ""));

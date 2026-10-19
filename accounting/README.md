@@ -28,6 +28,26 @@ streaks are shared with Academy.
 | 14 | 📈 Analysis and Management Reporting | Liquidity, profitability and efficiency ratios, budget vs. actual, intercompany and consolidation |
 | 15 | 🧰 Tools of the Trade and Construction Accounting | QuickBooks Online, Excel for accountants, job costing and retainage, percentage of completion and the WIP schedule |
 
+## 🎤 Interview prep
+A separate section (`#/prep`, linked from the top bar and home) with **43 commonly asked
+questions** for staff accountant, junior accountant, AP/AR and bookkeeping interviews, in six
+groups:
+
+| Section | Examples |
+|---|---|
+| 🙋 About you | Tell me about yourself · Why accounting? · Strengths and weaknesses · Changing careers |
+| 📘 Technical: fundamentals | Debits and credits · The three statements and how they link · "$10 of depreciation" · AP vs. accrued expenses · ASC 606 |
+| 🧮 Technical: the day-to-day work | Walk me through a close · Bank recs · An account that won't tie · AP controls · 1099s |
+| 🗣️ Behavioral (STAR) | An error you found · A mistake you made · Tight deadlines · Ethical pressure |
+| 💻 Software and Excel | QuickBooks · SUMIFS/XLOOKUP/PivotTables · Matching two lists · Spreadsheet accuracy |
+| ❓ Your questions, pay and follow-up | What to ask them · Salary expectations · Closing · The thank-you note |
+
+Each question has **why they ask it**, a **model answer** (hidden until you open it), links
+to the lessons to **review**, and a **Your answer** box that saves to your profile. Mark a
+question **✓ Ready** once you can answer it out loud. **Practice round** asks questions one at
+a time in random order, with the ones you haven't marked ready first. Prep pays no XP and
+doesn't affect lesson progress.
+
 ## Exercise types
 - **Journal entry** — pick accounts from the course's chart of accounts and put each amount
   on the debit or credit side. Live totals show whether the entry balances. An entry is judged by
@@ -51,10 +71,11 @@ card shows live "N done · XP".
 ## Files
 ```
 accounting/
-├── index.html        # loads core → accounts → units/u01…u15 → app (in path order)
+├── index.html        # loads core → accounts → units/u01…u15 → interview → app
 ├── core.js           # registry, answer checking, markup, progress rules (DOM-free)
 ├── accounts.js       # the chart of accounts every exercise draws from
 ├── units/u01.js …    # one file per unit: lessons, readings, exercises, answer keys
+├── interview.js      # interview prep: sections, questions, why they're asked, model answers
 ├── app.js            # screens: home, unit, lesson, chart of accounts, profiles
 ├── styles.css
 └── tools/
@@ -78,7 +99,9 @@ accounting/
 
 The validator fails on any journal-entry answer key that doesn't balance or uses an unknown
 account, a choice answer that doesn't point at an option, a sort category that's never used,
-a reading outside 120–600 words, or a lesson with fewer than 3 exercises.
+a reading outside 120–600 words, a lesson with fewer than 3 exercises, or an interview
+question without a "why", with a model answer outside 40–320 words, or with a review link
+to a lesson that doesn't exist.
 
 ## Accuracy notes
 Content follows US GAAP (FASB ASC) and current US payroll and information-reporting rules

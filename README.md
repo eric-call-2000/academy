@@ -119,7 +119,11 @@ Excel and construction job costing with the WIP schedule. Each lesson is a short
 by exercises where you **do the work**, such as building balanced journal entries from the chart of
 accounts, and the app checks each answer and explains it. Like the others it shares
 profiles through this app's store and mirrors its progress as track `accounting`. How it
-works is in [`accounting/README.md`](accounting/README.md).
+works is in [`accounting/README.md`](accounting/README.md). It also has an **🎤 Interview
+prep** section: 43 common accounting interview questions (about you, technical, the day-to-day
+work, behavioral, software and Excel, and your own questions), each with why it's asked, a
+model answer, links to the lessons to review, and a saved "your answer" box, plus a shuffled
+practice round.
 
 External cards take a `cta` in `tracks.js` for the text shown before any progress
 ("Write real code", "Read today's briefing").

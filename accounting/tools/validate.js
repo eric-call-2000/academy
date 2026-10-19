@@ -16,6 +16,8 @@
      sort exercises use only their own categories and use each one
    - the chart of accounts has unique ids and numbers, valid types,
      and numbers in the range for their type
+   - interview questions have unique ids, a "why", a model answer of
+     40–320 words, and review links that point at real lessons
 
    Usage: node tools/validate.js        exit 1 on any error
    ============================================================ */
@@ -97,10 +99,31 @@ L.units.forEach((u, ui) => {
   });
 });
 
+/* ---------- interview prep ---------- */
+const qids = {};
+if (!L.interview.length) err("interview.js", "no interview sections registered");
+L.interview.forEach((sec) => {
+  const w = "interview.js[" + sec.id + "]";
+  ["id", "title", "icon", "blurb"].forEach((k) => { if (!sec[k]) err(w, "missing " + k); });
+  if (!Array.isArray(sec.questions) || sec.questions.length < 3) { err(w, "needs at least 3 questions"); return; }
+  sec.questions.forEach((q) => {
+    const qw = w + " " + q.id;
+    if (!/^[a-z0-9-]+$/.test(q.id || "")) err(qw, "id must be lower-kebab-case");
+    if (qids[q.id]) err(qw, "id is also used in " + qids[q.id]);
+    qids[q.id] = sec.id;
+    if (!q.q || !/[?.)]$/.test(q.q.trim())) err(qw, "question must be a full sentence ending in ? or .");
+    if (!q.why) err(qw, "missing why");
+    const words = L.words(q.answer);
+    if (words < 40 || words > 320) err(qw, "model answer is " + words + " words (want 40–320)");
+    (q.lessons || []).forEach((id) => { if (!L.lesson(id)) err(qw, "review link to unknown lesson " + id); });
+  });
+});
+
 const lessons = L.allLessons().length;
 if (errors.length) {
   console.log(errors.length + " problem" + (errors.length === 1 ? "" : "s") + ":\n  " + errors.join("\n  "));
   process.exitCode = 1;
 } else {
-  console.log("OK — " + L.units.length + " units, " + lessons + " lessons, " + exercises + " exercises, " + L.accounts.length + " accounts.");
+  console.log("OK — " + L.units.length + " units, " + lessons + " lessons, " + exercises + " exercises, " + L.accounts.length + " accounts, " +
+    L.allQuestions().length + " interview questions in " + L.interview.length + " sections.");
 }

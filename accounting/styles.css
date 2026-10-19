@@ -55,7 +55,8 @@ button, input, select { font: inherit; color: inherit; }
 .brand { display: flex; align-items: center; gap: 8px; font-weight: 900; text-decoration: none; color: var(--ink); white-space: nowrap; }
 .brand-ic { font-size: 22px; }
 .top-nav { display: flex; gap: 14px; margin-left: 4px; }
-.top-nav a { color: var(--muted); font-weight: 700; text-decoration: none; font-size: 14px; }
+.top-nav a { color: var(--muted); font-weight: 700; text-decoration: none; font-size: 14px; white-space: nowrap; }
+@media (max-width: 400px) { .top-nav { gap: 10px; } .top-nav a { font-size: 13px; } }
 .top-nav a:hover { color: var(--accent); }
 .stats { margin-left: auto; display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 14px; white-space: nowrap; }
 .avatar {
@@ -218,3 +219,27 @@ table.coa td.num { width: 70px; text-align: left; color: var(--muted); }
   background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 12px; font-weight: 800; z-index: 20;
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---- interview prep ---- */
+.prep-card {
+  display: flex; align-items: center; gap: 14px; padding: 14px 16px; margin-top: 12px; border-radius: var(--radius);
+  background: var(--surface); box-shadow: var(--shadow); text-decoration: none; color: var(--ink);
+}
+.prep-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 14px 0 18px; }
+.qlist { display: grid; gap: 12px; }
+.qcard { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; scroll-margin-top: 70px; }
+.qcard-q { font-size: 18px; font-weight: 900; margin-bottom: 6px; }
+.qcard-why { font-size: 15px; color: var(--ink-2); margin-bottom: 4px; }
+.qcard-model { margin: 8px 0 4px; padding: 12px 14px; background: var(--surface-2); border-radius: 12px; font-size: 16.5px; }
+.qcard-model p:last-child, .qcard-model ul:last-child, .qcard-model ol:last-child, .qcard-model .callout:last-child { margin-bottom: 0; }
+.qcard-review { font-size: 14px; margin: 6px 0; }
+.qcard-review a { font-weight: 700; }
+.qcard-label { display: block; margin-top: 10px; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.qcard-note {
+  display: block; width: 100%; margin-top: 6px; padding: 10px 12px; border-radius: 12px; border: 2px solid var(--line);
+  background: var(--surface-2); font: 16px/1.5 var(--ui); resize: vertical; text-transform: none; letter-spacing: 0; color: var(--ink);
+}
+.qcard-note:focus { outline: none; border-color: var(--accent); }
+.qcard-foot { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+.saved { font-size: 13px; }
+.practice-stage { display: grid; gap: 12px; }

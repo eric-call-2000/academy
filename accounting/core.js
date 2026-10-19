@@ -57,6 +57,23 @@
     L._unitById[u.id] = u;
   };
   L.unit = function (id) { return L._unitById[id] || null; };
+
+  /* Interview prep (interview.js): sections of common questions, each
+     with why it's asked and a model answer. Not part of the lesson path
+     and pays no XP — it's a study aid with your own saved answers. */
+  L.interview = L.interview || [];
+  L._qById = L._qById || {};
+  L.addInterviewSection = function (sec) {
+    if (L.interview.some(function (x) { return x.id === sec.id; })) return;
+    L.interview.push(sec);
+    (sec.questions || []).forEach(function (q) { L._qById[q.id] = q; q.section = sec.id; });
+  };
+  L.question = function (id) { return L._qById[id] || null; };
+  L.allQuestions = function () {
+    var out = [];
+    L.interview.forEach(function (s) { (s.questions || []).forEach(function (q) { out.push(q); }); });
+    return out;
+  };
   L.unitIdOf = function (lessonId) { return String(lessonId || "").split("-")[0]; };
   L.lesson = function (lessonId) {
     var u = L.unit(L.unitIdOf(lessonId));
@@ -290,7 +307,8 @@
       days: [],       // study days, sorted, unique
       unitsDone: {},  // unitId -> day every lesson in it was finished
       clean: {},      // lessonId -> true if finished with no wrong answers
-      last: null      // lessonId most recently opened
+      last: null,     // lessonId most recently opened
+      prep: {}        // interview questionId -> { note: "your answer", ready: true }
     };
   };
   L.normalizeProfile = function (p) {
@@ -298,7 +316,24 @@
     p = p && typeof p === "object" ? p : {};
     Object.keys(f).forEach(function (k) { if (p[k] == null) p[k] = f[k]; });
     if (!Array.isArray(p.days)) p.days = [];
+    if (typeof p.prep !== "object" || Array.isArray(p.prep)) p.prep = {};
     return p;
+  };
+  /* Your saved answer and "I'm ready" mark for an interview question.
+     Blank notes that aren't marked ready are dropped, so the profile
+     only stores what you actually wrote. */
+  L.setPrep = function (profile, qid, patch) {
+    var cur = profile.prep[qid] || {};
+    if ("note" in patch) cur.note = String(patch.note || "").slice(0, 4000);
+    if ("ready" in patch) cur.ready = !!patch.ready;
+    if (!cur.note && !cur.ready) delete profile.prep[qid];
+    else profile.prep[qid] = cur;
+    return profile.prep[qid] || null;
+  };
+  L.readyCount = function (profile, sectionId) {
+    return L.allQuestions().filter(function (q) {
+      return (!sectionId || q.section === sectionId) && profile.prep[q.id] && profile.prep[q.id].ready;
+    }).length;
   };
   L.doneCount = function (profile, unitId) {
     return Object.keys(profile.done || {}).filter(function (id) {

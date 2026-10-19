@@ -112,7 +112,7 @@
     var bar = el("header", "topbar");
     bar.innerHTML =
       '<a class="brand" href="#/"><span class="brand-ic">📒</span><span>Accounting Lab</span></a>' +
-      '<nav class="top-nav"><a href="#/chart">Chart</a><a href="../" title="Back to Academy">Academy ↗</a></nav>' +
+      '<nav class="top-nav"><a href="#/prep">Interview</a><a href="#/chart">Chart</a><a href="../" title="Back to Academy">Academy ↗</a></nav>' +
       (p ? '<div class="stats"><span title="Day streak">🔥 ' + L.streak(p.days, today()) + '</span><span title="XP">⭐ ' + L.xp(p) + "</span>" +
         '<a class="avatar" href="#/profiles" title="Switch profile">' + esc(initial(store.currentUser)) + "</a></div>" : "");
     return bar;
@@ -175,6 +175,17 @@
       main.appendChild(card);
     } else {
       main.appendChild(el("div", "continue done-all", "<b>🎓 Every lesson finished.</b> Redo any lesson for practice — the checks still run."));
+    }
+
+    var qs = L.allQuestions().length;
+    if (qs) {
+      var prep = el("a", "prep-card");
+      prep.href = "#/prep";
+      prep.innerHTML = '<span class="cont-ic">🎤</span><span class="cont-text"><span class="eyebrow">Interview prep · ' +
+        L.readyCount(p) + "/" + qs + ' ready</span><b>Get ready for the interview</b><span class="muted">' +
+        "The questions accounting interviewers actually ask, why they ask them, model answers — and your own, saved.</span></span>" +
+        '<span class="go">Open →</span>';
+      main.appendChild(prep);
     }
 
     main.appendChild(el("h2", "h2", "Units"));
@@ -524,12 +535,176 @@
     };
   }
 
+  /* ---------- interview prep ----------
+     #/prep               every section, with how many you've marked ready
+     #/prep/<section>     the questions: why they ask, model answer, yours
+     #/prep/practice[/s]  one question at a time, shuffled — answer out
+                          loud first, then compare with the model       */
+  function renderPrep() {
+    var p = me();
+    if (!p) return renderProfiles(true);
+    var main = page();
+    var all = L.allQuestions();
+    main.appendChild(el("div", "eyebrow", "Interview prep"));
+    main.appendChild(el("h1", "h1", "Get ready for the interview"));
+    main.appendChild(el("p", "muted", "Common questions for staff accountant, AP/AR and junior accountant roles. For each one: why they ask it, " +
+      "a model answer, and space for your own answer, which is saved to your profile. Mark a question ✓ ready once you can answer it out loud without notes."));
+    var start = el("div", "prep-actions");
+    var go = el("a", "btn", "🎲 Practice round"); go.href = "#/prep/practice";
+    start.appendChild(go);
+    start.appendChild(el("span", "muted", L.readyCount(p) + " of " + all.length + " ready"));
+    main.appendChild(start);
+    var grid = el("div", "units");
+    L.interview.forEach(function (sec) {
+      var r = L.readyCount(p, sec.id), t = sec.questions.length;
+      var a = el("a", "unit-card" + (r === t ? " complete" : ""));
+      a.href = "#/prep/" + sec.id;
+      a.innerHTML = '<span class="unit-ring">' + ring(r, t, 46) + '<span class="unit-ic">' + sec.icon + "</span></span>" +
+        '<span class="unit-text"><span class="eyebrow">' + r + "/" + t + " ready</span><b>" + esc(sec.title) +
+        '</b><span class="muted">' + esc(sec.blurb) + "</span></span>";
+      grid.appendChild(a);
+    });
+    main.appendChild(grid);
+  }
+
+  /* One question card. open: start with the model answer showing. */
+  function questionCard(q, p, open) {
+    var card = el("article", "qcard");
+    card.id = "q-" + q.id;
+    var mine = p.prep[q.id] || {};
+    card.appendChild(el("h3", "qcard-q", esc(q.q)));
+    card.appendChild(el("p", "qcard-why", "<b>Why they ask:</b> " + L.inline(q.why)));
+    var model = el("div", "qcard-model reading" + (open ? "" : " hidden"), L.md(q.answer));
+    var toggle = el("button", "link-btn", open ? "Hide model answer" : "Show model answer");
+    toggle.type = "button";
+    toggle.onclick = function () {
+      var hide = !model.classList.contains("hidden");
+      model.classList.toggle("hidden", hide);
+      toggle.textContent = hide ? "Show model answer" : "Hide model answer";
+    };
+    card.appendChild(toggle);
+    card.appendChild(model);
+    if (q.lessons && q.lessons.length) {
+      var rev = el("p", "qcard-review muted", "Review: ");
+      q.lessons.forEach(function (id, i) {
+        var l = L.lesson(id);
+        if (!l) return;
+        if (i) rev.appendChild(document.createTextNode(" · "));
+        var a = el("a", "", esc(l.title)); a.href = "#/l/" + id;
+        rev.appendChild(a);
+      });
+      card.appendChild(rev);
+    }
+    var lab = el("label", "qcard-label", "Your answer");
+    var ta = el("textarea", "qcard-note");
+    ta.rows = 4;
+    ta.placeholder = "Write it in your own words, with your own example…";
+    ta.value = mine.note || "";
+    lab.appendChild(ta);
+    card.appendChild(lab);
+    var row = el("div", "qcard-foot");
+    var saved = el("span", "muted saved", "");
+    var ready = el("button", "pill" + (mine.ready ? " on" : ""), mine.ready ? "✓ Ready" : "Mark ready");
+    ready.type = "button";
+    var timer = null;
+    ta.oninput = function () {
+      saved.textContent = "Saving…";
+      clearTimeout(timer);
+      timer = setTimeout(function () { L.setPrep(p, q.id, { note: ta.value }); saveStore(); saved.textContent = "Saved"; }, 400);
+    };
+    ready.onclick = function () {
+      var now = !(p.prep[q.id] && p.prep[q.id].ready);
+      clearTimeout(timer);
+      L.setPrep(p, q.id, { note: ta.value, ready: now });
+      saveStore();
+      ready.classList.toggle("on", now);
+      ready.textContent = now ? "✓ Ready" : "Mark ready";
+      saved.textContent = "Saved";
+    };
+    row.appendChild(ready); row.appendChild(saved);
+    card.appendChild(row);
+    return card;
+  }
+
+  function renderPrepSection(id) {
+    var p = me();
+    if (!p) return renderProfiles(true);
+    var sec = null;
+    L.interview.forEach(function (s) { if (s.id === id) sec = s; });
+    if (!sec) { location.hash = "#/prep"; return; }
+    var main = page();
+    main.appendChild(el("a", "crumb", "← Interview prep")).href = "#/prep";
+    var head = el("div", "unit-head");
+    head.innerHTML = '<span class="unit-big">' + sec.icon + '</span><div><div class="eyebrow">' + plural(sec.questions.length, "question") +
+      '</div><h1 class="h1">' + esc(sec.title) + '</h1><p class="muted">' + esc(sec.blurb) + "</p></div>";
+    main.appendChild(head);
+    var act = el("div", "prep-actions");
+    var go = el("a", "btn ghost", "🎲 Practice this section"); go.href = "#/prep/practice/" + sec.id;
+    act.appendChild(go);
+    main.appendChild(act);
+    var list = el("div", "qlist");
+    sec.questions.forEach(function (q) { list.appendChild(questionCard(q, p, false)); });
+    main.appendChild(list);
+  }
+
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  function renderPractice(sectionId) {
+    var p = me();
+    if (!p) return renderProfiles(true);
+    var pool = L.allQuestions().filter(function (q) { return !sectionId || q.section === sectionId; });
+    if (!pool.length) { location.hash = "#/prep"; return; }
+    /* Questions you haven't marked ready come first. */
+    var order = shuffle(pool.filter(function (q) { return !(p.prep[q.id] && p.prep[q.id].ready); }))
+      .concat(shuffle(pool.filter(function (q) { return p.prep[q.id] && p.prep[q.id].ready; })));
+    var i = 0;
+    var main = page();
+    main.appendChild(el("a", "crumb", "← Interview prep")).href = sectionId ? "#/prep/" + sectionId : "#/prep";
+    main.appendChild(el("div", "eyebrow", "Practice round"));
+    main.appendChild(el("h1", "h1", "Answer out loud, then compare"));
+    main.appendChild(el("p", "muted", "Say your answer as if the interviewer just asked. Aim for under two minutes. Then open the model answer, tighten yours, and mark it ready."));
+    var bar = el("div", "progress", "<span></span>");
+    main.appendChild(bar);
+    var stage = el("div", "practice-stage");
+    main.appendChild(stage);
+    function show() {
+      stage.innerHTML = "";
+      bar.firstChild.style.width = (100 * i / order.length) + "%";
+      if (i >= order.length) {
+        var done = el("div", "finish");
+        done.innerHTML = '<div class="finish-ic">🎤</div><h2 class="h2">Round complete</h2><p class="muted">' + order.length +
+          " questions practiced · " + L.readyCount(p) + " of " + L.allQuestions().length + " marked ready.</p>";
+        var actions = el("div", "finish-actions");
+        var again = el("button", "btn", "Another round"); again.onclick = function () { renderPractice(sectionId); };
+        var back = el("a", "btn ghost", "Back to prep"); back.href = "#/prep";
+        actions.appendChild(again); actions.appendChild(back);
+        done.appendChild(actions);
+        stage.appendChild(done);
+        return;
+      }
+      var q = order[i];
+      stage.appendChild(el("div", "eyebrow", "Question " + (i + 1) + " of " + order.length));
+      stage.appendChild(questionCard(q, p, false));
+      var nav = el("div", "finish-actions");
+      var next = el("button", "btn", i + 1 < order.length ? "Next question →" : "Finish");
+      next.onclick = function () { i++; show(); window.scrollTo(0, 0); };
+      nav.appendChild(next);
+      stage.appendChild(nav);
+    }
+    show();
+  }
+
   /* ---------- router ---------- */
   function route() {
     var h = location.hash.replace(/^#\/?/, "");
     var parts = h.split("/");
     if (parts[0] === "l" && parts[1]) return renderLesson(decodeURIComponent(parts[1]));
     if (parts[0] === "u" && parts[1]) return renderUnit(decodeURIComponent(parts[1]));
+    if (parts[0] === "prep" && parts[1] === "practice") return renderPractice(parts[2] ? decodeURIComponent(parts[2]) : null);
+    if (parts[0] === "prep" && parts[1]) return renderPrepSection(decodeURIComponent(parts[1]));
+    if (parts[0] === "prep") return renderPrep();
     if (parts[0] === "chart") return renderChart();
     if (parts[0] === "profiles") return renderProfiles(false);
     renderHome();

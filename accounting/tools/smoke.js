@@ -163,6 +163,38 @@ async function answer(step, ex) {
   const total = L.allLessons().reduce((s, l) => s + l.steps.length, 0);
   check("every exercise accepts its answer key through the UI", solved === total, solved + "/" + total);
 
+  /* interview prep */
+  const firstSec = L.interview[0], firstQ = firstSec.questions[0];
+  await page.goto(base + "/accounting/#/prep");
+  await page.waitForSelector(".unit-card");
+  check("prep lists every section", (await page.locator(".unit-card").count()) === L.interview.length);
+  await page.goto(base + "/accounting/#/prep/" + firstSec.id);
+  await page.waitForSelector(".qcard");
+  check("a section shows all its questions", (await page.locator(".qcard").count()) === firstSec.questions.length);
+  const card1 = page.locator("#q-" + firstQ.id);
+  check("model answers start hidden", await card1.locator(".qcard-model").isHidden());
+  await card1.locator("button", { hasText: "Show model answer" }).click();
+  check("Show model answer reveals it", await card1.locator(".qcard-model").isVisible());
+  await card1.locator("textarea").fill("Finance grad who loves a reconciliation that ties.");
+  await card1.locator("button", { hasText: "Mark ready" }).click();
+  await page.reload();
+  await page.waitForSelector(".qcard");
+  check("your answer is saved", (await page.locator("#q-" + firstQ.id + " textarea").inputValue()) === "Finance grad who loves a reconciliation that ties.");
+  check("the ready mark is saved", /Ready/.test(await page.locator("#q-" + firstQ.id + " .pill").textContent()));
+  const linked = L.allQuestions().find((q) => q.lessons && q.lessons.length);
+  await page.goto(base + "/accounting/#/prep/" + linked.section);
+  await page.waitForSelector(".qcard");
+  await page.locator("#q-" + linked.id + " .qcard-review a").first().click();
+  await page.waitForSelector(".reading");
+  check("review links open the lesson", page.url().endsWith("#/l/" + linked.lessons[0]));
+  await page.goto(base + "/accounting/#/prep/practice/" + firstSec.id);
+  await page.waitForSelector(".practice-stage .qcard");
+  check("practice puts un-ready questions first", (await page.locator(".practice-stage .qcard-q").textContent()) !== firstQ.q);
+  for (let i = 0; i < firstSec.questions.length; i++) {
+    await page.locator(".practice-stage .finish-actions .btn").click();
+  }
+  check("a practice round runs to the end", /Round complete/.test(await page.locator(".practice-stage").textContent()));
+
   /* progress and the Academy bridge */
   const store = await page.evaluate(() => JSON.parse(localStorage.getItem("academy_users_v1")));
   const mirror = store && store.users && store.users["Smoke Tester"] && store.users["Smoke Tester"].tracks.accounting;
@@ -196,6 +228,10 @@ async function answer(step, ex) {
         await p.waitForSelector(".step");
         await p.locator(".step").first().scrollIntoViewIfNeeded();
         await p.screenshot({ path: path.join(SHOTS, "lesson-" + vp.n + "-" + scheme + ".png"), fullPage: false });
+        await p.goto(base + "/accounting/#/prep/" + L.interview[2].id);
+        await p.waitForSelector(".qcard");
+        await p.locator(".qcard").first().locator("button", { hasText: "Show model answer" }).click();
+        await p.screenshot({ path: path.join(SHOTS, "prep-" + vp.n + "-" + scheme + ".png"), fullPage: false });
         await c.close();
       }
     }
