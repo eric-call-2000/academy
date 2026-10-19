@@ -22,6 +22,11 @@ window.ACADEMY.defineTrack({ id: "fullstack", prefix: "fullstack", count: 0, lin
    briefings on 30 countries. Like CodeLab it writes its progress back into
    this store, as track id "politics". */
 window.ACADEMY.defineTrack({ id: "politics", prefix: "politics", count: 0, link: "politics/", cta: "Read today's briefing", title: "Political Academy", icon: "🗳️", color: "#1f4e79", blurb: "The world's 30 most important countries — who holds power, what just happened, and what to watch." });
+/* External track: Accounting Lab (accounting/), a hands-on course in
+   professional accounting: you post the journal entries, reconcile and
+   close the month, and the app checks each answer. Like the others it
+   writes its progress back into this store, as track id "accounting". */
+window.ACADEMY.defineTrack({ id: "accounting", prefix: "accounting", count: 0, link: "accounting/", cta: "Post your first entry", title: "Accounting Lab", icon: "📒", color: "#0f6b5c", blurb: "Professional accounting, hands-on — journal entries, reconciliations, payroll, the close and more." });
 window.ACADEMY.defineTrack({ id: "sysdesign", prefix: "sysdesign", count: 25, title: "System Design", icon: "🏛️", color: "#eab308", blurb: "Architect at AI speed — distributed systems, trade-offs, and running agents at the max level." });
 window.ACADEMY.defineTrack({ id: "marketing", prefix: "marketing", count: 8, title: "Marketing", icon: "📣", color: "#ff9600", blurb: "Reach and grow an audience — brand, content, channels and growth." });
 window.ACADEMY.defineTrack({ id: "obs", prefix: "obs", count: 8, title: "OBS Studio", icon: "🎥", color: "#4b5bd4", blurb: "Record studio-quality video with OBS — scenes, sources, audio, encoding and clean exports." });

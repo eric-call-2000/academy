@@ -9,6 +9,7 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 |-------|-------|---------|----------------|
 | 🧑‍💻 Full-Stack Coding Lab ↗ | 8 courses | 205 items | **Interactive coding** in [CodeLab](codelab/) — write real HTML/CSS/JS/APIs in a browser sandbox; shares this app's profiles & XP |
 | 🗳️ Political Academy ↗ | 30 countries + 85 relationships | 615 briefings | **Daily reading** in [Political Academy](politics/) — illustrated briefings on the world's 30 most important countries; shares this app's profiles & XP |
+| 📒 Accounting Lab ↗ | 15 units | 60 lessons | **Hands-on professional accounting** in the [Accounting Lab](accounting/) — post journal entries, reconcile, run payroll and close the month; every answer is checked; shares this app's profiles & XP |
 | 🤖 AI & Coding | 16 | 128 | Using AI well — Claude, prompting, models, capabilities, coding, agents, safety |
 | 🏛️ System Design | 25 | 200 | Architecting at scale — distributed systems, trade-offs, and running agents at the max level |
 | 📣 Marketing | 8 | 64 | Brand, audience, content, channels, metrics, growth, and marketing with AI |
@@ -28,8 +29,9 @@ Built on the same lesson engine as Hard Hat Academy and AI Academy, unified behi
 | ♟️ Evolutionary Game Theory | 25 | 192 | The math of cooperation and conflict — ESS, Hawk-Dove, the evolution of strategy |
 
 **14,235 quiz questions across 2,056 lessons in 261 units, over 17 quiz tracks** — plus
-CodeLab's 205 interactive coding items as an eighteenth, external track, and Political
-Academy's 615 reading briefings as a nineteenth.
+CodeLab's 205 interactive coding items as an eighteenth, external track, Political
+Academy's 615 reading briefings as a nineteenth, and the Accounting Lab's 60 hands-on
+lessons (212 checked exercises) as a twentieth.
 
 *(Counted from the unit files on 2026-09-19. If you add units, recount rather than
 guessing — this table was wrong by more than double before it was last checked.)*
@@ -78,10 +80,11 @@ academy/
 ├── egt-unit1.js … egt-unit25.js
 ├── codelab/                # the external Full-Stack Coding Lab app
 ├── politics/               # the external Political Academy app (daily briefings)
+├── accounting/             # the external Accounting Lab app (hands-on accounting)
 └── obs/                     # overlay assets the OBS Overlays track teaches
 ```
 261 unit files, all flat at the root — no subfolders — so uploading to a static host is
-drag-and-drop simple. Three folders are the exceptions: `codelab/` and `politics/` are whole apps of their own,
+drag-and-drop simple. Four folders are the exceptions: `codelab/`, `politics/` and `accounting/` are whole apps of their own,
 and `obs/` holds the stream-overlay assets (standby, facecam, alerts, goal bar, stinger)
 that the OBS Overlays track is built around — hosted alongside Academy so the course can
 link to the live demos.
@@ -104,6 +107,19 @@ through this app's store and mirrors its progress as track `politics`, so the ca
 live "N done · XP". The plan is in [`politics-curriculum.md`](politics-curriculum.md), and
 how it works is in [`politics/README.md`](politics/README.md). All 30 countries are written,
 from the United States to Nigeria; dispatches and refreshes keep them current.
+
+## The Accounting Lab card
+The 📒 card is a third external track. It opens the **Accounting Lab**
+([`accounting/`](accounting/)), a hands-on course in professional accounting: 15 units
+from the accounting equation through journal entries, adjustments, the financial
+statements, bank reconciliations, receivables (including ASC 606), payables and 1099s,
+inventory, fixed assets, payroll, debt and sales tax, the month-end close, internal
+controls and audits, ratio analysis and consolidation, and finally QuickBooks Online,
+Excel and construction job costing with the WIP schedule. Each lesson is a short reading followed
+by exercises where you **do the work**, such as building balanced journal entries from the chart of
+accounts, and the app checks each answer and explains it. Like the others it shares
+profiles through this app's store and mirrors its progress as track `accounting`. How it
+works is in [`accounting/README.md`](accounting/README.md).
 
 External cards take a `cta` in `tracks.js` for the text shown before any progress
 ("Write real code", "Read today's briefing").

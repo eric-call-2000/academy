@@ -1,0 +1,28 @@
+name: Accounting Lab
+
+on:
+  pull_request:
+    paths:
+      - "accounting/**"
+      - "tracks.js"
+      - ".github/workflows/accounting.yml"
+  push:
+    branches: [main]
+    paths:
+      - "accounting/**"
+      - "tracks.js"
+      - ".github/workflows/accounting.yml"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Both are dependency-free: they load the app's scripts the way the browser does.
+      - name: Checking and progress-rule tests
+        run: node accounting/tools/test-core.js
+      - name: Content validator (every answer key balances)
+        run: node accounting/tools/validate.js
