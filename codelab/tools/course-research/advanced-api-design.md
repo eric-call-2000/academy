@@ -74,10 +74,57 @@ content, so the number comes down to what actually got written: 28 lessons, 2
 projects and 8 quizzes. Four is what that is worth, and the validator re-derives it
 from the files rather than taking the manifest's word for it.
 
-The market is thin here in exactly the way the Docker and CI/CD research found —
-it teaches API *consumption* and REST *basics*. Nobody grades you on writing a
-limiter that returns the right `Retry-After`, or on a cursor that survives a
-concurrent insert. That gap is the course.
+### The market this is sized against
+
+> **Sourcing caveat.** The sandbox's network policy refused direct fetches to
+> `codecademy.com`, `boot.dev`, `rfc-editor.org` and `docs.stripe.com` (403 at the
+> agent proxy). Every figure below comes from search-engine snippets *of* those
+> pages rather than from the pages themselves, so the hour counts are
+> page-snapshot values and should be spot-checked before they are quoted anywhere
+> public. The RFC *numbers and contents* were cross-checked against more than one
+> source each; the course hours were not.
+
+**Codecademy has no general "Learn: APIs" course at all.** The only thing in their
+catalog titled after API design is
+[API Development with Swagger and OpenAPI](https://www.codecademy.com/learn/api-development-with-swagger-and-openapi)
+— **under one hour, one quiz, no projects**, and scoped to "the design and
+documentation stage". Everything else is either a framework course that happens to
+build an API ([Learn Express](https://www.codecademy.com/learn/learn-express),
+~5h, routing mechanics), client-side consumption
+([Learn JavaScript: Requests](https://www.codecademy.com/learn/learn-javascript-requests),
+~2h), or a vendor SDK course. They have no GraphQL course either.
+
+| Course | Length | Graded? |
+|---|---|---|
+| [Codecademy — API Development with Swagger and OpenAPI](https://www.codecademy.com/learn/api-development-with-swagger-and-openapi) | under 1h | one quiz, no projects |
+| [Codecademy — Learn Express](https://www.codecademy.com/learn/learn-express) | ~5h | yes, but routing not contract design |
+| [Pluralsight — Designing RESTful Web APIs](https://www.pluralsight.com/courses/restful-web-apis-designing) | 1h 47m | **no** — video only |
+| [Frontend Masters — API Design in Node.js v5](https://frontendmasters.com/courses/api-design-nodejs-v5/) | ~10h | **no** — video only |
+| [Boot.dev — Learn HTTP Servers in Go](https://www.boot.dev/courses/learn-http-servers) | 24h | yes — but Go server mechanics |
+
+The shape of the gap: the **graded** market tops out at Boot.dev's 24h and teaches
+*Go HTTP server mechanics*. The **design-focused** market tops out at Frontend
+Masters' ~10h of **ungraded video**, whose published outline has no pagination and
+no versioning section at all. Nobody at any length assesses idempotency keys,
+cursor-pagination contracts, conditional writes or versioning strategy.
+
+So 7.9h of graded work on exactly those things is not an outlier — it is the first
+entrant in an empty quadrant, and if anything it is the *conservative* size.
+
+### Standards this course cites, and their real status
+
+Checked because an "Advanced" course that cites an obsoleted RFC teaches the wrong
+thing confidently:
+
+| Cited as | Actual status |
+|---|---|
+| **RFC 9457** Problem Details | Proposed Standard, July 2023. **Obsoletes RFC 7807** — cite 9457, not 7807. |
+| **RFC 9110** HTTP Semantics | **STD 97.** Obsoletes 7231/7232/7233/7235. `If-Match` uses *strong* comparison, so a weak ETag never matches — which is why unit 4 generates strong ones. |
+| **RFC 6585** 428 / 429 | Standards Track, 2012. Defines both. `Retry-After` on a 429 is a MAY, not a MUST. |
+| **RFC 8594** Sunset | Informational. Pairs with the separate `Deprecation` draft. |
+| **RFC 8288** Web Linking | Standards Track. `Link` with `rel="next"`. |
+| `RateLimit-*` budget headers | **No RFC.** The IETF draft is at -11 and has *consolidated* the three fields into one structured `RateLimit` field. The three-header form unit 6 teaches is deployed convention, and the course says so rather than implying a standard. |
+| `Idempotency-Key` | **No RFC** — Internet-Draft -07. Stripe is the canonical implementation; its 24h is a deletion-eligibility minimum, not a hard expiry. |
 
 **Not a required course on any sheet.** All seven position sheets are junior-level
 by design, and no junior is screened on RFC 9457 or keyset pagination. `api` is an

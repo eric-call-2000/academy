@@ -15,7 +15,7 @@
       { h: "Token bucket", lang: "js", code: "tokens = min(cap, tokens + elapsed * rate)\nif (tokens >= 1) { tokens -= 1; allow }\nelse refuse", note: "Refills continuously, so there is no boundary to game. A full bucket permits a burst up to its capacity, which is usually what you want: bursty clients are normal, sustained floods are not." },
       { h: "Sliding window log", lang: "js", code: "hits = hits.filter(t => t > now() - windowMs)\nif (hits.length < limit) { hits.push(now()) }", note: "Exact: the limit holds over EVERY window, not just the aligned ones. Costs memory proportional to the limit, since you keep one timestamp per request." },
       { h: "429 with Retry-After", lang: "js", code: "{ status: 429,\n  headers: { \"Retry-After\": \"30\" } }", note: "RFC 6585 + RFC 9110. Seconds, as an integer. Without it every client invents its own backoff and the polite ones are punished for guessing high." },
-      { h: "Publish the budget, not just the refusal", lang: "js", code: "RateLimit-Limit: 5\nRateLimit-Remaining: 2\nRateLimit-Reset: 30", note: "On EVERY response, not only the 429 — a client that can see it coming can slow down instead of hitting the wall. GitHub ships the same idea as X-RateLimit-*." },
+      { h: "Publish the budget, not just the refusal", lang: "js", code: "RateLimit-Limit: 5\nRateLimit-Remaining: 2\nRateLimit-Reset: 30", note: "On EVERY response, not only the 429 — a client that can see it coming can slow down instead of hitting the wall. This three-header form is what is widely deployed (GitHub ships it as X-RateLimit-*); the IETF draft that standardises the idea has since consolidated it into a single structured `RateLimit` field, and is still a draft." },
       { h: "Limit per what?", lang: "js", code: "// per API key   — the usual answer\n// per IP        — for unauthenticated routes\n// per endpoint  — a search costs more\n//                 than a health check", note: "A single global counter punishes your smallest customer for your largest one's traffic. The key you count against is a design decision, not a detail." }
     ],
     lessons: [
@@ -583,7 +583,7 @@ T.expect(rude.filter(s => s === 429).length > 0, 'while a client that ignores th
               "So the server can distinguish clients that respect the limit from those that do not"
             ],
             answer: 1,
-            explain: "A limiter that only speaks when it refuses forces every client to discover its budget by hitting the wall. Publishing the remaining allowance continuously lets a well-behaved client pace itself and never generate a 429 at all. RFC 6585 defines 429 and `Retry-After`, not these headers — the `RateLimit-*` family comes from a separate IETF draft, and GitHub's `X-RateLimit-*` predates it."
+            explain: "A limiter that only speaks when it refuses forces every client to discover its budget by hitting the wall. Publishing the remaining allowance continuously lets a well-behaved client pace itself and never generate a 429 at all. Note what is and is not standardised: RFC 6585 defines 429 and `Retry-After`, but no RFC defines these budget headers. The three-field form here is convention — GitHub's `X-RateLimit-*` is the best-known version — while the IETF draft on the subject has moved to a single structured `RateLimit` field and remains a draft."
           },
           {
             q: "A client is refused. What distinguishes `429` from `403` and `503` here?",

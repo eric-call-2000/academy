@@ -14,7 +14,7 @@
       { h: "Replay the response, don't redo the work", lang: "js", code: "const hit = keys.get(key);\nif (hit) return hit.response;   // byte for byte", note: "A retry must get the ORIGINAL 201 and the original order id, not a fresh 200 or a second order. The client cannot tell it retried, which is the point." },
       { h: "The key covers one specific request", lang: "js", code: "// same key, different body -> 422\n// It is not a lock on the\n// endpoint; it names ONE operation.", note: "Replaying the stored response for a different body would answer a question nobody asked. Stripe refuses this case too rather than guessing." },
       { h: "In flight is not the same as done", lang: "js", code: "// first request still running\n// retry arrives -> 409 Conflict\n//   \"that key is in progress, wait\"", note: "There is no stored response to replay yet. Saying 409 is honest; starting the work twice is the bug you were preventing." },
-      { h: "Keys expire", lang: "js", code: "// Stripe keeps them 24h.\nif (now() - hit.at > TTL) keys.delete(key);", note: "A key store that never expires grows forever. The TTL just has to outlive any plausible retry — hours, not seconds." }
+      { h: "Keys expire", lang: "js", code: "// Stripe: eligible for deletion at 24h.\nif (now() - hit.at > TTL) keys.delete(key);", note: "A key store that never expires grows forever, and the TTL only has to outlive a plausible retry — hours, not seconds. Stripe's 24 hours is a MINIMUM rather than a hard expiry: a key becomes eligible for deletion once it is at least a day old." }
     ],
     lessons: [
 
