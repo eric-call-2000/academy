@@ -58,6 +58,25 @@
   };
   L.unit = function (id) { return L._unitById[id] || null; };
 
+  /* The path in four parts, so the home screen reads as a course
+     rather than a list. Every unit belongs to exactly one part
+     (tools/validate.js checks). */
+  L.PARTS = [
+    { title: "Foundations", blurb: "The equation, the entries, the adjustments and the statements.", units: ["u01", "u02", "u03", "u04"] },
+    { title: "The transaction cycles", blurb: "Where the day-to-day work happens, one area of the books at a time.", units: ["u05", "u06", "u07", "u08", "u09", "u10", "u11"] },
+    { title: "Close and controls", blurb: "Turn a month of transactions into numbers people can trust.", units: ["u12", "u13"] },
+    { title: "Professional practice", blurb: "Analysis, the tools of the trade, and construction accounting.", units: ["u14", "u15"] }
+  ];
+  /* Rough study time: reading at ~200 words a minute plus about a
+     minute and a half per exercise, rounded to the nearest 5. */
+  L.lessonMinutes = function (lesson) {
+    return L.words(lesson.read) / 200 + (lesson.steps || []).length * 1.5;
+  };
+  L.unitMinutes = function (u) {
+    var m = (u.lessons || []).reduce(function (s, l) { return s + L.lessonMinutes(l); }, 0);
+    return Math.max(5, Math.round(m / 5) * 5);
+  };
+
   /* Interview prep (interview.js): sections of common questions, each
      with why it's asked and a model answer. Not part of the lesson path
      and pays no XP — it's a study aid with your own saved answers. */
