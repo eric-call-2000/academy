@@ -130,7 +130,10 @@ External cards take a `cta` in `tracks.js` for the text shown before any progres
 
 ## Adding content
 - **Add a unit to a track:** drop in `<track>-unitN.js` (next number) and bump that track's `count` in `tracks.js`. See `unit-template.txt` for the shape.
-- **Add a whole new track:** add a `defineTrack({...})` line in `tracks.js` with a new `id`/`prefix`, then add `<prefix>-unit1.js …` files. It appears on the picker automatically.
+- **Add a whole new track:** add a `defineTrack({...})` line in `tracks.js` with a new `id`/`prefix`, then add `<prefix>-unit1.js …` files. It appears in the catalog automatically.
+  Give it a `category` (one of `window.ACADEMY.categories` in `tracks.js`, which sets the catalog group) and an `art` key
+  (one of the line drawings in `COURSE_ART` near the top of `app.js`). A track without `art` shows its emoji `icon`;
+  one without a known `category` lands under "More courses". Keep `color` dark enough for white text on it.
 
 ## Hosting
 
