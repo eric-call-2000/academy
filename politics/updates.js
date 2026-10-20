@@ -56,3 +56,22 @@ window.POLITICS.addUpdate({
     { title: "Quebec election win for separatists could crimp Carney's response to Trump", publisher: "U.S. News & World Report (Reuters)", url: "https://www.usnews.com/news/world/articles/2026-10-05/quebec-heads-to-the-polls-with-focus-more-on-trump-than-independence", date: "2026-10-05" }
   ]
 });
+
+window.POLITICS.addUpdate({
+  id: "ca-2026-10-20-alberta",
+  unit: "ca",
+  date: "2026-10-20",
+  title: "Alberta votes to stay in Canada",
+  md:
+    "Albertans voted by about three to one on 19 October to remain in Canada rather than start the legal process towards a binding referendum on leaving. CBC News projected the result on election night. With more than 1.5 million votes counted, about 76% backed remaining and close to 24% backed beginning a process towards separation, according to unofficial Elections Alberta results reported by NBC News. The vote was non-binding. Elections Alberta had about 3.1 million eligible electors on its list and had predicted turnout of around 85%; the final turnout had not been published when this was written.\n\n" +
+    "Nine other questions on immigration and the Constitution were still being counted on 20 October. In CBC's early-morning tally, eight of the nine had majority \"yes\" votes: the immigration questions were at roughly 57–58% yes and a proof-of-citizenship question at about 63%. The constitutional questions were closer, at about 51–53%, and the question on opting out of federal programmes was tight. CBC described these figures as unconfirmed.\n\n" +
+    "Premier Danielle Smith, who campaigned for the remain side while urging a yes on the other questions as leverage in talks with Ottawa, welcomed the result; news reports on 20 October quoted her as saying \"Albertans have voted for a stronger Alberta in a united Canada\". Before the vote she had promised not to hold another independence referendum if the remain side won, CTV News reported. Prime Minister Mark Carney said in a statement that \"Albertans made a clear choice\" and \"chose unity\", the Globe and Mail and GB News reported. Keith Wilson, a leader of the separatist campaign, was quoted saying the numbers could still \"fluctuate\" before final results.",
+  sources: [
+    { title: "Alberta votes to stay in Canada, CBC News projects. Results on other 9 questions still being tallied", publisher: "CBC News", url: "https://www.cbc.ca/news/canada/edmonton/livestory/alberta-referendum-results-live-updates-separatism-october-19-2026-9.7387777", date: "2026-10-20" },
+    { title: "Alberta rejects move toward independence from Canada in a victory for Carney", publisher: "NBC News", url: "https://www.nbcnews.com/world/north-america/alberta-voters-reject-move-independence-canada-cbc-projects-rcna604527", date: "2026-10-20" },
+    { title: "Alberta referendum results: Majority vote to reject question on separation, Carney says they 'chose unity'", publisher: "The Globe and Mail", url: "https://www.theglobeandmail.com/canada/article-alberta-referendum-vote-2026-live-updates/", date: "2026-10-20" },
+    { title: "PM Carney hails early results showing Alberta voting to stay in Canada", publisher: "UPI", url: "https://www.upi.com/Top_News/World-News/2026/10/20/canada-Alberta-referendum/3911792477909/", date: "2026-10-20" },
+    { title: "Alberta independence referendum: Carney declares Albertans have made 'clear choice'", publisher: "GB News", url: "https://www.gbnews.com/news/world/alberta-independence-referendum-canadian-prime-minister-mark-carney-declares-clear-choice", date: "2026-10-20" },
+    { title: "'Yes I do': Alberta Premier Smith promises not to hold later separation referendum if remain side wins October vote", publisher: "CTV News", url: "https://www.ctvnews.ca/politics/article/yes-i-do-alberta-premier-smith-promises-not-to-hold-later-separation-referendum-if-remain-side-wins-october-vote/", date: "2026" }
+  ]
+});
