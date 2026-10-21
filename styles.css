@@ -57,6 +57,8 @@ h1, h2, h3 { text-wrap: balance; }
 .btn.ghost { border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
 .btn.ghost:hover:not(:disabled) { border-color: var(--muted); }
 .btn.block { width: 100%; }
+.btn.small { padding: 7px 12px; font-size: 13.5px; border-radius: 9px; }
+.btn.large { padding: 13px 22px; font-size: 16px; border-radius: 11px; }
 .btn:disabled { opacity: 0.45; }
 .text-btn { font-weight: 800; font-size: 13.5px; color: var(--accent); }
 .text-btn:hover { text-decoration: underline; }
@@ -100,9 +102,38 @@ h1, h2, h3 { text-wrap: balance; }
 .course-tile { --c: #4b5563; flex: none; width: 44px; height: 44px; border-radius: 10px; background: var(--c); color: #fff; display: grid; place-items: center; }
 .course-tile .art { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .course-tile .emoji { font-size: 24px; line-height: 1; }
+.course-tile.sm { width: 28px; height: 28px; border-radius: 7px; }
+.course-tile.sm .art { width: 16px; height: 16px; stroke-width: 2; }
+.course-tile.sm .emoji { font-size: 16px; }
 .course-tile.lg { width: 64px; height: 64px; border-radius: 14px; }
 .course-tile.lg .art { width: 34px; height: 34px; stroke-width: 1.5; }
 .course-tile.lg .emoji { font-size: 34px; }
+
+/* ---------- welcome (first visit) ---------- */
+.welcome { padding-top: 56px; }
+.welcome-hero { max-width: 760px; }
+.welcome-title { font-family: var(--serif); font-weight: 600; font-size: 46px; line-height: 1.08; letter-spacing: -0.6px; }
+.welcome-sub { font-size: 18px; color: var(--ink-2); max-width: 58ch; margin-top: 16px; }
+.welcome-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.welcome-hint { margin-top: 12px; font-size: 13.5px; color: var(--muted); }
+.welcome-hint b { color: var(--ink-2); }
+.welcome-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 48px 0 40px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.welcome-stats dt { font-size: 30px; font-weight: 800; letter-spacing: -0.5px; }
+.welcome-stats dd { color: var(--muted); font-size: 13.5px; font-weight: 700; }
+.welcome-shelf { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; }
+.shelf-col h2 { font-family: var(--serif); font-weight: 600; font-size: 17px; margin-bottom: 10px; }
+.shelf-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.shelf-col li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--ink-2); min-width: 0; }
+@media (max-width: 960px) { .welcome-shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .welcome { padding-top: 28px; }
+  .welcome-title { font-size: 34px; }
+  .welcome-sub { font-size: 16.5px; }
+  .welcome-actions .btn { flex: 1 1 100%; }
+  .welcome-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; margin: 32px 0 28px; }
+  .welcome-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
+}
+.guest-note { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; background: var(--accent-soft); color: var(--ink); border-radius: 10px; padding: 10px 14px; margin-bottom: 20px; font-size: 14px; }
 
 /* ---------- profiles ---------- */
 .profiles-screen { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 40px 16px; text-align: center; }
@@ -146,6 +177,8 @@ h1, h2, h3 { text-wrap: balance; }
 .lab-name { font-weight: 800; font-size: 16px; }
 .lab-kind { font-size: 12px; font-weight: 700; color: var(--muted); }
 .lab-blurb { color: var(--ink-2); font-size: 14px; flex: 1; }
+.lab-latest { display: flex; gap: 8px; align-items: baseline; font-size: 13px; font-weight: 700; color: var(--ink-2); }
+.lab-latest .live { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); transform: translateY(-1px); }
 .lab-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; color: var(--muted); padding-top: 10px; border-top: 1px solid var(--line); }
 .lab-foot b { color: var(--accent); display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
 

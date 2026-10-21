@@ -24,10 +24,16 @@ window.ACADEMY.categories = [
   { id: "psychology", title: "Psychology and behavior" }
 ];
 
+/* The lesson the welcome screen's "Try a lesson" button opens for a first-time
+   visitor (no profile needed): a track id and a lesson id from its unit files. */
+window.ACADEMY.sample = { track: "ai", lesson: "l113" };   // AI & Coding: What Is an AI Agent?
+
 /* Each track: id, prefix, count (unit files), title, blurb, color (the
    course's colour, dark enough for white text on it), art (a drawing from
    COURSE_ART in app.js; without one the emoji `icon` is shown instead) and
-   category. External tracks also take kind and size for their catalog card.
+   category. External tracks also take kind and size for their catalog card,
+   and optionally `latest`: a script of dated addUpdate({ date, title }) calls
+   whose newest entry the card shows as "Updated <date>: <title>".
    Within a group, tracks appear in the order below. */
 window.ACADEMY.defineTrack({ id: "ai", category: "software", art: "chip", prefix: "ai", count: 16, title: "AI & Coding", icon: "🤖", color: "#0369a1", blurb: "Get fluent in AI — Claude, prompting, coding and agents." });
 /* External track: CodeLab (its own app, hosted next to this one). `link` makes the
@@ -37,7 +43,7 @@ window.ACADEMY.defineTrack({ id: "fullstack", category: "labs", art: "browser", 
 /* External track: Political Academy (politics/), a reading-first app of daily
    briefings on 30 countries. Like CodeLab it writes its progress back into
    this store, as track id "politics". */
-window.ACADEMY.defineTrack({ id: "politics", category: "labs", art: "capitol", kind: "Daily briefings", size: "30 countries · 615 briefings", prefix: "politics", count: 0, link: "politics/", cta: "Read today's briefing", title: "Political Academy", icon: "🗳️", color: "#1f4e79", blurb: "The world's 30 most important countries — who holds power, what just happened, and what to watch." });
+window.ACADEMY.defineTrack({ id: "politics", category: "labs", art: "capitol", kind: "Daily briefings", size: "30 countries · 615 briefings", latest: "politics/updates.js", prefix: "politics", count: 0, link: "politics/", cta: "Read today's briefing", title: "Political Academy", icon: "🗳️", color: "#1f4e79", blurb: "The world's 30 most important countries — who holds power, what just happened, and what to watch." });
 /* External track: Accounting Lab (accounting/), a hands-on course in
    professional accounting: you post the journal entries, reconcile and
    close the month, and the app checks each answer. Like the others it
