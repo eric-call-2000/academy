@@ -49,7 +49,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which observation redirected Pavlov toward the study of learning?",
-          choices: ["Dogs refused to eat in the lab", "Dogs salivated at the sight of the attendant who fed them", "Dogs stopped digesting food", "Dogs slept during the trials"],
+          choices: ["Dogs refused to eat food offered by strangers in the lab", "Dogs salivated at the sight of the attendant who fed them", "Dogs digested meat faster than they digested bread", "Dogs salivated only when food actually touched the tongue"],
           answer: 1,
           explain: "Dogs began salivating to cues that reliably preceded food, such as the sight of the feeder, revealing a learned rather than innate reflex."
         },
@@ -127,7 +127,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Acquisition refers to:",
-          choices: ["The automatic reflex to food", "The fading of a learned response", "The initial stage in which CS and US are paired to build the CR", "The return of a response after a rest period"],
+          choices: ["The automatic, unlearned reflex of salivating to food", "The gradual fading of a CR when the US is withheld", "The initial stage in which CS and US are paired to build the CR", "The return of an extinguished response after a period of rest"],
           answer: 2,
           explain: "Acquisition is the phase where a neutral stimulus, paired with the US, gradually comes to elicit the conditioned response."
         },
@@ -237,7 +237,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Extinction occurs when:",
-          choices: ["The US is presented alone repeatedly", "The CS is presented repeatedly without the US", "The CS and US are paired again", "The dog is given extra food"],
+          choices: ["The US is presented alone repeatedly without the CS", "The CS is presented repeatedly without the US", "The CS and US are paired again after a long break", "The CS is paired with a second, new neutral stimulus"],
           answer: 1,
           explain: "Repeatedly presenting the CS with no US following it causes the conditioned response to fade, which is extinction."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Spontaneous recovery is:",
-          choices: ["The first learning of a CR", "The reappearance of an extinguished CR after a rest period", "The strengthening of a CR through pairings", "The automatic response to food"],
+          choices: ["The first appearance of a CR during early acquisition trials", "The reappearance of an extinguished CR after a rest period", "The strengthening of a CR through additional CS-US pairings", "The automatic, unlearned salivation that occurs to food"],
           answer: 1,
           explain: "Spontaneous recovery is the return of a previously extinguished conditioned response following a break, with no new pairings."
         },
@@ -379,7 +379,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Why did Pavlov place the dog in a quiet, controlled, isolated room?",
-          choices: ["To prevent stray stimuli from affecting the results", "To make the dog fall asleep", "To speed up digestion", "To hide the equipment from view"],
+          choices: ["To prevent stray stimuli from affecting the results", "To keep the dog calm enough to fall asleep during trials", "To speed up digestion so that more trials could be run", "To keep the dog's body temperature stable after surgery"],
           answer: 0,
           explain: "Isolation removed distracting stimuli so that only the intended CS and US influenced the dog's salivation."
         },
@@ -405,7 +405,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Pavlov used the phrase 'higher nervous activity' to refer to:",
-          choices: ["Simple spinal reflexes", "The functions of the cerebral cortex underlying conditioning", "Digestion in the stomach", "The circulatory system"],
+          choices: ["Simple spinal reflexes that need no input from the brain", "The functions of the cerebral cortex underlying conditioning", "The digestive secretions controlled by the vagus nerve", "The conscious thoughts and feelings reported by the subject"],
           answer: 1,
           explain: "'Higher nervous activity' was Pavlov's term for the cortical processes he believed produced conditioned reflexes."
         },

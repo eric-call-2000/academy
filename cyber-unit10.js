@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is the main job of a firewall?",
           choices: [
             "Filter network traffic and allow or block it based on rules",
-            "Speed up your internet connection",
-            "Store all your passwords",
-            "Scan documents for spelling errors"
+            "Encrypt all traffic leaving your network so no one can read it",
+            "Scan files on your computer and remove any malware it finds",
+            "Hide your IP address from the websites that you visit online"
           ],
           answer: 0,
           explain: "A firewall inspects traffic and allows or blocks it based on a set of rules, acting like a gatekeeper for your network."
@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which Wi-Fi setting gives the strongest protection today?",
           choices: [
             "WPA3 (or WPA2 if WPA3 is unavailable)",
-            "WEP",
-            "An open network with no password",
-            "Hiding the network name only"
+            "WEP with a long, random 26-digit key",
+            "Hiding the network name (SSID broadcast)",
+            "MAC address filtering with no password"
           ],
           answer: 0,
           explain: "WPA3 is the current strong standard, with WPA2 as an acceptable fallback. WEP is old and broken, and an open network has no encryption at all."
@@ -80,9 +80,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why should you keep your router's firmware updated?",
           choices: [
             "Updates fix known security holes attackers could exploit",
-            "It makes the router lights brighter",
-            "It deletes your saved websites",
-            "Updates are only about changing the logo"
+            "Updates reset the Wi-Fi password to a stronger random one",
+            "Updates turn on a built-in VPN for all connected devices",
+            "Updates block every device that has not been approved"
           ],
           answer: 0,
           explain: "Firmware updates patch known vulnerabilities, so keeping the router current closes doors that attackers would otherwise use."
@@ -99,9 +99,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a log in security terms?",
           choices: [
             "A record of events like logins, errors, and actions",
-            "A wooden object used to start fires",
-            "A type of firewall rule",
-            "A password stored in plaintext"
+            "A rule that blocks traffic from a known bad address",
+            "A copy of the system taken for disaster recovery",
+            "An alert sent when a user enters the wrong password"
           ],
           answer: 0,
           explain: "A log is a timestamped record of events, and reviewing logs helps you detect and investigate suspicious activity."
@@ -232,9 +232,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is the 'learn' or post-incident review stage important?",
           choices: [
             "It turns the incident into lessons that prevent future ones",
-            "It assigns blame and punishes people",
-            "It is optional paperwork with no value",
-            "It reopens the breach on purpose"
+            "It identifies who was at fault so they can be disciplined",
+            "It closes the case so the team can move on and forget it",
+            "It replaces the need to patch the hole that was exploited"
           ],
           answer: 0,
           explain: "A blameless review finds root causes and improvements, so the same mistake is less likely to happen again."
@@ -250,9 +250,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "During recovery, what should you confirm before putting a system back online?",
           choices: [
             "That the threat is actually removed and the hole is patched",
-            "That the logo looks nice",
-            "That marketing approved the color scheme",
-            "That the printer has paper"
+            "That users have been told the incident is fully resolved",
+            "That the logs from the incident have been deleted to save space",
+            "That the system restarts quickly and loads without errors"
           ],
           answer: 0,
           explain: "Recovery only works if the attacker is truly gone and the vulnerability is fixed, otherwise they can simply return."
@@ -269,9 +269,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What does 'thinking like an attacker' mean?",
           choices: [
             "Asking how a system could be misused or broken, to defend it better",
-            "Actually breaking into systems you do not own",
-            "Trusting that all input is safe",
-            "Ignoring edge cases"
+            "Testing other companies' systems without permission to find flaws",
+            "Learning to write malware so you can sell tools to defenders",
+            "Assuming every user is an attacker and blocking normal access"
           ],
           answer: 0,
           explain: "The security mindset means imagining how something could be abused so you can defend it, not committing real attacks."
@@ -294,9 +294,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which question best reflects a security mindset when designing a login form?",
           choices: [
             "What happens if someone tries thousands of guesses?",
-            "What font looks the nicest?",
-            "Should the button be blue or green?",
-            "How can we make the page load a bit faster?"
+            "How can we make sign-in take as few clicks as possible?",
+            "Should the error message match our brand's tone?",
+            "Which login button color gets the most clicks?"
           ],
           answer: 0,
           explain: "Anticipating abuse, like automated guessing, leads to defenses such as rate limits and account lockouts."
@@ -342,9 +342,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is the main idea of a Secure Development Lifecycle?",
           choices: [
             "Build security into every stage of development, from design to release",
-            "Add all security only on the last day before launch",
-            "Let users handle security themselves",
-            "Skip security to ship faster"
+            "Run a full security test once the product is ready to ship to users",
+            "Hand security to a separate team that reviews code after launch",
+            "Release often and fix security issues only when users report them"
           ],
           answer: 0,
           explain: "A Secure Development Lifecycle weaves security into design, coding, testing, and deployment instead of treating it as an afterthought."
@@ -389,9 +389,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is keeping third-party libraries updated part of secure development?",
           choices: [
             "Old libraries may contain known vulnerabilities attackers can exploit",
-            "New libraries always have prettier documentation",
-            "Updates are only about performance, never security",
-            "Libraries never have security bugs"
+            "New library versions always run faster and use less memory",
+            "Library licenses expire unless you install each new release",
+            "Updated libraries remove the need for code reviews of your own work"
           ],
           answer: 0,
           explain: "Your app inherits the flaws of the code it depends on, so patching libraries closes vulnerabilities you did not write yourself."
@@ -439,9 +439,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why should backups be encrypted?",
           choices: [
             "So the data stays confidential even if the backup is stolen or lost",
-            "So the backup takes up more space",
-            "So the backup runs slower on purpose",
-            "Encryption is not useful for backups"
+            "So the backup can be restored faster after a ransomware attack",
+            "So the backup cannot be deleted by ransomware on the network",
+            "So the backup takes less space after it is compressed"
           ],
           answer: 0,
           explain: "A backup holds a full copy of your data, so encrypting it keeps that data confidential if the backup falls into the wrong hands."
@@ -451,9 +451,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is keeping a backup offline or off the network a smart move against ransomware?",
           choices: [
             "Ransomware on the main system cannot reach and encrypt it",
-            "Offline backups charge faster",
-            "It makes the backup glow in the dark",
-            "Offline backups do not need to be tested"
+            "Offline backups are encrypted automatically by the drive",
+            "Ransomware only targets files that were changed recently",
+            "Offline copies never need to be tested before you rely on them"
           ],
           answer: 0,
           explain: "Ransomware often spreads to connected backups, so an offline or isolated copy stays safe and ready to restore."
@@ -498,9 +498,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "How can attackers misuse AI?",
           choices: [
             "To create convincing deepfakes and more believable phishing messages",
-            "To make their attacks automatically legal",
-            "To guarantee they never get caught",
-            "AI cannot be misused by attackers at all"
+            "To break modern encryption like AES-256 in a few seconds on a laptop",
+            "To bypass any firewall automatically without being detected",
+            "To find every vulnerability in a target with no human effort"
           ],
           answer: 0,
           explain: "AI can generate realistic fake voices, videos, and polished phishing text, making scams harder to spot."
@@ -552,9 +552,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a healthy way to think about AI security tools?",
           choices: [
             "They are helpful aids, but human judgment and layered defenses still matter",
-            "They completely replace the need for any other security",
-            "They are useless and should be ignored",
-            "They make you immune to every attack"
+            "They catch every attack, so the other security layers can safely be scaled back",
+            "They are mostly marketing and add nothing beyond basic antivirus",
+            "They should run without human review so they can act faster"
           ],
           answer: 0,
           explain: "AI is a powerful helper, not a silver bullet, so it works best combined with human oversight and other security layers."
@@ -618,9 +618,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which statement about the padlock icon in a browser is correct?",
           choices: [
             "It means the connection is encrypted, not that the site is trustworthy",
-            "It guarantees the website is honest and safe",
-            "It means the site can never be a scam",
-            "It proves the company behind the site is legitimate"
+            "It means the site has been checked by the browser and found to be safe",
+            "It proves the company behind the site is a real, legitimate business",
+            "It means the page is free of malware and cannot be used for scams"
           ],
           answer: 0,
           explain: "The padlock only shows the connection is encrypted with HTTPS, and even scam sites can have it, so it is not a trust badge."
@@ -636,9 +636,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a good way to keep learning about new threats?",
           choices: [
             "Follow reputable security news and guidance regularly",
-            "Assume you already know everything",
-            "Only learn after you have been hacked",
-            "Ignore all security advice"
+            "Rely on social media posts that go viral about new threats",
+            "Wait for your antivirus to tell you what to watch out for",
+            "Learn about each threat only after it has affected you"
           ],
           answer: 0,
           explain: "Following trustworthy security sources keeps your knowledge fresh, so you can recognize and respond to emerging threats."

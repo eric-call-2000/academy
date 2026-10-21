@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What does the universality hypothesis actually claim?",
           choices: [
             "Virtually all human infants form an attachment to a caregiver, across cultures",
-            "All infants worldwide are securely attached",
-            "Attachment only develops in Western industrialized societies",
-            "Attachment must be taught to infants through explicit training"
+            "Most infants in every culture studied are classified as securely attached",
+            "The same proportions of each attachment type appear in every culture",
+            "Sensitive care leads to secure attachment in Western cultures only"
           ],
           answer: 0,
           explain: "The universality hypothesis says nearly every infant becomes attached to a caregiver; it does not claim the attachment is always secure (that is the separate normativity hypothesis)."
@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What did Van IJzendoorn and Kroonenberg's 1988 study combine?",
           choices: [
-            "A single new study run in eight countries at once",
+            "A single new study run with the same team in eight countries at once",
             "32 Strange Situation studies from 8 countries (about 2,000 infants)",
-            "Interviews with adults recalling their childhoods",
-            "Only American and British samples"
+            "Adult Attachment Interviews from parents in 12 countries (about 900)",
+            "Twin studies of attachment from 5 countries (about 1,200 twin pairs)"
           ],
           answer: 1,
           explain: "Their meta-analysis pooled 32 published Strange Situation studies across 8 countries, covering roughly 2,000 infant classifications."
@@ -183,10 +183,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Why does the Bielefeld study complicate a simple reading of avoidant attachment?",
           choices: [
-            "It shows avoidance is impossible to measure",
+            "It shows that German mothers were less sensitive than mothers in any other study",
             "It suggests avoidance may partly reflect cultural parenting values, not only insensitivity",
-            "It proves avoidance is genetically fixed",
-            "It shows the Strange Situation cannot be used in Europe"
+            "It proves that avoidance is set by temperament and has no link to caregiving at all",
+            "It shows that most German infants in the study were in fact disorganized, not avoidant"
           ],
           answer: 1,
           explain: "If cultural values encourage distance, then some avoidant classifications may reflect a culturally endorsed style, challenging the assumption that avoidance always signals insensitive care."
@@ -230,10 +230,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What pattern did Japanese Strange Situation studies (for example Takahashi, 1986) typically show?",
           choices: [
-            "High avoidant and no resistant infants",
+            "High avoidant (Type A) infants and very few resistant ones",
             "High resistant (Type C) infants and very few or no avoidant ones",
-            "An even split across all categories",
-            "Almost entirely disorganized classifications"
+            "An even split between secure and insecure classifications",
+            "A large share of disorganized (Type D) infants and few secure"
           ],
           answer: 1,
           explain: "Japanese samples showed elevated resistant (Type C) classifications and near-zero avoidant ones, close to the mirror image of the German pattern."
@@ -255,10 +255,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Why might the Strange Situation overstate insecurity in Japanese samples?",
           choices: [
-            "Japanese infants dislike their mothers",
+            "Japanese mothers are less sensitive, so their infants become more insecure",
             "The separation is far more unfamiliar and stressful than the test assumes",
-            "Japanese infants cannot form attachments",
-            "The test rewards avoidant behavior"
+            "Japanese infants are more inhibited by temperament, so they cry at strangers",
+            "The coders were trained in the US and misread the infants' reunion behavior"
           ],
           answer: 1,
           explain: "The Strange Situation assumes brief separations are only mildly stressful; for infants who are almost never separated, the same episodes are much more intense, so extreme distress may reflect novelty rather than true insecurity."
@@ -299,9 +299,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What childrearing feature did kibbutz attachment research (Sagi et al.) focus on?",
           choices: [
             "Whether infants slept communally or at home with parents",
-            "Whether infants were bottle-fed or breastfed",
-            "The number of siblings in each family",
-            "Whether mothers worked outside the kibbutz"
+            "Whether infants were breastfed or fed on a set schedule",
+            "Whether fathers or mothers did most of the daytime care",
+            "Whether infants entered group care before or after six months"
           ],
           answer: 0,
           explain: "The key comparison was between infants raised with communal (children's-house) sleeping versus those in kibbutzim that had switched to home-based family sleeping."
@@ -397,9 +397,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Why is the Dogon 'natural-fertility' context important to the finding?",
           choices: [
             "It means birth control and scheduled feeding were absent, so care was highly on-demand",
-            "It means infants were raised entirely by strangers",
-            "It means mothers rarely interacted with infants",
-            "It means the Strange Situation could not be run"
+            "It means infants were cared for mainly by older siblings while mothers worked in the fields",
+            "It means families were very large, so each infant received less attention from its mother",
+            "It means infants were weaned early, so mothers kept more distance than in other cultures"
           ],
           answer: 0,
           explain: "Natural-fertility societies lack modern contraception and scheduled feeding; on-demand breastfeeding and close proximity created conditions where infants had no pull toward avoidant behavior."
@@ -408,10 +408,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What did the presence of disorganized but not avoidant classifications suggest to the researchers?",
           choices: [
-            "Disorganization is impossible outside the West",
+            "Disorganization appears only when infants are cared for by many adults, so avoidance cannot develop",
             "Frightening or unpredictable care can still produce disorganization, but ordinary avoidance had no cultural niche",
-            "The Dogon infants were all insecure",
-            "Attachment categories are meaningless"
+            "Avoidance is too rare to measure in small samples, so it was missed by chance in this study rather than absent",
+            "The Dogon infants were mostly insecure because of hardship, poverty, and frequent loss"
           ],
           answer: 1,
           explain: "Disorganization, often tied to frightening caregiver behavior or loss, still appeared, while organized avoidance did not, suggesting some patterns are more culturally contingent than others."
@@ -444,10 +444,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "In cross-cultural psychology, what is the difference between emic and etic approaches?",
           choices: [
-            "Emic studies infants; etic studies adults",
+            "Emic compares many cultures side by side; etic studies just one culture in depth",
             "Emic uses culture-specific insider meanings; etic seeks universal cross-cultural constructs",
-            "Emic is quantitative; etic is always qualitative",
-            "They are two names for the same method"
+            "Emic relies on lab tests; etic relies on home observation and interviews",
+            "Emic tests universal constructs across cultures; etic describes a culture in its own terms"
           ],
           answer: 1,
           explain: "An emic approach describes behavior in a culture's own terms; an etic approach applies concepts intended to hold across cultures. The sensitivity debate asks which one attachment measures assume."
@@ -469,10 +469,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What is the core worry raised by the sensitivity-universality debate?",
           choices: [
-            "That no culture has sensitive caregivers",
+            "That sensitive caregiving does not predict security in any culture outside the West",
             "That a Western-defined idea of sensitivity may be imposed as if it were universal",
-            "That sensitivity cannot be observed at all",
-            "That only fathers can be sensitive"
+            "That sensitivity is too hard to observe reliably in homes in most cultures",
+            "That cultures with many caregivers cannot support any secure attachments"
           ],
           answer: 1,
           explain: "Critics worry attachment research treats a culturally specific (Western) notion of sensitivity as a universal etic standard, potentially mislabeling competent non-Western caregiving as insensitive."
@@ -517,9 +517,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Which set of four hypotheses did Van IJzendoorn and Sagi use to organize cross-cultural attachment claims?",
           choices: [
             "Universality, normativity, sensitivity, competence",
-            "Nature, nurture, culture, biology",
-            "Secure, avoidant, resistant, disorganized",
-            "Emic, etic, proximal, distal"
+            "Universality, security, sensitivity, continuity",
+            "Proximity, secure base, safe haven, protest",
+            "Normativity, temperament, culture, competence"
           ],
           answer: 0,
           explain: "They distinguished the universality, normativity, sensitivity, and competence hypotheses so that each could be tested separately against cross-cultural evidence."
@@ -552,10 +552,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Which position best captures the current consensus this unit builds toward?",
           choices: [
-            "Attachment is entirely culture-free and identical everywhere",
-            "Attachment does not exist outside the West",
+            "Attachment is culture-free, with the same type proportions everywhere",
+            "Attachment theory describes Western families and does not apply elsewhere",
             "The bond is broadly universal, but its distribution and expression are shaped by culture",
-            "Culture fully determines whether attachment forms at all"
+            "Culture decides whether attachment forms at all, so it is not a universal tendency"
           ],
           answer: 2,
           explain: "The evidence supports a moderate view: forming attachments is near-universal (universality and normativity largely hold), while the balance of insecure types and the expression of care are shaped by culture."

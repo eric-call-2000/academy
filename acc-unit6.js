@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is Autodesk Build mainly used for?",
-          choices: ["Field and project management", "3D rendering only", "Payroll accounting", "Email marketing"],
+          choices: ["Field and project management", "Design authoring and 3D modeling", "Accounting, payroll, and invoicing", "Clash detection between design models"],
           answer: 0,
           explain: "Autodesk Build handles field and project management tasks like RFIs, submittals, issues, and forms."
         },
@@ -56,7 +56,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Who typically uses Autodesk Build?",
-          choices: ["Project engineers, superintendents, and field teams", "Only the software vendor", "Only accountants", "Nobody on the jobsite"],
+          choices: ["Project engineers, superintendents, and field teams", "Architects and engineers authoring the design models", "The owner's finance team, for paying invoices", "Software administrators at Autodesk"],
           answer: 0,
           explain: "Build is built for the people running the project and the jobsite day to day."
         }
@@ -96,7 +96,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why track RFIs in Autodesk Build instead of email?",
-          choices: ["A searchable record of questions and answers", "It hides the answers from the team", "It deletes old questions automatically", "It replaces the design drawings"],
+          choices: ["A searchable record of questions and answers", "Answers are guaranteed within a set number of days", "Questions go straight to the owner without the design team", "It replaces the need to update the drawings afterward"],
           answer: 0,
           explain: "Build keeps a searchable, time-stamped history so nothing gets lost in someone's inbox."
         },
@@ -126,7 +126,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a submittal?",
-          choices: ["A product or material sent for review and approval", "A daily weather log", "A payroll form", "A parking permit"],
+          choices: ["A product or material sent for review and approval", "A request for information sent to the design team", "A daily report of labor and weather on site", "A change order that adjusts the contract price"],
           answer: 0,
           explain: "Submittals let the design team confirm a product meets the specs before it is bought or installed."
         },
@@ -162,7 +162,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why track submittals in Autodesk Build?",
-          choices: ["To see status and avoid installing unapproved materials", "To hide product data", "To skip the review step", "To order more paperwork"],
+          choices: ["To see status and avoid installing unapproved materials", "To let subs skip the design team's review when time is short", "To order materials automatically once they are submitted", "To keep product data private from the design team"],
           answer: 0,
           explain: "Build shows where each submittal stands so nothing gets installed without sign-off."
         },
@@ -182,7 +182,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "In Autodesk Build, what is an issue?",
-          choices: ["A tracked problem or task to resolve", "A finished drawing set", "A signed contract", "A model rendering"],
+          choices: ["A tracked problem or task to resolve", "A formal set of drawings issued for construction", "A question sent to the designer for clarification", "A signed change to the contract"],
           answer: 0,
           explain: "Issues log problems or to-dos found in the field and follow them to a fix."
         },
@@ -218,7 +218,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why link an issue to a model or sheet location?",
-          choices: ["So the team can find exactly where the problem is", "To make the file bigger", "To hide it from the field", "To delete the drawing"],
+          choices: ["So the team can find exactly where the problem is", "So the issue closes automatically when the model changes", "So the issue is hidden from crews who do not need it", "So the drawing is locked until the issue is fixed"],
           answer: 0,
           explain: "Pinning an issue to a location removes guesswork about where to go and what to fix."
         },
@@ -238,7 +238,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What are forms and checklists used for in Autodesk Build?",
-          choices: ["Quality and safety documentation", "Rendering 3D models", "Editing payroll", "Booking hotels"],
+          choices: ["Quality and safety documentation", "Rendering and presenting 3D models", "Tracking payroll and timesheets", "Clash detection between trades"],
           answer: 0,
           explain: "Forms standardize things like safety inspections and quality checks so nothing is missed."
         },
@@ -268,7 +268,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why is it useful that forms are stored in the cloud?",
-          choices: ["Records are searchable and shared instantly", "They only exist on one laptop", "They print themselves", "They expire each day"],
+          choices: ["Records are searchable and shared instantly", "They are stored only on the device that filled them in", "They no longer need anyone to sign them", "They are printed automatically at the office"],
           answer: 0,
           explain: "Cloud storage means the office sees completed forms as soon as the field submits them."
         },
@@ -294,7 +294,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why capture jobsite photos in Autodesk Build?",
-          choices: ["To document real conditions with a time-stamped record", "To replace the drawings", "To slow down the project", "To hide the work"],
+          choices: ["To document real conditions with a time-stamped record", "To replace the drawings as the main construction reference", "To create marketing images for the project website", "To avoid writing daily reports on site"],
           answer: 0,
           explain: "Photos create a dated visual record of progress and conditions on site."
         },
@@ -350,7 +350,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does the Meetings feature help teams manage?",
-          choices: ["Agendas, minutes, and action items", "3D clash detection", "Payroll runs", "Concrete mix design"],
+          choices: ["Agendas, minutes, and action items", "Clash tests between design models", "Payroll runs and crew timesheets", "Submittal packages and their reviewers"],
           answer: 0,
           explain: "Meetings keeps the agenda, the recorded minutes, and the resulting action items together."
         },
@@ -386,7 +386,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why keep meeting records in Autodesk Build?",
-          choices: ["Decisions and follow-ups stay linked to the project", "To lose the notes", "To avoid making decisions", "To replace the schedule"],
+          choices: ["Decisions and follow-ups stay linked to the project", "Meetings can be held without anyone taking notes", "Decisions no longer need to be approved by anyone", "It replaces the project schedule and its milestones"],
           answer: 0,
           explain: "Keeping minutes and action items in Build ties decisions to the rest of the project data."
         },
@@ -406,7 +406,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a big advantage of using ACC on a mobile device on site?",
-          choices: ["Capture and view data where the work happens", "It disables all forms", "It only works at the office", "It deletes photos"],
+          choices: ["Capture and view data where the work happens", "Edit the design models directly from the jobsite", "Work fully offline without ever syncing data", "Approve contracts and invoices from anywhere"],
           answer: 0,
           explain: "Mobile access lets crews log issues, photos, and forms without walking back to the trailer."
         },

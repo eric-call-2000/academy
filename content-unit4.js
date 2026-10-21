@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("content", {
           q: "Your 'packaging' on YouTube is:",
           choices: [
             "The title and thumbnail together",
-            "The video description only",
-            "The tags",
-            "The upload time"
+            "The description, tags, and hashtags",
+            "The intro and the first ten seconds",
+            "The channel banner and avatar"
           ],
           answer: 0,
           explain: "Packaging is the title plus thumbnail, the first thing viewers judge."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("content", {
           q: "Spending real effort on packaging is worth it because:",
           choices: [
             "It is the gate every viewer passes through to watch",
-            "It replaces the need for a good video",
-            "It adds more tags",
-            "It shortens editing"
+            "Good packaging can make up for a weak or boring video",
+            "Strong packaging raises your ad rates on every view",
+            "It is the main thing YouTube uses to rank search results"
           ],
           answer: 0,
           explain: "No click, no view; packaging is the essential first step."
@@ -75,9 +75,9 @@ window.ACADEMY.addUnit("content", {
           q: "A strong title usually:",
           choices: [
             "Promises a clear benefit or sparks curiosity",
-            "Is as vague as possible",
-            "Hides the topic completely",
-            "Is a random string of words"
+            "Lists every keyword that relates to the topic",
+            "Keeps the topic secret so viewers have to click",
+            "Uses all capital letters so it stands out in a feed"
           ],
           answer: 0,
           explain: "Clarity plus curiosity or benefit makes titles compelling."
@@ -116,9 +116,9 @@ window.ACADEMY.addUnit("content", {
           q: "Keeping the most important words near the front of the title helps because:",
           choices: [
             "Titles can get cut off, so the hook should come first",
-            "It adds more tags",
-            "It improves your camera",
-            "It lengthens the video"
+            "YouTube reads only the first three words for search",
+            "Mobile viewers read titles from the end to the start",
+            "Front-loaded words are turned into tags automatically"
           ],
           answer: 0,
           explain: "Front-loading ensures the hook survives truncation."
@@ -144,9 +144,9 @@ window.ACADEMY.addUnit("content", {
           q: "The problem with misleading clickbait is that it:",
           choices: [
             "Gets clicks but tanks retention and trust when the video disappoints",
-            "Always improves watch time",
-            "Guarantees subscribers",
-            "Has no downside"
+            "Is banned outright, so the video is removed as soon as it is reported",
+            "Lowers click-through rate, because viewers can spot it right away",
+            "Only works on Shorts and has no effect at all on long-form videos"
           ],
           answer: 0,
           explain: "Disappointed viewers leave fast, and YouTube learns the video underdelivers."
@@ -175,9 +175,9 @@ window.ACADEMY.addUnit("content", {
           q: "The healthy goal for packaging is to be:",
           choices: [
             "Intriguing and honest, so the video delivers",
-            "As misleading as possible",
-            "Boring but accurate",
-            "Random"
+            "Plain and literal, so no viewer is surprised",
+            "As shocking as possible to get more clicks",
+            "Identical to the top video in the search results"
           ],
           answer: 0,
           explain: "Intriguing yet truthful packaging wins both the click and the watch."
@@ -194,9 +194,9 @@ window.ACADEMY.addUnit("content", {
           q: "A thumbnail must work well because it is often viewed:",
           choices: [
             "Very small on a phone screen",
-            "Only on a huge TV",
-            "Printed on paper",
-            "In black and white only"
+            "Full-size on a large desktop monitor",
+            "After the viewer has already clicked",
+            "In the video's end screen on a TV"
           ],
           answer: 0,
           explain: "Most viewers see thumbnails tiny on mobile, so clarity at small size is vital."
@@ -235,9 +235,9 @@ window.ACADEMY.addUnit("content", {
           q: "If a thumbnail is confusing at small size, you should:",
           choices: [
             "Simplify it to one clear idea",
-            "Add more elements",
-            "Shrink the text further",
-            "Lower the contrast"
+            "Add a second image to show more",
+            "Add more text explaining the video",
+            "Use smaller fonts so details fit"
           ],
           answer: 0,
           explain: "Simplify to a single, instantly readable idea."
@@ -254,9 +254,9 @@ window.ACADEMY.addUnit("content", {
           q: "Expressive human faces in thumbnails tend to:",
           choices: [
             "Draw the eye and convey emotion quickly",
-            "Reduce clicks always",
-            "Confuse viewers",
-            "Slow down the video"
+            "Distract viewers from the topic and lower clicks",
+            "Only work for vlogs and not other content",
+            "Matter less than a detailed background"
           ],
           answer: 0,
           explain: "People are wired to notice faces and read emotion instantly."
@@ -295,9 +295,9 @@ window.ACADEMY.addUnit("content", {
           q: "The thumbnail and title work best when they:",
           choices: [
             "Complement each other, together telling the full hook",
-            "Say the exact same words",
-            "Contradict each other",
-            "Are both blank"
+            "Repeat the same words, so the message is impossible to miss",
+            "Each work alone, so either one could be removed safely",
+            "Contradict each other to create a sense of mystery"
           ],
           answer: 0,
           explain: "Together they should form one compelling, complete hook."
@@ -314,9 +314,9 @@ window.ACADEMY.addUnit("content", {
           q: "To stand out, your thumbnail should:",
           choices: [
             "Look distinct from the other thumbnails around it",
-            "Blend in with everyone else",
-            "Use the exact same colors as competitors",
-            "Be nearly blank"
+            "Copy the style of the most popular videos in the niche",
+            "Use the same color scheme as the top-ranking channels",
+            "Fit in with the feed so it looks familiar and safe"
           ],
           answer: 0,
           explain: "Contrast against neighboring thumbnails draws the eye to yours."
@@ -355,9 +355,9 @@ window.ACADEMY.addUnit("content", {
           q: "A useful habit before publishing is to:",
           choices: [
             "View your thumbnail small, beside similar ones",
-            "Only view it full-screen",
-            "Never look at competitors",
-            "Skip the thumbnail"
+            "Check it full-screen on a monitor for detail",
+            "Ask a friend to rate it on its own",
+            "Check it once it is live, then change it later"
           ],
           answer: 0,
           explain: "Judging it small and in context predicts real-world performance."
@@ -374,9 +374,9 @@ window.ACADEMY.addUnit("content", {
           q: "YouTube's thumbnail test feature lets you:",
           choices: [
             "Compare thumbnail options to see which earns more views",
-            "Edit the video automatically",
-            "Add more tags",
-            "Increase resolution"
+            "Generate new thumbnails from frames of your video",
+            "Check whether a thumbnail breaks the guidelines",
+            "Preview how your thumbnail looks on each screen size"
           ],
           answer: 0,
           explain: "A/B thumbnail testing shows which option performs best."
@@ -415,9 +415,9 @@ window.ACADEMY.addUnit("content", {
           q: "The mindset toward packaging should be:",
           choices: [
             "Test, learn, and improve it like everything else",
-            "Set it once and never touch it",
-            "Ignore CTR entirely",
-            "Copy competitors exactly"
+            "Get it right before upload, then never change it",
+            "Focus on retention instead, since CTR barely matters",
+            "Match what top competitors are doing as closely as possible"
           ],
           answer: 0,
           explain: "Packaging is another thing to iterate on using data."
@@ -445,9 +445,9 @@ window.ACADEMY.addUnit("content", {
           q: "The most important thing your packaging must NOT do is:",
           choices: [
             "Promise something the video does not deliver",
-            "Look clear at small size",
-            "Create honest curiosity",
-            "Stand out in the feed"
+            "Stay clear and readable at a very small size",
+            "Create honest curiosity about what happens next",
+            "Stand out against the other videos in the feed"
           ],
           answer: 0,
           explain: "Over-promising destroys retention and trust; keep it honest."
@@ -486,9 +486,9 @@ window.ACADEMY.addUnit("content", {
           q: "The overall goal of packaging is to:",
           choices: [
             "Win the click honestly so a great video gets seen",
-            "Trick people into clicking",
-            "Fill the description with keywords",
-            "Make the longest title possible"
+            "Get the most clicks possible, whatever the video delivers",
+            "Pack the title with keywords so it ranks for many searches",
+            "Look exactly like the most popular videos in your niche"
           ],
           answer: 0,
           explain: "Honest, compelling packaging gets your best work in front of viewers."

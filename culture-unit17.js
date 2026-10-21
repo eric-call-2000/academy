@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In a culture of honor, what is a person's reputation primarily used to secure?",
           choices: [
-            "Access to formal education",
+            "Access to formal education and professional careers",
             "Social standing, deterrence, and protection of self and property",
-            "Membership in a religious order",
-            "Eligibility for government pensions"
+            "Membership in respected religious and civic orders",
+            "Favorable treatment from courts, police, and other government officials"
           ],
           answer: 1,
           explain: "Honor functions as a form of social currency: a strong reputation for toughness deters exploitation and protects a person's standing, family, and property."
@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Honor cultures tend to arise most strongly under which social conditions?",
           choices: [
-            "Strong central government and reliable police protection",
-            "Abundant food and dense urban populations",
+            "Strong central government and reliable police protection for every citizen",
+            "Abundant food supplies and dense, settled urban populations",
             "Weak rule of law where individuals must protect their own resources",
-            "Widespread literacy and formal courts"
+            "Widespread literacy and well-established formal court systems"
           ],
           answer: 2,
           explain: "When the state cannot reliably enforce order, individuals must build a reputation for defending themselves, which fuels honor-based norms."
@@ -86,9 +86,9 @@ window.ACADEMY.addUnit("culture", {
           q: "Which book by Richard Nisbett and Dov Cohen laid out the case for a Southern culture of honor?",
           choices: [
             "Culture of Honor: The Psychology of Violence in the South (1996)",
-            "The Geography of Thought (2003)",
-            "Thinking, Fast and Slow (2011)",
-            "The Better Angels of Our Nature (2011)"
+            "The Geography of Thought: How Asians and Westerners Think Differently (2003)",
+            "Southern Honor: Ethics and Behavior in the Old South (1982)",
+            "The Better Angels of Our Nature: Why Violence Has Declined (2011)"
           ],
           answer: 0,
           explain: "Nisbett and Cohen published 'Culture of Honor: The Psychology of Violence in the South' in 1996, presenting their combined survey, archival, and experimental evidence."
@@ -110,10 +110,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "According to Nisbett and Cohen, Southern attitudes toward violence are best described as approving of violence that is:",
           choices: [
-            "Random and unprovoked",
-            "Used for economic gain in robberies",
+            "Random and unprovoked, directed at whoever happens to be nearby",
+            "Used to gain money or property, such as in robberies",
             "Defensive or in response to insults and threats to home and family",
-            "Directed at strangers for entertainment"
+            "Used in any kind of situation, since Southerners favor violence in general"
           ],
           answer: 2,
           explain: "Their surveys showed Southerners were not generally more pro-violence, but were more approving of violence used for self-protection and to answer affronts."
@@ -156,10 +156,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Why does the herding hypothesis link livestock economies to cultures of honor?",
           choices: [
-            "Herders have abundant free time to fight",
+            "Herding leaves long idle periods, so men compete through fights to pass the time",
             "Livestock is movable wealth that can be rustled quickly, so a fierce reputation deters theft",
-            "Farming produces more food surpluses than herding",
-            "Herders never encounter strangers"
+            "Herding produces larger food surpluses, so families have more property to defend through the courts",
+            "Herders live in isolated areas and rarely meet strangers, so they distrust outsiders"
           ],
           answer: 1,
           explain: "A herd represents a family's entire wealth and can be driven off in minutes, so cultivating a reputation for retaliation deters would-be thieves."
@@ -181,10 +181,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Which group did Nisbett and Cohen highlight as bringing herding-based honor norms to the American South?",
           choices: [
-            "Puritan farmers of New England",
-            "Dutch traders of New Amsterdam",
+            "Puritan farmers who settled the towns of New England",
+            "Dutch merchants and traders from New Amsterdam",
             "Scots-Irish settlers from herding regions of Britain and Ireland",
-            "French Huguenot artisans"
+            "English Quakers who settled the farming districts of Pennsylvania and New Jersey"
           ],
           answer: 2,
           explain: "They pointed to Scots-Irish immigrants from pastoral, herding backgrounds who settled the Southern backcountry and carried honor norms with them."
@@ -227,10 +227,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In the Cohen and Nisbett insult experiment (1996), how were participants provoked?",
           choices: [
-            "They were shown violent film clips",
+            "They watched film clips of violent confrontations between men",
             "A confederate bumped them and called them a demeaning name in a hallway",
-            "They were given failing grades on a test",
-            "They were excluded from a group game"
+            "They received harsh written criticism of a personal essay they had just written",
+            "They were left out of a ball-tossing game by other participants"
           ],
           answer: 1,
           explain: "A confederate bumped each participant and muttered an insulting slur, staging a real affront to test honor-culture reactions."
@@ -252,10 +252,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What did the rise in testosterone among insulted Southerners suggest to the researchers?",
           choices: [
-            "They were preparing for calm negotiation",
+            "They were preparing to calm the situation through negotiation",
             "They were physiologically primed for aggression and dominance displays",
-            "They had become sleepy and disengaged",
-            "They felt no reaction to the insult"
+            "They had become fatigued and disengaged from the task",
+            "They felt anxious and mainly wanted to withdraw from any further confrontation"
           ],
           answer: 1,
           explain: "Elevated testosterone signaled a readiness for aggressive, dominance-oriented behavior, consistent with defending threatened honor."
@@ -298,10 +298,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "According to Nisbett and Cohen's archival data, the South's elevated homicide rate was driven mainly by which type of killing?",
           choices: [
-            "Felony-related homicides during robberies",
+            "Felony-related homicides committed during robberies and burglaries",
             "Argument- and conflict-related homicides over insults or disputes",
-            "Accidental deaths",
-            "Killings by strangers for money"
+            "Accidental deaths and killings caused by careless gun handling",
+            "Killings of strangers for money or other material gain"
           ],
           answer: 1,
           explain: "The regional gap was concentrated in argument-related homicides, the kind that arise from honor disputes, not in felony-related killings."
@@ -323,10 +323,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Why was the argument-versus-felony distinction important for the honor-culture argument?",
           choices: [
-            "It proved Southerners were more criminal overall",
+            "It proved that Southerners were more criminal than Northerners in nearly every category of crime",
             "It showed the violence was tied to defending reputation, not to greed or predation",
-            "It showed the South had more poverty",
-            "It showed felony homicides were undercounted"
+            "It showed the gap could be explained by higher poverty in the South",
+            "It showed that felony homicides in the North had been undercounted for decades"
           ],
           answer: 1,
           explain: "By isolating argument-related killings, the data suggested the excess violence flowed from honor disputes rather than from general criminality or economic predation."
@@ -369,10 +369,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In classic honor cultures, male and female honor typically take which contrasting forms?",
           choices: [
-            "Both are based on wealth alone",
+            "Both rest mainly on family wealth and the ability to provide for relatives",
             "Male honor rests on toughness and defense; female honor rests on chastity and modesty",
-            "Female honor rests on physical strength; male honor on beauty",
-            "Neither gender's honor matters socially"
+            "Female honor rests on physical strength; male honor rests on modesty and restraint",
+            "Both rest on the same standards of courage, toughness, and the willingness to retaliate"
           ],
           answer: 1,
           explain: "Male honor is commonly tied to courage, strength, and the ability to protect, while female honor centers on sexual purity, modesty, and fidelity."
@@ -394,10 +394,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "So-called 'honor killings' are best understood as:",
           choices: [
-            "Random acts of violence with no social meaning",
+            "Random acts of violence that carry no particular meaning for the family or community",
             "Violence, often against women, framed as restoring family honor after perceived transgressions",
-            "Legal executions carried out by courts",
-            "A practice unique to a single country"
+            "Legal executions carried out by state courts as formal punishment for serious crimes against families",
+            "A practice confined to a single country and unknown anywhere else in the world"
           ],
           answer: 1,
           explain: "Honor killings are acts of violence, usually targeting women, that perpetrators justify as restoring family honor after alleged sexual or behavioral transgressions."
@@ -440,10 +440,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Anthropologists have long described an 'honor-and-shame' complex in which region?",
           choices: [
-            "Scandinavia and the Baltic",
+            "Scandinavia and the Baltic states",
             "The Mediterranean and the Middle East",
-            "Coastal Japan",
-            "The Canadian Arctic"
+            "Coastal Japan and the Korean peninsula",
+            "The Canadian Arctic and Greenland"
           ],
           answer: 1,
           explain: "Classic ethnography documented a widespread honor-and-shame complex around the Mediterranean and into the Middle East, a key comparative case for honor theory."
@@ -465,10 +465,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "One reason many Mediterranean and Middle Eastern honor systems resemble the US Southern pattern is that both often had:",
           choices: [
-            "Strong centralized states with reliable policing",
+            "Strong centralized states with reliable policing and courts",
             "Pastoral or herding economies and periods of weak state control",
-            "Fully industrialized urban economies",
-            "No concept of family reputation"
+            "Fully industrialized, densely populated urban economies",
+            "Intensive rice farming that required tight village cooperation"
           ],
           answer: 1,
           explain: "Many of these regions historically combined herding economies with weak central authority, the same social ecology honor theory links to strong honor norms."
@@ -511,10 +511,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Research on honor ideology suggests that stronger honor beliefs are associated with more supportive attitudes toward:",
           choices: [
-            "Strict gun control and disarmament",
+            "Strict gun control and broad disarmament programs",
             "Gun ownership and the right to armed self-protection",
-            "Abolishing self-defense laws",
-            "Banning all personal weapons"
+            "Limiting self-defense laws such as stand-your-ground rules",
+            "Banning private ownership of handguns and other weapons"
           ],
           answer: 1,
           explain: "Honor ideology emphasizes self-reliance in protection, and studies link it to stronger support for gun ownership and armed self-defense."
@@ -536,10 +536,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In studies of institutional responses, how have honor-state schools tended to react to threats such as bullying or perceived provocation?",
           choices: [
-            "With more lenient responses than non-honor states",
+            "With more lenient, counseling-based responses than schools in non-honor states typically use",
             "With harsher or more punitive responses, consistent with defending against affronts",
-            "By ignoring the incidents entirely",
-            "With identical policies regardless of region"
+            "By ignoring incidents so as not to draw attention to the school",
+            "With the same policies as schools in every other region of the country"
           ],
           answer: 1,
           explain: "Research (for example, by Brown and colleagues) found schools in honor states tended toward harsher, more punitive responses, mirroring honor logic about answering threats."

@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "In Tooby and Cosmides' orchestration view, an emotion is best described as:",
           choices: [
-            "A single feeling with no effect on behavior",
+            "A single conscious feeling with little effect on behavior",
             "A superordinate program that orchestrates many subprograms",
-            "A purely cultural script with no biological basis",
-            "A random by-product of brain activity"
+            "A cultural script learned from others, with no biological basis",
+            "A reflex linking one stimulus to one fixed response"
           ],
           answer: 1,
           explain: "Tooby and Cosmides define an emotion as a superordinate program: it switches many lower-level mechanisms (attention, memory, physiology, behavior) into a coordinated configuration."
@@ -92,10 +92,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What was Darwin's central claim about emotional expressions?",
           choices: [
-            "They are unique to humans",
-            "They are entirely learned in childhood",
+            "They are unique to humans and absent in other animals",
+            "They are learned in childhood by imitating caregivers",
             "They show continuity between humans and other animals",
-            "They have no survival value at all"
+            "They are arbitrary signals with no link to survival"
           ],
           answer: 2,
           explain: "Darwin emphasized continuity: many human expressions resemble those of other animals, pointing to shared evolutionary origins."
@@ -121,9 +121,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Darwin's principle of 'antithesis' holds that:",
           choices: [
             "Opposite emotional states tend to produce opposite expressions",
-            "All emotions produce the same expression",
-            "Expressions are always chosen consciously",
-            "Only humans possess facial expressions"
+            "All emotions share the same basic facial expression",
+            "Expressions are chosen consciously to influence observers",
+            "Expressions are habits that once served a direct practical purpose"
           ],
           answer: 0,
           explain: "By antithesis, a state opposite to another (e.g., a submissive dog versus an aggressive one) shows a nearly reversed posture and expression."
@@ -292,10 +292,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Paul Rozin's account explains disgust primarily as an adaptation for:",
           choices: [
-            "Attracting mates",
+            "Choosing mates of high genetic quality",
             "Avoiding pathogens and contamination",
-            "Improving memory",
-            "Navigating by starlight"
+            "Enforcing moral norms within the group",
+            "Remembering the location of food sources"
           ],
           answer: 1,
           explain: "Rozin argues disgust evolved to keep us away from disease-carrying substances like rot, feces, and spoiled food."
@@ -328,9 +328,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Which everyday reaction best fits Rozin's pathogen-avoidance disgust?",
           choices: [
             "Recoiling from the smell of rotting meat",
-            "Enjoying a favorite song",
-            "Solving a math puzzle",
-            "Feeling cold while outdoors"
+            "Feeling angry at someone who cut in line",
+            "Flinching at a sudden loud noise nearby",
+            "Freezing at the sight of a large snake"
           ],
           answer: 0,
           explain: "Recoiling from rot is a textbook pathogen-avoidance response: the smell signals likely disease agents."
@@ -363,10 +363,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Many evolutionary researchers argue that shame functions to:",
           choices: [
-            "Increase one's risk-taking",
+            "Repair harm done to a specific partner",
             "Defend against being devalued by others",
-            "Improve visual acuity",
-            "Eliminate all social bonds"
+            "Signal high status and rank to rivals",
+            "Motivate the avoidance of contaminated food"
           ],
           answer: 1,
           explain: "Shame is theorized to defend social value: it motivates hiding or appeasement to limit how much others devalue you."
@@ -398,10 +398,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "A common distinction drawn between shame and guilt is that:",
           choices: [
-            "They are identical emotions",
-            "Guilt is felt only by animals",
+            "They are the same emotion, differing only in how intensely they are felt",
+            "Guilt tracks social devaluation; shame tracks harm to a partner",
             "Shame tracks social devaluation; guilt tracks harm to a partner",
-            "Shame has no behavioral effects"
+            "Shame is felt only in public, while guilt is felt only when alone"
           ],
           answer: 2,
           explain: "Shame is often tied to how one's whole standing looks to others, whereas guilt focuses on specific harm done to a relationship partner."
@@ -459,9 +459,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Tracy and colleagues argue the pride display functions mainly to:",
           choices: [
-            "Hide one's accomplishments",
-            "Cool the body down",
-            "Signal fear to rivals",
+            "Hide one's accomplishments from rivals",
+            "Signal submission to dominant group members",
+            "Signal readiness to share food with others",
             "Signal high status or rank to others"
           ],
           answer: 3,
@@ -540,10 +540,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Mary Ainsworth's 'Strange Situation' procedure was designed to:",
           choices: [
-            "Measure adult IQ",
-            "Test infant eyesight",
+            "Test infants' memory for familiar faces",
+            "Assess how parents discipline toddlers",
             "Classify infant attachment patterns",
-            "Train new caregivers"
+            "Measure infants' grasp of object permanence"
           ],
           answer: 2,
           explain: "Ainsworth's Strange Situation observes infants during separations and reunions to classify attachment patterns (secure, avoidant, resistant)."

@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A stream alert is:",
           choices: [
             "A pop-up celebrating an event like a follow or donation",
-            "A recording error",
-            "The countdown",
-            "A webcam filter"
+            "A warning that your stream has dropped frames",
+            "A banner that labels who is speaking on screen",
+            "A push notification sent to your followers' phones when you go live"
           ],
           answer: 0,
           explain: "Alerts are on-screen toasts that acknowledge viewer events."
@@ -57,9 +57,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Alerts help a stream by:",
           choices: [
             "Acknowledging supporters and encouraging more interaction",
-            "Encoding the video",
-            "Muting the audio",
-            "Replacing the game"
+            "Keeping the brand mark on screen at all times while the game is running",
+            "Filling dead air during breaks with a countdown",
+            "Showing viewers your schedule and social handles"
           ],
           answer: 0,
           explain: "Recognizing supporters live encourages further engagement."
@@ -87,9 +87,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A new sub's name is displayed as:",
           choices: [
             "A yellow knockout block",
-            "Plain gray text",
-            "An image",
-            "Invisible"
+            "Chrome-gradient text",
+            "White text with a pink offset",
+            "Electric-blue text with a glow"
           ],
           answer: 0,
           explain: "Subs use the yellow 'knock' treatment for the name."
@@ -146,9 +146,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The orb on an alert:",
           choices: [
             "Pops in and blinks once as the card appears",
-            "Stays completely still",
-            "Is a video file",
-            "Is the webcam"
+            "Spins once on every alert type",
+            "Stays still while the underline sweeps",
+            "Fades in slowly and pulses until the card leaves"
           ],
           answer: 0,
           explain: "The orb scales in (pop) and blinks once when the alert fires."
@@ -204,9 +204,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "To fire a single raid alert with a count, you'd use:",
           choices: [
             "alerts.html?test=raid&name=Queen&count=142",
-            "alerts.html?bitrate=high",
-            "alerts.html?resolution=4k",
-            "alerts.html?mute=1"
+            "alerts.html?demo=1&type=raid&count=142",
+            "alerts.html?raid=Queen&viewers=142",
+            "alerts.html?test=raid&user=Queen&amt=142"
           ],
           answer: 0,
           explain: "?test=raid with name and count fires one raid alert."
@@ -252,9 +252,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The queue ensures that when many events arrive at once:",
           choices: [
             "Alerts play one after another, not on top of each other",
-            "Only the first ever shows",
-            "They all stack and overlap",
-            "OBS crashes"
+            "Only the newest alert shows; older ones are dropped",
+            "Alerts stack into a list down the side of the screen",
+            "Alerts merge into one card that lists every name"
           ],
           answer: 0,
           explain: "Each alert plays in turn, keeping the screen readable."
@@ -293,9 +293,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The queue is important during:",
           choices: [
             "A raid or hype moment with many events at once",
-            "A silent, empty stream",
-            "Editing a recording",
-            "Changing your resolution"
+            "A slow stretch with one follow every few minutes",
+            "The Starting Soon countdown before you go live",
+            "Editing the recording after the stream"
           ],
           answer: 0,
           explain: "Bursts of events are exactly when queuing prevents overlap."
@@ -312,9 +312,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "To fire an alert from code, you call:",
           choices: [
             "wibblyAlert({ type:'follow', name:'PixelWraith' })",
-            "startRecording()",
-            "setBitrate(6000)",
-            "muteMic()"
+            "wibblyLowerThird({ name:'PixelWraith', role:'follow' })",
+            "alerts.fire('follow', 'PixelWraith')",
+            "window.postMessage({ alert:'follow' })"
           ],
           answer: 0,
           explain: "wibblyAlert(payload) queues and plays an alert."
@@ -353,9 +353,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Calling wibblyAlert while another alert is playing will:",
           choices: [
             "Queue the new alert to play next",
-            "Interrupt and overlap it",
-            "Crash the page",
-            "Do nothing ever"
+            "Replace the current alert immediately",
+            "Show both alerts side by side",
+            "Drop the new alert, since one is already playing"
           ],
           answer: 0,
           explain: "New calls are queued so nothing overlaps."
@@ -372,9 +372,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "'Backend-agnostic' means the alert visuals:",
           choices: [
             "Work with any service via a small mapping shim",
-            "Only work with one specific service",
-            "Need no events at all",
-            "Cannot be triggered"
+            "Work only with Streamlabs, with no setup needed",
+            "Need no events, since they run from the URL only",
+            "Run on a server instead of inside OBS"
           ],
           answer: 0,
           explain: "Any service can drive them by mapping its events onto wibblyAlert."
@@ -413,9 +413,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Shipping visuals backend-agnostic is smart because it:",
           choices: [
             "Lets you switch services without redesigning the alerts",
-            "Requires a specific paid service",
-            "Prevents testing",
-            "Locks you to one platform"
+            "Removes the need to test alerts before going live",
+            "Makes the alerts load faster in the Browser Source",
+            "Lets each service supply its own alert designs automatically"
           ],
           answer: 0,
           explain: "You can change backends while keeping the same look."
@@ -443,9 +443,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The alerts source should sit:",
           choices: [
             "Above the facecam and game so toasts appear on top",
-            "Behind the game",
-            "As an audio source",
-            "Off-screen"
+            "Below the game capture so it never covers gameplay",
+            "At the very bottom of the list, behind everything",
+            "In a separate scene that you switch to for each alert"
           ],
           answer: 0,
           explain: "Alerts must render in front to be visible."

@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("acc", {
           q: "What does a review workflow do?",
           choices: [
             "Routes a document through defined steps to the right reviewers",
-            "Deletes old file versions automatically",
-            "Renders a 3D model faster",
-            "Sends the file to everyone at once with no order"
+            "Sends the document to everyone on the project at once for comment",
+            "Automatically approves documents once a set time has passed",
+            "Locks a document so that only the author can make changes"
           ],
           answer: 0,
           explain: "A review workflow moves a document through a set sequence so the correct people review and act on it in order."
@@ -61,9 +61,9 @@ window.ACADEMY.addUnit("acc", {
           q: "Why route reviews through defined steps instead of email?",
           choices: [
             "It keeps a controlled, traceable record of who did what",
-            "It hides the document from the team",
-            "It removes the need for any approver",
-            "It prevents any comments from being added"
+            "It sends the document to more people than an email list would",
+            "It lets reviewers skip the approval step when they are busy",
+            "It deletes earlier comments so only the final decision remains"
           ],
           answer: 0,
           explain: "A structured workflow gives visibility and an auditable trail that scattered emails cannot."
@@ -86,9 +86,9 @@ window.ACADEMY.addUnit("acc", {
           q: "What is a markup?",
           choices: [
             "A comment or annotation placed on a drawing or model",
-            "A permission setting for a folder",
-            "A backup copy of a file",
-            "A type of user account"
+            "A permission setting that controls who can edit a folder",
+            "A backup copy of a file saved before each new upload",
+            "A tag that marks a document as approved for construction"
           ],
           answer: 0,
           explain: "Markups are visual notes on the document itself, tied to the exact location of the feedback."
@@ -121,9 +121,9 @@ window.ACADEMY.addUnit("acc", {
           q: "Why put a markup on the sheet instead of describing it in a plain email?",
           choices: [
             "It ties the comment to the exact location, removing guesswork",
-            "It automatically approves the document",
-            "It hides the comment from other reviewers",
-            "It permanently locks the file"
+            "It automatically approves the document once the markup is saved",
+            "It keeps the comment private from the other reviewers",
+            "It locks the file so no one can upload a newer version"
           ],
           answer: 0,
           explain: "On-sheet markups remove ambiguity because everyone can see exactly where the comment applies."
@@ -157,9 +157,9 @@ window.ACADEMY.addUnit("acc", {
           q: "What is an approval in a document review?",
           choices: [
             "A formal sign-off that sets a clear status on the document",
-            "A way to email a file to a client",
-            "A backup of every version",
-            "A tool for measuring quantities"
+            "A way to send a file to the client for informal comment",
+            "A saved copy of each version, kept for the record",
+            "A markup that flags a problem on the sheet for the designer to fix"
           ],
           answer: 0,
           explain: "Approval is the decision step that records an official status for the document."
@@ -193,9 +193,9 @@ window.ACADEMY.addUnit("acc", {
           q: "Who typically holds the approver role?",
           choices: [
             "A designated person with authority to sign off",
-            "Anyone who happens to open the file",
-            "The software itself with no human",
-            "Only external clients"
+            "Anyone on the project who happens to open the file first",
+            "The software, which approves files that pass automated checks",
+            "Only the owner's representative, on every document"
           ],
           answer: 0,
           explain: "Approval is assigned to a specific responsible person so the decision is accountable."
@@ -229,9 +229,9 @@ window.ACADEMY.addUnit("acc", {
           q: "What is the main purpose of notifications in a review?",
           choices: [
             "To alert people when an item needs their action",
-            "To render models in higher quality",
-            "To delete completed reviews",
-            "To measure quantities on a sheet"
+            "To record a permanent history of every approval decision",
+            "To remove completed reviews from the project list",
+            "To remind the whole team about every change on the project"
           ],
           answer: 0,
           explain: "Notifications tell the right person that a task is waiting so reviews keep moving."
@@ -264,9 +264,9 @@ window.ACADEMY.addUnit("acc", {
           q: "A reviewer is overwhelmed by messages. What is a reasonable fix?",
           choices: [
             "Tune notification settings so only relevant alerts arrive",
-            "Turn off the whole project",
-            "Delete every document in review",
-            "Ignore all reviews from now on"
+            "Turn off all notifications and check the project once a month",
+            "Remove themselves from the review workflow so others take over",
+            "Ask the team to send review requests by email instead"
           ],
           answer: 0,
           explain: "Adjusting settings keeps useful alerts while cutting the noise, rather than abandoning reviews."
@@ -300,9 +300,9 @@ window.ACADEMY.addUnit("acc", {
           q: "What does version compare show you?",
           choices: [
             "The differences between two versions of a document",
-            "The total file size only",
-            "A list of every project member",
-            "The weather on the job site"
+            "The file size and upload date of each version",
+            "A list of everyone who viewed each version of the file",
+            "The approval status of the latest version only"
           ],
           answer: 0,
           explain: "Version compare highlights what changed from one version to the next."
@@ -335,9 +335,9 @@ window.ACADEMY.addUnit("acc", {
           q: "Why is version compare useful during a review?",
           choices: [
             "It focuses attention on what actually changed",
-            "It approves the document automatically",
-            "It deletes the previous version",
-            "It hides all the markups"
+            "It approves the newer version automatically if few changes exist",
+            "It merges the two versions into a single combined file",
+            "It removes the previous version once the review is complete"
           ],
           answer: 0,
           explain: "Reviewers can confirm whether requested changes were made without re-reading everything."
@@ -371,9 +371,9 @@ window.ACADEMY.addUnit("acc", {
           q: "What is a document issue?",
           choices: [
             "A tracked problem pinned to a location on a document",
-            "A new version of the whole project",
-            "A permission level for a folder",
-            "A dashboard chart"
+            "A new version of a document issued to the whole team",
+            "A permission level that limits who can open a folder",
+            "A chart on the project dashboard showing overdue items"
           ],
           answer: 0,
           explain: "An issue records a problem, its location, an owner, and a status so it can be resolved."
@@ -417,9 +417,9 @@ window.ACADEMY.addUnit("acc", {
           q: "How does an issue differ from a plain markup?",
           choices: [
             "An issue is tracked with an owner and status until it is closed",
-            "An issue can never be seen by others",
-            "A markup automatically deletes itself",
-            "There is no difference at all"
+            "An issue is private to its creator, while markups are visible to all",
+            "A markup is tracked with an owner and status, while an issue is just a note",
+            "An issue can only be created by the project admin, not by reviewers"
           ],
           answer: 0,
           explain: "A markup is a note; an issue is a managed task with accountability and a lifecycle."
@@ -477,9 +477,9 @@ window.ACADEMY.addUnit("acc", {
           q: "Why does an audit trail matter for a controlled review process?",
           choices: [
             "It proves the process was followed and who made each decision",
-            "It speeds up model rendering",
-            "It replaces the need for approvals",
-            "It hides changes from managers"
+            "It lets reviewers skip approvals when deadlines are tight",
+            "It hides earlier decisions from managers so reviews stay fair",
+            "It makes documents load faster by storing a log of every change"
           ],
           answer: 0,
           explain: "A clear record shows the review was done properly and stands up to later scrutiny."
@@ -548,9 +548,9 @@ window.ACADEMY.addUnit("acc", {
           q: "How does the CDE align with the ISO 19650 standard?",
           choices: [
             "It provides a controlled single source of truth for project information",
-            "It requires all files to be printed on paper",
-            "It bans version history entirely",
-            "It forces every user to have admin rights"
+            "It requires all issued files to be printed and signed on paper",
+            "It removes version history so only the current file exists",
+            "It gives every user admin rights so information flows freely between teams"
           ],
           answer: 0,
           explain: "ISO 19650 centers on a controlled single source of truth, which the CDE is built to provide."

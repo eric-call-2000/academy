@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is the best definition of a brand?",
           choices: [
             "The overall perception and feeling people have about your business",
-            "Only your logo and colors",
-            "The price you charge for products",
-            "The address of your store"
+            "Your logo, color palette, and fonts used across every channel",
+            "The legal company name and trademark you register with the government",
+            "The slogan that appears at the bottom of every ad you run online"
           ],
           answer: 0,
           explain: "A brand lives in people's minds as a perception; the visuals are just one part of it."
@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which of these most shapes your brand over time?",
           choices: [
             "Every experience customers have with you",
-            "The font size on your website",
-            "How many colors are in your logo",
-            "The day of the week you post"
+            "The logo and colors you pick at launch",
+            "The amount you spend on advertising each year",
+            "The slogan printed on your packaging"
           ],
           answer: 0,
           explain: "Brands are built by the sum of experiences, promises kept, and impressions people collect."
@@ -68,9 +68,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why does a strong brand matter for a small business?",
           choices: [
             "It builds trust and recognition that make people choose you",
-            "It removes the need to sell anything at all",
-            "It guarantees you never need customer service",
-            "It lets you ignore your competitors forever"
+            "It lets you skip customer service because people already trust you",
+            "It means you no longer need to market the business once it is known",
+            "It protects you from competitors copying your products or prices"
           ],
           answer: 0,
           explain: "A brand earns trust and recall, which help you win and keep customers over time."
@@ -87,9 +87,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What does brand identity refer to?",
           choices: [
             "The visible design elements that represent your brand",
-            "Your monthly advertising budget",
-            "The number of customers you have",
-            "Your company tax records"
+            "The reputation your brand has earned with customers",
+            "The values and mission statement your team agrees on",
+            "The way customers feel after buying from your business"
           ],
           answer: 0,
           explain: "Brand identity is the visible system: name, logo, colors, type, and imagery."
@@ -123,9 +123,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which document keeps your visuals consistent across a team?",
           choices: [
             "A brand style guide",
-            "A tax return",
-            "A sales receipt",
-            "A shipping label"
+            "A content calendar",
+            "A marketing plan",
+            "A mission statement"
           ],
           answer: 0,
           explain: "A style guide records your logo, colors, fonts, and rules so everyone stays consistent."
@@ -159,9 +159,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is brand voice?",
           choices: [
             "The consistent personality that comes through in your writing",
-            "The loudness of your video ads",
-            "The color of your logo",
-            "The speed of your website"
+            "The spokesperson or narrator who records your video and audio ads",
+            "The specific words and phrases you repeat to rank higher in search",
+            "The main message about your product that every campaign repeats"
           ],
           answer: 0,
           explain: "Voice is the steady personality in your words, such as friendly, bold, or expert."
@@ -211,9 +211,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which is the clearest example of a defined brand voice?",
           choices: [
             "Warm, encouraging, and plain-spoken in all our writing",
-            "We spend more on ads each quarter",
-            "Our warehouse is 5,000 square feet",
-            "We ship on Tuesdays only"
+            "We post three times a week on Instagram and LinkedIn",
+            "Our logo uses deep green and a clean sans-serif font",
+            "We help busy families save time on weeknight dinners"
           ],
           answer: 0,
           explain: "A voice is described with personality words that guide how you write, not with logistics."
@@ -230,9 +230,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a tagline?",
           choices: [
             "A short, memorable line that captures your brand promise",
-            "A long legal contract",
-            "The price list for your products",
-            "A list of employee names"
+            "A brief description of the product shown under its name",
+            "A keyword phrase added to your page so it ranks in search",
+            "A label used to sort and track posts on social media sites"
           ],
           answer: 0,
           explain: "A tagline is a brief phrase that sums up what you stand for and sticks in memory."
@@ -347,9 +347,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why does storytelling work well in marketing?",
           choices: [
             "It connects emotionally and is easier to remember",
-            "It replaces the need for any product",
-            "It always requires a huge budget",
-            "It only works for big corporations"
+            "It lets you skip facts about price and features",
+            "It works best when the brand is the main hero",
+            "It is mainly useful for large companies with big budgets"
           ],
           answer: 0,
           explain: "Emotion and narrative structure make messages relatable and sticky for any size business."
@@ -397,9 +397,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which is the strongest USP for a local bakery?",
           choices: [
             "The only bakery in town using fresh local grain, baked daily",
-            "We sell bread",
-            "We have a door and a sign",
-            "We are open sometimes"
+            "Delicious breads and pastries made with care for the whole family",
+            "Great quality, friendly service, and fair prices on all our goods",
+            "A wide selection of breads, cakes, and coffee in a cozy setting"
           ],
           answer: 0,
           explain: "A strong USP is specific and hard to copy, not a generic claim any rival could make."
@@ -443,9 +443,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is brand consistency?",
           choices: [
             "Keeping your look, voice, and message coherent everywhere",
-            "Changing your logo every month",
-            "Using a new tone on each platform",
-            "Hiding your brand name"
+            "Posting on the same days and times each week without fail",
+            "Using the exact same caption on every social media platform",
+            "Never updating your logo or visuals once they are launched"
           ],
           answer: 0,
           explain: "Consistency means your visuals, voice, and message stay coherent across all channels."
@@ -514,9 +514,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is emotional branding?",
           choices: [
             "Building loyalty by connecting with people's feelings and values",
-            "Listing only technical specifications",
-            "Lowering prices as fast as possible",
-            "Avoiding any contact with customers"
+            "Using sad or dramatic images in ads to get more clicks and shares",
+            "Leading every message with detailed specs so buyers feel confident",
+            "Offering frequent discounts so customers feel happy about prices"
           ],
           answer: 0,
           explain: "Emotional branding creates bonds through feelings like trust, belonging, and pride."
@@ -549,9 +549,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which action most builds a sense of belonging?",
           choices: [
             "Creating a community around shared values",
-            "Hiding your brand values",
-            "Refusing to reply to customers",
-            "Changing your mission weekly"
+            "Running a big discount for first-time buyers",
+            "Posting more often across every social channel",
+            "Adding a loyalty card that rewards each purchase"
           ],
           answer: 0,
           explain: "Belonging comes from shared identity and community, not from silence or constant change."

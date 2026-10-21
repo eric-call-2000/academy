@@ -71,7 +71,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does the View Range setting control in a plan view?",
-          choices: ["Which horizontal slices of the model are visible", "The drawing scale", "The line color of walls", "The rendering quality"],
+          choices: ["Which horizontal slices of the model are visible", "How far a plan's crop region extends sideways", "Which categories are turned on in the view", "How thick cut lines appear at each scale"],
           answer: 0,
           explain: "View Range defines the top, cut, and bottom planes that decide what the plan displays."
         },
@@ -102,7 +102,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "A window sits above the cut plane and is not appearing in your floor plan. What likely fixes it?",
-          choices: ["Raise the top of the view range or the cut plane", "Change the scale", "Delete the level", "Turn off crop region"],
+          choices: ["Raise the top of the view range or the cut plane", "Lower the bottom of the view range to the slab", "Enlarge the crop region around the window", "Change the view's discipline to Coordination"],
           answer: 0,
           explain: "If an element is above the range, extend the range or cut plane so the view can see it."
         },
@@ -128,7 +128,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does the Visibility/Graphics dialog let you do?",
-          choices: ["Turn categories on or off and override their graphics per view", "Change the project units", "Rename the project", "Create a new level"],
+          choices: ["Turn categories on or off and override their graphics per view", "Set object styles that change line weights in every view", "Hide categories in the whole project at once for all users", "Assign materials and colors to each element in the model"],
           answer: 0,
           explain: "VG controls which categories show and how they look, and it applies to that one view."
         },
@@ -158,7 +158,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "You want just the current view to show walls in red. Which tool is the cleanest choice?",
-          choices: ["A Visibility/Graphics override on the wall category", "Editing every wall type", "Changing project materials", "Deleting and redrawing walls"],
+          choices: ["A Visibility/Graphics override on the wall category", "Changing the wall category color in Object Styles", "Editing the material of every wall type to red", "Placing a red filled region over each wall"],
           answer: 0,
           explain: "A category override in VG recolors walls in that one view without changing the model."
         },
@@ -184,7 +184,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is the main purpose of a View Template?",
-          choices: ["Apply consistent settings across many views", "Store 3D model geometry", "Save a rendering", "Define a family type"],
+          choices: ["Apply consistent settings across many views", "Store a starting set of families for a project", "Save a camera position for reuse in 3D views", "Define the layout and title block of a sheet"],
           answer: 0,
           explain: "A View Template packages settings like scale, detail level, and visibility so views stay consistent."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Which is a good reason to use View Templates on a big project?",
-          choices: ["Consistency and less repeated setup across many views", "To reduce the file size", "To speed up rendering only", "To hide the model from other users"],
+          choices: ["Consistency and less repeated setup across many views", "Smaller file size because views share one set of geometry", "Faster rendering because each view caches its settings", "Locking views so other team members cannot open them"],
           answer: 0,
           explain: "Templates enforce standards and save you from restyling each view by hand."
         },
@@ -247,7 +247,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "At Coarse detail level, a wall usually shows as what?",
-          choices: ["A simple outline without its layers", "A photo-realistic surface", "Its full internal layers", "An exploded view"],
+          choices: ["A simple outline without its layers", "Its full internal layers with hatching", "A thin single line at its centerline", "A solid fill with every layer shown"],
           answer: 0,
           explain: "Coarse hides internal layers and shows walls as simplified outlines for speed and clarity."
         },
@@ -311,7 +311,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does a view scale of 1:100 mean compared to 1:50?",
-          choices: ["1:100 shows the model smaller on the sheet", "1:100 shows the model larger", "They are identical", "1:100 renders in color"],
+          choices: ["1:100 shows the model smaller on the sheet", "1:100 shows the model larger on the sheet", "1:100 shows twice as much detail as 1:50", "1:100 changes the model's real dimensions"],
           answer: 0,
           explain: "A larger denominator means a smaller drawing, so 1:100 is smaller than 1:50."
         },
@@ -341,7 +341,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "A detail needs to look bigger on the sheet. Which change helps?",
-          choices: ["Use a smaller scale denominator like 1:20", "Use 1:200", "Change the visual style", "Hide the crop region"],
+          choices: ["Use a smaller scale denominator like 1:20", "Use a larger scale denominator like 1:200", "Switch the detail level from Fine to Coarse", "Enlarge the crop region around the detail"],
           answer: 0,
           explain: "A smaller denominator, such as 1:20, draws the view larger on paper."
         }
@@ -355,7 +355,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does a section view do?",
-          choices: ["Cuts through the model to show its interior", "Looks at an outside face only", "Lists quantities in a table", "Renders a photo"],
+          choices: ["Cuts through the model to show its interior", "Shows an outside face of the building head-on", "Lists the elements it crosses in a table", "Looks at the model from a free camera angle"],
           answer: 0,
           explain: "A section slices the model along a line so you can see what is inside."
         },
@@ -427,7 +427,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is special about a dependent view?",
-          choices: ["Many of its settings stay tied to the parent view", "It renders faster", "It cannot be placed on a sheet", "It has no crop region"],
+          choices: ["Many of its settings stay tied to the parent view", "It cannot be placed on a sheet with its parent", "It is a separate model copy that can be edited", "It keeps its own annotation apart from the parent"],
           answer: 0,
           explain: "A dependent view shares settings with its parent, which is great for splitting a big plan across sheets."
         },
@@ -447,7 +447,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "You want a second copy of a plan to try different tags without touching the first. Which is safest?",
-          choices: ["Duplicate the view so annotation is not shared", "Duplicate as Dependent", "Edit the original directly", "Delete the original"],
+          choices: ["Duplicate the view so annotation is not shared", "Duplicate as Dependent so the tags stay separate", "Edit the original and undo the changes later", "Apply a view template to the original view first"],
           answer: 0,
           explain: "A plain duplicate gives an independent view so your annotation changes stay separate."
         },

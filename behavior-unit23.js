@@ -44,7 +44,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Miller and Dollard described 'matched-dependent behavior,' in which an imitator...",
-          choices: ["acts aggressively even when no model is present", "matches a model's response because doing so is rewarded", "ignores all social cues", "learns only through classical conditioning"],
+          choices: ["acts aggressively even when no model is present to copy", "matches a model's response because doing so is rewarded", "copies a model only when the model is punished for acting", "learns to imitate solely through classical conditioning"],
           answer: 1,
           explain: "In matched-dependent behavior, the observer copies the model's response because being reinforced for the match teaches them to imitate."
         },
@@ -70,7 +70,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "The core insight of Bandura's social learning theory is that people can learn...",
-          choices: ["only by being directly rewarded or punished", "by observing others, even without direct reinforcement", "only through classical conditioning", "only during early childhood"],
+          choices: ["only by being directly rewarded or punished for their own actions", "by observing others, even without direct reinforcement", "only through classical conditioning of emotional responses", "only during a critical period in early childhood"],
           answer: 1,
           explain: "Bandura showed that observation alone can produce new behavior, going beyond the direct-consequence view of strict behaviorism."
         },
@@ -90,7 +90,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Bandura drew a key distinction between learning and performance. This means that...",
-          choices: ["a behavior can be learned but not performed until there is motivation", "learning and performance are identical", "performance always comes before learning", "reinforcement plays no role at all"],
+          choices: ["a behavior can be learned but not performed until there is motivation", "learning and performance are identical, so whatever is learned is shown", "performance always comes before learning and is what produces it", "reinforcement must be given during learning for anything to be acquired"],
           answer: 0,
           explain: "Observers can acquire a behavior yet only display it later when they have a reason to; learning is not the same as performing."
         },
@@ -113,7 +113,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which of these is the best example of observational learning?",
-          choices: ["A rat pressing a lever for food pellets", "A dog salivating to a bell", "A child learning to swing a bat by watching a coach demonstrate", "A person blinking when air puffs the eye"],
+          choices: ["A rat learning to press a lever after it is reinforced with food pellets", "A dog learning to salivate to a bell that is paired with meat powder", "A child learning to swing a bat by watching a coach demonstrate", "A person learning to blink at a tone that comes before a puff of air"],
           answer: 2,
           explain: "Learning the swing by watching the coach is observational learning; the others are operant, classical, or reflexive."
         }
@@ -127,7 +127,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "In the original 1961 Bobo doll study, children who watched an adult attack the doll were more likely to...",
-          choices: ["avoid the doll entirely", "comfort the doll", "imitate the aggressive acts themselves", "fall asleep"],
+          choices: ["avoid the doll entirely during free play", "comfort and care for the doll instead", "imitate the aggressive acts themselves", "become fearful and withdraw from the room"],
           answer: 2,
           explain: "Children exposed to an aggressive model reproduced the model's specific aggressive acts far more than children who saw a calm model."
         },
@@ -147,7 +147,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "The 1963 follow-up study was important because it showed children imitated aggression even when the model was...",
-          choices: ["a live adult in the same room", "shown only on film or as a cartoon character", "their own parent", "a school teacher"],
+          choices: ["a live adult in the same room as the child", "shown only on film or as a cartoon character", "the child's own parent, acting out at home", "a familiar teacher from the child's school"],
           answer: 1,
           explain: "The 1963 study demonstrated that filmed and even cartoon models produced imitative aggression, not just live models."
         },
@@ -203,7 +203,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "In Bandura's 1965 study, children who saw a model punished imitated less. But when all children were later offered a reward to reproduce the behavior...",
-          choices: ["only the punished group performed it", "they still could not do it", "none of them would perform it", "all groups performed the aggression about equally"],
+          choices: ["only the group that saw the model punished performed it", "the punished-model group still could not reproduce it", "none of the children were willing to perform it at all", "all groups performed the aggression about equally"],
           answer: 3,
           explain: "Offering an incentive erased the group differences, revealing that all children had learned the behavior even if they had not shown it."
         },
@@ -240,7 +240,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Bandura identified four processes required for observational learning. Which is the correct set?",
-          choices: ["Attention, retention, reproduction, motivation", "Drive, cue, response, reward", "Sensation, perception, memory, action", "Encoding, storage, retrieval, decay"],
+          choices: ["Attention, retention, reproduction, motivation", "Drive, cue, response, reinforcement", "Sensation, perception, memory, and motor action", "Observation, imitation, feedback, reward"],
           answer: 0,
           explain: "Bandura's four modeling processes are attention, retention, reproduction, and motivation."
         },
@@ -327,7 +327,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "How does reciprocal determinism differ from strict behaviorism?",
-          choices: ["It denies that the environment matters", "It adds the person's cognition and lets all three factors influence each other", "It removes behavior from the equation", "It says only genetics shape behavior"],
+          choices: ["It denies that the environment matters and focuses on personal choice alone", "It adds the person's cognition and lets all three factors influence each other", "It removes behavior from the equation and studies only thoughts and settings", "It says genetics and environment together shape behavior in one direction"],
           answer: 1,
           explain: "Strict behaviorism emphasized environment shaping behavior one way; reciprocal determinism adds cognition and mutual influence."
         },
@@ -340,7 +340,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which scenario best illustrates reciprocal determinism?",
-          choices: ["A person is passively molded by rewards with no influence back", "A friendly person draws warm responses, which further boosts their friendliness", "A reflex triggered automatically by a stimulus", "A behavior that occurs with no environment at all"],
+          choices: ["A person is passively molded by rewards, with no influence back on their surroundings", "A friendly person draws warm responses, which further boosts their friendliness", "A reflex is triggered automatically by a stimulus, regardless of the person's thoughts", "A child copies a model's behavior once and never encounters its consequences"],
           answer: 1,
           explain: "The friendly person changes the social environment, which then feeds back to strengthen their behavior, showing mutual influence."
         }
@@ -354,7 +354,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Self-efficacy refers to a person's belief in their capability to...",
-          choices: ["control other people", "predict the future", "avoid all failure", "successfully carry out the actions needed to reach a goal"],
+          choices: ["control other people's behavior through rewards and praise", "predict future events accurately from past experience", "avoid all failure by choosing only easy, familiar tasks", "successfully carry out the actions needed to reach a goal"],
           answer: 3,
           explain: "Self-efficacy is the belief that you can execute the behaviors required to produce a desired outcome."
         },
@@ -367,7 +367,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Bandura proposed several sources of self-efficacy. Which is usually the most powerful?",
-          choices: ["Mastery experiences from past successes", "Watching others succeed", "Verbal encouragement", "Current mood"],
+          choices: ["Mastery experiences from past successes", "Watching similar others succeed at the task", "Verbal encouragement from teachers and peers", "Current mood and physical state at the time"],
           answer: 0,
           explain: "Direct mastery experiences, your own past successes, are the strongest source of self-efficacy beliefs."
         },
@@ -398,7 +398,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "A student with high self-efficacy for math is more likely to...",
-          choices: ["give up quickly on hard problems", "persist and put in more effort on difficult problems", "avoid math entirely", "assume there is no point trying"],
+          choices: ["give up quickly once the problems become difficult", "persist and put in more effort on difficult problems", "avoid math courses whenever a choice is available", "assume that effort makes no difference to the result"],
           answer: 1,
           explain: "High self-efficacy increases effort and persistence, especially when tasks become difficult."
         }
@@ -432,7 +432,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Why did Bandura change the name from social learning theory to social cognitive theory?",
-          choices: ["To reject the idea that people learn socially", "To stress the mental and self-regulatory processes involved, not just behavior", "To return to strict behaviorism", "To remove observation from the theory"],
+          choices: ["To reject the idea that people learn anything from social interaction with others", "To stress the mental and self-regulatory processes involved, not just behavior", "To return to a strict behaviorism based on direct reinforcement alone", "To remove observational learning from the theory and focus on traits"],
           answer: 1,
           explain: "The change emphasized cognition, self-regulation, and agency, moving further from a purely behaviorist account."
         },

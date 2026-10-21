@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("content", {
           q: "YouTube's recommendation system mainly tries to:",
           choices: [
             "Keep viewers watching and satisfied on the platform",
-            "Reward whoever uploads most often",
-            "Promote the newest channels only",
-            "Show every video to everyone equally"
+            "Reward the channels that upload the most often",
+            "Give every new upload equal homepage traffic",
+            "Promote channels with the most subscribers"
           ],
           answer: 0,
           explain: "The system optimizes for viewer satisfaction and time spent, not upload count."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("content", {
           q: "The best way to 'beat the algorithm' is to:",
           choices: [
             "Make videos people genuinely want to click and finish",
-            "Use hidden tricks and hacks",
-            "Buy views",
-            "Spam upload"
+            "Find the hidden tag and keyword tricks the system rewards",
+            "Upload several times a day so the algorithm never forgets you",
+            "Post at the exact hour the algorithm boosts new videos"
           ],
           answer: 0,
           explain: "Serving the viewer is the durable strategy; there is no magic hack."
@@ -85,9 +85,9 @@ window.ACADEMY.addUnit("content", {
           q: "CTR (click-through rate) is driven mostly by:",
           choices: [
             "Your title and thumbnail (the packaging)",
-            "Your upload time of day",
-            "The number of tags",
-            "Your subscriber count alone"
+            "The time of day you publish the video",
+            "The number of tags and keywords you add",
+            "Your subscriber count and channel age"
           ],
           answer: 0,
           explain: "Packaging (title + thumbnail) determines whether an impression becomes a click."
@@ -110,9 +110,9 @@ window.ACADEMY.addUnit("content", {
           q: "Why does YouTube care about watch time?",
           choices: [
             "Time watched signals the video satisfied the viewer",
-            "It measures how many tags you used",
-            "It counts your subscribers",
-            "It tracks your upload streak"
+            "Longer videos let it show more ads, nothing more",
+            "It is how YouTube decides your subscriber count",
+            "It shows how consistently you upload each week"
           ],
           answer: 0,
           explain: "Sustained watching is a strong signal of viewer satisfaction."
@@ -135,9 +135,9 @@ window.ACADEMY.addUnit("content", {
           q: "An impression on YouTube is:",
           choices: [
             "A time your thumbnail was shown to someone",
-            "A completed view",
-            "A subscription",
-            "A comment"
+            "A view that lasted at least thirty seconds",
+            "A time someone clicked through to your video",
+            "A viewer who watched your video to the end"
           ],
           answer: 0,
           explain: "An impression is a display of your thumbnail, not yet a click."
@@ -206,9 +206,9 @@ window.ACADEMY.addUnit("content", {
           q: "Search traffic rewards videos that:",
           choices: [
             "Clearly match what people are searching for",
-            "Have the most tags",
-            "Are the newest uploads",
-            "Have the longest titles"
+            "Pack as many tags as possible into the upload",
+            "Were uploaded most recently on the topic",
+            "Repeat the keyword several times in the title"
           ],
           answer: 0,
           explain: "Search favors relevance to the query and viewer satisfaction."
@@ -237,9 +237,9 @@ window.ACADEMY.addUnit("content", {
           q: "Checking your traffic sources in analytics helps you:",
           choices: [
             "Understand where views come from and lean into what works",
-            "Increase your resolution",
-            "Change your camera",
-            "Edit faster"
+            "Find out which countries pay the highest ad rates per view",
+            "Track how many subscribers you gained each day this month",
+            "See how long viewers watched each part of your video"
           ],
           answer: 0,
           explain: "Knowing your sources tells you how viewers find you and what to optimize."
@@ -256,9 +256,9 @@ window.ACADEMY.addUnit("content", {
           q: "Session time refers to:",
           choices: [
             "How long a viewer stays on YouTube overall, including after your video",
-            "How long you spend editing",
-            "Your upload frequency",
-            "The length of your intro"
+            "How long a viewer spends watching your video before clicking away",
+            "The total minutes all viewers have spent on your channel this month",
+            "The average time between a viewer's visits to your channel page"
           ],
           answer: 0,
           explain: "Session time is the viewer's whole visit, which YouTube wants to extend."
@@ -296,9 +296,9 @@ window.ACADEMY.addUnit("content", {
           q: "A practical way to support session time is to:",
           choices: [
             "Point viewers to a relevant next video",
-            "Tell them to close the app",
-            "Add more tags",
-            "Make the intro longer"
+            "Tell viewers to subscribe before they leave",
+            "Make each video as long as you possibly can",
+            "Add more tags so the video shows up in search"
           ],
           answer: 0,
           explain: "Suggesting a great next watch keeps the viewer on YouTube."
@@ -356,9 +356,9 @@ window.ACADEMY.addUnit("content", {
           q: "A healthy mindset for a new creator is to:",
           choices: [
             "Focus on making each video click-worthy and satisfying",
-            "Only celebrate subscriber milestones",
-            "Ignore retention entirely",
-            "Upload without watching analytics"
+            "Measure success mainly by hitting subscriber milestones",
+            "Upload as often as possible and let volume do the work",
+            "Chase whatever trend is popular this week, even off-topic"
           ],
           answer: 0,
           explain: "Per-video quality compounds into subscribers and long-term growth."
@@ -384,9 +384,9 @@ window.ACADEMY.addUnit("content", {
           q: "A common limitation of Shorts is that they:",
           choices: [
             "Often convert to loyal subscribers and revenue less efficiently than long-form",
-            "Cannot be watched on phones",
-            "Are never recommended",
-            "Require a green screen"
+            "Are shown only to people who already subscribe to the channel and never to new viewers",
+            "Are only shown in search results, not in any recommendation feed",
+            "Do not count toward the channel's views or its subscriber growth"
           ],
           answer: 0,
           explain: "Shorts can rack up views but often convert to loyalty and revenue less than long-form."
@@ -415,9 +415,9 @@ window.ACADEMY.addUnit("content", {
           q: "A sensible strategy for many creators is to:",
           choices: [
             "Use Shorts for reach and long-form for depth and revenue",
-            "Only ever post Shorts",
-            "Only ever post long-form and ignore Shorts",
-            "Post random lengths with no plan"
+            "Post only Shorts, since they get far more views per upload",
+            "Post only long-form, since Shorts hurt a channel's standing",
+            "Turn every long video into Shorts and stop making long-form"
           ],
           answer: 0,
           explain: "Combining formats plays to each one's strength."
@@ -445,9 +445,9 @@ window.ACADEMY.addUnit("content", {
           q: "The most reliable path to growth is:",
           choices: [
             "Consistently improving based on what your data shows",
-            "Hoping one video goes viral by luck",
-            "Copying trends you do not understand",
-            "Buying subscribers"
+            "Uploading as often as possible until one goes viral",
+            "Jumping on every trend as soon as it takes off",
+            "Copying the formats of the biggest channels"
           ],
           answer: 0,
           explain: "Steady, data-informed iteration beats chasing luck."
@@ -486,9 +486,9 @@ window.ACADEMY.addUnit("content", {
           q: "A good question to ask after every video is:",
           choices: [
             "What can I learn to make the next one better?",
-            "How can I blame the algorithm?",
-            "Should I quit?",
-            "How do I get more tags?"
+            "How many subscribers did this one bring in today?",
+            "Which tags should I add to push this one further?",
+            "How do I get this one into the trending tab?"
           ],
           answer: 0,
           explain: "Focusing on the next improvement turns every video into progress."

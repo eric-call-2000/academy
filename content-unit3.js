@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("content", {
           q: "A video idea is more likely to succeed if:",
           choices: [
             "There is existing viewer demand or curiosity for it",
-            "Only you find it interesting",
-            "It has the most tags",
-            "It is the longest possible"
+            "It is a topic nobody on the platform has covered yet",
+            "You personally find it fascinating, whatever others think",
+            "It lets you use the newest gear and editing effects"
           ],
           answer: 0,
           explain: "Demand means an audience is already waiting for the answer."
@@ -75,9 +75,9 @@ window.ACADEMY.addUnit("content", {
           q: "A reliable way to never run out of ideas is to:",
           choices: [
             "Keep a running list and capture ideas as they strike",
-            "Only think of an idea right before filming",
-            "Wait for inspiration once a month",
-            "Copy one channel exactly"
+            "Set aside one long brainstorm session before each shoot",
+            "Wait until inspiration strikes before planning anything",
+            "Follow one big channel and remake each of their uploads"
           ],
           answer: 0,
           explain: "A living idea list turns fleeting inspiration into a dependable pipeline."
@@ -116,9 +116,9 @@ window.ACADEMY.addUnit("content", {
           q: "Recording the angle with each idea helps because:",
           choices: [
             "It makes the idea specific and ready to film",
-            "It uses more storage",
-            "It adds tags",
-            "It shortens the video"
+            "It tells YouTube which category to file it in",
+            "It helps you pick the right tags for upload",
+            "It lets you skip the title until after editing"
           ],
           answer: 0,
           explain: "A topic plus an angle is a concrete, filmable concept."
@@ -135,9 +135,9 @@ window.ACADEMY.addUnit("content", {
           q: "Search research helps you find:",
           choices: [
             "Terms people type that you can realistically rank for",
-            "The best time to upload",
-            "Your ideal thumbnail color",
-            "How many tags to use"
+            "The best day and hour of the week to publish videos",
+            "Which thumbnail colors earn the most clicks for you",
+            "The single most popular search term on the platform"
           ],
           answer: 0,
           explain: "It surfaces real queries and how competitive they are."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("content", {
           q: "Search-focused videos should have titles that:",
           choices: [
             "Clearly include the phrase people are searching",
-            "Hide the topic for mystery",
-            "Are as vague as possible",
-            "Avoid the keyword entirely"
+            "Leave out the keyword to create more curiosity",
+            "Use a clever pun instead of the plain search term",
+            "Put the keyword only in the tags and description"
           ],
           answer: 0,
           explain: "Matching the searched phrase helps YouTube connect you to the query."
@@ -195,9 +195,9 @@ window.ACADEMY.addUnit("content", {
           q: "An outlier video is one that:",
           choices: [
             "Performed far better than that channel's typical video",
-            "Is the oldest on the channel",
-            "Has the fewest tags",
-            "Was uploaded on a weekend"
+            "Got the most views of any video in the whole niche this year",
+            "Was uploaded on a different schedule than the channel's usual",
+            "Performed far worse than the rest of that channel's videos"
           ],
           answer: 0,
           explain: "Outliers spike above the channel's baseline, signaling strong demand."
@@ -236,9 +236,9 @@ window.ACADEMY.addUnit("content", {
           q: "The smart response to a competitor's outlier is to:",
           choices: [
             "Make your own stronger take on that proven demand",
-            "Ignore it entirely",
-            "Report it to YouTube",
-            "Copy it pixel for pixel"
+            "Avoid the topic, since that channel already owns it",
+            "Re-upload a near copy before the trend dies down",
+            "Wait a year to see if the topic is still in demand"
           ],
           answer: 0,
           explain: "Outliers reveal demand you can serve with your own improved version."
@@ -255,9 +255,9 @@ window.ACADEMY.addUnit("content", {
           q: "Packaging-first thinking means you:",
           choices: [
             "Design the title and thumbnail before filming the video",
-            "Only think about packaging after uploading",
-            "Never make thumbnails",
-            "Ignore the title until the end"
+            "Design the title and thumbnail after the edit is locked",
+            "Pick the title from the most-searched words after uploading",
+            "Film first, then choose packaging based on the best footage"
           ],
           answer: 0,
           explain: "Proving the idea is clickable first prevents wasting effort on a dud concept."
@@ -296,9 +296,9 @@ window.ACADEMY.addUnit("content", {
           q: "The main benefit of packaging-first is:",
           choices: [
             "You only invest in ideas that can actually attract clicks",
-            "You never have to edit",
-            "It removes the need for good content",
-            "It guarantees monetization"
+            "Your thumbnails will always match the final footage",
+            "You can skip scripting, since the title sets the plan",
+            "YouTube gives extra promotion to early thumbnails"
           ],
           answer: 0,
           explain: "It filters out weak ideas before you spend hours making them."
@@ -326,9 +326,9 @@ window.ACADEMY.addUnit("content", {
           q: "An idea that has demand but does not fit your niche risks:",
           choices: [
             "Attracting viewers who will not subscribe or return",
-            "Guaranteed long-term growth",
-            "Higher retention automatically",
-            "More ad revenue always"
+            "Lowering your click-through rate on every new upload",
+            "Getting the video limited for being off-topic content",
+            "Confusing search so the video never gets any views"
           ],
           answer: 0,
           explain: "Off-niche hits bring mismatched viewers who rarely stick around."
@@ -367,9 +367,9 @@ window.ACADEMY.addUnit("content", {
           q: "A validated idea is one that:",
           choices: [
             "Has demand, fits your channel, and can be packaged well",
-            "You thought of quickly",
-            "Has the most tags",
-            "Is the longest option"
+            "Has a high search volume, even if it falls outside your niche",
+            "Is a topic you are passionate about and can film this week",
+            "Copies a competitor's outlier with the same title and thumbnail"
           ],
           answer: 0,
           explain: "Demand, fit, and strong packaging together validate an idea."
@@ -395,9 +395,9 @@ window.ACADEMY.addUnit("content", {
           q: "An evergreen video is valuable because it:",
           choices: [
             "Keeps earning views long after upload",
-            "Only works for one day",
-            "Requires no packaging",
-            "Cannot be found in search"
+            "Gets a big spike of views on day one",
+            "Is always promoted on the trending page",
+            "Needs no strong title or thumbnail"
           ],
           answer: 0,
           explain: "Evergreen topics stay relevant, delivering views for years."
@@ -426,9 +426,9 @@ window.ACADEMY.addUnit("content", {
           q: "The risk of relying only on trends is:",
           choices: [
             "Your views collapse when the trend fades",
-            "Your videos last forever",
-            "You earn too much money",
-            "You never need new ideas"
+            "Trend videos cannot be found in search",
+            "Trending topics are too narrow to grow",
+            "YouTube limits how many trend videos you post"
           ],
           answer: 0,
           explain: "Trend-only channels ride waves that inevitably crash."
@@ -456,9 +456,9 @@ window.ACADEMY.addUnit("content", {
           q: "A full idea pipeline helps you avoid:",
           choices: [
             "Panic-filming a weak idea at the last minute",
-            "Ever growing your channel",
-            "Getting comments",
-            "Earning revenue"
+            "Checking your analytics after each upload",
+            "Spending time on titles before filming",
+            "Needing to look at what competitors publish"
           ],
           answer: 0,
           explain: "A backlog of strong ideas removes last-minute desperation."
@@ -497,9 +497,9 @@ window.ACADEMY.addUnit("content", {
           q: "The payoff of a strong idea pipeline is:",
           choices: [
             "Consistent publishing of ideas that already look promising",
-            "Never having to edit",
-            "Automatic monetization",
-            "Guaranteed virality"
+            "Never needing to check analytics once the list is long enough",
+            "Freedom to skip packaging, since the ideas are already strong",
+            "A guarantee that every idea on the list will go viral in time"
           ],
           answer: 0,
           explain: "A pipeline makes consistent, high-potential publishing sustainable."

@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("content", {
           q: "The most actionable place to improve after a video is:",
           choices: [
             "The metric that is weakest (packaging or retention)",
-            "Your tag count",
-            "The upload hour only",
-            "The description length only"
+            "The metric that is strongest, to double down on it",
+            "The subscriber count, since it sums up the rest",
+            "The total view count, since it reflects the rest"
           ],
           answer: 0,
           explain: "Fix the weakest link: low CTR means packaging, low retention means content."
@@ -85,9 +85,9 @@ window.ACADEMY.addUnit("content", {
           q: "A video with strong CTR but weak retention suggests:",
           choices: [
             "The packaging worked but the content did not deliver",
-            "The thumbnail was bad",
-            "Nobody saw it",
-            "The tags were wrong"
+            "The thumbnail was weak, but the content was strong",
+            "Few people saw the video in their feed at all",
+            "The upload time was wrong for most of your audience"
           ],
           answer: 0,
           explain: "People clicked but left, so the content or hook underdelivered."
@@ -116,9 +116,9 @@ window.ACADEMY.addUnit("content", {
           q: "The value of diagnosis is that it:",
           choices: [
             "Turns each result into a specific lesson for next time",
-            "Guarantees virality",
-            "Removes the need to improve",
-            "Adds tags automatically"
+            "Tells you exactly how many views the next video will get",
+            "Lets you blame the algorithm when a video underperforms",
+            "Shows you which competitor videos to copy next"
           ],
           answer: 0,
           explain: "Diagnosis converts outcomes into actionable improvements."
@@ -135,9 +135,9 @@ window.ACADEMY.addUnit("content", {
           q: "Audience analytics can show you:",
           choices: [
             "When your viewers are online and what else they watch",
-            "Your video's resolution",
-            "Your editing software",
-            "Your tag count"
+            "The names and contact details of each of your viewers",
+            "Which of your viewers will cancel their subscription",
+            "How each viewer rated your video out of five stars"
           ],
           answer: 0,
           explain: "It reveals viewing times, demographics, and related interests."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("content", {
           q: "Audience insights are most useful for:",
           choices: [
             "Shaping content and timing around real viewers",
-            "Setting your resolution",
-            "Choosing an editor",
-            "Adding tags"
+            "Proving to sponsors that every viewer is a buyer",
+            "Replacing retention data when judging videos",
+            "Finding which viewers to message directly"
           ],
           answer: 0,
           explain: "They ground your decisions in who is actually watching."
@@ -195,9 +195,9 @@ window.ACADEMY.addUnit("content", {
           q: "The YouTube Partner Program (YPP) generally requires:",
           choices: [
             "Meeting subscriber and watch-time (or Shorts views) thresholds",
-            "Buying a subscription",
-            "A specific camera",
-            "A minimum number of tags"
+            "Paying for a YouTube Premium membership on the channel's account",
+            "Publishing at least one hundred videos over the past twelve months",
+            "Receiving a personal invitation from a YouTube partner manager"
           ],
           answer: 0,
           explain: "YPP eligibility is based on subscriber and watch-time/Shorts thresholds."
@@ -236,9 +236,9 @@ window.ACADEMY.addUnit("content", {
           q: "A healthy way to approach monetization is to:",
           choices: [
             "Focus on making good videos; the thresholds follow",
-            "Obsess over money before making anything",
-            "Ignore the audience",
-            "Buy subscribers"
+            "Pick topics only by which ones pay the highest ad rates",
+            "Post as many videos as you can to hit the thresholds",
+            "Turn on every income stream before you have an audience"
           ],
           answer: 0,
           explain: "Great videos build the audience and watch time that unlock monetization."
@@ -265,9 +265,9 @@ window.ACADEMY.addUnit("content", {
           q: "Ad rates (CPM/RPM) vary a lot mainly by:",
           choices: [
             "Niche, audience, and season",
-            "Your camera brand",
-            "The number of tags",
-            "Your editing software"
+            "Video quality and resolution",
+            "Upload time and day of week",
+            "Number of tags and hashtags"
           ],
           answer: 0,
           explain: "Finance or tech niches often pay more than others, and rates rise near the holidays."
@@ -296,9 +296,9 @@ window.ACADEMY.addUnit("content", {
           q: "A creator wanting higher ad revenue might:",
           choices: [
             "Grow watch time and consider higher-value niches or longer videos",
-            "Use more tags",
-            "Lower their resolution",
-            "Post only Shorts and ignore watch time"
+            "Switch to posting only Shorts, since they get the most views by far",
+            "Add more tags so the videos match more of the high-paying ad keywords",
+            "Upload in the summer, when ad rates are highest for most channels"
           ],
           answer: 0,
           explain: "More watch time and higher-value content improve ad earnings."
@@ -326,9 +326,9 @@ window.ACADEMY.addUnit("content", {
           q: "Relying only on ad revenue is risky because:",
           choices: [
             "Rates fluctuate and a single stream is fragile",
-            "It is illegal",
-            "It uses too many tags",
-            "It lowers resolution"
+            "Ad revenue is capped past a set view count",
+            "YouTube keeps all ad revenue in year one",
+            "Ads are only shown in a few countries"
           ],
           answer: 0,
           explain: "Ad rates swing seasonally; multiple streams add stability."
@@ -357,9 +357,9 @@ window.ACADEMY.addUnit("content", {
           q: "A sensible long-term monetization mindset is to:",
           choices: [
             "Build trust, then add multiple aligned income streams",
-            "Spam affiliate links from day one",
-            "Only ever use ads",
-            "Sell to viewers before earning trust"
+            "Add affiliate links and sponsors from video one",
+            "Rely on ads alone, since other streams hurt trust",
+            "Sell products early, then build trust with viewers"
           ],
           answer: 0,
           explain: "Trust first, then layer in aligned, diverse revenue."
@@ -376,9 +376,9 @@ window.ACADEMY.addUnit("content", {
           q: "A major cause of creators quitting is:",
           choices: [
             "Burnout from an unsustainable pace or pressure",
-            "Too much free time",
-            "Having too many ideas",
-            "Good analytics"
+            "Running out of video ideas after the first year",
+            "Lacking the expensive gear that big creators use",
+            "A lack of natural talent for being on camera"
           ],
           answer: 0,
           explain: "Burnout, not lack of talent, ends many channels."
@@ -417,9 +417,9 @@ window.ACADEMY.addUnit("content", {
           q: "The key to a lasting channel is:",
           choices: [
             "A pace and system you can maintain for years",
-            "Sprinting until you collapse",
-            "Ignoring your wellbeing",
-            "Chasing every trend nonstop"
+            "Uploading every day for the first year, then easing off",
+            "Jumping on every trend to keep growth moving",
+            "Pushing through burnout to keep up your streak"
           ],
           answer: 0,
           explain: "Sustainability is what lets consistency and growth compound."
@@ -447,9 +447,9 @@ window.ACADEMY.addUnit("content", {
           q: "The single most durable principle for YouTube success is:",
           choices: [
             "Genuinely serve and satisfy the viewer",
-            "Exploit hidden algorithm hacks",
-            "Use the most tags possible",
-            "Post as often as humanly possible"
+            "Learn and exploit the algorithm's latest hacks",
+            "Post as often as humanly possible",
+            "Follow every trend the moment it starts"
           ],
           answer: 0,
           explain: "Everything that works ladders up to satisfying the viewer."
@@ -488,9 +488,9 @@ window.ACADEMY.addUnit("content", {
           q: "The best next step after finishing this course is to:",
           choices: [
             "Publish, measure, and keep improving with each video",
-            "Wait for the perfect idea forever",
-            "Buy subscribers",
-            "Never look at analytics"
+            "Plan your first fifty videos before publishing any of them",
+            "Buy better gear before making your next upload",
+            "Wait until you have the perfect idea before you start"
           ],
           answer: 0,
           explain: "Applying the loop consistently is what turns knowledge into growth."

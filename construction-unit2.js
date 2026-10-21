@@ -20,7 +20,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "An easement on a property is best described as:",
-          choices: ["A tax credit for green building", "A right for others to use part of your land for a stated purpose", "The maximum building height allowed", "A discount on the purchase price"],
+          choices: ["A required distance a building must be set back from the lot line", "A right for others to use part of your land for a stated purpose", "A legal claim against a property for unpaid work or materials", "A restriction in the deed limiting what can be built on the lot"],
           answer: 1,
           explain: "An easement grants a third party (like a utility) the legal right to use a defined portion of land."
         },
@@ -77,14 +77,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Zoning districts primarily control:",
-          choices: ["The color of a building", "The allowed uses and intensity of land", "The contractor you must hire", "The brand of materials used"],
+          choices: ["The structural and fire safety requirements for buildings", "The allowed uses and intensity of land", "Who is licensed to perform construction work in the area", "The property tax rate charged on each parcel"],
           answer: 1,
           explain: "Zoning divides land into districts that dictate permitted uses such as residential, commercial, or industrial."
         },
         {
           type: "mcq",
           q: "Floor Area Ratio (FAR) compares:",
-          choices: ["Total floor area to the lot area", "Wall height to roof height", "Parking spaces to units", "Window area to floor area"],
+          choices: ["Total floor area to the lot area", "Building footprint area to the lot area", "Leasable floor area to gross floor area", "Paved area to landscaped open space"],
           answer: 0,
           explain: "FAR is total building floor area divided by lot area, limiting how much you can build on a parcel."
         },
@@ -141,14 +141,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "The government body that enforces building codes and issues permits is the:",
-          choices: ["AHJ (authority having jurisdiction)", "ASTM", "OSHA only", "The general contractor"],
+          choices: ["AHJ (authority having jurisdiction)", "ICC (International Code Council)", "ASTM (testing standards body)", "OSHA (federal workplace safety agency)"],
           answer: 0,
           explain: "The AHJ is the authority having jurisdiction, typically a local building department that enforces codes."
         },
         {
           type: "mcq",
           q: "A building permit is generally required before you can:",
-          choices: ["Buy the land", "Begin most structural construction work", "Advertise the project", "Hire a designer"],
+          choices: ["Purchase the land and close on financing", "Begin most structural construction work", "Start schematic design with an architect", "Solicit bids from general contractors"],
           answer: 1,
           explain: "A building permit grants legal authorization to start regulated construction work on a project."
         },
@@ -175,7 +175,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Inspections during construction usually:",
-          choices: ["Happen only after the building is finished", "Gate the work so later phases cannot proceed until earlier ones pass", "Are optional for licensed builders", "Replace the need for a building permit"],
+          choices: ["Happen only once, after the building is finished and ready to occupy", "Gate the work so later phases cannot proceed until earlier ones pass", "Are optional when the contractor holds a valid state license", "Replace the need for a building permit on smaller projects"],
           answer: 1,
           explain: "Inspections are sequenced so each phase must pass before the next is allowed to be covered or built."
         },
@@ -201,14 +201,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A surveyor's job on a project is mainly to:",
-          choices: ["Pour the foundation", "Measure and mark boundaries, elevations, and building locations", "Order the steel", "Run the cost estimate"],
+          choices: ["Test soil samples to determine bearing capacity and expected settlement", "Measure and mark boundaries, elevations, and building locations", "Inspect completed work for compliance with the building code", "Prepare the grading and drainage design for the site"],
           answer: 1,
           explain: "Surveyors establish property lines, elevations, and precise points used to lay out the building."
         },
         {
           type: "mcq",
           q: "A benchmark in surveying is:",
-          choices: ["A best-in-class competitor", "A fixed point of known elevation used as a reference", "A type of concrete test", "A bidding milestone"],
+          choices: ["A temporary stake marking where a building corner goes", "A fixed point of known elevation used as a reference", "The property line shown on the recorded plat", "A string line stretched between batter boards for layout"],
           answer: 1,
           explain: "A benchmark is a permanent reference point with a known elevation that other measurements tie back to."
         },
@@ -235,7 +235,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Control points on a site are used to:",
-          choices: ["Limit who enters the site", "Provide fixed reference locations for accurate layout", "Set the project budget", "Schedule deliveries"],
+          choices: ["Mark the gates where deliveries and workers are checked in", "Provide fixed reference locations for accurate layout", "Show where erosion and sediment controls must be installed", "Indicate the points where utilities connect to the street"],
           answer: 1,
           explain: "Control points are established reference positions that all subsequent layout measurements work from."
         },
@@ -265,7 +265,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A soils report is produced by the:",
-          choices: ["Geotechnical engineer", "Electrician", "Roofing foreman", "Estimator"],
+          choices: ["Geotechnical engineer", "Structural engineer", "Land surveyor", "Environmental consultant"],
           answer: 0,
           explain: "The geotechnical engineer analyzes subsurface conditions and writes the soils (geotechnical) report."
         },
@@ -299,7 +299,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "The water table is:",
-          choices: ["A schedule of plumbing fixtures", "The level below which the ground is saturated with water", "A type of concrete additive", "A surveying instrument"],
+          choices: ["The depth to which the ground freezes during winter", "The level below which the ground is saturated with water", "The elevation the site must be graded to for drainage", "The height floodwater is expected to reach in a 100-year storm"],
           answer: 1,
           explain: "The water table marks where soil becomes fully saturated, affecting excavation and foundation choices."
         },
@@ -343,7 +343,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Construction documents (CD) are mainly used to:",
-          choices: ["Choose the site", "Permit, bid, and build the project", "Market the building", "Train the staff"],
+          choices: ["Test early design ideas with the owner", "Permit, bid, and build the project", "Record what was actually built at closeout", "Estimate rough costs during feasibility"],
           answer: 1,
           explain: "CDs are the detailed drawings and specs used to obtain permits, solicit bids, and construct the work."
         },
@@ -392,7 +392,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A quantity takeoff is:",
-          choices: ["Removing items from a budget", "Counting and measuring materials from the drawings", "A discount from a supplier", "A safety inspection"],
+          choices: ["Removing scope items from a budget to save money", "Counting and measuring materials from the drawings", "Subtracting a supplier's discount from the material price", "Recording quantities installed on site for monthly billing"],
           answer: 1,
           explain: "A takeoff lists and measures all materials and quantities needed, pulled from the project drawings."
         },
@@ -426,7 +426,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Overhead and profit added by a contractor typically covers:",
-          choices: ["Company operating costs plus margin", "Only material taxes", "The owner's financing", "Subcontractor permits only"],
+          choices: ["Company operating costs plus margin", "Only the sales tax on purchased materials", "The owner's financing and loan interest", "The cost of field labor and equipment"],
           answer: 0,
           explain: "Overhead covers the contractor's general operating expenses, and profit is the markup beyond cost."
         },
@@ -456,14 +456,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "An invitation to bid is:",
-          choices: ["A request for contractors to submit prices for the work", "A permit application", "A change order", "A safety meeting notice"],
+          choices: ["A request for contractors to submit prices for the work", "A request for the design team to clarify a drawing detail", "A notice that tells the winning bidder they can start work", "A list of contractors approved to work on the project"],
           answer: 0,
           explain: "An invitation to bid asks qualified contractors to submit proposals and pricing for a defined scope."
         },
         {
           type: "mcq",
           q: "A bid bond protects the owner by:",
-          choices: ["Guaranteeing the bidder will honor their bid if selected", "Paying all subcontractors directly", "Covering site injuries", "Insuring the finished building"],
+          choices: ["Guaranteeing the bidder will honor their bid if selected", "Guaranteeing the contractor will finish the work as specified", "Guaranteeing subcontractors and suppliers get paid", "Covering injuries to workers that happen on the site"],
           answer: 0,
           explain: "A bid bond guarantees the bidder will enter the contract at their bid price or forfeit the bond."
         },
@@ -520,14 +520,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "In design-bid-build (DBB), the design is fully completed before:",
-          choices: ["The project is bid and built", "The owner buys the land", "Programming begins", "The site is surveyed"],
+          choices: ["The project is bid and built", "The owner selects and purchases the land", "Programming and owner requirements begin", "The site survey and soils report are done"],
           answer: 0,
           explain: "In DBB, the design is finished first, then contractors bid on those complete documents to build it."
         },
         {
           type: "mcq",
           q: "Design-build (DB) is characterized by:",
-          choices: ["One entity responsible for both design and construction", "No contract at all", "The owner doing the design", "Separate owners for each trade"],
+          choices: ["One entity responsible for both design and construction", "Separate contracts for the designer and the builder", "A construction manager advising the owner for a fee", "Several prime contractors each hired directly by the owner"],
           answer: 0,
           explain: "In design-build, a single entity holds responsibility for both designing and constructing the project."
         },
@@ -554,7 +554,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "In CM at risk (CMAR), the construction manager:",
-          choices: ["Only advises and takes no cost risk", "Commits to deliver the project, often under a GMP", "Designs the building alone", "Owns the property"],
+          choices: ["Only advises the owner and takes on no cost risk", "Commits to deliver the project, often under a GMP", "Designs the building and then hands it off to a builder", "Bids the work as a lump sum after the design is complete"],
           answer: 1,
           explain: "In CMAR, the construction manager takes on cost risk and commits to deliver, frequently under a GMP."
         },

@@ -69,7 +69,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which three ingredients are required for evolution by natural selection?",
-          choices: ["Variation, heredity, selection", "Mutation, migration, drift", "Growth, decay, renewal", "Size, speed, strength"],
+          choices: ["Variation, heredity, selection", "Mutation, migration, genetic drift", "Variation, mutation, isolation", "Competition, adaptation, speciation"],
           answer: 0,
           explain: "Wherever you have heritable variation plus differential reproduction (selection), evolution by natural selection follows almost by logic."
         },
@@ -125,7 +125,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Natural selection is best defined as:",
-          choices: ["The survival of the physically strongest", "The differential reproduction of heritable variants", "Random changes in DNA", "The will of organisms to improve themselves"],
+          choices: ["The survival of the strongest and healthiest individuals", "The differential reproduction of heritable variants", "Random changes in DNA that build up from one generation to the next", "The striving of organisms to improve themselves for their offspring"],
           answer: 1,
           explain: "The precise definition is differential reproduction of heritable variants: some heritable types leave more offspring than others."
         },
@@ -181,7 +181,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "In evolutionary biology, 'fitness' refers to:",
-          choices: ["Physical strength and health", "An organism's relative reproductive success", "How long an organism lives", "How fast an organism can run"],
+          choices: ["Physical strength, health, and condition", "An organism's relative reproductive success", "How long an organism survives in its habitat", "The total number of matings an organism has"],
           answer: 1,
           explain: "Evolutionary fitness is relative reproductive success: how many descendants a variant leaves compared with others."
         },
@@ -201,7 +201,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Why is mere survival not the same as fitness?",
-          choices: ["Because survival matters only if it leads to reproduction", "Because survival is impossible to measure", "Because fitness ignores genes entirely", "Because only strong animals ever survive"],
+          choices: ["Because survival matters only if it leads to reproduction", "Because survival depends on luck, while fitness depends on genes", "Because fitness is measured by health rather than by lifespan", "Because long-lived organisms usually have fewer genes to pass on"],
           answer: 0,
           explain: "Survival is a means, not the end. It contributes to fitness only insofar as it lets an organism reproduce."
         },
@@ -237,7 +237,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "How does natural selection build complex adaptations like the eye?",
-          choices: ["In a single lucky leap", "Through cumulative small favorable steps over generations", "By following an engineer's blueprint", "Through the organism's own effort and striving"],
+          choices: ["Through one large mutation that produced the whole structure", "Through cumulative small favorable steps over generations", "Through random changes that happened to fit together at once", "Through traits gained during life and passed on to offspring"],
           answer: 1,
           explain: "Cumulative selection preserves each small improvement, so complexity is assembled gradually rather than all at once."
         },
@@ -273,7 +273,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Darwin argued the complex eye could evolve because:",
-          choices: ["It appeared fully formed all at once", "It was too complex to have evolved", "Numerous gradations from simple to complex each aided vision", "Only vertebrates possess eyes"],
+          choices: ["A single mutation could have produced a working eye in one step", "Light itself causes the organs exposed to it to become eyes", "Numerous gradations from simple to complex each aided vision", "Eyes improved as organisms used them more over their lifetimes"],
           answer: 2,
           explain: "Darwin pointed to a graded series of working eyes across nature, each intermediate useful, bridging simple to complex."
         },
@@ -425,7 +425,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which is the most accurate reading of 'the fittest'?",
-          choices: ["The biggest and strongest animal", "The longest-lived individual", "The fastest runner", "The best fit to its environment for reproduction"],
+          choices: ["The biggest and strongest animal in its group", "The individual that lives the longest and stays healthy", "The one that wins the most fights against rivals", "The best fit to its environment for reproduction"],
           answer: 3,
           explain: "'Fittest' means best matched to the environment in ways that raise reproduction, which often has nothing to do with strength."
         },

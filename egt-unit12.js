@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What did Robert Axelrod do in 1980 to study cooperation?",
           choices: [
             "Ran a computer tournament where submitted strategies played the repeated Prisoner's Dilemma against each other",
-            "Surveyed people about whether they would cooperate",
-            "Observed animals sharing food in the wild",
-            "Solved the Prisoner's Dilemma with a single equation"
+            "Surveyed hundreds of people about whether they would cooperate or defect in a one-shot Prisoner's Dilemma",
+            "Observed groups of animals sharing food in the wild to measure how often cooperation happens",
+            "Solved the repeated Prisoner's Dilemma with a single equation that predicts the best strategy"
           ],
           answer: 0,
           explain: "Axelrod invited experts to submit computer programs (strategies) that competed in a round-robin repeated Prisoner's Dilemma tournament."
@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Who submitted the strategies that competed in Axelrod's first tournament?",
           choices: [
-            "Randomly generated computer programs",
+            "Randomly generated programs written by a computer",
             "Game theorists and researchers who mailed in their programs",
-            "Undergraduate students only",
-            "Axelrod himself wrote all of them"
+            "Undergraduate students taking Axelrod's course on politics",
+            "Axelrod himself, who wrote every one of the entries"
           ],
           answer: 1,
           explain: "Axelrod solicited entries from professional game theorists and researchers across several disciplines, who submitted their coded strategies."
@@ -111,9 +111,9 @@ window.ACADEMY.addUnit("egt", {
           q: "How does Tit-for-Tat behave?",
           choices: [
             "It cooperates on the first move, then copies whatever the opponent did last",
-            "It always defects to protect itself",
-            "It picks its move randomly each round",
-            "It defects first, then cooperates forever"
+            "It defects on the first move, then copies whatever the opponent did last",
+            "It cooperates until the opponent defects, then defects for the rest of the game",
+            "It cooperates on the first move, then repeats whatever it did last itself"
           ],
           answer: 0,
           explain: "Tit-for-Tat opens with cooperation and thereafter mirrors the opponent's previous move."
@@ -226,10 +226,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What does it mean for a strategy to be 'retaliatory' (provokable) in Axelrod's analysis?",
           choices: [
-            "It defects at random to keep opponents guessing",
+            "It defects at random so that opponents can never predict its next move",
             "It responds to an opponent's defection by defecting in return",
-            "It never punishes defection to stay friendly",
-            "It defects first to gain an advantage"
+            "It never punishes a defection, so that it always stays friendly to others",
+            "It defects first to gain an early advantage over the opponent in the game"
           ],
           answer: 1,
           explain: "A retaliatory strategy answers a defection with a defection, discouraging the opponent from exploiting it."
@@ -251,10 +251,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is quick retaliation important for a strategy's success?",
           choices: [
-            "It makes the strategy the first to defect",
+            "It makes the strategy the first one to defect, so it gets the temptation payoff",
             "It signals that defection will not pay off, discouraging exploitation",
-            "It guarantees the highest score in every single game",
-            "It confuses the opponent with randomness"
+            "It guarantees the strategy the highest score in every single game it plays",
+            "It confuses the opponent with randomness, so the opponent cannot exploit it"
           ],
           answer: 1,
           explain: "Prompt retaliation teaches opponents that defecting brings an immediate cost, so cooperation becomes the better choice for them."
@@ -297,10 +297,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What does 'forgiving' mean for a strategy in Axelrod's framework?",
           choices: [
-            "Never punishing any defection",
+            "Never punishing any defection at all",
             "Being willing to return to cooperation after retaliating",
-            "Always defecting once wronged",
-            "Never cooperating with defectors again"
+            "Always defecting once it has been wronged",
+            "Defecting first to test whether the opponent will retaliate"
           ],
           answer: 1,
           explain: "A forgiving strategy stops punishing and resumes cooperation once the opponent cooperates again."
@@ -315,10 +315,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Which strategy is the LEAST forgiving?",
           choices: [
-            "Tit-for-Tat",
-            "Tit-for-Two-Tats",
+            "Tit-for-Tat (copies the opponent's last move)",
+            "Tit-for-Two-Tats (defects only after two in a row)",
             "Grim Trigger (defects forever after one defection)",
-            "Always Cooperate"
+            "Generous Tit-for-Tat (sometimes forgives a defection)"
           ],
           answer: 2,
           explain: "Grim Trigger never forgives -- a single defection makes it defect permanently, holding a grudge forever."
@@ -368,10 +368,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why did Axelrod say clarity of behavior helped a strategy succeed?",
           choices: [
-            "Confusing opponents lets you exploit them more",
+            "Confusing opponents lets you exploit them more often before they can respond",
             "An opponent that can read your strategy learns that cooperating with you pays off",
-            "Clear strategies always score higher in a single game",
-            "Clarity has no effect on outcomes"
+            "Clear strategies always score higher than unclear ones in any single game",
+            "Clear strategies win because they defect first and opponents cannot respond in time to punish them"
           ],
           answer: 1,
           explain: "When a strategy is easy to understand, opponents quickly learn that cooperation is rewarded and defection is punished, so they cooperate."
@@ -393,10 +393,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What problem can an overly complex or 'tricky' strategy run into?",
           choices: [
-            "It always loses on the first move",
+            "It always loses on the very first move of each game",
             "Opponents cannot recognize a pattern, so they may not learn to cooperate with it",
-            "It is banned from tournaments",
-            "It becomes too nice"
+            "It cooperates too often, so defectors can exploit it in almost every single round",
+            "It is disqualified from tournaments for being unfair"
           ],
           answer: 1,
           explain: "If opponents cannot decode a strategy, they cannot learn that cooperation is rewarded, and mutual cooperation may never develop."
@@ -440,10 +440,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is the key idea of Axelrod's ecological tournament?",
           choices: [
-            "Each strategy plays only once and is then removed",
+            "Each strategy plays only once against every other entry and is then removed from the tournament entirely",
             "A strategy's share of the population grows in proportion to how well it scored, generation after generation",
-            "New random strategies are added every round",
-            "The worst strategy is copied the most"
+            "New random strategies are added in every round so that no single strategy can dominate for long",
+            "The strategy with the lowest score is copied the most, so the weakest strategies always take over"
           ],
           answer: 1,
           explain: "In the ecological version, successful strategies reproduce -- their proportion of the population rises based on their scores, like natural selection."
@@ -465,10 +465,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why did Always Defect fare poorly in the long run of the ecological tournament?",
           choices: [
-            "It was disqualified for defecting",
+            "It was disqualified from the later rounds for defecting too often against the other entries",
             "Once it wiped out the exploitable nice strategies, it was left mostly meeting other defectors and scoring badly",
-            "It could not defect against itself",
-            "It kept switching to cooperation"
+            "It could not defect against copies of itself, so it scored nothing in those games",
+            "It kept switching back to cooperation after being punished, and so it lost its advantage over every other entry"
           ],
           answer: 1,
           explain: "Always Defect thrives on exploitable partners; as those vanished, it faced mostly defectors and earned the low mutual-defection payoff."
@@ -511,10 +511,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What does it mean that Tit-for-Tat is 'collectively stable'?",
           choices: [
-            "It always beats every opponent in a single game",
+            "It always beats every opponent it meets in a single game of the Prisoner's Dilemma",
             "Once a population plays Tit-for-Tat, no invading strategy can earn a higher score",
-            "It never changes its first move",
-            "It requires a central authority to enforce cooperation"
+            "It never changes its first move, so all invaders must cooperate on the first round",
+            "It needs a central authority to enforce cooperation among the players in a population"
           ],
           answer: 1,
           explain: "Collective stability means that in a population of Tit-for-Tat players, no alternative strategy can invade and outperform them."
@@ -536,10 +536,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why can't Always Defect invade a population of Tit-for-Tat players?",
           choices: [
-            "Tit-for-Tat refuses to play against it",
+            "Tit-for-Tat players refuse to play against a known defector at all, so the invader never gets to score any points",
             "An invading defector gets punished after the first round and earns less than the mutual cooperation the residents enjoy",
-            "Always Defect cannot defect twice in a row",
-            "The tournament rules forbid invaders"
+            "Always Defect cannot defect twice in a row against the same player, so it is forced to cooperate with residents",
+            "The defector earns the temptation payoff every round, but residents earn more by exploiting it in return"
           ],
           answer: 1,
           explain: "Against Tit-for-Tat, a defector is punished from round two onward, so it earns less than residents who cooperate with each other -- assuming the game lasts long enough."

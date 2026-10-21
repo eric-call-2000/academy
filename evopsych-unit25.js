@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The 1979 'Spandrels of San Marco' paper that challenged the adaptationist programme was written by which pair?",
-          choices: ["Tooby and Cosmides", "Stephen Jay Gould and Richard Lewontin", "Daly and Wilson", "Nesse and Williams"],
+          choices: ["John Tooby and Leda Cosmides", "Stephen Jay Gould and Richard Lewontin", "Richard Dawkins and John Maynard Smith", "Randolph Nesse and George Williams"],
           answer: 1,
           explain: "Stephen Jay Gould and Richard Lewontin published the critique in 1979 in the Proceedings of the Royal Society."
         },
@@ -43,7 +43,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What is the core biological lesson of the spandrel analogy?",
-          choices: ["Every trait is an optimal adaptation", "Natural selection does not occur", "Some traits are byproducts of other structures, not directly selected", "Traits cannot be studied scientifically"],
+          choices: ["Every trait can be explained as an optimal adaptation to its environment", "Natural selection cannot build complex structures such as buildings", "Some traits are byproducts of other structures, not directly selected", "Traits that have no current use were never shaped by selection at all"],
           answer: 2,
           explain: "The analogy shows that some traits arise as byproducts of other features rather than being directly shaped by selection for their current use."
         },
@@ -76,7 +76,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What does the just-so stories objection claim about many adaptationist explanations?",
-          choices: ["They are unfalsifiable narratives invented after the fact", "They rely on too much data", "They ignore natural selection entirely", "They are already mathematically proven"],
+          choices: ["They are unfalsifiable narratives invented after the fact", "They rely on so much data that no clear pattern can emerge", "They ignore natural selection in favor of cultural learning", "They have already been proven correct by mathematical models"],
           answer: 0,
           explain: "The charge is that such accounts are post hoc stories crafted to fit any observation, and so cannot be tested or refuted."
         },
@@ -99,7 +99,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "How do evolutionary psychologists best answer the just-so charge?",
-          choices: ["By insisting the narrative feels plausible", "By avoiding all hypotheses", "By appealing to authority", "By deriving specific, falsifiable predictions and testing them"],
+          choices: ["By showing that the narrative is intuitive and feels plausible", "By avoiding hypotheses and simply describing behavior instead", "By citing the authority of leading evolutionary biologists", "By deriving specific, falsifiable predictions and testing them"],
           answer: 3,
           explain: "The strongest reply is to generate precise, risky predictions that data could contradict, and then test them."
         },
@@ -155,7 +155,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What evidence best supports calling a trait an adaptation rather than a byproduct?",
-          choices: ["It shows special design features that solve a specific adaptive problem efficiently", "It is present in many people", "It looks complicated", "It varies randomly across individuals"],
+          choices: ["It shows special design features that solve a specific adaptive problem efficiently", "It is present in most people across many different cultures around the world", "It looks complicated and involves many interacting parts in the body", "It varies widely and randomly from one individual to the next"],
           answer: 0,
           explain: "Evidence of special design, such as economy, efficiency, and precision for a function, is the hallmark of an adaptation."
         },
@@ -188,7 +188,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "How is the EEA best defined?",
-          choices: ["A single place and time, the African savanna", "The environment humans live in today", "A statistical composite of the selection pressures that shaped an adaptation", "A controlled laboratory setting"],
+          choices: ["A single place and time, the African savanna of about two million years ago", "The environment humans live in today, to which our minds are now adapted", "A statistical composite of the selection pressures that shaped an adaptation", "The stable conditions of a controlled laboratory used to test adaptations"],
           answer: 2,
           explain: "Tooby and Cosmides stressed that the EEA is a statistical composite of selection pressures, not one specific place or time."
         },
@@ -211,7 +211,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What is a common criticism of the EEA concept?",
-          choices: ["It is far too easy to reconstruct precisely", "Ancestral environments are hard to reconstruct, making claims hard to test", "It ignores natural selection", "It applies only to plants"],
+          choices: ["It is far too easy to reconstruct precisely, so it adds nothing new", "Ancestral environments are hard to reconstruct, making claims hard to test", "It ignores natural selection entirely and treats all human behavior as purely learned", "It applies only to plants and animals, not to human behavior"],
           answer: 1,
           explain: "Critics argue that because we cannot fully reconstruct ancestral environments, EEA-based claims are difficult to test."
         },
@@ -238,7 +238,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Evolutionary mismatch occurs when which of the following happens?",
-          choices: ["Two species compete for the same resource", "An adaptation shaped by ancestral environments misfires in a novel modern environment", "Genes mutate at random", "Two cultures come into conflict"],
+          choices: ["Two species compete for the same resource and one is driven to extinction", "An adaptation shaped by ancestral environments misfires in a novel modern environment", "Genes mutate at random, producing traits that do not fit any environment", "Two cultures with different norms come into conflict over shared territory and resources"],
           answer: 1,
           explain: "Mismatch arises when a trait that was adaptive in the ancestral past produces harm in a rapidly changed modern setting."
         },
@@ -268,7 +268,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which is the clearest example of an evolutionary mismatch disease?",
-          choices: ["A broken bone from a fall", "A viral infection", "A genetic point mutation", "Type 2 diabetes linked to abundant refined sugar"],
+          choices: ["A broken bone from a fall while climbing a tree", "A viral infection caught from a sick relative", "A genetic point mutation that causes cystic fibrosis", "Type 2 diabetes linked to abundant refined sugar"],
           answer: 3,
           explain: "Type 2 diabetes is a classic 'disease of civilization,' driven by modern diets that clash with ancestrally tuned metabolism."
         },
@@ -301,7 +301,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What key distinction does Buller draw in his critique?",
-          choices: ["Genetics versus epigenetics", "'Evolutionary Psychology,' a specific paradigm, versus evolutionary psychology, the broader field", "Biology versus psychology", "Nature versus nurture"],
+          choices: ["Genetic versus epigenetic inheritance as sources of human behavioral traits", "'Evolutionary Psychology,' a specific paradigm, versus evolutionary psychology, the broader field", "Adaptive behavior in animals versus maladaptive behavior in modern humans", "Nature versus nurture, arguing that culture explains far more of human behavior than our genes ever do"],
           answer: 1,
           explain: "Buller accepts the broad field but targets the capitalized 'Evolutionary Psychology' of the Santa Barbara school."
         },
@@ -324,7 +324,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The 'massive modularity' thesis that Buller targets claims what about the mind?",
-          choices: ["The mind is composed of many specialized, domain-specific modules", "The mind is a single general-purpose learner", "The brain has no structure at all", "Culture determines all behavior"],
+          choices: ["The mind is composed of many specialized, domain-specific modules", "The mind is a single general-purpose learner shaped mostly by culture", "The brain has no fixed structure, so any region can learn any task", "The mind has a few large modules for perception, but none for reasoning"],
           answer: 0,
           explain: "Massive modularity holds that the mind is a large collection of specialized, domain-specific mechanisms."
         },
@@ -350,7 +350,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The 1994 book 'Why We Get Sick,' which launched Darwinian medicine, was written by which pair?",
-          choices: ["Gould and Lewontin", "Randolph Nesse and George Williams", "Tooby and Cosmides", "Boyd and Richerson"],
+          choices: ["Stephen Jay Gould and Richard Lewontin", "Randolph Nesse and George Williams", "John Tooby and Leda Cosmides", "Robert Boyd and Peter Richerson"],
           answer: 1,
           explain: "Randolph Nesse and George C. Williams co-wrote 'Why We Get Sick' (1994), founding evolutionary medicine."
         },
@@ -381,7 +381,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "According to the smoke-detector principle, evolved defenses are often triggered unnecessarily because what is true?",
-          choices: ["Bodies are simply poorly designed", "Defenses never actually help", "The cost of a false alarm is low compared with missing a real threat", "Natural selection maximizes comfort"],
+          choices: ["Bodies are poorly designed, so their defenses misfire at random", "Defenses rarely help, so selection has not bothered to fine-tune them", "The cost of a false alarm is low compared with missing a real threat", "Natural selection maximizes comfort, so defenses fire to keep us at ease"],
           answer: 2,
           explain: "When a missed threat can be fatal and a false alarm is cheap, selection favors defenses that fire readily."
         },
@@ -414,7 +414,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What is the classic textbook example of gene-culture coevolution?",
-          choices: ["The evolution of bipedalism", "Lactase persistence coevolving with dairy farming", "The origin of color vision", "The development of opposable thumbs"],
+          choices: ["Bipedalism coevolving with long-distance running", "Lactase persistence coevolving with dairy farming", "Color vision coevolving with fruit gathering", "Skin pigmentation coevolving with latitude and sunlight"],
           answer: 1,
           explain: "Cultures that herded cattle for milk selected for genes that let adults keep digesting lactose, a textbook case of coevolution."
         },
@@ -438,7 +438,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Cultural evolution treats culture as Darwinian because it involves what?",
-          choices: ["Only random, undirected change", "No transmission between individuals", "Variation, selection, and inheritance of ideas and behaviors", "Purely fixed instincts"],
+          choices: ["Only random, undirected changes in ideas over time", "Ideas that are copied but never vary between individuals", "Variation, selection, and inheritance of ideas and behaviors", "Fixed instincts that are passed down from parents through their genes alone"],
           answer: 2,
           explain: "Culture shows the Darwinian ingredients of variation, selection, and inheritance, so it can evolve much like genes."
         },

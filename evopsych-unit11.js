@@ -69,7 +69,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which of the following is an adaptive problem specific to SHORT-term mating rather than long-term mating?",
-          choices: ["Assessing a partner's parenting ability", "Minimizing the time and cost before sexual access", "Evaluating long-term resource potential", "Ensuring a partner's lifelong fidelity"],
+          choices: ["Assessing a partner's likely parenting ability", "Minimizing the time and cost before sexual access", "Evaluating a partner's long-term resource potential", "Ensuring a partner's lifelong sexual fidelity"],
           answer: 1,
           explain: "Reducing the time, investment, and cost before sexual access is a distinctly short-term problem; the others are long-term concerns."
         },
@@ -105,7 +105,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "A short-term adaptive problem considered more relevant to women than to men is:",
-          choices: ["Guaranteeing paternity certainty", "Extracting immediate resources from a short-term partner", "Maximizing the sheer number of partners", "Reducing the time before sex"],
+          choices: ["Guaranteeing certainty of paternity with a partner", "Extracting immediate resources from a short-term partner", "Maximizing the sheer number of sexual partners", "Minimizing the time before sexual access begins"],
           answer: 1,
           explain: "The resource-extraction problem is emphasized for women's short-term mating; paternity certainty and partner-number are male-biased concerns."
         },
@@ -155,7 +155,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Why is a partner's fidelity a larger paternity concern for men than for women, in evolutionary terms?",
-          choices: ["Women invest fewer resources in offspring", "Men can never be fully certain they are the genetic father", "Women reproduce more slowly", "Men have shorter lifespans"],
+          choices: ["Women invest fewer resources in offspring than men do", "Men can never be fully certain they are the genetic father", "Men are the sex with more limited reproductive potential", "Men have shorter lifespans and fewer chances to reproduce"],
           answer: 1,
           explain: "Internal fertilization means maternity is always certain but paternity is not, so a mate's fidelity carries higher stakes for men."
         },
@@ -168,7 +168,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which pairing correctly matches a long-term problem with the sex most affected by it?",
-          choices: ["Resource provisioning - most weighed by women choosing a long-term mate", "Paternity certainty - most weighed by women", "Fertility cues - weighed by no one", "Commitment - irrelevant to both sexes"],
+          choices: ["Resource provisioning - most weighed by women choosing a long-term mate", "Paternity certainty - most weighed by women choosing a long-term mate", "Fertility cues - most weighed by women choosing a long-term mate", "Resource provisioning - most weighed by men choosing a long-term mate"],
           answer: 0,
           explain: "Provisioning weighs most heavily on women's long-term choices, while paternity certainty is the corresponding male-biased concern."
         }
@@ -238,14 +238,14 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The 'good genes' hypothesis says women may pursue short-term mating to obtain what for their offspring?",
-          choices: ["Immediate food and resources", "High-quality genes from attractive men", "A committed long-term partner", "Higher social status only"],
+          choices: ["Immediate food and material resources", "High-quality genes from attractive men", "A committed long-term partner and father", "Protection from other men's aggression"],
           answer: 1,
           explain: "The good-genes hypothesis holds that short-term mating can let a woman secure superior heritable qualities from an attractive man."
         },
         {
           type: "mcq",
           q: "The 'resource' hypothesis for women's short-term mating emphasizes gaining what?",
-          choices: ["Immediate material benefits such as gifts or food", "Higher-quality genes", "Guaranteed long-term commitment", "A larger total number of offspring"],
+          choices: ["Immediate material benefits such as gifts or food", "Higher-quality genes for her future offspring", "A chance to evaluate a possible long-term partner", "A larger total number of offspring over her life"],
           answer: 0,
           explain: "The resource hypothesis focuses on immediate material payoffs, gifts, food, or protection, gained from a short-term partner."
         },
@@ -315,7 +315,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "According to strategic pluralism, in environments with high pathogen or parasite stress, women should place MORE weight on a mate's:",
-          choices: ["Parental investment", "Indicators of genetic quality such as physical attractiveness", "Wealth alone", "Kindness alone"],
+          choices: ["Willingness to invest time and care in shared offspring over years", "Indicators of genetic quality such as physical attractiveness", "Wealth and the ability to provide material resources", "Kindness, dependability, and emotional stability"],
           answer: 1,
           explain: "Where pathogen pressure is high, heritable disease resistance matters more, so cues of genetic quality (like attractiveness) gain weight."
         },
@@ -332,7 +332,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "According to strategic pluralism, a man's likelihood of successfully pursuing a short-term strategy depends partly on his own:",
-          choices: ["Birth order", "Mate value or attractiveness", "Blood type", "Native language"],
+          choices: ["Birth order among his siblings", "Mate value or attractiveness", "Handedness and blood type", "Geographic region of birth"],
           answer: 1,
           explain: "Higher-mate-value men can pursue short-term mating more successfully, so strategies are conditional on one's own attributes."
         },
@@ -409,7 +409,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "In evolutionary psychology, 'mate poaching' refers to:",
-          choices: ["Guarding one's own partner from rivals", "Unknowingly raising another man's child", "Attracting someone who is already in a relationship", "Choosing a long-term spouse"],
+          choices: ["Guarding one's own partner against rivals' advances", "Leaving a partner to pursue someone of higher mate value", "Attracting someone who is already in a relationship", "Secretly raising a child fathered by another man"],
           answer: 2,
           explain: "Mate poaching means luring away a person who is already partnered, a tactic Schmitt and Buss studied extensively."
         },

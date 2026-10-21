@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What is an internal working model, in Bowlby's theory?",
           choices: [
             "A mental representation of the self and of attachment figures used to guide relationships",
-            "A physical model babies build with blocks",
-            "A genetic blueprint that fixes personality at birth",
-            "A conscious list of rules a parent teaches a child"
+            "A set of conscious rules about relationships that a parent explicitly teaches the child",
+            "A fixed personality type inherited at birth that determines how a person bonds with others",
+            "A memory of specific events from infancy that a person can recall in vivid detail"
           ],
           answer: 0,
           explain: "Bowlby defined internal working models as internal mental representations of the self and of attachment figures that guide expectations and behavior in relationships."
@@ -49,10 +49,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What is a working model mainly used for?",
           choices: [
-            "To store memories of unrelated facts like math",
+            "To store detailed memories of specific events from early childhood",
             "To predict how attachment figures will act and to guide one's own responses",
-            "To measure a child's height over time",
-            "To replace the need for real caregivers"
+            "To help the child learn new skills like walking and talking on schedule",
+            "To decide which caregiver the child will love most when there are several"
           ],
           answer: 1,
           explain: "Working models let a person forecast an attachment figure's likely behavior and plan their own actions accordingly."
@@ -85,10 +85,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "The working model of self is chiefly about...",
           choices: [
-            "how tall or strong the body is",
+            "how competent and capable one is at everyday tasks",
             "how worthy of love and care one believes oneself to be",
-            "how many friends one has counted",
-            "how well one performs on school tests"
+            "how one's personality compares with that of one's siblings",
+            "how well one can control one's own emotions under stress"
           ],
           answer: 1,
           explain: "Bowlby's model of self centers on beliefs about one's own worthiness and lovability - whether one deserves care and attention."
@@ -111,9 +111,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "According to Bowlby, where do beliefs about self-worth largely originate?",
           choices: [
             "From how acceptable and valued the child felt in the eyes of attachment figures",
-            "From the child's inborn temperament alone",
-            "From random chance unrelated to caregiving",
-            "From the child's later choice of career"
+            "From the child's inborn temperament, which sets self-esteem from the start",
+            "From the child's school achievements and how teachers grade their work",
+            "From how popular the child is with peers in the early school years"
           ],
           answer: 0,
           explain: "Bowlby argued the self-model is shaped by how far the child felt accepted and valued by attachment figures - whether they treated the child as worthy of care."
@@ -157,9 +157,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "The working model of others mainly represents...",
           choices: [
             "whether attachment figures will be available and responsive when needed",
-            "the exact physical appearance of every person met",
-            "the child's own body size",
-            "a list of the caregiver's favorite foods"
+            "what other people look like and how to recognize familiar faces quickly",
+            "how other people's personalities compare with one's own personality",
+            "which people are strangers and which belong to the family household"
           ],
           answer: 0,
           explain: "The model of others encodes expectations about attachment figures' availability, reliability, and responsiveness to bids for care."
@@ -191,10 +191,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "A model of others as unreliable is most likely to develop from...",
           choices: [
-            "care that is always warm and prompt",
+            "care that is warm, prompt, and consistent",
             "care that is unpredictable or often unavailable",
-            "having many toys",
-            "attending a good school"
+            "care shared between two loving parents",
+            "care that sets firm but fair limits"
           ],
           answer: 1,
           explain: "Inconsistent or unavailable caregiving teaches the child that others cannot be reliably counted on for comfort."
@@ -263,9 +263,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "How do complementary models tend to become self-perpetuating?",
           choices: [
             "They cause a person to act in ways that confirm their expectations",
-            "They are erased each morning and rebuilt from scratch",
-            "They stop the person from ever interacting with others",
-            "They only exist in dreams and never affect behavior"
+            "They are checked often against new events and quickly updated to fit",
+            "They lock in at birth and cannot be changed by later experiences",
+            "They are passed on through genes rather than through relationships"
           ],
           answer: 0,
           explain: "A person acts on their paired models, eliciting responses that confirm them - for example, expecting rejection can provoke it, reinforcing both models."
@@ -299,9 +299,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What is a central function of internal working models?",
           choices: [
             "To forecast an attachment figure's behavior and guide one's own responses",
-            "To record the weather each day",
-            "To store multiplication tables",
-            "To control involuntary reflexes like blinking"
+            "To keep an accurate record of every interaction with each caregiver",
+            "To help a child learn language by copying the caregiver's speech",
+            "To decide how much food and sleep the infant needs each day"
           ],
           answer: 0,
           explain: "Bowlby said working models let a person anticipate how attachment figures will behave and plan their own actions accordingly."
@@ -323,10 +323,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "If a child's working model says caregivers respond to distress, the child is likely to...",
           choices: [
-            "hide all feelings and never seek help",
+            "hide distress and try to cope alone",
             "confidently signal distress and expect comfort",
-            "avoid the caregiver entirely",
-            "assume no one will ever help"
+            "cry loudly but resist comfort when it comes",
+            "turn to strangers rather than the caregiver"
           ],
           answer: 1,
           explain: "A model of responsive others leads the child to predict comfort and therefore to seek it openly when distressed."
@@ -370,9 +370,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Why do working models tend to persist over time?",
           choices: [
             "They operate automatically and lead people to seek confirming experiences",
-            "They are written into DNA and cannot change",
-            "They are re-taught in school each year",
-            "They vanish and reappear at random"
+            "They are fixed by genes at birth and cannot be changed by later experience",
+            "Caregivers repeat the same lessons to children each year, keeping them fresh",
+            "People consciously review them often and choose to keep them as they are"
           ],
           answer: 0,
           explain: "Models persist because they run automatically outside awareness and bias people toward interpreting and eliciting confirming experiences."
@@ -394,10 +394,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Which factor makes working models resistant to change?",
           choices: [
-            "They are constantly and consciously reviewed",
+            "They are reviewed consciously and deliberately defended by the person",
             "They operate outside awareness and assimilate new events to old expectations",
-            "They are stored on paper and easily edited",
-            "They only form in adulthood"
+            "They are fixed by genes, so new experiences cannot alter them at all",
+            "They form only in adulthood, after early experiences have faded away"
           ],
           answer: 1,
           explain: "Because models work unconsciously and tend to assimilate new experiences into existing expectations, they are slow to change."
@@ -441,9 +441,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What did Bowlby mean by \"defensive exclusion\"?",
           choices: [
             "Blocking from awareness information that would arouse painful attachment feelings",
-            "Deliberately memorizing painful memories in detail",
-            "Excluding other children from a game",
-            "A medical procedure to remove memories"
+            "Consciously choosing to avoid people who have hurt you in close relationships",
+            "Leaving a relationship early to avoid being left by the other person first",
+            "Excluding a caregiver from the child's life after a long period of separation"
           ],
           answer: 0,
           explain: "Defensive exclusion is the defensive shutting-out from processing of information that, if admitted, would cause painful or unbearable attachment-related feelings."
@@ -465,10 +465,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "A likely long-term consequence of chronic defensive exclusion is...",
           choices: [
-            "unusually vivid, accurate recall of painful events",
+            "unusually vivid and detailed recall of painful early attachment events",
             "deactivation of attachment feelings and being cut off from certain memories",
-            "an immediate cure for all distress",
-            "greatly improved trust in caregivers"
+            "stronger and more frequent bids for comfort from caregivers and partners",
+            "greater trust in others because the painful feelings are kept out of mind"
           ],
           answer: 1,
           explain: "Persistently excluding painful information can deactivate the attachment system, leaving feelings and related memories segregated or cut off."
@@ -512,9 +512,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "How can a child come to hold multiple, inconsistent working models of one caregiver?",
           choices: [
             "When caregiving is incoherent or contradictory, giving conflicting information",
-            "When caregiving is warm and perfectly consistent",
-            "When the child has too many toys",
-            "When the child is an only child"
+            "When the child has two loving caregivers who each have a different style",
+            "When the child is cared for by several adults, such as in a nursery",
+            "When the caregiver is consistently cold, so the child cannot form a model"
           ],
           answer: 0,
           explain: "Bowlby argued that contradictory or incoherent caregiving - where what the child is told conflicts with what they experience - can produce multiple, mutually inconsistent models of the same figure."
@@ -536,10 +536,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Which caregiving pattern is most likely to produce conflicting internal models?",
           choices: [
-            "Predictable, sensitive responsiveness",
+            "Predictable, sensitive responsiveness to the child's needs",
             "Care that is contradictory, with words and actions that do not match",
-            "Occasional gentle firmness within a warm relationship",
-            "Consistent encouragement of independence"
+            "Care that is consistently distant but calm and predictable over time",
+            "Firm, clear limits set within a warm and loving relationship"
           ],
           answer: 1,
           explain: "Contradiction between a caregiver's stated messages and their actual behavior gives the child incompatible information to represent."

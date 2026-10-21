@@ -52,7 +52,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why do estimators like pulling takeoff from a federated Navisworks model?",
-          choices: ["One combined model covers many trades at once", "It removes the need for any pricing", "It automatically wins the bid", "It deletes clashes"],
+          choices: ["One combined model covers many trades at once", "Prices are pulled from the model automatically", "The model replaces the need for any drawings", "Quantities are always exact with no checking"],
           answer: 0,
           explain: "A federated model brings many source files together so you can measure across trades in one place."
         },
@@ -72,7 +72,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is a Quantification catalog?",
-          choices: ["A structured list of items you take off against", "A saved camera view", "A clash test matrix", "A published NWD snapshot"],
+          choices: ["A structured list of items you take off against", "A library of material textures used for rendering views", "A list of every object in the Selection Tree", "A price book that Navisworks updates online"],
           answer: 0,
           explain: "The catalog holds items and groups so every quantity is assigned to a defined line item."
         },
@@ -104,7 +104,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Which is a benefit of using Search Sets when doing takeoff?",
-          choices: ["Rules auto-capture matching objects for consistent takeoff", "It bakes geometry into an NWD", "It disables clash tests", "It hides all viewpoints"],
+          choices: ["Rules auto-capture matching objects for consistent takeoff", "Sets store prices so totals calculate on their own", "Sets freeze the takeoff so later model changes never affect the quantities", "Sets measure objects by hand-picked faces and edges"],
           answer: 0,
           explain: "Rule-based Search Sets grab all matching objects, so takeoff stays consistent as the model grows."
         },
@@ -150,7 +150,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "When publishing an NWD, what extra info can you attach?",
-          choices: ["Title, author, and an expiry or password", "New Revit families", "A clash tolerance override", "A schedule import path"],
+          choices: ["Title, author, and an expiry or password", "Editable Revit families and parameters", "Live links back to the source files", "A clash tolerance override for viewers"],
           answer: 0,
           explain: "Publishing lets you embed document details and optional security like a password or expiry date."
         },
@@ -228,7 +228,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does the Appearance Profiler do?",
-          choices: ["Colors elements based on their properties", "Runs the schedule simulation", "Finds hard clashes", "Publishes an NWD"],
+          choices: ["Colors elements based on their properties", "Colors clashes based on their status", "Sets the lighting and render style for a view", "Profiles model performance and load times"],
           answer: 0,
           explain: "It applies colors and transparency by rule, so you can visually separate systems or statuses."
         },
@@ -254,7 +254,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why is color-coding by property useful in coordination reviews?",
-          choices: ["It quickly separates systems so problems stand out", "It exports quantities", "It repairs clashes automatically", "It replaces the Selection Tree"],
+          choices: ["It quickly separates systems so problems stand out", "It writes the colors back into the source model materials", "It automatically flags clashes between colored systems", "It reduces file size by merging same-colored objects"],
           answer: 0,
           explain: "Color makes it easy to spot which system an element belongs to and where issues concentrate."
         },
@@ -280,7 +280,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is the Animator used for?",
-          choices: ["Moving objects and creating camera flythroughs", "Model-based takeoff", "Publishing NWDs", "Running clash tests"],
+          choices: ["Moving objects and creating camera flythroughs", "Linking model objects to schedule tasks for 4D", "Recording macros that automate repeated tasks", "Rendering photorealistic stills of the model"],
           answer: 0,
           explain: "Animator animates objects and the camera, useful for flythroughs and simple motion studies."
         },
@@ -332,7 +332,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is Navisworks Freedom?",
-          choices: ["A free viewer for published models", "The full clash edition", "A takeoff catalog", "A Revit plugin"],
+          choices: ["A free viewer for published models", "A free edition that includes clash testing", "A cloud service for model coordination", "A plugin that exports NWC files from Revit"],
           answer: 0,
           explain: "Freedom is a no-cost viewer, ideal for owners and stakeholders who only need to look at the model."
         },
@@ -416,7 +416,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Navisworks coordination increasingly connects to which Autodesk cloud service?",
-          choices: ["ACC Model Coordination", "AutoCAD Web", "Fusion Manage", "PlanGrid Field"],
+          choices: ["ACC Model Coordination", "ACC Cost Management", "BIM 360 Design Collaboration", "Autodesk Docs Viewer"],
           answer: 0,
           explain: "Model Coordination in Autodesk Construction Cloud extends clash and review workflows to the cloud."
         },

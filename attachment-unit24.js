@@ -70,7 +70,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In EFT, a partner's angry criticism during conflict is best understood as:",
-          choices: ["A sign the relationship is beyond repair", "A conscious manipulation tactic", "A protest against felt disconnection from the partner", "A fixed personality flaw"],
+          choices: ["A sign that the relationship is beyond repair", "A deliberate tactic to gain control over the partner", "A protest against felt disconnection from the partner", "A fixed personality flaw learned in an early childhood home"],
           answer: 2,
           explain: "EFT reframes angry criticism as attachment protest, a reaction to feeling disconnected, not a character defect."
         },
@@ -100,7 +100,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Bowlby's original concept of 'protest' described what?",
-          choices: ["An infant's distress response to separation from a caregiver", "A political demonstration", "A defense mechanism found only in adults", "A stage of moral development"],
+          choices: ["An infant's distress response to separation from a caregiver", "An infant's anger at being given limits by a caregiver", "A toddler's refusal to explore when a stranger enters the room", "The quiet withdrawal that follows a long separation from a caregiver"],
           answer: 0,
           explain: "Bowlby observed that separated infants protest by crying and searching; EFT extends this protest response to distressed adult partners."
         },
@@ -132,14 +132,14 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The main goal of Stage 1 (de-escalation) is to:",
-          choices: ["Resolve every content disagreement at once", "Help the couple identify and de-escalate their negative interaction cycle", "Assign the couple a list of chores", "End the therapy as fast as possible"],
+          choices: ["Resolve the couple's main content disagreements one by one", "Help the couple identify and de-escalate their negative interaction cycle", "Teach the couple active-listening rules and fair-fighting skills", "Explore each partner's childhood history to uncover the deeper roots of the conflict"],
           answer: 1,
           explain: "Stage 1 aims to identify the negative cycle and de-escalate it, so that the cycle, not the partner, becomes the shared enemy."
         },
         {
           type: "mcq",
           q: "During Stage 2, restructuring interactions, the therapist helps partners:",
-          choices: ["Focus only on problem-solving skills", "Avoid all emotional topics", "Express deeper attachment needs and create new bonding interactions", "Withdraw further to keep the peace"],
+          choices: ["Learn structured problem-solving and communication skills", "Set aside emotional topics until the conflict has calmed down", "Express deeper attachment needs and create new bonding interactions", "Identify the negative cycle and the roles each partner plays in it"],
           answer: 2,
           explain: "Stage 2 restructures interactions so partners share attachment needs and respond to each other, creating new bonding events."
         },
@@ -182,7 +182,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In EFT, a 'softening' refers to:",
-          choices: ["The therapist reducing session frequency", "The couple agreeing to avoid conflict", "The more critical or pursuing partner reaching for the other from a place of vulnerability", "The withdrawer leaving the relationship"],
+          choices: ["The therapist reducing session frequency once the couple has stopped fighting so often at home", "The withdrawn partner calming down and re-engaging in the relationship", "The more critical or pursuing partner reaching for the other from a place of vulnerability", "The couple agreeing to soften their tone and avoid blaming words during arguments"],
           answer: 2,
           explain: "A softening is when the pursuing partner, from vulnerability, reaches for the withdrawer and asks for attachment needs, a pivotal EFT change event."
         },
@@ -201,7 +201,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Why must the withdrawer usually re-engage before the pursuer softens?",
-          choices: ["So the therapist can end therapy early", "So there is an emotionally present partner for the pursuer to safely reach toward", "Because pursuers are unable to change", "To give the pursuer a chance to punish the withdrawer"],
+          choices: ["So the therapist can move on to teaching problem-solving skills", "So there is an emotionally present partner for the pursuer to safely reach toward", "Because the pursuer must first see the withdrawer apologize for every past hurt and failure", "To give the pursuer time to calm down and stop criticizing the withdrawer"],
           answer: 1,
           explain: "A pursuer can only risk vulnerable reaching if the withdrawer is accessible and responsive enough to receive it."
         },
@@ -238,7 +238,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "An 'attachment injury' in EFT is:",
-          choices: ["A physical injury during an argument", "A betrayal or abandonment at a critical moment of need that violates the safe-haven expectation", "A routine everyday disagreement", "A person's childhood attachment style"],
+          choices: ["A long-running disagreement over money or chores that keeps returning in nearly every fight they have", "A betrayal or abandonment at a critical moment of need that violates the safe-haven expectation", "A painful memory from childhood that each partner brings into the adult relationship", "A harsh comment made during a heated argument that one partner cannot let go of"],
           answer: 1,
           explain: "An attachment injury is a betrayal or abandonment when one partner needed the other most, violating the safe-haven bond."
         },
@@ -258,7 +258,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Why can an unresolved attachment injury block relationship repair?",
-          choices: ["It becomes a traumatic marker that is re-triggered and undermines trust", "It permanently ends all feelings of love", "It has no lasting effect on the relationship", "It only matters during childhood"],
+          choices: ["It becomes a traumatic marker that is re-triggered and undermines trust", "It makes the hurt partner withdraw for good, so no cycle can form", "It shows the partners have incompatible attachment styles from birth", "It leads the injuring partner to stop caring about the relationship"],
           answer: 0,
           explain: "The injury acts as a traumatic touchstone; until it is processed, new closeness re-triggers the old betrayal."
         },
@@ -350,7 +350,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "'Hold Me Tight' is:",
-          choices: ["A 2008 book by Sue Johnson translating EFT into seven conversations for couples", "A pharmaceutical treatment for anxiety", "A classic laboratory attachment experiment", "A parenting method created by Mary Ainsworth"],
+          choices: ["A 2008 book by Sue Johnson translating EFT into seven conversations for couples", "A 1988 book by John Gottman on the four habits that predict divorce in couples", "A group program that teaches parents to comfort infants through skin-to-skin contact", "A therapy technique in which partners hold each other through a fixed set of exercises"],
           answer: 0,
           explain: "Sue Johnson's 2008 book Hold Me Tight brings EFT to couples through seven structured bonding conversations."
         },
@@ -406,7 +406,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "EFT is best described as:",
-          choices: ["An unproven fringe therapy", "A therapy designed only for individuals", "One of the most empirically validated couples therapies", "A behavioral therapy with no attachment basis"],
+          choices: ["A promising therapy with little research behind it so far", "A therapy designed for individuals rather than couples", "One of the most empirically validated couples therapies", "A behavioral skills therapy with no attachment basis"],
           answer: 2,
           explain: "EFT is among the most empirically supported couples therapies, backed by strong outcome research."
         },
@@ -426,7 +426,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "A notable finding about EFT's results over time is that:",
-          choices: ["Gains disappear almost immediately", "Treatment gains tend to be stable and well maintained at follow-up", "Couples nearly always relapse within a month", "Results were never actually measured"],
+          choices: ["Gains are strong at the end of therapy but fade within a year", "Treatment gains tend to be stable and well maintained at follow-up", "Couples tend to improve only after therapy ends, not during it", "Results hold only for couples who keep attending booster sessions"],
           answer: 1,
           explain: "Studies show EFT gains are relatively durable, with low relapse and improvement maintained at follow-up."
         },

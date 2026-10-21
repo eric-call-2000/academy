@@ -106,10 +106,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What was the central warning of the Henrich, Heine, and Norenzayan paper?",
           choices: [
-            "Psychology experiments simply have too few participants overall",
+            "Psychology experiments use too few participants to detect real effects",
             "Broad claims about human nature rest on a narrow, atypical slice of people",
-            "Only brain imaging can reveal true human universals",
-            "Non-Western cultures cannot be studied scientifically"
+            "Only brain imaging can reveal which traits are truly universal in humans",
+            "Most findings fail to replicate even when the same population is retested"
           ],
           answer: 1,
           explain: "Their core point was that sweeping claims about 'human' psychology were built on unrepresentative WEIRD samples."
@@ -177,10 +177,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "A large share of all subjects came from a single country. Which one?",
           choices: [
-            "China",
+            "The United Kingdom",
             "The United States",
-            "India",
-            "Germany"
+            "Germany",
+            "Canada"
           ],
           answer: 1,
           explain: "Analyses found that a majority of subjects - roughly two-thirds in some surveys - came from the United States alone."
@@ -223,10 +223,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "The Muller-Lyer illusion involves two lines that are actually equal in length but appear different because of what added feature?",
           choices: [
-            "Different colors",
+            "Different colors along each line",
             "Arrow-like fins on their ends",
-            "Curved shapes",
-            "Flashing motion"
+            "A grid of converging background lines",
+            "A slight curve in one of the lines"
           ],
           answer: 1,
           explain: "Fins or arrowheads on the line ends make two lines of equal length look unequal."
@@ -335,10 +335,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "'Individualism' as a WEIRD tendency means people primarily define themselves by:",
           choices: [
-            "Their family, group, and social roles",
+            "Their family, group memberships, and social roles",
             "Their personal attributes, goals, and choices",
-            "Their nation's long history",
-            "Their religion alone"
+            "Their nation's long history and traditions",
+            "Their religious community and its teachings"
           ],
           answer: 1,
           explain: "Individualistic self-concepts emphasize the independent person, while many other cultures emphasize interdependence and group ties."
@@ -370,10 +370,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What is the core theoretical danger the WEIRD critique warns about?",
           choices: [
-            "Studies simply run too many statistical tests",
+            "Studies run so many statistical tests that false positives become common",
             "Local, culture-specific patterns get mistaken for universal human psychology",
-            "Researchers never repeat their experiments",
-            "Non-Western societies have no psychology worth studying"
+            "Researchers rarely repeat experiments, so errors go unnoticed for decades",
+            "Non-Western societies are too varied to support any general psychological theory"
           ],
           answer: 1,
           explain: "The central risk is generalizing a WEIRD-specific finding into a false claim about all humans."
@@ -405,10 +405,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "A textbook reports a finding from US students as a fact about 'human nature.' The WEIRD critique would call this:",
           choices: [
-            "Fine, since students are typical humans",
+            "Acceptable, since university students are typical of humans in general",
             "An overgeneralization that may not hold in other cultures",
-            "Proof that the finding is biologically universal",
-            "Irrelevant to psychology"
+            "Evidence that the finding reflects a biologically universal trait",
+            "A replication failure that should be retracted from the literature"
           ],
           answer: 1,
           explain: "Presenting a WEIRD result as universal human nature is precisely the overgeneralization the critique targets."
@@ -441,10 +441,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "'External validity' refers to the degree to which study results:",
           choices: [
-            "Were analyzed with the correct statistics",
+            "Were analyzed with the correct statistical procedures",
             "Generalize to other people, settings, and situations",
-            "Were free of measurement error",
-            "Matched the researcher's hypothesis"
+            "Were free of random measurement error and bias",
+            "Accurately measure the construct they claim to measure"
           ],
           answer: 1,
           explain: "External validity is about whether findings extend beyond the specific sample and conditions that were studied."
@@ -477,9 +477,9 @@ window.ACADEMY.addUnit("culture", {
           q: "How does the generalizability crisis differ from the more familiar replication crisis?",
           choices: [
             "It asks whether a result extends to new populations and contexts, not just whether it repeats",
-            "It only concerns statistical software errors",
-            "It claims no psychology finding is ever true",
-            "It is exactly the same thing under a new name"
+            "It concerns errors in statistical software rather than in study design or sampling",
+            "It claims that no psychology finding can be trusted until it is replicated many times",
+            "It is the replication crisis under a new name, asking whether results repeat under the same conditions"
           ],
           answer: 0,
           explain: "Replication asks whether a result repeats under similar conditions; generalizability asks whether it holds under different ones."
@@ -546,10 +546,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Why should researchers clearly report exactly who their participants were?",
           choices: [
-            "To make the paper longer",
+            "So the study meets journal word-count requirements for methods sections",
             "So readers can judge how far the results might generalize",
-            "Because journals require participant photos",
-            "To hide the limitations of the sample"
+            "Because journals require participant photos and contact details",
+            "To make the sample seem larger and more representative than it was"
           ],
           answer: 1,
           explain: "Transparent reporting of the sample lets others assess generalizability instead of assuming universality."

@@ -51,10 +51,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Which statement best captures the difference between determinism and relativity?",
           choices: [
-            "Determinism says thought shapes language; relativity says the reverse",
-            "Both claim language has no effect on thought at all",
+            "Determinism says thought shapes language; relativity says language shapes thought instead",
+            "Both claim that language has no lasting effect on how people perceive or remember",
             "Determinism says language limits thought; relativity says language influences thought",
-            "Relativity is the strong version and determinism the weak version"
+            "Relativity says language limits thought; determinism says language merely influences it"
           ],
           answer: 2,
           explain: "Determinism is the strong 'language limits thought' claim; relativity is the milder 'language influences thought' claim."
@@ -108,9 +108,9 @@ window.ACADEMY.addUnit("culture", {
           q: "Why is the strong version hard to defend?",
           choices: [
             "People can grasp concepts their language lacks a single word for",
-            "No human language actually has grammar",
-            "Everyone on Earth speaks one language",
-            "Thought can never be measured in any way"
+            "Languages share the same basic grammar, so they cannot produce different ways of thinking",
+            "Every language has words for exactly the same set of concepts",
+            "Researchers have never found any differences between languages"
           ],
           answer: 0,
           explain: "We routinely understand ideas we have no single word for, which the strong version should forbid."
@@ -221,10 +221,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What did Russian speakers do faster than English speakers?",
           choices: [
-            "Name colors while blindfolded",
+            "Discriminate greens that crossed a light/dark boundary",
             "Discriminate blues that crossed the goluboy/siniy boundary",
-            "Forget the names of colors",
-            "Read English text aloud"
+            "Discriminate blues that fell within the same goluboy or siniy category",
+            "Name primary colors aloud when shown printed color words"
           ],
           answer: 1,
           explain: "Russian speakers were quicker to tell apart blues that fell on opposite sides of their lexical boundary."
@@ -331,9 +331,9 @@ window.ACADEMY.addUnit("culture", {
           q: "Alfred Bloom claimed Chinese speakers were worse at reasoning about what?",
           choices: [
             "Counterfactual, hypothetical situations",
-            "Simple addition",
-            "Their own names",
-            "Ordinary present-tense events"
+            "Simple arithmetic and addition problems",
+            "Spatial relations such as left and right",
+            "Ordinary events described in the present tense"
           ],
           answer: 0,
           explain: "Bloom argued that Chinese speakers struggled with 'what if it had been otherwise' counterfactuals."
@@ -355,10 +355,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What happened when researchers such as Terry Au retested Bloom's claim in 1983?",
           choices: [
-            "The effect grew much larger",
+            "The effect grew larger with more careful materials",
             "Improved translations made the difference vanish",
-            "Chinese speakers refused to participate",
-            "English speakers suddenly did far worse"
+            "Bilingual speakers showed an even bigger difference",
+            "English speakers performed worse than Chinese speakers on every item"
           ],
           answer: 1,
           explain: "Au found Bloom's Chinese materials were awkwardly worded; fixing them erased the supposed gap."
@@ -423,9 +423,9 @@ window.ACADEMY.addUnit("culture", {
           q: "In Peter Gordon's 2004 study in Science, what did Piraha speakers struggle to do?",
           choices: [
             "Match exact quantities beyond about three",
-            "Recognize common colors",
-            "Walk through the forest",
-            "Produce any speech at all"
+            "Distinguish between common colors in their environment",
+            "Match quantities of any size, even one or two items",
+            "Remember the names of people in their village"
           ],
           answer: 0,
           explain: "Gordon found that matching tasks broke down once sets grew larger than roughly three items."
@@ -469,10 +469,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What did Whorf famously claim about the Hopi language?",
           choices: [
-            "It had thousands of distinct color words",
+            "It had an unusually large number of words for colors",
             "It had no way to express time as European languages do",
-            "It was essentially identical to English",
-            "It lacked all nouns"
+            "It was closely related to English in its grammar",
+            "It lacked nouns entirely, using only verbs to describe the world"
           ],
           answer: 1,
           explain: "Whorf argued Hopi lacked the linear, countable notion of time built into European grammar."
@@ -494,10 +494,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What did Malotki's research document in Hopi?",
           choices: [
-            "No temporal words of any kind",
-            "That Hopi was actually a European language",
+            "A complete absence of words referring to time",
+            "That Hopi grammar was borrowed from Spanish",
             "Numerous time expressions, units, and tense-like forms",
-            "That Whorf had never studied Hopi at all"
+            "That Whorf had never worked with any Hopi speakers at all"
           ],
           answer: 2,
           explain: "Malotki recorded extensive Hopi vocabulary and grammar for time, contradicting Whorf."

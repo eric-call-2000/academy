@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Festinger and Carlsmith's 1959 study, participants paid only $1 to call a boring task fun later rated the task as:",
-          choices: ["Even more boring than it truly was", "More enjoyable than participants paid $20", "Equally boring regardless of pay", "Too difficult to judge"],
+          choices: ["About as enjoyable as the control group that told no lie", "More enjoyable than participants paid $20", "About as boring as the $20 group rated it", "Less enjoyable than participants paid $20"],
           answer: 1,
           explain: "With too little external reward to justify lying, the $1 group changed their attitude, showing insufficient-justification dissonance."
         },
@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "After choosing between two equally liked items, a typical participant:",
-          choices: ["Rates both items lower", "Rates the rejected item higher", "Rates the chosen item higher and the rejected one lower", "Shows no change at all"],
+          choices: ["Rates both items lower out of regret over the decision", "Rates the rejected item higher and the chosen one lower", "Rates the chosen item higher and the rejected one lower", "Rates both items exactly as they did before choosing"],
           answer: 2,
           explain: "Spreading of alternatives means the chosen item is upgraded and the rejected item downgraded to justify the choice."
         },
@@ -137,7 +137,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What did the reduced dissonance among Japanese participants suggest?",
-          choices: ["Japanese people cannot feel discomfort", "Canadians do not experience dissonance", "Music preferences are universal", "Justifying a personal choice is less automatic in interdependent cultures"],
+          choices: ["Japanese participants feel less discomfort of any kind than Canadians do", "Canadians experience dissonance only when others watch their choices", "Music preferences are universal, so choices caused little conflict", "Justifying a personal choice is less automatic in interdependent cultures"],
           answer: 3,
           explain: "For an interdependent self, privately justifying one's own choice is less central, so the effect was muted."
         },
@@ -196,7 +196,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Kitayama's results suggest that in interdependent cultures, dissonance is tied to:",
-          choices: ["Private individual preferences", "Financial reward", "Random chance", "The implications of a choice for one's relationships"],
+          choices: ["Private individual preferences and personal consistency", "The financial reward or cost attached to a choice", "The number of options available at the time of choice", "The implications of a choice for one's relationships"],
           answer: 3,
           explain: "For interdependent selves, a choice matters because of how it reflects on and affects one's social bonds."
         },
@@ -274,7 +274,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The phrase 'the tyranny of choice' captures the idea that:",
-          choices: ["More options always make people happier", "An overload of choices can create anxiety and regret", "People never enjoy choosing", "Choice does not really exist"],
+          choices: ["More options always make people happier and more satisfied", "An overload of choices can create anxiety and regret", "People are forced to make choices by those in authority", "Choices made by others are usually better than our own"],
           answer: 1,
           explain: "Too many options can produce paralysis, regret, and lower satisfaction rather than greater happiness."
         },
@@ -294,7 +294,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In more interdependent cultural contexts, personal choice tends to be:",
-          choices: ["The single most valued form of freedom", "Legally forbidden", "More embedded in social relationships and obligations", "Completely meaningless"],
+          choices: ["The single most valued way of expressing personal freedom", "Discouraged and often restricted by formal rules", "More embedded in social relationships and obligations", "Irrelevant, since others make most decisions for people"],
           answer: 2,
           explain: "For interdependent selves, choices are woven into roles and relationships rather than standing as pure self-expression."
         },
@@ -346,7 +346,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "For people from interdependent cultures, self-integrity is more effectively restored by affirming:",
-          choices: ["Individual achievements only", "Their bank balance", "Nothing at all", "Important relationships and group belonging"],
+          choices: ["Individual achievements and personal talents", "Personal financial security and possessions", "Private values that are unique to themselves", "Important relationships and group belonging"],
           answer: 3,
           explain: "For interdependent selves, affirming close relationships and group ties restores integrity more than affirming lone achievements."
         },
@@ -378,7 +378,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Imada and Kitayama's 2010 study, Japanese participants justified their choices most when:",
-          choices: ["The room was completely empty", "Schematic faces or eyes were present", "They were paid extra", "They chose very quickly"],
+          choices: ["They sat alone in a completely empty room", "Schematic faces or eyes were present", "They were paid extra for their decisions", "They had to make choices very quickly"],
           answer: 1,
           explain: "Mere schematic eyes, a cue of social observation, were enough to trigger spreading of alternatives among Japanese participants."
         },
@@ -398,7 +398,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The 'social eyes' finding suggests that East Asian dissonance is triggered by:",
-          choices: ["Private guilt alone", "Physical discomfort", "The possibility of social evaluation", "Random noise"],
+          choices: ["Private guilt about one's own preferences", "Physical discomfort during the task", "The possibility of social evaluation", "Uncertainty about the quality of the items"],
           answer: 2,
           explain: "When a choice might be observed and judged, concern for face activates the discomfort that drives justification."
         },

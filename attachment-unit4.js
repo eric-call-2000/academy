@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What does 'secure base' mean in attachment theory?",
           choices: [
             "A trusted caregiver a child explores away from, knowing they can return",
-            "A crib where a baby feels physically safe at night",
-            "A rule that babies should never leave a parent's side",
-            "A place where a child is left alone to build independence"
+            "A predictable daily routine that helps a child feel settled and calm at home",
+            "A familiar room or crib where a child feels physically safe and protected",
+            "A caregiver who stays right beside the child so they never need to explore"
           ],
           answer: 0,
           explain: "A secure base is the attachment figure who provides a dependable point of departure for exploration."
@@ -85,9 +85,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "A 'safe haven' in attachment theory is:",
           choices: [
             "The caregiver a child returns to for comfort when distressed",
-            "A toy that soothes a child at bedtime",
-            "A place a child hides so no one can find them",
-            "A rule that children must face their fears alone"
+            "A favorite blanket or toy that soothes the child when upset",
+            "The caregiver who encourages the child to go out and explore",
+            "A quiet room where the child is left to calm down on their own"
           ],
           answer: 0,
           explain: "The safe haven function is the caregiver providing comfort and protection under threat."
@@ -179,9 +179,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What did Ainsworth observe infants doing that revealed the secure-base phenomenon?",
           choices: [
-            "Ignoring their mothers entirely while exploring",
-            "Refusing to explore under any conditions",
-            "Only crying and never moving away",
+            "Staying on the mother's lap and watching the room from there",
+            "Exploring freely while paying little attention to the mother",
+            "Following the mother closely wherever she moved in the room",
             "Making exploratory excursions and returning to the mother"
           ],
           answer: 3,
@@ -224,10 +224,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "According to attachment theory, secure children tend to explore more because:",
           choices: [
-            "They have no fear of anything at all",
+            "They are naturally bolder by temperament and feel less fear of new things",
             "Confidence that support is available frees them to venture out",
-            "They are forced to explore by their caregivers",
-            "Exploration erases their need for a caregiver"
+            "Their caregivers praise and reward them every time they explore",
+            "They depend less on their caregivers, so leaving them costs nothing"
           ],
           answer: 1,
           explain: "Felt security lowers anxiety, allowing the child's energy to go into confident exploration and learning."
@@ -294,10 +294,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "The Circle of Security model pictures the caregiver as:",
           choices: [
-            "A wall that keeps the child in one place",
+            "A guard who keeps the child from wandering too far away",
             "The hands the child leaves from and returns to",
-            "A stranger the child must learn to trust",
-            "A reward given for good behavior"
+            "A coach who pushes the child to be independent early",
+            "A friend who joins in the child's play as an equal"
           ],
           answer: 1,
           explain: "In the Circle of Security, the caregiver is the 'hands' that support going out and welcome coming back."
@@ -312,10 +312,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "The bottom half of the Circle of Security is about:",
           choices: [
-            "Pushing the child to explore even more",
-            "Ignoring the child's bids for closeness",
+            "Supporting the child as they go out to explore the world",
+            "Watching over the child and delighting in their play",
             "Welcoming the child in for comfort and protection",
-            "Teaching the child to hide their feelings"
+            "Setting firm limits when the child misbehaves at home"
           ],
           answer: 2,
           explain: "The bottom half is 'welcome my coming in,' where the caregiver comforts, protects, and helps organize feelings."
@@ -382,9 +382,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Which of these is an approach behavior rather than a distance signal?",
           choices: [
-            "Crying",
-            "Smiling",
-            "Babbling",
+            "Crying when left alone",
+            "Smiling up at the caregiver",
+            "Babbling loudly for attention",
             "Crawling toward the caregiver"
           ],
           answer: 3,
@@ -436,10 +436,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Calling attachment a 'dance' emphasizes that it is:",
           choices: [
-            "Controlled entirely by the caregiver",
+            "Led by the caregiver, with the infant simply following the caregiver's steps",
             "A reciprocal back-and-forth between infant and caregiver",
-            "Something only the infant does",
-            "Random and without any pattern"
+            "A set routine learned through practice that repeats the same way each time",
+            "Driven by the infant's needs, with the caregiver mostly in a supporting role"
           ],
           answer: 1,
           explain: "Attachment is co-created through mutual, reciprocal signaling between both partners."
@@ -531,10 +531,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Acting as a secure base for an adult partner mainly means:",
           choices: [
-            "Discouraging them from pursuing goals",
-            "Solving every problem for them",
+            "Protecting them from risks by talking them out of uncertain plans",
+            "Stepping in to solve their problems so they never feel stressed",
             "Encouraging and supporting their exploration and goals",
-            "Keeping them close to you at all times"
+            "Staying close to them and asking that they check in often"
           ],
           answer: 2,
           explain: "A secure base partner supports the other's autonomy, exploration, and pursuit of goals."

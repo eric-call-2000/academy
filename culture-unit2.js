@@ -39,7 +39,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "According to Wundt, why could collective phenomena not be captured by laboratory introspection?",
-          choices: ["They belong to a community and develop over history", "They are purely biological reflexes", "They are too simple to measure", "They do not involve the mind at all"],
+          choices: ["They belong to a community and develop over history", "They are purely biological reflexes beyond conscious control", "They are too simple and automatic for introspection to register", "They occur too quickly to be reported by trained observers"],
           answer: 0,
           explain: "Voelkerpsychologie dealt with products of a whole community built up over history, beyond any individual's introspection."
         },
@@ -65,7 +65,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which 18th-century German thinker is most associated with the idea of the Volksgeist, the distinctive spirit of a people?",
-          choices: ["Immanuel Kant", "Johann Gottfried Herder", "G.W.F. Hegel", "Karl Marx"],
+          choices: ["Immanuel Kant", "Johann Gottfried Herder", "Gotthold Ephraim Lessing", "Moses Mendelssohn"],
           answer: 1,
           explain: "Herder (1744-1803) championed the notion that each Volk has its own guiding spirit."
         },
@@ -91,7 +91,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "For Herder, what was the primary carrier of a people's distinctive spirit?",
-          choices: ["Its currency", "Its military strength", "Its climate alone", "Its language and folk poetry"],
+          choices: ["Its system of coinage and trade", "Its military strength and conquests", "Its climate and landscape alone", "Its language and folk poetry"],
           answer: 3,
           explain: "Herder saw language and folk poetry as the living vessel of a people's Volksgeist."
         },
@@ -143,7 +143,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In which country and era did Vygotsky develop his theory?",
-          choices: ["Victorian England", "The early Soviet Union (1920s-30s)", "Ancient Greece", "The 1950s United States"],
+          choices: ["Late Tsarist Russia (1880s-90s)", "The early Soviet Union (1920s-30s)", "Imperial Germany (1890s-1900s)", "Cold War United States (1950s-60s)"],
           answer: 1,
           explain: "Vygotsky (1896-1934) worked in the early Soviet Union, dying young of tuberculosis in 1934."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Vygotsky's theory, what is a 'psychological tool' or sign?",
-          choices: ["A physical hammer used on objects", "A means that mediates and reorganizes mental activity", "An innate reflex", "A specific brain region"],
+          choices: ["A physical implement, like a hammer, used to act on objects", "A means that mediates and reorganizes mental activity", "An innate reflex that develops without social input", "A specialized brain region dedicated to language"],
           answer: 1,
           explain: "Signs such as language, numbers, and mnemonics are psychological tools that mediate and transform thinking."
         },
@@ -195,7 +195,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which of these is an example of a mediating sign system?",
-          choices: ["A tally or counting system", "Digestion", "A knee-jerk reflex", "Body temperature"],
+          choices: ["A tally or counting system", "The process of digestion", "An automatic knee-jerk reflex", "Regulation of body temperature"],
           answer: 0,
           explain: "Counting systems, writing, and mnemonics are cultural sign systems that mediate memory and thought."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The zone of proximal development (ZPD) is the gap between...",
-          choices: ["What a learner can do alone and what they can do with help", "Two different school grades", "Birth and adulthood", "Reward and punishment"],
+          choices: ["What a learner can do alone and what they can do with help", "What a learner knows now and what the next school grade requires", "A child's current age and the age at which a skill is expected", "Rewards a learner expects and the effort they are willing to give"],
           answer: 0,
           explain: "The ZPD is the distance between independent performance and assisted performance with a more knowledgeable other."
         },
@@ -273,7 +273,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Alexander Luria's early-1930s expeditions studied peasants in which region of the Soviet Union?",
-          choices: ["Siberia", "Central Asia (Uzbekistan and Kyrgyzstan)", "The Baltic coast", "Ukraine"],
+          choices: ["Siberia (Yakutia and the Far East)", "Central Asia (Uzbekistan and Kyrgyzstan)", "The Baltic coast (Latvia and Estonia)", "Ukraine and Belarus (the western republics)"],
           answer: 1,
           explain: "Luria traveled to Uzbekistan and Kyrgyzstan in 1931-1932 to test Vygotsky's ideas about culture and cognition."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Given 'In the Far North all bears are white; Novaya Zemlya is in the Far North,' a typical unschooled respondent would...",
-          choices: ["Immediately answer 'white'", "Refuse to speak at all", "Say they cannot know without having been there", "Answer 'brown'"],
+          choices: ["Immediately answer 'white', applying the syllogism formally", "Refuse to answer because the question seemed like a trick", "Say they cannot know without having been there", "Answer 'brown', based on bears they had seen near home"],
           answer: 2,
           explain: "Rather than reason formally, they treated the premises as unverified claims about a place they had not visited."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In his 1932 book Remembering, Frederic Bartlett argued that memory is...",
-          choices: ["A perfect video-like recording", "An active reconstruction shaped by prior knowledge", "Purely genetic", "Impossible to study"],
+          choices: ["A faithful, video-like recording of what was experienced", "An active reconstruction shaped by prior knowledge", "A fixed capacity set mainly by genetic inheritance", "A store whose contents fade evenly over time"],
           answer: 1,
           explain: "Bartlett showed remembering is reconstructive, guided by schemas, rather than a faithful reproduction."
         },
@@ -397,7 +397,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Bartlett used the term 'schema' to mean...",
-          choices: ["An organized structure of prior knowledge that guides remembering", "A random guess", "A type of brain cell", "A folk tale"],
+          choices: ["An organized structure of prior knowledge that guides remembering", "A memorized list of facts recalled word for word", "A type of brain cell that stores single memories", "A memory trace that stores each experience as an exact, separate copy"],
           answer: 0,
           explain: "A schema is an active organization of past experience that shapes how new material is encoded and recalled."
         },

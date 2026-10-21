@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which is the best reason review, rather than generation, is now the scarce resource on many teams?",
           choices: [
-            "Reviewers are less skilled than they used to be, so each review takes longer",
+            "Reviewers are less skilled than they used to be, so each careful review of a pull request now takes noticeably longer",
             "Reading unfamiliar code closely enough to trust it is slow, and it does not get cheaper just because generation did",
-            "Code review tooling has not improved since the pull request was invented",
-            "Generated code is always longer, so review time scales with the size of the model used"
+            "Code review tooling has not meaningfully improved since the pull request was invented",
+            "Generated code is always longer than hand-written code, so review time scales with the size of the model used"
           ],
           answer: 1,
           explain: "Building justified confidence in code requires reconstructing its intent, its invariants, and its failure modes. That work is human-bound and did not get accelerated."
@@ -158,10 +158,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is a test written by the same agent that wrote the implementation weaker evidence than it appears?",
           choices: [
-            "Generated tests run slower, so teams tend to disable them in continuous integration",
+            "Generated tests run more slowly than hand-written ones, so teams tend to disable them in continuous integration",
             "The test is derived from the implementation, so a misreading of the spec is encoded identically in both and the test passes",
-            "Test frameworks suppress failures for code written in the same session",
-            "A test can only detect defects in code written in a different programming language"
+            "Test frameworks automatically suppress failures for code that was written by the same agent in the same session as the tests",
+            "A test can only detect defects in code that was written in a different programming language"
           ],
           answer: 1,
           explain: "A test is only a check if it can disagree with the code. When both come from the same reading of the requirement, the test restates the bug instead of catching it."
@@ -183,9 +183,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What does mutation testing measure?",
           choices: [
-            "How much of the source code is executed at least once by the suite",
-            "How long the suite takes to run relative to the size of the codebase",
-            "How many assertions each test makes on average",
+            "How much of the source code is executed at least once when the whole suite runs",
+            "How long the suite takes to run relative to the size of the codebase it covers",
+            "How many assertions each test makes on average across the whole suite",
             "Whether the suite fails when small deliberate faults are injected into the code"
           ],
           answer: 3,
@@ -229,10 +229,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the characteristic failure profile of AI-written code?",
           choices: [
-            "It fails to compile, so the build catches the problem immediately",
+            "It fails to compile in most cases, so the build catches the problem immediately before anyone has to review it",
             "It is written in an unusual style, so a reviewer notices something is off right away",
             "It compiles, reads idiomatically, passes the happy path, and is wrong at a boundary or on an error path",
-            "It is correct in edge cases but reliably wrong in the common case"
+            "It is correct in the edge cases but reliably wrong in the common case that most users hit"
           ],
           answer: 2,
           explain: "The failures that survive to review are the ones that look right. Anything that fails to parse or looks strange is filtered out long before a human sees it."
@@ -255,9 +255,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which part of a generated function deserves the first look?",
           choices: [
             "Boundaries and error paths: empty input, zero, off-by-one, timeouts, and what happens after a failed call",
-            "Variable naming and comment wording, since these reveal how confident the generator was",
+            "Variable naming and comment wording, since these reveal how confident the generator was about the logic it wrote",
             "The happy path, since that is where the majority of production traffic goes",
-            "Import ordering and formatting, since a mistake there indicates deeper problems"
+            "Import ordering and formatting, since a mistake there usually indicates deeper problems in the logic"
           ],
           answer: 0,
           explain: "The happy path is the part most likely to be right, because it is the most represented case. Boundaries and error handling are inconsistently handled and are where the defect usually lives."
@@ -282,10 +282,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A generated retry loop wraps a network call and returns a default value if every attempt fails. Why is this suspicious even though it compiles and the tests pass?",
           choices: [
-            "Retry loops cannot be tested, so any passing test must be incorrect",
+            "Retry loops cannot be tested properly at all, so any test that passes against one must be incorrect or incomplete",
             "It converts a failure into a plausible looking success, so callers cannot distinguish missing data from real data",
-            "Network calls should never be retried, since the first attempt is authoritative",
-            "Default values cannot be represented in strongly typed languages"
+            "Network calls should never be retried, since the first attempt's answer is always the authoritative one",
+            "Default values cannot be represented safely in strongly typed languages without a cast"
           ],
           answer: 1,
           explain: "The dangerous pattern is not the retry, it is the fallback that erases the error. Downstream code then makes decisions on a value that means nothing, and the incident surfaces far from its cause."
@@ -337,10 +337,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which review comment is adversarial in the useful sense?",
           choices: [
-            "This is not how I would have written it; consider extracting a helper function",
-            "Looks good to me, the logic reads clearly and follows our conventions",
+            "This is not how I would have written it; consider extracting the read and the write into a shared helper function",
+            "Looks good to me, the logic reads clearly, follows our conventions, and the tests all pass on my machine",
             "If two requests arrive between the read and the write, both observe the old value; what prevents the double spend",
-            "Please add a comment above this block explaining what it does"
+            "Please add a comment above this block explaining what it does and why the write comes after the read"
           ],
           answer: 2,
           explain: "It names a specific execution the author did not consider and demands an answer. The others are preferences or requests for documentation, neither of which can find a defect."
@@ -356,9 +356,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Why is the person who wrote the prompt often the worst reviewer of the result?",
           choices: [
             "They already believe the approach is right, so they read to confirm the intent they had rather than to find the behavior that is there",
-            "They lack the domain knowledge to evaluate the change, because the model chose the approach",
-            "Version control attributes the change to them, which invalidates the review",
-            "They cannot run the test suite against code they did not type themselves"
+            "They lack the domain knowledge to evaluate the change, because the model chose the approach, the data structures, and the libraries",
+            "Version control attributes the change to them, which invalidates any review they perform",
+            "They cannot run the test suite against code they did not type themselves, so they have to rely on reading it alone"
           ],
           answer: 0,
           explain: "Having the intent in your head makes the code read as if it implements that intent. Reviewers without that prior are more likely to see what the code actually says."
@@ -374,10 +374,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In what sense are types and linters free verification?",
           choices: [
-            "They are open source, so there is no license cost to run them in continuous integration",
+            "They are open source, so there is no license cost to run them on every build in continuous integration",
             "They re-run on every change without consuming human attention, so their marginal cost per check approaches zero",
-            "They prove total correctness, which removes the need for tests",
-            "They run once at project setup, so there is no ongoing maintenance"
+            "They prove total correctness of the program, which removes the need for unit and integration tests",
+            "They run once at project setup, so there is no ongoing maintenance cost after that"
           ],
           answer: 1,
           explain: "The scarce resource is reviewer attention. Any check that repeats forever without spending that resource is exactly what you want more of when change volume rises."
@@ -399,9 +399,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Generated code silences a type error with an escape hatch such as an unchecked cast or a dynamic-any annotation. What has actually happened?",
           choices: [
-            "The cast is now verified at runtime, which is a stronger guarantee than a static check",
-            "Nothing changes, since casts are erased and have no effect on checking",
-            "The entire module becomes untyped, so the checker stops running on that file",
+            "The cast is now verified at runtime instead, which is a stronger guarantee than the static check it replaced in the code",
+            "Nothing changes, since casts are erased at compile time and have no effect on checking",
+            "The entire module becomes untyped, so the checker stops running on that file and every file that imports it",
             "The guarantee was removed exactly where the code was least understood, and the error will surface later at runtime"
           ],
           answer: 3,
@@ -427,8 +427,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the strongest argument for encoding an invariant in the type system instead of a comment or a runtime assert?",
           choices: [
-            "Types execute faster than asserts, so the service uses less CPU",
-            "Comments are stripped by the compiler, so they cannot be relied on at all",
+            "Types execute faster than runtime asserts, so the service uses less CPU on every request it handles",
+            "Comments are stripped by the compiler, so they cannot be relied on to document anything at all",
             "A type is checked on every future change by everyone, including code that has not been written yet",
             "Runtime asserts are unavailable in most production languages"
           ],
@@ -447,8 +447,8 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Why does generated code commonly reintroduce well known vulnerability classes?",
           choices: [
             "Vulnerable patterns are abundant in the public code the model learned from, and at a glance they look exactly like the safe ones",
-            "Models deliberately avoid security libraries because they add dependencies",
-            "Security defects only appear in code that no human has ever reviewed",
+            "Models deliberately avoid security libraries because they add dependencies the user did not ask for",
+            "Security defects only appear in code that no human has ever reviewed, and generated code usually skips review before it is merged",
             "Generated code always targets older language versions that lack the safe APIs"
           ],
           answer: 0,
@@ -471,10 +471,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "An endpoint reads a record id from the request, confirms the caller is logged in, loads that record, and returns it. What is the defect?",
           choices: [
-            "It authenticates the caller, which is unnecessary on a read-only endpoint",
-            "It should hash the id before using it in the lookup",
+            "It authenticates the caller, which is unnecessary on a read-only endpoint and adds latency",
+            "It should hash the record id before using it in the lookup so ids cannot be guessed",
             "It authenticates but never authorizes, so any logged-in user can read any record by changing the id",
-            "It should return a not-found status instead of a success status for records that exist"
+            "It should return a not-found status instead of a success status for records that exist but belong to the caller"
           ],
           answer: 2,
           explain: "Authentication answers who you are; authorization answers whether you may act on this specific object. Missing object-level authorization, sometimes called an insecure direct object reference, is one of the most common real world flaws."
@@ -499,10 +499,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Generated code pulls in a package you have never heard of to solve a small problem. What is the right first move?",
           choices: [
-            "Pin the version and merge, since pinning removes supply chain risk",
+            "Pin the exact version and merge it, since pinning the version removes the supply chain risk from that package entirely",
             "Verify the package actually exists and is the one you intend, because an invented or look-alike name is an opening for an attacker",
-            "Replace it with a shell call to a system binary, which has no supply chain",
-            "Vendor the source into the repository, which removes the need to review it"
+            "Replace it with a shell call to a system binary, which has no supply chain to worry about",
+            "Vendor the package source into the repository, which removes the need to review it separately"
           ],
           answer: 1,
           explain: "Models sometimes cite package names that do not exist, and attackers can register those names, a variant of typosquatting. After confirming identity, review what the package does and how much it pulls in."
@@ -518,9 +518,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is sunk cost the main reason bad generated code gets shipped?",
           choices: [
-            "Because effort already spent makes the remaining work objectively cheaper",
-            "Because version control makes discarding a branch technically difficult",
-            "Because reviewers are required to approve work that took a long time",
+            "Because effort that has already been spent makes the remaining work on the change objectively cheaper to finish",
+            "Because version control makes discarding a long-running branch technically difficult",
+            "Because reviewers are required by policy to approve any work that took a long time to produce, whatever its quality turns out to be",
             "Because people weigh effort already spent, which cannot be recovered, instead of comparing what each option still costs from here"
           ],
           answer: 3,
@@ -543,10 +543,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which signal most strongly suggests discarding a change rather than continuing to patch it?",
           choices: [
-            "The diff is larger than you expected when you wrote the prompt",
+            "The diff is noticeably larger than you expected when you wrote the prompt, and touches more files than planned",
             "The code depends on a library one release behind the rest of the repository",
             "Each fix reveals another defect, and you cannot state the invariant the code is supposed to maintain",
-            "The formatting does not match the surrounding file and the linter complains"
+            "The formatting does not match the surrounding file and the linter complains about several lines"
           ],
           answer: 2,
           explain: "Inability to state the invariant means there is no design to repair, only symptoms to chase. That is the condition under which patching does not converge."

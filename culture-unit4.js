@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which theorist is most associated with the 'ratchet effect' as an account of cumulative culture?",
-          choices: ["Charles Darwin", "Michael Tomasello", "Franz Boas", "B.F. Skinner"],
+          choices: ["Richard Dawkins", "Michael Tomasello", "Frans de Waal", "Claude Levi-Strauss"],
           answer: 1,
           explain: "Michael Tomasello popularized the ratchet metaphor, arguing that faithful transmission holds cultural gains in place so they can be built upon."
         },
@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Why did some lost European explorers die in environments where local peoples thrived?",
-          choices: ["They were less intelligent than locals", "They lacked culturally accumulated survival knowledge", "The climate was uniquely harsh that year", "They refused to eat local food"],
+          choices: ["They were less intelligent and adaptable than the local peoples", "They lacked culturally accumulated survival knowledge", "The climate was unusually harsh during their particular expedition", "They had genetic adaptations suited only to European climates"],
           answer: 1,
           explain: "Henrich uses such cases to show that without local cultural know-how (foraging, food processing), individual intelligence is not enough."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What does 'lactase persistence' refer to?",
-          choices: ["Digesting starch quickly", "Producing extra saliva", "Resistance to malaria", "Continuing to digest lactose into adulthood"],
+          choices: ["Digesting starch quickly due to extra amylase genes", "Breaking down milk proteins more efficiently in infancy", "Inherited resistance to malaria in dairying regions", "Continuing to digest lactose into adulthood"],
           answer: 3,
           explain: "Most mammals stop producing lactase after weaning; lactase persistence keeps that ability into adulthood."
         },
@@ -137,7 +137,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The lactase persistence case is a classic example of what process?",
-          choices: ["Pure genetic drift", "Cultural determinism", "A cultural practice driving genetic evolution", "Lamarckian inheritance"],
+          choices: ["Pure genetic drift in small, isolated populations", "Cultural determinism overriding biological change", "A cultural practice driving genetic evolution", "Lamarckian inheritance of a trait acquired by drinking milk"],
           answer: 2,
           explain: "Dairying (culture) changed the selection environment, driving genetic change: gene-culture coevolution."
         },
@@ -175,7 +175,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Horner and Whiten's (2005) puzzle-box study, how did human children respond to demonstrated but causally irrelevant steps?",
-          choices: ["They ignored all demonstrated steps", "They copied even the causally irrelevant steps", "They refused to open the box", "They invented a wholly new method"],
+          choices: ["They skipped the irrelevant steps and went straight for the reward", "They copied even the causally irrelevant steps", "They copied only the steps that visibly moved the mechanism", "They invented a new, more efficient method of their own"],
           answer: 1,
           explain: "Children overimitated, reproducing useless actions, while chimpanzees tended to skip them and go straight for the reward."
         },
@@ -195,7 +195,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Compared with human children, chimpanzees are more likely to do what when learning a task?",
-          choices: ["Emulate rather than faithfully imitate", "Overimitate every step shown", "Use language to learn", "Refuse to learn socially"],
+          choices: ["Emulate rather than faithfully imitate", "Copy every demonstrated step, even useless ones", "Rely on verbal instruction to learn", "Avoid learning from others altogether"],
           answer: 0,
           explain: "Chimpanzees tend to emulate, focusing on outcomes and skipping irrelevant steps, whereas children imitate faithfully."
         },
@@ -227,7 +227,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What does conformist bias mean?",
-          choices: ["Copying a random person", "Always copying your parents", "Copying the most frequent behavior more than its frequency alone would warrant", "Never copying anyone"],
+          choices: ["Copying the behavior of the most successful or prestigious person in the group", "Copying parents' behavior rather than that of peers or unrelated adults", "Copying the most frequent behavior more than its frequency alone would warrant", "Copying behaviors in exact proportion to how often they appear in a population"],
           answer: 2,
           explain: "Conformist transmission means overweighting the common variant, adopting it at a higher rate than simple frequency predicts."
         },
@@ -299,7 +299,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In dual inheritance theory, culture is treated as what?",
-          choices: ["A second inheritance system shaped by selection and drift", "A byproduct with no evolutionary dynamics", "Identical to genetic inheritance", "Something unrelated to biology"],
+          choices: ["A second inheritance system shaped by selection and drift", "A byproduct of genes with no evolutionary dynamics of its own", "A form of genetic inheritance that follows the same rules as DNA", "A purely learned system that is unrelated to biological evolution"],
           answer: 0,
           explain: "Cultural variants are modeled as subject to forces like selection, drift, and biased transmission."
         },
@@ -331,7 +331,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Enculturation refers to which process?",
-          choices: ["Adapting to a foreign culture", "Acquiring one's own native culture", "Rejecting cultural norms", "Teaching others your culture"],
+          choices: ["Adapting to a new culture after migrating", "Acquiring one's own native culture", "Rejecting the norms of one's upbringing", "Teaching one's culture to newcomers"],
           answer: 1,
           explain: "Enculturation is how a person absorbs and internalizes the culture they are born into."
         },
@@ -351,7 +351,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Compared with socialization's focus on adapting to norms, enculturation especially emphasizes what?",
-          choices: ["Rejecting all norms", "Migrating abroad", "Absorbing one's own culture", "Genetic inheritance"],
+          choices: ["Questioning and rejecting inherited norms", "Adapting to a host culture after migrating", "Absorbing one's own culture", "Inheriting traits through genes"],
           answer: 2,
           explain: "Enculturation centers on taking in one's own culture, whereas socialization stresses conforming to social expectations."
         },
@@ -383,7 +383,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Who formalized these vertical, horizontal, and oblique modes of cultural transmission?",
-          choices: ["Boyd and Richerson", "Michael Tomasello", "Cavalli-Sforza and Feldman", "Franz Boas"],
+          choices: ["Robert Boyd and Peter Richerson", "Charles Lumsden and E. O. Wilson", "Cavalli-Sforza and Feldman", "Henrich and McElreath"],
           answer: 2,
           explain: "Luigi Luca Cavalli-Sforza and Marcus Feldman introduced this framework in their 1981 work on cultural transmission."
         },
@@ -416,7 +416,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which scenario is an example of oblique transmission?",
-          choices: ["A mother teaching her daughter to cook", "Two classmates sharing new slang", "An unrelated village elder instructing the young", "Twins learning a game together"],
+          choices: ["A mother teaching her daughter a family recipe", "Two classmates spreading new slang between themselves", "An unrelated village elder instructing the young", "A father passing his trade on to his own son"],
           answer: 2,
           explain: "An unrelated older person teaching youth is oblique; the parent case is vertical and the peer cases are horizontal."
         }

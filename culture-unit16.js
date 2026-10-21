@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Gelfand's framework, what two ingredients define cultural tightness-looseness?",
-          choices: ["Wealth and education levels", "Strength of social norms and tolerance for deviant behavior", "Religiosity and political ideology", "Population age and life expectancy"],
+          choices: ["Average wealth and the education level of the population", "Strength of social norms and tolerance for deviant behavior", "Strength of religious belief and political conservatism", "Strength of family ties and the value placed on group loyalty"],
           answer: 1,
           explain: "Tightness-looseness is defined by the strength of a society's social norms combined with how strongly it sanctions people who deviate from those norms."
         },
@@ -90,7 +90,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which nation ranked among the loosest in Gelfand's 33-nation study?",
-          choices: ["Singapore", "Japan", "The Netherlands", "South Korea"],
+          choices: ["Singapore", "Pakistan", "The Netherlands", "The Republic of Korea"],
           answer: 2,
           explain: "The Netherlands, along with countries such as Ukraine, Hungary, and Brazil, scored among the loosest, reflecting weaker and more permissive norms."
         },
@@ -153,7 +153,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Why does high population density tend to be associated with tighter norms?",
-          choices: ["Dense living removes any need for cooperation", "Coordinating many people in close quarters requires stronger rules", "Density makes people wealthier and more relaxed", "Crowding eliminates exposure to threats"],
+          choices: ["Dense living reduces the need for cooperation among neighbors", "Coordinating many people in close quarters requires stronger rules", "Density makes people wealthier, which leads them to value order", "Crowding leaves people too busy and distracted to notice when others break rules"],
           answer: 1,
           explain: "When many people live in close quarters, stronger shared rules are needed to reduce friction and coordinate behavior, favoring tightness."
         },
@@ -179,7 +179,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What does 'situational strength' refer to in the study of tightness-looseness?",
-          choices: ["How wealthy a location is", "How much a setting constrains the range of acceptable behavior", "How many people a place can hold", "How old a cultural tradition is"],
+          choices: ["How much wealth and power a particular location holds", "How much a setting constrains the range of acceptable behavior", "How many people a setting can physically hold at one time", "How strongly a person's personality shapes their behavior in a setting"],
           answer: 1,
           explain: "Situational strength is the degree to which a setting restricts behavior; strong situations allow little latitude, weak situations allow much."
         },
@@ -205,7 +205,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Why do the same people often behave more uniformly in tight cultures?",
-          choices: ["Their personalities are genetically identical", "Strong situations leave less room for individual variation", "They lack any personal preferences", "Weak situations dominate daily life there"],
+          choices: ["Their personalities are more similar for genetic reasons", "Strong situations leave less room for individual variation", "They have fewer personal preferences than people elsewhere", "Weak situations dominate daily life, so people copy one another"],
           answer: 1,
           explain: "Because tight cultures contain more strong situations, they constrain behavior tightly, so individuals act more alike across settings."
         },
@@ -235,7 +235,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Who led the 2014 study extending tightness-looseness to the fifty US states?",
-          choices: ["Jesse Harrington and Michele Gelfand", "Geert Hofstede", "Richard Nisbett", "Harry Triandis"],
+          choices: ["Jesse Harrington and Michele Gelfand", "Geert Hofstede and Michael Harris Bond", "Richard Nisbett and Dov Cohen", "Harry Triandis and Michele Gelfand"],
           answer: 0,
           explain: "Jesse R. Harrington and Michele Gelfand published 'Tightness-looseness across the 50 United States' in PNAS in 2014."
         },
@@ -278,7 +278,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What does the fifty-state analysis add to Gelfand's original cross-national work?",
-          choices: ["It shows tightness only exists between countries", "It shows the same threat-tightness logic operates at a finer geographic scale", "It disproves the idea of loose cultures", "It replaces ecology with genetics as the cause"],
+          choices: ["It shows tightness differences exist only between countries, not within them", "It shows the same threat-tightness logic operates at a finer geographic scale", "It shows that loose cultures do not really exist once wealth is controlled for", "It shows that genetics, rather than ecological threat, explains regional tightness"],
           answer: 1,
           explain: "By finding the same threat-tightness relationship within one nation, the study showed the framework generalizes across geographic scales."
         }
@@ -292,7 +292,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "According to Gelfand, what is the central trade-off between tight and loose cultures?",
-          choices: ["Wealth versus poverty", "Order and coordination versus openness and creativity", "Youth versus age", "Language versus religion"],
+          choices: ["Economic growth versus equal distribution of wealth", "Order and coordination versus openness and creativity", "Respect for elders versus the energy of youth", "Religious tradition versus modern, secular-rational values"],
           answer: 1,
           explain: "Tight cultures tend to gain order, self-control, and coordination, while loose cultures tend to gain openness, tolerance, and creativity."
         },
@@ -348,7 +348,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Gelfand found that people in tight cultures tend to score higher on which psychological trait?",
-          choices: ["Sensation seeking", "Self-monitoring and self-regulation", "Openness to fantasy", "Impulsivity"],
+          choices: ["Sensation seeking and risk taking", "Self-monitoring and self-regulation", "Openness to fantasy and new ideas", "Impulsivity and spontaneous expression"],
           answer: 1,
           explain: "Tight cultures cultivate stronger self-monitoring and self-regulation because closely watched norms reward careful control of one's behavior."
         },
@@ -378,7 +378,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Why would strong self-regulation be adaptive in a tight culture?",
-          choices: ["Because norms are rarely enforced there", "Because closely watched, strictly enforced norms punish slips", "Because there are no social expectations", "Because deviance is celebrated"],
+          choices: ["Because norms there are rarely enforced, so people must police themselves", "Because closely watched, strictly enforced norms punish slips", "Because there are few social expectations to guide behavior", "Because deviance is celebrated as a sign of creativity"],
           answer: 1,
           explain: "When norms are strong and violations are punished, carefully regulating one's own behavior helps a person avoid costly sanctions."
         },
@@ -405,7 +405,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In a 2021 Lancet study, Gelfand and colleagues linked cultural tightness to what outcome during the COVID-19 pandemic?",
-          choices: ["Higher tourism revenue", "Lower case and death rates", "Higher birth rates", "Faster internet speeds"],
+          choices: ["Higher case rates but lower death rates", "Lower case and death rates", "Faster vaccine development", "Higher rates of economic growth"],
           answer: 1,
           explain: "The 2021 analysis found that tighter nations tended to have far fewer COVID-19 cases and deaths, consistent with stronger norm adherence."
         },
@@ -425,7 +425,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which mechanism best explains why tight cultures fared better against COVID-19 in the study?",
-          choices: ["They had warmer climates", "Their strong norms produced greater cooperation with restrictions", "They had no elderly residents", "They ignored public health advice"],
+          choices: ["Their warmer climates slowed the spread of the virus", "Their strong norms produced greater cooperation with restrictions", "Their younger populations were less vulnerable to severe illness", "Their governments relied less on public health restrictions overall"],
           answer: 1,
           explain: "Strong norms and readiness to sanction deviance made people in tight cultures more likely to follow distancing and masking rules together."
         },

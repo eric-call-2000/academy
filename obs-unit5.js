@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The rule of thirds suggests placing key subjects:",
           choices: [
             "Along imaginary third lines, not dead center for everything",
-            "Only in the corners",
-            "Off-screen entirely",
-            "At random each time"
+            "Exactly in the center of the frame every single time",
+            "In the top corners so the middle of the frame stays clear",
+            "Along the very edges so nothing blocks the background"
           ],
           answer: 0,
           explain: "Aligning subjects to the third lines creates a balanced, pleasing composition."
@@ -81,9 +81,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The single biggest upgrade to how you look on camera is usually:",
           choices: [
             "Good, soft lighting on your face",
-            "A slightly faster mouse",
-            "More browser tabs",
-            "A darker room"
+            "A higher resolution webcam set to 4K",
+            "A more expensive camera with a bigger lens",
+            "More webcam filters"
           ],
           answer: 0,
           explain: "Light quality drives image quality more than camera price."
@@ -122,9 +122,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A cheap, effective lighting fix is to:",
           choices: [
             "Face a window or put a soft light in front of you",
-            "Turn off all lights",
-            "Point a light directly into the lens",
-            "Sit in complete darkness"
+            "Put one bright light behind you facing the camera",
+            "Point a bare bulb straight at the camera lens",
+            "Turn off the room lights and rely on the screen glow"
           ],
           answer: 0,
           explain: "Facing soft, front-on light instantly improves most webcam images."
@@ -147,9 +147,9 @@ window.ACADEMY.addUnit("obs", {
           q: "You change a webcam's resolution and FPS in:",
           choices: [
             "The Video Capture Device source properties",
-            "The audio mixer",
-            "The Scenes dock",
-            "Windows sound settings"
+            "The Settings menu under Video (Output Resolution)",
+            "The Audio Mixer's Advanced Audio Properties",
+            "The webcam's Color Correction filter settings"
           ],
           answer: 0,
           explain: "Right-click the camera source and open Properties to set these."
@@ -188,9 +188,9 @@ window.ACADEMY.addUnit("obs", {
           q: "If your webcam feed stutters, a reasonable first step is to:",
           choices: [
             "Lower its resolution or FPS to something your PC handles",
-            "Delete all scenes",
-            "Change your recording format",
-            "Raise your CQP to 1"
+            "Raise the camera's resolution so it has more detail",
+            "Add a Sharpen filter to smooth out the motion",
+            "Increase the canvas resolution in Video settings"
           ],
           answer: 0,
           explain: "Reducing the camera's demand often smooths a stuttering feed."
@@ -213,9 +213,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The Color Correction filter lets you adjust:",
           choices: [
             "Brightness, contrast, saturation, and hue",
-            "Your bitrate",
-            "The number of scenes",
-            "Your internet speed"
+            "Resolution, frame rate, and the video format",
+            "Crop size, position, and rotation on the canvas",
+            "Key color, similarity, and smoothness for a green screen"
           ],
           answer: 0,
           explain: "Color Correction tweaks brightness, contrast, gamma, saturation, and hue."
@@ -254,9 +254,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The best base for good color is:",
           choices: [
             "Good lighting first, filters only for small touch-ups",
-            "Maxing every filter slider",
-            "Recording in the dark and fixing it all later",
-            "Turning off the camera"
+            "Maxing every filter slider until the image pops",
+            "Recording in a dim room and fixing it in the editor",
+            "Using a LUT on top of a dark, noisy image"
           ],
           answer: 0,
           explain: "Fix lighting at the source; filters should only fine-tune."
@@ -279,9 +279,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The Chroma Key filter works by:",
           choices: [
             "Making a chosen color transparent",
-            "Adding a border to the video",
-            "Increasing the bitrate",
-            "Muting the audio"
+            "Blurring everything behind you without a green screen",
+            "Cropping the webcam into a circle or rounded shape",
+            "Brightening the parts of the image that are too dark"
           ],
           answer: 0,
           explain: "Chroma Key removes a key color (usually green) to reveal what is behind."
@@ -320,9 +320,9 @@ window.ACADEMY.addUnit("obs", {
           q: "To reduce green light bouncing onto you, you should:",
           choices: [
             "Add distance and light between you and the screen, and use spill reduction",
-            "Stand touching the screen",
-            "Turn off your key light",
-            "Raise your frame rate"
+            "Stand close to the screen so it fills the whole background",
+            "Turn off your key light so the screen is the only light source",
+            "Raise the similarity setting until all the green on your skin disappears"
           ],
           answer: 0,
           explain: "Distance, separate lighting, and spill reduction cut green contamination."
@@ -345,9 +345,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A capture card lets OBS record video from:",
           choices: [
             "A console, camera, or a second PC via HDMI",
-            "Your keyboard",
-            "A printer",
-            "Your mouse"
+            "Your microphone or a USB audio interface",
+            "A web page or browser-based overlay",
+            "Another app window on the same computer"
           ],
           answer: 0,
           explain: "Capture cards ingest HDMI sources as a Video Capture Device."
@@ -386,9 +386,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A dedicated camera usually beats a basic webcam mainly because of:",
           choices: [
             "A larger sensor and better lens for depth and low light",
-            "A faster internet connection",
-            "More USB ports",
-            "A bigger hard drive"
+            "A higher frame rate than any webcam is able to record",
+            "A USB connection that sends video to OBS more quickly",
+            "Built-in software that adds filters before OBS sees it"
           ],
           answer: 0,
           explain: "Bigger sensors and real lenses deliver better depth, detail, and low-light performance."
@@ -411,9 +411,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Grainy, noisy webcam video is most often caused by:",
           choices: [
             "Too little light forcing the camera to boost gain",
-            "Too many scenes",
-            "A high frame rate",
-            "A large hard drive"
+            "Recording at too high a resolution for the webcam sensor",
+            "Having too many filters stacked on the camera source",
+            "Using MKV instead of MP4 as the recording format"
           ],
           answer: 0,
           explain: "In low light, the camera raises gain, which adds visible noise/grain."
@@ -452,9 +452,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The order of operations for a clean camera image is:",
           choices: [
             "Light the scene first, then fine-tune with filters",
-            "Max all filters and ignore lighting",
-            "Record in the dark and hope",
-            "Only change resolution"
+            "Max out all filters first, then add light only if needed",
+            "Record in dim light and clean up the noise in your editor",
+            "Change only the resolution and frame rate until it looks clean"
           ],
           answer: 0,
           explain: "Solve lighting at the source, then use filters for minor cleanup."
@@ -488,9 +488,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A clean, uncluttered background helps because it:",
           choices: [
             "Keeps attention on you and looks intentional",
-            "Increases your bitrate",
-            "Adds more scenes",
-            "Speeds up encoding"
+            "Makes the webcam image sharper and higher resolution",
+            "Lets the camera use less light to get a bright image",
+            "Hides compression artifacts in the final recording"
           ],
           answer: 0,
           explain: "A tidy background reduces distraction and reads as professional."
@@ -529,9 +529,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The most reliable path to looking good on camera is:",
           choices: [
             "Master lighting and framing, then upgrade gear later",
-            "Buy the most expensive camera first",
-            "Ignore lighting entirely",
-            "Record in complete darkness"
+            "Buy the most expensive camera first, then learn lighting",
+            "Use heavy filters to fix whatever your camera captures",
+            "Record in a dark room and brighten everything later on"
           ],
           answer: 0,
           explain: "Fundamentals like light and framing beat gear every time."

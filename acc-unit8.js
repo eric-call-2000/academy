@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does Insight give you in ACC?",
-          choices: ["Analytics and dashboards from project data", "A place to store PDF files", "A clash detection engine", "A tool to draw floor plans"],
+          choices: ["Analytics and dashboards from project data", "A place to store and share project PDF files", "A clash detection engine for models", "A tool for drafting floor plans"],
           answer: 0,
           explain: "Insight collects data from across the project and shows it as analytics and dashboards."
         },
@@ -56,7 +56,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which is a good use of a dashboard on a job?",
-          choices: ["Tracking open issues by status over time", "Rendering a photorealistic image", "Editing a Revit family", "Signing a legal contract"],
+          choices: ["Tracking open issues by status over time", "Rendering photorealistic images of the model", "Editing Revit families and parameters", "Storing signed contracts for the project"],
           answer: 0,
           explain: "Tracking counts and trends, like open issues over time, is exactly what dashboards are for."
         }
@@ -70,7 +70,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does Account Admin control?",
-          choices: ["Company-wide settings across all projects", "Only a single project's folders", "The clash results of one model", "A user's personal phone contacts"],
+          choices: ["Company-wide settings across all projects", "Only a single project's folders and modules", "The clash results of each model", "Each user's personal profile settings"],
           answer: 0,
           explain: "Account Admin operates at the company level and its settings can apply across every project."
         },
@@ -99,7 +99,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which task belongs in Account Admin?",
-          choices: ["Managing the full list of company members", "Answering an RFI on one job", "Running a takeoff on a sheet", "Placing a photo in a report"],
+          choices: ["Managing the full list of company members", "Answering an RFI on a single project", "Enabling the RFIs module on one project", "Placing photos in a daily report"],
           answer: 0,
           explain: "The master member directory for the company is an account-level responsibility."
         },
@@ -112,7 +112,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why keep company-wide settings in one Account Admin area?",
-          choices: ["So standards stay consistent across every project", "So files load faster", "So models render in color", "So RFIs close themselves"],
+          choices: ["So standards stay consistent across every project", "So each project can invent its own naming rules", "So project admins no longer need any access", "So files load faster on every project"],
           answer: 0,
           explain: "Centralizing settings keeps naming, roles, and standards consistent from project to project."
         }
@@ -126,7 +126,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is the main purpose of assigning roles to members?",
-          choices: ["To control what each person can see and do", "To change the file format", "To speed up the internet", "To pick the model color"],
+          choices: ["To control what each person can see and do", "To decide which file formats a person can upload", "To set each person's billing rate on the project", "To track how many hours each person works"],
           answer: 0,
           explain: "Roles map to permissions, which decide what each member can view, edit, or manage."
         },
@@ -168,7 +168,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which principle keeps access safe?",
-          choices: ["Least privilege, give only what is needed", "Give everyone everything", "Share one login for the whole team", "Turn off all permissions"],
+          choices: ["Least privilege, give only what is needed", "Open access, give everyone full rights", "Shared logins, one account for each team", "Admin by default, then remove rights later"],
           answer: 0,
           explain: "Least privilege limits risk by granting each member only the access their work requires."
         }
@@ -182,7 +182,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does Project Admin let you do?",
-          choices: ["Configure one project's modules and settings", "Manage the whole company account", "Author a Revit model", "Run a rendering farm"],
+          choices: ["Configure one project's modules and settings", "Manage the whole company account and members", "Author and edit the project's Revit models", "Approve invoices for the project's contracts"],
           answer: 0,
           explain: "Project Admin is scoped to a single project, where you enable modules and set them up."
         },
@@ -212,7 +212,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which setting is a Project Admin job, not an Account Admin job?",
-          choices: ["Turning on the RFIs module for this project", "Managing the company member directory", "Setting company-wide standards", "Controlling the whole account"],
+          choices: ["Turning on the RFIs module for this project", "Managing the company member directory", "Setting company-wide naming standards", "Controlling billing for the whole account"],
           answer: 0,
           explain: "Enabling a module for one project is done in Project Admin, not at the account level."
         },
@@ -238,7 +238,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a project template used for?",
-          choices: ["Starting new projects with consistent setup", "Rendering a walkthrough video", "Detecting clashes in a model", "Measuring quantities from a drawing"],
+          choices: ["Starting new projects with consistent setup", "Copying files from one project to another", "Detecting clashes in a new model", "Measuring quantities from standard drawings"],
           answer: 0,
           explain: "A template captures a standard setup so every new project starts the same, consistent way."
         },
@@ -258,7 +258,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a benefit of standardizing folder names across projects?",
-          choices: ["People find files fast on any project", "Files render faster", "Models auto-coordinate", "RFIs answer themselves"],
+          choices: ["People find files fast on any project", "Files upload and render more quickly", "Models are coordinated automatically", "Permissions no longer need to be set"],
           answer: 0,
           explain: "Consistent naming means anyone can find files quickly no matter which project they open."
         },
@@ -294,7 +294,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does an integration do?",
-          choices: ["Connects another tool to ACC to share data", "Deletes old model files", "Renders a photorealistic image", "Prints paper drawings"],
+          choices: ["Connects another tool to ACC to share data", "Copies an ACC project into a new account", "Converts files into formats ACC can open", "Adds new users to ACC from an email list"],
           answer: 0,
           explain: "An integration links ACC with another system so data can move between them automatically."
         },
@@ -314,7 +314,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which is a realistic reason to integrate ACC with another system?",
-          choices: ["Sync cost data with accounting software", "Make models render in 3D", "Turn RFIs into photos", "Change the app's font"],
+          choices: ["Sync cost data with accounting software", "Make models render faster in the viewer", "Let RFIs be answered without the designer", "Change the app's colors and fonts"],
           answer: 0,
           explain: "Connecting ACC cost data to accounting is a common, practical integration."
         },
@@ -337,7 +337,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is the main risk of NOT integrating your tools?",
-          choices: ["Duplicate manual entry and mismatched data", "Faster reporting", "Cleaner models", "Automatic clash detection"],
+          choices: ["Duplicate manual entry and mismatched data", "Reports that update too often to read", "Models that become too large to open", "Clash tests that run more than needed"],
           answer: 0,
           explain: "Without integration, people rekey data by hand, which is slow and causes mismatches."
         }
@@ -358,7 +358,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is Navisworks best known for?",
-          choices: ["Combining models and detecting clashes", "Drawing structural steel", "Hosting the CDE", "Writing submittals"],
+          choices: ["Combining models and detecting clashes", "Authoring structural steel models", "Hosting the project's common data environment", "Tracking submittals and RFIs in the field"],
           answer: 0,
           explain: "Navisworks aggregates many models and runs clash detection on the desktop."
         },
@@ -407,7 +407,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is the big-picture value of connecting design and construction data?",
-          choices: ["One reliable source everyone can trust and reuse", "Prettier fonts in reports", "Faster video rendering", "More paper drawings"],
+          choices: ["One reliable source everyone can trust and reuse", "More drawing sets that can be printed for the field", "Faster rendering of models for presentations", "Fewer people needed on the project team"],
           answer: 0,
           explain: "Connected data becomes a single trusted source the whole team can rely on and reuse."
         },
@@ -456,7 +456,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why is data called the deliverable, not just the drawings?",
-          choices: ["Connected data outlives any single drawing set", "Drawings never matter", "Data is only for admins", "Data cannot be shared"],
+          choices: ["Connected data outlives any single drawing set", "Drawings are no longer used once the model exists", "Data is only useful to the project admins", "Owners are not allowed to receive drawings"],
           answer: 0,
           explain: "Structured, connected data keeps serving the owner and team long after a drawing set is done."
         }

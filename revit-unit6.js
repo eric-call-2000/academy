@@ -20,7 +20,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "The wall Location Line setting controls what?",
-          choices: ["Which plane of the wall follows the line you draw", "The wall material", "The wall color in a view", "The room the wall belongs to"],
+          choices: ["Which plane of the wall follows the line you draw", "Which level the base of the wall is attached to", "Which side of the wall faces the exterior", "How far the wall extends above its top level"],
           answer: 0,
           explain: "Location Line (for example Wall Centerline or Finish Face) decides which plane of the wall lands on the sketch line."
         },
@@ -69,7 +69,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Where do you define the layers of a compound wall?",
-          choices: ["In the wall Type's Structure (Edit Assembly)", "In the Materials browser only", "In the project Levels", "In a schedule"],
+          choices: ["In the wall Type's Structure (Edit Assembly)", "In the wall instance's Properties palette", "In the Materials browser for each layer", "In Object Styles under the Walls category"],
           answer: 0,
           explain: "Editing the wall Type's Structure opens the assembly where you add, order, and size material layers."
         },
@@ -112,7 +112,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Layer function priority mainly affects what during modeling?",
-          choices: ["How layers clean up when walls join", "The wall's color on screen", "Which level hosts the wall", "The wall's tag text"],
+          choices: ["How layers clean up when walls join", "The order layers are listed in schedules", "Which layer is shown at Coarse detail", "Which layer the dimensions snap to first"],
           answer: 0,
           explain: "Function priority tells Revit which layers connect through at wall joins for correct cleanup."
         }
@@ -182,14 +182,14 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Roof by Footprint creates a roof from what?",
-          choices: ["A closed plan outline with slope-defining edges", "A single side profile", "A picked pair of points", "An imported mesh"],
+          choices: ["A closed plan outline with slope-defining edges", "A side profile sketched in an elevation view", "Two picked points that set the ridge line", "A mass face picked in a 3D view"],
           answer: 0,
           explain: "Footprint roofs use a plan-view boundary where you flag which edges define slopes."
         },
         {
           type: "mcq",
           q: "Roof by Extrusion is best for what kind of roof?",
-          choices: ["A curved or shaped profile pushed along a length", "A simple flat pad", "A four-sided hip on a rectangle", "A floor opening"],
+          choices: ["A curved or shaped profile pushed along a length", "A simple flat roof over a rectangular room", "A four-sided hip roof on a rectangular plan", "A roof that follows a sketched plan outline"],
           answer: 0,
           explain: "Extrusion roofs sweep a side profile you sketch, which suits curved or unusual shapes."
         },
@@ -237,14 +237,14 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "The Automatic Ceiling option places a ceiling how?",
-          choices: ["By clicking inside a space enclosed by walls", "By picking two corner points", "By importing a CAD file", "By copying a floor"],
+          choices: ["By clicking inside a space enclosed by walls", "By picking two corners to draw a rectangle", "By copying the floor below to a set height", "By sketching a boundary along each wall"],
           answer: 0,
           explain: "Automatic ceilings fill a bounded region when you click inside walls that enclose it."
         },
         {
           type: "mcq",
           q: "When would you use a sketched ceiling instead of an automatic one?",
-          choices: ["When the space is not fully bounded or needs a custom shape", "When the room is a simple rectangle", "When you want no ceiling", "When placing a door"],
+          choices: ["When the space is not fully bounded or needs a custom shape", "When the room is a simple rectangle with four walls", "When the ceiling should sit at the room's default height", "When you want the ceiling to be listed in a schedule"],
           answer: 0,
           explain: "Sketching lets you draw any boundary, useful when walls do not fully enclose the area."
         },
@@ -279,7 +279,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Which view type is designed to show ceiling layouts?",
-          choices: ["Reflected ceiling plan", "Structural plan", "Drafting view", "Legend"],
+          choices: ["Reflected ceiling plan", "Structural framing plan", "Building section view", "Area plan view"],
           answer: 0,
           explain: "A reflected ceiling plan is the standard view for laying out and reading ceilings."
         }
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does the Attach Top/Base command do to a wall?",
-          choices: ["Extends or trims the wall to meet a roof, floor, or ceiling", "Changes the wall material", "Deletes the wall", "Moves the wall to a new level"],
+          choices: ["Extends or trims the wall to meet a roof, floor, or ceiling", "Joins the wall to adjacent walls so the layers clean up", "Locks the wall's top and base to the Levels above and below", "Moves the wall to sit on a different Level in the model"],
           answer: 0,
           explain: "Attaching lets a wall follow the shape of a target element like a sloped roof instead of stopping flat."
         },
@@ -306,7 +306,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Wall joins mainly control what?",
-          choices: ["How layers clean up where walls meet", "The wall's height", "The wall's phase", "The room name"],
+          choices: ["How layers clean up where walls meet", "How tall each wall is between levels", "Which wall hosts doors near a corner", "Which side of the wall faces outside"],
           answer: 0,
           explain: "Join settings decide whether meeting walls miter, butt, or square off, cleaning up shared corners."
         },
@@ -349,7 +349,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does Edit Profile let you do to a wall?",
-          choices: ["Reshape its elevation outline, such as a gable or arch", "Change its wall type", "Move it to another level", "Rename it"],
+          choices: ["Reshape its elevation outline, such as a gable or arch", "Change the layers and thicknesses of its wall type", "Redraw its location line along a new path in plan", "Add a sweep or reveal along the face of the wall"],
           answer: 0,
           explain: "Edit Profile opens the wall's boundary sketch in elevation so you can change its silhouette."
         },
@@ -362,7 +362,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Which tool cuts a vertical hole through a floor or roof?",
-          choices: ["A shaft or vertical opening", "A slope arrow", "A grid", "A dimension"],
+          choices: ["A shaft or vertical opening", "A slab edge or roof fascia sweep", "A wall opening tool", "A split face command"],
           answer: 0,
           explain: "Opening tools like a shaft or vertical opening cut a sketched hole through host elements."
         },
@@ -412,7 +412,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Where do detail lines appear?",
-          choices: ["Only in the single view where they were drawn", "In every 3D view", "In the schedule only", "In linked models"],
+          choices: ["Only in the single view where they were drawn", "In every view that shows the same area of the model", "In plan views and in 3D views", "In this view and in its linked models"],
           answer: 0,
           explain: "Detail lines are 2D annotation that belong to just one view and do not appear elsewhere."
         },

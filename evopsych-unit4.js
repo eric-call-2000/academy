@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The levels-of-selection debate is fundamentally a question about what?",
           choices: [
-            "How fast animals can run from predators",
+            "Whether natural selection or genetic drift drives most change",
             "Which biological unit natural selection actually acts on",
-            "Whether evolution happens at all",
-            "How many species exist on Earth"
+            "How quickly new species split off from their ancestors",
+            "Whether traits are shaped more by genes or by environment"
           ],
           answer: 1,
           explain: "The debate asks whether selection favors genes, individual organisms, groups, or some combination, when traits spread or vanish."
@@ -55,10 +55,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why does the level of selection matter for explaining behavior?",
           choices: [
-            "It decides how tall an animal can grow",
-            "It has no effect on any prediction",
+            "It determines how quickly an adaptation can spread in a population",
+            "It decides whether a trait counts as learned or as innate",
             "It changes what looks like the beneficiary of an adaptation",
-            "It only matters for plants, not animals"
+            "It changes the rate at which new mutations arise in the genome"
           ],
           answer: 2,
           explain: "Whether a trait is seen as benefiting the gene, the individual, or the group shapes how we explain why it exists."
@@ -146,10 +146,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "In Dawkins's framework, what is a replicator?",
           choices: [
-            "A predator that hunts other animals",
-            "A body that dies without leaving offspring",
+            "A body, like an organism, that carries genes and dies each generation",
+            "A group of organisms that persists and splits into daughter groups",
             "An entity, like a gene, that is copied across generations",
-            "A random mutation that never survives"
+            "A trait that helps its bearer survive long enough to reproduce"
           ],
           answer: 2,
           explain: "A replicator is something copied faithfully over generations. Genes are the paradigm example."
@@ -182,9 +182,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Why does Dawkins call genes, not bodies, the true unit that endures?",
           choices: [
             "Bodies are recombined and die each generation, but gene copies pass on intact",
-            "Bodies never change at all over time",
-            "Genes are larger than bodies",
-            "Bodies reproduce without any genes"
+            "Genes never mutate, while bodies change constantly over a lifetime",
+            "Genes control every trait completely, so bodies have no effect on fitness",
+            "Bodies are shaped mostly by the environment, so selection cannot see them"
           ],
           answer: 0,
           explain: "Each body is a one-off mix that dies, but a gene can be copied faithfully into many future bodies."
@@ -212,9 +212,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What did George Williams's 1966 book Adaptation and Natural Selection argue against?",
           choices: [
-            "The existence of DNA",
-            "The theory of natural selection itself",
-            "The idea that animals can learn",
+            "The idea that genes are the units passed on between generations",
+            "The idea that complex adaptations are built by natural selection",
+            "The idea that relatives help each other because they share genes",
             "The idea that adaptations evolve for the good of the group"
           ],
           answer: 3,
@@ -237,10 +237,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why did Williams doubt that traits commonly evolve for the good of the species?",
           choices: [
-            "Species never contain any variation",
+            "Species contain too little genetic variation for selection to favor any trait that helps the group",
             "Selfish individuals would out-reproduce self-sacrificing ones, undermining group-benefiting traits",
-            "Groups reproduce faster than individuals",
-            "Natural selection cannot act on animals"
+            "Group-benefiting traits are too complex to be built by selection acting on single genes",
+            "Animals cannot recognize members of their own species, so they cannot aim help at them"
           ],
           answer: 1,
           explain: "Within a group, individuals that grab more reproduction spread their genes faster, eroding any trait that sacrifices for the group."
@@ -291,9 +291,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Which is a classic example of an extended phenotype?",
           choices: [
             "A beaver's dam built by genes for dam-building behavior",
-            "The color of a leaf in autumn",
-            "The temperature of the ocean",
-            "The phase of the moon"
+            "A beaver's large front teeth, grown for gnawing wood",
+            "A beaver's thick fur, shaped by genes for cold water",
+            "A young beaver learning the route to a river from its mother"
           ],
           answer: 0,
           explain: "A beaver dam is a structure shaped by beaver genes acting on the environment, a phenotype reaching beyond the body."
@@ -344,9 +344,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What did Dawkins mean by a meme when he coined the term in 1976?",
           choices: [
-            "A funny image posted online",
-            "A type of gene found only in humans",
-            "A species of primate",
+            "A gene that shapes how readily a person imitates others",
+            "A behavior each individual invents on its own without copying",
+            "A fixed instinct passed on through genes rather than learning",
             "A unit of cultural transmission that spreads between minds"
           ],
           answer: 3,
@@ -385,10 +385,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which is a commonly cited limit of the meme concept?",
           choices: [
-            "Ideas never spread between people",
-            "Culture cannot change over time",
+            "Ideas are copied too faithfully between people to show any variation",
+            "Memes can only spread from parents to their own biological children",
             "There is no clear boundary defining where one meme ends and another begins",
-            "Genes and memes are exactly identical"
+            "Cultural change happens too slowly to be studied within a lifetime"
           ],
           answer: 2,
           explain: "Unlike genes, memes have no agreed discrete boundary, making them hard to isolate and study rigorously."
@@ -411,9 +411,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "What does multilevel selection theory propose?",
           choices: [
             "Selection can act at more than one level at once, including within and between groups",
-            "Selection acts only on single genes and never on anything else",
-            "Evolution stops when groups form",
-            "Only the largest animals ever evolve"
+            "Selection acts only on single genes, so groups and individuals are mere vehicles",
+            "Selection acts only between groups, so competition within groups does not matter",
+            "Selection acts on individuals first and on groups only after members stop competing"
           ],
           answer: 0,
           explain: "Multilevel selection models both competition within groups and competition between groups simultaneously."
@@ -445,10 +445,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why does group selection remain controversial among biologists?",
           choices: [
-            "No biologist has ever studied cooperation",
+            "It has been proven mathematically impossible, so every claimed case must rest on a mistake in the data or models",
             "Many argue its results can be restated in gene-centered terms, and strong group selection needs demanding conditions",
-            "It has been proven completely impossible",
-            "It contradicts the existence of genes"
+            "It predicts that animals should never compete with members of their own group for food or mates",
+            "It requires all group members to be clones, which is true only of a few social insects"
           ],
           answer: 1,
           explain: "Critics note between-group selection needs restrictive conditions and can often be rephrased as inclusive fitness or gene-level selection."
@@ -476,10 +476,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why do the many genes in one body usually cooperate rather than fight?",
           choices: [
-            "Genes are incapable of ever conflicting",
+            "Each gene controls a separate trait, so genes never compete for resources",
             "They share the same exit into the next generation through the same gametes",
-            "Bodies contain only a single gene",
-            "Cooperation gives no benefit to any gene"
+            "Selection removes any gene that ever works against another gene at once",
+            "They are all copied from a single parent, so they carry identical interests"
           ],
           answer: 1,
           explain: "Genes that travel together into the same offspring share a common fate, so promoting the body's success also copies each of them."
@@ -517,10 +517,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What are selfish genetic elements an example of?",
           choices: [
-            "Genes that never replicate at all",
-            "Cells that lack any DNA",
+            "Genes that help the whole genome by suppressing harmful mutations elsewhere",
+            "Genes that spread only because they raise the fitness of the whole organism",
             "Genes that promote their own spread even at a cost to the rest of the genome",
-            "Organisms with no genes"
+            "Genes that cannot be copied and so are lost within a few generations"
           ],
           answer: 2,
           explain: "Selfish genetic elements pursue their own copying against the body's interests, the exception that reveals why cooperation is usually favored."

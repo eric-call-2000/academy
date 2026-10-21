@@ -96,8 +96,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which cache layer is hardest to invalidate once a stale value has been served?",
           choices: [
-            "The database buffer pool, which is managed by the storage engine",
-            "The shared Redis cluster, since it is written by many services",
+            "The database buffer pool, because it is managed internally by the storage engine",
+            "The shared Redis cluster, since it is written by many different services at once",
             "The CDN, because edge nodes are geographically distributed",
             "The client cache, because you cannot reach a copy already on the user device"
           ],
@@ -131,10 +131,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In HTTP caching, what distinguishes s-maxage from max-age?",
           choices: [
-            "s-maxage is measured in seconds while max-age is measured in milliseconds",
+            "s-maxage is measured in seconds while max-age is measured in milliseconds for finer control",
             "s-maxage applies only to shared caches such as CDNs and proxies, overriding max-age there",
-            "s-maxage is a hard expiry while max-age is only advisory to all caches",
-            "s-maxage applies only to secure responses served over TLS"
+            "s-maxage is a hard expiry that every cache must obey, while max-age is only advisory to all caches",
+            "s-maxage applies only to secure responses that were served to the client over TLS"
           ],
           answer: 1,
           explain: "It lets you keep a long edge lifetime while telling browsers to revalidate quickly, which is useful precisely because you can purge the edge but not the browser."
@@ -156,10 +156,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In the cache-aside pattern, who is responsible for loading a value into the cache after a miss?",
           choices: [
-            "The cache server, which subscribes to a change feed from the database",
+            "The cache server, which subscribes to a change feed from the database and loads rows itself",
             "The application code, which reads the database and then writes the value into the cache",
-            "The database, which pushes rows to the cache as they are read",
-            "A background job, since cache-aside forbids writes on the read path"
+            "The database, which pushes each row into the cache as soon as a query reads it",
+            "A background job, since cache-aside forbids any writes to the cache on the read path"
           ],
           answer: 1,
           explain: "Cache-aside puts the cache logic in application code. That is why it works with any store, and also why every caller must get the logic right."
@@ -185,10 +185,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In read-through caching, how does the application see a miss?",
           choices: [
-            "It gets an error and must retry against the database itself",
-            "It gets a null and is expected to backfill the cache manually",
+            "It gets an error and must retry the read against the database itself before trying the cache again",
+            "It gets a null and is expected to load the row and backfill the cache manually",
             "It does not: the cache loads from the backing store and returns the value as part of the same call",
-            "It gets a stale value and a flag indicating a refresh is in progress"
+            "It gets a stale value along with a flag indicating that a background refresh is in progress"
           ],
           answer: 2,
           explain: "Read-through moves the loader into the cache layer, so the application talks only to the cache. The trade is that the cache becomes a hard dependency on the read path."
@@ -257,10 +257,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "When is write-around the right default?",
           choices: [
-            "When every written record is read back within milliseconds",
-            "When the cache is on the same machine as the database",
+            "When nearly every written record is read back by some client within milliseconds",
+            "When the cache runs on the same physical machine as the database it fronts",
             "When write volume is high and most written records are rarely read soon after",
-            "When the workload cannot tolerate any stale reads at all"
+            "When the workload cannot tolerate any stale reads at all, even for a moment"
           ],
           answer: 2,
           explain: "Write-around avoids filling the cache with cold data that would evict genuinely hot entries. The cost is a guaranteed miss the first time a written record is read."
@@ -335,9 +335,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the classic weakness of a naive LFU counter?",
           choices: [
-            "It cannot represent ties, so it evicts at random once counts match",
-            "It requires the full key ordering to be recomputed on every read",
-            "It only works when all values are the same size",
+            "It cannot represent ties, so it evicts an item at random once two counts happen to match",
+            "It requires the full ordering of all keys to be recomputed on every single read",
+            "It only works when all of the cached values are roughly the same size in memory",
             "An item popular in the past keeps a high count and resists eviction long after demand ends"
           ],
           answer: 3,
@@ -354,9 +354,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Traffic doubles, cache memory stays fixed, and the hit rate falls sharply. What is the most likely explanation?",
           choices: [
             "The working set now exceeds capacity, so entries are evicted before they are reused",
-            "TTLs have become too long, so expired entries occupy memory",
-            "The eviction policy switched itself to random under load",
-            "Network latency rose, which lowers the measured hit rate"
+            "TTLs have become too long, so expired entries now occupy most of the available memory",
+            "The eviction policy switched itself from LRU to random once the load crossed a threshold",
+            "Network latency rose under the extra load, which lowers the hit rate the cache reports"
           ],
           answer: 0,
           explain: "Hit rate is a function of working-set size versus capacity. When the active set outgrows the cache, reuse distance exceeds the eviction horizon and hits collapse."
@@ -407,10 +407,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why does putting a version number or last-updated timestamp into the cache key largely sidestep invalidation?",
           choices: [
-            "Because the cache compares versions on read and refuses to return old ones",
-            "Because a key with a version is stored in a separate memory region with priority",
+            "Because the cache compares versions on every read and refuses to return any entry with an older version number",
+            "Because a key that carries a version is stored in a separate, higher priority memory region",
             "Because a version bump produces a different key, so readers miss and reload while the old key ages out unread",
-            "Because versioned keys are exempt from eviction until they are explicitly deleted"
+            "Because versioned keys are exempt from eviction until the application explicitly deletes them"
           ],
           answer: 2,
           explain: "You never have to delete anything: correctness comes from readers computing the new key. The cost is that superseded entries occupy memory until eviction or expiry reclaims them."
@@ -443,10 +443,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is a cache stampede?",
           choices: [
-            "A cache node running out of memory and evicting its entire keyspace at once",
+            "A cache node running out of memory and evicting its entire keyspace at once, then reloading from the origin",
             "Many concurrent requests miss the same key at the same moment and all recompute it against the origin",
-            "A client retry loop that repeatedly writes the same key with different values",
-            "A replication lag spike that makes replicas serve older data than the primary"
+            "A client retry loop that repeatedly writes the same key with different values until one wins",
+            "A replication lag spike that makes cache replicas serve older data than the primary node holds"
           ],
           answer: 1,
           explain: "One expiry can convert a key that was absorbing thousands of requests per second into thousands of simultaneous origin queries. The origin, sized for the miss rate, is not sized for that."
@@ -462,10 +462,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "How does request coalescing, sometimes called single flight, protect the origin?",
           choices: [
-            "It batches many different keys into one origin query to reduce round trips",
-            "It queues origin requests and drops the ones that exceed a rate limit",
+            "It batches many different keys into one origin query, which cuts the number of round trips per page",
+            "It queues origin requests and drops any that exceed a configured rate limit for that key",
             "It lets only one caller recompute a given key while the rest wait for and share that result",
-            "It merges reads and writes for the same key into a single atomic operation"
+            "It merges the reads and writes for the same key into a single atomic operation at the origin"
           ],
           answer: 2,
           explain: "The concurrent duplicates are deduplicated at the point of the miss, so the origin sees one query instead of N regardless of how many callers arrived together."
@@ -549,10 +549,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "You cache a user object and frequently update only one field. Why is a hash usually better than a JSON string?",
           choices: [
-            "Hashes are replicated to followers while strings are not",
+            "Hashes are replicated to follower nodes while plain string values are kept only on the primary",
             "You can read and write a single field without deserializing and rewriting the whole object",
-            "Hashes are exempt from eviction under memory pressure",
-            "Hashes are automatically indexed, so you can look the object up by field value"
+            "Hashes are exempt from eviction when the server is under memory pressure",
+            "Hashes are automatically indexed, so you can look the object up by any field value you store"
           ],
           answer: 1,
           explain: "Field-level access avoids the read-modify-write round trip on the whole blob, which also removes a lost-update race between two writers touching different fields."
@@ -567,10 +567,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What does setting a key only if it does not already exist, together with an expiry, give you?",
           choices: [
-            "A guarantee that no other client can ever read the key while it is set",
-            "A durable write that survives a restart even without persistence enabled",
+            "A guarantee that no other client can ever read the key while it is set, until the expiry fires",
+            "A durable write that survives a server restart even when persistence is not enabled",
             "A basic mutual-exclusion primitive whose expiry keeps a crashed holder from blocking forever",
-            "An atomic counter that resets itself when the expiry elapses"
+            "An atomic counter that resets itself to zero whenever the configured expiry elapses on the key"
           ],
           answer: 2,
           explain: "Set-if-absent plus a TTL is the standard lock building block. It is only a best-effort lock: the holder can lose it by exceeding the TTL, so critical sections still need an ownership check before they act."

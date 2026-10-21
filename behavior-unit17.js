@@ -32,10 +32,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "What is the defining feature of the 'yoked' control group?",
           "choices": [
-            "It receives shocks it can turn off by pressing a panel",
+            "It receives shocks it can turn off by pressing a panel, just like the escape group",
             "It receives exactly the same shocks as the escape group but cannot control them",
-            "It receives no shock at all",
-            "It receives stronger shocks than the escape group"
+            "It receives no shock at all and simply waits in the same harness",
+            "It receives stronger shocks than the escape group but can still end them"
           ],
           "answer": 1,
           "explain": "The yoked animal gets physically identical shocks to its escape-group partner, but nothing it does affects them, so the only difference between the two groups is control."
@@ -98,10 +98,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "According to Seligman and Maier, the core thing an animal 'learns' during inescapable shock is that:",
           "choices": [
-            "Shock is always painful",
+            "Shock is always painful, no matter how it is delivered",
             "Responding and outcomes are independent of each other",
-            "Escape is physically impossible for any animal",
-            "Other animals are to blame"
+            "Escape from shock is physically impossible for any animal",
+            "Other animals in the setting are to blame for the shocks"
           ],
           "answer": 1,
           "explain": "The animal learns a response-outcome independence: nothing it does changes the outcome, so it stops trying even when control later becomes possible."
@@ -128,9 +128,9 @@ window.ACADEMY.addUnit("behaviorism", {
           "q": "Which everyday situation best illustrates learned helplessness?",
           "choices": [
             "A worker who quits trying after repeated efforts never change an outcome",
-            "A person who studies hard and earns a good grade",
-            "An athlete who wins after focused practice",
-            "A child rewarded every time she cleans her room"
+            "A student who studies hard every night and then earns a much better grade",
+            "An athlete who wins a race after months of focused, careful practice",
+            "A child who is rewarded every time she cleans her room and keeps doing it"
           ],
           "answer": 0,
           "explain": "When effort repeatedly fails to affect results, a person may generalize the response-outcome independence and stop trying, the signature of learned helplessness."
@@ -139,10 +139,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "The concept of learned helplessness challenged strict behaviorism because it appealed to:",
           "choices": [
-            "Reflex arcs only",
+            "Reflex arcs triggered directly by the shock alone",
             "An internal expectation or cognition about control",
-            "Purely genetic instincts",
-            "Random behavior with no learning"
+            "Purely genetic instincts that are present from birth",
+            "Random behavior that involves no learning at all"
           ],
           "answer": 1,
           "explain": "Seligman argued animals form a cognitive expectation that responding is futile, a mental representation that classic stimulus-response behaviorism had avoided."
@@ -303,10 +303,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "A key limitation critics raised about the original animal model was that it could not fully explain:",
           "choices": [
-            "Why animals eat food",
+            "Why animals stop eating after a long series of inescapable shocks",
             "Why depressed people blame themselves and vary so much in reaction",
-            "How muscles contract",
-            "Why shock is painful"
+            "How muscles become fatigued after a long period of struggling",
+            "Why shock produces stronger pain in dogs than in rats and mice"
           ],
           "answer": 1,
           "explain": "The purely behavioral model struggled to explain self-blame, individual differences, and why some people exposed to uncontrollable events do not become depressed, spurring a revision."
@@ -339,10 +339,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "The 1978 reformulated theory of learned helplessness added the concept of:",
           "choices": [
-            "Reflex conditioning",
+            "Reflex conditioning of the fear response",
             "Causal attributions or explanatory style",
-            "Genetic inheritance",
-            "Fixed action patterns"
+            "Genetic inheritance of a depressive temperament",
+            "Fixed action patterns released by stress"
           ],
           "answer": 1,
           "explain": "Abramson, Seligman, and Teasdale (1978) added attributions, the causal explanations people give for uncontrollable events, to account for human differences."
@@ -397,10 +397,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "Which explanation of failing a test reflects a pessimistic (internal, stable, global) style?",
           "choices": [
-            "The test was unusually unfair this once",
+            "The test was unusually unfair, just this once",
             "I'm just stupid and always fail at everything",
-            "I was tired only that morning",
-            "The room was too noisy today"
+            "I was tired only that morning, so I slipped",
+            "I didn't study enough for this particular test"
           ],
           "answer": 1,
           "explain": "'I'm stupid and always fail at everything' is internal, stable, and global, the pessimistic pattern the reformulation identified as most damaging."
@@ -511,9 +511,9 @@ window.ACADEMY.addUnit("behaviorism", {
           "q": "In their 2016 review, Maier and Seligman argued that what is really 'learned' is not helplessness but rather:",
           "choices": [
             "Passivity as the default, with control being detected",
-            "Nothing at all is learned",
-            "Only the smell of the apparatus",
-            "That shock is pleasant"
+            "Helplessness itself, through repeated exposure to shock",
+            "A fear of the apparatus rather than of the shock itself",
+            "That responses always produce outcomes in any setting"
           ],
           "answer": 0,
           "explain": "The neuroscience reversal holds that passivity in the face of prolonged shock is the unlearned default; what animals actually learn is that they have control."
@@ -557,10 +557,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "Which brain region, when it detects controllability, sends top-down inhibition to the dorsal raphe nucleus?",
           "choices": [
-            "Cerebellum",
+            "Dorsal anterior cingulate cortex",
             "Ventromedial prefrontal cortex",
-            "Occipital lobe",
-            "Pituitary gland"
+            "Basolateral amygdala complex",
+            "Ventral hippocampal formation"
           ],
           "answer": 1,
           "explain": "The ventromedial prefrontal cortex registers control and inhibits the dorsal raphe, blunting the passivity and anxiety that uncontrolled stress would cause."
@@ -593,10 +593,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "In helplessness research, 'immunization' refers to:",
           "choices": [
-            "A vaccine against shock",
+            "A drug given before testing that blocks the effects of uncontrollable shock",
             "Prior experience with controllable events preventing later helplessness",
-            "Removing the amygdala",
-            "Feeding animals before testing"
+            "Repeated exposure to inescapable shock that makes animals tolerant to it",
+            "Removing the amygdala so that animals no longer feel fear during shock"
           ],
           "answer": 1,
           "explain": "Immunization is the finding that earlier experience with controllable outcomes protects an organism from becoming helpless during later uncontrollable events."
@@ -622,10 +622,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "The immunization finding fits the 2016 neuroscience account because prior control:",
           "choices": [
-            "Weakens the prefrontal cortex",
+            "Weakens prefrontal circuits so the dorsal raphe responds more",
             "Strengthens prefrontal circuits that detect and use control",
-            "Destroys the dorsal raphe",
-            "Has no neural basis"
+            "Destroys serotonin neurons in the dorsal raphe nucleus entirely",
+            "Works only through attitudes and has no clear neural basis"
           ],
           "answer": 1,
           "explain": "Prior mastery is thought to strengthen the prefrontal control-detection circuitry, making it easier to inhibit the passivity response later."

@@ -85,10 +85,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "When a model makes a function call, what does it actually produce?",
           choices: [
-            "A direct invocation of the function inside the model runtime",
-            "A network request to the tool endpoint issued by the model",
+            "A direct invocation of the function inside the model runtime, which returns its result to the next token",
+            "A network request to the tool's endpoint that the model issues on its own credentials",
             "A structured request naming a tool and its arguments, which the harness executes",
-            "A compiled snippet that the harness links against the tool library"
+            "A compiled snippet of code that the harness links against the tool library and runs"
           ],
           answer: 2,
           explain: "The model emits a structured call. Execution, authentication, and error handling all live in the surrounding harness, which is where permission checks belong."
@@ -111,9 +111,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "A tool returns the entire raw build log, hundreds of thousands of characters, on every call. What is the most direct problem this creates?",
           choices: [
             "It consumes the context window, pushing out earlier constraints and instructions",
-            "It makes the model unable to parse the tool schema on the next call",
-            "It causes the harness to reject the tool result as malformed",
-            "It prevents the loop from evaluating its termination condition at all"
+            "It makes the model unable to parse the tool schema correctly on the next call it makes",
+            "It causes the harness to reject the tool result as malformed and retry the call indefinitely",
+            "It prevents the loop from evaluating its termination condition at all, so the agent never stops"
           ],
           answer: 0,
           explain: "Tool results are context. Unbounded output is one of the fastest paths to context exhaustion, so tools should truncate, filter, or summarize."
@@ -143,8 +143,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is a single overloaded do_everything tool usually worse than several narrow tools?",
           choices: [
-            "Narrow tools let the model batch more calls into one turn",
-            "Overloaded tools cannot be described with a schema at all",
+            "Narrow tools let the model batch many more calls into a single turn, which cuts the number of round trips the loop needs",
+            "Overloaded tools cannot be described with a schema at all, so the model has to guess at the arguments each time",
             "Narrow tools are executed faster by the harness in every case",
             "An overloaded tool hides its real behavior behind a mode argument, so choices are harder to validate and to permission"
           ],
@@ -253,10 +253,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which symptom most strongly suggests the agent is working from recall instead of the repo?",
           choices: [
-            "It writes long explanations before making any edit",
+            "It writes long explanations of its plan before making any edit to the files",
             "It invents a plausible function name that does not exist anywhere in the codebase",
-            "It reads more files than strictly necessary before editing",
-            "It proposes two alternative approaches instead of one"
+            "It reads more files than are strictly necessary before it starts editing anything",
+            "It proposes two alternative approaches instead of committing to a single one"
           ],
           answer: 1,
           explain: "Plausible-but-absent identifiers are the classic recall signature. Grounded work can only reference symbols it has actually observed."
@@ -286,10 +286,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Reading files costs context. When is it still worth reading before writing?",
           choices: [
-            "Only when the file is small enough to read in full",
-            "Only when the agent has no prior familiarity with the language",
+            "Only when the file is small enough to read in full without truncation in a single call",
+            "Only when the agent has no prior familiarity with the programming language or the framework in use",
             "Almost always for the specific symbols being changed, because a wrong edit costs more context than the read did",
-            "Rarely, since a failed compile will surface the same information at lower cost"
+            "Rarely, since a failed compile or test run will surface exactly the same information at a much lower cost in context"
           ],
           answer: 2,
           explain: "A wrong edit triggers a failed check, a debugging detour, and a rewrite. That whole detour usually costs far more context than the original read."
@@ -305,10 +305,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which fact most deserves a place in a durable project context file rather than a single conversation?",
           choices: [
-            "The stack trace from the test that failed this morning",
-            "The name of the branch currently being worked on",
+            "The full stack trace from the test that failed this morning on the continuous integration run",
+            "The name of the branch currently being worked on and the ticket it belongs to",
             "A stable rule such as which package manager the repo uses and which commands are forbidden",
-            "The list of files read during the current task"
+            "The list of files that were read and edited during the current task"
           ],
           answer: 2,
           explain: "Durable context should hold facts that stay true across sessions. Transient state belongs in the conversation, where it expires harmlessly."
@@ -340,9 +340,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A project context file says the API lives in src/api, but the code was moved to services/api last month. What happens?",
           choices: [
-            "The agent detects the mismatch automatically and updates the file",
-            "The agent ignores the file because the path does not resolve",
-            "Nothing, because context files are only advisory hints",
+            "The agent detects the mismatch automatically and rewrites the context file with the corrected path",
+            "The agent ignores the file completely because the stated path no longer resolves on disk",
+            "Nothing, because context files are only advisory hints that the agent weighs lightly",
             "The agent wastes turns looking in the wrong place and may trust the stale claim over what it observes"
           ],
           answer: 3,
@@ -383,9 +383,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which set of controls most directly limits blast radius?",
           choices: [
             "Scoped permissions, confirmation on destructive commands, and working on a branch",
-            "A longer system prompt, more examples, and a stricter tone",
-            "A larger context window, more tools, and higher retry limits",
-            "More detailed logging, longer timeouts, and a slower loop"
+            "A longer system prompt, more worked examples, and a stricter tone in the instructions",
+            "A larger context window, more tools, and higher retry limits on every failed call",
+            "More detailed logging, longer timeouts, and a slower loop between each step"
           ],
           answer: 0,
           explain: "Those three are structural: they constrain what can happen. Prompt wording only influences what the model intends to do."
@@ -400,10 +400,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is working on a branch a guardrail rather than just a workflow habit?",
           choices: [
-            "It prevents the agent from reading files outside the branch",
-            "It gives the agent a smaller diff and therefore less context to hold",
+            "It prevents the agent from reading any files that exist outside the branch it is working on",
+            "It gives the agent a smaller diff to track and therefore less context to hold",
             "It makes the entire set of agent changes revertible in one step and keeps the mainline deployable",
-            "It forces the agent to run tests before every commit"
+            "It forces the agent to run the full test suite and the linters before every single commit it makes"
           ],
           answer: 2,
           explain: "Recoverability is the point. A branch converts an unbounded mistake into a discardable one, and keeps the deployable line untouched."
@@ -471,10 +471,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the main cost of delegation?",
           choices: [
-            "The subagent cannot use tools, so it can only reason from its prompt",
+            "The subagent cannot use any tools, so it can only reason from what is in its prompt",
             "Findings must be serialized into a summary, so nuance the parent might have needed can be lost",
-            "Delegation permanently removes the delegated area from the parent's reach",
-            "Subagent results cannot be verified by the parent under any circumstances"
+            "Delegation permanently removes the delegated area of the code from the parent's reach for the rest of the session",
+            "Subagent results cannot be verified by the parent agent under any circumstances, so they must be trusted as is"
           ],
           answer: 1,
           explain: "The narrow interface is exactly what saves context and exactly what loses detail. Brief the subagent on what to preserve in its report."
@@ -517,10 +517,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the most common silent failure mode in long agentic sessions?",
           choices: [
-            "Tool schemas drifting out of sync with their implementations",
-            "The model refusing to use tools and answering from memory instead",
+            "Tool schemas drifting out of sync with their implementations as the session goes on, so calls start failing",
+            "The model refusing to use its tools after many turns and answering from memory instead of the repo",
             "Context exhaustion, where earlier constraints fall out and the agent starts contradicting them",
-            "The termination condition firing too early and ending the task prematurely"
+            "The termination condition firing too early and ending the task before the work is done"
           ],
           answer: 2,
           explain: "It is silent because the agent stays fluent and confident. It simply no longer holds the constraint it agreed to twenty turns ago."

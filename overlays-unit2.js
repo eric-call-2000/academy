@@ -116,9 +116,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Ignoring the safe margin risks:",
           choices: [
             "Important text being cut off on some displays",
-            "Better audio",
-            "A higher frame rate",
-            "Smaller file sizes"
+            "The overlay rendering at a lower frame rate than the game",
+            "OBS rejecting the Browser Source",
+            "Colors shifting away from the brand tokens near the edges"
           ],
           answer: 0,
           explain: "Content at the very edge can be clipped depending on the viewer's setup."
@@ -135,9 +135,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "On YouTube Live, which areas should stay free of persistent overlay elements?",
           choices: [
             "The bottom strip and bottom-right",
-            "The exact center only",
-            "The top-left only",
-            "Nowhere; cover everything"
+            "The top-left corner and the left edge",
+            "The top strip and the exact center",
+            "The left edge and the top-right corner"
           ],
           answer: 0,
           explain: "YouTube's scrubber (bottom) and viewer count/controls (bottom-right) need clearance."
@@ -266,9 +266,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The game capture belongs where in the stack?",
           choices: [
             "At the back (bottom of the list)",
-            "At the very front",
-            "Above the HUD",
-            "Above the alerts"
+            "At the front (top of the list)",
+            "Just above the facecam frame",
+            "Between the alerts and goal bar"
           ],
           answer: 0,
           explain: "The game is the content; overlays go in front of it."
@@ -354,9 +354,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "If your webcam pokes outside the frame, you should:",
           choices: [
             "Match the webcam source's size/position to the frame's expected box",
-            "Delete the overlay",
-            "Lower your bitrate",
-            "Add another scene"
+            "Scale the overlay source down until the frame surrounds the webcam",
+            "Crop the webcam to the canvas resolution",
+            "Move the overlay below the webcam so the frame hides the edges"
           ],
           answer: 0,
           explain: "Align the webcam source to the exact box the overlay draws."
@@ -383,9 +383,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The goal bar's default position (pos=tl) is:",
           choices: [
             "Top-left, mirroring the HUD",
-            "Dead center",
-            "Bottom-right",
-            "Off-screen"
+            "Top-right, opposite the HUD",
+            "Bottom-left, under the facecam",
+            "Top-center, above the gameplay"
           ],
           answer: 0,
           explain: "goalbar.html defaults to top-left (tl), mirroring the HUD bug."
@@ -442,9 +442,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A good layout keeps persistent elements:",
           choices: [
             "Inside the safe margin and out of keep-clear zones",
-            "Right on the edges",
-            "Over the YouTube controls",
-            "Randomly placed"
+            "Flush against the frame edges to leave the center clear",
+            "In the bottom-right, where viewers' eyes naturally land",
+            "Centered so viewers always notice them"
           ],
           answer: 0,
           explain: "Persistent branding belongs in safe, clear areas."

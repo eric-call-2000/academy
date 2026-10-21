@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "According to life history theory, why must organisms make trade-offs?",
           choices: [
             "Because energy and resources are finite and cannot be spent on two functions at once",
-            "Because all species share an identical reproductive schedule",
-            "Because mutation rates are fixed for every organism",
-            "Because predators eliminate all variation in behavior"
+            "Because all species share an identical reproductive schedule set by their genes",
+            "Because mutation rates are fixed, so traits cannot improve all at once",
+            "Because predators remove any individual that tries to invest in more than one bodily function"
           ],
           answer: 0,
           explain: "Life history theory begins from the fact that time and energy are limited, so investing in one demand leaves less for another."
@@ -55,10 +55,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which of these best illustrates a life-history trade-off?",
           choices: [
-            "Choosing a heavier coat in winter",
+            "Growing a heavier coat each winter and shedding it again as spring arrives",
             "Maturing earlier and reproducing sooner at the cost of a smaller adult body",
-            "Preferring sweet foods over bitter ones",
-            "Learning to read a second language"
+            "Preferring sweet foods over bitter ones when both are available",
+            "Learning a second language while still a young child"
           ],
           answer: 1,
           explain: "Maturing early trades continued growth for earlier reproduction, a classic energy-allocation trade-off."
@@ -116,10 +116,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "How does modern life history theory largely treat the classic r/K dichotomy?",
           choices: [
-            "As the current gold standard, still used unchanged",
-            "As a discredited idea with no lasting influence",
+            "As the current gold standard, still used unchanged in most field studies",
+            "As a discredited idea that had no lasting influence on later theory",
             "As a historical precursor reframed into the continuous fast-slow continuum",
-            "As a theory strictly about genetic drift"
+            "As a theory mainly about genetic drift in small, isolated populations"
           ],
           answer: 2,
           explain: "By the 1990s r/K was largely replaced by age-structured demographic models and the continuous fast-slow continuum, which keeps its spirit."
@@ -149,8 +149,8 @@ window.ACADEMY.addUnit("evopsych", {
           choices: [
             "Producing gametes and attracting mates",
             "Building, maintaining, and repairing the body",
-            "Migrating between habitats",
-            "Defending territory only"
+            "Caring for, feeding, and protecting offspring after birth",
+            "Competing with rivals for access to mates"
           ],
           answer: 1,
           explain: "Somatic effort is investment in the soma, meaning growth, maintenance, and survival of the body."
@@ -182,10 +182,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why can investing heavily in current reproduction reduce future reproduction?",
           choices: [
-            "Because it violates Mendel's laws",
-            "Because it raises the environment's carrying capacity",
+            "Because it raises the environment's carrying capacity for competitors",
+            "Because it always triggers early menopause in the next breeding season",
             "Because energy diverted from somatic maintenance can lower survival and later output",
-            "It never does; the two are completely independent"
+            "It never does, because current and future reproduction draw on completely separate energy budgets"
           ],
           answer: 2,
           explain: "Reproducing now draws energy away from maintaining the body, which can shorten survival and reduce future breeding."
@@ -214,9 +214,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "The quantity-quality trade-off describes the tension between...",
           choices: [
             "The number of offspring and the investment given to each offspring",
-            "Body size and brain size",
-            "Mating effort and territory size",
-            "Lifespan and metabolic rate"
+            "The size of the body and the size of the brain it supports",
+            "The effort spent on mating and the size of the territory held",
+            "The length of the lifespan and the speed of the metabolic rate that fuels it"
           ],
           answer: 0,
           explain: "With a fixed budget, having more offspring means less can be invested in each one."
@@ -238,10 +238,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Smith and Fretwell's 1974 model addressed the trade-off between...",
           choices: [
-            "Predator and prey population sizes",
+            "The sizes of predator and prey populations over many years",
             "Optimal size and number of offspring given a fixed budget",
-            "Somatic and germ cells",
-            "Menopause timing and total lifespan"
+            "Investment in somatic cells versus germ cells across life",
+            "The timing of menopause and the length of the total lifespan"
           ],
           answer: 1,
           explain: "Smith and Fretwell modeled how a fixed parental investment is best divided between offspring size and offspring number."
@@ -279,10 +279,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The Belsky, Draper, and Harpending (1991) model proposes that early childhood experience...",
           choices: [
-            "Has no measurable effect on later reproduction",
+            "Has no measurable effect on later reproduction once a child has reached puberty",
             "Calibrates later reproductive strategy, including the timing of maturation",
-            "Determines adult height and nothing else",
-            "Fully reverses its effects at puberty"
+            "Determines adult height and body size, but not reproductive timing",
+            "Shapes adult personality only, leaving reproductive strategy untouched"
           ],
           answer: 1,
           explain: "Their theory holds that early rearing experience shapes a person's later reproductive strategy and developmental timing."
@@ -314,10 +314,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What information does early experience provide, according to the model?",
           choices: [
-            "The child's future income",
-            "The exact age of first reproduction, fixed at birth",
+            "Cues about which adult skills will bring the most prestige",
+            "The exact age of first reproduction, fixed at birth by genes",
             "Cues about local mortality and environmental predictability",
-            "Nothing that is adaptively useful"
+            "Cues about which foods are safe to eat in the local area"
           ],
           answer: 2,
           explain: "Early experience is thought to signal how harsh or predictable the world is, calibrating strategy accordingly."
@@ -345,10 +345,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Bruce Ellis's research is best known for linking father absence to...",
           choices: [
-            "Delayed puberty in daughters",
+            "Delayed pubertal timing in daughters",
             "Earlier pubertal timing in daughters",
-            "Increased adult height",
-            "A reduced number of siblings"
+            "Earlier pubertal timing in sons only",
+            "Greater adult height in daughters"
           ],
           answer: 1,
           explain: "Ellis found that father absence is associated with earlier pubertal maturation in girls."
@@ -411,10 +411,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The grandmother hypothesis, associated with Kristen Hawkes, proposes that menopause is adaptive because...",
           choices: [
-            "Older women can no longer forage effectively",
+            "Older women can no longer forage well, so ending reproduction saves energy",
             "Post-reproductive women boost fitness by helping provision grandchildren",
-            "It reduces the total human population",
-            "It prevents any further investment in kin"
+            "It reduces population growth, which benefits the group as a whole",
+            "It frees women from caring for kin, so they can invest in themselves"
           ],
           answer: 1,
           explain: "Hawkes argues that post-reproductive grandmothers raise their inclusive fitness by helping feed and care for grandchildren."
@@ -436,10 +436,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The grandmother hypothesis is often used to help explain the evolution of...",
           choices: [
-            "Human color vision",
-            "Bipedal walking",
+            "Habitual upright walking on two legs",
+            "Human trichromatic color vision",
             "The long human post-reproductive lifespan",
-            "Larger clutch sizes"
+            "Human sweat glands and hairless skin"
           ],
           answer: 2,
           explain: "Grandmaternal help is proposed as a driver of humans' unusually long post-reproductive lifespan."
@@ -502,10 +502,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why does natural selection not favor perfect somatic repair, according to Kirkwood?",
           choices: [
-            "Because bodily repair is genetically impossible",
+            "Because perfect bodily repair is impossible under the laws of genetics",
             "Because extrinsic mortality means the body is unlikely to survive indefinitely anyway",
-            "Because reproduction requires no energy",
-            "Because all species are effectively immortal"
+            "Because reproduction needs so little energy that repair is never limited",
+            "Because repair mechanisms evolved only in a few very long-lived species such as giant tortoises"
           ],
           answer: 1,
           explain: "With predation and accidents likely to kill the body eventually, investing in indefinite repair yields little payoff."

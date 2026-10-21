@@ -110,9 +110,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is a single global auto-increment counter a risky basis for short codes at scale?",
           choices: [
-            "Base62 cannot represent integers above roughly one billion",
-            "Sequential codes cannot be stored in a key-value store",
-            "It makes the redirect lookup require a full table scan",
+            "Base62 cannot represent integers above roughly one billion, so the codes run out quickly",
+            "Sequential codes cannot be stored in a key-value store without a secondary index on the counter",
+            "It makes every redirect lookup require a full table scan once the table grows past a few million rows",
             "It becomes a coordination point and a single point of failure for every write"
           ],
           answer: 3,
@@ -123,9 +123,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "For the redirect itself, what is the practical tradeoff between HTTP 301 and 302?",
           choices: [
             "301 is cacheable by clients so it cuts server load but hides analytics; 302 keeps every hit visible",
-            "302 is cacheable by clients while 301 forces revalidation on every request",
-            "Only 301 preserves the query string when redirecting",
-            "302 is required whenever the target URL uses HTTPS"
+            "302 is cacheable by clients, so it cuts server load, while 301 forces the browser to revalidate on every request",
+            "Only a 301 preserves the original query string when redirecting, so 302 breaks tracking parameters",
+            "302 is required whenever the target URL uses HTTPS and the short link itself uses plain HTTP"
           ],
           answer: 0,
           explain: "301 permanent redirects get cached by browsers, so subsequent clicks may never reach your servers. That saves capacity but destroys per-click analytics, which is usually a product requirement."
@@ -167,10 +167,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A fixed window limiter allows 100 requests per minute. What is the boundary spike problem?",
           choices: [
-            "The counter can drift because different servers see slightly different clocks",
+            "The counter can drift because different servers see slightly different clocks, so some clients get more than 100 requests per minute",
             "A client can send 100 requests just before the boundary and 100 just after, delivering 200 in a two-second span",
-            "The window resets before slow requests finish, so long requests are counted twice",
-            "Requests arriving exactly at the boundary are silently dropped rather than counted"
+            "The window resets before slow requests finish, so a long request is counted twice against the limit",
+            "Requests arriving exactly at the window boundary are silently dropped rather than counted against either window"
           ],
           answer: 1,
           explain: "The limit is enforced per window, not per rolling interval, so twice the limit can land in a very short interval straddling the reset. Sliding window approaches exist specifically to fix this."
@@ -187,8 +187,8 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "The sliding window counter algorithm is popular because it:",
           choices: [
             "Approximates a rolling window using two fixed-window counts and a weighted blend, with tiny memory use",
-            "Guarantees exactly the same decisions as a sliding window log while using one integer",
-            "Removes the need for any shared state between rate limiter nodes",
+            "Guarantees exactly the same decisions as a sliding window log while storing only a single integer per client",
+            "Removes the need for any shared state between rate limiter nodes, since each node can compute the blend locally",
             "Permits larger bursts than token bucket while using less memory"
           ],
           answer: 0,
@@ -204,10 +204,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In a fleet of rate limiter nodes sharing a Redis counter, why is a naive read-then-write increment unsafe?",
           choices: [
-            "Redis cannot store integer counters with expiry",
+            "Redis cannot store integer counters that also carry an expiry, so the window never resets",
             "Two nodes can read the same value and both write back a count that undercounts the requests",
-            "Redis replication is synchronous, so writes block until all replicas ack",
-            "The counter key would need to be sharded before it can be incremented"
+            "Redis replication is synchronous, so every write blocks until all replicas have acknowledged it",
+            "The counter key would need to be sharded across nodes before it can be incremented safely"
           ],
           answer: 1,
           explain: "Read-modify-write races lose updates and let clients exceed the limit. Use an atomic INCR, or a Lua script when the check and increment must happen together."
@@ -255,8 +255,8 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Why does using UUIDv4 as a clustered primary key tend to hurt write performance in a B-tree index?",
           choices: [
             "UUIDv4 values are random, so inserts scatter across the whole index and cause page splits and poor cache locality",
-            "UUIDv4 values are too long to be indexed by most databases",
-            "UUIDv4 requires a network round trip to a coordination service on every insert",
+            "UUIDv4 values are too long to be indexed by most databases, so the engine falls back to scanning the heap for every lookup by key",
+            "UUIDv4 requires a network round trip to a central coordination service on every insert to guarantee uniqueness",
             "UUIDv4 values cannot be compared for equality efficiently"
           ],
           answer: 0,
@@ -337,10 +337,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A third-party push provider starts returning errors for 10 percent of calls. What is the most appropriate queue-side response?",
           choices: [
-            "Retry immediately in a tight loop until the provider recovers",
-            "Drop the failed messages so the queue does not build up backlog",
+            "Retry immediately in a tight loop until the provider recovers, so no notification is delayed longer than needed",
+            "Drop the failed messages so the queue does not build up a backlog behind them",
             "Retry with exponential backoff and jitter, and route repeatedly failing messages to a dead letter queue",
-            "Fail the whole batch and require the publisher to resubmit the original event"
+            "Fail the whole batch and require the publisher to resubmit the original event once the provider is healthy again"
           ],
           answer: 2,
           explain: "Backoff prevents you from amplifying the provider's overload, jitter prevents synchronized retry waves, and a dead letter queue keeps poison messages from blocking the healthy stream."
@@ -425,8 +425,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A hot key receives far more traffic than any other. Which mitigation attacks the root cause within the store's own design?",
           choices: [
-            "Add more virtual nodes per physical node so the ring spreads the key out",
-            "Move to modulo hashing so the key lands on a different node",
+            "Add more virtual nodes per physical node so the ring spreads that key's traffic across more machines",
+            "Move from consistent hashing to modulo hashing so the key lands on a different, less loaded node",
             "Reduce the read quorum R to one for every key in the cluster",
             "Split the key into sharded sub-keys and aggregate, or add a read-through cache for it"
           ],
@@ -515,10 +515,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The single most useful question to ask about any proposed component is:",
           choices: [
-            "Which programming language is it implemented in",
+            "Which programming language and framework it is implemented in",
             "What happens to the rest of the system when this component is slow or unavailable",
-            "How many instances of it will run in production",
-            "Whether it is deployed in the same region as the database"
+            "How many instances of it will run in production at peak traffic, and how they are autoscaled",
+            "Whether it is deployed in the same region and availability zone as the primary database"
           ],
           answer: 1,
           explain: "Designs fail at their dependencies. Naming the blast radius of each component surfaces missing timeouts, missing fallbacks, and accidental single points of failure."
@@ -540,10 +540,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A reviewer sees a design where every service retries failed calls three times with no backoff. Why is this dangerous?",
           choices: [
-            "Retries make individual request latency unpredictable, which violates the SLA",
+            "Retries make individual request latency unpredictable, which on its own is enough to violate the contractual SLA",
             "Retries at every layer multiply, so a brief downstream blip becomes a self-sustaining traffic amplification",
             "Three retries is too few to survive a transient network partition",
-            "Retrying without backoff bypasses the load balancer's health checks"
+            "Retrying without any backoff bypasses the load balancer's health checks, so traffic keeps going to dead instances"
           ],
           answer: 1,
           explain: "Retries compose multiplicatively across layers, so three layers of three retries is 27x load exactly when the system is already struggling. Backoff, jitter, retry budgets, and circuit breakers exist to break that loop."

@@ -61,9 +61,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Which colleague collaborated closely with Bowlby on the study of adult grief and phases of mourning?",
           choices: [
             "Colin Murray Parkes",
-            "Harry Harlow",
-            "Konrad Lorenz",
-            "Erik Erikson"
+            "James Robertson",
+            "Christoph Heinicke",
+            "Donald Winnicott"
           ],
           answer: 0,
           explain: "Psychiatrist Colin Murray Parkes worked with Bowlby on bereavement research and co-developed the phase model of mourning."
@@ -87,8 +87,8 @@ window.ACADEMY.addUnit("attachment", {
           choices: [
             "Dennis Klass, Phyllis Silverman, and Steven Nickman",
             "Elisabeth Kubler-Ross and David Kessler",
-            "John Bowlby and Mary Ainsworth",
-            "Sigmund Freud and Anna Freud"
+            "Margaret Stroebe, Henk Schut, and Wolfgang Stroebe",
+            "George Bonanno, Camille Wortman, and Darrin Lehman"
           ],
           answer: 0,
           explain: "The volume Continuing Bonds: New Understandings of Grief (1996) was edited by Dennis Klass, Phyllis Silverman, and Steven Nickman."
@@ -121,9 +121,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Which example best illustrates a healthy continuing bond?",
           choices: [
             "A bereaved parent who keeps a sense of relationship with a deceased child through memory and ritual",
-            "A person who refuses to acknowledge that the death occurred",
-            "Someone who avoids all reminders and never speaks of the person again",
-            "A mourner who feels nothing at all after the loss"
+            "A widow who keeps the house exactly as it was and believes her husband will soon come home",
+            "A mourner who quickly gives away every belonging so that nothing at all reminds them of the person",
+            "A bereaved son who stays busy with work so that he never has time to think about his father"
           ],
           answer: 0,
           explain: "Klass's research with bereaved parents showed that maintaining an inner relationship through memories, keepsakes, and ritual can be a normal, comforting bond, not denial."
@@ -191,9 +191,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Which feature most distinguishes prolonged grief disorder from ordinary grief?",
           choices: [
             "Persistent, intense yearning and impairment that continue well beyond expected cultural timeframes",
-            "Any sadness felt in the first two weeks after a death",
-            "Crying at the funeral",
-            "Missing the person on their birthday"
+            "Strong sadness, crying, and trouble sleeping during the first several weeks after the death of a loved one",
+            "Hearing or briefly sensing the presence of the deceased person in the first months after the loss",
+            "Keeping a bond with the deceased through memories, keepsakes, and yearly rituals"
           ],
           answer: 0,
           explain: "Prolonged Grief Disorder is marked by yearning and preoccupation that remain intense and disabling far longer than social and cultural norms would expect, not by normal early sorrow."
@@ -226,9 +226,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What is the central concern of feminist critiques of early attachment theory?",
           choices: [
             "That it placed excessive blame on mothers and constrained women's roles",
-            "That it ignored the mother entirely",
-            "That it overstated the role of genetics",
-            "That it denied children have any emotional needs"
+            "That it focused too much on fathers and largely left out the mother's role",
+            "That it overstated the role of genes and inborn temperament",
+            "That it treated attachment as a bond that only women can form"
           ],
           answer: 0,
           explain: "Feminist critics argued the theory made mothers responsible for nearly every developmental outcome while reinforcing pressure on women to stay home as full-time caregivers."
@@ -261,9 +261,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Diane Eyer's 1992 book Mother-Infant Bonding: A Scientific Fiction argued what?",
           choices: [
             "That claims of a critical bonding window were overstated and used to police women's behavior",
-            "That infants do not need caregivers at all",
-            "That fathers cannot form bonds with children",
-            "That attachment is entirely genetic"
+            "That skin-to-skin contact in the first hours after birth was essential for a lasting bond",
+            "That fathers form bonds with newborns faster and more reliably than mothers do in the first days",
+            "That bonding research was sound but had been ignored by hospitals for decades"
           ],
           answer: 0,
           explain: "Diane Eyer contended that the popular 'bonding' claims lacked strong scientific support and served to prescribe and control mothers' conduct."
@@ -293,9 +293,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Bowlby's concept of 'monotropy' refers to what?",
           choices: [
             "The tendency to form one principal attachment, usually to the mother",
-            "The idea that children need no attachments at all",
-            "A single gene controlling attachment",
-            "The theory that fathers are the primary caregivers"
+            "The idea that infants attach equally to all of their regular caregivers",
+            "The view that attachment forms in one critical window after birth",
+            "The claim that each infant has a single, inborn attachment style"
           ],
           answer: 0,
           explain: "Monotropy is Bowlby's proposal that infants are biased toward one principal attachment figure at the top of a hierarchy; critics saw this as overemphasizing a single mother."
@@ -364,9 +364,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Which statement best reflects the current view of how early attachment relates to later outcomes?",
           choices: [
             "Early attachment shifts the odds of later outcomes but does not rigidly determine them",
-            "Early attachment fixes a person's fate permanently",
-            "Early attachment has no relationship to later development",
-            "Later outcomes are set entirely by genes at birth"
+            "Early attachment fixes a person's course for life, so later change in adulthood is very rare",
+            "Early attachment matters for childhood but has no link to adult outcomes",
+            "Later outcomes are set mainly by genes, with attachment playing no part"
           ],
           answer: 0,
           explain: "Attachment is probabilistic: early patterns raise or lower the likelihood of later outcomes, but development stays open to change and 'lawful discontinuity.'"
@@ -389,9 +389,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Psychologist Jerome Kagan is well known for critiquing attachment theory on what grounds?",
           choices: [
             "That it overstated infant determinism and underweighted temperament and later experience",
-            "That infants cannot feel emotion",
-            "That attachment is purely learned with no biology",
-            "That mothers are irrelevant to development"
+            "That it relied on Western samples and ignored cultural variation in caregiving practices",
+            "That its Strange Situation codes were unreliable across different trained observers",
+            "That it focused on fathers and overlooked the central role of mothers"
           ],
           answer: 0,
           explain: "Kagan challenged strong infant-determinism, arguing that temperament and ongoing experience shape outcomes and that early attachment does not lock in a person's future."
@@ -434,9 +434,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What defines 'earned security' in adult attachment?",
           choices: [
             "A coherent, secure state of mind despite a difficult or adverse childhood",
-            "Security that comes only from an easy, supportive childhood",
-            "A permanent inability to trust after early hardship",
-            "Security bought through material wealth"
+            "Security that comes from an easy, supportive childhood with no major losses",
+            "A secure style reported on a self-report questionnaire after therapy",
+            "Insecurity that has been hidden by a confident and outgoing manner"
           ],
           answer: 0,
           explain: "Earned-secure adults report adverse childhoods yet present a coherent, balanced, secure state of mind about attachment, in contrast to continuous-secure adults with benign histories."
@@ -469,9 +469,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Which factor is most associated with helping people achieve earned security?",
           choices: [
             "A corrective supportive relationship, such as therapy or a mentor, and reflective functioning",
-            "Simply forgetting the past entirely",
-            "Avoiding any thought about one's childhood",
-            "Inheriting a secure temperament with no experiences involved"
+            "Putting the past out of mind and focusing only on goals for the future",
+            "Being born with an easy, secure temperament that buffers the effects of early stress",
+            "Reaching adult success, such as a stable career, a good income, and a family"
           ],
           answer: 0,
           explain: "Corrective relationships and the capacity for reflective functioning, making sense of one's history, are linked to moving from an adverse past toward earned security."
@@ -504,9 +504,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Michael Meaney's rat studies opened an epigenetic frontier by showing what?",
           choices: [
             "Maternal licking and grooming altered gene expression governing stress reactivity in pups",
-            "That rats cannot form any attachments",
-            "That genes are unaffected by any parenting behavior",
-            "That only fathers influence pup development"
+            "Rat pups inherit their stress reactivity from the birth mother's genes alone, not from her care",
+            "Pups separated from their mothers for long periods later became less reactive to stress",
+            "High-licking mothers changed the DNA sequence of their pups' stress genes"
           ],
           answer: 0,
           explain: "Meaney and colleagues found that high maternal licking and grooming changed methylation of a glucocorticoid receptor gene, shaping pups' lifelong stress responses."
@@ -529,9 +529,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Heidi Keller's cross-cultural research pressed attachment theory to address what?",
           choices: [
             "Its Western, middle-class assumptions and the diversity of caregiving worldwide",
-            "The claim that attachment does not exist",
-            "The idea that only genetics matter",
-            "The belief that infants need no care"
+            "The role of genes and temperament, which early studies had left out entirely",
+            "The role of fathers, which early research on mothers had ignored for decades",
+            "Its focus on infancy, which left adult relationships and romantic love unstudied"
           ],
           answer: 0,
           explain: "Keller argued that standard attachment measures and norms reflect Western middle-class ideals and must be broadened to fit diverse cultural models of care."

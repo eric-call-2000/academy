@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Optimal foraging theory (OFT) models a forager as if it were trying to do what?",
           choices: [
-            "Eat the widest possible variety of foods",
+            "Eat the widest possible variety of foods in its habitat",
             "Maximize net energy gained per unit of foraging time",
-            "Minimize the total distance walked each day",
-            "Avoid every food that requires any processing"
+            "Minimize the total distance it walks each foraging day",
+            "Maximize the total number of food items it collects"
           ],
           answer: 1,
           explain: "OFT, developed by MacArthur, Pianka, and Emlen in 1966, treats foragers as optimizers of net energy (calories gained minus costs) per unit time, since that currency tracks fitness."
@@ -50,10 +50,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Charnov's (1976) marginal value theorem predicts a forager should leave a patch when:",
           choices: [
-            "The patch is completely empty of food",
-            "It has spent a fixed, preset amount of time there",
+            "The patch has been completely emptied of every item it could eat",
+            "It has spent a fixed, preset amount of time in the patch",
             "Its intake rate in the patch falls to the average rate for the whole habitat",
-            "A predator suddenly appears nearby"
+            "Its intake rate in the patch drops below the rate it was getting when it first arrived there"
           ],
           answer: 2,
           explain: "Charnov showed the optimal departure point is where the declining marginal return in the current patch equals the average return available across the environment, accounting for travel time."
@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Human infants show an innate preference for sweet tastes largely because, ancestrally, sweetness signaled:",
           choices: [
-            "Dangerous concentrations of toxins",
+            "Dangerous plant toxins that needed to be avoided",
             "Ripe fruit and readily usable energy from sugars",
-            "Rotting, spoiled meat",
-            "Very high salt content"
+            "Protein-rich foods such as meat and insects",
+            "Foods rich in salt and other key minerals"
           ],
           answer: 1,
           explain: "Sweetness reliably marked ripe fruit and sugars, a quick energy source, so a built-in liking for sweet was adaptive when calories were scarce."
@@ -123,9 +123,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "A taste preference for salt was adaptive because sodium is:",
           choices: [
             "Physiologically essential yet often scarce for inland foragers",
-            "Abundant everywhere in ancestral inland diets",
-            "A reliable warning sign of toxins",
-            "Only needed by modern humans"
+            "Abundant everywhere in ancestral inland diets, so it was harmless",
+            "A reliable warning sign of plant toxins and spoiled food",
+            "Needed only in large amounts by modern, active humans"
           ],
           answer: 0,
           explain: "Sodium is required for nerve and fluid function but is scarce in many inland plant-based diets, so craving salt helped ancestral humans obtain enough."
@@ -157,10 +157,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Sensitivity to bitter tastes is thought to have evolved primarily to:",
           choices: [
-            "Locate ripe, sugary fruit",
-            "Increase overall appetite",
+            "Locate ripe fruit with the most usable sugar",
+            "Increase appetite for fatty, energy-rich foods",
             "Detect and reject plant toxins such as alkaloids",
-            "Find foods that are high in salt"
+            "Identify foods that are high in salt and minerals"
           ],
           answer: 2,
           explain: "Many plant defense compounds, including alkaloids, taste bitter, so bitter detection works as an early-warning system against ingesting poisons."
@@ -182,9 +182,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Food neophobia in early childhood is considered adaptive because it:",
           choices: [
-            "Encourages toddlers to sample many new plants",
-            "Strengthens parent-child social bonding",
-            "Increases the variety of the diet",
+            "Encourages toddlers to sample as many new plants as possible to broaden their diet",
+            "Strengthens parent-child bonding by keeping toddlers close at meals",
+            "Helps toddlers gain weight by focusing them on high-calorie foods",
             "Protects newly mobile toddlers from eating novel, possibly poisonous items"
           ],
           answer: 3,
@@ -230,9 +230,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "The savanna hypothesis, associated with Gordon Orians, proposes that humans have an evolved preference for landscapes resembling:",
           choices: [
             "The open, tree-scattered African savanna where hominins evolved",
-            "Dense, closed-canopy tropical rainforest",
-            "Barren arctic tundra",
-            "Deep, enclosed caves"
+            "Dense, closed-canopy tropical rainforest with little open ground",
+            "Open, treeless desert plains with wide views in every direction",
+            "Rocky, enclosed mountain valleys offering caves for shelter"
           ],
           answer: 0,
           explain: "Orians and Heerwagen argued that because hominins evolved on African savannas, we retain a preference for open grassland dotted with trees and water."
@@ -265,10 +265,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Jay Appleton's prospect-refuge theory holds that people prefer environments offering:",
           choices: [
-            "Maximum exposure with no cover at all",
+            "Maximum exposure with wide open views but no cover at all",
             "A clear view (prospect) combined with places to hide (refuge)",
-            "Total enclosure with no sightlines",
-            "Featureless open plains and nothing else"
+            "Total enclosure and cover with no sightlines outward",
+            "Abundant food and water, regardless of view or cover"
           ],
           answer: 1,
           explain: "Appleton (1975) argued we favor settings that let us observe (prospect) while remaining concealed and protected (refuge), balancing opportunity and safety."
@@ -301,10 +301,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Silverman and Eals' (1992) foraging theory links each spatial ability to a different ancestral task. Which pairing does it propose?",
           choices: [
-            "Both sexes evolved identical spatial abilities",
+            "Both sexes evolved identical spatial abilities, because both sexes hunted and gathered equally",
             "Men: object-location memory (gathering); Women: navigation (hunting)",
             "Men: navigation and mental rotation (hunting); Women: object-location memory (gathering)",
-            "Neither sex evolved any spatial specialization"
+            "Men: object-location memory (hunting); Women: mental rotation (gathering)"
           ],
           answer: 2,
           explain: "Silverman and Eals argued that hunting favored male navigation and mental rotation, while gathering favored female memory for the locations of food plants."
@@ -410,9 +410,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "The female advantage in object-location memory is thought to reflect the demands of:",
           choices: [
             "Gathering, which rewards relocating stationary plants and foods",
-            "Hunting fast-moving prey",
-            "Long-distance seasonal migration",
-            "Manufacturing stone tools"
+            "Hunting fast-moving prey across wide stretches of unfamiliar terrain",
+            "Long-distance seasonal migration between distant camps",
+            "Making stone tools that needed precise, repeated strikes"
           ],
           answer: 0,
           explain: "Gathering requires returning to fixed plant patches as they ripen, so a sharper memory for object and food locations would have boosted foraging returns."
@@ -445,10 +445,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Gaulin and FitzGerald studied two vole species to test whether ____, rather than sex itself, drives spatial ability differences.",
           choices: [
-            "Diet composition",
+            "Diet composition and the foods each sex prefers",
             "Home-range size, which is linked to the mating system",
-            "Overall body size",
-            "Coat color"
+            "Overall body size, which differs between the two sexes in voles",
+            "Levels of predation faced by each sex in the wild"
           ],
           answer: 1,
           explain: "Their elegant comparison held sex constant and varied mating system, isolating home-range size as the likely cause of spatial differences."
@@ -470,10 +470,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Jacobs, Gaulin, and colleagues (1990) found that in polygynous voles, the sex with the larger home range also had a larger:",
           choices: [
-            "Heart",
-            "Liver",
+            "Amygdala, a brain region for fear learning",
+            "Cerebellum, a brain region for motor timing",
             "Hippocampus, a brain region for spatial memory",
-            "Litter size"
+            "Olfactory bulb, a region for detecting scents"
           ],
           answer: 2,
           explain: "They reported that wider-ranging males had a larger hippocampus, tying the behavioral demand for navigation to a measurable brain difference."
@@ -517,10 +517,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Sherman and Billing's (1999) antimicrobial hypothesis proposes that the primary adaptive function of using spices is to:",
           choices: [
-            "Add extra calories to meals",
+            "Add extra calories and nutrients to meals",
             "Kill or inhibit food-spoiling bacteria and fungi",
-            "Signal the cook's wealth and status",
-            "Mask the flavor of fresh, wholesome food"
+            "Signal the cook's wealth and social status",
+            "Mask the taste and smell of food that has already started to spoil"
           ],
           answer: 1,
           explain: "Their 'Darwinian gastronomy' analysis showed many common spices have antimicrobial effects, suggesting spice use evolved to make food safer from pathogens."

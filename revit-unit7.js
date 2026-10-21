@@ -52,7 +52,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "When you place a door in a wall, what happens to the wall automatically?",
-          choices: ["The wall is cut to create the opening", "The wall is deleted", "The wall becomes a floor", "Nothing changes in the wall"],
+          choices: ["The wall is cut to create the opening", "The wall splits into two separate walls", "The wall needs a void added by hand first", "The wall is thickened to frame the door"],
           answer: 0,
           explain: "A hosted door or window cuts its own opening in the host wall, so you do not model the hole separately."
         },
@@ -72,7 +72,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "While placing a door, how do you change which side the door swings toward?",
-          choices: ["Flip the door with the flip controls", "Redraw the wall", "Change the level", "Delete and reload the family"],
+          choices: ["Flip the door with the flip controls", "Change the door's sill height in Properties", "Change the wall's Location Line setting", "Swap the door's type in the Type Selector"],
           answer: 0,
           explain: "Doors have flip controls that let you reverse the swing direction and the hand of the door after placement."
         },
@@ -92,7 +92,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "To use a door size that is not currently in the project, you should first:",
-          choices: ["Load the family or duplicate a type", "Draw it by hand", "Change the project template", "Delete a wall"],
+          choices: ["Load the family or duplicate a type", "Edit the width on the placed door instance", "Resize the door with the Scale tool", "Change the wall thickness to fit the size"],
           answer: 0,
           explain: "New sizes come from loading a family with that type or duplicating an existing type and editing its dimensions."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is the main purpose of a tag on a door or window?",
-          choices: ["To display its identifying data on drawings", "To change its size", "To host another element", "To create a new level"],
+          choices: ["To display its identifying data on drawings", "To set the size and type of the element", "To link the element to a room for scheduling", "To lock the element's position in the wall"],
           answer: 0,
           explain: "A tag is an annotation that reads live data from the element, so drawings stay coordinated with the model."
         }
@@ -151,7 +151,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What mostly determines how many risers a stair needs?",
-          choices: ["The height between the base and top levels", "The color of the stair", "The number of windows nearby", "The view scale"],
+          choices: ["The height between the base and top levels", "The run length available in the floor plan", "The stair width chosen for the stair type", "The number of landings in the stair run"],
           answer: 0,
           explain: "The total floor-to-floor height divided by a target riser height sets the number of risers the stair must have."
         },
@@ -210,7 +210,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "A railing type usually controls the top rail and which repeating vertical element?",
-          choices: ["Balusters", "Treads", "Risers", "Grids"],
+          choices: ["Balusters", "Stringers", "Nosings", "Treads"],
           answer: 0,
           explain: "The railing type defines the top rail plus balusters, the repeating vertical members, and their spacing pattern."
         },
@@ -242,7 +242,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is a ramp used for in a model?",
-          choices: ["A sloped path between levels or grades", "A flat parking surface only", "A vertical column", "A window opening"],
+          choices: ["A sloped path between levels or grades", "A flat landing between two stair runs", "A raised curb along a parking edge", "A stepped path built from short risers"],
           answer: 0,
           explain: "A ramp is a sloped surface that connects different heights, often used for accessibility instead of stairs."
         },
@@ -262,7 +262,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Like a stair, a ramp is usually defined between which two things?",
-          choices: ["A base level and a top level", "Two windows", "Two grids", "Two tags"],
+          choices: ["A base level and a top level", "A start grid and an end grid", "Two reference planes in plan", "A floor edge and a wall face"],
           answer: 0,
           explain: "A ramp spans from a base level to a top level, and its length depends on the height and the allowed slope."
         },
@@ -287,7 +287,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why might a long ramp need one or more landings?",
-          choices: ["To provide flat resting points", "To add windows", "To host a door", "To increase the slope"],
+          choices: ["To provide flat resting points", "To make the overall slope steeper", "To reduce the total height climbed", "To give the railing a place to end"],
           answer: 0,
           explain: "Landings break up a long ramp with flat areas, which are important for rest and accessibility."
         }
@@ -301,7 +301,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Furniture, plumbing fixtures, and equipment are usually placed as:",
-          choices: ["Loadable component families", "System families", "Levels", "Grids"],
+          choices: ["Loadable component families", "System families like walls", "In-place families per room", "Detail components in plan"],
           answer: 0,
           explain: "Most furniture, fixtures, and equipment come from loadable .rfa families that you place as components in the model."
         },
@@ -321,7 +321,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Some components, like a wall-mounted sink, are:",
-          choices: ["Wall-hosted and need a host wall", "Always free-standing only", "System families", "Unable to schedule"],
+          choices: ["Wall-hosted and need a host wall", "Face-hosted and sit on any floor", "System families placed on levels", "Free-standing and need no host"],
           answer: 0,
           explain: "Certain fixtures are wall-hosted and require a host wall, while others are free-standing and sit on a level or floor."
         },
@@ -346,7 +346,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Placing components correctly matters because schedules:",
-          choices: ["Read live data from the placed components", "Ignore all components", "Delete components", "Change their category"],
+          choices: ["Read live data from the placed components", "Store a separate copy of component data", "Count only components visible in the view", "Update only when the project is saved"],
           answer: 0,
           explain: "Schedules read the live model, so correctly placed and categorized components produce accurate counts and data."
         }
@@ -360,7 +360,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "A shaft opening is useful for cutting a hole through:",
-          choices: ["Multiple floors and roofs at once", "A single window", "A door tag", "A grid line"],
+          choices: ["Multiple floors and roofs at once", "One wall along its full height", "A single floor at one level only", "A beam where a duct passes through"],
           answer: 0,
           explain: "A shaft opening cuts vertically through the floors and roofs it passes, which is handy for elevators or stairwells."
         },
@@ -380,7 +380,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "To cut a hole for a skylight through a sloped roof, you would use a:",
-          choices: ["Vertical or by-face roof opening", "Wall opening", "Door", "Grid"],
+          choices: ["Vertical or by-face roof opening", "Wall opening in the gable wall", "Floor opening by sketch", "Void in a window family"],
           answer: 0,
           explain: "Roof openings can be cut vertically or by face to make holes for elements like skylights or dormers."
         },
@@ -412,7 +412,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "The Align tool is used to:",
-          choices: ["Line up one element with a reference", "Delete an element", "Create a new level", "Change a category"],
+          choices: ["Line up one element with a reference", "Space elements evenly along a line", "Snap elements to the nearest grid", "Rotate an element to match a wall"],
           answer: 0,
           explain: "Align lets you match one element to a reference edge or line, and you can then lock that relationship."
         },
@@ -432,7 +432,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "A locked dimension between two walls does what if you move one wall?",
-          choices: ["Keeps the set distance by moving the other", "Deletes both walls", "Changes the level", "Removes the dimension"],
+          choices: ["Keeps the set distance by moving the other", "Lets the distance change and updates the value", "Removes the lock so the wall can move freely", "Leaves both walls where they were"],
           answer: 0,
           explain: "A locked dimensional constraint holds the distance, so adjusting one element drives the other to keep the value."
         },
@@ -457,7 +457,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why use locked constraints instead of just moving elements by eye?",
-          choices: ["The model keeps relationships as it changes", "It hides elements", "It deletes dimensions", "It changes the view scale"],
+          choices: ["The model keeps relationships as it changes", "Constrained elements print with heavier lines", "Locked elements load faster in large models", "Constraints stop others from editing elements"],
           answer: 0,
           explain: "Constraints capture design intent so the model stays coordinated automatically when you edit related elements."
         }

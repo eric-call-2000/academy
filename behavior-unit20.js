@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What is the core commitment of methodological behaviorism?",
           choices: [
-            "That private events are the true causes of all behavior",
+            "That private events are the true causes of all observable behavior",
             "That a science of behavior should study only publicly observable events",
-            "That thoughts and feelings do not exist at all",
-            "That behavior cannot be studied scientifically"
+            "That thoughts and feelings do not exist and should be denied entirely",
+            "That behavior cannot be studied scientifically without introspection"
           ],
           answer: 1,
           explain: "Methodological behaviorism brackets private events and restricts scientific data to what is publicly observable; it need not deny that private events exist."
@@ -32,10 +32,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Why did Skinner call his position 'radical' behaviorism?",
           choices: [
-            "Because it rejected all forms of conditioning",
-            "Because it was politically extreme",
+            "Because it rejected every form of conditioning except operant procedures with animals",
+            "Because its proposals for redesigning society were seen as politically extreme",
             "Because it extended a behavioral analysis to include private events, not just public ones",
-            "Because it abandoned the study of observable behavior"
+            "Because it abandoned observable behavior in favor of analyzing private experience alone"
           ],
           answer: 2,
           explain: "'Radical' means thoroughgoing: Skinner brought private events inside the behavioral account rather than excluding them from science."
@@ -67,10 +67,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "For the radical behaviorist, private events are best understood as:",
           choices: [
-            "Immaterial mental substances outside natural law",
+            "Immaterial mental substances that operate outside of natural law and physical causes",
             "Behavior that occurs within the skin, subject to the same principles as public behavior",
-            "The ultimate initiating causes of action",
-            "Irrelevant fictions that should be ignored"
+            "The ultimate initiating causes of action that set all public behavior in motion",
+            "Irrelevant fictions that a science of behavior should ignore completely"
           ],
           answer: 1,
           explain: "Skinner treated private events as physical behavior within the skin, governed by the same principles as public behavior, though not as free-standing causes."
@@ -93,9 +93,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "In the example 'we do not run away because we are afraid,' Skinner's point is that:",
           choices: [
             "Fear and running are both produced by the situation, rather than fear causing running",
-            "Fear always precedes and causes running",
-            "Running has no relation to fear at all",
-            "Fear is an autonomous inner agent that directs the body"
+            "Fear always comes first and is the true cause that makes the person start running",
+            "Running and fear are unrelated, so the feeling plays no part in the account",
+            "Fear is an autonomous inner agent that takes over and directs the body to flee"
           ],
           answer: 0,
           explain: "Skinner held that the dangerous situation produces both the felt fear and the running; the feeling is a by-product, not the initiating cause."
@@ -111,10 +111,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "How does radical behaviorism treat thinking?",
           choices: [
-            "As proof of an immaterial soul",
+            "As proof of an immaterial mind that stands apart from the body's actions",
             "As behavior, often covert, subject to the same variables as overt action",
-            "As the one exception to the laws of behavior",
-            "As something science must never mention"
+            "As the one exception to the laws that govern all other behavior",
+            "As a private process that science must never mention or analyze"
           ],
           answer: 1,
           explain: "Skinner analyzed thinking as behavior, frequently covert, controlled by the same kinds of variables that control public behavior."
@@ -156,10 +156,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What does Skinner mean by an 'explanatory fiction'?",
           choices: [
-            "A well-supported scientific law",
+            "A well-supported scientific law that summarizes many observations of behavior",
             "An invented inner cause that appears to explain behavior but actually explains nothing",
-            "A useful mathematical model",
-            "A publicly observable stimulus"
+            "A simplified mathematical model that predicts behavior without describing its mechanism",
+            "A publicly observable stimulus that sets the occasion for a reinforced response"
           ],
           answer: 1,
           explain: "An explanatory fiction relabels the behavior as an inner cause without adding information, giving the illusion of an explanation."
@@ -181,10 +181,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Why did Skinner regard mentalistic explanations as circular?",
           choices: [
-            "They rely on random data",
+            "They rely on random data gathered without any experimental controls in place",
             "They infer an inner cause from the very behavior it is supposed to explain",
-            "They use too much mathematics",
-            "They ignore genetics entirely"
+            "They use so much mathematics that their claims cannot be tested",
+            "They ignore genetic endowment and attribute everything to learning"
           ],
           answer: 1,
           explain: "Saying 'she eats because she is hungry' when hunger is known only from her eating simply loops back on itself and adds nothing."
@@ -225,7 +225,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Skinner's 'selection by consequences' identifies how many levels of selection?",
-          choices: ["One", "Two", "Three", "Five"],
+          choices: ["Two", "Four", "Three", "Seven"],
           answer: 2,
           explain: "Skinner described three levels: natural selection, operant conditioning, and cultural evolution."
         },
@@ -304,9 +304,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "What is rule-governed behavior?",
           choices: [
             "Behavior under the control of verbal statements describing contingencies",
-            "Behavior with no consequences at all",
-            "Purely reflexive behavior",
-            "Behavior shaped only by direct trial and error"
+            "Behavior that persists even though it no longer has any consequences",
+            "Reflexive behavior elicited by stimuli without any history of learning",
+            "Behavior shaped only through direct, repeated contact with consequences"
           ],
           answer: 0,
           explain: "Rule-governed behavior is controlled by verbal descriptions of contingencies, so a person can act appropriately without first contacting the consequences directly."
@@ -362,9 +362,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Logical positivism held that the meaning of a scientific statement lies in its:",
           choices: [
             "Method of public verification",
-            "Emotional appeal",
-            "Inner mental image",
-            "Grammatical form"
+            "Emotional appeal to the reader",
+            "Inner mental image in the speaker",
+            "Grammatical form and structure"
           ],
           answer: 0,
           explain: "Logical positivism embraced verificationism: a statement's meaning is tied to how it can be publicly verified."
@@ -386,10 +386,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "How does Skinner's epistemology differ from logical positivism regarding private events?",
           choices: [
-            "He denied private events, as the positivists did not",
+            "He denied that private events exist at all, going even further than the logical positivists had",
             "He admitted private events as behavior and analyzed how their terms are learned, rather than banishing them",
-            "He required stricter public verification than the positivists",
-            "He treated private events as immaterial"
+            "He required stricter public verification than the positivists, excluding all reports of feelings",
+            "He treated private events as immaterial mental states that lie outside any behavioral analysis"
           ],
           answer: 1,
           explain: "Rather than excluding private events for failing public verification, Skinner brought them in as behavior and studied how their vocabulary is acquired."
@@ -431,10 +431,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Skinner's determinism holds that behavior is:",
           choices: [
-            "Freely chosen by an autonomous self",
-            "Random and lawless",
+            "Freely chosen by an autonomous self that stands apart from the environment",
+            "Random and lawless, so it can be described but never predicted",
             "Lawfully determined by genetic endowment and environmental history",
-            "Caused by an immaterial soul"
+            "Caused mainly by an immaterial soul that directs the body's actions"
           ],
           answer: 2,
           explain: "Skinner held that behavior is orderly and lawfully caused by inherited factors and a history of interaction with the environment."
@@ -456,10 +456,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "For Skinner, defending 'freedom' by denying environmental control tends to:",
           choices: [
-            "Advance the science of behavior",
+            "Advance the science of behavior by focusing attention on inner choices",
             "Obscure the real controlling variables and preserve explanatory fictions",
-            "Eliminate reinforcement",
-            "Prove the existence of the soul"
+            "Eliminate the role of reinforcement in shaping people's daily behavior",
+            "Prove the existence of an inner self that acts independently of causes"
           ],
           answer: 1,
           explain: "Attributing action to a free inner agent hides the environmental causes that a science of behavior could otherwise identify and change."
@@ -501,10 +501,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "The main scientific objection to including private events is that they are:",
           choices: [
-            "Too easy to measure",
+            "Too easy to measure, so they add nothing new to a scientific analysis",
             "Accessible to only one observer, raising problems of verification",
-            "Always false",
-            "Identical to public events"
+            "Always false, since people misreport their feelings in every case",
+            "Identical to public events, so studying them separately is redundant"
           ],
           answer: 1,
           explain: "Because a private event can be observed by just one person, critics worry it cannot be independently verified the way public data can."
@@ -519,10 +519,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "How does Skinner address the verbal community's limited access to private events?",
           choices: [
-            "It has perfect access, so labeling is exact",
+            "It has perfect access through each person's reports, so labels for private events are learned exactly",
             "Because it must rely on imperfect public accompaniments, private-event vocabulary is learned imprecisely",
-            "Private events cannot be named at all",
-            "The community ignores them entirely"
+            "Private events cannot be named at all, so the verbal community never teaches words for them",
+            "The community ignores private events entirely and teaches only words for public objects instead"
           ],
           answer: 1,
           explain: "Since the community teaches private terms through public correlates, the resulting vocabulary is inevitably imprecise and variable."

@@ -71,7 +71,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The hallmark of a secure-autonomous AAI is a narrative that is:",
-          choices: ["Coherent and collaborative regardless of the childhood content", "Uniformly positive about the parents", "Free of any painful memories", "Extremely brief"],
+          choices: ["Coherent and collaborative regardless of the childhood content", "Warm and positive about both parents, with few negative memories", "Calm and brief, steering away from painful topics to stay composed", "Rich in emotional detail, with long and vivid accounts of the past"],
           answer: 0,
           explain: "Secure-autonomous adults value attachment yet describe it coherently and collaboratively, whether their history was happy or difficult."
         },
@@ -101,7 +101,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "'Earned security' refers to adults who:",
-          choices: ["Never experienced adversity", "Idealize their parents", "Had difficult childhoods but produce coherent, secure AAIs", "Refuse to discuss the past"],
+          choices: ["Had warm, supportive childhoods and stayed secure into adulthood", "Learned secure habits in therapy but still give incoherent AAIs", "Had difficult childhoods but produce coherent, secure AAIs", "Report happy childhoods that their specific memories do not support"],
           answer: 2,
           explain: "Earned-secure adults report adverse childhoods yet talk about them coherently, achieving a secure-autonomous classification."
         },
@@ -159,7 +159,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Who developed the Adult Attachment Interview?",
-          choices: ["John Bowlby alone", "Sigmund Freud", "Mary Main, Carol George, and Nancy Kaplan", "Harry Harlow"],
+          choices: ["Mary Ainsworth and John Bowlby", "Cindy Hazan and Phillip Shaver", "Mary Main, Carol George, and Nancy Kaplan", "Peter Fonagy, Howard Steele, and Miriam Steele"],
           answer: 2,
           explain: "The AAI was developed by George, Kaplan, and Main in the mid-1980s, with the scoring system elaborated by Main and Goldwyn."
         },
@@ -186,7 +186,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Intergenerational transmission of attachment means:",
-          choices: ["A parent's attachment representation predicts the child's attachment pattern", "Attachment is entirely genetic", "Children always develop the opposite pattern to their parents", "Attachment is fixed by temperament alone"],
+          choices: ["A parent's attachment representation predicts the child's attachment pattern", "Children inherit their attachment pattern directly through the parents' genes", "Children tend to develop the opposite attachment pattern to their parents", "A child's attachment pattern shapes how the parent later recalls childhood"],
           answer: 0,
           explain: "Transmission means the parent's own attachment representation forecasts how the child will be classified."
         },
@@ -249,7 +249,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The transmission gap refers to the fact that:",
-          choices: ["Sensitivity fully explains transmission", "Sensitivity only partially mediates the AAI-to-infant link", "The AAI does not predict infant attachment at all", "Infants cannot be reliably classified"],
+          choices: ["Sensitivity fully explains how the parent's AAI predicts infant attachment", "Sensitivity only partially mediates the AAI-to-infant link", "The AAI predicts infant attachment only in some cultures and not others", "Parents' AAIs and their infants' classifications match in only a few cases"],
           answer: 1,
           explain: "The AAI predicts infant attachment strongly, but sensitivity mediates only weakly, leaving a gap in the causal story."
         },
@@ -262,7 +262,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Who coined the phrase 'transmission gap'?",
-          choices: ["Peter Fonagy", "John Bowlby", "Marinus van IJzendoorn", "Mary Main"],
+          choices: ["Peter Fonagy", "Mary Main", "Marinus van IJzendoorn", "Marian Bakermans-Kranenburg"],
           answer: 2,
           explain: "Marinus van IJzendoorn named the transmission gap in his 1995 meta-analysis."
         },
@@ -299,7 +299,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In which journal did van IJzendoorn publish his 1995 meta-analysis on the AAI?",
-          choices: ["Psychological Bulletin", "Nature", "The Lancet", "Science"],
+          choices: ["Psychological Bulletin", "Child Development", "Developmental Psychology", "Psychological Review"],
           answer: 0,
           explain: "The meta-analysis appeared in Psychological Bulletin (1995), volume 117, on the predictive validity of the AAI."
         },
@@ -355,7 +355,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which study first showed that the AAI given during pregnancy predicts infant attachment at one year?",
-          choices: ["Fonagy, Steele and Steele (1991)", "Ainsworth (1978)", "Bowlby (1969)", "van IJzendoorn (1995)"],
+          choices: ["Fonagy, Steele and Steele (1991)", "Main, Kaplan and Cassidy (1985)", "van IJzendoorn (1995)", "Grossmann, Grossmann and Spangler (1985)"],
           answer: 0,
           explain: "Fonagy, Steele and Steele (1991) found that expectant mothers' AAIs predicted their infants' Strange Situation classifications at 12 months."
         },
@@ -375,7 +375,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Prenatal AAI prediction is theoretically important because it:",
-          choices: ["Shows infants cause parents' states of mind", "Establishes the direction of causation as parent-to-infant", "Proves attachment is purely genetic", "Disproves the AAI"],
+          choices: ["Shows that infant temperament shapes the parent's state of mind", "Establishes the direction of causation as parent-to-infant", "Proves that attachment is passed on mainly through shared genes", "Shows that sensitivity fully explains the link to infant attachment"],
           answer: 1,
           explain: "Predicting attachment from a pre-birth interview establishes that the parent's representation shapes the infant, not the reverse."
         },
@@ -412,7 +412,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which mechanisms are proposed to help close the transmission gap beyond sensitivity?",
-          choices: ["Mentalization and affective communication", "Genetics and diet", "Birth order and gender", "IQ and family income"],
+          choices: ["Mentalization and affective communication", "Infant temperament and birth order", "Shared genes and family income level", "Feeding routines and sleep patterns"],
           answer: 0,
           explain: "Mentalization (reflective functioning), mind-mindedness, and the quality of emotional communication are leading candidates to fill the gap."
         },

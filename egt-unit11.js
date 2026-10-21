@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What makes the Iterated Prisoner's Dilemma different from the one-shot version?",
           choices: [
             "The same players interact repeatedly over many rounds",
-            "The payoff matrix changes every round",
-            "Players can never defect",
-            "There are always more than two players"
+            "The payoff matrix changes from one round to the next",
+            "Players are no longer allowed to defect on each other",
+            "There are always more than two players in each round"
           ],
           answer: 0,
           explain: "Iteration means the same partners meet again and again, so each stage is a repeated encounter rather than a single isolated game."
@@ -81,9 +81,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What does the phrase 'the shadow of the future' refer to?",
           choices: [
             "The way expected future rounds influence current choices",
-            "A hidden third player watching the game",
-            "The fear of forgetting past moves",
-            "A shrinking payoff matrix over time"
+            "A hidden third player who watches and judges each move",
+            "The fear that players will forget their own past moves",
+            "The way payoffs shrink as the game nears its last round"
           ],
           answer: 0,
           explain: "The shadow of the future is the influence that anticipated future interactions cast over present decisions."
@@ -151,9 +151,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In repeated games, the discount factor (often written as the Greek letter delta) usually represents:",
           choices: [
             "How much a player values future payoffs, or the chance the game continues",
-            "The number of players in the game",
-            "The total number of rounds already played",
-            "The size of the punishment for defection"
+            "The number of players who take part in each round of the game",
+            "The total number of rounds that have already been played so far",
+            "The size of the punishment a defector receives in the next round"
           ],
           answer: 0,
           explain: "The discount factor measures the weight placed on future payoffs and can be read as the probability the interaction continues to another round."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("egt", {
           q: "If the discount factor is close to 1, what does that imply?",
           choices: [
             "Future rounds are almost as valuable as the present, so the future matters a lot",
-            "The game is certain to end immediately",
-            "Players ignore all future payoffs",
-            "Cooperation becomes impossible"
+            "The game is almost certain to end right after the current round is over, so nothing follows",
+            "Players place almost no weight on any payoff that comes after today",
+            "Cooperation becomes impossible because defection always pays more now"
           ],
           answer: 0,
           explain: "A delta near 1 means players barely discount the future, so future rounds carry nearly full weight, strengthening the shadow of the future."
@@ -217,9 +217,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What is a conditional strategy in a repeated game?",
           choices: [
             "A rule that chooses each move based on the history of past moves",
-            "A rule that always defects no matter what",
-            "A rule chosen at random each round",
-            "A rule that ignores the opponent entirely"
+            "A rule that defects every round, no matter what the other player does",
+            "A rule that chooses its move at random in each round of the game",
+            "A rule fixed before play that ignores the opponent's earlier moves"
           ],
           answer: 0,
           explain: "A conditional strategy makes the current move contingent on the observed history of the opponent's (and one's own) past behavior."
@@ -287,9 +287,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What does the folk theorem broadly state about infinitely repeated games?",
           choices: [
             "Many outcomes, including cooperation, can be sustained as equilibria if players are patient enough",
-            "Only defection can ever be an equilibrium",
-            "Cooperation is impossible in any repeated game",
-            "The payoff matrix must be symmetric to have any equilibrium"
+            "Only mutual defection can be sustained as an equilibrium, however patient the players are",
+            "Cooperation cannot be an equilibrium in any repeated game, since defection always pays more",
+            "Equilibria exist only when the payoff matrix is symmetric and both players move at the same time in every round"
           ],
           answer: 0,
           explain: "The folk theorem says that with a high enough discount factor, a wide range of individually rational outcomes, including mutual cooperation, can be equilibria."
@@ -312,9 +312,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why is it called the 'folk' theorem?",
           choices: [
             "The result was known informally among game theorists before anyone published a formal proof",
-            "It was discovered by a folk musician",
-            "It only applies to folk traditions",
-            "It was proven by a person named Folk"
+            "It was first proven by a mathematician whose last name happened to be Folk, in a paper on trust",
+            "It applies mainly to traditional folk customs and how they spread over time",
+            "It was first written down in a popular folk song about prisoners and trust"
           ],
           answer: 0,
           explain: "The name reflects that the basic result circulated as common knowledge in the field before a formal published attribution."
@@ -357,9 +357,9 @@ window.ACADEMY.addUnit("egt", {
           q: "How does the grim trigger strategy respond to a partner's defection?",
           choices: [
             "It defects forever after, never returning to cooperation",
-            "It forgives immediately and cooperates again",
-            "It defects once, then cooperates",
-            "It rewards the defector with cooperation"
+            "It forgives immediately and goes back to cooperating",
+            "It defects for exactly one round, then cooperates again",
+            "It defects only until the partner cooperates once"
           ],
           answer: 0,
           explain: "Grim trigger imposes permanent punishment: after any defection it switches to defecting forever, with no forgiveness."
@@ -382,9 +382,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why can the threat of grim trigger sustain cooperation in equilibrium?",
           choices: [
             "The permanent loss of future cooperation can outweigh the one-time gain from defecting",
-            "It makes defection physically impossible",
-            "It changes the payoffs of the stage game",
-            "It adds new players to punish defectors"
+            "It makes defection physically impossible for either player in every round of the game",
+            "It changes the payoffs of the stage game so that defecting pays less than cooperating",
+            "It brings in new players whose only job is to punish anyone who defects in the game"
           ],
           answer: 0,
           explain: "If a defector forfeits all future cooperative payoffs, and the future matters enough, the immediate temptation is not worth it."
@@ -427,9 +427,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In a Prisoner's Dilemma repeated a known finite number of times, what does backward induction predict?",
           choices: [
             "Defection in every round, because cooperation unravels from the last round backward",
-            "Cooperation in every round",
-            "Cooperation only in the final round",
-            "Random behavior throughout"
+            "Cooperation in every round, because both players know the game will end",
+            "Cooperation in early rounds and defection only in the very last round",
+            "Random behavior in every round, since no strategy is any better than another in a finite game"
           ],
           answer: 0,
           explain: "With a known last round, defection is optimal there; that logic unravels backward, predicting defection in every round."
@@ -445,9 +445,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why is there no shadow of the future in the very last round of a finite game?",
           choices: [
             "There are no future rounds left to reward or punish behavior",
-            "The payoffs are always zero in the last round",
-            "Players are forced to cooperate",
-            "The discount factor becomes greater than 1"
+            "The payoffs are always zero in the final round of any game",
+            "Players are required to cooperate in the final round",
+            "The discount factor rises above 1 in the final round"
           ],
           answer: 0,
           explain: "In the final round nothing comes after, so there is no future cooperation to protect, making defection the dominant choice."
@@ -497,9 +497,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why does an unknown endpoint help restore the incentive to cooperate?",
           choices: [
             "There is no certain final round, so backward induction cannot unravel cooperation",
-            "The payoffs increase every round",
-            "Players are legally required to cooperate",
-            "Defection stops being possible"
+            "The payoffs grow larger every round, so cooperating becomes more valuable as the game goes on",
+            "Players are bound by an agreement to cooperate until the game ends",
+            "Defection stops being possible once the endpoint becomes uncertain"
           ],
           answer: 0,
           explain: "Without a known last round, the backward-induction argument has no place to start, so the shadow of the future survives."
@@ -522,9 +522,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What key quantity determines whether cooperation can be sustained in the indefinitely repeated game?",
           choices: [
             "The continuation probability / discount factor being high enough",
-            "The number of choices in the stage game",
-            "The alphabetical order of the players",
-            "Whether the matrix is drawn in color"
+            "The number of moves available in each round of the stage game",
+            "Whether the payoff matrix is symmetric for both of the players",
+            "The size of the temptation payoff T compared with the sucker's S"
           ],
           answer: 0,
           explain: "If the probability of continuing (the discount factor) is high enough, the future is valuable enough to deter defection."

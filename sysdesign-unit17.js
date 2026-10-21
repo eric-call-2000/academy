@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In a Dropbox-style sync service, why is file metadata kept in a separate service from the file bytes?",
           choices: [
-            "Because blob stores cannot durably store data without a database in front of them",
+            "Because blob stores cannot durably store any data without a relational database in front of them to track writes and replicate them",
             "Because metadata is small, transactional, and queried constantly, while bytes are large, immutable, and best served directly from object storage",
-            "Because object storage cannot accept writes larger than a single database row",
-            "Because metadata must be encrypted and file bytes legally cannot be"
+            "Because object storage cannot accept writes larger than a single database row, so files must be split by the metadata service first",
+            "Because metadata must be encrypted at rest and file bytes are legally not allowed to be"
           ],
           answer: 1,
           explain: "Metadata needs transactions, indexes, and frequent small reads; bulk bytes need cheap durable capacity and direct client transfer. Splitting them lets each use the right storage engine."
@@ -110,10 +110,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Content-defined chunking uses a rolling hash over a sliding window to place chunk boundaries. What is the point of choosing boundaries from the data itself?",
           choices: [
-            "It guarantees every chunk is exactly the target size",
+            "It guarantees every chunk comes out exactly the target size, which keeps the index compact",
             "It lets the boundaries move with the content, so an insertion only disturbs the chunks around it",
-            "It makes the chunk hashes shorter and cheaper to index",
-            "It removes the need to hash chunk contents at all"
+            "It makes the chunk hashes shorter and cheaper to store in the deduplication index",
+            "It removes the need to hash the chunk contents at all, since the boundary already identifies each chunk"
           ],
           answer: 1,
           explain: "Boundaries anchored to content patterns shift along with the content, so an insert or delete perturbs a local region instead of invalidating the whole rest of the file."
@@ -167,10 +167,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is transcoding run asynchronously off a queue instead of inside the upload request?",
           choices: [
-            "Because HTTP forbids requests that take more than sixty seconds",
+            "Because HTTP forbids any request that takes more than sixty seconds, so long uploads would be cut off by the server before the encoder finishes",
             "Because transcoding is CPU-heavy and unbounded in duration, so it needs its own retryable, independently scalable worker pool",
-            "Because blob storage cannot be read by more than one process at a time",
-            "Because the encoded output must exist before the source can be stored"
+            "Because blob storage cannot be read by more than one process at a time, so the upload handler must release the file first",
+            "Because the encoded output must already exist before the source file can be stored"
           ],
           answer: 1,
           explain: "Transcode time scales with video length and rendition count. A queue decouples it from the request, allows retries, and lets the worker fleet scale on its own."
@@ -192,10 +192,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A transcode worker crashes halfway through a job. What design keeps the pipeline correct?",
           choices: [
-            "The queue drops the job so a corrupt rendition is never produced",
-            "The uploader is asked to re-upload the source file",
+            "The queue drops the job so that a corrupt or half-written rendition is never produced or served to viewers",
+            "The uploader is asked to re-upload the source file so the job can start again from a clean copy",
             "The job is redelivered and the work is idempotent, so re-running it overwrites the same deterministic output",
-            "The partially written rendition is served with a warning banner"
+            "The partially written rendition is served with a warning banner until a later job replaces it"
           ],
           answer: 2,
           explain: "Workers must assume at-least-once delivery. Writing output to a deterministic key and only publishing on completion makes a retry harmless."
@@ -286,10 +286,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why does live streaming typically use shorter segments than video on demand?",
           choices: [
-            "Because live encoders cannot produce large files fast enough",
-            "Because CDNs refuse to cache long segments from live origins",
+            "Because live encoders cannot produce large segment files fast enough to keep up with the camera feed",
+            "Because CDNs refuse to cache long segments that come from live origins",
             "Because segment duration directly bounds how far behind real time a viewer must be",
-            "Because live video compresses better in small pieces"
+            "Because live video compresses noticeably better when it is cut into small pieces"
           ],
           answer: 2,
           explain: "A player generally needs a few segments buffered, so glass-to-glass delay scales with segment length. Shorter segments cut latency at the cost of more requests."
@@ -330,10 +330,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Summing every entry for a hot account on each read gets slow. What is the standard fix that preserves correctness?",
           choices: [
-            "Replace the entries with a single mutable balance column that each write overwrites",
+            "Replace the entries with a single mutable balance column that each new write overwrites in place",
             "Periodically write a snapshot or running-balance row so reads sum only entries since the last checkpoint",
-            "Move older entries to a separate archive database and stop counting them",
-            "Round balances to the nearest whole unit so the sum is cheaper"
+            "Move older entries to a separate archive database and stop counting them in the balance once archived",
+            "Round each balance to the nearest whole unit so that the sum over all entries is cheaper to compute"
           ],
           answer: 1,
           explain: "Checkpoints are a derived cache with a proof: the snapshot plus subsequent entries must equal a full recomputation, so it can always be rebuilt from history."
@@ -413,10 +413,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Your service posted a charge to the processor but never received a response, and the record is stuck in-flight. What is the correct recovery?",
           choices: [
-            "Void the local record and let the customer complain if they were charged",
-            "Retry the charge with a fresh reference id to guarantee it goes through",
+            "Void the local record as failed and let the customer contact support if they turn out to have been charged",
+            "Retry the charge with a fresh reference id so the processor treats it as new and it is guaranteed to go through",
             "Query the processor for the attempt by its reference id and settle the local state to match",
-            "Wait for the next statement and manually adjust the ledger"
+            "Wait for the next settlement statement and adjust the ledger by hand"
           ],
           answer: 2,
           explain: "The processor is the authority for whether money moved. Reconciling by the reference id you sent is why that id has to be generated and stored before the call."
@@ -448,10 +448,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why can a plain B-tree index on separate latitude and longitude columns perform badly for find-everything-within-5km queries?",
           choices: [
-            "Because floating point coordinates cannot be indexed at all",
+            "Because floating point coordinates cannot be indexed at all by a B-tree, so every query becomes a full table scan of the listings",
             "Because the index can only narrow on one dimension efficiently, leaving a long thin strip of candidates to filter",
-            "Because latitude and longitude use different units and cannot be compared",
-            "Because B-trees do not support range scans"
+            "Because latitude and longitude are measured in different units and cannot be compared in one index",
+            "Because B-trees do not support range scans on numeric columns"
           ],
           answer: 1,
           explain: "A composite index prunes on the leading column, then scans. A geospatial index instead maps two dimensions onto a single ordered key so nearby points sort near each other."
@@ -483,10 +483,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A dense downtown cell contains far more listings than a rural cell of the same size. Which structure handles that skew most naturally?",
           choices: [
-            "A fixed-precision geohash grid over the whole world",
+            "A fixed-precision geohash grid laid over the whole world, using the same cell size everywhere",
             "A quadtree, which subdivides only the cells that exceed a capacity threshold",
-            "A single sorted index on longitude with a latitude filter",
-            "Separate tables sharded by country code"
+            "A single sorted index on longitude with latitude applied as a filter afterward",
+            "Separate tables sharded by country code, each with its own grid"
           ],
           answer: 1,
           explain: "Quadtrees adapt depth to density, so dense areas get fine cells and sparse areas stay coarse, keeping the number of candidates per cell bounded."
@@ -519,10 +519,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What best describes a data residency requirement of the kind GDPR-style regimes create?",
           choices: [
-            "A performance optimization that places replicas near users",
+            "A performance optimization that places read replicas in the regions closest to where most users are, to reduce latency",
             "A legal or contractual constraint on where certain data may be stored or processed, which can force per-region storage",
-            "A requirement that all data be encrypted with keys held by the customer",
-            "A rule that data must be replicated to at least three regions"
+            "A requirement that all data be encrypted with keys that are held only by the customer",
+            "A rule that every piece of data must be replicated to at least three separate regions for durability"
           ],
           answer: 1,
           explain: "Residency is a constraint on location, not a latency tactic. It can rule out the simple design of one global database with read replicas everywhere."
@@ -554,10 +554,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which asset is usually safe to replicate globally even under strict residency rules?",
           choices: [
-            "Payment instrument details for regulated customers",
-            "The message contents of regulated users",
+            "Payment instrument details stored for regulated customers in their home region",
+            "The message contents and attachments of regulated users",
             "Anonymous static content such as application bundles and public media",
-            "Full audit logs containing user identifiers"
+            "Full audit logs that contain user identifiers alongside each recorded action"
           ],
           answer: 2,
           explain: "Residency rules attach to personal or regulated data. Content with no personal data attached can sit on any edge, which is what makes CDNs usable in these designs."
@@ -573,9 +573,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "A right-to-erasure request arrives for a user whose data has been copied into analytics stores, backups, and caches. What makes this tractable?",
           choices: [
             "Encrypting per-user data with a per-user key so destroying the key renders remaining copies unreadable",
-            "Running a scan of every system nightly looking for the identifier",
-            "Restoring every backup, deleting the rows, and re-taking the backup",
-            "Relying on backup retention windows to expire the data eventually"
+            "Running a scan of every system nightly, looking for the identifier and deleting each match it finds in place",
+            "Restoring every backup, deleting the user's rows, and re-taking each backup",
+            "Relying on backup retention windows to expire the copies of the data eventually"
           ],
           answer: 0,
           explain: "Crypto-shredding is the common engineering answer for immutable copies like backups, since physically rewriting every historical artifact is often impossible."

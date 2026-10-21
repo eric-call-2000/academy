@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What does an Aligned dimension measure?",
           choices: [
             "The true distance between two parallel references, running parallel to them",
-            "Only perfectly horizontal distances",
-            "Only perfectly vertical distances",
-            "The angle between two lines"
+            "The horizontal or vertical part of the distance between two references",
+            "The distance from a reference to the nearest grid line in the view",
+            "The length along a curved wall measured from one end to the other"
           ],
           answer: 0,
           explain: "Aligned dimensions run parallel to the references you pick, giving the true distance between them."
@@ -27,9 +27,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What does a Linear dimension measure?",
           choices: [
             "The straight horizontal or vertical distance between references",
-            "The radius of an arc",
-            "An angle in degrees",
-            "The slope of a ramp"
+            "The true diagonal distance running parallel to the references",
+            "The radius or diameter of an arc between two references",
+            "The angle between two references measured in degrees"
           ],
           answer: 0,
           explain: "Linear dimensions report only the horizontal or vertical component of the distance, not the diagonal."
@@ -75,9 +75,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Which setting controls tick marks, text size, and units for a dimension?",
           choices: [
             "Its Type properties (the Dimension Style type)",
-            "The View Range",
-            "The project template file name",
-            "The Workset it belongs to"
+            "Its instance properties in the Properties palette",
+            "The view's Visibility/Graphics settings",
+            "The project's Object Styles for dimensions"
           ],
           answer: 0,
           explain: "A dimension's appearance is driven by its Type, so editing the type changes all dimensions of that style."
@@ -94,9 +94,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a leader on a text note?",
           choices: [
             "A line that points from the note to the element it describes",
-            "The person who owns the workset",
-            "A dimension witness line",
-            "A view template applied to the text"
+            "A heading line placed above a group of notes",
+            "The first line of a note, which is shown in bold",
+            "A dashed line that links the note to its keynote source file"
           ],
           answer: 0,
           explain: "A leader is a pointer line connecting a text note to the thing it is describing."
@@ -112,9 +112,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is the main advantage of keynotes over plain typed text?",
           choices: [
             "They pull standardized note values from a keynote file so wording stays consistent",
-            "They are 3D and appear in the model",
-            "They automatically create dimensions",
-            "They cannot be edited once placed"
+            "They update the element's material when you edit the note text in a view",
+            "They are placed once and then copied to every sheet in the set automatically",
+            "They let you type longer notes that wrap neatly inside the detail view area"
           ],
           answer: 0,
           explain: "Keynotes reference a shared keynote text file, keeping note wording consistent across a project."
@@ -158,9 +158,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Where does a keynote get its actual note text from?",
           choices: [
             "A separate keynote text file referenced by the project",
-            "The element's material color",
-            "The view template",
-            "The title block family"
+            "A text parameter typed into each element's properties",
+            "The material description stored in the materials browser",
+            "The shared parameter file loaded into the project"
           ],
           answer: 0,
           explain: "Keynote text lives in an external keynote file, which is why keynotes stay consistent."
@@ -177,9 +177,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What does a tag display?",
           choices: [
             "Parameter data read live from the element it labels",
-            "A fixed piece of text you type manually",
-            "A 3D view of the element",
-            "The element's Workset only"
+            "A fixed text label that you type when placing it",
+            "A copy of the element's data saved when placed",
+            "The element's category name and nothing else"
           ],
           answer: 0,
           explain: "A tag reads parameter values from the tagged element, so it updates when that data changes."
@@ -250,9 +250,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a detail component?",
           choices: [
             "A 2D loadable detail family showing a profile or item in a detail view",
-            "A 3D wall type",
-            "A schedule of quantities",
-            "A shared parameter"
+            "A 3D model family placed only in section and detail views",
+            "A group of detail lines that is saved and reused inside a single view",
+            "A filled region type with a pattern for one material"
           ],
           answer: 0,
           explain: "Detail components are 2D loadable families used to flesh out details without adding 3D geometry."
@@ -268,9 +268,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a repeating detail used for?",
           choices: [
             "Arraying one detail component along a path, like a run of brick or blocking",
-            "Copying a whole view to a sheet",
-            "Tagging every element at once",
-            "Rotating a section marker"
+            "Copying a typical detail view into many sections at the same time",
+            "Tiling a fill pattern inside a region, like a brick or concrete hatch",
+            "Linking one callout to many views so the detail stays in sync"
           ],
           answer: 0,
           explain: "A repeating detail spaces one detail component repeatedly along a line, such as masonry courses."
@@ -315,9 +315,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Detail components are which kind of family?",
           choices: [
             "Loadable detail families placed in views",
-            "System families like walls",
-            "In-place structural families",
-            "Title block families"
+            "System families like walls and floors",
+            "In-place families built in the project",
+            "Generic model families hosted in 3D"
           ],
           answer: 0,
           explain: "Detail components are loadable families used for 2D detailing within views."
@@ -334,9 +334,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a drafting view?",
           choices: [
             "A 2D view with no live model geometry, used to draw standalone details",
-            "A 3D perspective of the building",
-            "A schedule of doors",
-            "A plan cut through the model"
+            "A callout of a section that shows the model at a larger scale",
+            "A plan view with model categories hidden so only the annotation shows",
+            "A sheet view used to lay out details before printing"
           ],
           answer: 0,
           explain: "A drafting view is a blank 2D canvas for details that are not linked to the model."
@@ -352,9 +352,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Why are drafting views useful for reusable typical details?",
           choices: [
             "A standard detail can be saved and reused across projects since it is not tied to model geometry",
-            "They automatically build 3D model geometry",
-            "They tag every element for you",
-            "They replace the need for sheets"
+            "They update automatically from the model, so typical details always match the design",
+            "They are stored in the central file, so every team member can edit the same detail",
+            "They print at any scale without changing, so one detail fits every sheet in a set"
           ],
           answer: 0,
           explain: "Because they are pure 2D, drafting views of typical details can be transferred between projects."
@@ -388,9 +388,9 @@ window.ACADEMY.addUnit("revit", {
           q: "How can you move a finished drafting view detail into another project?",
           choices: [
             "Save the drafting view to a file and insert it into the other project",
-            "It is impossible; details cannot be shared",
-            "Only by rebuilding the whole model",
-            "By changing the View Range"
+            "Link the first project and copy the view from the linked model",
+            "Apply its view template to a drafting view in the other project",
+            "Transfer Project Standards from the first project into the other"
           ],
           answer: 0,
           explain: "Drafting views can be saved out and inserted into other projects, making a reusable detail library."
@@ -407,9 +407,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a legend view used for?",
           choices: [
             "Explaining symbols, line styles, or component types used in the project",
-            "Cutting a section through the model",
-            "Counting elements in a schedule",
-            "Tagging every door at once"
+            "Listing the quantities of every family type that is placed in the model",
+            "Showing a cropped 3D view of key assemblies on the cover sheet",
+            "Recording the date and description of each revision issued"
           ],
           answer: 0,
           explain: "Legends document the meaning of symbols and components so readers can interpret the drawings."
@@ -425,9 +425,9 @@ window.ACADEMY.addUnit("revit", {
           q: "A legend component in a legend is best described as what?",
           choices: [
             "A graphic representation of a family type, shown at a chosen view direction",
-            "A live 3D copy of a model element that adds to counts",
-            "A dimension between two walls",
-            "A workset owner list"
+            "A live 3D copy of a model element that is included in schedule counts",
+            "A detail component drawn by hand to look like the family type in a plan view",
+            "An image of the family type pasted in from a rendered view"
           ],
           answer: 0,
           explain: "Legend components display a family type graphically for reference and do not affect schedules or counts."
@@ -460,9 +460,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Which is a key difference between a legend and a schedule?",
           choices: [
             "A legend is graphic and reusable on many sheets; a schedule is tabular live data",
-            "A legend counts elements; a schedule shows pictures",
-            "A legend is 3D; a schedule is 2D",
-            "There is no difference"
+            "A legend counts elements in the model; a schedule shows pictures of each type",
+            "A legend updates live from the model; a schedule is drawn by hand as 2D",
+            "A legend is a 3D view of components; a schedule is a 2D list of them"
           ],
           answer: 0,
           explain: "Legends explain graphics and can repeat on sheets; schedules are live tables of element data."
@@ -479,9 +479,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What does a filled region do?",
           choices: [
             "Fills a 2D boundary with a hatch or solid fill pattern",
-            "Cuts a section through the model",
-            "Adds a 3D solid to the model",
-            "Tags a wall type"
+            "Creates a room-bounding area that reports its floor area",
+            "Adds a surface pattern to a material in every view",
+            "Colors a room by a chosen data value in a plan"
           ],
           answer: 0,
           explain: "A filled region draws a bounded 2D area with a chosen fill pattern, like insulation or concrete hatch."
@@ -491,9 +491,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What does a masking region do?",
           choices: [
             "Covers or hides geometry behind it within the view",
-            "Adds a hatch pattern only",
-            "Creates a new level",
-            "Reports element data like a tag"
+            "Adds a hatch pattern to show a material in section",
+            "Hides a category in every view of the project",
+            "Crops the view to a sketched boundary shape"
           ],
           answer: 0,
           explain: "A masking region is an opaque 2D shape that hides whatever is behind it in that view."
@@ -561,9 +561,9 @@ window.ACADEMY.addUnit("revit", {
           q: "In a layered detail, what provides the accurate underlying geometry?",
           choices: [
             "The live model, cut by a section or callout",
-            "A masking region",
-            "The title block",
-            "The keynote file"
+            "Detail components drawn over a drafting view",
+            "An imported CAD detail traced on a sheet",
+            "A legend showing each layer of the assembly"
           ],
           answer: 0,
           explain: "The model geometry, cut by a section or callout, gives the correct base for the detail."
@@ -603,9 +603,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Why keep small items as 2D detailing rather than modeling every one in 3D?",
           choices: [
             "It keeps the model efficient while still communicating the construction clearly",
-            "2D detailing shows up in schedules automatically",
-            "2D detailing is required for tags to work",
-            "It converts the detail into a legend"
+            "2D detail items show up in schedules and material takeoffs automatically",
+            "2D detail items are required before any tags can be placed in a view",
+            "Small 3D items cannot be cut by sections, so they would never appear"
           ],
           answer: 0,
           explain: "Detailing small, generic items in 2D avoids bloating the model while still documenting intent."

@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "overlay.html is responsible for drawing:",
           choices: [
             "The facecam frame and the HUD brand bug",
-            "The webcam video itself",
-            "The game footage",
-            "Your microphone audio"
+            "The webcam video along with its border",
+            "The game capture with the brand bug on top",
+            "The alerts, the goal bar, and the lower third"
           ],
           answer: 0,
           explain: "It draws the frame and HUD; the actual webcam and game are their own sources."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The HUD 'bug' is:",
           choices: [
             "A small persistent brand lockup (orb + wordmark)",
-            "A software error",
-            "A type of alert",
-            "The countdown"
+            "A rendering glitch caused by a mis-sized Browser Source",
+            "A short animated alert that appears for new followers",
+            "The pulsing LIVE dot on the facecam handle tab"
           ],
           answer: 0,
           explain: "The HUD bug is a small orb + WIBBLY lockup kept on screen."
@@ -115,9 +115,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "When you switch cam layouts, you must also:",
           choices: [
             "Resize/reposition the webcam source to match the new box",
-            "Reinstall OBS",
-            "Change your bitrate",
-            "Delete the HUD"
+            "Resize the overlay source in OBS so its frame lands around the existing webcam",
+            "Move the HUD bug to the same side as the new cam box",
+            "Add a second copy of overlay.html for the larger cam"
           ],
           answer: 0,
           explain: "The webcam source must match whichever box the overlay expects."
@@ -134,9 +134,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The facecam frame is built from:",
           choices: [
             "A pink offset copy behind a chrome-gradient ring with a glow",
-            "A single flat black border",
-            "A photo of a frame",
-            "No border at all"
+            "A yellow knockout block behind a solid blue ring with a shadow",
+            "A single chrome-gradient image with a transparent center cut out",
+            "A dot-matrix texture inside a thin pink border"
           ],
           answer: 0,
           explain: "A pink offset sits behind a chrome ring, with a blue box-shadow glow."
@@ -175,9 +175,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The hollow-ring effect is achieved with:",
           choices: [
             "A CSS mask that excludes the content box",
-            "An image with a hole",
-            "A video clip",
-            "A game capture"
+            "A transparent PNG frame with the middle cut out",
+            "An inset box-shadow that covers the content box",
+            "A clip-path that rounds the frame's corners"
           ],
           answer: 0,
           explain: "A mask-composite exclude leaves the border but cuts out the middle."
@@ -194,9 +194,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The handle tab on the frame displays:",
           choices: [
             "A pulsing dot, 'LIVE', and your handle",
-            "The full game",
-            "A goal bar",
-            "The countdown"
+            "Your handle, follower count, and uptime",
+            "The stream title and the current game",
+            "A countdown to the next scheduled stream"
           ],
           answer: 0,
           explain: "It's a chip with a live dot, the word LIVE, and your @handle."
@@ -235,9 +235,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A small mascot pip at the frame's top-right corner is:",
           choices: [
             "A mini orb bumper",
-            "A goal bar",
-            "An alert",
-            "The countdown"
+            "The HUD brand bug",
+            "A follower alert icon",
+            "The LIVE status dot"
           ],
           answer: 0,
           explain: "A tiny orb bumper decorates the frame's top-right corner."
@@ -254,9 +254,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The HUD brand bug's job is to:",
           choices: [
             "Keep the brand mark on screen without competing with the game",
-            "Show the countdown",
-            "Play alert sounds",
-            "Capture the webcam"
+            "Show live stats like viewer count and goals during play",
+            "Announce new followers and subs with a short animation",
+            "Mark where the webcam source should sit on the canvas"
           ],
           answer: 0,
           explain: "It's a persistent, subtle brand lockup for gameplay scenes."
@@ -295,9 +295,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The HUD bug is composed of:",
           choices: [
             "A mini orb plus the WIBBLY wordmark",
-            "A goal bar",
-            "A follower alert",
-            "A countdown timer"
+            "The wordmark alone",
+            "A mini orb plus a LIVE dot and your handle",
+            "A pink offset frame around the wordmark"
           ],
           answer: 0,
           explain: "It pairs a small orb with the chrome WIBBLY wordmark."
@@ -314,9 +314,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The WIBBLY wordmark's chrome effect comes from:",
           choices: [
             "Clipping the chrome gradient to the text",
-            "A chrome-colored image",
-            "A video overlay",
-            "A webcam filter"
+            "A metallic text-shadow stacked in layers",
+            "Setting the text color to a silver hex value",
+            "A chrome-colored PNG of each letter"
           ],
           answer: 0,
           explain: "background-clip:text clips the --chrome gradient onto the letters."
@@ -355,9 +355,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Drawing the mark in pure CSS (no images) means it:",
           choices: [
             "Stays crisp at any size and keeps the file self-contained",
-            "Needs a fast internet connection to load images",
-            "Cannot be recolored",
-            "Requires a plugin"
+            "Loads faster because the browser caches the fonts for it",
+            "Animates on its own without any extra JavaScript",
+            "Works in OBS without needing a Browser Source at all"
           ],
           answer: 0,
           explain: "Pure CSS scales cleanly and needs no external image assets."
@@ -384,9 +384,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The orb's size is controlled by a single CSS variable so it can:",
           choices: [
             "Scale to any diameter with one value",
-            "Only ever be one size",
-            "Require a new image per size",
-            "Change your bitrate"
+            "Change color to match each scene's state",
+            "Switch between the corner and big cam layouts",
+            "Stay fixed at one size across every overlay"
           ],
           answer: 0,
           explain: "A --d variable sets the diameter; the layers scale from it."
@@ -415,9 +415,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Building the orb in CSS instead of an image means:",
           choices: [
             "Crisp scaling and one self-contained file",
-            "It cannot glow",
-            "It needs a capture card",
-            "It only works at 4K"
+            "Smaller file size, but blurry edges when scaled up",
+            "It can only be shown on opaque standby screens",
+            "A new layer for each size"
           ],
           answer: 0,
           explain: "CSS keeps it sharp at any size with no external asset."
@@ -445,9 +445,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "overlay.html should be sized in OBS to:",
           choices: [
             "1920x1080 (full canvas)",
-            "480x270",
-            "The webcam's size",
-            "1x1"
+            "960x540 (half canvas)",
+            "The webcam's native size",
+            "1280x720 (scaled down)"
           ],
           answer: 0,
           explain: "The overlay is authored full-canvas, so size the source to match."

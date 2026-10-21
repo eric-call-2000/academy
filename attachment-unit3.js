@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "In Bowlby's theory, what best describes a behavioral system?",
           choices: [
-            "A fixed reflex that produces one unvarying movement",
+            "A fixed reflex that produces one single, unvarying movement",
             "An inherited control system that organizes behavior toward a set-goal",
-            "A conscious strategy the infant reasons out step by step",
-            "A habit built up only through reinforcement"
+            "A conscious plan the infant works out step by step to stay safe",
+            "A set of habits learned through repeated rewards from the caregiver"
           ],
           answer: 1,
           explain: "A behavioral system is a species-typical, inherited control system that flexibly organizes many behaviors to reach a set-goal, not a single reflex or a learned habit."
@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "From which field did Bowlby borrow the idea of evolved, species-typical behavior patterns?",
           choices: [
             "Ethology, the biological study of animal behavior",
-            "Psychoanalytic dream interpretation",
-            "Behaviorist reinforcement theory",
-            "Classical economics"
+            "Behaviorism, the study of learning through rewards",
+            "Psychoanalysis, the study of unconscious drives",
+            "Cognitive psychology, the study of mental processes"
           ],
           answer: 0,
           explain: "Ethologists such as Konrad Lorenz and Niko Tinbergen studied evolved, species-typical behavior; Bowlby applied their concept of instinctive behavior systems to human attachment."
@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What is the set-goal of the attachment behavioral system?",
           choices: [
-            "Winning as much feeding as possible",
-            "Complete independence from caregivers",
+            "Obtaining food and warmth from the caregiver",
+            "Gaining independence from the caregiver early",
             "Maintaining proximity and accessibility to the attachment figure",
-            "Avoiding all contact with strangers"
+            "Keeping a safe distance from unfamiliar adults and strangers"
           ],
           answer: 2,
           explain: "Bowlby proposed the system's set-goal is keeping a desired degree of proximity to, or accessibility of, the attachment figure."
@@ -111,9 +111,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "How does the set-goal change with circumstances?",
           choices: [
-            "It stays a fixed number of meters at all times",
-            "It disappears once the infant can walk",
-            "It is set only by the caregiver, never the infant",
+            "It stays at a fixed distance that is set early in infancy and rarely shifts",
+            "It widens steadily with age and no longer depends on context or mood",
+            "It is set by the caregiver's rules and limits, not by the infant's own state",
             "It tightens when the infant is frightened and loosens when the infant feels safe"
           ],
           answer: 3,
@@ -183,9 +183,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Why is 'felt security' a better description of the set-goal than literal proximity?",
           choices: [
             "The same distance can feel safe or unsafe depending on context and appraisal",
-            "Infants cannot actually perceive distance",
-            "Proximity has no effect on infant behavior",
-            "Felt security removes the need for a caregiver entirely"
+            "Infants measure safety by how often they are fed rather than by distance",
+            "Proximity matters only in the first months, before infants can crawl",
+            "Felt security means the infant no longer needs an attachment figure"
           ],
           answer: 0,
           explain: "Context matters: a familiar room makes distance tolerable while a strange or threatening setting does not, and felt security captures that appraisal."
@@ -228,10 +228,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Which of these is an activating condition for attachment behavior?",
           choices: [
-            "Feeling rested, safe, and content",
-            "The caregiver holding the infant calmly",
+            "Feeling rested, safe, and content after a feed",
+            "The caregiver sitting calmly nearby in a familiar room",
             "Sudden alarm or the caregiver becoming inaccessible",
-            "Successful, absorbed exploration"
+            "Absorbed play with a new and interesting toy"
           ],
           answer: 2,
           explain: "Activating conditions include fright, pain, fatigue, illness, and separation or inaccessibility of the attachment figure."
@@ -264,9 +264,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "How does the intensity of activation affect what terminates the behavior?",
           choices: [
-            "Intensity has no effect on terminating conditions",
-            "Stronger activation is always ended by a smile from across the room",
-            "Only feeding can ever terminate attachment behavior",
+            "Any level of activation ends as soon as the caregiver comes into view or speaks",
+            "Stronger activation ends faster because the infant tires out and stops crying",
+            "Mild activation needs full holding, while intense activation ends with a calm voice",
             "Mild activation ends with sight or sound of the caregiver; intense activation needs contact"
           ],
           answer: 3,
@@ -301,9 +301,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What does 'proximity maintenance' refer to?",
           choices: [
             "The infant's tendency to seek and keep closeness to the attachment figure",
-            "The caregiver's schedule of feedings",
-            "The infant's exploration of distant objects",
-            "Avoiding the caregiver after a separation"
+            "The caregiver's effort to stay within reach of the infant at all times",
+            "The infant's habit of keeping track of where its toys are in the room",
+            "The infant's wariness about letting unfamiliar adults come close"
           ],
           answer: 0,
           explain: "Proximity maintenance is the drive to gain and keep nearness to the attachment figure, the defining output of the attachment system."
@@ -335,10 +335,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Why is proximity maintenance considered adaptive in evolutionary terms?",
           choices: [
-            "It teaches infants to read",
+            "It made sure the infant was fed more often than other infants in the group",
             "Staying near a protective adult improved survival against predators and dangers",
-            "It guarantees more food than any other behavior",
-            "It prevents infants from ever exploring"
+            "It helped the infant learn language faster by hearing more adult speech nearby",
+            "It kept the infant warm enough to survive cold nights out in the open"
           ],
           answer: 1,
           explain: "Bowlby argued that keeping close to a protective caregiver raised the infant's chances of surviving threats in the environment of evolutionary adaptedness."
@@ -371,10 +371,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What is separation distress?",
           choices: [
-            "Calm indifference when the caregiver leaves",
-            "Fear of unfamiliar foods",
+            "Wariness and fear shown toward unfamiliar adults",
+            "Calm acceptance when the caregiver leaves the room",
             "Protest and anxiety triggered by the attachment figure's departure",
-            "Excitement at meeting strangers"
+            "Clinginess that comes from being overly pampered by caregivers"
           ],
           answer: 2,
           explain: "Separation distress is the distress, protest, and searching an infant shows when separated from the attachment figure."
@@ -406,9 +406,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "In the detachment phase, how might a child behave when the caregiver returns?",
           choices: [
-            "Cling desperately and refuse to let go",
-            "Search frantically around the room",
-            "Cry louder than ever before",
+            "Cling desperately to the caregiver and refuse to let go",
+            "Search the room anxiously as if still expecting the caregiver",
+            "Cry loudly in protest and push the caregiver away angrily",
             "Seem distant or indifferent, as if the bond were suppressed"
           ],
           answer: 3,
@@ -441,10 +441,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "How do the attachment and exploration systems relate?",
           choices: [
-            "They are the same single system",
+            "They are one system with two names",
             "They are in dynamic balance, one rising as the other falls",
-            "Exploration always overrides attachment",
-            "Attachment permanently shuts off exploration"
+            "They work independently and rarely affect each other",
+            "Exploration grows only once attachment fades in childhood"
           ],
           answer: 1,
           explain: "The systems are reciprocally balanced: high attachment activation suppresses exploration, while felt security frees the infant to explore."
@@ -466,10 +466,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What typically happens to exploration when the attachment system is strongly activated by fear?",
           choices: [
-            "Exploration increases sharply",
-            "Exploration stays exactly the same",
+            "Exploration increases as the infant tries to escape",
+            "Exploration continues but closer to the caregiver",
             "Exploration decreases as the infant seeks the caregiver",
-            "The infant permanently stops exploring for life"
+            "Exploration stops until the next day's routine"
           ],
           answer: 2,
           explain: "When frightened, the infant's attachment system dominates and exploration drops as it moves toward the caregiver for safety."
@@ -513,9 +513,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "How does the fear and wariness system interact with the attachment system?",
           choices: [
             "Fear activates attachment behavior, driving the infant toward the caregiver",
-            "Fear switches attachment behavior off completely",
-            "Fear and attachment never occur together",
-            "Fear only affects exploration, not attachment"
+            "Fear suppresses attachment behavior so the infant freezes in place",
+            "Fear and attachment run separately and do not influence each other",
+            "Fear only reduces exploration and leaves attachment behavior unchanged"
           ],
           answer: 0,
           explain: "Alarming stimuli activate the fear system, which in turn strongly activates attachment behavior and proximity-seeking."
@@ -548,9 +548,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Why is it adaptive for fear and attachment to be linked?",
           choices: [
-            "So the infant learns to fear its own caregiver",
-            "So the infant ignores danger and keeps exploring",
-            "So the infant avoids the caregiver when threatened",
+            "So the infant learns to be wary of its own caregiver and keeps watch on them",
+            "So the infant explores more widely to find its own way out of the danger",
+            "So the infant stays still and silent until the danger has passed it by",
             "So detecting danger quickly sends the infant to a protective caregiver"
           ],
           answer: 3,

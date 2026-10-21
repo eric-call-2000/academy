@@ -58,10 +58,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What central idea does Walden Two dramatize?",
           choices: [
-            "That free will is the only path to happiness",
+            "That free will and personal choice are the only paths to happiness",
             "That a culture can be deliberately designed using behavioral science",
-            "That genetics determine all human behavior",
-            "That psychology should study only the unconscious"
+            "That genetics determine nearly all human behavior and character",
+            "That psychology should study only the unconscious drives of people"
           ],
           answer: 1,
           explain: "The novel's core claim is that a community can be engineered through the systematic application of behavioral principles."
@@ -155,10 +155,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In Precision Teaching, 'celeration' refers to what?",
           choices: [
-            "The number of errors made",
+            "The total number of errors made per session",
             "The change in response frequency over time",
-            "The size of the reward",
-            "The difficulty of the task"
+            "The size of the reward delivered for each response",
+            "The difficulty level of the task being practiced"
           ],
           answer: 1,
           explain: "Celeration measures how a behavior's frequency accelerates or decelerates across time on the chart."
@@ -256,10 +256,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In clicker training, the click is an example of what?",
           choices: [
-            "A primary reinforcer",
+            "A primary (unconditioned) reinforcer",
             "A conditioned (secondary) reinforcer",
-            "A punisher",
-            "An unconditioned stimulus"
+            "A conditioned punisher (warning signal)",
+            "An unconditioned stimulus for salivation"
           ],
           answer: 1,
           explain: "The click starts neutral and becomes a conditioned reinforcer by being paired with a primary reinforcer like food."
@@ -345,9 +345,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "According to Duhigg's 'Golden Rule' of habit change, the most effective approach is to:",
           choices: [
             "Keep the same cue and reward but change the routine",
-            "Eliminate the cue and reward entirely",
-            "Punish yourself for the old habit",
-            "Replace the reward with punishment"
+            "Eliminate both the cue and the reward from your daily life",
+            "Keep the same routine but change the cue that triggers it",
+            "Keep the cue and routine but replace the reward with a penalty"
           ],
           answer: 0,
           explain: "The Golden Rule keeps the cue and reward constant while substituting a new routine in between."
@@ -386,7 +386,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Who is the principal developer of Acceptance and Commitment Therapy (ACT) and Relational Frame Theory (RFT)?",
-          choices: ["Aaron Beck", "Steven C. Hayes", "Albert Ellis", "Joseph Wolpe"],
+          choices: ["Aaron T. Beck", "Steven C. Hayes", "Marsha Linehan", "Albert Ellis"],
           answer: 1,
           explain: "Steven C. Hayes developed both ACT and RFT, the foundations of contextual behavioral science."
         },
@@ -443,7 +443,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which field, grounded in behaviorism, is today a leading evidence-based treatment for autism?",
-          choices: ["Psychoanalysis", "Applied behavior analysis", "Humanistic therapy", "Gestalt therapy"],
+          choices: ["Psychoanalytic play therapy", "Applied behavior analysis", "Humanistic person-centered therapy", "Sensory integration therapy"],
           answer: 1,
           explain: "Applied behavior analysis (ABA), built on operant principles, is a widely used, evidence-based autism intervention."
         },
@@ -464,10 +464,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "The 'nudge' approach in behavioral economics echoes behaviorism by emphasizing what?",
           choices: [
-            "Unconscious childhood conflict",
+            "Resolving unconscious childhood conflicts about money",
             "Shaping choices through the design of the environment",
-            "Innate personality types",
-            "Dream interpretation"
+            "Matching people's choices to their innate personality types",
+            "Changing beliefs through detailed information campaigns"
           ],
           answer: 1,
           explain: "Nudge theory changes behavior by redesigning the choice environment, echoing behaviorism's focus on antecedents and consequences."
@@ -494,9 +494,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "What is a central, enduring contribution of behaviorism to psychology?",
           choices: [
             "The focus on observable, measurable behavior and environmental control",
-            "Insistence on studying only unconscious drives",
-            "The rejection of all experimental methods",
-            "The claim that the environment never matters"
+            "The insistence on studying unconscious drives through careful interpretation",
+            "The rejection of laboratory experiments in favor of clinical case histories",
+            "The claim that heredity, not environment, explains most human behavior"
           ],
           answer: 0,
           explain: "Behaviorism's lasting legacy is its emphasis on objective measurement and how the environment shapes behavior."

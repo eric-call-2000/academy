@@ -136,7 +136,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Using a partner as a 'secure base' means what?",
-          choices: ["Avoiding the partner during conflict", "Drawing confidence from them to explore and take on challenges", "Depending on them only for money", "Keeping the relationship secret"],
+          choices: ["Staying close to the partner and avoiding new challenges alone", "Drawing confidence from them to explore and take on challenges", "Turning to the partner for comfort whenever distress arises", "Relying on the partner to solve problems on one's behalf"],
           answer: 1,
           explain: "A secure base is the confidence to venture out and explore the world, knowing a supportive partner is there to return to."
         },
@@ -182,7 +182,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Hazan and Zeifman studied how attachment functions gradually move from parents to whom?",
-          choices: ["Teachers", "Peers and romantic partners", "Siblings only", "Pets"],
+          choices: ["Teachers and mentors", "Peers and romantic partners", "Siblings and grandparents", "Coaches and other adults"],
           answer: 1,
           explain: "Their work on the transfer of attachment functions traced how peers, and eventually romantic partners, take over roles once served by parents."
         },
@@ -238,7 +238,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "According to Shaver, Hazan, and Bradshaw (1988), adult romantic love integrates how many behavioral systems?",
-          choices: ["One", "Two", "Three", "Five"],
+          choices: ["Four", "Two", "Three", "Seven"],
           answer: 2,
           explain: "They proposed that romantic love weaves together three systems: attachment, caregiving, and sexual mating."
         },
@@ -350,7 +350,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What are internal working models?",
-          choices: ["Genetic templates fixed at birth", "Mental representations of self and others formed from early attachment experiences", "Conscious lists of partner requirements", "Hormonal responses to attraction"],
+          choices: ["Inborn templates, carried in the genes, that fix how a person relates to others from birth", "Mental representations of self and others formed from early attachment experiences", "Conscious checklists of the qualities a person wants in a partner", "Habits of behavior learned through rewards from a partner over time"],
           answer: 1,
           explain: "Working models are mental representations of whether the self is lovable and whether others are dependable, built from early relationships."
         },
@@ -420,7 +420,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In adulthood, the attachment functions once served by parents are most often served by whom?",
-          choices: ["Employers", "Romantic partners and close others", "Strangers", "No one at all"],
+          choices: ["Close friends rather than partners", "Romantic partners and close others", "Parents, who remain primary for life", "Mentors and colleagues at work"],
           answer: 1,
           explain: "Romantic partners typically become the primary attachment figures in adulthood, supported by close friends and family."
         },
@@ -449,7 +449,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What best describes how adults organize their attachment figures?",
-          choices: ["A hierarchy, so they can turn to others when a primary figure is unavailable", "A single figure with no backups ever", "Only strangers can serve the role", "The system shuts down under stress"],
+          choices: ["A hierarchy, so they can turn to others when a primary figure is unavailable", "A single exclusive figure, with no one else able to take that role at any time", "A network of equal figures, with no preference for one over the others", "A set of figures who are used only in childhood and fade by adulthood"],
           answer: 0,
           explain: "Adults maintain a hierarchy of attachment figures, allowing them to turn to friends or family when a primary partner is unavailable."
         }

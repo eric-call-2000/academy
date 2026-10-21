@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which is a classic biological example of reciprocal altruism?",
-          choices: ["Ants sacrificing for their queen", "A peacock growing a large tail", "Vampire bats regurgitating blood to feed hungry roost-mates", "A cuckoo laying eggs in another bird's nest"],
+          choices: ["Worker ants sacrificing themselves to defend their queen's nest", "Ground squirrels giving alarm calls that mainly warn nearby kin", "Vampire bats regurgitating blood to feed hungry roost-mates", "Parent birds feeding their own chicks until the young can fly"],
           answer: 2,
           explain: "Gerald Wilkinson's work on vampire bats showed they share regurgitated blood meals, later repaid by past recipients, a textbook case of reciprocal altruism."
         },
@@ -164,7 +164,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What is the title of Axelrod's 1984 book summarizing this research?",
-          choices: ["The Selfish Gene", "The Evolution of Cooperation", "The Descent of Man", "Games and Decisions"],
+          choices: ["The Selfish Gene", "The Evolution of Cooperation", "The Biology of Moral Systems", "The Origins of Virtue"],
           answer: 1,
           explain: "Axelrod's 1984 book 'The Evolution of Cooperation' presented the tournament results and their implications for how cooperation can emerge."
         },
@@ -184,7 +184,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which set of conditions makes reciprocal cooperation most likely to evolve?",
-          choices: ["Anonymous, one-time encounters with strangers", "Large groups where individuals never meet twice", "Repeated interactions with recognizable partners and good memory", "Interactions only among close genetic kin"],
+          choices: ["Anonymous, one-time encounters with strangers who cannot be traced", "Large, shifting groups where individuals rarely meet the same partner", "Repeated interactions with recognizable partners and good memory", "Interactions limited to close kin who share most of the same genes"],
           answer: 2,
           explain: "Reciprocity needs repeated contact, the ability to recognize partners, and memory of past behavior so cooperation can be conditioned on how a partner acted before."
         },
@@ -241,7 +241,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which statement best describes indirect reciprocity?",
-          choices: ["Helping only your genetic relatives", "The same two individuals repeatedly trading favors", "Refusing to help anyone who cannot repay you at once", "Helping someone and later being helped by a different observer because of your good reputation"],
+          choices: ["Helping relatives because they share copies of the same genes as you", "The same two individuals trading favors back and forth over many repeated encounters", "Helping only those who can repay you immediately within the same exchange", "Helping someone and later being helped by a different observer because of your good reputation"],
           answer: 3,
           explain: "In indirect reciprocity the return comes not from the person you helped but from third parties who observed and now trust your reputation."
         },
@@ -298,7 +298,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Why is enforcement, such as punishing defectors, important for cooperation?",
-          choices: ["It makes cooperation illegal", "It removes the short-term advantage of cheating", "It guarantees everyone is related", "It eliminates the need for recognition"],
+          choices: ["It lets punishers profit by taking resources from cheaters", "It removes the short-term advantage of cheating", "It replaces the need to recognize and remember partners", "It turns every interaction into a one-time encounter"],
           answer: 1,
           explain: "Punishment lowers the payoff to cheating so that defection no longer beats cooperation, keeping cooperators from being exploited."
         },
@@ -335,7 +335,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What makes punishment 'costly' or 'altruistic' punishment?",
-          choices: ["The punisher gains money from punishing", "Punishing is free and risk-free", "The punisher pays a cost yet may gain nothing personally", "Only relatives can punish"],
+          choices: ["The cheater pays a cost that the punisher then collects as profit", "The punisher targets only relatives, at a cost to their shared genes", "The punisher pays a cost yet may gain nothing personally", "The punisher is later repaid by the cheater for the lesson taught"],
           answer: 2,
           explain: "Costly punishment is a puzzle precisely because the punisher pays to sanction a cheat while the benefit of restored cooperation is shared by the whole group."
         },
@@ -392,7 +392,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "In public goods experiments, what happens to cooperation once players can punish free-riders?",
-          choices: ["It collapses immediately", "It stays flat at zero", "It rises and is sustained at a higher level", "It becomes impossible to measure"],
+          choices: ["It collapses, since punishing costs players money", "It rises briefly, then falls back to near zero", "It rises and is sustained at a higher level", "It stays the same, since free-riders ignore threats"],
           answer: 2,
           explain: "Giving players the option to punish free-riders, even at a cost, raises and stabilizes cooperation compared with games without punishment."
         },
@@ -412,7 +412,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "According to Trivers, which emotion primarily motivates repaying someone who has helped you?",
-          choices: ["Gratitude", "Disgust", "Fear", "Boredom"],
+          choices: ["Gratitude", "Sympathy", "Envy", "Pride"],
           answer: 0,
           explain: "Gratitude motivates repayment: it prompts a helped individual to reciprocate, keeping the exchange relationship going."
         },
@@ -449,7 +449,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What function did Trivers attribute to 'moralistic aggression'?",
-          choices: ["It rewards generous partners", "It motivates punishing cheats and deterring exploitation", "It makes us forget past favors", "It replaces the need for trust"],
+          choices: ["It motivates repaying partners who have helped in the past", "It motivates punishing cheats and deterring exploitation", "It motivates the first act of help toward someone in need", "It motivates making amends after one has cheated a partner"],
           answer: 1,
           explain: "Moralistic aggression is the anger felt toward cheats; it motivates punishment and protects reciprocators from being exploited."
         },

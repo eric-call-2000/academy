@@ -50,7 +50,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Nisbett and Cohen argued that herding societies often develop a 'culture of honor' because...",
-          choices: ["Herders have no laws or government at all", "Livestock can be stolen quickly, so a tough reputation deters theft", "Herding makes people physically stronger", "Farmers always attack herders first"],
+          choices: ["Herding leaves long idle periods that men fill by competing in fights", "Livestock can be stolen quickly, so a tough reputation deters theft", "Herding work makes people physically stronger and more confident in fights", "Farming neighbors routinely attack herders, so herders must always strike first"],
           answer: 1,
           explain: "Because a herd can be rustled in moments, projecting toughness and a willingness to retaliate protects a herder's wealth."
         },
@@ -147,7 +147,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which pair of behaviors linked to collectivism could most plausibly reduce disease transmission?",
-          choices: ["Traveling widely and marrying strangers", "Avoiding out-group contact and conforming to food and hygiene traditions", "Ignoring elders and improvising customs", "Preferring novelty and open borders"],
+          choices: ["Traveling widely and forming marriages with people from distant groups", "Avoiding out-group contact and conforming to food and hygiene traditions", "Questioning elders and freely improvising new customs and food practices", "Seeking out novel experiences and keeping borders open to newcomers"],
           answer: 1,
           explain: "Out-group avoidance limits new pathogens, and conformity preserves customs that historically curbed infection."
         },
@@ -204,7 +204,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Why is the behavioral immune system described as 'smoke-detector'-like?",
-          choices: ["It only reacts to real, confirmed infections", "It errs toward false alarms, treating harmless cues as threats", "It never makes mistakes", "It shuts off when people feel safe"],
+          choices: ["It reacts only to confirmed infections, ignoring ambiguous cues", "It errs toward false alarms, treating harmless cues as threats", "It rarely makes mistakes because it relies on precise biological signals", "It errs toward missing real threats in order to save effort"],
           answer: 1,
           explain: "Because missing a real pathogen is costly, the system over-reacts, flagging many harmless cues just in case."
         },
@@ -241,7 +241,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Relational mobility refers to...",
-          choices: ["How wealthy a person's social network is", "How far people physically move in a lifetime", "How much freedom people have to form new and end old relationships", "How quickly a language changes over time"],
+          choices: ["How wealthy and well connected a person's social network is", "How far people physically move from their birthplace over a lifetime", "How much freedom people have to form new and end old relationships", "How easily people move up or down the social class ladder"],
           answer: 2,
           explain: "Relational mobility captures how open a society is to choosing, replacing, and leaving relationships."
         },
@@ -261,7 +261,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Thomson linked LOW relational mobility to which historical conditions?",
-          choices: ["A history of nomadic trade and open borders", "A history of settled subsistence farming and higher environmental threat", "Recent industrialization only", "No historical factors at all"],
+          choices: ["A history of nomadic herding, long-distance trade, and open frontiers", "A history of settled subsistence farming and higher environmental threat", "Rapid recent industrialization and the growth of large cities", "A history of plentiful resources, low threat, and frequent migration between towns"],
           answer: 1,
           explain: "Societies rooted in settled farming and facing greater ecological threat showed lower relational mobility and tighter, fixed ties."
         },
@@ -318,7 +318,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which finding supported frontier independence in Hokkaido?",
-          choices: ["Happiness and pride were tied more to personal achievement than to social harmony", "People valued conformity far more than mainlanders", "Residents had no sense of personal goals", "Emotions were identical to mainland Japan"],
+          choices: ["Happiness and pride were tied more to personal achievement than to social harmony", "Residents valued conformity and group harmony even more than mainland Japanese did", "Residents reported fewer personal goals and less interest in individual success", "Residents' emotions followed exactly the same patterns as those of mainland Japanese"],
           answer: 0,
           explain: "Linking good feelings to personal accomplishment rather than group harmony is a signature of the independent, individualist self."
         },
@@ -375,7 +375,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Inglehart named the generational shift from prioritizing economic security to prioritizing autonomy and quality of life the rise of...",
-          choices: ["Behaviorism", "Collectivism", "Modernization", "Postmaterialism"],
+          choices: ["Secularization", "Self-actualization", "Post-industrialism", "Postmaterialism"],
           answer: 3,
           explain: "Younger cohorts raised in security became 'postmaterialist,' valuing self-expression over material and physical security."
         },
@@ -432,7 +432,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "According to Norenzayan, belief in moralizing high gods helped human societies...",
-          choices: ["Shrink back to small family bands", "Abandon all rituals", "Expand cooperation beyond kin to large groups of strangers", "Stop trading with neighbors"],
+          choices: ["Shrink back into small bands of closely related families", "Abandon costly rituals in favor of simple, private worship", "Expand cooperation beyond kin to large groups of strangers", "Reduce trade with neighbors by keeping outsiders at a distance"],
           answer: 2,
           explain: "Shared belief in a watching, moralizing god let unrelated strangers trust and cooperate, enabling larger societies."
         },

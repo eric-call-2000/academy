@@ -13,14 +13,14 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is the ribbon in Revit?",
-          choices: ["The horizontal strip of command tabs at the top of the window", "A list of all views in the project", "The panel showing element properties", "A pop-up that names your file"],
+          choices: ["The horizontal strip of command tabs at the top of the window", "The tree of views, sheets, and families on the side of the window", "The panel that shows settings for whatever element you select", "The bar along the bottom of a view with scale and detail level"],
           answer: 0,
           explain: "The ribbon holds Revit's commands, grouped into tabs like Architecture, Structure, and View."
         },
         {
           type: "mcq",
           q: "Tabs on the ribbon (like Architecture or Insert) are best described as:",
-          choices: ["Groups of related commands", "Separate open files", "Different projects", "Saved views"],
+          choices: ["Groups of related commands", "Separate open project files", "Saved views of the model", "Lists of recent commands"],
           answer: 0,
           explain: "Each tab collects commands for a task area, so wall and door tools live under Architecture."
         },
@@ -72,7 +72,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "The Properties palette mainly lets you:",
-          choices: ["Read and edit properties of the selected element", "Browse every view in the file", "Change ribbon tabs", "Save the project"],
+          choices: ["Read and edit properties of the selected element", "Browse and open every view and sheet in the file", "Switch between ribbon tabs and command panels", "Check the model for warnings and duplicate elements"],
           answer: 0,
           explain: "Properties shows the settings for your current selection so you can adjust them directly."
         },
@@ -92,7 +92,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "At the top of the Properties palette, the Type Selector lets you:",
-          choices: ["Swap the selected element to a different type", "Delete the element", "Rename the project", "Open a new view"],
+          choices: ["Swap the selected element to a different type", "Change the category of the selected element", "Filter the selection down to one element type", "Load a new family file from the library folder"],
           answer: 0,
           explain: "The Type Selector changes which type the selected element uses, like a different door size."
         },
@@ -131,7 +131,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does the Project Browser list?",
-          choices: ["Views, sheets, schedules, families, and groups", "Only 3D views", "The ribbon tabs", "Your keyboard shortcuts"],
+          choices: ["Views, sheets, schedules, families, and groups", "Only the 3D views and sections in the project", "Ribbon tabs and their commands for each discipline", "Recent commands and your saved keyboard shortcuts"],
           answer: 0,
           explain: "The browser is the organized index of everything in the project you can open or manage."
         },
@@ -176,7 +176,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "A quick way to reduce clutter and find one view among many in the browser is to:",
-          choices: ["Search or filter the browser list", "Delete the ribbon", "Close the project", "Change the view scale"],
+          choices: ["Search or filter the browser list", "Close every view except the active one", "Switch the project to a different template", "Lower the detail level of each view"],
           answer: 0,
           explain: "The browser offers search and filtering so long project trees stay manageable."
         }
@@ -190,7 +190,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Where does the View Control Bar appear?",
-          choices: ["Along the bottom edge of the active view", "At the top with the ribbon", "Inside the Properties palette", "On every sheet title block"],
+          choices: ["Along the bottom edge of the active view", "Along the top of the window beside the ribbon", "Inside the Properties palette under the type", "At the top of the Project Browser above the views"],
           answer: 0,
           explain: "It runs across the bottom of the drawing area and controls the view you are looking at."
         },
@@ -256,7 +256,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "You drag a selection box from left to right. What gets selected?",
-          choices: ["Only elements fully inside the box", "Everything the box touches", "Nothing", "Only walls"],
+          choices: ["Only elements fully inside the box", "Every element the box touches or crosses", "Only elements in the current workset", "Elements inside the box plus their hosts"],
           answer: 0,
           explain: "A left-to-right window selection grabs only elements completely enclosed by the box."
         },
@@ -282,7 +282,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "You selected many elements and want to keep only the doors. The best tool is:",
-          choices: ["The selection Filter", "Delete", "Undo", "The ViewCube"],
+          choices: ["The selection Filter", "Select All Instances", "Temporary Isolate", "Match Type Properties"],
           answer: 0,
           explain: "The Filter lets you narrow a mixed selection down to chosen categories like doors."
         },
@@ -316,7 +316,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "A type property change affects:",
-          choices: ["Every element that uses that type", "Only the one you selected", "Nothing until you save", "Just the active view"],
+          choices: ["Every element that uses that type", "Only the element you selected", "Every element in the same category", "Only the elements in the active view"],
           answer: 0,
           explain: "Type properties are shared by all instances of the type, so one edit updates them all."
         },
@@ -381,7 +381,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "The ViewCube is most useful for:",
-          choices: ["Reorienting a 3D view to a standard direction", "Editing element properties", "Listing all sheets", "Setting the view scale"],
+          choices: ["Reorienting a 3D view to a standard direction", "Switching between plan, section, and 3D views", "Setting the crop region of a 3D view", "Rotating the project's true north in plan views"],
           answer: 0,
           explain: "Clicking the ViewCube's faces or corners snaps a 3D view to top, front, or corner angles."
         },
@@ -453,7 +453,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "The best reason to learn a few shortcuts is that they:",
-          choices: ["Speed up commands you repeat often", "Change the building geometry", "Replace the Project Browser", "Print sheets automatically"],
+          choices: ["Speed up commands you repeat often", "Apply settings to every view at once", "Reduce the file size of the model", "Make commands run with fewer warnings"],
           answer: 0,
           explain: "Shortcuts save time on frequent actions; they do not alter the model on their own."
         },

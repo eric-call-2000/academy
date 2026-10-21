@@ -13,21 +13,21 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the primary purpose of a construction schedule?",
-          choices: ["To sequence work and predict when activities and completion will occur", "To calculate the profit margin on the job", "To list every material supplier", "To record the safety orientation of each worker"],
+          choices: ["To sequence work and predict when activities and completion will occur", "To break the contract price into line items for monthly progress billing", "To list every supplier and the materials each will deliver", "To record which workers have completed safety orientation"],
           answer: 0,
           explain: "A schedule sequences activities against time so the team can plan, commit to dates and measure progress."
         },
         {
           type: "mcq",
           q: "What is the baseline schedule?",
-          choices: ["The approved, frozen plan that actual progress is measured against", "The schedule after the last update", "A schedule showing only milestones", "The subcontractor's private plan"],
+          choices: ["The approved, frozen plan that actual progress is measured against", "The latest monthly update showing current forecast dates for every activity", "A summary schedule showing only the major milestones", "The subcontractor's internal plan for its own crews"],
           answer: 0,
           explain: "The baseline is the original approved schedule kept fixed as the yardstick for comparing planned versus actual performance."
         },
         {
           type: "mcq",
           q: "What best defines an activity in a schedule?",
-          choices: ["A discrete task with a duration that consumes time and usually resources", "A point in time with no duration", "A summary of the whole project", "A contract clause about time"],
+          choices: ["A discrete task with a duration that consumes time and usually resources", "A point in time with zero duration that marks a key event", "A summary bar that rolls up all the tasks in one phase of the project", "A logic link that ties one task's finish to another's start"],
           answer: 0,
           explain: "An activity is a measurable task that takes time and typically resources, unlike a milestone which has zero duration."
         },
@@ -59,7 +59,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is a master schedule?",
-          choices: ["A high-level project-wide schedule showing major phases and milestones", "A daily to-do list for one crew", "The paint color schedule", "A schedule of insurance premiums"],
+          choices: ["A high-level project-wide schedule showing major phases and milestones", "A detailed daily task list for one crew for the coming week", "The most detailed schedule, listing every single activity on the whole job", "The owner's schedule of payment dates for the contract"],
           answer: 0,
           explain: "The master schedule is the summary-level program of the whole project used to align stakeholders and phases."
         }
@@ -73,7 +73,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "In activity-on-node (AON) logic, what do the nodes and arrows represent?",
-          choices: ["Nodes are activities and arrows are the logical relationships", "Nodes are relationships and arrows are activities", "Nodes are milestones only", "Arrows are durations and nodes are resources"],
+          choices: ["Nodes are activities and arrows are the logical relationships", "Nodes are relationships and arrows are the activities", "Nodes are milestones and arrows are the activity durations", "Nodes are resources and arrows are the crew movements"],
           answer: 0,
           explain: "In AON the boxes (nodes) are activities and the connecting arrows show the dependency relationships between them."
         },
@@ -99,7 +99,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does the backward pass calculate?",
-          choices: ["Late start and late finish dates working from the end backward", "Early start and early finish dates", "The total project cost", "The number of crews needed"],
+          choices: ["Late start and late finish dates working from the end backward", "Early start and early finish dates working from the start forward", "Actual start and finish dates recorded from the last update", "The critical path by summing the longest chain of durations"],
           answer: 0,
           explain: "The backward pass works right to left from the required finish to derive the latest allowable start and finish dates."
         },
@@ -113,7 +113,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "If an activity on the critical path slips by two days, what happens to the project?",
-          choices: ["The project finish typically slips by two days", "Nothing, because float absorbs it", "The project finishes two days early", "Only that activity is affected"],
+          choices: ["The project finish typically slips by two days", "Nothing, because the activity's float absorbs the delay", "Only that activity moves; the finish date stays the same", "The finish slips by one day, since successors overlap"],
           answer: 0,
           explain: "Critical activities have no float, so a delay to one pushes the overall completion date by the same amount."
         },
@@ -140,7 +140,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "How does free float differ from total float?",
-          choices: ["Free float is the delay allowed without impacting any successor's early start", "Free float is always larger than total float", "Free float only applies to milestones", "They are identical terms"],
+          choices: ["Free float is the delay allowed without impacting any successor's early start", "Free float is the delay allowed without impacting the project finish date", "Free float is always larger than total float on the same activity", "Free float applies only to milestones; total float applies to tasks"],
           answer: 0,
           explain: "Free float is the slack an activity has before it delays the earliest start of its successor, and it is never more than total float."
         },
@@ -160,14 +160,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What are near-critical activities?",
-          choices: ["Activities with small positive float that could easily become critical", "Activities with no logical predecessors", "Milestones on the master schedule", "Activities that are already complete"],
+          choices: ["Activities with small positive float that could easily become critical", "Activities with negative float that have already slipped past the finish date", "Activities with no logical predecessors in the network", "Activities that are already complete but not yet inspected"],
           answer: 0,
           explain: "Near-critical activities carry only a little float, so minor delays can shift them onto the critical path."
         },
         {
           type: "mcq",
           q: "What is the driving path to an activity or milestone?",
-          choices: ["The chain of predecessors that actually controls that activity's early dates", "Any path with positive float", "The shortest path in the network", "The path with the most activities"],
+          choices: ["The chain of predecessors that actually controls that activity's early dates", "Any path in the network that still has positive float", "The shortest chain of activities from the project start to that activity", "The path that contains the most activities leading up to it"],
           answer: 0,
           explain: "The driving path is the sequence of logic that determines when an activity can start, unlike non-driving feeder paths."
         },
@@ -193,14 +193,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does a Gantt (bar) chart display?",
-          choices: ["Activities as horizontal bars positioned and sized along a time axis", "Only the project budget", "A pie chart of trade percentages", "A map of the site logistics"],
+          choices: ["Activities as horizontal bars positioned and sized along a time axis", "Activities as boxes connected by arrows that show their logic relationships", "Costs by trade as stacked bars for each month of the job", "Crew sizes over time as a histogram for each trade"],
           answer: 0,
           explain: "A Gantt chart plots each activity as a bar whose position and length show its start, finish and duration over time."
         },
         {
           type: "mcq",
           q: "How does a summary schedule differ from a detailed schedule?",
-          choices: ["It rolls activities up into fewer high-level bars for an overview", "It has more activities than the detailed schedule", "It shows only costs", "It omits all milestones"],
+          choices: ["It rolls activities up into fewer high-level bars for an overview", "It adds more activities than the detailed schedule for precision", "It shows only costs and leaves out the activity dates", "It removes all milestones and shows only work activities"],
           answer: 0,
           explain: "A summary schedule rolls detail up into a handful of bars for executives, while the detailed schedule keeps every activity."
         },
@@ -226,14 +226,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is a milestone schedule best used for?",
-          choices: ["Communicating key target dates to executives and owners", "Assigning crews to daily tasks", "Detailing every rebar tie", "Tracking material invoices"],
+          choices: ["Communicating key target dates to executives and owners", "Assigning crews to specific tasks for each day of the week", "Calculating float and the critical path for each activity", "Tracking material deliveries against purchase orders"],
           answer: 0,
           explain: "A milestone schedule strips out task detail to show only the critical dates stakeholders care about."
         },
         {
           type: "mcq",
           q: "On a Gantt chart, what does a bar's length represent?",
-          choices: ["The duration of the activity", "The cost of the activity", "The number of workers", "The float available"],
+          choices: ["The duration of the activity", "The cost of the activity", "The crew size assigned to it", "The float available to it"],
           answer: 0,
           explain: "Bar length maps directly to how long the activity takes on the time axis."
         }
@@ -247,21 +247,21 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is resource loading a schedule?",
-          choices: ["Assigning labor, equipment or materials to activities to forecast demand", "Deleting activities to shorten the plan", "Setting the baseline dates", "Printing the Gantt chart"],
+          choices: ["Assigning labor, equipment or materials to activities to forecast demand", "Adding more activities to the schedule to show greater detail", "Shifting activities within their float to smooth out the peaks in crew size", "Locking the baseline dates so progress can be measured"],
           answer: 0,
           explain: "Resource loading attaches crews, equipment and materials to activities so peak demand and totals can be forecast."
         },
         {
           type: "mcq",
           q: "What problem does resource leveling solve?",
-          choices: ["Smoothing peaks and valleys so resource demand stays within available limits", "Reducing the project scope", "Increasing the profit margin", "Adding more milestones"],
+          choices: ["Smoothing peaks and valleys so resource demand stays within available limits", "Shortening the critical path by adding extra crews and shifts to every activity", "Balancing the cost of each activity against the schedule of values", "Assigning resources to activities so total demand can be forecast"],
           answer: 0,
           explain: "Leveling shifts activities within their float to flatten spikes so crew sizes stay realistic and steady."
         },
         {
           type: "mcq",
           q: "What is the schedule of values (SOV)?",
-          choices: ["A breakdown of the contract sum into line items used to bill progress", "The list of subcontractor bids", "The equipment rental log", "A safety inspection form"],
+          choices: ["A breakdown of the contract sum into line items used to bill progress", "A side-by-side list of subcontractor bids used to award each trade package", "A ranking of activities by their cost and float value", "The estimated value of each change order in the contract"],
           answer: 0,
           explain: "The SOV allocates the contract price across work items so monthly payment applications can be justified."
         },
@@ -300,7 +300,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does earned value (EV) measure?",
-          choices: ["The budgeted cost of the work actually performed to date", "The money actually spent to date", "The total project budget", "The remaining work in dollars"],
+          choices: ["The budgeted cost of the work actually performed to date", "The actual cost spent on the work performed to date", "The budgeted cost of the work scheduled to be done by now", "The forecast total cost of the project at completion"],
           answer: 0,
           explain: "EV is the budgeted value of work completed, sometimes called the budgeted cost of work performed."
         },
@@ -360,14 +360,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the data date in a schedule update?",
-          choices: ["The as-of date separating completed work from remaining work", "The contract signing date", "The original baseline finish", "The date the permit was issued"],
+          choices: ["The as-of date separating completed work from remaining work", "The date the contract was signed and the baseline was set", "The forecast finish date calculated from the latest update", "The date the schedule file was last saved or exported"],
           answer: 0,
           explain: "The data date is the status line; work left of it is actual and work right of it is the remaining forecast."
         },
         {
           type: "mcq",
           q: "What does percent complete track on an activity?",
-          choices: ["How much of the activity's work has been accomplished", "How much float remains", "The cost of the activity", "The number of predecessors"],
+          choices: ["How much of the activity's work has been accomplished", "How much of the activity's float has been used up", "How much of the activity's budget has been spent", "How many of the activity's predecessors are finished"],
           answer: 0,
           explain: "Percent complete records progress on an activity and drives remaining duration in the updated schedule."
         },
@@ -393,7 +393,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does acceleration mean in schedule recovery?",
-          choices: ["Adding resources or shifts to complete work faster than currently planned", "Extending the completion date", "Deleting scope from the contract", "Pausing work to rebaseline"],
+          choices: ["Adding resources or shifts to complete work faster than currently planned", "Extending the completion date to absorb the delays already incurred", "Deleting scope so the remaining work fits the original dates", "Pausing work to rebaseline the schedule around new dates"],
           answer: 0,
           explain: "Acceleration compresses the schedule using overtime, added crews or resequencing to recover lost time."
         },
@@ -413,21 +413,21 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is a look-ahead (short-interval) schedule?",
-          choices: ["A detailed near-term plan, often three to six weeks out, drawn from the master schedule", "A summary of the entire project", "A record of completed work only", "The final punch list"],
+          choices: ["A detailed near-term plan, often three to six weeks out, drawn from the master schedule", "A high-level forecast of the whole project used for owner reports", "A record of the work completed over the past several weeks", "A long-range plan, often six to twelve months out, showing only the major phases of work"],
           answer: 0,
           explain: "The look-ahead expands the next few weeks of the master schedule into actionable detail for the field."
         },
         {
           type: "mcq",
           q: "In the Last Planner System, who are the last planners?",
-          choices: ["The foremen and superintendents who commit to and control the actual work", "The owner's representatives", "The design architects", "The scheduling software vendors"],
+          choices: ["The foremen and superintendents who commit to and control the actual work", "The owner's representatives who approve the final schedule", "The project schedulers who build and update the master schedule in the software", "The design architects who issue the last set of drawings"],
           answer: 0,
           explain: "Last planners are the field leaders who make and keep the weekly commitments closest to the work."
         },
         {
           type: "mcq",
           q: "What is pull planning?",
-          choices: ["Working backward from a target milestone so trades hand off in the needed sequence", "Adding float to every activity", "Pushing tasks onto crews regardless of readiness", "Removing constraints by ignoring them"],
+          choices: ["Working backward from a target milestone so trades hand off in the needed sequence", "Scheduling each trade forward from its earliest possible start date", "Adding float to every activity so trades always have a buffer", "Assigning tasks to crews from the master schedule as soon as they are released"],
           answer: 0,
           explain: "Pull planning starts at a milestone and works backward, letting each trade define what it needs from the prior trade."
         },
@@ -453,7 +453,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does takt planning emphasize in construction production?",
-          choices: ["A steady, balanced rhythm of work moving through zones at a set pace", "Maximizing float on every task", "Finishing each trade before any other starts", "Eliminating the master schedule"],
+          choices: ["A steady, balanced rhythm of work moving through zones at a set pace", "Finishing each trade across the whole building before the next starts", "Maximizing float on every task so crews can choose their own pace", "Replacing the master schedule with a daily task list for each crew"],
           answer: 0,
           explain: "Takt planning paces work so trades flow through repeating zones at a consistent beat, smoothing production."
         },

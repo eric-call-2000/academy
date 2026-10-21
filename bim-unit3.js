@@ -44,10 +44,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Why is a shared LOD scale useful on a project?",
           choices: [
-            "It makes files smaller",
+            "It sets one level of detail that every element must reach by handover",
             "It gives everyone a common way to state how complete an element is",
-            "It replaces the need for drawings",
-            "It hides information from the client"
+            "It defines how much geometry each element must show on the drawings",
+            "It fixes the dates when each discipline must issue its own model"
           ],
           answer: 1,
           explain: "A shared scale gives the whole team a common language for how developed each element is, reducing confusion about what can be trusted."
@@ -83,9 +83,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which set lists valid levels on the common LOD scale?",
           choices: [
             "100, 200, 300, 350, 400, 500",
-            "1, 2, 3, 4, 5, 6",
-            "A, B, C, D, E",
-            "10, 20, 30, 40, 50"
+            "100, 200, 300, 400, 500, 600",
+            "100, 150, 200, 300, 400, 500",
+            "100, 200, 250, 300, 400, 500"
           ],
           answer: 0,
           explain: "The BIMForum and AIA scale uses 100, 200, 300, 350, 400, and 500. The 350 step sits between 300 and 400."
@@ -117,10 +117,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "As the LOD number increases, what generally happens?",
           choices: [
-            "The element becomes less reliable",
+            "The element gains visual detail but not reliability",
             "The element becomes more complete and reliable",
-            "The element is deleted",
-            "Nothing changes"
+            "The element gains data but loses geometric accuracy",
+            "The element moves to a later construction phase only"
           ],
           answer: 1,
           explain: "Higher LOD numbers indicate more developed, more reliable elements, moving from concept toward verified as-built."
@@ -142,10 +142,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "How is an LOD 100 element best described?",
           choices: [
-            "Fabrication ready",
+            "An approximate generic element with rough size and shape",
             "A conceptual placeholder with no reliable geometry",
-            "Verified against the field",
-            "Precise geometry with connections"
+            "A specific element with precise size and location",
+            "A fabrication-ready element with assembly detail"
           ],
           answer: 1,
           explain: "LOD 100 is conceptual. It may be shown by a symbol or generic representation and carries no reliable dimensions."
@@ -182,10 +182,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Why should you avoid taking precise measurements off an LOD 200 element?",
           choices: [
-            "The file is corrupt",
+            "It is only a symbol and has no geometry at all",
             "Its geometry is only approximate and may change",
-            "It is always drawn at the wrong scale",
-            "LOD 200 elements are invisible"
+            "Its fabrication detail is too fine to measure accurately",
+            "Its dimensions are locked until the as-built survey"
           ],
           answer: 1,
           explain: "LOD 200 geometry is approximate. Treating it as exact can lead to errors because size and location are not yet reliable."
@@ -208,9 +208,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What most clearly distinguishes LOD 350 from LOD 300?",
           choices: [
             "350 adds interfaces and connections to other elements",
-            "350 removes all geometry",
-            "350 is only conceptual",
-            "350 is verified as-built data"
+            "350 adds verified field conditions of the installed element",
+            "350 adds fabrication and assembly detail for shop drawings",
+            "350 adds cost and schedule data linked to each element"
           ],
           answer: 0,
           explain: "LOD 350 specifically adds the modeling of how an element interfaces and connects with adjacent elements, which 300 alone does not require."
@@ -247,10 +247,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Why is LOD 350 especially valuable for coordination between trades?",
           choices: [
-            "It hides clashes",
+            "It adds verified as-built geometry captured by a laser scan survey",
             "It models how elements physically connect, improving clash detection",
-            "It deletes overlapping elements",
-            "It reduces the model to a single trade"
+            "It includes the fabrication detail needed for shop drawings and assembly",
+            "It links each element to cost data used during coordination meetings"
           ],
           answer: 1,
           explain: "By modeling interfaces and connections, LOD 350 makes coordination and clash detection between trades far more accurate."
@@ -272,10 +272,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What does LOD 400 primarily support?",
           choices: [
-            "Early massing studies",
+            "Verification of as-built field conditions",
             "Fabrication and assembly of the element",
-            "Deleting elements",
-            "Hiding data from contractors"
+            "Coordination of interfaces between trades",
+            "Approximate sizing during schematic design"
           ],
           answer: 1,
           explain: "LOD 400 carries the detail, fabrication, and assembly information needed to actually build or manufacture the element."
@@ -312,10 +312,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Which statement about LOD 500 is correct?",
           choices: [
-            "It is a rough concept",
+            "It is the level needed for fabrication and shop drawings",
             "It reflects verified real-world conditions of the built asset",
-            "It has no data attached",
-            "It is always lower detail than LOD 100"
+            "It is the highest level of geometric detail a model can show",
+            "It adds the connections and interfaces between trade elements"
           ],
           answer: 1,
           explain: "LOD 500 reflects verified, real-world conditions of the built asset and is often used for operations and facility management."
@@ -337,10 +337,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What is the key difference between Level of Development and geometric detail?",
           choices: [
-            "They are exactly the same thing",
+            "Development is about how much geometry is shown, detail is about reliability",
             "Development is about reliability, detail is about how much geometry is shown",
-            "Detail is always higher than development",
-            "Development only applies to 2D drawings"
+            "Development applies to geometry, while detail applies to attached data only",
+            "Development is set by the software, while detail is chosen by the modeler"
           ],
           answer: 1,
           explain: "Level of Development communicates how reliable and complete an element is, while geometric detail is simply how much geometry is drawn. A detailed shape can still be unreliable."
@@ -371,10 +371,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "A generic block placed just to reserve space, but drawn with fine edges, is likely which LOD?",
           choices: [
-            "High LOD because it looks detailed",
+            "High LOD because its edges are drawn with fine detail",
             "Low LOD because its information is not yet reliable",
-            "LOD 500 automatically",
-            "It cannot have any LOD"
+            "LOD 350 because it reserves space for interfaces",
+            "LOD 300 because its size and position are modeled"
           ],
           answer: 1,
           explain: "Reliability, not appearance, drives LOD. A placeholder reserving space is low LOD even if it is drawn with fine edges."
@@ -402,10 +402,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What does LOI refer to?",
           choices: [
-            "The geometry of an element",
+            "The level of geometric detail shown for an element",
             "The non-geometric information attached to an element",
-            "The color of a wall",
-            "The file format"
+            "The reliability of an element's size and location",
+            "The format used to exchange information between tools"
           ],
           answer: 1,
           explain: "LOI is Level of Information, describing the non-geometric data attached to an element, such as manufacturer, material, or ratings."
@@ -502,10 +502,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Why is defining information need tied to a purpose important?",
           choices: [
-            "So the model is always as large as possible",
+            "So every element carries the maximum information from the start",
             "So the right amount of information is delivered for each specific use",
-            "So information is never shared",
-            "So geometry can be deleted"
+            "So the geometry reaches LOD 400 before any data is added to it",
+            "So the requirements are set once by the software and never reviewed"
           ],
           answer: 1,
           explain: "Tying information to a defined purpose ensures each deliverable carries exactly what that use requires, no more and no less."

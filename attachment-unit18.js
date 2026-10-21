@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What was the core of Jerome Kagan's critique of attachment research?",
           choices: [
-            "That the Strange Situation was too expensive to run",
+            "That the Strange Situation is too brief to reveal how attachment develops over the whole of childhood",
             "That attachment classifications reflect the infant's inborn temperament rather than caregiving quality",
-            "That attachment behavior disappears after infancy",
-            "That mothers, not infants, should be classified"
+            "That attachment patterns are set by the father's involvement more than by the mother's sensitivity",
+            "That the coding of reunion behavior is too unreliable for trained observers to agree on classifications"
           ],
           answer: 1,
           explain: "Kagan's temperament hypothesis held that how a baby behaves in the Strange Situation is largely driven by its constitutional reactivity, not by the sensitivity of its caregiver."
@@ -84,10 +84,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What does Kagan's concept of behavioral inhibition describe?",
           choices: [
-            "A child's tendency to be bold and approach new people eagerly",
+            "A temperamental tendency to be bold and to approach new people and places eagerly",
             "A temperamental tendency to be wary, timid, and fearful in unfamiliar situations",
-            "A child's refusal to ever sleep alone",
-            "A learned habit taught by anxious parents only"
+            "A habit of holding back anger that children learn from strict, punishing parents",
+            "A child's difficulty in stopping an action once started, seen as a sign of impulsivity"
           ],
           answer: 1,
           explain: "Behavioral inhibition is a temperamental style marked by wariness, restraint, and distress when facing novel or unfamiliar people and settings."
@@ -109,10 +109,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Why does behavioral inhibition pose a problem for interpreting the Strange Situation?",
           choices: [
-            "It makes babies sleep through the procedure",
-            "It removes all crying from the procedure",
+            "It makes temperamentally fearful babies calmer, so insecure babies can look secure",
+            "It means babies with sensitive mothers cry less, which hides their real attachment",
             "It could make a temperamentally fearful baby look insecure even with sensitive care",
-            "It only affects children older than ten"
+            "It shows that the stranger, not the caregiver, is the main cause of infant distress"
           ],
           answer: 2,
           explain: "An inhibited baby may show heightened distress to the strange room and stranger for temperamental reasons, potentially masquerading as attachment insecurity."
@@ -154,10 +154,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "In Dymphna van den Boom's 1994 study of irritable Dutch infants, what happened when mothers were coached to respond more sensitively?",
           choices: [
-            "The irritable infants became even more insecure",
+            "The coached infants became more resistant, since the extra attention overwhelmed them",
             "The infants were significantly more likely to become securely attached",
-            "Nothing changed, showing temperament was destiny",
-            "The infants stopped crying permanently"
+            "Nothing changed, which showed that irritable temperament fixed the outcome",
+            "The infants cried less at home but were no more likely to be secure in the lab"
           ],
           answer: 1,
           explain: "Van den Boom randomly assigned irritable infants to a sensitivity intervention; those infants showed markedly higher rates of secure attachment, evidence that care shapes security even in temperamentally difficult babies."
@@ -179,10 +179,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What is the strongest logical point of the van den Boom experiment?",
           choices: [
-            "It only observed families without changing anything",
+            "It followed families over many years to show that early sensitivity predicts later attachment security",
             "It randomly manipulated caregiving, allowing a causal claim that sensitivity affects security",
-            "It measured genes rather than behavior",
-            "It proved temperament does not exist"
+            "It compared twins to separate the effects of shared genes from the effects of caregiving",
+            "It measured temperament at birth and showed that it had no link to later attachment"
           ],
           answer: 1,
           explain: "Because sensitivity was experimentally manipulated through random assignment, the resulting change in attachment supports a causal role for caregiving, not merely a correlation."
@@ -224,9 +224,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What does the goodness-of-fit model, developed by Thomas and Chess, propose?",
           choices: [
-            "That only the child's temperament matters for outcomes",
-            "That parents should ignore a child's temperament entirely",
-            "That all children develop identically regardless of care",
+            "That a child's temperament fixes later outcomes, whatever the quality of care and the setting",
+            "That parents should aim to change a child's temperament to suit the family",
+            "That good parenting works in the same way for every child, whatever that child's temperament",
             "That development depends on the match between a child's temperament and environmental demands"
           ],
           answer: 3,
@@ -259,10 +259,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "According to the goodness-of-fit model, when does a difficult temperament most likely lead to problems?",
           choices: [
-            "Whenever a difficult temperament is present, no matter the parenting",
+            "Whenever a difficult temperament is present, no matter how skilled the parenting is",
             "When there is a poor fit between the child's temperament and the caregiving it receives",
-            "Only when the child has an easy temperament",
-            "Never, because temperament has no effect"
+            "When parents adapt their style too much to the child instead of setting firm and consistent limits",
+            "When the child is cared for by several adults who each respond in a different way"
           ],
           answer: 1,
           explain: "A difficult temperament is not destiny; problems tend to arise from a poor fit, whereas a good match between temperament and responsive care supports healthy adjustment."
@@ -294,9 +294,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What does a gene-environment interaction mean for attachment?",
           choices: [
-            "Genes fully determine attachment with no role for care",
-            "The environment erases all genetic effects",
-            "Genes only matter after adulthood",
+            "Genes fully determine attachment, leaving no role for the quality of caregiving",
+            "A child's genes and the caregiving environment each add a separate, fixed effect on security",
+            "Genes shape attachment only in adulthood, after early care has had its effect",
             "A gene can change how strongly the caregiving environment affects attachment outcomes"
           ],
           answer: 3,
@@ -329,10 +329,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "In work by Bakermans-Kranenburg and van IJzendoorn, the DRD4 7-repeat allele was linked to disorganized attachment mainly under what condition?",
           choices: [
-            "Only in infants raised without any parents",
+            "When it appeared in infants with highly sensitive and responsive mothers",
             "When it was combined with less sensitive or frightening caregiving",
-            "Regardless of caregiving, in every case",
-            "Only when the infant also had an easy temperament"
+            "In every infant who carried it, whatever the quality of caregiving received",
+            "Only when the infant also had a calm temperament and an easy early start"
           ],
           answer: 1,
           explain: "Their gene-environment findings suggested the DRD4 7-repeat raised risk for disorganization especially in combination with insensitive, unresolved, or frightening caregiving, not on its own."
@@ -364,10 +364,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What does Jay Belsky's differential susceptibility hypothesis claim?",
           choices: [
-            "That all children respond identically to their environment",
-            "That only harsh environments influence children",
+            "That some children are harmed more by bad environments but gain no more than others from good ones",
+            "That only harsh environments influence children, while good ones have little effect",
             "That some children are more affected than others by both negative and positive environments",
-            "That genes and environment never interact"
+            "That genes, not environments, decide which children do well and which do poorly"
           ],
           answer: 2,
           explain: "Differential susceptibility holds that highly susceptible children fare worse than others in poor environments but also better than others in supportive ones, for better and for worse."
@@ -399,10 +399,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "How does differential susceptibility differ from the older diathesis-stress model?",
           choices: [
-            "It says susceptible children only suffer harm and never benefit",
+            "It says susceptible children are harmed more by stress but never benefit from support",
             "It says susceptible children benefit more from good environments, not just suffer more from bad ones",
-            "It denies that any children are more sensitive than others",
-            "It ignores the environment completely"
+            "It says that no child is more sensitive than others once you control for the home setting",
+            "It says that environments matter far less than inborn vulnerability for every single child, good or bad"
           ],
           answer: 1,
           explain: "Diathesis-stress focuses only on vulnerability to harm, whereas differential susceptibility adds that the same sensitive children also gain the most from enriching environments."
@@ -434,10 +434,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "How do twin studies estimate the heritability of a trait like attachment security?",
           choices: [
-            "By comparing children to unrelated strangers",
+            "By comparing adopted children with their adoptive and their birth parents",
             "By comparing the similarity of identical twins with that of fraternal twins",
-            "By studying only single children",
-            "By measuring only the parents' genes"
+            "By comparing twins raised together with siblings born years apart",
+            "By testing whether twins share the same attachment figure at home"
           ],
           answer: 1,
           explain: "Twin studies compare identical twins, who share nearly all genes, with fraternal twins, who share about half, using any excess similarity in identical pairs to estimate genetic influence."
@@ -460,9 +460,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What is a key implication of finding low heritability for attachment security?",
           choices: [
             "It supports the view that security is driven mainly by the rearing environment",
-            "It proves attachment does not exist",
-            "It shows temperament fully determines attachment",
-            "It means twins cannot be studied"
+            "It shows that temperament, rather than caregiving, explains most differences in security",
+            "It means that attachment security cannot be changed once it forms in infancy",
+            "It shows that shared genes explain why siblings tend to have similar attachment"
           ],
           answer: 0,
           explain: "Low heritability combined with a strong shared-environment effect points toward caregiving and family environment, not genes, as the main source of differences in security."
@@ -504,10 +504,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What does a transactional model of development, associated with Arnold Sameroff, emphasize?",
           choices: [
-            "That the child and environment are separate and unchanging",
+            "That the child's inborn traits set the course and the environment adds little",
             "That the child and environment continuously and reciprocally influence each other over time",
-            "That only genes matter",
-            "That only parenting matters"
+            "That parenting shapes the child in one direction only, with no influence flowing back from the child",
+            "That development unfolds in fixed stages that are the same in every environment"
           ],
           answer: 1,
           explain: "A transactional model stresses ongoing, bidirectional influence: the child shapes the environment and the environment shapes the child in a continuous loop across development."
@@ -540,9 +540,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "How can a child's temperament and a caregiver's behavior transact over time?",
           choices: [
             "A fussy baby may draw either frustration or extra soothing, which then further shapes the baby",
-            "A baby's temperament never affects how caregivers behave",
-            "Caregivers respond identically to every baby",
-            "Temperament and caregiving can never influence one another"
+            "A fussy baby will become secure if the caregiver ignores the fussing until it stops on its own",
+            "A calm baby shapes the caregiver, but caregivers have little effect on the baby's temperament",
+            "A caregiver's style is fixed before birth, so the baby's temperament cannot change how they act"
           ],
           answer: 0,
           explain: "A baby's temperament evokes caregiver reactions, and those reactions feed back to shape the child, illustrating the reciprocal transactions at the heart of integration."

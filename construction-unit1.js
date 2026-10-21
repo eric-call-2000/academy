@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which phase comes BEFORE crews break ground, covering design, permits, budgeting and scheduling?",
-          choices: ["Pre-construction", "Closeout", "Commissioning", "Demolition"],
+          choices: ["Pre-construction", "Construction administration", "Commissioning", "Mobilization"],
           answer: 0,
           explain: "Pre-construction is the planning stage where design, estimating, permitting and scheduling happen before any building starts."
         },
@@ -76,14 +76,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Who holds the prime contract and is responsible for coordinating and completing the whole build?",
-          choices: ["General contractor (GC)", "Subcontractor", "Architect", "Owner"],
+          choices: ["General contractor (GC)", "Construction manager as agent", "Architect of record", "Owner's representative"],
           answer: 0,
           explain: "The general contractor signs the prime contract and is accountable for delivering the entire project."
         },
         {
           type: "mcq",
           q: "A subcontractor is best described as a company that:",
-          choices: ["Performs a specialized trade hired by the GC", "Designs the building", "Owns the property", "Issues the building permit"],
+          choices: ["Performs a specialized trade hired by the GC", "Provides design services under contract to the owner", "Supplies materials to the site without installing them", "Inspects finished work on behalf of the building department"],
           answer: 0,
           explain: "Subcontractors are trade specialists, such as electricians or plumbers, hired by the general contractor."
         },
@@ -113,14 +113,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does a civil engineer typically handle on a project?",
-          choices: ["Site grading, drainage and utilities", "Interior paint colors", "The structural steel frame", "Marketing the finished building"],
+          choices: ["Site grading, drainage and utilities", "Sizing the beams and columns of the structural frame", "Routing HVAC ducts and plumbing inside the building", "Interior finishes and the reflected ceiling plan"],
           answer: 0,
           explain: "Civil engineers design site work such as grading, stormwater drainage, and underground utilities."
         },
         {
           type: "mcq",
           q: "A project manager (PM) on the contractor side mainly handles:",
-          choices: ["Budgets, schedules, contracts and paperwork", "Pouring the concrete", "Drawing the floor plans", "Inspecting for the city"],
+          choices: ["Budgets, schedules, contracts and paperwork", "Directing the crews and trades on site day to day", "Preparing the design drawings and specifications", "Performing code inspections for the building department"],
           answer: 0,
           explain: "The PM runs the business side of the job, managing cost, schedule, contracts and communication."
         },
@@ -144,14 +144,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A plan view shows the building as if you are:",
-          choices: ["Looking straight down from above", "Standing in front of it", "Slicing it open vertically", "Zoomed into one connection"],
+          choices: ["Looking straight down from above", "Standing in front of one face of it", "Slicing it open vertically and looking in from the side", "Viewing it from a corner in an angled 3D perspective"],
           answer: 0,
           explain: "A plan is a top-down view, like a horizontal cut looking down, used for floor plans and site plans."
         },
         {
           type: "mcq",
           q: "An elevation drawing shows:",
-          choices: ["A flat, head-on view of one face of the building", "A bird's-eye top view", "A magnified single joint", "The mechanical ductwork only"],
+          choices: ["A flat, head-on view of one face of the building", "A top-down view of the floor layout at one level", "A vertical cut through the building showing its interior", "An enlarged view of a single connection or assembly"],
           answer: 0,
           explain: "An elevation is a straight-on view of an exterior or interior face, showing heights and finishes."
         },
@@ -233,7 +233,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "On a drawing, the north arrow is used to:",
-          choices: ["Show the building's orientation", "Indicate the scale", "Mark an electrical outlet", "Point to the title block"],
+          choices: ["Show the building's orientation", "Indicate the drawing scale and units of measure", "Show the direction of slope for site drainage", "Point to the matching detail on another sheet"],
           answer: 0,
           explain: "The north arrow orients the drawing so you know which way the building actually faces."
         },
@@ -256,7 +256,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A keynote on a drawing is:",
-          choices: ["A numbered note referencing a list of standardized notes", "The drawing's scale", "A type of door", "The architect's signature"],
+          choices: ["A numbered note referencing a list of standardized notes", "A symbol that points to an enlarged detail on another sheet", "A revision cloud marking what changed since the last issue", "The sheet title and number shown in the title block"],
           answer: 0,
           explain: "Keynotes use numbers or codes that point to a shared note legend, keeping drawings clean and consistent."
         },
@@ -307,7 +307,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A circular saw is mainly used to:",
-          choices: ["Make straight cuts in lumber and sheet goods", "Drive long screws", "Measure level", "Mix concrete"],
+          choices: ["Make straight cuts in lumber and sheet goods", "Make tight curved cuts and scrollwork in thin stock", "Cut through nails and metal pipe during demolition work", "Bore large-diameter holes through studs and joists"],
           answer: 0,
           explain: "A circular saw uses a spinning toothed blade to make fast straight cuts in wood and panels."
         },
@@ -320,7 +320,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A framing square is most useful for:",
-          choices: ["Laying out right angles and stair or rafter cuts", "Cutting metal pipe", "Checking soil compaction", "Lifting heavy beams"],
+          choices: ["Laying out right angles and stair or rafter cuts", "Checking that a wall or post is plumb over its full height", "Scribing curved lines along irregular surfaces", "Measuring long distances across a building layout"],
           answer: 0,
           explain: "The large L-shaped framing square helps lay out 90 degree corners and stair and rafter geometry."
         },
@@ -350,7 +350,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "An excavator's main job is to:",
-          choices: ["Dig with a boom-mounted bucket", "Pave asphalt", "Pour concrete walls", "Weld steel"],
+          choices: ["Dig with a boom-mounted bucket", "Push and spread soil with a front blade", "Compact soil and base layers with a vibrating drum", "Lift pallets of material up to the upper floors"],
           answer: 0,
           explain: "An excavator uses a hydraulic boom, arm and bucket to dig trenches and foundations."
         },
@@ -387,7 +387,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A concrete pump is used to:",
-          choices: ["Move concrete through a hose to hard-to-reach places", "Crush old concrete", "Smooth finished slabs", "Cut control joints"],
+          choices: ["Move concrete through a hose to hard-to-reach places", "Mix cement, sand and aggregate at the plant for delivery", "Vibrate fresh concrete to remove trapped air pockets", "Spread and level concrete across a slab before it sets"],
           answer: 0,
           explain: "A concrete pump pushes wet concrete through pipes or hoses to reach upper floors or tight spots."
         },
@@ -417,7 +417,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Concrete is very strong in compression but weak in tension, so it is reinforced with:",
-          choices: ["Rebar (steel reinforcing bar)", "Drywall", "Insulation", "Plywood"],
+          choices: ["Rebar (steel reinforcing bar)", "Fly ash (a cement replacement)", "Air-entraining admixture", "Aggregate (crushed stone and gravel)"],
           answer: 0,
           explain: "Steel rebar is embedded in concrete to carry the tensile (pulling) loads that concrete alone cannot."
         },
@@ -437,7 +437,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Gypsum board, commonly called drywall, is mainly used for:",
-          choices: ["Interior wall and ceiling surfaces", "Foundation footings", "Roof shingles", "Exterior paving"],
+          choices: ["Interior wall and ceiling surfaces", "Subflooring under tile and carpet finishes", "Roof decking beneath the shingles", "Below-grade foundation wall waterproofing"],
           answer: 0,
           explain: "Drywall provides a smooth, paintable, fire-resistant surface for interior walls and ceilings."
         },
@@ -454,7 +454,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Dimensional lumber sizes like a '2x4' refer to:",
-          choices: ["A nominal size that is slightly smaller when finished", "The exact finished size in inches", "The weight of the board", "The grade of the wood only"],
+          choices: ["A nominal size that is slightly smaller when finished", "The exact finished size of the board in inches after drying", "The board's thickness in inches and length in feet", "The structural grade and species of the wood used"],
           answer: 0,
           explain: "A 2x4 is a nominal label; the actual milled, dried size is about 1.5 by 3.5 inches."
         },
@@ -571,14 +571,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A submittal is:",
-          choices: ["Product data or samples sent for the designer to approve before installation", "The final invoice", "A safety violation notice", "The construction schedule"],
+          choices: ["Product data or samples sent for the designer to approve before installation", "A formal question sent to the design team asking them to clarify unclear drawings or specs", "A written change to the contract scope, price or schedule", "A daily record of crews, weather and work completed on site"],
           answer: 0,
           explain: "Submittals let the design team verify that proposed products and shop drawings meet the specs before work proceeds."
         },
         {
           type: "mcq",
           q: "CSI MasterFormat is a system that:",
-          choices: ["Organizes specifications into numbered divisions", "Sets worker wages", "Designs the structural frame", "Schedules deliveries"],
+          choices: ["Organizes specifications into numbered divisions", "Sets the minimum fire and life safety requirements for buildings", "Defines standard test methods for construction materials", "Assigns a unique number to every drawing sheet in a set"],
           answer: 0,
           explain: "MasterFormat is the industry standard that sorts specs into consistent numbered divisions, like Division 03 Concrete."
         },

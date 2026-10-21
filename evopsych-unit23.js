@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("evopsych", {
           "q": "What is the core function of coalitional psychology?",
           "choices": [
             "Tracking alliances and who supports whom in conflicts",
-            "Memorizing the calorie content of foods",
-            "Estimating distances to predators",
-            "Recognizing individual faces of strangers only"
+            "Recognizing individual faces, whether friend or stranger",
+            "Tracking the status rank of every person in a group",
+            "Detecting kin by cues of early co-residence"
           ],
           "answer": 0,
           "explain": "Coalitional psychology is the evolved machinery for detecting, forming, and managing alliances, because group support historically shaped survival and reproduction."
@@ -43,10 +43,10 @@ window.ACADEMY.addUnit("evopsych", {
           "type": "mcq",
           "q": "Why is monitoring shifting alliances a demanding cognitive task?",
           "choices": [
-            "Alliances never change once formed",
+            "Alliances are fixed at birth by kinship, so they need to be memorized only once in life",
             "Allegiances change over time, so who is 'with' whom must be constantly updated",
-            "Only kin can ever be allies",
-            "Coalitions are always announced publicly"
+            "Allies are always announced publicly, so there is too much to remember",
+            "Only kin can be allies, so the mind must track every relative's genes"
           ],
           "answer": 1,
           "explain": "Because loyalties shift, the mind must continually re-estimate current alliance patterns rather than store fixed relationships."
@@ -97,10 +97,10 @@ window.ACADEMY.addUnit("evopsych", {
           "type": "mcq",
           "q": "What did Kurzban, Tooby, and Cosmides (2001) argue about the mind's encoding of race?",
           "choices": [
-            "Race is encoded as an innate, immutable primary category",
+            "Race is encoded as an innate, immutable primary category, just like sex and age",
             "Race is encoded as a byproduct of a system for tracking coalitions and can be diminished",
-            "The mind cannot register race at all",
-            "Race encoding is stronger than encoding of sex or age in all conditions"
+            "The mind cannot register race at all until it is taught in late childhood",
+            "Race is encoded more strongly than sex or age under every condition that has been tested"
           ],
           "answer": 1,
           "explain": "They proposed race is not a dedicated category but a side effect of coalition-detection machinery, so it fades when coalition is cued another way."
@@ -181,10 +181,10 @@ window.ACADEMY.addUnit("evopsych", {
           "type": "mcq",
           "q": "What did the minimal group paradigm, developed by Henri Tajfel, demonstrate?",
           "choices": [
-            "People only favor their group when there is real competition for resources",
+            "People favor their own group only when there is real, ongoing competition for scarce resources",
             "People show in-group favoritism even when groups are formed by trivial or random criteria",
-            "Group membership has no effect on how people allocate rewards",
-            "Favoritism appears only among close kin"
+            "Group membership has no effect on how people divide rewards between others",
+            "Favoritism appears only among close kin and long-standing friends"
           ],
           "answer": 1,
           "explain": "Tajfel found that even meaningless group assignments (like a coin flip or dot-estimation) were enough to produce in-group favoritism."
@@ -211,9 +211,9 @@ window.ACADEMY.addUnit("evopsych", {
           "q": "From an evolutionary view, why might tribal us-versus-them cognition have arisen?",
           "choices": [
             "Because ancestral life involved recurrent intergroup competition and cooperation within groups",
-            "Because groups had no impact on ancestral survival",
-            "Because humans evolved in complete isolation",
-            "Because language made all outsiders instantly trustworthy"
+            "Because groups had little impact on survival, so the bias arose as a harmless byproduct",
+            "Because ancestral humans lived mostly alone and met other groups only rarely",
+            "Because language made all outsiders instantly trustworthy, so trust had to be limited"
           ],
           "answer": 0,
           "explain": "Recurrent between-group competition and within-group cooperation would favor psychology that quickly distinguishes allies from outsiders."
@@ -266,8 +266,8 @@ window.ACADEMY.addUnit("evopsych", {
           "choices": [
             "Wealth and beauty",
             "Dominance and prestige",
-            "Age and height",
-            "Fear and love"
+            "Dominance and kinship",
+            "Prestige and seniority"
           ],
           "answer": 1,
           "explain": "Their influential model distinguishes dominance (status via force) from prestige (status via freely conferred admiration)."
@@ -292,10 +292,10 @@ window.ACADEMY.addUnit("evopsych", {
           "type": "mcq",
           "q": "Why did Henrich and Gil-White argue prestige is uniquely elaborated in humans?",
           "choices": [
-            "Because humans cannot use physical force",
+            "Because humans cannot use physical force to gain status in most societies",
             "Because human reliance on cultural learning makes copying skilled models highly valuable",
-            "Because prestige requires no social attention at all",
-            "Because prestige and dominance are actually identical"
+            "Because prestige needs no social attention, unlike dominance, which is costly",
+            "Because prestige and dominance are really the same thing in humans, unlike in other great apes"
           ],
           "answer": 1,
           "explain": "Human culture depends on learning from others, so deferring to and attending closely to skilled models (prestige) pays off, making it distinctly human."
@@ -346,10 +346,10 @@ window.ACADEMY.addUnit("evopsych", {
           "type": "mcq",
           "q": "What is a free-rider in the context of group cooperation?",
           "choices": [
-            "Someone who contributes more than their fair share",
+            "Someone who contributes more than their fair share to a shared good",
             "Someone who benefits from a shared good without paying their share of the cost",
-            "A person who refuses all group benefits",
-            "A leader who redistributes resources"
+            "A person who refuses all group benefits in order to stay independent",
+            "A leader who collects everyone's contributions and redistributes them across the group"
           ],
           "answer": 1,
           "explain": "A free-rider enjoys the benefits of collective effort while avoiding the costs, which threatens the stability of cooperation."
@@ -375,10 +375,10 @@ window.ACADEMY.addUnit("evopsych", {
           "type": "mcq",
           "q": "How does punishment help sustain cooperation in groups?",
           "choices": [
-            "It rewards free-riders for their efficiency",
+            "It rewards free-riders, so they eventually choose to contribute",
             "It imposes costs on non-contributors, making cheating less profitable",
-            "It eliminates the need for any cooperation",
-            "It has no measurable effect on contribution rates"
+            "It removes the need for cooperation by forcing people to share",
+            "It lowers contribution rates, since people resent being watched"
           ],
           "answer": 1,
           "explain": "By making cheating costly, punishment shifts the payoff so that contributing becomes the better strategy, stabilizing cooperation."
@@ -430,9 +430,9 @@ window.ACADEMY.addUnit("evopsych", {
           "q": "What social function did Robin Dunbar propose for gossip?",
           "choices": [
             "Sharing information about other people's behavior and reputations",
-            "Coordinating tool manufacture",
-            "Encoding directions to food sources",
-            "Teaching abstract mathematics"
+            "Coordinating the manufacture and sharing of stone tools",
+            "Encoding directions to distant food and water sources for the group",
+            "Teaching children abstract skills like counting"
           ],
           "answer": 0,
           "explain": "Dunbar argued gossip functions to exchange socially relevant information about who is trustworthy, who cheated, and who cooperated."
@@ -458,10 +458,10 @@ window.ACADEMY.addUnit("evopsych", {
           "type": "mcq",
           "q": "How does gossip help police free-riders and cheaters?",
           "choices": [
-            "It hides cheaters from the group",
+            "It hides cheaters from the group so that conflicts do not escalate",
             "It spreads reputational information so cheaters can be identified and avoided",
-            "It rewards cheaters with higher status",
-            "It prevents anyone from forming alliances"
+            "It rewards cheaters with higher status, which draws attention to them",
+            "It prevents alliances from forming at all, so cheaters have no partners left to exploit"
           ],
           "answer": 1,
           "explain": "By transmitting who behaved badly, gossip lets people avoid or punish cheaters even without direct observation."
@@ -512,10 +512,10 @@ window.ACADEMY.addUnit("evopsych", {
           "type": "mcq",
           "q": "What does the social brain hypothesis propose drove the evolution of large primate brains?",
           "choices": [
-            "The demands of processing color vision",
+            "The demands of processing color vision to find ripe fruit",
             "The cognitive demands of living in complex social groups",
-            "The need to migrate long distances",
-            "The challenge of digesting cooked food"
+            "The need to navigate and migrate over long distances",
+            "The challenge of digesting cooked food and meat"
           ],
           "answer": 1,
           "explain": "The social brain hypothesis holds that managing complex social relationships, not ecological challenges alone, selected for larger brains."
@@ -541,10 +541,10 @@ window.ACADEMY.addUnit("evopsych", {
           "type": "mcq",
           "q": "Dunbar's number is best described as a limit on which of the following?",
           "choices": [
-            "The number of words a person can learn",
+            "The number of words a person can learn and actively use",
             "The number of stable, meaningful social relationships one can maintain",
-            "The number of hours in a social day",
-            "The number of distinct facial expressions"
+            "The number of faces a person can recognize and put names to over a whole lifetime",
+            "The number of hours a day people can spend on grooming and talk"
           ],
           "answer": 1,
           "explain": "Dunbar's number refers to the cognitive ceiling on how many meaningful, stable relationships a person can actively maintain."
@@ -624,10 +624,10 @@ window.ACADEMY.addUnit("evopsych", {
           "type": "mcq",
           "q": "Why might the pain of social exclusion have been favored by evolution?",
           "choices": [
-            "Because exclusion improved ancestral survival",
+            "Because exclusion often improved survival by freeing individuals from the costs of group life",
             "Because in ancestral environments group membership was crucial for survival, so exclusion was dangerous",
-            "Because pain has no adaptive value",
-            "Because ancestral humans lived entirely alone"
+            "Because pain from exclusion was a byproduct of physical pain, with no added value",
+            "Because ancestral humans lived mostly alone, so any contact with other people felt threatening to them"
           ],
           "answer": 1,
           "explain": "Since survival depended on the group, a painful alarm signaling exclusion would motivate quick repair of social bonds."

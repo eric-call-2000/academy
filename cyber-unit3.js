@@ -32,9 +32,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What makes a worm different from a classic virus?",
           choices: [
             "A worm can spread by itself across a network without a user opening anything",
-            "A worm can only run on phones",
-            "A worm always encrypts your files",
-            "A worm is completely harmless"
+            "A worm hides inside a useful-looking program that the user chooses to install",
+            "A worm encrypts files and demands payment to unlock them",
+            "A worm only spreads when a user opens an infected email attachment"
           ],
           answer: 0,
           explain: "The defining trait of a worm is self-propagation. It spreads on its own, while a virus needs a user to run an infected file."
@@ -50,9 +50,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which habit best lowers your risk of getting malware?",
           choices: [
             "Only install software from trusted sources and keep systems updated",
-            "Turn off all updates so nothing changes",
-            "Open every email attachment to check it",
-            "Disable your firewall for speed"
+            "Run a full antivirus scan once a month and skip updates in between",
+            "Open attachments only when the sender's name looks familiar to you",
+            "Turn off automatic updates so nothing changes without your approval"
           ],
           answer: 0,
           explain: "Sticking to trusted sources and applying updates closes off the most common ways malware sneaks onto a device."
@@ -79,9 +79,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a 'payload' in the context of malware?",
           choices: [
             "The harmful action the malware is designed to carry out",
-            "The size of the malware file in megabytes",
-            "The antivirus that removes it",
-            "The email it arrived in"
+            "The method the malware uses to spread between devices",
+            "The flaw in the software that the malware takes advantage of",
+            "The disguise that makes the malware look like a safe file"
           ],
           answer: 0,
           explain: "The payload is what the malware actually does once it runs, such as stealing data, encrypting files, or opening a backdoor."
@@ -105,9 +105,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is the single best defense against ransomware?",
           choices: [
             "Recent, tested backups kept offline or separate from your main system",
-            "Paying the ransom quickly",
-            "Renaming all your files",
-            "Turning your screen brightness down"
+            "Antivirus software that scans each new file as soon as it is downloaded",
+            "Paying the ransom quickly before the price goes up after the deadline",
+            "Syncing every file to a cloud folder that mirrors your main drive"
           ],
           answer: 0,
           explain: "If you have clean backups you can restore instead of paying. Keep them offline or separate so the ransomware cannot reach them too."
@@ -144,9 +144,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why do experts advise following the '3-2-1' idea for backups?",
           choices: [
             "Keep multiple copies, on different media, with at least one kept offsite or offline",
-            "Back up exactly three files per day",
-            "Only back up on the first of the month",
-            "Store all backups on the same drive as the originals"
+            "Back up three times each day, to two drives, and keep one full copy each week",
+            "Keep three copies of each file in two folders on the same main drive",
+            "Save backups every three days and keep them for two weeks at most"
           ],
           answer: 0,
           explain: "Several copies, on different media, with one kept away from the main system means a single incident cannot wipe out everything."
@@ -162,9 +162,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "You get hit by ransomware. What is a smart first step?",
           choices: [
             "Disconnect the device from the network to stop it spreading, then get help",
-            "Immediately pay in cryptocurrency",
-            "Reboot repeatedly and hope it clears",
-            "Forward the ransom note to all your coworkers"
+            "Restart the device several times to see if the ransomware clears itself",
+            "Pay the ransom right away so the attackers do not delete your files",
+            "Run a disk cleanup tool to delete the encrypted files and free space"
           ],
           answer: 0,
           explain: "Isolating the machine limits the damage. Then involve the right people and recover from backups rather than rushing to pay."
@@ -198,9 +198,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is spyware especially dangerous?",
           choices: [
             "It can steal sensitive data quietly for a long time before anyone notices",
-            "It instantly destroys the hard drive",
-            "It only affects the volume settings",
-            "It always announces itself with a loud alarm"
+            "It encrypts every file on the device right away and then demands a ransom payment",
+            "It spreads by itself to every other device on the network",
+            "It fills the screen with pop-up ads that slow down the computer"
           ],
           answer: 0,
           explain: "Spyware is built to stay hidden, so it can harvest logins, messages, and habits over long periods without being spotted."
@@ -216,9 +216,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which is a good way to reduce the risk of spyware and keyloggers?",
           choices: [
             "Keep software updated and avoid installing unknown or 'free' bundled programs",
-            "Type slower so it cannot keep up",
-            "Only use uppercase letters",
-            "Cover your keyboard with a cloth"
+            "Use a private browsing window so nothing you type on the keyboard is recorded",
+            "Change your passwords every week so stolen ones expire quickly",
+            "Clear your browser cookies every night so nothing you type is saved"
           ],
           answer: 0,
           explain: "Most spyware and keyloggers arrive with sketchy downloads or bundled installers, so caution about what you install matters most."
@@ -234,9 +234,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "A free tool asks to install several extra 'partner offers' during setup. What is the safe move?",
           choices: [
             "Decline the extras and only install what you actually came for",
-            "Accept all of them to be polite",
-            "Install them, then uninstall later",
-            "Enter your bank details to speed it up"
+            "Accept the extras, then run an antivirus scan once setup is done",
+            "Install everything, then remove what you don't want later",
+            "Accept the extras if the tool's website looks professional"
           ],
           answer: 0,
           explain: "Bundled 'offers' are a classic delivery method for adware and spyware. Uncheck or decline anything you did not ask for."
@@ -260,9 +260,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "How does spear phishing differ from ordinary phishing?",
           choices: [
             "It targets a specific person or group using details tailored to them",
-            "It is sent by regular mail",
-            "It only happens over the phone",
-            "It is always caught by spam filters"
+            "It is sent to millions of addresses at once from hacked accounts",
+            "It uses text messages instead of email to deliver the lure",
+            "It aims only at senior executives, using fake legal or tax notices"
           ],
           answer: 0,
           explain: "Spear phishing is personalized. The attacker uses your name, job, or context to make the lure far more convincing."
@@ -299,9 +299,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "An email says your package is held and asks you to log in through its link. Safest response?",
           choices: [
             "Do not use the link; visit the carrier's website directly to check",
-            "Click the link and enter your password to be safe",
-            "Reply with your address and card number",
-            "Forward it to friends so they can log in too"
+            "Click the link but check that the page has a padlock before logging in",
+            "Reply to the email and ask the sender to confirm it is real",
+            "Hover over the link and log in if the address includes the carrier's name"
           ],
           answer: 0,
           explain: "Never trust the link in an unexpected message. Navigate to the real site yourself to verify any claim."
@@ -311,9 +311,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is 'smishing'?",
           choices: [
             "Phishing carried out through SMS text messages",
-            "A type of firewall",
-            "A password manager",
-            "A secure backup method"
+            "Phishing carried out through voice phone calls",
+            "Phishing that targets senior company executives",
+            "Phishing through fake QR codes posted in public"
           ],
           answer: 0,
           explain: "Smishing is phishing over text messages. Vishing is the voice-call version. The trick is the same, only the channel changes."
@@ -336,9 +336,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What does 'social engineering' mean in security?",
           choices: [
             "Manipulating people into giving up access or information",
-            "Building social media apps",
-            "Encrypting a hard drive",
-            "Designing a company's seating chart"
+            "Collecting public data about a target from social media sites",
+            "Designing systems so people are less likely to make mistakes",
+            "Hacking into social media accounts by cracking their passwords"
           ],
           answer: 0,
           explain: "Social engineering targets human psychology, tricking people into breaking normal security rules rather than hacking code."
@@ -371,9 +371,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why do attackers often create a sense of urgency or fear?",
           choices: [
             "Rushed, anxious people are less likely to stop and verify",
-            "It makes emails load faster",
-            "Urgency improves grammar",
-            "It is required by email providers"
+            "Urgent messages are less likely to be caught by spam filters",
+            "Fear makes people more likely to report the message to IT",
+            "Urgent requests are legally harder to refuse at work"
           ],
           answer: 0,
           explain: "Pressure short-circuits careful thinking. When you feel rushed you are more likely to skip the check that would catch the scam."
@@ -394,9 +394,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "A stranger holding boxes asks you to badge them into a secure office. Best move?",
           choices: [
             "Politely direct them to reception or security to be signed in",
-            "Badge them in since their hands are full",
-            "Give them your badge to keep",
-            "Prop the door open for the rest of the day"
+            "Badge them in, then report them to security afterward if unsure",
+            "Hold the door but check their face against the staff photo list",
+            "Ask to see their badge and let them in if it looks genuine"
           ],
           answer: 0,
           explain: "Helpfulness is exactly what tailgaters exploit. Sending them through the proper check protects everyone without being rude."
@@ -429,9 +429,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "A big red warning says to call 'Microsoft Support' now. What should you do?",
           choices: [
             "Ignore the number and close the page; contact the vendor through its official site if worried",
-            "Call the number and give remote access to your PC",
-            "Read them your passwords",
-            "Pay whatever they ask by gift card"
+            "Call the number but refuse to give them remote access unless they first prove who they are",
+            "Call the number and let them connect remotely, but watch everything they do",
+            "Run the scan the page offers, then call the number if it still finds problems"
           ],
           answer: 0,
           explain: "Real vendors do not cold-demand remote access or gift cards. Reach out through official channels you find yourself."
@@ -441,9 +441,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which payment demand is a strong sign of a scam?",
           choices: [
             "Being asked to pay with gift cards, wire transfer, or crypto and to keep it secret",
-            "A normal card payment with a receipt",
-            "Paying an invoice you actually requested",
-            "A refund back to your card"
+            "Being asked to pay an invoice by card through the vendor's usual payment portal",
+            "Being sent a receipt by email right after paying with your credit card online",
+            "Being asked to confirm a refund to the same card you used for the purchase"
           ],
           answer: 0,
           explain: "Gift cards, wires, and crypto are hard to reverse and favored by scammers. Secrecy plus urgency makes it worse."
@@ -484,9 +484,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a man-in-the-middle (MITM) attack?",
           choices: [
             "An attacker secretly intercepts communication between two parties",
-            "A physical break-in through a window",
-            "A slow internet connection",
-            "A backup that runs at midnight"
+            "An attacker floods a server with traffic until it stops responding",
+            "An attacker poses as a coworker to trick someone into sharing data",
+            "An attacker guesses passwords by trying many combinations at once"
           ],
           answer: 0,
           explain: "In a MITM attack the attacker sits between two parties, able to eavesdrop on or tamper with the messages flowing between them."
@@ -502,9 +502,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is unsecured public Wi-Fi a common setting for MITM attacks?",
           choices: [
             "Attackers on the same network can more easily intercept unencrypted traffic",
-            "Public Wi-Fi is always faster",
-            "It automatically installs antivirus",
-            "It encrypts everything by default"
+            "Public Wi-Fi routers block HTTPS, so all traffic is sent in plain text",
+            "Public networks automatically share your device's files with others nearby",
+            "Public Wi-Fi uses older radios that leak data to anyone within range"
           ],
           answer: 0,
           explain: "On open networks, others nearby can position themselves in your traffic path, so encryption and caution matter even more."
@@ -541,9 +541,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "You must check your bank on public Wi-Fi. What is the safest approach?",
           choices: [
             "Use a trusted VPN and confirm the site shows HTTPS before logging in",
-            "Log in over plain HTTP to be quick",
-            "Turn off encryption for a faster page",
-            "Share your password with a nearby stranger for help"
+            "Use private browsing mode so the network cannot see your traffic",
+            "Connect to the network with the strongest signal and log in quickly",
+            "Turn off your firewall so the bank's site loads without errors"
           ],
           answer: 0,
           explain: "A VPN plus a verified HTTPS connection keeps your login encrypted even on an untrusted network."
@@ -577,9 +577,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why are zero-days especially dangerous?",
           choices: [
             "No fix exists yet, so normal defenses may not stop the attack",
-            "They only work on turned-off computers",
-            "They are always announced weeks in advance",
-            "They automatically fix themselves"
+            "They spread on their own, so one infection reaches every device",
+            "They delete all logs, so attacks can never be detected later",
+            "They only target outdated systems that no longer get updates"
           ],
           answer: 0,
           explain: "Because the vendor has not shipped a patch, defenders are caught off guard until a fix becomes available."
@@ -595,9 +595,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Once a vendor releases a patch for a serious flaw, why should you install it quickly?",
           choices: [
             "Attackers study patches and rush to exploit anyone who has not updated yet",
-            "Patches expire after one hour",
-            "Updates make your screen brighter",
-            "Waiting makes the patch stronger"
+            "Patches stop working if they are not installed within a set number of days",
+            "Vendors stop supporting your device if you skip even one security update",
+            "Unpatched systems are reported to the authorities after the release date"
           ],
           answer: 0,
           explain: "A released patch reveals the flaw, so attackers race to hit unpatched systems. Updating fast keeps you off that list."
@@ -624,9 +624,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What does 'responsible disclosure' generally mean?",
           choices: [
             "A researcher privately tells the vendor so a fix can be made before details go public",
-            "Posting the exploit online immediately for anyone to use",
-            "Selling the flaw to the highest bidder",
-            "Ignoring the flaw entirely"
+            "A researcher publishes full details right away so that users can protect themselves",
+            "A vendor must tell all customers about a flaw within 24 hours of a report",
+            "A company discloses a breach to regulators after customer data is stolen"
           ],
           answer: 0,
           explain: "Responsible disclosure gives the vendor a chance to patch before the flaw is public, protecting users in the meantime."

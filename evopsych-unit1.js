@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "What is the core premise of evolutionary psychology?",
           choices: [
             "The mind is made of information-processing mechanisms shaped by natural selection",
-            "The mind is a blank slate that culture fills completely",
-            "The mind cannot be studied with scientific methods",
-            "The mind is unaffected by our evolutionary past"
+            "The mind is a general-purpose blank slate whose content is written by culture alone",
+            "Behavior is fixed by single genes, so learning and culture play almost no role",
+            "The mind evolved in the past, but modern brains no longer carry its evolved design"
           ],
           answer: 0,
           explain: "Evolutionary psychology sees the brain as an organ built by natural selection, containing mechanisms that process information to solve adaptive problems."
@@ -49,10 +49,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why do evolutionary psychologists call mental mechanisms 'information-processing' devices?",
           choices: [
-            "Because the brain is literally a digital computer made of silicon",
-            "Because thoughts are stored on physical tablets",
+            "Because the brain is literally a digital computer built on the same hardware principles",
+            "Because mental mechanisms store fixed memories that are replayed without change",
             "Because mechanisms take in information, transform it, and produce outputs such as decisions",
-            "Because behavior is random and unstructured"
+            "Because the mind runs one general learning program that handles every kind of input alike"
           ],
           answer: 2,
           explain: "Calling the mind an information-processing system means its mechanisms convert inputs like perceptions into adaptive outputs like decisions, regardless of the physical medium."
@@ -126,10 +126,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "A 'spandrel,' in Gould and Lewontin's sense, is best described as...",
           choices: [
-            "an adaptation for flight",
+            "a trait that was selected because it solved one specific ancestral problem",
             "a structural byproduct that was not itself selected for a function",
-            "the strongest possible adaptation",
-            "a gene that codes for behavior"
+            "a trait first selected for one function and later co-opted for a new one",
+            "a trait that is harmful today because the environment has changed"
           ],
           answer: 1,
           explain: "Borrowed from architecture, a spandrel is a byproduct of building something else; the term warns against assuming every trait is an adaptation."
@@ -191,10 +191,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why did Mayr insist both cause types matter?",
           choices: [
-            "Because proximate causes are always wrong",
-            "Because ultimate causes replace the need for mechanisms",
+            "Because proximate causes explain behavior while ultimate causes only describe it",
+            "Because ultimate causes make the study of mechanisms unnecessary once known",
             "Because they answer different questions and confusing them creates false debates",
-            "Because only ultimate causes are scientific"
+            "Because only ultimate causes can be tested with experiments in the lab"
           ],
           answer: 2,
           explain: "Mixing up 'how' and 'why' leads to pointless arguments; a complete biology needs both proximate and ultimate answers."
@@ -226,10 +226,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Niko Tinbergen's four questions, laid out in 1963, are organized along two axes. What are they?",
           choices: [
-            "Big versus small, and fast versus slow",
+            "Genes versus environment, and learned versus innate behavior",
             "Proximate versus ultimate, and current state versus historical development",
-            "Nature versus nurture, and true versus false",
-            "Human versus animal, and body versus mind"
+            "Nature versus nurture, and individual versus group-level selection",
+            "Mechanism versus function, and humans versus non-human animals"
           ],
           answer: 1,
           explain: "Tinbergen crossed the proximate/ultimate distinction with a static/developmental (current vs history) axis, yielding four questions."
@@ -298,10 +298,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Evolutionary psychology argues our mental adaptations were shaped to solve problems that were...",
           choices: [
-            "unique to each individual",
+            "unique to each individual's own life history and upbringing",
             "recurrent across ancestral generations, like finding food and avoiding predators",
-            "invented in the last hundred years",
-            "purely imaginary"
+            "new to modern industrial societies, like managing money and careers",
+            "faced by only one generation, such as a single severe drought or famine"
           ],
           answer: 1,
           explain: "Adaptations are built by problems that recurred over evolutionary time, giving selection many generations to shape a solution."
@@ -333,10 +333,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The mismatch between evolved minds and modern environments is sometimes called...",
           choices: [
-            "the blank slate",
-            "reverse engineering",
+            "the blank slate or tabula rasa view",
+            "the naturalistic fallacy or is-ought gap",
             "evolutionary mismatch or adaptive lag",
-            "proximate causation"
+            "the environment of adaptedness"
           ],
           answer: 2,
           explain: "When the modern environment differs from the EEA, once-adaptive traits can misfire; this is evolutionary mismatch, or adaptive lag."
@@ -370,9 +370,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "What did Tooby and Cosmides mean by the 'Standard Social Science Model' (SSSM)?",
           choices: [
             "The view that the mind is a general-purpose blank slate and culture explains nearly all behavior",
-            "A statistical technique for surveys",
-            "The claim that genes fully determine behavior",
-            "A model of the solar system"
+            "The view that genes fully determine behavior, leaving little room for learning or culture",
+            "The method of studying behavior only through large surveys and statistical comparisons",
+            "The view that the mind is a set of many specialized modules shaped by natural selection"
           ],
           answer: 0,
           explain: "The SSSM, as they described it, holds that biology provides only a content-free learning capacity and that culture writes the content."
@@ -410,10 +410,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "A key problem Tooby and Cosmides raised with a single general-purpose learning mechanism is that...",
           choices: [
-            "it would learn everything too quickly",
+            "it would learn so quickly that it would keep overwriting the useful lessons it had learned early in life",
             "different adaptive problems require different, specialized solutions a blank slate cannot provide",
-            "culture does not exist",
-            "learning is impossible"
+            "it would depend too much on genes and leave no room for culture to shape behavior",
+            "it would require far more brain tissue than early humans could afford to grow"
           ],
           answer: 1,
           explain: "A content-free learner cannot know, for example, what counts as nutritious food versus a good mate; specialized mechanisms are needed."
@@ -440,10 +440,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The phrase 'nature via nurture' captures the idea that...",
           choices: [
-            "nature and nurture are enemies",
+            "genes set behavior first, and the environment later fine-tunes it",
             "genes and environment interact, each depending on the other",
-            "nurture always wins",
-            "genes have no role in behavior"
+            "the environment matters more than genes for most behaviors",
+            "genes and environment each explain a fixed share of a trait"
           ],
           answer: 1,
           explain: "The phrase, popularized by Matt Ridley's 2003 book, stresses that genes and environments work together rather than against each other."
@@ -511,10 +511,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why does evolutionary psychology stress multiple 'levels of analysis'?",
           choices: [
-            "To prove one level is the only real explanation",
+            "To find out which single level gives the one true explanation of behavior",
             "Because biological, cognitive, and cultural accounts should fit together, not compete",
-            "Because only the cultural level matters",
-            "Because levels of analysis are unscientific"
+            "Because cultural explanations replace biological ones once culture appears",
+            "To show that biological explanations make cultural ones unnecessary"
           ],
           answer: 1,
           explain: "Different levels answer different questions; a good theory keeps them mutually consistent instead of pitting them against each other."
@@ -546,10 +546,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Tooby and Cosmides called for 'vertical integration' among disciplines. This means...",
           choices: [
-            "ranking sciences from best to worst",
-            "keeping fields entirely separate",
+            "ranking sciences by how fundamental and exact they are",
+            "reducing every social science explanation to genetics",
             "making explanations at different levels mutually compatible",
-            "replacing psychology with chemistry"
+            "letting each field use its own rules without checking others"
           ],
           answer: 2,
           explain: "Vertical integration asks that psychology, biology, and the social sciences be consistent with one another, none contradicting the known principles of the others."

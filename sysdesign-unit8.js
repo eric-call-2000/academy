@@ -67,10 +67,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which task is the WORST candidate for being made asynchronous?",
           choices: [
-            "Generating a monthly PDF invoice for an account",
+            "Generating a monthly PDF invoice for an account and emailing it to the billing contact",
             "Re-indexing a document into a search cluster after an edit",
             "Validating that a submitted password meets policy before creating the account",
-            "Sending a push notification when someone comments on a post"
+            "Sending a push notification to the author when someone comments on their post"
           ],
           answer: 2,
           explain: "Validation must complete before the response, because its whole purpose is to decide the response. Work whose result the caller needs immediately should stay synchronous."
@@ -86,9 +86,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In the classic work-queue (competing consumers) pattern with one queue and ten workers, a given message is normally processed by:",
           choices: [
-            "All ten workers, each keeping its own copy",
+            "All ten workers, each keeping its own copy so the work is done redundantly",
             "Exactly one worker, which then removes it from the queue",
-            "One worker per availability zone, for redundancy",
+            "One worker per availability zone, so that a zone failure cannot lose the work",
             "A quorum of workers that vote on the result"
           ],
           answer: 1,
@@ -123,8 +123,8 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Queue depth for a job queue has been climbing steadily for an hour. What does that most directly indicate?",
           choices: [
             "Consumers are acknowledging messages too aggressively",
-            "The broker's disk is corrupt and messages cannot be deleted",
-            "Producers are publishing messages that are too large",
+            "The broker's disk is corrupt, so consumed messages cannot be deleted from the queue",
+            "Producers are publishing messages that are too large for the broker to store efficiently",
             "The arrival rate exceeds the aggregate processing rate of the consumers"
           ],
           answer: 3,
@@ -157,10 +157,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The defining difference between pub/sub and a work queue is:",
           choices: [
-            "Pub/sub is always durable while work queues are always in memory",
+            "Pub/sub is always durable on disk, while work queues always hold their messages only in memory",
             "Pub/sub delivers each message to every interested subscriber rather than to one consumer",
-            "Pub/sub guarantees global ordering while work queues do not",
-            "Pub/sub requires the publisher to know each subscriber's address"
+            "Pub/sub guarantees a single global ordering of messages, while work queues do not",
+            "Pub/sub requires the publisher to know each subscriber's address before it sends anything"
           ],
           answer: 1,
           explain: "Pub/sub is fan-out: N subscribers each get the event. A work queue is load distribution: one message, one consumer."
@@ -182,10 +182,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A team moves order events from direct HTTP calls to a pub/sub topic. Which new operational problem should they expect?",
           choices: [
-            "Publishers can no longer emit more than one event type",
-            "Events can no longer be persisted for later inspection",
+            "Publishers can no longer emit more than one event type on the same topic without breaking consumers",
+            "Events can no longer be persisted anywhere for later inspection or replay once they are delivered",
             "It becomes harder to know who consumes an event, so changing its schema is risky",
-            "Each subscriber must now poll the publisher for updates"
+            "Each subscriber must now poll the publisher directly for updates instead of receiving them"
           ],
           answer: 2,
           explain: "Decoupling cuts both ways: nobody is forced to register, so the producer loses visibility into its own blast radius. Schema registries and contract tests exist to claw that back."
@@ -205,8 +205,8 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "One subscriber to a topic is failing and falling behind. In a correctly implemented pub/sub system, the other subscribers:",
           choices: [
             "Are unaffected, because each subscription tracks delivery independently",
-            "Stop receiving events until the failing subscriber recovers",
-            "Receive the failing subscriber's messages instead",
+            "Stop receiving events until the failing subscriber recovers and catches up with the topic",
+            "Receive the failing subscriber's messages instead, so the work is shared among them",
             "Have their events rerouted to a shared dead-letter topic"
           ],
           answer: 0,
@@ -229,9 +229,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The core structural difference between a traditional queue and a log-based system such as Kafka is:",
           choices: [
-            "The log stores messages in memory while queues store them on disk",
-            "The log routes by message content while queues route by destination",
-            "The log guarantees exactly-once delivery while queues cannot",
+            "The log keeps messages only in memory for speed, while a queue always persists every message to disk before delivery",
+            "The log routes each message by its content, while a queue routes each message by its destination address",
+            "The log guarantees exactly-once delivery to every consumer, while a queue can only offer at-least-once",
             "The queue removes a message once consumed, while the log retains it and consumers track their own offsets"
           ],
           answer: 3,
@@ -282,10 +282,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which requirement most strongly argues for a log rather than a classic queue?",
           choices: [
-            "Per-message TTLs and priority ordering across the whole topic",
+            "Per-message TTLs and strict priority ordering across every message in the whole topic",
             "Several independent teams need the same event stream, and one may need to rebuild its state from history",
-            "The system needs to delete an individual message by id after it is consumed",
-            "Consumers need messages routed to them by arbitrary header predicates"
+            "The system needs to delete an individual message by its id as soon as one consumer has processed it",
+            "Consumers need messages routed to each of them by arbitrary predicates evaluated on the message headers"
           ],
           answer: 1,
           explain: "Retention plus per-group offsets gives independent consumption and replay. Per-message deletion, priorities, and rich routing are queue-broker strengths, not log strengths."
@@ -301,9 +301,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which statement about exactly-once is correct?",
           choices: [
-            "Exactly-once delivery is achievable by acknowledging before processing instead of after",
+            "Exactly-once delivery is achievable on any network by acknowledging each message before processing it instead of after, so a crash during processing never causes a redelivery of the same message",
             "True exactly-once delivery over an unreliable network is not achievable; production systems use at-least-once delivery plus idempotent processing, or effectively-once via transactional offset commits",
-            "Exactly-once delivery is a standard feature of any broker that persists messages to disk",
+            "Exactly-once delivery is a standard feature of any broker that persists messages to disk before acknowledging the producer, because a durable copy can never be delivered twice to the same consumer",
             "Exactly-once delivery is achieved by having the producer retry until it receives an ack"
           ],
           answer: 1,
@@ -336,10 +336,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "For a job that charges a customer's card, which combination is the sound production design?",
           choices: [
-            "At-most-once delivery, since a lost charge is safer than a double charge",
+            "At-most-once delivery, since a lost charge is always safer for the business than charging the same card twice",
             "At-least-once delivery with a per-charge idempotency key checked by the payment processor",
-            "Exactly-once delivery configured on the broker, with no consumer-side checks",
-            "At-least-once delivery with retries disabled at the consumer"
+            "Exactly-once delivery configured on the broker, with no checks needed in the consumer that calls the processor",
+            "At-least-once delivery with retries disabled at the consumer so that a charge is never attempted twice"
           ],
           answer: 1,
           explain: "You cannot buy exactly-once from the transport, so you buy no-loss from the transport and no-double-effect from the handler. Idempotency keys are how payment APIs do this."
@@ -354,10 +354,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A metrics pipeline samples CPU every second and can tolerate an occasional gap but must never fall behind. Which semantic is the most defensible choice?",
           choices: [
-            "At-least-once, accepting duplicate samples in the series",
-            "Exactly-once, configured end to end at the broker",
+            "At-least-once, accepting occasional duplicate samples in the stored series",
+            "Exactly-once, configured end to end at the broker and in every consumer of the stream",
             "At-most-once, since a dropped sample costs less than backlog or duplicates",
-            "At-least-once with a full deduplication store keyed by timestamp"
+            "At-least-once with a full deduplication store keyed by host and sample timestamp"
           ],
           answer: 2,
           explain: "For high-volume, low-value, self-correcting telemetry, dropping a sample is cheap and avoids the cost of dedup state. Semantics should follow the cost of each failure mode."
@@ -373,8 +373,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "An operation is idempotent when:",
           choices: [
-            "It always completes in the same amount of time",
-            "It can be executed concurrently from many threads without locking",
+            "It always completes in the same amount of time no matter how many times it is called",
+            "It can be executed concurrently from many threads without needing any locking",
             "Applying it more than once has the same effect on state as applying it once",
             "It never mutates any state at all"
           ],
@@ -451,10 +451,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A service uses an unbounded in-memory queue between an HTTP handler and a worker pool. Under sustained overload, the most likely outcome is:",
           choices: [
-            "Requests are silently rejected at the network layer with no memory growth",
+            "Requests are silently rejected at the network layer, so memory use stays flat while clients time out",
             "The queue grows until latency is useless and the process is killed for memory exhaustion",
-            "The worker pool automatically scales to match the arrival rate",
-            "The queue reorders items so the newest requests are served first"
+            "The worker pool automatically scales up to match the arrival rate once the queue passes a threshold",
+            "The queue reorders items so the newest requests are served first and the oldest wait"
           ],
           answer: 1,
           explain: "An unbounded buffer converts an overload into a memory leak and a latency disaster. Bounded queues that reject or block when full are what create backpressure."
@@ -550,10 +550,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A team notices that services are consuming an OrderPlaced event and reaching back into the order service for details. What design change most directly addresses this?",
           choices: [
-            "Move the workflow from choreography to a synchronous call chain",
-            "Have every consumer maintain a read replica of the order database",
+            "Move the workflow from choreography to a synchronous call chain, so each service gets the details it needs from the caller",
+            "Have every consumer maintain its own read replica of the order database to look up details",
             "Enrich the event to carry the state consumers need, so the event is self-contained",
-            "Increase the topic's retention so consumers can re-read older events"
+            "Increase the topic's retention period so consumers can re-read older events for the missing details"
           ],
           answer: 2,
           explain: "Event-carried state transfer removes the callback dependency that quietly makes an async design synchronous again. The cost is bigger events and schema discipline."
@@ -568,10 +568,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which workflow is the strongest candidate for orchestration rather than choreography?",
           choices: [
-            "Emitting a welcome email whenever a user account is created",
+            "Sending a welcome email whenever a user account is created, with a retry if the mail server is down",
             "A ten-step loan approval with conditional branches, timeouts, and required rollbacks",
-            "Invalidating a CDN cache entry whenever a product image changes",
-            "Updating a search index whenever a document is edited"
+            "Invalidating a CDN cache entry whenever a product image is changed by a merchant",
+            "Updating a search index whenever a document is edited by any of its several collaborators"
           ],
           answer: 1,
           explain: "Conditional branching, timers, and compensation need explicit workflow state that someone owns. The other three are single-reaction fan-outs where choreography is simpler."

@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which of these is a strategy, not a tactic?",
           choices: [
             "Become the go-to lawn-care service for busy families in our town",
-            "Post a photo on Instagram every Tuesday",
-            "Send a discount email this Friday",
-            "Hand out flyers at the farmers market"
+            "Post a before-and-after lawn photo on Instagram every Tuesday",
+            "Send a spring discount email to past customers this Friday",
+            "Hand out flyers at the farmers market each Saturday in May"
           ],
           answer: 0,
           explain: "A strategy is the big-picture direction and goal. The other three are specific moves (tactics) that could support it."
@@ -49,9 +49,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why can lots of tactics fail without a strategy?",
           choices: [
             "They pull in different directions with no shared goal",
-            "Tactics are always a waste of money",
-            "You should never use tactics",
-            "Strategy makes tactics illegal"
+            "Each tactic costs too much when used without a plan",
+            "Tactics only work when they are run on paid channels",
+            "Too many tactics confuse the ad platforms' algorithms"
           ],
           answer: 0,
           explain: "Without a guiding strategy, individual tactics can be busy but uncoordinated, so they don't add up to real progress."
@@ -73,9 +73,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "A friend says the marketing plan is just a list of posts to publish. What is missing?",
           choices: [
             "The strategy: the goal and direction the posts should serve",
-            "Nothing, a list of posts is a full plan",
-            "More posts, always more posts",
-            "A bigger ad budget"
+            "A posting schedule that says what day each post goes live",
+            "A budget for boosting the best posts with paid promotion",
+            "A set of templates so every post looks visually consistent"
           ],
           answer: 0,
           explain: "A pile of tactics is not a strategy. You need a clear goal and direction first, then choose tactics to fit."
@@ -109,9 +109,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which is the strongest, most measurable goal?",
           choices: [
             "Get 200 new email subscribers by the end of March",
-            "Get more subscribers",
-            "Grow the business a lot",
-            "Do better than last year"
+            "Grow our email list as fast as we possibly can",
+            "Get many more subscribers than we had last year",
+            "Become the most popular newsletter in our niche"
           ],
           answer: 0,
           explain: "A strong goal names a specific number and a deadline so you can clearly tell if you hit it."
@@ -146,9 +146,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why add a deadline to a goal?",
           choices: [
             "It creates focus and lets you judge success or failure",
-            "Deadlines make goals impossible",
-            "It hides the goal from your team",
-            "Deadlines replace the need for a number"
+            "It removes the need to set a specific number to hit",
+            "It guarantees the team will hit the target on time",
+            "It lets you push the goal back whenever plans change"
           ],
           answer: 0,
           explain: "A time frame turns a wish into a goal you can actually evaluate and rally around."
@@ -165,9 +165,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why is word of mouth so powerful?",
           choices: [
             "People trust recommendations from friends and family",
-            "It is the most expensive channel",
-            "It only works for huge companies",
-            "It requires a large ad budget"
+            "It reaches the largest audience of any channel",
+            "It is easy to control exactly what people will say",
+            "It works instantly, with no wait for results"
           ],
           answer: 0,
           explain: "A personal recommendation carries trust that paid ads struggle to match, and it usually costs little to nothing."
@@ -200,9 +200,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which is a simple way to encourage referrals?",
           choices: [
             "Offer a small reward to both the referrer and the new customer",
-            "Hide your contact information",
-            "Make it hard for people to share",
-            "Ignore happy customers"
+            "Ask every customer for referrals before they have used the product",
+            "Wait quietly for happy customers to mention you on their own",
+            "Run a contest where only the top referrer wins a large prize"
           ],
           answer: 0,
           explain: "Two-sided rewards give both people a reason to participate, which boosts sharing."
@@ -224,9 +224,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is social proof?",
           choices: [
             "Evidence that other people trust or use your product",
-            "A legal contract",
-            "A type of paid ad",
-            "A social media password"
+            "Data showing which social platform drives the most sales",
+            "A guarantee that lets customers get their money back",
+            "A claim in your ads that your product is the best"
           ],
           answer: 0,
           explain: "Social proof, like reviews and testimonials, signals to newcomers that others already trust you."
@@ -243,9 +243,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What best describes product-led growth?",
           choices: [
             "The product experience itself drives new users and keeps them",
-            "Only cold calling drives growth",
-            "Growth comes only from paid ads",
-            "You never let people try the product"
+            "A sales team drives growth by demoing the product to each lead",
+            "Paid ads drive growth by sending traffic to a pricing page",
+            "Growth comes from adding as many new features as possible"
           ],
           answer: 0,
           explain: "In product-led growth, using the product is the main way people are won over and stick around."
@@ -302,9 +302,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is an aha moment?",
           choices: [
             "The point where a user first clearly feels the product's value",
-            "A discount code",
-            "The moment a user cancels",
-            "A type of invoice"
+            "The moment a visitor first lands on your marketing website",
+            "The step where a user enters payment details to upgrade",
+            "The first time a user logs in after creating an account"
           ],
           answer: 0,
           explain: "The aha moment is when the benefit clicks for a user, which strongly predicts whether they stay."
@@ -321,9 +321,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a marketing campaign?",
           choices: [
             "A coordinated set of activities around a single goal or theme",
-            "A single random social post",
-            "A permanent, never-ending effort",
-            "A legal filing"
+            "An ongoing, always-on effort with no set goal or end date",
+            "A single ad placed on one channel for a fixed period of time",
+            "A list of every post your brand plans to publish this year"
           ],
           answer: 0,
           explain: "A campaign ties multiple channels and messages together toward one goal, usually within a set time frame."
@@ -362,9 +362,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why measure a campaign after it ends?",
           choices: [
             "To learn what worked so the next one is better",
-            "Because measuring is required by law",
-            "To delete all your data",
-            "So you never launch again"
+            "To prove to the team that the budget was well spent",
+            "To decide whether to cancel the campaign early",
+            "To collect results needed for your tax filing"
           ],
           answer: 0,
           explain: "Reviewing results turns each campaign into a lesson that improves your future launches."
@@ -380,9 +380,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a soft launch?",
           choices: [
             "Releasing to a small audience first to test before a full launch",
-            "A launch with no product",
-            "Canceling a launch",
-            "A launch only for competitors"
+            "Launching quietly with no marketing and hoping word spreads alone",
+            "Announcing a product months before it exists to build hype early",
+            "Launching to everyone at once but with a lower introductory price"
           ],
           answer: 0,
           explain: "A soft launch lets you find issues and gather feedback with a limited group before going wide."
@@ -399,9 +399,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why does retention matter so much?",
           choices: [
             "Keeping a customer is usually cheaper than acquiring a new one",
-            "Existing customers never buy again",
-            "New customers are always free to get",
-            "Retention has no effect on revenue"
+            "New customers usually spend more than existing ones on each order",
+            "Retained customers no longer need any marketing or support at all",
+            "Retention matters mainly for subscription businesses, not shops"
           ],
           answer: 0,
           explain: "It generally costs less to keep a happy customer than to acquire a new one, and loyal customers buy more over time."
@@ -434,9 +434,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which action most directly improves retention?",
           choices: [
             "Following up and solving problems for existing customers",
-            "Ignoring customers after they buy",
-            "Only chasing brand-new leads",
-            "Making support impossible to reach"
+            "Running more ads to bring in brand-new customers each week",
+            "Offering bigger discounts to first-time buyers at checkout",
+            "Posting more often on social media to grow your followers"
           ],
           answer: 0,
           explain: "Caring for customers after the sale keeps them happy and coming back, which lifts retention."
@@ -458,9 +458,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a loyalty program?",
           choices: [
             "A system that rewards customers for repeat business",
-            "A one-time discount for new customers only",
-            "A way to block returning customers",
-            "A tax on your best customers"
+            "A one-time discount offered to first-time customers",
+            "A referral bonus paid to partners who send new leads",
+            "A guarantee that refunds unhappy customers in full"
           ],
           answer: 0,
           explain: "Loyalty programs give repeat customers points, perks, or rewards to encourage them to keep coming back."
@@ -477,9 +477,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "When resources are tight, what should guide where you spend?",
           choices: [
             "The expected return relative to the cost and effort",
-            "Whatever is newest and flashiest",
-            "Only the cheapest option every time",
-            "Spending equally on everything"
+            "Whichever channel is newest and getting the most buzz",
+            "The cheapest option available, whatever the payoff",
+            "An equal split of budget across every channel you use"
           ],
           answer: 0,
           explain: "Prioritization means putting time and money where the payoff is highest for the cost, not just what is cheap or trendy."
@@ -512,9 +512,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "You have two ideas but only time for one. What is the best tiebreaker?",
           choices: [
             "The one with higher expected impact for the effort",
-            "The one that sounds most fun",
-            "The one a competitor just tried",
-            "Flip a coin every time"
+            "The one that is quickest to finish this week",
+            "The one a successful competitor just launched",
+            "The one the team is most excited to work on"
           ],
           answer: 0,
           explain: "Prioritize by impact relative to effort so your limited time delivers the most value."
@@ -555,9 +555,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What makes a growth loop different from a one-time campaign?",
           choices: [
             "Its output feeds back in to produce more growth over time",
-            "It can only run once",
-            "It never involves users",
-            "It always requires paid ads"
+            "It runs for a fixed period and then stops on a set end date",
+            "It focuses on paid ads rather than on the product or users",
+            "It targets one big launch moment instead of steady effort"
           ],
           answer: 0,
           explain: "In a growth loop, each round of activity generates the input for the next, so it compounds instead of ending."
@@ -596,9 +596,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why are growth loops attractive for a small budget?",
           choices: [
             "Users drive much of the growth, lowering paid acquisition costs",
-            "They require the largest ad budgets",
-            "They only work for big companies",
-            "They stop working after one use"
+            "They are quick to set up and show strong results in the first week",
+            "They work without a good product, since sharing does the selling",
+            "They replace the need to measure results or track any metrics"
           ],
           answer: 0,
           explain: "When the product spreads itself through users, you rely less on paying for every new customer."
@@ -614,9 +614,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which feature most directly supports a viral loop?",
           choices: [
             "An easy invite-a-friend button that both people benefit from",
-            "A hidden signup page",
-            "A confusing checkout",
-            "Blocking users from sharing"
+            "A detailed onboarding tour that explains every single feature",
+            "A monthly newsletter that shares product tips with all users",
+            "A loyalty program that rewards users for their own purchases"
           ],
           answer: 0,
           explain: "Low-friction, rewarding sharing features make it easy for users to bring in the next wave of users."

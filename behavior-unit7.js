@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In operant conditioning, a reinforcer is best defined by which feature?",
           choices: [
-            "It occurs just before the behavior",
-            "It is always a tangible reward",
+            "It occurs just before the behavior and signals that reward is available",
+            "It is always a tangible reward such as food, money, or a toy",
             "It increases the future probability of the behavior it follows",
-            "It is whatever the person reports enjoying"
+            "It is whatever the person reports finding pleasant or enjoyable"
           ],
           answer: 2,
           explain: "Reinforcement is defined functionally by its effect: it raises the future likelihood of the behavior it follows, regardless of how it feels."
@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which statement correctly distinguishes the terms reinforcer and reinforcement?",
           choices: [
-            "Reinforcer is the process; reinforcement is the stimulus",
+            "Reinforcer is the process of strengthening behavior; reinforcement is the stimulus or event",
             "Reinforcer is the stimulus or event; reinforcement is the process of strengthening behavior",
-            "They are identical and interchangeable",
-            "Reinforcer applies only to animals; reinforcement only to humans"
+            "They are identical terms that can be swapped freely in any technical description",
+            "Reinforcer applies only to animal studies; reinforcement applies only to human behavior"
           ],
           answer: 1,
           explain: "The reinforcer is the specific stimulus or event; reinforcement is the process by which that stimulus strengthens behavior."
@@ -154,10 +154,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In negative reinforcement, the word \"negative\" refers to what?",
           choices: [
-            "Punishing the behavior",
+            "Punishing the behavior that occurred",
             "Removing or taking away a stimulus",
-            "A bad or unpleasant outcome",
-            "Decreasing the behavior"
+            "A bad or unpleasant outcome for the learner",
+            "A decrease in how often the behavior occurs"
           ],
           answer: 1,
           explain: "Negative means a stimulus is removed or subtracted after the behavior; the behavior then increases."
@@ -179,9 +179,9 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which scenario best illustrates negative reinforcement?",
           choices: [
-            "A student gets extra homework for talking in class",
-            "A cat receives a treat for using the litter box",
-            "A phone is taken away after a rude comment",
+            "A student gets extra homework for talking during class",
+            "A cat receives a treat each time it uses the litter box",
+            "A teen's phone is taken away after a rude comment at dinner",
             "You fasten your seatbelt and the car's warning buzzer stops"
           ],
           answer: 3,
@@ -249,9 +249,9 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which of these is a clear case of positive punishment?",
           choices: [
-            "A child is put in time-out and loses playtime",
-            "A worker earns praise and works harder",
-            "A driver silences a buzzer by buckling up",
+            "A child is put in time-out and loses playtime for hitting",
+            "A worker earns praise from a manager and starts working harder",
+            "A driver silences a warning buzzer by buckling the seatbelt",
             "A rat's lever press produces a mild shock, so it presses less"
           ],
           answer: 3,
@@ -294,10 +294,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Negative punishment works by doing what?",
           choices: [
-            "Adding an aversive to decrease behavior",
+            "Adding an aversive stimulus to decrease behavior",
             "Removing a desirable stimulus to decrease behavior",
-            "Removing an aversive to increase behavior",
-            "Adding a reward to increase behavior"
+            "Removing an aversive stimulus to increase behavior",
+            "Adding a desirable stimulus to increase behavior"
           ],
           answer: 1,
           explain: "Negative punishment removes or takes away a valued stimulus, which decreases the behavior."
@@ -320,9 +320,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Which is an example of negative punishment, specifically a response cost?",
           choices: [
             "A gamer loses points for a rule violation, so violates less",
-            "A student gets detention (added) for cheating",
-            "A dog gets a treat for sitting",
-            "A headache goes away after taking medicine"
+            "A student gets an added detention for cheating, so cheats less",
+            "A dog gets a treat for sitting, so it sits more often",
+            "A headache goes away after taking medicine, so pill use rises"
           ],
           answer: 0,
           explain: "Losing points (removing a desirable stimulus) that decreases the behavior is response cost, a type of negative punishment."
@@ -364,10 +364,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "The four operant quadrants are organized along which two dimensions?",
           choices: [
-            "Fast versus slow and strong versus weak",
+            "Pleasant (positive) versus unpleasant (negative) and immediate versus delayed delivery of the consequence",
             "Add (positive) versus remove (negative) and increase (reinforcement) versus decrease (punishment)",
-            "Innate versus learned and primary versus secondary",
-            "Classical versus operant and human versus animal"
+            "Innate versus learned stimuli and primary versus secondary (conditioned) reinforcers or punishers",
+            "Classical versus operant procedures and continuous versus intermittent schedules of reinforcement"
           ],
           answer: 1,
           explain: "The grid crosses whether a stimulus is added or removed with whether the behavior increases or decreases."
@@ -436,10 +436,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "According to Skinner, a key problem with punishment is that it does what?",
           choices: [
-            "Permanently erases the punished behavior",
+            "Permanently erases the punished behavior after only a few trials",
             "Only temporarily suppresses behavior rather than eliminating it",
-            "Always increases the behavior it follows",
-            "Teaches the learner exactly what to do instead"
+            "Always increases the behavior it follows, like a reinforcer does",
+            "Teaches the learner exactly which behavior to perform instead"
           ],
           answer: 1,
           explain: "Skinner argued punishment suppresses behavior only while it is in effect; the behavior often returns once punishment stops."

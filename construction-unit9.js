@@ -13,14 +13,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which best describes dead load?",
-          choices: ["The permanent self-weight of the structure and fixed components", "People and movable furniture", "Wind pressure on the facade", "Snow accumulating on the roof"],
+          choices: ["The permanent self-weight of the structure and fixed components", "The weight of occupants, furniture and other movable contents", "The lateral pressure that wind places on the building facade", "The weight of snow and rain that collects on the roof"],
           answer: 0,
           explain: "Dead load is the permanent, fixed weight of the structure itself plus cladding, finishes and permanently attached equipment."
         },
         {
           type: "mcq",
           q: "Which of these is a live load?",
-          choices: ["Occupants, furniture and movable contents", "The weight of the concrete slab", "The mass of the steel beams", "Permanently mounted HVAC ductwork"],
+          choices: ["Occupants, furniture and movable contents", "The self-weight of the concrete floor slab", "Permanently mounted HVAC ductwork and piping", "The weight of the exterior cladding panels"],
           answer: 0,
           explain: "Live loads are transient gravity loads from use and occupancy, so they can change in magnitude and position over time."
         },
@@ -34,7 +34,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What distinguishes a point load from a uniform distributed load?",
-          choices: ["A point load acts at one location; a uniform load spreads evenly along a length or area", "A point load is always larger", "A uniform load only applies to columns", "There is no real difference in analysis"],
+          choices: ["A point load acts at one location; a uniform load spreads evenly along a length or area", "A point load is always larger than a uniform load on the same member", "A uniform load acts only on columns; a point load acts only on beams", "A point load is permanent dead weight; a uniform load is a live load that comes and goes with occupancy"],
           answer: 0,
           explain: "A point (concentrated) load acts at a single spot, while a uniform load is spread evenly and is often expressed per foot or per square foot."
         },
@@ -92,7 +92,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "When a beam supports a load between its ends, what is the dominant internal effect across its depth?",
-          choices: ["Bending (flexure), with tension on one face and compression on the other", "Pure torsion only", "Uniform tension everywhere", "No internal force at all"],
+          choices: ["Bending (flexure), with tension on one face and compression on the other", "Pure torsion, twisting the beam about its long axis", "Axial compression spread evenly through the full depth of the section", "Uniform tension along the whole beam pulling it straight"],
           answer: 0,
           explain: "Bending puts one face in tension and the opposite face in compression, with the neutral axis carrying no axial stress."
         },
@@ -112,7 +112,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does the term load path describe?",
-          choices: ["The route forces take from where they are applied down through members to the foundation and soil", "The path workers walk on site", "The order trades are scheduled", "The wiring route through a building"],
+          choices: ["The route forces take from where they are applied down through members to the foundation and soil", "The sequence in which dead and live loads are added to the structure as each floor is completed", "The route a crane follows when lifting members into place on the frame", "The direction wind travels across a building as it flows around the facade"],
           answer: 0,
           explain: "A complete and continuous load path is essential; if any link is missing the structure cannot safely carry the load."
         },
@@ -143,28 +143,28 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the primary role of a column?",
-          choices: ["Carry axial compression and deliver gravity load downward", "Span horizontally and resist bending", "Resist only lateral wind", "Distribute load across a floor area"],
+          choices: ["Carry axial compression and deliver gravity load downward", "Span horizontally between supports and resist bending", "Resist lateral wind load by acting as a diagonal brace", "Distribute load evenly across a floor area to the beams"],
           answer: 0,
           explain: "A column is a vertical compression member that collects load from beams and girders and passes it down to the foundation."
         },
         {
           type: "mcq",
           q: "How does a girder differ from a typical beam?",
-          choices: ["A girder is a larger beam that supports other beams", "A girder is always vertical", "A girder carries only tension", "A girder is a type of column"],
+          choices: ["A girder is a larger beam that supports other beams", "A girder is a smaller beam that spans between joists", "A girder is a vertical member that carries axial load", "A girder carries only tension, like a cable or tie rod"],
           answer: 0,
           explain: "Girders are heavier primary beams that gather load from smaller beams or joists framing into them."
         },
         {
           type: "mcq",
           q: "What is a joist?",
-          choices: ["A closely spaced, repetitive light beam supporting a floor or roof deck", "A large primary girder", "A vertical compression member", "A diagonal lateral brace"],
+          choices: ["A closely spaced, repetitive light beam supporting a floor or roof deck", "A large primary beam that collects load from smaller beams", "A diagonal member that braces the frame against lateral load", "A short vertical post that transfers load from a beam to a footing"],
           answer: 0,
           explain: "Joists are repetitive members spaced close together to support decking and spread the floor load to beams."
         },
         {
           type: "mcq",
           q: "Why is a truss efficient over long spans?",
-          choices: ["Triangulated members carry load mostly as axial tension and compression, using less material", "It is a solid web that resists all bending", "It works only in compression", "It eliminates the need for any connections"],
+          choices: ["Triangulated members carry load mostly as axial tension and compression, using less material", "Its solid deep web resists bending along the full length of the span, so it needs no diagonals", "Every member works only in compression, so slender steel is enough", "Its rigid welded connections let it bend without needing extra depth"],
           answer: 0,
           explain: "Triangulation converts bending into axial forces in slender members, letting a truss span far with little material."
         },
@@ -209,28 +209,28 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "How does a moment frame resist lateral load?",
-          choices: ["Through rigid beam-to-column connections that transfer bending moments", "Through diagonal braces", "Through concrete shear walls", "Only through the floor slab"],
+          choices: ["Through rigid beam-to-column connections that transfer bending moments", "Through diagonal steel braces that carry the sideways force as axial tension", "Through concrete shear walls placed around the stair cores", "Through pinned connections that let the frame sway freely"],
           answer: 0,
           explain: "Moment frames rely on stiff, fixed connections so the frame resists sway by bending the beams and columns."
         },
         {
           type: "mcq",
           q: "How does a braced frame primarily resist lateral load?",
-          choices: ["With diagonal braces that carry the lateral force as axial tension and compression", "By bending flexible connections", "With post-tensioning", "By increasing slab thickness"],
+          choices: ["With diagonal braces that carry the lateral force as axial tension and compression", "With rigid beam-to-column connections that resist sway through bending", "With post-tensioned tendons that squeeze the frame together against sway", "With thicker floor slabs that add weight and stiffness to every level"],
           answer: 0,
           explain: "Braces triangulate the frame, so lateral load travels as efficient axial force rather than bending."
         },
         {
           type: "mcq",
           q: "What does a W-shape (wide-flange) section refer to in steel framing?",
-          choices: ["An I-shaped rolled section used for beams and columns", "A hollow round pipe", "A flat plate", "An angle bracket"],
+          choices: ["An I-shaped rolled section used for beams and columns", "A hollow square or round tube used for columns and braces", "A flat steel plate welded into built-up members", "An L-shaped angle used for bracing and connections"],
           answer: 0,
           explain: "Wide-flange W-shapes are the workhorse rolled sections, efficient in bending for beams and in compression for columns."
         },
         {
           type: "mcq",
           q: "What is the key difference between a shear connection and a moment connection?",
-          choices: ["A shear connection transfers vertical shear only; a moment connection also transfers bending moment", "A moment connection is always bolted, a shear connection always welded", "They are interchangeable terms", "A shear connection joins only columns"],
+          choices: ["A shear connection transfers vertical shear only; a moment connection also transfers bending moment", "A moment connection is always bolted; a shear connection is always field welded", "A shear connection resists bending; a moment connection only carries vertical shear", "A shear connection joins columns to their footings; a moment connection joins beams to other beams"],
           answer: 0,
           explain: "Simple shear connections are treated as pinned, while moment connections are rigid and part of the lateral system."
         },
@@ -274,28 +274,28 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why is steel reinforcing added to structural concrete?",
-          choices: ["Concrete is strong in compression but weak in tension, so steel carries the tension", "To make the concrete cure faster", "To reduce the concrete weight", "Only to improve appearance"],
+          choices: ["Concrete is strong in compression but weak in tension, so steel carries the tension", "Steel is strong in compression, so it carries the weight and concrete only protects it from rust", "Steel helps the concrete cure faster so forms can be stripped sooner", "Steel reduces the overall weight of the concrete member"],
           answer: 0,
           explain: "Concrete cracks under tension, so reinforcing bars are placed where tension occurs to carry those forces."
         },
         {
           type: "mcq",
           q: "What defines a one-way slab?",
-          choices: ["It bends and spans primarily in one direction to its supports", "It spans equally in both directions", "It has no reinforcement", "It can only be precast"],
+          choices: ["It bends and spans primarily in one direction to its supports", "It spans equally in both directions to beams on all four sides", "It is poured in one continuous placement with no joints", "It has reinforcing steel in only one face of the slab"],
           answer: 0,
           explain: "A one-way slab carries load in a single direction, typically when one span is much longer than the other."
         },
         {
           type: "mcq",
           q: "What is the difference between a flat plate and a flat slab?",
-          choices: ["A flat slab adds drop panels or column capitals at columns; a flat plate has neither", "A flat plate is always thicker", "A flat slab uses no reinforcement", "They are identical systems"],
+          choices: ["A flat slab adds drop panels or column capitals at columns; a flat plate has neither", "A flat plate adds drop panels or capitals at columns; a flat slab has neither", "A flat slab spans one way to beams; a flat plate spans two ways with no beams", "A flat plate is post-tensioned; a flat slab uses only conventional rebar"],
           answer: 0,
           explain: "Flat slabs thicken the slab at columns with drop panels or capitals to resist punching shear, while flat plates rely on the uniform slab alone."
         },
         {
           type: "mcq",
           q: "What is the main advantage of a post-tensioned slab?",
-          choices: ["Tensioned tendons compress the slab, allowing longer spans and thinner slabs with less cracking", "It removes the need for any concrete", "It eliminates all columns", "It only works for short spans"],
+          choices: ["Tensioned tendons compress the slab, allowing longer spans and thinner slabs with less cracking", "Tendons replace all the rebar, so the slab can be poured without any inspection", "The tendons add weight that holds the slab down against wind uplift", "The tendons let the slab be cored or cut anywhere later without any risk to the structure"],
           answer: 0,
           explain: "Stressing high-strength tendons after the concrete cures pre-compresses the slab, controlling deflection and cracking over long spans."
         },
@@ -339,28 +339,28 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is dimensional lumber?",
-          choices: ["Standard sawn solid-wood members like 2x4 and 2x10 used in framing", "Layered plywood sheathing", "Steel reinforcing bars", "Precast concrete planks"],
+          choices: ["Standard sawn solid-wood members like 2x4 and 2x10 used in framing", "Engineered members like LVL and I-joists made by gluing wood layers", "Lumber cut to exact custom dimensions for each job", "Timber graded only by its moisture content at delivery"],
           answer: 0,
           explain: "Dimensional lumber is solid sawn wood in standard sizes that forms the studs, joists and rafters of light-frame construction."
         },
         {
           type: "mcq",
           q: "What is glulam?",
-          choices: ["Glued laminated timber, made by bonding lumber laminations into large beams and columns", "A type of plywood subfloor", "A steel connector plate", "A concrete admixture"],
+          choices: ["Glued laminated timber, made by bonding lumber laminations into large beams and columns", "Cross-laminated timber, made of boards glued at right angles into wall and floor panels", "Laminated veneer lumber, made by gluing thin veneers into headers and beams", "Oriented strand board, made by pressing wood strands with resin into panels"],
           answer: 0,
           explain: "Glulam stacks and glues smaller boards into large straight or curved members that can span well beyond solid sawn timber."
         },
         {
           type: "mcq",
           q: "What is an I-joist?",
-          choices: ["An engineered joist with lumber or LVL flanges and a thin web, shaped like an I", "A solid sawn 2x12", "A steel wide-flange beam", "A reinforced concrete rib"],
+          choices: ["An engineered joist with lumber or LVL flanges and a thin web, shaped like an I", "A steel wide-flange beam used in place of a wood girder", "An open-web floor truss made of 2x4 chords joined by metal plate connectors", "A solid sawn joist notched at the ends to sit on an I-shaped beam"],
           answer: 0,
           explain: "Engineered I-joists are light, straight and dimensionally stable, making them popular for long, consistent floor framing."
         },
         {
           type: "mcq",
           q: "In light-frame wood buildings, what resists lateral load in the walls?",
-          choices: ["Shear walls formed by sheathing nailed to the framing", "The roof shingles", "Loose insulation", "The interior paint"],
+          choices: ["Shear walls formed by sheathing nailed to the framing", "The headers and jack studs around door and window openings", "The double top plate tying the walls together", "Hold-down anchors alone, without any sheathing"],
           answer: 0,
           explain: "Wood structural panel sheathing nailed to studs turns a wall into a shear wall that resists racking from wind or seismic."
         },
@@ -404,21 +404,21 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which three elements are the common vertical lateral-force-resisting systems?",
-          choices: ["Shear walls, braced frames and moment frames", "Joists, girders and slabs", "Footings, piles and caissons", "Studs, rafters and trusses"],
+          choices: ["Shear walls, braced frames and moment frames", "Floor diaphragms, drag struts and chord members", "Columns, girders and transfer beams", "Footings, piles and grade beams"],
           answer: 0,
           explain: "Shear walls, braced frames and moment frames are the three principal vertical systems that carry lateral load to the foundation."
         },
         {
           type: "mcq",
           q: "What is the role of a floor or roof diaphragm in the lateral system?",
-          choices: ["It collects horizontal load and distributes it to the vertical lateral elements", "It carries only gravity load", "It replaces the foundation", "It resists torsion in columns"],
+          choices: ["It collects horizontal load and distributes it to the vertical lateral elements", "It carries only gravity load from the floor down to the beams", "It resists overturning by anchoring the building's walls directly to the foundation", "It stiffens the columns so they do not buckle under axial load"],
           answer: 0,
           explain: "The diaphragm acts like a deep horizontal beam, gathering lateral force from each floor and delivering it to shear walls or frames."
         },
         {
           type: "mcq",
           q: "What is the function of a collector (drag strut) in a diaphragm?",
-          choices: ["It gathers diaphragm forces and drags them into the vertical lateral element", "It carries gravity only", "It supports the cladding", "It resists soil pressure"],
+          choices: ["It gathers diaphragm forces and drags them into the vertical lateral element", "It carries gravity load from the deck down to the columns below", "It ties the cladding back to the floor edge against wind suction", "It braces the top of a retaining wall against lateral soil pressure"],
           answer: 0,
           explain: "Collectors transfer accumulated diaphragm shear into the shear walls or braced frames that do not span the full diaphragm width."
         },
@@ -438,7 +438,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which statement about wind versus seismic load is most accurate?",
-          choices: ["Wind is an applied external pressure, while seismic force comes from the building mass responding to ground motion", "Both are caused by soil settlement", "Wind acts only downward", "Seismic load never affects tall buildings"],
+          choices: ["Wind is an applied external pressure, while seismic force comes from the building mass responding to ground motion", "Seismic is an applied external pressure on the facade, while wind force comes from the building's own mass swaying", "Both come from the same source, so a building designed for wind is automatically safe for earthquakes", "Seismic force grows as a building gets lighter, while wind force grows as it gets heavier"],
           answer: 0,
           explain: "Wind pushes on surfaces, but seismic demand grows with the building mass, so heavier buildings attract larger seismic forces."
         },
@@ -469,28 +469,28 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What distinguishes a shallow foundation from a deep foundation?",
-          choices: ["Shallow foundations bear near the surface; deep foundations reach down to stronger strata", "Shallow foundations are always concrete", "Deep foundations are only used for houses", "There is no structural difference"],
+          choices: ["Shallow foundations bear near the surface; deep foundations reach down to stronger strata", "Shallow foundations are used only for houses; deep foundations only for high-rises", "Shallow foundations rely on side friction; deep foundations rely only on a wide pad", "Shallow foundations are cast in place; deep foundations are always precast piles"],
           answer: 0,
           explain: "Shallow systems spread load into competent soil near grade, while deep systems extend to firmer soil or rock far below."
         },
         {
           type: "mcq",
           q: "What is a spread footing?",
-          choices: ["A widened pad that spreads a column or wall load over enough soil area", "A long pile driven deep", "A vertical retaining wall", "A steel base plate only"],
+          choices: ["A widened pad that spreads a column or wall load over enough soil area", "A long pile driven deep to reach firm soil or rock", "A steel base plate bolted to the bottom of a column", "A thick continuous slab that supports the entire building in one large pour"],
           answer: 0,
           explain: "A spread footing enlarges the bearing area so the soil pressure stays within the soil safe bearing capacity."
         },
         {
           type: "mcq",
           q: "When is a mat (raft) foundation typically used?",
-          choices: ["When loads are heavy or soil is weak, so one large slab supports the whole structure", "Only for single-column sheds", "When deep rock is at the surface", "To replace all columns"],
+          choices: ["When loads are heavy or soil is weak, so one large slab supports the whole structure", "When rock is right at the surface, so no footings are needed at all", "When the building is very light, so individual footings would be wasteful", "When groundwater is low, so the slab can be poured without any waterproofing"],
           answer: 0,
           explain: "A mat spreads the entire building load across a large area, useful where individual footings would overlap or soil is poor."
         },
         {
           type: "mcq",
           q: "How do piles and drilled shafts carry load into the ground?",
-          choices: ["Through end bearing on deep strata and friction along their sides", "Only by floating on water", "By spreading load at the surface", "By resisting wind alone"],
+          choices: ["Through end bearing on deep strata and friction along their sides", "Through a wide bearing pad that spreads load near the surface", "Through their weight alone, which anchors them against uplift", "Through lateral pressure against the soil at the top of the pile"],
           answer: 0,
           explain: "Deep foundations develop capacity from end bearing at the tip and skin friction along the shaft surface."
         },

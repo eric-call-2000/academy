@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What is the main reason a project adopts BIM standards?",
           choices: [
-            "To make the geometry look more realistic",
+            "To make sure every element is modeled to the highest level of detail",
             "To keep information consistent and shareable across the whole team",
-            "To reduce the number of people on the project",
-            "To force everyone to use the same software brand"
+            "To require every firm on the project to use the same software brand",
+            "To give the client legal ownership of all the models that are produced"
           ],
           answer: 1,
           explain: "Standards exist so that consistent, structured information can be shared and reused by everyone, regardless of who authored it."
@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which problem is a shared standard most likely to prevent?",
           choices: [
             "Two firms naming and structuring their models in totally different ways",
-            "A building being taller than planned",
-            "A client changing their mind about a room",
-            "A rainstorm delaying site work"
+            "Design clashes between the structural and the mechanical models on site",
+            "Cost overruns caused by changes the client makes late in the design",
+            "Delays caused by late delivery of materials and equipment to the site"
           ],
           answer: 0,
           explain: "Standards remove ambiguity by making structure and naming predictable, so mismatched conventions do not derail collaboration."
@@ -67,10 +67,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Who benefits when project information follows a common standard?",
           choices: [
-            "Only the BIM manager",
-            "Only the software vendor",
+            "Mainly the BIM manager who writes and enforces the standard",
+            "Mainly the design team while the models are being authored",
             "The whole project team and the client over the asset lifecycle",
-            "Nobody, it just adds paperwork"
+            "Mainly the contractor during construction and handover only"
           ],
           answer: 2,
           explain: "Everyone who creates or consumes the information benefits, including the client who operates the asset after handover."
@@ -97,10 +97,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What does ISO 19650 primarily address?",
           choices: [
-            "How to draw walls in 3D",
+            "Setting the geometric detail each model element must reach",
             "Managing information over the life of a built asset using BIM",
-            "The maximum height of a building",
-            "Which laptop to buy for modeling"
+            "Defining the file format used to exchange models between tools",
+            "Specifying the modeling software approved for public projects"
           ],
           answer: 1,
           explain: "ISO 19650 is about information management processes, not about geometry or specific software."
@@ -162,9 +162,9 @@ window.ACADEMY.addUnit("bim", {
           q: "The single agreed source of project information under ISO 19650 is called the:",
           choices: [
             "Common Data Environment (CDE)",
-            "Common Room",
-            "Central Model Bank",
-            "Shared Drive Standard"
+            "Project Information Model (PIM)",
+            "Shared Document Repository (SDR)",
+            "Central Information Model (CIM)"
           ],
           answer: 0,
           explain: "The Common Data Environment (CDE) is the agreed single source of truth for the project's information."
@@ -191,10 +191,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What do exchange information requirements (EIR) mainly define?",
           choices: [
-            "The color scheme of the building",
+            "How the delivery team will organize itself to produce information",
             "What information must be delivered, and when, during appointments",
-            "The lunch menu for the site team",
-            "The brand of hard hats to wear"
+            "The overall information the client needs to run its organization",
+            "The schedule of every task team's deliverables across the project"
           ],
           answer: 1,
           explain: "EIR specify the information to be exchanged and the timing and format expected from appointed parties."
@@ -217,9 +217,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Why is it useful to define information requirements early?",
           choices: [
             "So teams deliver the right information instead of guessing",
-            "So the building can be taller",
-            "So fewer standards are needed",
-            "So the model file is smaller"
+            "So the BEP can be skipped because requirements are already set",
+            "So every element can be modeled to LOD 500 from the very start",
+            "So the delivery team can choose its own formats later on"
           ],
           answer: 0,
           explain: "Clear requirements let teams target exactly what is needed, avoiding wasted effort and missing data."
@@ -263,9 +263,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What does the BEP describe?",
           choices: [
             "How the team will actually deliver BIM on the project",
-            "The client's personal budget",
-            "The weather forecast for the site",
-            "The history of the construction industry"
+            "What information the client requires and when it is due",
+            "The client's long-term information needs for operations",
+            "Every individual task team's list of deliverables"
           ],
           answer: 0,
           explain: "The BIM Execution Plan sets out how the team will meet the information requirements: roles, standards, methods, and deliverables."
@@ -345,10 +345,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What is the main benefit of a file naming convention?",
           choices: [
-            "It makes files download faster",
+            "Files are checked for clashes as they are uploaded",
             "Everyone can find and identify files predictably",
-            "It reduces the size of the model",
-            "It changes the geometry automatically"
+            "Each file is locked so only its author can edit it",
+            "Older versions are deleted automatically on upload"
           ],
           answer: 1,
           explain: "A convention makes names predictable, so people can locate and understand files without guessing."
@@ -370,10 +370,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Which file name is most consistent with a structured naming convention?",
           choices: [
-            "final_final_v2 REAL (copy).rvt",
+            "Architecture Model Final Rev C 2024.rvt",
             "ProjA-ARC-M3-ZZ-Model-Architecture.rvt",
-            "stuff.rvt",
-            "new model 3 (2).rvt"
+            "ProjA_arch_model_latest_JS_edit.rvt",
+            "ARC-ProjA-Model-new-version-v3.rvt"
           ],
           answer: 1,
           explain: "The structured name uses ordered, meaningful fields, unlike vague or ad-hoc names that tell you little."
@@ -410,9 +410,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Where would a project's naming convention typically be recorded?",
           choices: [
             "In the BEP or an information standard",
-            "On a sticky note only",
-            "Nowhere, people just remember it",
-            "In the building's foundations"
+            "In the federated model's file properties",
+            "In each modeler's personal project notes",
+            "In the clash detection report template"
           ],
           answer: 0,
           explain: "The convention is documented in the BEP or an information standard so everyone can reference the same rules."
@@ -445,9 +445,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What does a TIDP mainly list?",
           choices: [
             "A single task team's deliverables and their dates",
-            "The client's travel schedule",
-            "The colors used in the model",
-            "The site security roster"
+            "The whole project's deliverables in one coordinated plan",
+            "The client's information requirements for each stage",
+            "The roles and responsibilities of each team member"
           ],
           answer: 0,
           explain: "A Task Information Delivery Plan lists what one task team will deliver and when."
@@ -487,9 +487,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Why combine TIDPs into an MIDP?",
           choices: [
             "To see the whole project's information delivery in one coordinated plan",
-            "To hide deliverables from the client",
-            "To make the model render faster",
-            "To reduce the number of task teams"
+            "To replace the BEP with a single list of the project's deliverables",
+            "To let each task team set its own delivery dates independently of others",
+            "To define the client's information requirements for the whole project"
           ],
           answer: 0,
           explain: "The MIDP gives a single coordinated view of all deliverables and dates across the project."
@@ -541,9 +541,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What is BCF (BIM Collaboration Format) used for?",
           choices: [
             "Exchanging issues and clashes between different tools",
-            "Storing the client's payments",
-            "Rendering photorealistic images",
-            "Measuring wind loads"
+            "Exchanging complete building models between different tools",
+            "Storing the project's documents in the common data environment",
+            "Defining the naming fields used for every file on the project"
           ],
           answer: 0,
           explain: "BCF lets teams pass issues, comments, and clash reports between software without sharing the whole model."
@@ -570,9 +570,9 @@ window.ACADEMY.addUnit("bim", {
           q: "The term openBIM refers to:",
           choices: [
             "Sharing information using open, neutral formats and standards",
-            "A single company's proprietary file type",
-            "Leaving the model unlocked with no password",
-            "A free trial of modeling software"
+            "Making every project model publicly available to anyone online",
+            "Using one vendor's platform so every team shares the same tools",
+            "Giving all project members permission to edit every model"
           ],
           answer: 0,
           explain: "openBIM is about collaborating with open, vendor-neutral formats and standards such as IFC, so tools can interoperate."
@@ -589,9 +589,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What is the goal of model checking and quality audits?",
           choices: [
             "To confirm information is accurate, complete, and follows the standards",
-            "To make the model look prettier",
-            "To delete old projects",
-            "To increase the file size"
+            "To improve how the model looks in renders and client presentations",
+            "To reduce file size by purging unused content before the model is shared",
+            "To approve the design on behalf of the client and the building authority"
           ],
           answer: 0,
           explain: "Quality checks verify that models are accurate, complete, and compliant before information is trusted and shared."
@@ -653,9 +653,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Why check a model before sharing it in the CDE?",
           choices: [
             "So others rely on information that is trustworthy",
-            "To make the file impossible to open",
-            "To remove all the geometry",
-            "To hide the model from the team"
+            "So the CDE can skip its own approval workflow",
+            "So the file can be published without a revision code",
+            "So the model no longer needs to follow the BEP rules"
           ],
           answer: 0,
           explain: "Checking before sharing means downstream users can trust the information they receive from the CDE."

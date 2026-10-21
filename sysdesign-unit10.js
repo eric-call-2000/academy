@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Martin Fowler's MonolithFirst argument says which of the following?",
           choices: [
-            "Microservices are always premature and should be avoided for the life of a product",
+            "Microservices are always premature, so a product should stay a single deployable for its entire life",
             "Teams should start with a monolith because the correct service boundaries are usually not known up front",
-            "Every monolith should be split into services once it exceeds a fixed line count",
-            "Monoliths scale better than services under all realistic traffic loads"
+            "Every monolith should be split into services as soon as it grows past a fixed number of lines of code",
+            "Monoliths scale better than services under all realistic traffic loads, so splitting never pays off"
           ],
           answer: 1,
           explain: "Fowler's MonolithFirst claim is about knowledge, not size: you learn the real boundaries by building the system, and guessing them early tends to produce services that are wrong and expensive to move."
@@ -32,9 +32,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which of these is the strongest signal that a monolith is genuinely under strain?",
           choices: [
-            "The repository has more than a thousand source files",
-            "Engineers occasionally need to read code owned by another team",
-            "The application uses a single relational database",
+            "The repository has grown past a thousand source files and the build now takes several minutes to finish locally",
+            "Engineers occasionally need to read and understand code owned by another team before changing their own",
+            "The application keeps all of its tables in a single relational database shared by every module in the codebase",
             "Independent teams routinely block each other on a shared release train and one team's bug halts everyone's deploy"
           ],
           answer: 3,
@@ -52,9 +52,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which advantage does a monolith retain that a distributed system must work hard to recover?",
           choices: [
             "Cheap in-process calls and transactional consistency across modules in one database transaction",
-            "Independent scaling of each functional area",
-            "Fault isolation so one failing module cannot exhaust another's resources",
-            "Independent technology choices per functional area"
+            "Independent scaling of each functional area based on its own load profile",
+            "Fault isolation, so that one failing module cannot exhaust the threads and memory another module depends on",
+            "Independent technology and language choices for each functional area of the product"
           ],
           answer: 0,
           explain: "In-process calls cannot fail partially, and a single database gives you real ACID transactions across modules. Distributed systems replace both with sagas, retries, and idempotency work."
@@ -104,9 +104,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which boundary is most likely to be a real bounded context rather than an arbitrary split?",
           choices: [
-            "A UtilityService holding shared string and date helpers",
-            "A ValidationService that all other services call before writing",
-            "A DatabaseService that wraps all table access for every domain",
+            "A UtilityService holding the shared string, date, and currency helpers that every other service imports",
+            "A ValidationService that all other services call to check their input before writing any data",
+            "A DatabaseService that wraps all table access for every domain behind one consistent interface",
             "Inventory, which owns stock levels and reservations and has its own vocabulary and rules"
           ],
           answer: 3,
@@ -124,9 +124,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "You have drawn a candidate boundary. Which observation most strongly suggests the boundary is wrong?",
           choices: [
             "Almost every user-facing change requires editing both sides of the boundary together",
-            "Each side has its own database schema",
-            "The two sides use different programming languages",
-            "The two sides are owned by different teams"
+            "Each side of the boundary has its own separate database schema",
+            "The two sides are written in different programming languages and use different frameworks",
+            "The two sides are owned by different teams that plan their work in separate backlogs"
           ],
           answer: 0,
           explain: "Boundaries should fall where change does not cross. If features consistently span the line, the line is in the wrong place and you have found a distributed monolith in the making."
@@ -159,10 +159,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What defines a modular monolith?",
           choices: [
-            "Multiple deployables that share a single database schema",
+            "Multiple separately deployed services that share a single database schema and release on the same schedule",
             "One deployable with strictly enforced internal module boundaries and explicit interfaces between modules",
-            "A monolith that is deployed to multiple regions simultaneously",
-            "A monolith where each module runs in its own operating system process"
+            "A monolith that is deployed to multiple regions at the same time behind a global load balancer",
+            "A monolith where each module runs in its own operating system process on the same host"
           ],
           answer: 1,
           explain: "A modular monolith keeps a single deployment artifact but treats module boundaries as real: modules talk through published interfaces, not by reaching into each other's internals."
@@ -177,10 +177,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which mechanism best enforces module boundaries in a modular monolith?",
           choices: [
-            "A written convention in the team wiki",
-            "Code review by the module owner on every pull request",
+            "A written convention in the team wiki describing which modules may import which others",
+            "Code review by the owning module's maintainers on every pull request that touches more than one module",
             "A build-time check that fails compilation when a module imports another module's internal package",
-            "Prefixing internal class names with the word Internal"
+            "Prefixing internal class names with the word Internal so that other modules know not to use them"
           ],
           answer: 2,
           explain: "Boundaries survive only if violating them breaks the build. Conventions and reviews decay under deadline pressure; an automated dependency rule does not."
@@ -196,9 +196,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A team argues the modular monolith is only a stepping stone and has no standalone value. What is the strongest counterargument?",
           choices: [
-            "Modular monoliths automatically scale better than services",
-            "Modular monoliths remove the need for testing at module boundaries",
-            "Modular monoliths eliminate the need for module ownership",
+            "Modular monoliths automatically scale better than services under load, since every call stays in one process and no network hop is ever involved",
+            "Modular monoliths remove the need for any testing at module boundaries, because the compiler already guarantees that every interface between modules is used correctly",
+            "Modular monoliths eliminate the need for module ownership, since one deployable means one team is responsible for all of it",
             "Clean boundaries deliver most of the comprehensibility and ownership benefits, and the deployment costs of splitting are only worth paying when a specific pressure demands them"
           ],
           answer: 3,
@@ -231,10 +231,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is a distributed monolith?",
           choices: [
-            "A monolith replicated across several data centers",
+            "A monolith that is replicated across several data centers so that any region can serve every request",
             "A set of separately deployed services that must be released together because of tight coupling",
-            "A monolith that calls one external payment provider",
-            "A microservice architecture in which every service has its own database"
+            "A monolith that calls out to one external payment provider over the network",
+            "A microservice architecture in which every service owns its own database and publishes events for others"
           ],
           answer: 1,
           explain: "The distributed monolith is the worst of both worlds: it pays every cost of the network - latency, partial failure, operational surface - while keeping the coordination cost of a single release."
@@ -249,10 +249,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which failure mode appears only after an in-process call becomes a network call?",
           choices: [
-            "A null value returned by the callee",
-            "An unhandled exception thrown inside the callee",
+            "A null value returned by the callee when the record it was asked for does not exist",
+            "An unhandled exception thrown inside the callee and propagated back up to the caller",
             "A timeout where the caller does not know whether the work was performed",
-            "An infinite loop inside the callee"
+            "An infinite loop inside the callee that keeps a CPU core busy until the process is restarted"
           ],
           answer: 2,
           explain: "Partial failure is the defining new hazard. A timeout is genuinely ambiguous: the request may have succeeded, failed, or still be running. That ambiguity forces idempotency and retry design."
@@ -304,10 +304,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which coupling is created by a synchronous request-response call that is required to serve a user request?",
           choices: [
-            "Schema coupling only, with no availability impact",
+            "Schema coupling only, with no impact on availability as long as the contract is stable",
             "Temporal coupling: the callee must be available at the moment the caller runs",
-            "Deployment coupling that forces both services to release together",
-            "No coupling at all, provided the API is versioned"
+            "Deployment coupling that forces both services to release together on every change",
+            "No coupling at all, provided the API is versioned and backward compatible"
           ],
           answer: 1,
           explain: "Synchronous calls require the dependency to be up right now. Asynchronous messaging removes that requirement by letting the broker hold the message until the consumer recovers."
@@ -323,9 +323,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "In choreography versus orchestration, which statement is correct?",
           choices: [
             "Orchestration uses a central coordinator that makes the flow explicit but concentrates knowledge of the flow in one place",
-            "Choreography requires a central coordinator to sequence the steps",
-            "Orchestration removes the need for compensating actions on failure",
-            "Choreography guarantees stronger consistency than orchestration"
+            "Choreography requires a central coordinator to sequence the steps, while orchestration lets each service react to events on its own",
+            "Orchestration removes the need for compensating actions on failure, because the coordinator can always roll back every step atomically",
+            "Choreography guarantees stronger consistency than orchestration, since every service sees the same events"
           ],
           answer: 0,
           explain: "Orchestration makes the workflow visible and easy to reason about at the cost of a coordinator that knows about everyone. Choreography spreads the flow across event reactions, which decouples services but makes the end-to-end flow hard to see."
@@ -341,10 +341,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A service writes to its database and must reliably publish a corresponding event. Which approach avoids losing events when the broker publish fails after the commit?",
           choices: [
-            "Publish to the broker first, then write to the database",
-            "Wrap the database write and the broker publish in a two-phase commit across both systems",
+            "Publish the event to the broker first and then write to the database, retrying the write until it succeeds",
+            "Retry the broker publish a few times in memory after the commit, then log the failure and move on",
             "Write the event to an outbox table in the same transaction, then relay it to the broker asynchronously",
-            "Publish the event and ignore failures, since consumers can poll for state"
+            "Publish the event and ignore any failures, since downstream consumers can always poll for the current state"
           ],
           answer: 2,
           explain: "The transactional outbox makes the state change and the intent to publish atomic in one database transaction. A separate relay then delivers at least once, which is why consumers must be idempotent."
@@ -376,10 +376,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why does a database shared by several services destroy independent deployability?",
           choices: [
-            "Databases cannot handle connections from more than one application",
+            "Databases cannot safely handle connections from more than one application at a time without corrupting data",
             "Any schema change may break other services, so migrations must be coordinated across all of them",
-            "Shared databases always become the performance bottleneck first",
-            "Query planners behave incorrectly when multiple services connect"
+            "Shared databases always become the performance bottleneck first, before any other part of the system",
+            "Query planners behave incorrectly when multiple services connect with different query patterns"
           ],
           answer: 1,
           explain: "The schema becomes a public API with no versioning and no owner. A column rename in one service can break three others, which forces lockstep releases."
@@ -401,9 +401,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "An order service needs customer names for a listing page but does not own customer data. Which approach best preserves independence?",
           choices: [
-            "Join across the customer service's tables from the order service",
-            "Move the customer table into the order service's database",
-            "Grant the order service a read replica of the customer schema",
+            "Join directly across the customer service's tables from the order service whenever the page loads",
+            "Move the customer table into the order service's database so the join stays local",
+            "Grant the order service a read replica of the customer schema to query as it needs",
             "Keep a locally maintained read model of the fields it needs, updated from customer events"
           ],
           answer: 3,
@@ -419,10 +419,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which is the most reliable indicator that a set of services is actually a distributed monolith?",
           choices: [
-            "They are written in the same programming language",
-            "They run in the same Kubernetes cluster",
+            "They are all written in the same programming language and share one build system",
+            "They run in the same Kubernetes cluster and share its ingress",
             "They share a schema and must be migrated and released together",
-            "They are all owned by the same engineering department"
+            "They are all owned by the same engineering department and report to the same director"
           ],
           answer: 2,
           explain: "Shared schema plus coordinated release is the defining pair. Same language, same cluster, and same department are all compatible with genuinely independent services."
@@ -449,10 +449,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What does the strangler fig pattern describe?",
           choices: [
-            "Rewriting the system in a new stack and cutting over in a single release",
-            "Freezing the old system and building the replacement alongside it for a year",
+            "Rewriting the whole system in a new stack and cutting all users over to it in a single planned release",
+            "Freezing the old system and building the full replacement alongside it for a year before switching over",
             "Incrementally routing slices of functionality to a new implementation behind a facade until the old system can be removed",
-            "Duplicating every request to a new system and discarding its responses permanently"
+            "Duplicating every request to a new system and permanently discarding its responses while the old system keeps serving users"
           ],
           answer: 2,
           explain: "Named by Martin Fowler after the strangler fig, the pattern keeps the old system running and serving traffic while new implementations take over one slice at a time, so value ships continuously and rollback stays cheap."
@@ -486,9 +486,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "During a strangler migration, why is shadow or dark traffic useful before cutting over?",
           choices: [
             "It lets you compare the new implementation's outputs against the old one on real traffic without user-visible risk",
-            "It eliminates the need for the facade layer",
-            "It guarantees the new implementation will be faster",
-            "It removes the need to migrate historical data"
+            "It eliminates the need for the routing facade layer, since both implementations receive every request directly",
+            "It guarantees the new implementation will be faster than the old one once traffic is cut over",
+            "It removes the need to migrate historical data, since the new system learns its state from the copied traffic"
           ],
           answer: 0,
           explain: "Shadowing exercises real production input distributions, which synthetic tests rarely reproduce. Responses from the shadow path are discarded and only compared, so mismatches are caught before users see them."
@@ -520,10 +520,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Melvin Conway's 1967 observation states that:",
           choices: [
-            "Adding people to a late software project makes it later",
+            "Adding more people to a software project that is already late makes it later still",
             "Organizations produce designs that mirror the communication structures of those organizations",
-            "The complexity of a system grows with the square of its component count",
-            "Software entropy increases unless energy is spent on maintenance"
+            "The complexity of a system grows with the square of the number of components it contains",
+            "Software entropy increases over time unless energy is spent on deliberate maintenance work"
           ],
           answer: 1,
           explain: "Conway's law is about communication structure, not the formal org chart. Interfaces form where teams must negotiate, because negotiated interfaces are expensive and teams minimize them."
@@ -545,10 +545,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A company organizes teams as frontend, backend, and database. What architectural outcome does Conway's law predict?",
           choices: [
-            "Services aligned to business capabilities, since teams will self-organize by domain",
+            "Services aligned to business capabilities, since the teams will naturally self-organize by domain over time and pull features apart",
             "Layered components whose boundaries follow the technical layers, so most features require all three teams to coordinate",
-            "A single monolith owned equally by all three teams",
-            "Fully independent deployables per team with no coordination"
+            "A single monolith owned equally by all three teams, with one shared release train and one shared backlog",
+            "Fully independent deployables per team, with no need for coordination between them when features change"
           ],
           answer: 1,
           explain: "Technology-layer teams produce technology-layer boundaries. Because features cut vertically through the layers, nearly every change becomes a three-team negotiation."

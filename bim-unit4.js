@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why does BIM need clearly defined roles?",
-          choices: ["So responsibilities are agreed and nothing falls through the cracks", "So only one person ever touches the model", "So no standards are ever written down", "So the project avoids using any software"],
+          choices: ["So responsibilities are agreed and nothing falls through the cracks", "So the software can assign tasks to each user automatically", "So one person can control every edit made to every model", "So each firm can follow its own standards independently of others"],
           answer: 0,
           explain: "BIM is collaborative. Clear roles make sure each task has an owner and the information stays consistent."
         },
@@ -39,7 +39,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "What is a likely result of unclear BIM roles?",
-          choices: ["Work is missed or duplicated because no one owns it", "The model finishes itself", "Everyone automatically agrees", "No files are ever created"],
+          choices: ["Work is missed or duplicated because no one owns it", "The model gains detail because more people edit it", "Coordination improves because everyone checks everything", "The project speeds up because approvals are skipped"],
           answer: 0,
           explain: "Without clear ownership, tasks can be dropped or done twice, causing confusion and rework."
         },
@@ -68,7 +68,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "What does a BIM Manager mainly do?",
-          choices: ["Sets BIM standards and oversees BIM strategy across projects or a company", "Only pours concrete on site", "Signs the client's cheques", "Refuses to let anyone use models"],
+          choices: ["Sets BIM standards and oversees BIM strategy across projects or a company", "Runs weekly clash detection on the federated model for a single project", "Builds the architectural model as the lead modeler for the discipline", "Manages the client's budget and approves design changes made on site"],
           answer: 0,
           explain: "The BIM Manager owns the standards, templates, and overall BIM approach at a company or project level."
         },
@@ -88,7 +88,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Which task fits a BIM Manager best?",
-          choices: ["Creating the BIM standards and templates the team uses", "Personally installing every door on site", "Approving the client's budget", "Writing the concrete mix design"],
+          choices: ["Creating the BIM standards and templates the team uses", "Running weekly clash tests on the federated model", "Modeling the ductwork in the mechanical discipline model", "Approving payment applications submitted by contractors"],
           answer: 0,
           explain: "Defining reusable standards and templates is a core BIM Manager responsibility."
         },
@@ -124,7 +124,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "What is the BIM Coordinator's main job on a project?",
-          choices: ["Coordinate the discipline models and run clash detection", "Set every company-wide standard alone", "Hire the client", "Order the site's coffee"],
+          choices: ["Coordinate the discipline models and run clash detection", "Set the company-wide BIM strategy and standards alone", "Model every discipline's elements for the whole team", "Act as the appointing party and set the requirements"],
           answer: 0,
           explain: "The BIM Coordinator federates the models and checks for clashes so the team can resolve them."
         },
@@ -180,7 +180,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "What does an Information Manager mainly look after?",
-          choices: ["The common data environment and information workflows", "The physical concrete on site", "The client's holiday schedule", "The color of the building"],
+          choices: ["The common data environment and information workflows", "The clash detection runs on the federated model", "The authoring of the structural discipline model", "The construction schedule and the site logistics plan"],
           answer: 0,
           explain: "Under ISO 19650, the Information Manager manages the CDE and the processes that move information through it."
         },
@@ -200,7 +200,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "The CDE, which the Information Manager oversees, is best described as...",
-          choices: ["The agreed single source of truth for project information", "A backup nobody uses", "A private folder on one laptop", "A printed set of drawings only"],
+          choices: ["The agreed single source of truth for project information", "A backup archive of models kept for disaster recovery", "The modeling software every discipline is required to use", "The federated model that is used only for clash detection"],
           answer: 0,
           explain: "The CDE is the shared, agreed home for project information that the whole team relies on."
         },
@@ -237,7 +237,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Who are the model authors on a BIM project?",
-          choices: ["The modelers who build the discipline models", "The people who only sign contracts", "The delivery drivers", "The client's accountants"],
+          choices: ["The modelers who build the discipline models", "The coordinators who federate and check the models", "The client team who sets the information requirements", "The information managers who run the CDE"],
           answer: 0,
           explain: "Model authors are the people who create the actual discipline models used on the project."
         },
@@ -267,7 +267,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why should model authors follow the BIM standards?",
-          choices: ["So their models are consistent and can be coordinated together", "So no one can ever open the file", "So the model has no information at all", "So the project takes longer on purpose"],
+          choices: ["So their models are consistent and can be coordinated together", "So their models can skip quality checks before being shared in the CDE", "So the coordinator can edit their models directly during reviews", "So each model can keep its own naming, units, and file structure"],
           answer: 0,
           explain: "Consistent, standards-based models are far easier to federate and coordinate across disciplines."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "In ISO 19650, who is the appointing party?",
-          choices: ["The client, who receives the information", "The bricklayer on site", "The software vendor", "The delivery courier"],
+          choices: ["The client, who receives the information", "The lead designer, who manages the design team", "The contractor, who delivers the information", "The software vendor, who hosts the CDE"],
           answer: 0,
           explain: "The appointing party is the client side that sets requirements and receives the delivered information."
         },
@@ -323,7 +323,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Which document, agreed by the parties, sets out how the project's information will be delivered?",
-          choices: ["The BIM Execution Plan (BEP)", "The site menu", "The paint receipt", "The parking permit"],
+          choices: ["The BIM Execution Plan (BEP)", "The Exchange Information Requirements (EIR)", "The Asset Information Model (AIM)", "The Organizational Information Requirements (OIR)"],
           answer: 0,
           explain: "The BIM Execution Plan (BEP) describes how the delivery team will meet the information requirements."
         },
@@ -366,7 +366,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why is it valuable that the whole team shares one set of BIM information?",
-          choices: ["Everyone works from the same current information", "Only the architect ever sees anything", "It stops anyone from communicating", "It deletes the data each night"],
+          choices: ["Everyone works from the same current information", "Each discipline can skip coordinating with the others", "The client no longer needs to review the deliverables", "Fewer people are needed to produce the discipline models"],
           answer: 0,
           explain: "A shared information base keeps every role aligned on the latest, consistent data."
         },
@@ -406,7 +406,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Which mix best describes what BIM professionals need?",
-          choices: ["Technical software skills, standards knowledge, and teamwork", "Only the ability to type fast", "Just one software button", "No communication at all"],
+          choices: ["Technical software skills, standards knowledge, and teamwork", "Deep expertise in one modeling program above everything else", "Strong 2D CAD drafting skills with little need for data skills", "Knowledge of standards alone, with the software left to others"],
           answer: 0,
           explain: "Good BIM work blends software skill, understanding of standards like ISO 19650, and collaboration."
         },
@@ -436,7 +436,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why is communication an important BIM skill?",
-          choices: ["BIM is collaborative and spans many disciplines", "Because models never need coordinating", "Because no one else uses the data", "Because standards do not exist"],
+          choices: ["BIM is collaborative and spans many disciplines", "Most BIM work is client presentations and design reviews", "Clients judge BIM teams mainly on their presentation skills", "The software requires users to approve each other's edits"],
           answer: 0,
           explain: "BIM connects many roles, so clear communication is needed to coordinate the shared information."
         },

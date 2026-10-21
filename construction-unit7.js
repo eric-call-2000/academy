@@ -13,21 +13,21 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the primary purpose of concrete formwork?",
-          choices: ["To shape the concrete and support it until it cures", "To cure the concrete faster", "To reinforce the concrete permanently", "To waterproof the finished slab"],
+          choices: ["To shape the concrete and support it until it cures", "To hold in heat and moisture so the concrete cures faster", "To reinforce the concrete permanently against tension", "To waterproof the surface of the finished slab"],
           answer: 0,
           explain: "Formwork molds the concrete to the desired shape and carries its loads until the concrete hardens enough to be self-supporting."
         },
         {
           type: "mcq",
           q: "The surface of the form that the wet concrete actually touches is called the:",
-          choices: ["Form face or sheathing", "Wale", "Strongback", "Kicker"],
+          choices: ["Form face or sheathing", "Strongback stiffener", "Waler (horizontal wale)", "Kicker brace"],
           answer: 0,
           explain: "The form face, also called the sheathing or contact surface, is what imprints the finished texture onto the concrete."
         },
         {
           type: "mcq",
           q: "Falsework most accurately refers to the temporary structure that:",
-          choices: ["Supports forms and loads above the ground, such as for bridges or elevated decks", "Imprints a texture into the concrete face", "Permanently reinforces a beam", "Seals construction joints"],
+          choices: ["Supports forms and loads above the ground, such as for bridges or elevated decks", "Lines the inside of a form to imprint a pattern or texture into the exposed concrete face", "Stays in place to reinforce a beam after the concrete has cured", "Seals construction joints so water cannot pass between pours"],
           answer: 0,
           explain: "Falsework is the temporary supporting framework, commonly the towers and bracing that hold up elevated formwork until the concrete is self-supporting."
         },
@@ -92,7 +92,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the key difference between handset forms and gang forms?",
-          choices: ["Gang forms are large preassembled panels lifted by crane; handset panels are placed by hand", "Handset forms are always steel", "Gang forms can only be used for footings", "Handset forms need no ties"],
+          choices: ["Gang forms are large preassembled panels lifted by crane; handset panels are placed by hand", "Handset forms are steel panels set by crane; gang forms are wood panels placed by hand", "Gang forms are used only for footings; handset forms are used only for tall walls", "Handset forms are held with ties; gang forms need no ties because they are braced"],
           answer: 0,
           explain: "Handset panels are sized for one or two workers to carry, while gangs are ganged into big units that a crane flies into place."
         },
@@ -143,14 +143,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "In a wall form, the horizontal members that gather the load from the studs and hold the form line are called:",
-          choices: ["Wales (walers)", "Joists", "Stringers", "Sole plates"],
+          choices: ["Wales (walers)", "Strongbacks", "Stringers", "Kickers (sole braces)"],
           answer: 0,
           explain: "Wales, also spelled walers, run horizontally across the studs to align the form and transfer pressure to the ties."
         },
         {
           type: "mcq",
           q: "What is the main job of a form tie in a wall form?",
-          choices: ["To hold the two form faces together against the outward pressure of the concrete", "To support the slab above", "To vibrate the concrete", "To level the footing"],
+          choices: ["To hold the two form faces together against the outward pressure of the concrete", "To anchor the bottom of the form to the footing so it cannot slide or float during the pour", "To support the rebar cage at the right cover inside the wall", "To brace the form back to the ground so it stays plumb"],
           answer: 0,
           explain: "Ties pass through the wall and connect both sides, resisting the bursting lateral pressure that tries to push the forms apart."
         },
@@ -215,14 +215,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Large preassembled slab form units flown from floor to floor by crane are known as:",
-          choices: ["Flying forms or table forms", "Snap ties", "Sonotubes", "Keyways"],
+          choices: ["Flying forms or table forms", "Gang forms or wall gangs", "Jump forms or climbing forms", "Slip forms or sliding forms"],
           answer: 0,
           explain: "Flying or table forms are big reusable assemblies of decking, joists, and shores that a crane lifts to the next level intact."
         },
         {
           type: "mcq",
           q: "A drop-head or quick-strip shore is designed to:",
-          choices: ["Let the deck and joists be removed while shores stay in place supporting the slab", "Pour the concrete faster", "Replace rebar in the slab", "Vibrate air pockets out of the slab"],
+          choices: ["Let the deck and joists be removed while shores stay in place supporting the slab", "Let the shores be pulled out early while the deck stays in place on the slab", "Lower the whole form assembly so it can be flown to the next floor by crane", "Raise the deck to camber the slab so it ends up level after it deflects"],
           answer: 0,
           explain: "Drop-head shores lower the deck slightly so forms strip early while the shore keeps supporting the young slab, freeing form material for reuse."
         },
@@ -280,14 +280,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Column clamps or yokes wrap around a column form mainly to:",
-          choices: ["Resist the outward pressure and keep the form from spreading", "Speed up curing", "Hold the rebar cage", "Provide a smooth finish"],
+          choices: ["Resist the outward pressure and keep the form from spreading", "Hold the rebar cage centered so the cover stays even", "Lock the column form plumb to the bracing on each side", "Hold in heat so the tall pour cures evenly top to bottom"],
           answer: 0,
           explain: "Clamps and yokes band the column form at intervals to contain the high lateral pressure that builds in a tall, narrow pour."
         },
         {
           type: "mcq",
           q: "Why are column clamps usually spaced closer together near the bottom of a column form?",
-          choices: ["Lateral pressure is greatest at the bottom where the concrete head is tallest", "The top concrete is heavier", "It looks better", "The rebar is denser at the bottom"],
+          choices: ["Lateral pressure is greatest at the bottom where the concrete head is tallest", "Vibration is concentrated at the bottom where the first lift is placed", "The rebar cage is densest at the base where the splices overlap", "The form panels are thinnest at the bottom where they sit on the rough footing"],
           answer: 0,
           explain: "Pressure increases with the height of fluid concrete above a point, so the base sees the most pressure and needs tighter clamp spacing."
         },
@@ -338,7 +338,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Fresh concrete pushes outward on wall forms because it behaves like a:",
-          choices: ["Heavy fluid that exerts lateral pressure", "Solid that exerts no side load", "Gas under suction", "Lightweight foam"],
+          choices: ["Heavy fluid that exerts lateral pressure", "Solid that presses only straight down", "Expanding foam that swells as it cures", "Elastic solid that springs back against the form"],
           answer: 0,
           explain: "Until it stiffens, fresh concrete acts as a dense liquid, so it presses sideways on the forms in proportion to its depth."
         },
@@ -352,7 +352,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which condition generally lowers the maximum lateral form pressure?",
-          choices: ["Higher concrete temperature that speeds setting", "A higher rate of placement", "A more fluid, high-slump mix", "A taller continuous pour", "Adding more water"],
+          choices: ["Higher concrete temperature that speeds setting", "A higher rate of placement up the form", "A more fluid, high-slump or self-consolidating mix", "A taller continuous pour in one placement", "Adding water at the truck to improve flow"],
           answer: 0,
           explain: "Warmer concrete sets faster, so lower layers stiffen and stop transmitting full fluid pressure before the form fills."
         },
@@ -403,21 +403,21 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "After stripping, a snap tie is twisted so it breaks off at a point set back from the surface. This is called the:",
-          choices: ["Breakback", "Slump", "Keyway", "Camber"],
+          choices: ["Breakback", "Setback", "Keyway", "Tie cone"],
           answer: 0,
           explain: "The breakback is the inset break point, so the metal end snaps below the surface and the hole can be patched and protected from rust."
         },
         {
           type: "mcq",
           q: "A spreader in a form is used to:",
-          choices: ["Hold the two form faces apart at the correct wall thickness", "Push the forms apart during stripping", "Smooth the concrete surface", "Mix the concrete"],
+          choices: ["Hold the two form faces apart at the correct wall thickness", "Pull the two form faces tightly together against the concrete", "Push the form faces off the wall during stripping", "Spread the concrete evenly along the form as it is placed"],
           answer: 0,
           explain: "Spreaders set and maintain the gap, the wall thickness, while ties resist the inward pull; some ties have built-in spreader washers."
         },
         {
           type: "mcq",
           q: "A chamfer strip is placed in the corner of a form to:",
-          choices: ["Create a beveled edge instead of a sharp, chip-prone corner", "Hold the rebar", "Stop the concrete from leaking", "Add color to the concrete"],
+          choices: ["Create a beveled edge instead of a sharp, chip-prone corner", "Seal the corner joint so cement paste cannot leak out", "Hold the corner rebar at the right cover distance", "Form a recessed groove that hides the joint between pours"],
           answer: 0,
           explain: "A chamfer strip molds a clean 45-degree bevel that resists chipping and looks better than a fragile square corner."
         },
@@ -455,7 +455,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Rustication strips are added to a form to:",
-          choices: ["Create recessed grooves or reveal lines in the concrete face", "Speed curing", "Reinforce the form", "Remove air bubbles"],
+          choices: ["Create recessed grooves or reveal lines in the concrete face", "Stiffen the form face so it does not bow between the studs", "Bevel the outside corners so they do not chip when stripped", "Give the surface a rough texture so plaster will bond"],
           answer: 0,
           explain: "Rustication strips mold intentional reveal grooves that break up large flat surfaces and hide joints between pours."
         }
@@ -476,14 +476,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "The single most important factor in deciding when forms can be safely stripped is:",
-          choices: ["The strength the concrete has gained", "The color of the concrete", "The brand of form release used", "The outside humidity only"],
+          choices: ["The strength the concrete has gained", "The number of days since the pour, regardless of weather", "The surface color and dryness of the concrete", "The schedule date set for the next trade"],
           answer: 0,
           explain: "Forms come off only once the concrete has gained enough strength to support itself and any loads, verified by time and cylinder tests."
         },
         {
           type: "mcq",
           q: "What is the difference between reshoring and backshoring?",
-          choices: ["In reshoring the slab is allowed to deflect and carry its own weight before new shores go in; in backshoring shores are placed snug so the slab never fully deflects", "They are the same thing", "Backshoring is only for footings", "Reshoring uses no posts"],
+          choices: ["In reshoring the slab is allowed to deflect and carry its own weight before new shores go in; in backshoring shores are placed snug so the slab never fully deflects", "In backshoring the slab is allowed to deflect and carry its own weight before new shores go in; in reshoring shores are placed snug so the slab never fully deflects", "Reshoring adds posts under a slab that is still in its forms; backshoring removes every post at once so the slab carries itself and any loads placed on it", "Reshoring is done on the floor directly below the pour; backshoring is done two or more floors down and uses lighter posts that carry no load from above"],
           answer: 0,
           explain: "Reshores let the slab deflect and carry itself, then add posts; backshores are set tight so the slab never deflects under its own weight."
         },
@@ -527,7 +527,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A key formwork safety practice during stripping and reshoring is to:",
-          choices: ["Follow an engineered shoring and reshoring plan and never overload a young slab", "Strip everything at once to save time", "Skip bracing on short walls", "Remove all shores the same day as the pour"],
+          choices: ["Follow an engineered shoring and reshoring plan and never overload a young slab", "Strip every form and shore at the same time so the young slab takes its load evenly", "Remove the shores on the day after the pour if the surface feels hard", "Stack stripped forms on the new slab to keep the deck clear below"],
           answer: 0,
           explain: "Formwork failures are dangerous, so crews follow the engineer's strip and reshore sequence to avoid overloading immature concrete."
         }

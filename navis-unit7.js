@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "What is the main purpose of exporting a clash report?",
           choices: [
-            "To delete the clashes from the model",
+            "To archive the clash test so it can be deleted from the NWF",
             "To share the clash results with team members who need to act on them",
-            "To recalculate the clash tolerance automatically",
-            "To convert the NWF into an NWC"
+            "To push the clash fixes back into each authoring model automatically",
+            "To lock the clash results so statuses can no longer change"
           ],
           answer: 1,
           explain: "A clash report packages the found clashes so authoring teams and stakeholders can review and resolve them, even without opening Navisworks."
@@ -109,10 +109,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "What is the main advantage of an XML clash report?",
           choices: [
-            "It is the only format a human can read",
+            "It is the easiest format for people to read in a web browser",
             "It is a structured, machine-readable format other software can import",
-            "It contains no clash data at all",
-            "It bakes the full 3D geometry into the file"
+            "It embeds a full-size viewpoint image of every clash inside a single page",
+            "It stores the full model geometry so no NWD is needed"
           ],
           answer: 1,
           explain: "XML is structured data, so other tools and scripts can parse the clash results programmatically."
@@ -186,10 +186,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "What does a BCF file actually carry?",
           choices: [
-            "The complete 3D geometry of every model",
+            "The complete 3D geometry of every model in the federation",
             "Issue information such as a comment, a camera viewpoint, and a reference to affected elements",
-            "Only a plain text note with no location",
-            "A licensed copy of the authoring software"
+            "The full clash test settings, including selection sets, rules, tolerances and statuses",
+            "A plain text note with the issue title but no location or view"
           ],
           answer: 1,
           explain: "BCF is lightweight: it carries the issue text, a viewpoint, and references to elements, not the heavy model geometry itself."
@@ -204,10 +204,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "Why is BCF more efficient than emailing the entire federated model to raise one issue?",
           choices: [
-            "Because it sends more data than the full model",
+            "Because it compresses the whole federated model into a single small file",
             "Because it carries only the small issue payload instead of gigabytes of geometry",
-            "Because it deletes the model on the other end",
-            "Because it requires everyone to use the identical software"
+            "Because it converts the geometry into lightweight 2D drawings",
+            "Because it streams the model from the cloud only when opened"
           ],
           answer: 1,
           explain: "BCF transfers just the issue and its viewpoint, which is tiny compared to shipping the full model to communicate one problem."
@@ -232,10 +232,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "A structural engineer uses one BIM tool and the MEP team uses another. How does BCF help them coordinate?",
           choices: [
-            "It forces both teams onto the same software license",
+            "It converts each team's model into the other team's native format",
             "It lets an issue raised in one tool be opened and answered in the other",
-            "It merges their models into a single authoring file",
-            "It prevents either team from seeing the clash"
+            "It merges both models into a single shared authoring file",
+            "It requires both teams to license the same coordination software"
           ],
           answer: 1,
           explain: "BCF is exactly for this cross-tool situation: the issue moves between different applications while staying tied to its viewpoint."
@@ -262,10 +262,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "What is the main goal of a BIM coordination meeting?",
           choices: [
-            "To author new architectural geometry live",
+            "To edit the discipline models live until every clash is gone",
             "To review clashes in the federated model and agree who fixes what",
-            "To publish the project's marketing renders",
-            "To replace all discipline models with one file"
+            "To approve the final design before it goes out for bidding",
+            "To merge all discipline models into a single authoring file"
           ],
           answer: 1,
           explain: "Coordination meetings bring the disciplines together to walk the federated model, discuss clashes, and assign ownership of fixes."
@@ -287,10 +287,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "During the meeting, what is a good use of saved viewpoints?",
           choices: [
-            "To hide all clashes from the attendees",
+            "To store each clash's geometry so the model can be closed",
             "To jump quickly to each pre-identified clash instead of navigating blindly",
-            "To permanently delete geometry",
-            "To convert the model to XML"
+            "To set the clash tolerance for each area of the building",
+            "To mark each clash as Resolved as soon as the viewpoint is shown on screen"
           ],
           answer: 1,
           explain: "Pre-saved viewpoints let the facilitator jump straight to each clash, keeping the meeting efficient and focused."
@@ -315,10 +315,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "Why is a self-contained NWD often used to share the model for a coordination meeting?",
           choices: [
-            "Because it references source files without any geometry",
+            "Because it links to the live source files, so everyone sees edits as they happen",
             "Because it is a snapshot with geometry baked in that others can open on their own",
-            "Because it can only be opened by the original author",
-            "Because it strips out all the disciplines"
+            "Because it can be edited in Revit during the meeting and saved back",
+            "Because it holds only the clash list, keeping the file very small"
           ],
           answer: 1,
           explain: "An NWD is a self-contained published snapshot with geometry, so attendees can open the coordinated model without the source files."
@@ -345,10 +345,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "In Clash Detective, what does the status New usually mean?",
           choices: [
-            "The clash has been fixed and verified",
+            "The clash has been fixed and verified in the model",
             "The clash was just found and has not been reviewed yet",
-            "The clash was intentionally approved",
-            "The clash no longer appears in the model"
+            "The clash was reviewed and accepted as allowable",
+            "The clash came from a model file added this week"
           ],
           answer: 1,
           explain: "New marks a freshly detected clash that has not yet been triaged by the team."
@@ -410,10 +410,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "Why is assigning statuses valuable when re-running clash tests over several weeks?",
           choices: [
-            "It hides all clashes from the report",
+            "It lets the test skip any element that already has a status, so each run finishes faster",
             "It preserves the history so you can tell genuinely new clashes from ones already being handled",
-            "It deletes old models automatically",
-            "It converts clashes into viewpoints"
+            "It hides resolved and approved clashes from the model geometry",
+            "It sends each status change to the authoring model automatically"
           ],
           answer: 1,
           explain: "Carrying statuses across runs lets Navisworks distinguish new issues from ones already in progress, so effort is not duplicated."
@@ -429,10 +429,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "Which of these is the most actionable coordination issue?",
           choices: [
-            "There is a problem somewhere with the pipes",
+            "Level 2 has several duct and beam clashes near the core; the mechanical team should review them",
             "Duct at grid C3, level 2 clashes with the beam; please reroute the duct below the beam",
-            "Fix the model",
-            "Something looks wrong, take a look when you can"
+            "Clash 47 from the latest test run: duct versus beam, hard clash, 150 mm overlap, status New",
+            "Please reroute the ductwork so it no longer clashes with the structure anywhere on the job"
           ],
           answer: 1,
           explain: "The strong issue names the element, the location, and a clear requested action, so the receiver can act without guessing."
@@ -470,10 +470,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "Why should a coordination issue name the responsible discipline or person?",
           choices: [
-            "So no one knows who should act",
+            "So the person named is blamed for the cost of the rework",
             "So the issue lands with the person who can actually fix it",
-            "To make the report longer",
-            "To hide the clash from the team"
+            "So the clash is counted against that discipline's score",
+            "So Navisworks can move the issue to their model automatically"
           ],
           answer: 1,
           explain: "Naming an owner ensures the issue reaches someone accountable, rather than sitting unclaimed."
@@ -482,10 +482,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "How does an attached viewpoint image improve a coordination issue?",
           choices: [
-            "It replaces the need for any written description",
+            "It replaces the written description, so no comment is needed at all",
             "It shows exactly where the problem is, removing doubt about which element is meant",
-            "It bakes geometry into the report so the model is not needed",
-            "It automatically fixes the clash"
+            "It carries the model geometry with it, so the receiver never needs to open the source files",
+            "It updates the clash status automatically once the image is viewed"
           ],
           answer: 1,
           explain: "A viewpoint image pins down the exact location visually, complementing the text so there is no confusion about the element."
@@ -512,10 +512,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "Why does coordinating against out-of-date models cause problems?",
           choices: [
-            "It makes the model file smaller",
+            "Old models report fewer clashes, so the results look better than they are",
             "You may chase clashes that were already fixed or miss ones that are new",
-            "It automatically resolves every clash",
-            "It has no effect on the results"
+            "Navisworks refuses to run clash tests on files older than a week",
+            "Outdated models lose their property data when they are appended"
           ],
           answer: 1,
           explain: "Stale models produce misleading clashes: some are already fixed and some new ones are missing, so effort is wasted."
@@ -555,10 +555,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "Before a coordination meeting, what is the best practice regarding model freshness?",
           choices: [
-            "Use whatever files happen to be open",
+            "Reuse the federated model from the last meeting so this week's results compare cleanly with last week's",
             "Confirm each discipline has published its latest model so the federation is current",
-            "Skip updating to save time",
-            "Delete the oldest models at random"
+            "Ask each discipline to send its model during the meeting itself",
+            "Refresh only the models that had the most clashes last time"
           ],
           answer: 1,
           explain: "Ensuring every discipline has submitted its current model means the meeting reviews real, up-to-date clashes."
@@ -595,10 +595,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "What does ACC Model Coordination do that complements desktop Navisworks?",
           choices: [
-            "It authors architectural geometry",
+            "It lets teams edit model geometry together in a web browser",
             "It runs automatic clash detection in the cloud as models are uploaded",
-            "It only stores marketing renders",
-            "It replaces the need for any BIM models"
+            "It publishes NWD files for owners who use Navisworks Freedom",
+            "It converts uploaded models into 2D sheets for the field team"
           ],
           answer: 1,
           explain: "ACC Model Coordination automatically clashes uploaded models in the cloud, complementing the deeper manual analysis you do in Navisworks."
@@ -613,10 +613,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "Which capability is a strength of desktop Navisworks Manage over the automatic cloud clash?",
           choices: [
-            "It cannot detect any clashes",
+            "Automatic clash checks that run on their own every time a model is uploaded",
             "Detailed manual control with Clash Detective, custom rules, tolerances, and grouping",
-            "It never opens BIM models",
-            "It only produces XML"
+            "Real-time co-editing of model geometry with every authoring team inside one shared session",
+            "Viewing models on a phone or tablet in the field without a license"
           ],
           answer: 1,
           explain: "Desktop Navisworks Manage gives fine-grained control over rules, tolerances, and grouping that goes beyond automatic cloud clashing."
@@ -648,10 +648,10 @@ window.ACADEMY.addUnit("navisworks", {
           type: "mcq",
           q: "A team wants continuous, hands-off clash checks every time a model is uploaded, plus occasional deep manual analysis. What is a sensible split?",
           choices: [
-            "Use only Freedom viewer for everything",
+            "Use Navisworks Manage for the automatic checks and ACC Model Coordination for the deep analysis",
             "Use ACC Model Coordination for the automatic checks and Navisworks Manage for the deep analysis",
-            "Avoid the cloud entirely and never share models",
-            "Do all clashing by hand with no tools"
+            "Use Navisworks Freedom for the automatic checks and ACC Docs for the deep manual analysis",
+            "Use Navisworks Simulate for both, since it includes Clash Detective and cloud automation"
           ],
           answer: 1,
           explain: "Pairing cloud automatic coordination with desktop Navisworks Manage covers both continuous checks and detailed manual review."

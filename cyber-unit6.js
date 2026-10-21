@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is the OWASP Top 10 best described as?",
           choices: [
             "A widely used list of the most critical web application security risks",
-            "A law that all websites must legally follow",
-            "A single tool that scans and fixes all bugs automatically",
-            "A brand of firewall hardware"
+            "A legal standard that every public website is required to follow",
+            "An automated scanner that finds and fixes the ten most common bugs",
+            "A ranking of the ten most dangerous hacker groups targeting the web"
           ],
           answer: 0,
           explain: "The OWASP Top 10 is an awareness list of common, serious web app security risks that builders use as a checklist."
@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is a checklist like the OWASP Top 10 useful for a development team?",
           choices: [
             "It gives a shared, prioritized starting point for common risks",
-            "It guarantees the site can never be hacked",
-            "It replaces the need to test the application",
-            "It makes the site load faster"
+            "It certifies the site as secure once all ten items are checked",
+            "It replaces the need for security testing before each release",
+            "It lists every possible flaw, so nothing else needs reviewing"
           ],
           answer: 0,
           explain: "It focuses limited time on the risks most likely to matter, but it is a starting point, not a guarantee."
@@ -87,9 +87,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is SQL injection?",
           choices: [
             "Tricking an app into running attacker-controlled input as part of a database query",
-            "A way to make databases run faster",
-            "A method of backing up a database",
-            "A type of strong password"
+            "Flooding a database server with requests until it stops answering real users",
+            "Stealing a database backup file by guessing the admin's password",
+            "Running a script in a victim's browser through a comment on a trusted page"
           ],
           answer: 0,
           explain: "In SQL injection, untrusted input changes the meaning of a query, letting attackers read or alter data they should not."
@@ -145,9 +145,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Besides SQL, injection can also affect which of these?",
           choices: [
             "Operating system commands the app runs",
-            "The color of the login button",
-            "The size of the company logo",
-            "The number of pages on the site"
+            "Images uploaded to the site's gallery",
+            "Static CSS files that style each page",
+            "The SSL certificate on the web server"
           ],
           answer: 0,
           explain: "Injection is a general problem; command, LDAP, and other injections all come from mixing untrusted input with a command language."
@@ -170,9 +170,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What does a Cross-Site Scripting (XSS) attack do?",
           choices: [
             "Runs attacker-supplied script in a victim's browser via a trusted page",
-            "Physically damages the web server",
-            "Encrypts the site's database for ransom",
-            "Slows down the user's internet connection"
+            "Sends forged requests from a logged-in user's browser using their session",
+            "Runs attacker input as part of a database query on the server",
+            "Copies a site's design to a fake domain to steal logins"
           ],
           answer: 0,
           explain: "XSS injects script that the victim's browser runs as if it came from the trusted site, letting it steal data or act as the user."
@@ -182,9 +182,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a core defense against XSS?",
           choices: [
             "Encoding output so input is shown as text, not run as code",
-            "Using a shorter domain name",
-            "Turning off the site's images",
-            "Emailing users a warning"
+            "Hashing user input before it is saved in the database",
+            "Serving the whole site over HTTPS with a valid certificate",
+            "Requiring users to log in before they can post comments"
           ],
           answer: 0,
           explain: "Output encoding makes user content display as harmless text instead of executing as HTML or script."
@@ -217,9 +217,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "One reason XSS is dangerous is that the malicious script runs with which context?",
           choices: [
             "The trusted site's context, so it can access the user's session there",
-            "No context at all, so it can do nothing",
-            "Only the attacker's own computer",
-            "Only offline text files"
+            "The attacker's site context, so it only reads the attacker's own cookies",
+            "The operating system's context, so it can install programs on the device",
+            "The web server's context, so it can read the database directly"
           ],
           answer: 0,
           explain: "Because the browser thinks the script came from the trusted site, it can read cookies or act as the logged-in user."
@@ -253,9 +253,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is Cross-Site Request Forgery (CSRF)?",
           choices: [
             "Tricking a logged-in user's browser into making a request they did not intend",
-            "Guessing a user's password by brute force",
-            "Reading data straight from a database file",
-            "Installing hardware on a server"
+            "Injecting script into a page so it runs in other users' browsers",
+            "Stealing a user's session cookie over public Wi-Fi and reusing it from another device",
+            "Sending a fake login page that copies a real site's design and URL"
           ],
           answer: 0,
           explain: "CSRF abuses the fact that the browser automatically attaches the user's session, so a forged request looks legitimate."
@@ -265,9 +265,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is the standard defense against CSRF?",
           choices: [
             "An anti-CSRF token that must accompany state-changing requests",
-            "A longer username",
-            "A brighter website color scheme",
-            "Disabling JavaScript everywhere"
+            "Encoding all output so scripts are shown as plain text",
+            "Hashing passwords with a slow, salted algorithm",
+            "Requiring HTTPS on every page so requests cannot be read in transit"
           ],
           answer: 0,
           explain: "A secret, per-session anti-CSRF token proves the request came from the real site's form, not a forged one."
@@ -306,9 +306,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Setting a cookie's SameSite attribute helps with CSRF because it can:",
           choices: [
             "Stop the cookie from being sent on many cross-site requests",
-            "Encrypt the whole database",
-            "Make the password unhashable",
-            "Speed up page loads"
+            "Encrypt the cookie so attackers cannot read its value",
+            "Hide the cookie from JavaScript running on the page",
+            "Make the cookie expire as soon as the browser closes"
           ],
           answer: 0,
           explain: "SameSite tells the browser to withhold the cookie on cross-site requests, cutting off a key CSRF ingredient."
@@ -331,9 +331,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is the difference between validation and sanitization?",
           choices: [
             "Validation checks input against rules; sanitization cleans or neutralizes it",
-            "They are two words for the exact same step",
-            "Validation only applies to images",
-            "Sanitization means deleting the whole database"
+            "Validation runs in the browser; sanitization runs only on the server",
+            "Validation encrypts input; sanitization decrypts it before it is used",
+            "Sanitization checks input against rules; validation cleans or escapes it"
           ],
           answer: 0,
           explain: "Validation rejects input that breaks the rules; sanitization removes or escapes dangerous parts so it is safe to use."
@@ -343,9 +343,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which validation approach is generally safer?",
           choices: [
             "Allowlist: accept only known-good input and reject the rest",
-            "Blocklist: try to list every bad thing to reject",
-            "Accept everything and hope for the best",
-            "Trust anything sent from a mobile app"
+            "Blocklist: list every known-bad pattern and reject those",
+            "Length check: accept any input under a set number of characters",
+            "Client-side check: validate in the browser and trust the result"
           ],
           answer: 0,
           explain: "Allowlisting defines what is acceptable, which is more reliable than trying to enumerate every possible bad input."
@@ -389,9 +389,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is client-side validation still worth including even though it is not sufficient?",
           choices: [
             "It gives fast, friendly feedback to honest users",
-            "It replaces the need for server checks",
-            "It stores passwords more securely",
-            "It encrypts the connection"
+            "It stops attackers who send requests from scripts",
+            "It lets the server skip checks for trusted browsers",
+            "It hides validation rules from attackers on the page"
           ],
           answer: 0,
           explain: "Client-side checks improve user experience, but the server must still enforce the real rules."
@@ -408,9 +408,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "How should a website store user passwords?",
           choices: [
             "As salted hashes using a strong password-hashing algorithm",
-            "As plaintext in the database",
-            "Encrypted with a key stored next to the data",
-            "In a public file so users can check them"
+            "Encrypted with a key that is stored next to the database",
+            "As fast unsalted hashes such as MD5 to save server time",
+            "In plaintext, but inside a database protected by a firewall"
           ],
           answer: 0,
           explain: "Passwords should be hashed with a slow, salted algorithm so the original is never stored and cannot be simply reversed."
@@ -433,9 +433,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is hashing, not reversible encryption, used for passwords?",
           choices: [
             "You only need to verify a password, not recover it, so one-way hashing is safer",
-            "Hashing makes passwords load faster",
-            "Encryption is illegal for passwords",
-            "Hashing lets the site email passwords back to users"
+            "Hashing lets the site decode and email forgotten passwords back to their users",
+            "Encryption keys are too long to store safely on a web server",
+            "Hashing compresses passwords so the database takes up less space"
           ],
           answer: 0,
           explain: "Hashing is one-way; the site compares hashes to check a login and never needs to recover the original password."
@@ -461,9 +461,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which practice best limits the damage of a stolen session cookie?",
           choices: [
             "Expiring sessions and requiring re-login after inactivity",
-            "Making the cookie value very long only",
-            "Storing the cookie in plaintext logs",
-            "Never logging users out"
+            "Making the cookie value longer so it is harder to guess",
+            "Storing the session ID in the URL instead of a cookie",
+            "Keeping users signed in until they log out by hand"
           ],
           answer: 0,
           explain: "Session timeouts and re-authentication shrink the window in which a stolen cookie is useful."
@@ -491,9 +491,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What does HTTPS (TLS) provide for a website?",
           choices: [
             "Encryption of data in transit between the browser and server",
-            "A guarantee that the site owner is honest",
-            "Faster typing for users",
-            "Automatic bug-free code"
+            "Proof that the site owner is honest and the site is safe to use",
+            "Encryption of the data stored in the site's database at rest",
+            "Protection against XSS and injection in the site's code"
           ],
           answer: 0,
           explain: "TLS encrypts data moving between browser and server; it protects the connection, not the trustworthiness of the site."
@@ -526,9 +526,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is the main benefit of a Content-Security-Policy header?",
           choices: [
             "It restricts where scripts and other resources may load from",
-            "It compresses images automatically",
-            "It hashes the user's password",
-            "It backs up the database nightly"
+            "It forces the browser to always use HTTPS for the site",
+            "It blocks cookies from being sent on cross-site requests",
+            "It encrypts form data before it leaves the user's browser"
           ],
           answer: 0,
           explain: "A CSP limits allowed sources, which helps contain XSS and blocks many unexpected script loads."
@@ -544,9 +544,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which is an example of insecure configuration a builder should fix?",
           choices: [
             "Leaving detailed error messages and default admin pages exposed in production",
-            "Serving the site over HTTPS",
-            "Setting a strong Content-Security-Policy",
-            "Turning on HSTS"
+            "Serving every page over HTTPS with a certificate that renews automatically",
+            "Setting a strict Content-Security-Policy that limits script sources",
+            "Turning on HSTS so browsers always connect to the site over HTTPS"
           ],
           answer: 0,
           explain: "Verbose errors and exposed default pages leak information; secure configuration hides them in production."
@@ -563,9 +563,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Where should secrets like API keys and database passwords be kept?",
           choices: [
             "Server-side configuration or a secrets manager, out of the source code",
-            "Hardcoded directly in the shipped code",
-            "In a public code repository",
-            "Printed in the page's HTML"
+            "Hardcoded in the front-end code, but hidden with minification",
+            "In the code repository, as long as the repository is set to private",
+            "In a comment in the HTML so only developers know to look"
           ],
           answer: 0,
           explain: "Secrets belong in server-side config or a secrets manager, never hardcoded where they can leak or be extracted."
@@ -581,9 +581,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a supply-chain vulnerability in software?",
           choices: [
             "A flaw introduced through a third-party library or dependency you rely on",
-            "A slow warehouse delivery of servers",
-            "A weak Wi-Fi password at the office",
-            "A typo in a blog post"
+            "A flaw in code your own team wrote that was missed during code review",
+            "A delay in patching because the vendor ships updates too slowly",
+            "A weakness in the delivery company that ships your servers"
           ],
           answer: 0,
           explain: "Your app inherits the risks of the code it depends on, so a vulnerable or malicious dependency becomes your problem."
@@ -627,9 +627,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why should you regularly scan and update dependencies?",
           choices: [
             "Newly discovered vulnerabilities in old versions get fixed in updates",
-            "It makes the logo look nicer",
-            "It removes the need to write any code",
-            "It guarantees the app can never fail"
+            "Newer versions always run faster, which reduces denial-of-service risk",
+            "Old dependencies stop working once their licenses expire each year",
+            "Scanning removes unused code so attackers have nothing left to target"
           ],
           answer: 0,
           explain: "Vulnerabilities are found over time; staying updated pulls in the fixes and shrinks your exposure."

@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does clash detection look for between models?",
-          choices: ["Places where parts of different models occupy the same space", "Spelling errors in sheet titles", "Missing paint colors", "Late timesheets"],
+          choices: ["Places where parts of different models occupy the same space", "Sheets whose titles or numbers do not match the drawing index", "Elements that are missing required material or finish data", "Model elements that were changed since the last version"],
           answer: 0,
           explain: "A clash is a physical conflict where two model elements overlap or interfere with each other."
         },
@@ -52,7 +52,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why is finding clashes early valuable?",
-          choices: ["Fixing conflicts on screen is cheaper than fixing them in the field", "It makes the model file smaller", "It removes the need for drawings", "It hides errors from the team"],
+          choices: ["Fixing conflicts on screen is cheaper than fixing them in the field", "It makes the combined model file smaller and faster to open", "It removes the need to produce coordinated construction drawings", "It lets the design team skip later design reviews"],
           answer: 0,
           explain: "Catching conflicts digitally avoids costly rework, delays, and change orders during construction."
         }
@@ -73,7 +73,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which set of models are typically aggregated for coordination?",
-          choices: ["Architectural, structural, and MEP", "Only the site logo", "Only the cover sheet", "Only the schedule bar chart"],
+          choices: ["Architectural, structural, and MEP", "Only the architectural model and its sheets", "The site logistics plan and project schedule", "Cost estimates and quantity takeoff files"],
           answer: 0,
           explain: "Coordination usually combines the main disciplines like architecture, structure, and MEP so overlaps show up."
         },
@@ -98,7 +98,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Where are the models organized so Model Coordination can aggregate them?",
-          choices: ["A coordination space (folder) in the project", "A printed binder", "A personal email inbox", "A spreadsheet of pixel colors"],
+          choices: ["A coordination space (folder) in the project", "Each designer's own Desktop Connector folder", "A shared email inbox for the coordination team", "The Sheets area of Autodesk Docs"],
           answer: 0,
           explain: "Models placed in the designated coordination folder or space are aggregated and clashed automatically."
         },
@@ -150,7 +150,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why promote a clash to an issue instead of just noting it?",
-          choices: ["An issue has an owner and status so it does not get forgotten", "It deletes the model", "It hides the clash forever", "It prints the whole set"],
+          choices: ["An issue has an owner and status so it does not get forgotten", "It automatically moves the elements so they no longer overlap", "It hides the clash from the list so the view is less cluttered", "It sends the clash to the owner for formal approval"],
           answer: 0,
           explain: "Turning a clash into an issue gives it accountability and a paper trail through to resolution."
         },
@@ -176,7 +176,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What triggers a fresh clash check in Model Coordination?",
-          choices: ["A new version of a model added to the space", "Changing the sheet border color", "Renaming a folder icon", "Logging out"],
+          choices: ["A new version of a model added to the space", "Opening the coordination space in a browser", "Adding a new user to the project team", "Assigning an existing clash to a team member"],
           answer: 0,
           explain: "Publishing an updated model to the coordination space prompts ACC to re-clash the aggregate."
         },
@@ -196,7 +196,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a benefit of automatic re-runs?",
-          choices: ["Resolved clashes drop off and only real conflicts remain", "The model is deleted", "Drawings are no longer needed", "Everyone must re-upload by hand daily"],
+          choices: ["Resolved clashes drop off and only real conflicts remain", "Every clash ever found stays open until someone closes it by hand", "Models no longer need to be updated by the design teams", "Clash rules are rewritten automatically after each run"],
           answer: 0,
           explain: "Automatic re-runs keep the list honest, showing fixed items as cleared and surfacing new conflicts."
         },
@@ -254,7 +254,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "How can you see all open coordination issues in one place?",
-          choices: ["The project issue list", "The printer queue", "The login screen", "The recycle bin"],
+          choices: ["The project issue list", "The Sheets area of Autodesk Docs", "Each model's version history", "The project's activity log"],
           answer: 0,
           explain: "ACC keeps issues in a project-wide list you can filter by assignee, status, and due date."
         },
@@ -280,14 +280,14 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a strength of cloud Model Coordination compared to only using desktop tools?",
-          choices: ["Automatic, always-current checks shared with the whole team", "It runs entirely offline with no account", "It removes the need for any model", "It only works on one computer"],
+          choices: ["Automatic, always-current checks shared with the whole team", "It runs fully offline without an account or internet connection", "It offers more detailed clash rules and tolerances than any desktop tool", "It works only on the computer where the models were created"],
           answer: 0,
           explain: "The cloud automatically re-clashes and shares results, keeping everyone on the same up-to-date picture."
         },
         {
           type: "mcq",
           q: "What is a strength that desktop Navisworks brings to coordination?",
-          choices: ["Detailed clash rules and grouping for deep review", "Automatic team-wide re-runs in the cloud", "Emailing waitlist confirmations", "Publishing sheets to print"],
+          choices: ["Detailed clash rules and grouping for deep review", "Automatic team-wide re-runs in the cloud", "Browser-based viewing with no software installed", "Built-in cost estimating from clash results"],
           answer: 0,
           explain: "Navisworks offers fine-grained clash rules, tolerances, and grouping that suit detailed manual review."
         },
@@ -313,7 +313,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Where do the results of cloud Model Coordination live?",
-          choices: ["In the ACC project, viewable in a browser", "Only on one designer's hard drive", "In a paper logbook", "Inside the printer"],
+          choices: ["In the ACC project, viewable in a browser", "Only on the designer's own hard drive", "In a Navisworks file that must be emailed", "In a separate desktop database for each trade"],
           answer: 0,
           explain: "Cloud results are stored in the ACC project and viewed in the browser by the whole team."
         }
@@ -353,7 +353,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is an advantage of browser-based review over emailing screenshots?",
-          choices: ["Everyone sees the same live models and issues", "It uses more paper", "It hides the models", "It needs a fax machine"],
+          choices: ["Everyone sees the same live models and issues", "Screenshots can be marked up more freely than models", "It keeps the models private to the person reviewing them", "It works without any internet connection"],
           answer: 0,
           explain: "Working in the shared space keeps everyone on the same live data instead of stale screenshots."
         },
@@ -385,7 +385,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "How do you verify a clash was truly fixed?",
-          choices: ["Confirm it no longer appears after the model is updated and re-clashed", "Delete the whole model", "Ignore it and move on", "Rename the project"],
+          choices: ["Confirm it no longer appears after the model is updated and re-clashed", "Close the issue as soon as the assignee says it has been fixed", "Hide the clash in the viewer so it no longer shows in the list", "Check that the issue's due date has passed without new comments"],
           answer: 0,
           explain: "Publishing the fix and letting the automatic re-check confirm it is gone verifies the resolution."
         },
@@ -411,7 +411,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why document a closed coordination issue?",
-          choices: ["It creates a record for accountability and future reference", "It hides the fix", "It deletes the project history", "It prints a poster"],
+          choices: ["It creates a record for accountability and future reference", "It removes the issue from the list so it no longer counts", "It deletes the model versions that contained the clash", "It notifies the owner that the project is ready for handover"],
           answer: 0,
           explain: "A documented closure keeps a clear trail of what was found, who fixed it, and how."
         },

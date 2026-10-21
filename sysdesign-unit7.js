@@ -26,9 +26,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which statement best describes linearizability?",
           choices: [
-            "Transactions produce a result equivalent to some serial execution of those transactions",
+            "Transactions on many objects produce a result equivalent to some serial execution of those transactions, in any order",
             "Each single-object operation appears to take effect instantaneously at some point between its invocation and its response",
-            "Replicas eventually agree on a value if no new writes are made",
+            "Replicas eventually agree on the same value for every object if no new writes are made for a while",
             "Each client sees its own writes in the order it issued them, but other clients may not"
           ],
           answer: 1,
@@ -61,10 +61,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Read-your-writes, monotonic reads, and consistent prefix reads are examples of what?",
           choices: [
-            "Isolation levels defined by the SQL standard",
-            "Failure detectors used by consensus protocols",
+            "Isolation levels defined by the SQL standard for concurrent transactions",
+            "Failure detectors used by consensus protocols to suspect crashed nodes",
             "Session guarantees, which are weaker than linearizability but stronger than nothing",
-            "Durability settings controlling fsync behavior"
+            "Durability settings controlling when the storage engine calls fsync on commit"
           ],
           answer: 2,
           explain: "These are session or client-centric guarantees. They constrain what one client observes over time without requiring global real-time ordering, so they are cheap to provide on replicated stores."
@@ -170,10 +170,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why does the Else branch of PACELC exist at all, given the network is healthy?",
           choices: [
-            "Because disks must fsync before acknowledging any write",
+            "Because disks must fsync every write before acknowledging it, which is slow even on a healthy network",
             "Because keeping replicas consistent requires coordination messages whose round trips add latency",
-            "Because clock skew makes timestamps unreliable during normal operation",
-            "Because leader election runs continuously in the background"
+            "Because clock skew between nodes makes timestamps unreliable during normal operation",
+            "Because leader election runs continuously in the background and competes with client writes for bandwidth"
           ],
           answer: 1,
           explain: "Strong consistency needs a write to reach enough replicas (or a leader) before acknowledging. That is physics: speed-of-light round trips, especially across regions, show up directly as write latency."
@@ -188,8 +188,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A team moves from single-region synchronous replication to cross-region synchronous replication and write p99 jumps. Which PACELC branch explains this?",
           choices: [
-            "The PA branch, since more regions means more partitions",
-            "The PC branch, since consistency now requires a majority",
+            "The PA branch, since adding more regions means more network partitions occur during every write",
+            "The PC branch, since consistency now requires a majority of regions to acknowledge each write",
             "The Else branch: with no partition present, consistency was bought with latency (EC)",
             "Neither branch; this is a throughput problem, not a consistency one"
           ],
@@ -292,10 +292,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is isolation a separate concern from the CAP/replication consistency discussion?",
           choices: [
-            "Isolation only applies to read-only workloads while consistency applies to writes",
+            "Isolation only applies to read-only workloads, while replication consistency applies only to the writes a system accepts",
             "Isolation is about concurrent transactions on possibly one node; replication consistency is about what replicas expose to readers",
-            "Isolation is a hardware property while consistency is a software property",
-            "Isolation is only defined for distributed systems, consistency only for single nodes"
+            "Isolation is a hardware property of the storage device while consistency is a software property",
+            "Isolation is only defined for distributed systems, while consistency is only defined for single nodes"
           ],
           answer: 1,
           explain: "A single-node database has isolation levels with no replication at all, and a replicated key-value store has consistency models with no transactions. Strict serializability is where the two concerns meet."
@@ -364,10 +364,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the main practical cost of using CRDTs instead of LWW?",
           choices: [
-            "They require a consensus protocol to elect a merge coordinator",
-            "They cannot support text editing or set semantics",
+            "They require a consensus protocol to elect a merge coordinator for every key that is written",
+            "They cannot support text editing or set semantics, so they only work for numeric counters",
             "They carry extra metadata and constrain operations to those the type can merge",
-            "They give up eventual convergence in exchange for lower latency"
+            "They give up eventual convergence in exchange for lower write latency on each replica"
           ],
           answer: 2,
           explain: "CRDTs need per-replica or per-element bookkeeping (tombstones, version vectors, causal context), and you can only express operations the chosen type supports. In exchange, no write is silently lost."
@@ -408,10 +408,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is a sloppy quorum with hinted handoff?",
           choices: [
-            "A quorum computed over a subset of the keyspace to reduce coordination",
+            "A quorum computed over only a subset of the keyspace to reduce coordination between nodes during writes",
             "Writes accepted by W reachable nodes that may not be the key's home nodes, later handed back",
-            "A read quorum that is allowed to return before W acknowledgements arrive",
-            "A quorum where the coordinator votes twice to break ties"
+            "A read quorum that is allowed to return to the client before W write acknowledgements have arrived",
+            "A quorum where the coordinator node votes twice so that ties are always broken"
           ],
           answer: 1,
           explain: "Sloppy quorums raise write availability by accepting writes on whatever nodes are reachable, with hints so data is later delivered home. It breaks the R + W > N overlap guarantee for reads against the home nodes."
@@ -491,10 +491,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why does a Raft leader refuse to commit an entry from a PREVIOUS term merely because it is stored on a majority?",
           choices: [
-            "Because previous-term entries are always corrupt after an election",
-            "Because committing them would require a second round of voting from clients",
+            "Because entries from a previous term are always treated as corrupt after an election and must be rewritten from the client's copy",
+            "Because committing them would require a second round of voting from the clients that originally sent those entries",
             "Because such an entry could still be overwritten by a later leader; the leader commits it only indirectly by committing a current-term entry",
-            "Because the log index counters reset on every term change"
+            "Because the log index counters reset to zero on every term change, so the old entries no longer have valid positions"
           ],
           answer: 2,
           explain: "This is Raft's subtle commitment rule. Counting replicas alone is not sufficient for old-term entries, so a leader commits an entry from its own term, which indirectly commits everything before it."
@@ -513,9 +513,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Byzantine fault tolerant consensus differs from Raft and Paxos in what way?",
           choices: [
-            "It removes the need for a leader entirely",
-            "It tolerates network partitions, which Raft and Paxos cannot",
-            "It provides eventual rather than strong consistency",
+            "It removes the need for a leader entirely, so every node proposes values at the same time",
+            "It tolerates network partitions between nodes, which Raft and Paxos cannot survive at all",
+            "It provides eventual rather than strong consistency, so replicas may disagree for a while",
             "It tolerates nodes that lie or behave arbitrarily, typically needing more than two thirds honest"
           ],
           answer: 3,
@@ -543,10 +543,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the fundamental availability problem with two-phase commit?",
           choices: [
-            "It requires all participants to use the same database engine",
+            "It requires every participant to run the same database engine and version so the prepare records match",
             "If the coordinator crashes after prepare, participants hold locks and cannot unilaterally decide",
-            "It cannot be used across more than two participants",
-            "Its prepare phase requires a majority quorum that small clusters cannot form"
+            "It cannot be used across more than two participants, which is where the name comes from",
+            "Its prepare phase requires a majority quorum that small clusters of participants cannot form"
           ],
           answer: 1,
           explain: "2PC is a blocking protocol. A participant that voted yes must wait for the coordinator's decision, holding locks the entire time, so a coordinator failure can stall the resources indefinitely."
@@ -568,10 +568,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The transactional outbox pattern solves which specific problem?",
           choices: [
-            "Ordering messages consumed by multiple independent subscribers",
-            "Deduplicating messages at the consumer without idempotency keys",
+            "Ordering messages consumed by multiple independent subscribers of the same topic",
+            "Deduplicating messages at the consumer side without the need for any idempotency keys",
             "Atomically updating the database and publishing an event without a distributed transaction",
-            "Reducing the number of round trips in a two-phase commit"
+            "Reducing the number of network round trips needed to complete a two-phase commit across services"
           ],
           answer: 2,
           explain: "Writing the row and the outbox record in ONE local transaction makes the pair atomic. A separate relay then reads the outbox and publishes, which converts the dual-write problem into an at-least-once delivery problem."

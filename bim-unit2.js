@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What does a BIM dimension add beyond the 3D geometry?",
           choices: [
             "An extra layer of information linked to the model",
-            "A brighter color for each element",
-            "A second copy of the same geometry",
-            "A larger file size only"
+            "A higher level of geometric detail for each element",
+            "A separate model file for each additional discipline",
+            "A new viewing mode for presenting the design in 3D"
           ],
           answer: 0,
           explain: "Each dimension attaches a new kind of information, such as scheduling or cost, to the coordinated geometry."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Why is it useful to think of BIM in terms of dimensions?",
           choices: [
             "It organizes the different kinds of data a model can carry",
-            "It forces every project to use the same software",
-            "It replaces the need for a project team",
-            "It removes the geometry from the model"
+            "It sets the level of geometric detail each element must reach",
+            "It defines which software each discipline is required to use",
+            "It ranks projects by how many stories the building will have"
           ],
           answer: 0,
           explain: "The dimension idea is a helpful way to describe the layers of information a model can hold and share."
@@ -88,9 +88,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What does the 3D dimension of BIM primarily represent?",
           choices: [
             "The physical geometry of the building",
-            "The construction schedule",
-            "The maintenance manuals",
-            "The final invoice"
+            "The construction schedule and sequence",
+            "The cost estimate and quantity takeoff",
+            "The asset data used for maintenance"
           ],
           answer: 0,
           explain: "3D is the coordinated geometry that describes the shape and spatial arrangement of the asset."
@@ -123,9 +123,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which of these is a benefit of a well-coordinated 3D model?",
           choices: [
             "Fewer surprises and conflicts discovered during construction",
-            "A guarantee that the project needs no schedule",
-            "Automatic cost data with no input",
-            "No need for any drawings ever again"
+            "Cost estimates that update automatically with no further input",
+            "A construction schedule generated directly from the geometry",
+            "Guaranteed approval from the building authority on first review"
           ],
           answer: 0,
           explain: "Coordinating geometry up front reduces conflicts that would otherwise be found late during construction."
@@ -159,9 +159,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What does 4D BIM add to the model?",
           choices: [
             "A link to time and the construction schedule",
-            "A link to the final cost only",
-            "A new geometric shape",
-            "A facilities manual"
+            "A link to quantities and the cost estimate",
+            "A link to energy and sustainability analysis",
+            "A link to asset data for facility management"
           ],
           answer: 0,
           explain: "4D connects elements to time so the build sequence can be planned and visualized."
@@ -194,9 +194,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which problem can a 4D sequence help a team catch early?",
           choices: [
             "A conflict in the order that trades need site access",
-            "A spelling error in the contract",
-            "A missing company logo on drawings",
-            "An unpainted wall in a photo"
+            "A cost overrun caused by underestimated quantities",
+            "A duct and beam occupying the same physical space",
+            "A missing maintenance record for installed equipment"
           ],
           answer: 0,
           explain: "Visualizing the sequence over time reveals conflicts in how and when trades occupy the site."
@@ -237,9 +237,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What does 5D BIM connect to the model?",
           choices: [
             "Quantities and cost information",
-            "Only the paint colors",
-            "The weather forecast",
-            "The parking layout only"
+            "Time and construction sequencing",
+            "Energy and sustainability analysis",
+            "Asset and maintenance information"
           ],
           answer: 0,
           explain: "5D links quantities and cost data so estimates can be tied to the model."
@@ -272,9 +272,9 @@ window.ACADEMY.addUnit("bim", {
           q: "How does 5D help a team respond to a design change?",
           choices: [
             "Updated quantities support a faster, more consistent cost estimate",
-            "It hides the change from everyone",
-            "It deletes the affected geometry",
-            "It freezes the schedule permanently"
+            "The schedule automatically adds the extra time the change will need",
+            "The change is checked against every other discipline for clashes",
+            "The contract value is locked so the change carries no extra cost"
           ],
           answer: 0,
           explain: "Model-linked quantities let the team re-estimate cost more quickly and consistently after a change."
@@ -308,9 +308,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What is 6D BIM most commonly associated with?",
           choices: [
             "Energy and sustainability analysis",
-            "Cost estimating",
-            "Clash detection",
-            "Printing drawings"
+            "Cost estimating and quantity takeoff",
+            "Construction sequencing over time",
+            "Clash detection and coordination"
           ],
           answer: 0,
           explain: "6D is commonly linked to sustainability and energy analysis, though the industry does not fully agree on the definition."
@@ -343,9 +343,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Why should you be careful stating exactly what 6D means?",
           choices: [
             "Because the industry has not settled on one fixed definition",
-            "Because 6D is illegal to use",
-            "Because 6D always means cost",
-            "Because 6D is the same as 3D"
+            "Because 6D was replaced by 7D in the latest ISO 19650 update",
+            "Because 6D always refers to cost and is often confused with 5D",
+            "Because 6D can only be used on projects that also use 4D BIM"
           ],
           answer: 0,
           explain: "The 6D and 7D labels are not fully standardized, so it is best to present them as common, not absolute."
@@ -374,9 +374,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What is 7D BIM commonly associated with?",
           choices: [
             "Operations and maintenance of the finished asset",
-            "Initial concept sketches only",
-            "Demolition permits only",
-            "Marketing brochures"
+            "Clash detection and coordination during design",
+            "Construction sequencing and site logistics plans",
+            "Quantity takeoff and cost planning for tenders"
           ],
           answer: 0,
           explain: "7D is commonly linked to facility management, meaning operating and maintaining the asset after handover."
@@ -409,9 +409,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which kind of information would most likely support 7D use?",
           choices: [
             "Equipment data and maintenance details for installed assets",
-            "The architect's favorite color",
-            "A list of nearby restaurants",
-            "The number of cranes on site"
+            "The construction sequence showing when each trade is on site",
+            "Material quantities and unit rates used for the cost estimate",
+            "Clash reports produced during design coordination meetings"
           ],
           answer: 0,
           explain: "Asset and maintenance data on installed equipment is exactly what facility management relies on."
@@ -440,9 +440,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What is the main reason BIM dimensions add value?",
           choices: [
             "They connect more useful data to the model across the lifecycle",
-            "They make the file harder to open",
-            "They hide information from the team",
-            "They only matter during demolition"
+            "They increase the geometric detail of every element in the model",
+            "They let each discipline work in a separate, unconnected model",
+            "They are required by law on every publicly funded project"
           ],
           answer: 0,
           explain: "More connected data means more value across the design, build, and operate phases."
@@ -475,9 +475,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which statement best reflects the value of connected BIM data?",
           choices: [
             "Data captured once can serve design, construction, and operations",
-            "Data must be recreated from scratch at every phase",
-            "Only the design team ever benefits from the model",
-            "Information should be kept apart from the geometry"
+            "Data is most useful when each phase builds its own fresh dataset",
+            "Connected data mainly benefits the design team during modeling",
+            "Information is best stored in separate files apart from geometry"
           ],
           answer: 0,
           explain: "A key benefit is that information linked to the model can be reused across the lifecycle instead of being rebuilt."
@@ -506,9 +506,9 @@ window.ACADEMY.addUnit("bim", {
           q: "How is 4D typically used on a project?",
           choices: [
             "To sequence and phase the construction work",
-            "To pick the paint colors",
-            "To draft the marketing plan",
-            "To design the company logo"
+            "To produce the quantity takeoff and estimate",
+            "To run clash detection between disciplines",
+            "To store maintenance data for the facility"
           ],
           answer: 0,
           explain: "In practice, 4D is used to plan sequencing and phasing so the build runs smoothly."
@@ -541,9 +541,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What is a realistic benefit of using 4D and 5D together?",
           choices: [
             "Linking the schedule and cost gives a clearer picture of the plan",
-            "It removes the need to build anything",
-            "It guarantees zero cost forever",
-            "It replaces the whole project team"
+            "It removes the need for clash detection between the disciplines",
+            "It guarantees the project will finish on time and within budget",
+            "It generates the maintenance plan for the owner automatically"
           ],
           answer: 0,
           explain: "Combining time and cost views gives the team a fuller picture of how the plan unfolds and what it costs."

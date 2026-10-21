@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Where did Geert Hofstede get the original data for his cultural dimensions?",
-          choices: ["Employee attitude surveys collected at IBM subsidiaries in dozens of countries", "A one-time telephone poll of American university students", "Anthropological fieldwork he carried out in remote villages", "Government census tables published by the United Nations"],
+          choices: ["Employee attitude surveys collected at IBM subsidiaries in dozens of countries", "A national telephone poll of American and European university students on work values", "Anthropological fieldwork he carried out in villages across Asia and Latin America", "Government census tables on income and education published by the United Nations"],
           answer: 0,
           explain: "Hofstede analyzed a huge set of IBM employee attitude surveys gathered across many national subsidiaries, which let him compare country cultures."
         },
@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Why was using employees of one company like IBM an advantage for comparing national cultures?",
-          choices: ["Because IBM workers were a random sample of each country's whole population", "Because it guaranteed the data would never become outdated", "Because holding company and job type roughly constant meant the remaining differences reflected nationality", "Because IBM operated in only two or three countries"],
+          choices: ["Because IBM workers were a random, representative sample of each country's whole population", "Because a single company's surveys were cheaper to translate and would never become outdated", "Because holding company and job type roughly constant meant the remaining differences reflected nationality", "Because IBM's corporate culture was strong enough to erase national differences among its staff entirely"],
           answer: 2,
           explain: "By keeping employer and occupation similar, Hofstede argued the leftover differences between countries mainly reflected national culture."
         },
@@ -65,7 +65,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What does Hofstede's power distance dimension measure?",
-          choices: ["How physically far apart a country's major cities are", "The extent to which less powerful people accept and expect unequal power", "How much a government spends on its military", "The average age at which people retire"],
+          choices: ["How far a country's citizens live from their seat of government and its officials", "The extent to which less powerful people accept and expect unequal power", "How much of a country's budget goes to its military and police forces", "The degree to which people prefer clear rules over ambiguous situations"],
           answer: 1,
           explain: "Power distance is the degree to which the less powerful members of institutions accept and expect that power is distributed unequally."
         },
@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which is typical of a HIGH power distance culture?",
-          choices: ["Employees freely challenge the boss's decisions", "Very flat organizations with little hierarchy", "Managers and staff see themselves as basically equal", "Subordinates expect to be told what to do and rarely challenge authority"],
+          choices: ["Employees are expected to question and challenge the boss's decisions openly", "Organizations stay flat, with few layers between staff and top management", "Managers and staff see themselves as equals who simply hold different roles", "Subordinates expect to be told what to do and rarely challenge authority"],
           answer: 3,
           explain: "High power distance cultures accept steep hierarchies, centralized authority, and clear deference to superiors."
         },
@@ -138,7 +138,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which behavior fits a HIGH uncertainty avoidance culture?",
-          choices: ["Preferring clear rules, structure, and expert guidance", "Feeling relaxed when plans stay vague", "Tolerating unusual ideas and dissent easily", "Having as few written procedures as possible"],
+          choices: ["Preferring clear rules, structure, and expert guidance", "Feeling relaxed when plans and schedules stay open and vague", "Easily tolerating unusual ideas, dissent, and disagreement", "Keeping written procedures to a minimum and improvising instead"],
           answer: 0,
           explain: "High uncertainty avoidance brings a strong emotional need for rules, precision, and predictability."
         },
@@ -157,7 +157,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "A low uncertainty-avoidance culture is most likely to...",
-          choices: ["Pass detailed laws for nearly every situation", "Feel comfortable with open-ended, ambiguous situations", "Show high anxiety about breaking rules", "Distrust anything unfamiliar"],
+          choices: ["Pass detailed laws and rules to cover nearly every situation", "Feel comfortable with open-ended, ambiguous situations", "Show high anxiety about breaking even minor rules", "Distrust unfamiliar people, ideas, and new ways of doing things"],
           answer: 1,
           explain: "Low uncertainty-avoidance cultures accept ambiguity, keep rules minimal, and stay relaxed about the unknown."
         }
@@ -171,7 +171,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Hofstede's model, a 'masculine' society most emphasizes...",
-          choices: ["Cooperation, modesty, and caring for the weak", "Achievement, competition, assertiveness, and material success", "Equal and overlapping gender roles", "Leisure over work"],
+          choices: ["Cooperation, modesty, caring for the weak, and quality of life", "Achievement, competition, assertiveness, and material success", "Equal and overlapping gender roles in both home and work life", "Respect for tradition, thrift, and perseverance toward future rewards"],
           answer: 1,
           explain: "The masculine pole stresses achievement, competition, assertiveness, and material reward."
         },
@@ -249,7 +249,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Why was the long-term orientation dimension added to the model?",
-          choices: ["A survey built from a Chinese perspective revealed values the original Western survey overlooked", "IBM demanded a fifth dimension for marketing", "Hofstede simply wanted an even ten dimensions", "It replaced the power distance dimension"],
+          choices: ["A survey built from a Chinese perspective revealed values the original Western survey overlooked", "IBM requested an additional dimension to support its global marketing strategy", "Re-analysis of the IBM data showed that power distance had been measured incorrectly", "A replication in European subsidiaries found that the original four dimensions failed to explain modern workplaces"],
           answer: 0,
           explain: "The Chinese Value Survey surfaced a values dimension that the Western-authored IBM questionnaire had never asked about."
         },
@@ -275,7 +275,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "An 'indulgent' society, in Hofstede's model, is one that...",
-          choices: ["Strictly regulates enjoyment through social norms", "Allows relatively free gratification of natural human desires for fun and enjoyment", "Bans all leisure activities", "Focuses only on long-term saving"],
+          choices: ["Strictly regulates enjoyment of life through strong social norms and expectations", "Allows relatively free gratification of natural human desires for fun and enjoyment", "Bans most leisure activities so that people can focus on duty and hard work", "Focuses on long-term saving and persistence instead of immediate rewards"],
           answer: 1,
           explain: "Indulgence means allowing relatively free gratification of basic human drives related to enjoying life and having fun."
         },
@@ -301,7 +301,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "A 'restrained' culture is best described as one that...",
-          choices: ["Encourages people to freely pursue fun", "Places no limits at all on personal desires", "Suppresses gratification and regulates it with strict social norms", "Has no social norms whatsoever"],
+          choices: ["Encourages people to freely pursue fun and enjoy life as they wish", "Places few limits on personal desires so long as others are not harmed", "Suppresses gratification and regulates it with strict social norms", "Has weak social norms and tolerates a wide range of behavior"],
           answer: 2,
           explain: "Restraint means curbing the gratification of needs and regulating it through strict social norms."
         },
@@ -314,7 +314,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which is the sixth and most recently added Hofstede dimension?",
-          choices: ["Power distance", "Uncertainty avoidance", "Long-term orientation", "Indulgence versus restraint"],
+          choices: ["Masculinity versus femininity", "Uncertainty avoidance", "Long-term versus short-term orientation", "Indulgence versus restraint"],
           answer: 3,
           explain: "Indulgence versus restraint, added in 2010, is the sixth and newest dimension in the model."
         }
@@ -328,7 +328,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What is the 'ecological fallacy'?",
-          choices: ["Assuming the natural environment shapes all behavior", "Confusing correlation with causation in experiments", "Drawing conclusions about individuals from group-level averages", "Ignoring ecological data entirely"],
+          choices: ["Assuming that the natural environment determines most behavior", "Confusing correlation with causation when interpreting experiments", "Drawing conclusions about individuals from group-level averages", "Generalizing from a small sample to a whole population"],
           answer: 2,
           explain: "The ecological fallacy is reasoning from aggregate group data to claims about specific individuals within the group."
         },
@@ -367,7 +367,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Building an individual-level personality test directly out of country-level dimensions is known as...",
-          choices: ["A representative sample", "A double-blind design", "The halo effect", "The reverse ecological fallacy"],
+          choices: ["The ecological fallacy", "The fundamental attribution error", "Measurement non-invariance", "The reverse ecological fallacy"],
           answer: 3,
           explain: "The reverse ecological fallacy is assuming that country-level dimensions automatically work as individual-level measures."
         }

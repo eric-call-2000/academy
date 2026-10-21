@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In a monomorphic mixed-strategy population, what is true of every individual?",
           choices: [
             "Each individual plays Hawk with probability p and Dove with probability 1 - p",
-            "Each individual is either a pure Hawk or a pure Dove for life",
-            "Exactly half of the individuals never fight",
-            "Individuals copy whatever their neighbors last did"
+            "Each individual is a pure Hawk or a pure Dove for life, in fixed proportions",
+            "Exactly half of the individuals fight while the other half never compete",
+            "Each individual copies whatever its neighbor did in the most recent contest"
           ],
           answer: 0,
           explain: "Monomorphic means one type: every individual shares the identical randomizing rule, playing Hawk with the same probability p on each encounter."
@@ -67,10 +67,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Where does the observed variation in behavior come from in a monomorphic mixed-strategy population?",
           choices: [
-            "From genetic differences between individuals",
+            "From genetic differences between pure Hawk and pure Dove individuals",
             "From each individual randomizing across its repeated encounters",
-            "From the environment forcing specific moves",
-            "There is no variation of any kind"
+            "From the environment forcing specific moves in particular contests",
+            "From individuals copying the behavior of whoever won last time"
           ],
           answer: 1,
           explain: "Since everyone is identical, the only source of variation is the internal coin-flip each individual makes in every contest."
@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In a polymorphic population, how is the frequency of Hawk behavior produced?",
           choices: [
-            "Every individual randomizes on each contest",
+            "Every individual randomizes, playing Hawk with the same probability each time",
             "A fixed fraction of individuals are pure Hawks and the rest are pure Doves",
-            "Individuals change type with the seasons",
-            "Only a single Hawk exists at any time"
+            "Individuals switch between Hawk and Dove types with the changing seasons",
+            "Each individual plays Hawk only against opponents smaller than itself"
           ],
           answer: 1,
           explain: "Polymorphism means several fixed types coexist: a set proportion are always Hawk, the remainder always Dove."
@@ -156,10 +156,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why can a monomorphic mixed strategy and a polymorphism be equivalent?",
           choices: [
-            "They only match when p equals 1",
-            "They can never be equivalent",
+            "They produce the same behavior in every single individual on every encounter they have with others",
+            "They only match when every individual plays Hawk with probability p equal to one",
             "They produce the same population-level frequency of each behavior and thus the same average payoffs",
-            "One of them always earns strictly more"
+            "One of them always earns strictly more, but they look identical to an outside observer"
           ],
           answer: 2,
           explain: "Both yield the same frequency of Hawk versus Dove in the population, so the mean payoffs an individual experiences are the same."
@@ -209,10 +209,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "The equivalence is clearest when we compare which quantity?",
           choices: [
-            "The color of each animal",
-            "The average payoff across the whole population",
             "The exact move of one animal on one day",
-            "The names given to the players"
+            "The average payoff across the whole population",
+            "The genetic makeup of each individual animal",
+            "The number of contests each animal has"
           ],
           answer: 1,
           explain: "The equivalence is a statement about population-level average payoffs, not about any single individual's moment-to-moment behavior."
@@ -228,9 +228,9 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What does the Bishop-Cannings theorem state about the pure strategies in the support of a mixed ESS?",
           choices: [
-            "Only one of them is ever actually used",
-            "They earn wildly different payoffs",
-            "The first-listed strategy always wins",
+            "Only the pure strategy with the highest payoff is used",
+            "They earn different payoffs that average to the ESS payoff",
+            "Each earns more than the ESS earns against itself",
             "They all earn equal payoff when played against the ESS"
           ],
           answer: 3,
@@ -281,10 +281,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is the equal-payoff property important for stability?",
           choices: [
-            "It forces everyone to play Hawk",
-            "It proves games have no equilibria",
+            "It means each pure type in the support earns more than the mixture and can invade it",
+            "It means everyone in the population ends up playing Hawk in every contest",
             "It means no pure type in the support can earn more and invade the mix",
-            "It makes all payoffs infinite"
+            "It means the mixed strategy is strictly dominant over every pure strategy"
           ],
           answer: 2,
           explain: "If every supported pure strategy already earns the ESS payoff, none can do strictly better, so none can invade."
@@ -336,9 +336,9 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "If Doves become too common, what happens?",
           choices: [
-            "Nothing changes",
-            "Doves keep increasing forever",
-            "Everyone goes extinct",
+            "Doves keep increasing until the Hawks die out",
+            "Nothing changes, since the payoffs stay the same",
+            "Hawks become even rarer because Doves now outnumber them in every contest",
             "Hawks are now rare, mostly meet Doves, earn high payoff, and increase"
           ],
           answer: 3,
@@ -371,10 +371,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "How can you empirically distinguish a monomorphic mixed strategy from a polymorphism?",
           choices: [
-            "Count the total number of animals present",
-            "Measure the air temperature",
+            "Count the total number of Hawk and Dove behaviors seen across the whole population at once",
+            "Compare the average payoff of the population against the payoff predicted at equilibrium",
             "Track the same individuals over many contests to see whether each one varies its behavior",
-            "It is impossible to tell even in principle"
+            "It is impossible to tell even in principle, since both give the same frequencies"
           ],
           answer: 2,
           explain: "Only by following identified individuals can you see whether variation lives within each individual or between them."
@@ -437,10 +437,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Can a mixed ESS involve more than two pure strategies?",
           choices: [
-            "No, only two are ever allowed",
+            "No, a mixed ESS can only ever mix two pure strategies",
             "Yes, the support can contain three or more pure strategies",
-            "Only if all payoffs are negative",
-            "Only in games with a single player"
+            "Only if all the payoffs in the game are negative",
+            "Only when the game is played by exactly three or more separate players"
           ],
           answer: 1,
           explain: "Nothing limits a support to two; equilibria can mix three or more pure strategies together."
@@ -462,9 +462,9 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In a rock-paper-scissors dynamic, why is no single pure strategy stable on its own?",
           choices: [
-            "Because all payoffs equal zero",
-            "Because there is really only one strategy",
-            "Because the game has no players",
+            "Because all strategies earn zero payoff against one another, so nothing ever changes",
+            "Because the strategy that is common always earns the highest payoff and becomes fixed",
+            "Because each strategy is strictly dominated by a mixture of the other two strategies",
             "Because whichever strategy is common can be invaded by the one that beats it"
           ],
           answer: 3,
@@ -507,10 +507,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In the producer-scrounger foraging game, why don't scroungers take over the population?",
           choices: [
-            "Scroungers always find their own food",
-            "Producers simply refuse to eat",
+            "Scroungers always find enough food on their own, so they never depend on producers to feed them",
+            "Producers refuse to share, so scroungers starve as soon as they become common",
             "When scroungers are common there are too few producers to exploit, so scrounging pays less",
-            "Scrounging is never profitable at all"
+            "Scrounging is never profitable at any frequency, so scroungers always stay rare"
           ],
           answer: 2,
           explain: "Scrounging depends on producers to parasitize; as scroungers grow common the payoff drops, a negative frequency-dependent brake studied by Barnard and Sibly in house sparrows (1981)."

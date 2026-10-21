@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What does the 'D' in the D classification stand for?",
-          choices: ["Disorganized/disoriented", "Dependent", "Defended", "Distressed"],
+          choices: ["Disorganized/disoriented", "Dependent/dysregulated", "Defended/detached", "Distressed/disturbed"],
           answer: 0,
           explain: "The full label is disorganized/disoriented attachment, capturing both the breakdown of strategy and dazed, confused behavior."
         },
@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which behavior would most suggest a disorganized reunion?",
-          choices: ["Approaching the parent then freezing with a trance-like expression", "Crying and reaching to be picked up, then settling", "Ignoring the parent and calmly continuing to play", "Greeting the parent with a smile"],
+          choices: ["Approaching the parent then freezing with a trance-like expression", "Crying and reaching to be picked up, then settling quickly in the parent's arms", "Ignoring the parent and calmly continuing to play with the toys nearby", "Crying hard and pushing the parent away while still wanting to be held"],
           answer: 0,
           explain: "Approach that suddenly collapses into freezing or a dazed stare reflects a breakdown of coherent behavior, the hallmark of D."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which of these is one of Main and Solomon's indices of disorganization?",
-          choices: ["Freezing, stilling, or slowed 'underwater' movements", "Confident exploration of toys", "Sustained eye contact and smiling", "Rapid soothing after reunion"],
+          choices: ["Freezing, stilling, or slowed 'underwater' movements", "Turning away from the parent to focus on the toys", "Crying loudly at separation and searching by the door", "Clinging angrily while pushing away the offered toys"],
           answer: 0,
           explain: "Freezing, stilling, and slowed movements are one of the classic indices of a momentary breakdown in behavior."
         },
@@ -170,7 +170,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Compared with avoidant and resistant patterns, disorganized attachment represents...",
-          choices: ["A more effective secure strategy", "The collapse or absence of any coherent strategy", "A blend of two secure strategies", "A refusal to form any attachment at all"],
+          choices: ["A more extreme version of the avoidant strategy", "The collapse or absence of any coherent strategy", "A mix of avoidant and resistant strategies that still fit together", "A secure pattern that has been temporarily stressed by the lab setting"],
           answer: 1,
           explain: "Avoidance and resistance are still organized ways to cope; disorganization is what remains when no such strategy holds together."
         },
@@ -190,7 +190,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Why is avoidant attachment still called 'organized'?",
-          choices: ["Because the infant consistently minimizes and deflects attachment needs", "Because the infant is actually securely attached", "Because the infant has no caregiver", "Because it only occurs in laboratories"],
+          choices: ["Because the infant consistently minimizes and deflects attachment needs", "Because the infant is securely attached underneath and only appears distant", "Because the infant shows contradictory behaviors that follow a fixed order", "Because the caregiver organizes and directs each reunion episode for the infant"],
           answer: 0,
           explain: "Avoidant infants reliably down-play distress and turn away, a predictable, organized coping approach."
         },
@@ -222,7 +222,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The phrase 'fright without solution' captures which paradox?",
-          choices: ["The caregiver is both the source of and the solution to the infant's fear", "The infant is afraid only of strangers", "The caregiver is always physically absent", "The infant is frightened of exploring toys"],
+          choices: ["The caregiver is both the source of and the solution to the infant's fear", "The infant is afraid of strangers but has no caregiver nearby to turn to", "The infant feels fear yet cannot show it, so the caregiver never notices it", "The caregiver is frightened but hides it, so the infant cannot read the danger"],
           answer: 0,
           explain: "When the safe haven is also the source of alarm, the infant has no behavioral escape, a fright with no solution."
         },
@@ -242,7 +242,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In an ordinary threat, where does an infant normally turn for safety?",
-          choices: ["To the stranger", "To the attachment figure as a safe haven", "To the toys", "To no one at all"],
+          choices: ["To the nearest friendly adult in the room", "To the attachment figure as a safe haven", "To a favorite toy or comfort blanket", "To hiding alone in a quiet, dark corner"],
           answer: 1,
           explain: "The attachment figure usually serves as the safe haven; disorganization arises when that same figure is the threat."
         },
@@ -274,7 +274,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In Hesse and Main's model, 'FR' behavior refers to caregiving that is...",
-          choices: ["Firm and responsive", "Frightened and/or frightening", "Flexible and reliable", "Formal and restrained"],
+          choices: ["Fearful and rejecting", "Frightened and/or frightening", "Frustrated and resentful", "Fragmented and role-reversed"],
           answer: 1,
           explain: "FR stands for frightened and/or frightening parental behavior, the proposed mechanism behind disorganization."
         },
@@ -300,7 +300,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which is an example of frightened (rather than frightening) parental behavior?",
-          choices: ["The parent suddenly backs away from the infant with a fearful face", "The parent looms aggressively over the infant", "The parent bares teeth in a threatening manner", "The parent chases the infant menacingly"],
+          choices: ["The parent suddenly backs away from the infant with a fearful face", "The parent looms over the infant with an angry, threatening expression", "The parent bares teeth and growls at the infant as if in play", "The parent chases the infant in a menacing, predatory way"],
           answer: 0,
           explain: "Frightened behavior shows the parent as scared; the other options show the parent actively frightening the infant."
         },
@@ -346,7 +346,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which caregiver AAI state of mind is most linked to infant disorganization?",
-          choices: ["Secure-autonomous", "Dismissing", "Unresolved/disorganized", "Preoccupied"],
+          choices: ["Secure-autonomous", "Dismissing", "Unresolved/disorganized", "Preoccupied (entangled)"],
           answer: 2,
           explain: "The unresolved/disorganized (U/d) classification on the AAI is the strongest predictor of infant D."
         },
@@ -378,7 +378,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Disorganized attachment in infancy most strongly predicts later...",
-          choices: ["Higher IQ", "Dissociative symptoms and psychopathology risk", "Secure adult relationships", "Athletic ability"],
+          choices: ["Unusually high self-reliance in adult relationships", "Dissociative symptoms and psychopathology risk", "Secure adult relationships once childhood ends", "Stronger academic achievement in the school years"],
           answer: 1,
           explain: "Longitudinal research links early disorganization to raised risk for dissociation and broader psychopathology."
         },
@@ -398,7 +398,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Disorganized attachment is most associated with which later behavior problems?",
-          choices: ["Externalizing, aggressive behavior problems", "Perfect school attendance", "A reduced need for sleep", "Enhanced empathy only"],
+          choices: ["Externalizing, aggressive behavior problems", "Shy, withdrawn behavior with no aggression at all", "Learning delays in reading and mathematics only", "Excessive clinginess limited to bedtime routines"],
           answer: 0,
           explain: "D predicts elevated externalizing problems, such as aggression and controlling behavior, in childhood and beyond."
         },

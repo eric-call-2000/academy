@@ -45,7 +45,7 @@ window.ACADEMY.addUnit("marketing", {
         {
           type: "mcq",
           q: "What is a healthy reason to keep your email list clean?",
-          choices: ["Removing inactive or invalid addresses improves deliverability", "A smaller list always makes more money", "Providers reward you for deleting all contacts", "Clean lists never need any content"],
+          choices: ["Removing inactive or invalid addresses improves deliverability", "A smaller list costs less to send to, which is the main benefit", "Clean lists let you send far more often without anyone unsubscribing", "Removing contacts raises open rates on paper, which impresses clients"],
           answer: 0,
           explain: "Removing dead or inactive addresses helps your emails land in inboxes instead of spam, improving deliverability."
         },
@@ -98,7 +98,7 @@ window.ACADEMY.addUnit("marketing", {
         {
           type: "mcq",
           q: "Why is a relevant landing page important for a search ad?",
-          choices: ["It improves the visitor experience and often lowers costs", "It has no effect on ad performance", "It replaces the need for any keywords", "It stops people from ever clicking"],
+          choices: ["It improves the visitor experience and often lowers costs", "It lets the ad skip keywords, since the page does the targeting", "It matters only for brand awareness, not for conversion rates", "It raises your ad position no matter how much you choose to bid"],
           answer: 0,
           explain: "A relevant landing page matches what the searcher wanted, improving conversions and often ad quality and cost."
         },
@@ -131,7 +131,7 @@ window.ACADEMY.addUnit("marketing", {
         {
           type: "mcq",
           q: "What is the main advantage of paid social advertising?",
-          choices: ["Detailed audience targeting to reach specific groups", "It is always completely free", "It removes the need for any creative", "It only reaches your existing followers"],
+          choices: ["Detailed audience targeting to reach specific groups", "It shows your posts only to your current followers", "It costs nothing as long as your content is good", "It reaches people while they search for a product"],
           answer: 0,
           explain: "Paid social lets you target specific audiences by traits and interests, reaching beyond just your followers."
         },
@@ -216,7 +216,7 @@ window.ACADEMY.addUnit("marketing", {
         {
           type: "mcq",
           q: "Which change is most likely to improve a landing page conversion rate?",
-          choices: ["Making the CTA clearer and removing distractions", "Adding many unrelated links", "Hiding the offer below lots of text", "Slowing the page load"],
+          choices: ["Making the CTA clearer and removing distractions", "Adding links to every other page on your website", "Adding more text so every detail is explained up front", "Offering several different offers on the same page"],
           answer: 0,
           explain: "A clear CTA and fewer distractions help more visitors complete the one action you want."
         },
@@ -243,7 +243,7 @@ window.ACADEMY.addUnit("marketing", {
         {
           type: "mcq",
           q: "What is a lead magnet?",
-          choices: ["A free offer given in exchange for contact info", "A paid ad on a search engine", "A tool that deletes old leads", "A magnet-shaped promotional gift only"],
+          choices: ["A free offer given in exchange for contact info", "A paid ad that brings new visitors to your site", "A tool that scores leads by how likely they buy", "A sales script for reaching out to cold prospects"],
           answer: 0,
           explain: "A lead magnet is a valuable free item, like a guide or discount, offered in exchange for an email address."
         },
@@ -275,7 +275,7 @@ window.ACADEMY.addUnit("marketing", {
         {
           type: "mcq",
           q: "Which is a good lead magnet for a small bakery?",
-          choices: ["A free guide to pairing pastries with coffee", "A random unrelated stock photo", "A blank page with no offer", "A demand for payment up front"],
+          choices: ["A free guide to pairing pastries with coffee", "A form asking visitors to join the newsletter", "A generic sign-up for weekly bakery updates", "A 50% off coupon that requires no email at all"],
           answer: 0,
           explain: "A useful, relevant freebie attracts the right leads and gives them a reason to share their email."
         },
@@ -302,7 +302,7 @@ window.ACADEMY.addUnit("marketing", {
         {
           type: "mcq",
           q: "How does affiliate marketing work?",
-          choices: ["Partners earn a commission for sales they refer", "You pay for every ad impression", "Customers pay to join your list", "You buy a list of leads"],
+          choices: ["Partners earn a commission for sales they refer", "You pay a fixed fee each time your ad is shown", "Customers earn points each time they buy again", "You pay a creator a flat fee for a single post"],
           answer: 0,
           explain: "Affiliates promote your product and earn a commission when their referrals result in a sale."
         },
@@ -380,7 +380,7 @@ window.ACADEMY.addUnit("marketing", {
         {
           type: "mcq",
           q: "Why is retargeting often cost-effective?",
-          choices: ["Warm audiences tend to convert at a higher rate", "It reaches people who dislike your brand", "It never requires any creative", "It only works with billboards"],
+          choices: ["Warm audiences tend to convert at a higher rate", "It reaches brand-new people who have never heard of you", "Retargeting ads cost less per impression than any other ad", "It works without any creative, since people know the brand"],
           answer: 0,
           explain: "Because retargeted people already know you, they often convert more efficiently than cold audiences."
         },
@@ -407,7 +407,7 @@ window.ACADEMY.addUnit("marketing", {
         {
           type: "mcq",
           q: "What does omnichannel marketing aim to do?",
-          choices: ["Give a consistent, connected experience across all channels", "Use only a single channel forever", "Keep each channel totally separate and unrelated", "Stop using digital channels entirely"],
+          choices: ["Give a consistent, connected experience across all channels", "Be present on as many channels as possible, each run on its own", "Focus all budget on the single channel with the best results", "Send the same message at the same time on every channel at once"],
           answer: 0,
           explain: "Omnichannel means every channel works together to give the customer one seamless experience."
         },

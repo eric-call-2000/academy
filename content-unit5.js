@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("content", {
           q: "The opening seconds of a video are critical because:",
           choices: [
             "Many viewers decide within them whether to keep watching",
-            "They set your resolution",
-            "They add tags",
-            "They decide your upload time"
+            "YouTube ranks the video in search mostly by its intro",
+            "They are the part of the video that earns the most ads",
+            "They decide which frame YouTube uses as the thumbnail"
           ],
           answer: 0,
           explain: "The intro is where the most viewers are won or lost."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("content", {
           q: "A strong hook usually does NOT:",
           choices: [
             "Waste 30 seconds before hinting at any value",
-            "Confirm the topic",
-            "Create curiosity",
-            "Promise a payoff"
+            "Confirm the topic the title promised",
+            "Create curiosity about what comes next in the video",
+            "Promise a clear payoff for watching on"
           ],
           answer: 0,
           explain: "Delaying value is the opposite of a strong hook."
@@ -85,9 +85,9 @@ window.ACADEMY.addUnit("content", {
           q: "An 'open loop' in a hook is:",
           choices: [
             "A question or promise resolved later in the video",
-            "A broken microphone",
-            "A type of transition",
-            "A tag"
+            "A clip at the end that links back to the first video",
+            "A recap of the main points before the video ends",
+            "A cut that jumps between two unrelated scenes"
           ],
           answer: 0,
           explain: "An open loop creates tension that keeps viewers watching for the answer."
@@ -116,9 +116,9 @@ window.ACADEMY.addUnit("content", {
           q: "A hook that raises curiosity but is never paid off will:",
           choices: [
             "Frustrate viewers and hurt trust",
-            "Always increase retention",
-            "Guarantee subscribers",
-            "Improve your audio"
+            "Keep viewers hooked for the next video",
+            "Raise retention, since tension keeps people",
+            "Have no effect as long as the title is good"
           ],
           answer: 0,
           explain: "Unpaid promises break trust, just like clickbait titles do."
@@ -145,9 +145,9 @@ window.ACADEMY.addUnit("content", {
           q: "A common downside of pure improv is:",
           choices: [
             "Rambling and losing the viewer's attention",
-            "Being too concise",
-            "Too much structure",
-            "Perfect pacing every time"
+            "Sounding stiff and robotic on camera",
+            "Taking far too long to write beforehand",
+            "Being so concise that key points get skipped"
           ],
           answer: 0,
           explain: "Without structure, improv can wander and lose viewers."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("content", {
           q: "The best approach for you is usually the one that:",
           choices: [
             "Keeps the video clear while sounding natural",
-            "Is always a full word-for-word script",
-            "Is always pure improv",
-            "Ignores structure entirely"
+            "Uses a full word-for-word script every time",
+            "Skips planning so the delivery stays fresh",
+            "Copies the method of the biggest creator in your niche"
           ],
           answer: 0,
           explain: "Clarity plus natural delivery matters more than the exact method."
@@ -206,9 +206,9 @@ window.ACADEMY.addUnit("content", {
           q: "A clear structure helps viewers by:",
           choices: [
             "Making the video easy to follow with no dead spots",
-            "Increasing your resolution",
-            "Adding more tags",
-            "Shortening editing time only"
+            "Letting you include every point you can think of",
+            "Making the video longer, which raises watch time",
+            "Helping YouTube pick the best thumbnail frame for you"
           ],
           answer: 0,
           explain: "Structure keeps the viewer oriented and engaged throughout."
@@ -247,9 +247,9 @@ window.ACADEMY.addUnit("content", {
           q: "Removing a slow, low-value middle section usually:",
           choices: [
             "Improves retention",
-            "Hurts retention",
-            "Adds tags",
-            "Lowers your CTR"
+            "Hurts retention, since the video gets shorter",
+            "Lowers your click-through rate",
+            "Has no effect if the hook is strong"
           ],
           answer: 0,
           explain: "Cutting dead weight keeps the video tight and retention high."
@@ -266,9 +266,9 @@ window.ACADEMY.addUnit("content", {
           q: "Good pacing mostly means:",
           choices: [
             "Keeping momentum by trimming slow, low-value moments",
-            "Making every video as long as possible",
-            "Speaking as slowly as you can",
-            "Adding long pauses"
+            "Talking as fast as you can so viewers never get bored",
+            "Cutting to a new shot every second, whatever is said",
+            "Making every video as long as possible for watch time"
           ],
           answer: 0,
           explain: "Momentum comes from cutting the dull bits and keeping things moving."
@@ -307,9 +307,9 @@ window.ACADEMY.addUnit("content", {
           q: "A simple pacing fix in editing is to:",
           choices: [
             "Cut out pauses, rambles, and repeated points",
-            "Add long silent gaps",
-            "Slow down the whole video",
-            "Remove the hook"
+            "Speed up the whole video by about 25 percent",
+            "Add background music under every single scene",
+            "Add a recap after every section of the video"
           ],
           answer: 0,
           explain: "Trimming filler is the most direct way to improve pace."
@@ -326,9 +326,9 @@ window.ACADEMY.addUnit("content", {
           q: "Framing content as a story helps because:",
           choices: [
             "Tension and resolution keep viewers emotionally engaged",
-            "It removes the need for a hook",
-            "It adds tags",
-            "It shortens editing"
+            "A story lets you skip a hook, since viewers wait for the plot",
+            "YouTube recommends videos labeled as stories more often",
+            "Stories can stay unfinished, so viewers come back for more"
           ],
           answer: 0,
           explain: "Stories create tension the viewer wants resolved, driving watch time."
@@ -367,9 +367,9 @@ window.ACADEMY.addUnit("content", {
           q: "A story-driven video tends to have better:",
           choices: [
             "Retention, because viewers want to see how it ends",
-            "Tags",
-            "Upload speed",
-            "File size"
+            "Search ranking, because stories use more keywords",
+            "Click-through rate, because stories need no thumbnail",
+            "Upload speed, because stories need almost no editing"
           ],
           answer: 0,
           explain: "The desire for resolution keeps viewers watching to the end."
@@ -386,9 +386,9 @@ window.ACADEMY.addUnit("content", {
           q: "To fight mid-video drop-off, you can:",
           choices: [
             "Add mini-hooks, visuals, or new open loops",
-            "Slow everything down",
-            "Add long pauses",
-            "Remove all visuals"
+            "Repeat the intro hook word for word in the middle",
+            "Move the best content to the very end of the video",
+            "Slow the pace so viewers can catch up and settle in"
           ],
           answer: 0,
           explain: "Fresh hooks and visuals re-capture attention that drifts mid-video."
@@ -427,9 +427,9 @@ window.ACADEMY.addUnit("content", {
           q: "Where re-engagement techniques matter most is:",
           choices: [
             "The middle, where attention commonly dips",
-            "Only the last second",
-            "In the tags",
-            "In the description"
+            "The first seconds, before the hook lands",
+            "The last seconds, before the end screen",
+            "The thumbnail, before anyone has clicked"
           ],
           answer: 0,
           explain: "The mid-video sag is where re-engagement pays off most."
@@ -446,9 +446,9 @@ window.ACADEMY.addUnit("content", {
           q: "A good video ending should:",
           choices: [
             "Pay off the promise and suggest a clear next action",
-            "Trail off with no conclusion",
-            "Add unrelated topics",
-            "Repeat the whole video"
+            "Recap every point in the video so nothing is forgotten",
+            "End abruptly so viewers are left wanting much more",
+            "List several calls to action so viewers can choose one"
           ],
           answer: 0,
           explain: "Deliver the payoff, then guide the viewer to what to do or watch next."
@@ -487,9 +487,9 @@ window.ACADEMY.addUnit("content", {
           q: "A weak ending often:",
           choices: [
             "Fizzles out with no payoff or direction",
-            "Delivers the promised value",
-            "Suggests a great next video",
-            "Has one clear CTA"
+            "Delivers the value the title promised",
+            "Suggests a strong next video to watch",
+            "Ends on one clear call to action"
           ],
           answer: 0,
           explain: "Endings that fizzle waste the momentum you built."

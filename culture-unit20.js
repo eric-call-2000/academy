@@ -67,10 +67,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Why is the absolute frame also called 'geocentric'?",
           choices: [
-            "It depends on where the listener is standing",
+            "It depends on where the speaker and the listener happen to be standing",
             "It anchors directions to large-scale environmental coordinates",
-            "It only works for describing the human body",
-            "It uses the intrinsic parts of nearby objects"
+            "It describes locations relative to the speaker's own body",
+            "It uses the intrinsic front, back, and sides of nearby objects"
           ],
           answer: 1,
           explain: "Geocentric framing fixes directions to the environment (cardinal points, land slope), independent of any observer."
@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Instead of 'left' and 'right,' Guugu Yimithirr speakers locate things using what?",
           choices: [
-            "The parts of the nearest object",
-            "Distance in body-lengths",
+            "The intrinsic parts of the nearest object",
+            "Distances measured in body-lengths",
             "Cardinal directions like north and south",
-            "Color-coded zones"
+            "Landmarks such as rivers and hills"
           ],
           answer: 2,
           explain: "Guugu Yimithirr uses absolute cardinal terms; a cup might be 'to the north' rather than 'to your left.'"
@@ -122,9 +122,9 @@ window.ACADEMY.addUnit("culture", {
           q: "John Haviland and Stephen Levinson found that Guugu Yimithirr speakers could do what remarkably well?",
           choices: [
             "Point accurately toward distant, unseen places",
-            "Estimate weights by sight alone",
-            "Recall long lists of unrelated words",
-            "Name hundreds of shades of color"
+            "Estimate the weight of objects by sight alone",
+            "Recall long lists of unrelated spoken words",
+            "Tell left from right on objects seen in mirrors"
           ],
           answer: 0,
           explain: "Their constant orientation supported striking 'dead reckoning': accurate pointing to faraway locations."
@@ -133,10 +133,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "A Guugu Yimithirr speaker is most likely to say which of these?",
           choices: [
-            "Move the book a bit to your right",
+            "Move the book a little bit to your right",
             "Move the book to the west side of the table",
-            "Move the book toward you",
-            "Move the book behind the lamp"
+            "Move the book toward you, closer to the edge",
+            "Move the book behind the lamp, next to the cup"
           ],
           answer: 1,
           explain: "Absolute framing produces phrases like 'the west side,' not egocentric 'your right.'"
@@ -158,10 +158,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Tzeltal's absolute spatial system is based primarily on what?",
           choices: [
-            "The position of the sun",
+            "The daily path of the sun across the sky",
             "The general uphill-downhill slope of the land",
-            "The speaker's dominant hand",
-            "The nearest river's flow speed"
+            "The speaker's left and right hands",
+            "The direction in which the nearest river flows"
           ],
           answer: 1,
           explain: "Tzeltal anchors directions to the terrain's overall incline, giving 'uphill,' 'downhill,' and 'across.'"
@@ -199,10 +199,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In their studies, Brown and Levinson showed Tzeltal speakers apply the uphill-downhill frame even where?",
           choices: [
-            "Only in ritual speech",
-            "Only when facing south",
+            "Only in formal ritual and religious speech",
+            "Only when outdoors and facing downhill",
             "On small tabletop arrays and memory tasks",
-            "Only when speaking to strangers"
+            "Only when speaking to strangers from other villages"
           ],
           answer: 2,
           explain: "The geomorphic frame shows up consistently, including in nonlinguistic rotation and recall tasks on tabletops."
@@ -212,9 +212,9 @@ window.ACADEMY.addUnit("culture", {
           q: "How does the Tzeltal geomorphic frame differ from egocentric 'left/right' framing?",
           choices: [
             "It stays fixed to the terrain even when the speaker turns around",
-            "It changes every time the speaker blinks",
-            "It depends entirely on the listener's mood",
-            "It can only describe the human body"
+            "It rotates with the speaker's body, just as left and right do",
+            "It depends on where the listener is standing rather than the speaker",
+            "It can only be used for describing parts of the human body"
           ],
           answer: 0,
           explain: "Absolute geomorphic directions do not rotate with the body; 'downhill' points the same way regardless of facing."
@@ -266,10 +266,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What did Lera Boroditsky (2001) propose about Mandarin speakers and time?",
           choices: [
-            "They cannot think about time at all",
+            "They are less likely than English speakers to use any spatial terms for time",
             "They are more likely than English speakers to think about time vertically",
-            "They only think about time using money metaphors",
-            "They reject all spatial metaphors for time"
+            "They think about time mainly through money metaphors, such as spending time",
+            "They picture the future as lying behind them and the past as lying in front"
           ],
           answer: 1,
           explain: "Boroditsky argued that Mandarin's vertical language is linked to a greater tendency to think about time vertically."
@@ -408,10 +408,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Rafael Nunez and Eve Sweetser (2006) supported the Aymara model with evidence from what?",
           choices: [
-            "Fossil records",
+            "Historical written records",
             "Speakers' spontaneous gestures",
-            "Weather patterns",
-            "Musical scales"
+            "Brain imaging during time tasks",
+            "Eye movements while reading text"
           ],
           answer: 1,
           explain: "Their study showed elders gesturing forward when speaking of the past and backward for the future."
@@ -426,10 +426,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What is the underlying logic for treating the past as being in front in Aymara?",
           choices: [
-            "The past is unknown, like the dark space behind us",
+            "The past is unknown, like the dark space that lies behind us",
             "The past is known and 'visible,' like what lies before the eyes",
-            "The past physically moves people forward",
-            "The past is measured in money"
+            "The past pushes people forward through life, like a strong wind at one's back",
+            "The past is where people are walking toward as they age"
           ],
           answer: 1,
           explain: "Since the past has been witnessed and is known, it is mapped to the visible space in front of the body."
@@ -445,10 +445,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In Lakoff and Johnson's 'Metaphors We Live By' (1980), metaphor is primarily a matter of what?",
           choices: [
-            "Decorative poetic language only",
+            "Decorative language used mainly in poetry",
             "Our conceptual system and everyday thought",
-            "Grammar rules alone",
-            "Spelling conventions"
+            "Grammar rules that differ across languages",
+            "Vocabulary borrowed from other languages"
           ],
           answer: 1,
           explain: "They argued metaphor structures how we think and reason, not just how we decorate speech."
@@ -571,10 +571,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Why do gesture studies support embodied cognition?",
           choices: [
-            "They show thought is purely verbal",
+            "They show thought is purely verbal, with gestures simply repeating what words say",
             "They show thought is expressed and shaped through the body, not just abstract symbols",
-            "They prove gesture is meaningless",
-            "They show all cultures think identically"
+            "They show gestures are random movements that carry no meaning about thought",
+            "They show people in all cultures gesture identically when thinking about time and space"
           ],
           answer: 1,
           explain: "Gesture demonstrates that spatial-temporal thinking is grounded in and revealed through bodily action."

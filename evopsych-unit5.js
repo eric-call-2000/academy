@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "In evolutionary biology, when is a behavior called 'altruistic'?",
           choices: [
-            "When it raises both the actor's and the recipient's fitness",
-            "When it lowers the recipient's fitness to help the actor",
+            "When it raises both the actor's and the recipient's fitness at the same time",
+            "When it lowers the recipient's fitness in order to raise the actor's own fitness",
             "When it lowers the actor's own fitness while raising a recipient's fitness",
-            "When it has no measurable effect on anyone's fitness"
+            "When it lowers both the actor's and the recipient's fitness with no gain to anyone"
           ],
           answer: 2,
           explain: "Biological altruism is defined by its fitness consequences: a cost to the actor and a benefit to the recipient."
@@ -60,10 +60,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Before Hamilton, how did many biologists wrongly explain self-sacrifice?",
           choices: [
-            "By arguing that genes never influence behavior",
+            "By arguing that genes have little influence on social behavior in animals",
             "By claiming animals act 'for the good of the species' (naive group selection)",
-            "By denying that altruism exists in nature at all",
-            "By proposing that altruists always secretly out-reproduce everyone"
+            "By claiming altruism was an illusion that disappears under closer observation",
+            "By proposing that altruists secretly out-reproduce selfish individuals in time"
           ],
           answer: 1,
           explain: "The vague 'for the good of the species' view dominated until George C. Williams (1966) and others exposed its flaws."
@@ -319,10 +319,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why does Haldane's quip pair 'two brothers' with 'eight cousins'?",
           choices: [
-            "Because brothers and cousins are equally related to you",
+            "Because 2 brothers (r = 0.25) and 8 cousins (r = 0.0625) each sum to half of your genes",
             "Because 2 brothers (r = 0.5) and 8 cousins (r = 0.125) each sum to 1.0 copies of your genes",
-            "Because eight is simply a memorable round number",
-            "Because cousins are actually more related than brothers"
+            "Because cousins are about four times as numerous as brothers in a typical extended family",
+            "Because brothers and cousins are equally related to you, so the numbers are arbitrary"
           ],
           answer: 1,
           explain: "2 x 0.5 = 1.0 and 8 x 0.125 = 1.0, so each bundle carries, on average, one full copy of the actor's genes."
@@ -371,9 +371,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Which set of traits defines a eusocial species?",
           choices: [
             "Cooperative brood care, overlapping generations, and a reproductive division of labor (sterile castes)",
-            "Solitary living with no parental care at all",
-            "Seasonal migration in large mixed flocks",
-            "Lifelong monogamy between one male and one female"
+            "Overlapping generations living together in one nest, but each adult raising only its own young",
+            "Large colonies of related individuals that all breed, with no sterile or helper workers",
+            "Cooperative brood care among unrelated adults who take turns breeding each season"
           ],
           answer: 0,
           explain: "Eusociality means cooperative care of young, overlapping generations, and a reproductive division of labor with non-reproductive helpers."
@@ -441,10 +441,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What is 'phenotype matching' in kin recognition?",
           choices: [
-            "Attacking any unfamiliar individual on sight",
+            "Treating as kin any individual that was raised in the same nest, burrow, or brood as oneself",
             "Comparing another individual's traits (such as odor) to a learned template of self or known kin",
-            "Counting how many offspring a rival has produced",
-            "Choosing social partners completely at random"
+            "Detecting a single gene that both marks its bearer and causes help toward other bearers",
+            "Choosing mates whose odor and appearance are as different from one's own as possible"
           ],
           answer: 1,
           explain: "Phenotype matching compares a stranger's cues against an internal template built from self or familiar relatives."
@@ -453,9 +453,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "A bird that treats whoever grew up in its nest as a sibling is relying on which cue?",
           choices: [
-            "Phenotype matching",
-            "A recognition (green-beard) allele",
-            "Random guessing",
+            "Phenotype matching against its own odor",
+            "A recognition allele (the green-beard effect)",
+            "Self-referent matching of plumage traits",
             "Association and familiarity (spatial context)"
           ],
           answer: 3,
@@ -525,9 +525,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Burnstein, Crandall, and Kitayama (1994) found that as decisions shifted from everyday favors to life-or-death help, willingness to help...",
           choices: [
             "Rose more steeply with the recipient's genetic relatedness",
-            "Became random with respect to kinship",
-            "Favored distant strangers over close kin",
-            "Disappeared entirely"
+            "Tracked emotional closeness only, with no link to relatedness",
+            "Shifted toward close friends and away from genetic kin",
+            "Dropped equally for all recipients, whatever their kinship"
           ],
           answer: 0,
           explain: "In high-cost, life-or-death scenarios, helping tracked genetic relatedness much more strongly, as kin selection predicts."

@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The scenes used in the study typically showed which of the following?",
-          choices: ["A focal object, such as a tiger, on a complex naturalistic background", "Only abstract colored shapes", "Pages of written text", "Isolated faces with no background"],
+          choices: ["A focal object, such as a tiger, on a complex naturalistic background", "A focal object, such as a tiger, shown alone on a plain white background", "Several equally sized objects arranged in a neat grid with no background", "Isolated faces with neutral expressions and the background removed"],
           answer: 0,
           explain: "A focal object placed on a rich background let researchers compare object fixations against context fixations."
         },
@@ -72,7 +72,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which grouping reflects a taxonomic (category-based) strategy?",
-          choices: ["Monkey with banana", "Panda with monkey, because both are animals", "Banana with panda", "Refusing to group any pair"],
+          choices: ["Monkey with banana, because monkeys eat bananas", "Panda with monkey, because both are animals", "Banana with panda, because both live in warm forests", "Panda with banana, because both are often shown in zoos"],
           answer: 1,
           explain: "Taxonomic sorting groups by shared category membership; pairing the two animals is category-based, typical of Westerners."
         },
@@ -117,14 +117,14 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The tendency to overattribute others' behavior to their personality while underweighting the situation is called the:",
-          choices: ["Fundamental attribution error, or correspondence bias", "Self-serving bias", "Halo effect", "Framing effect"],
+          choices: ["Fundamental attribution error, or correspondence bias", "Self-serving bias, or self-enhancement bias", "Ultimate attribution error, or group-serving bias", "Hindsight bias, or the knew-it-all-along effect"],
           answer: 0,
           explain: "The fundamental attribution error favors dispositional explanations and is stronger in individualist cultures."
         },
         {
           type: "mcq",
           q: "Morris and Peng (1994) analyzed newspaper accounts of murders and found that, compared with Chinese-language reporters, American reporters emphasized:",
-          choices: ["The situational pressures on the killer", "The killer's personal dispositions and character", "The victims' backgrounds only", "No causes at all"],
+          choices: ["The situational pressures and stresses on the killer", "The killer's personal dispositions and character", "The victims' backgrounds and their relationships to the killer", "The role of gun laws and access to weapons in the community"],
           answer: 1,
           explain: "American reporters gave more dispositional explanations, while Chinese reporters cited situational and contextual factors."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The cultural affordances hypothesis proposes that:",
-          choices: ["The everyday visual environment of a culture encourages a particular style of attention", "Attention styles are entirely genetic", "Language has no effect on perception", "Only schooling shapes perception"],
+          choices: ["The everyday visual environment of a culture encourages a particular style of attention", "Attention styles are inherited genetically and differ between populations from birth", "The grammar of a culture's language alone determines what people notice in scenes", "Formal schooling, rather than the surrounding environment, is what shapes perception"],
           answer: 0,
           explain: "Features of the physical environment, such as how cluttered or ambiguous scenes are, help train holistic versus analytic attention."
         },
@@ -182,7 +182,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Miyamoto, Nisbett, and Masuda (2006) tested the hypothesis by:",
-          choices: ["Priming participants with photos of Japanese or American scenes, then measuring attention", "Only surveying attitudes", "Measuring brain size", "Teaching participants a new language"],
+          choices: ["Priming participants with photos of Japanese or American scenes, then measuring attention", "Surveying participants about how cluttered they felt their home towns were", "Comparing brain activity of Japanese and American participants viewing identical scenes", "Teaching participants a new language and then testing their attention to objects"],
           answer: 0,
           explain: "After viewing culture-typical scenes, even American participants attended more holistically when primed with Japanese scenes, showing the environment's causal role."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "When Miyamoto, Nisbett, and Masuda (2006) photographed matched locations such as schools and post offices in Japan and the U.S., they found Japanese scenes were:",
-          choices: ["More complex, with more objects and more ambiguous boundaries", "Simpler and emptier", "Identical in complexity", "Brighter but not busier"],
+          choices: ["More complex, with more objects and more ambiguous boundaries", "Simpler and emptier, with fewer objects and sharper boundaries", "About equal in complexity, differing mainly in architectural style", "Brighter and more colorful, but not more cluttered or ambiguous"],
           answer: 0,
           explain: "Japanese scenes were objectively busier and more ambiguous, affording holistic attention."
         },
@@ -234,7 +234,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "After being primed with Japanese-style scenes, American participants:",
-          choices: ["Became worse at all tasks", "Showed no change", "Only remembered focal objects", "Detected more context and background changes, showing more holistic attention"],
+          choices: ["Performed worse on every task because the unfamiliar scenes were distracting", "Showed no measurable change, since attention styles are fixed by adulthood", "Noticed changes only in focal objects, showing more analytic attention than before", "Detected more context and background changes, showing more holistic attention"],
           answer: 3,
           explain: "Priming with complex scenes shifted even Americans toward holistic change detection, supporting the affordances claim."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In the classic stimuli, a target could be grouped with one set by a shared rule or with another set by overall similarity. This design:",
-          choices: ["Pitted rule-based against family-resemblance strategies", "Measured color vision", "Tested short-term memory span", "Had no correct answer at all"],
+          choices: ["Pitted rule-based against family-resemblance strategies", "Measured how quickly participants could discriminate colors", "Tested short-term memory span for previously seen shapes", "Compared taxonomic grouping with thematic, relationship-based grouping"],
           answer: 0,
           explain: "The two competing cues let researchers see which strategy each culture defaulted to."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Masuda and Nisbett's (2001) study, participants watched animated underwater scenes. Compared with Americans, Japanese participants reported:",
-          choices: ["Far more about the background and the relationships among objects", "Only the single largest fish", "Nothing about the scene", "More about the colors of the focal fish alone"],
+          choices: ["Far more about the background and the relationships among objects", "Mostly about the single largest and fastest-moving fish", "About the same amount of context as Americans, but in more detail", "More about the colors and shapes of the focal fish themselves"],
           answer: 0,
           explain: "Japanese participants made many more statements about context and relationships, while Americans led with the focal fish."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Imai and Gentner (1997) had English and Japanese speakers extend a novel word from a sample. For shapeless substances, Japanese speakers were more likely than English speakers to extend the word by:",
-          choices: ["Material, or substance", "Shape", "Color", "Size"],
+          choices: ["Material, or substance", "Overall shape and outline", "Color, or surface hue", "Size, or overall volume"],
           answer: 0,
           explain: "Japanese speakers leaned toward a material (substance) construal, whereas English speakers leaned toward a shape (object) construal, especially for ambiguous stimuli."
         },

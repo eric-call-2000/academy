@@ -52,10 +52,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "'Conceptually systematic' means that ABA interventions should be:",
           choices: [
-            "Kept secret from other practitioners",
-            "Based only on the therapist's intuition",
+            "Kept consistent across every client so no procedure is ever adjusted",
+            "Based mainly on the therapist's clinical intuition and experience",
             "Derived from and described in terms of basic behavioral principles",
-            "Focused on internal mental states"
+            "Focused on changing the client's internal mental states directly"
           ],
           answer: 2,
           explain: "Being conceptually systematic ties techniques back to established principles like reinforcement and extinction, so the field grows as a coherent body of knowledge rather than a bag of tricks."
@@ -137,7 +137,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Whose 1982 study introduced the standard experimental functional analysis of self-injurious behavior?",
-          choices: ["B. F. Skinner", "Brian Iwata and colleagues", "Ivan Pavlov", "Albert Bandura"],
+          choices: ["Ivar Lovaas and colleagues", "Brian Iwata and colleagues", "Donald Baer and colleagues", "Teodoro Ayllon and colleagues"],
           answer: 1,
           explain: "Iwata, Dorsey, Slifer, Bauman, and Richman published the seminal functional analysis methodology in 1982."
         },
@@ -244,10 +244,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "The mnemonic SEAT is used to remember the four functions. What do its letters stand for?",
           choices: [
-            "Sit, Eat, Ask, Talk",
+            "Social (positive), Escape, Avoidance, Tangible items",
             "Sensory (automatic), Escape, Attention, Tangible",
-            "Skill, Effort, Attitude, Time",
-            "Stimulus, Extinction, Antecedent, Trial"
+            "Sensory, Extinction, Attention, Token",
+            "Self-stimulation, Emotion, Anxiety, Tantrum"
           ],
           answer: 1,
           explain: "SEAT stands for Sensory/automatic, Escape, Attention, and Tangible, a handy way to recall the four functions."
@@ -336,7 +336,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "In the abbreviation DRO, what does the 'O' stand for?",
-          choices: ["Operant", "Other behavior (or omission)", "Overcorrection", "Observation"],
+          choices: ["Operant behavior (or response)", "Other behavior (or omission)", "Overcorrection procedure", "Opposite behavior (or incompatible)"],
           answer: 1,
           explain: "DRO is differential reinforcement of other behavior, delivering reinforcement when the target behavior is omitted for an interval."
         },
@@ -421,9 +421,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "How does a token acquire its reinforcing power?",
           choices: [
             "Through pairing with, and exchange for, backup reinforcers",
-            "Because tokens are naturally motivating from birth",
-            "By being physically heavy or colorful",
-            "Through punishment of unwanted behavior"
+            "Because tokens are naturally motivating to people from birth",
+            "Through their physical appeal, such as being shiny or colorful",
+            "Through removal whenever an unwanted behavior occurs"
           ],
           answer: 0,
           explain: "Tokens become conditioned reinforcers by being reliably paired with established backup reinforcers."
@@ -456,10 +456,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "A common neurodiversity critique is that ABA has historically aimed to make autistic children:",
           choices: [
-            "More creative than their peers",
+            "More creative and imaginative than their peers",
             "Indistinguishable from their non-autistic peers",
-            "Physically taller",
-            "Better at standardized tests only"
+            "More independent of their parents at an early age",
+            "Better at standardized tests, but in no other area"
           ],
           answer: 1,
           explain: "Critics object to the historical goal, framed in Lovaas's own words, of making autistic children 'indistinguishable' from peers, arguing it pressures masking of natural traits."
@@ -498,10 +498,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which is a common modern reform made in response to community critiques?",
           choices: [
-            "Increasing the use of aversives",
-            "Removing all reinforcement from programs",
+            "Increasing the use of aversive procedures to speed up skill acquisition",
+            "Removing reinforcement from programs so children act from intrinsic motivation",
             "Incorporating client assent and more naturalistic, less rigid procedures",
-            "Requiring 80 hours of therapy per week"
+            "Requiring longer, more intensive weekly hours of discrete-trial drills"
           ],
           answer: 2,
           explain: "Contemporary practice increasingly centers assent, individualized goals, and naturalistic teaching over rigid compliance-focused drills."

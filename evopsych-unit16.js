@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Why did Daly and Wilson consider homicide a useful 'assay' of interpersonal conflict?",
-          choices: ["Because most killings are premeditated for material gain", "Because homicides are consistently recorded and reveal what triggers deadly conflict", "Because homicide rates are identical in every society", "Because killers are a random sample of the population"],
+          choices: ["Because most killings are premeditated for material gain, revealing economic motives", "Because homicides are consistently recorded and reveal what triggers deadly conflict", "Because homicide rates are nearly identical in every society, allowing easy comparison", "Because killers are a fairly random sample of the population, free of selection bias"],
           answer: 1,
           explain: "The reliability of homicide records lets researchers read off the typical sources and patterns of the most severe conflicts."
         },
@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which evolutionary logic best explains the young male syndrome?",
-          choices: ["Females compete more intensely than males for mates", "Higher male reproductive variance rewards competition and risk for status", "Aggression has no link to reproduction", "Older men reliably take the most risks"],
+          choices: ["Females compete more intensely than males for mates, so young men avoid risk", "Higher male reproductive variance rewards competition and risk for status", "Young men lack the impulse control that older men gain through learning", "Older men face higher variance in mating success, so risk peaks later"],
           answer: 1,
           explain: "Greater potential reproductive payoff, plus a greater risk of leaving no offspring, pushes young males toward competition and risk."
         },
@@ -137,7 +137,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which statement about the age-sex homicide curve is TRUE?",
-          choices: ["Women commit the large majority of homicides", "The offender peak occurs in early old age", "The peak occurs in young adulthood and the shape repeats across societies", "The curve differs completely in every culture"],
+          choices: ["Women commit the large majority of homicides in most societies studied", "The offender peak occurs in middle age and then declines slowly after", "The peak occurs in young adulthood and the shape repeats across societies", "The curve's peak and shape differ completely from one culture to the next"],
           answer: 2,
           explain: "The curve reliably peaks in young adulthood and keeps its shape across cultures, a signature of evolved conflict psychology."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Daly and Wilson noted that a large share of male-male homicides arise from:",
-          choices: ["Carefully planned robberies", "Seemingly trivial altercations over status or 'face'", "Accidental weapon discharges", "Disputes over inheritance law"],
+          choices: ["Carefully planned robberies for money or goods", "Seemingly trivial altercations over status or 'face'", "Disputes over property boundaries and inheritance", "Accidental shootings and fights during drunken horseplay"],
           answer: 1,
           explain: "So-called 'trivial altercations' over insults, challenges, and saving face account for many male-male killings."
         },
@@ -189,7 +189,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Why can a small insult escalate to killing in a status contest?",
-          choices: ["A reputation for toughness deters future exploitation, so backing down is costly", "Insults cause direct physical harm", "Bystanders are legally required to intervene", "Material theft is always the real motive"],
+          choices: ["A reputation for toughness deters future exploitation, so backing down is costly", "Insults cause direct physical and psychological harm that must be repaid in kind", "Bystanders are expected to intervene, so violence is rarely carried through", "Material theft is usually the hidden motive behind the insult itself"],
           answer: 0,
           explain: "Where reputation governs safety and status, appearing weak invites future predation, raising the stakes of an affront."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Wilson and Daly explained much intimate partner violence in terms of male sexual:",
-          choices: ["Indifference", "Proprietariness", "Generosity", "Shyness"],
+          choices: ["Competitiveness", "Proprietariness", "Frustration", "Inadequacy"],
           answer: 1,
           explain: "They described 'male sexual proprietariness', treating a partner as owned, as a driver of jealousy, coercion, and violence."
         },
@@ -241,7 +241,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which pattern fits the proprietary-jealousy account of partner violence?",
-          choices: ["Risk to a woman drops sharply when she tries to leave", "Estrangement or a partner leaving can spike the risk of lethal violence", "Jealousy plays no role in these killings", "Only strangers are dangerous to women"],
+          choices: ["Risk to a woman drops sharply once she tries to leave the relationship", "Estrangement or a partner leaving can spike the risk of lethal violence", "Violence comes mostly from strangers rather than from current partners", "Jealousy plays little role compared with disputes over money and chores"],
           answer: 1,
           explain: "Actual or threatened separation often heightens danger, consistent with coercive control aimed at retaining a partner."
         },
@@ -274,7 +274,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Sarah Blaffer Hrdy's classic fieldwork documented sexually selected infanticide in which primate?",
-          choices: ["Chimpanzees", "Hanuman langurs", "Gorillas", "Baboons"],
+          choices: ["Chimpanzees", "Hanuman langurs", "Mountain gorillas", "Savanna baboons"],
           answer: 1,
           explain: "Hrdy's study of Hanuman langurs at Abu (1977) documented males killing unrelated infants to hasten female fertility."
         },
@@ -326,7 +326,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Richard Wrangham's 'imbalance of power' hypothesis holds that coalitional killing occurs when:",
-          choices: ["Two sides are evenly matched", "Females lead the raids", "Attackers can strike a lone or outnumbered victim at very low risk to themselves", "Weapons are unavailable"],
+          choices: ["Two rival groups are evenly matched in size and strength, so fights are fair", "Females lead the raids, choosing targets based on local food supplies", "Attackers can strike a lone or outnumbered victim at very low risk to themselves", "Resources become so scarce that every male must fight to survive"],
           answer: 2,
           explain: "Wrangham argued lethal raiding happens when an attacking coalition faces little risk, overwhelming a lone or outnumbered target."
         },
@@ -378,14 +378,14 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Daly and Wilson generally argued that homicide itself is best viewed as:",
-          choices: ["A byproduct or overshoot of mechanisms built for winning conflicts", "A precisely designed adaptation for killing", "Entirely learned with no evolved basis", "A purely random event"],
+          choices: ["A byproduct or overshoot of mechanisms built for winning conflicts", "A precisely designed adaptation for killing rivals and competitors", "Entirely learned behavior with no basis in evolved psychology", "A largely random event unrelated to conflicts over status or mates"],
           answer: 0,
           explain: "They saw most homicide as a byproduct, with conflict and dominance psychology occasionally overshooting into killing."
         },
         {
           type: "mcq",
           q: "Buss and Shackelford's 'homicide adaptation theory' proposes that:",
-          choices: ["Humans have no evolved conflict psychology", "Killing was, in some contexts, favored enough to shape dedicated adaptations", "Only byproducts can explain homicide", "Homicide has no fitness consequences"],
+          choices: ["Humans lack any evolved conflict psychology, so killing is purely cultural", "Killing was, in some contexts, favored enough to shape dedicated adaptations", "Homicide is always a byproduct of mechanisms built for nonlethal conflict", "Killing has no effect on fitness, so selection could not have shaped it"],
           answer: 1,
           explain: "Buss and Shackelford (2005) argued recurrent fitness benefits could have selected for context-specific homicide adaptations."
         },

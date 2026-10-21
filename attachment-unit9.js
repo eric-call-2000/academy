@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What does the Strange Situation primarily measure?",
-          choices: ["The infant's IQ", "The quality of the infant's attachment to a caregiver", "The caregiver's parenting knowledge", "The infant's language ability"],
+          choices: ["The infant's general fear of unfamiliar people and places", "The quality of the infant's attachment to a caregiver", "The caregiver's sensitivity during free play", "The infant's temperament and overall emotionality"],
           answer: 1,
           explain: "The procedure classifies the organization of an infant's attachment behavior toward a specific caregiver under conditions of mild stress."
         },
@@ -122,7 +122,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What is the purpose of introducing a stranger and separations?",
-          choices: ["To tire the infant out", "To activate the infant's attachment system so its organization becomes visible", "To test the infant's memory", "To measure the stranger's behavior"],
+          choices: ["To test how quickly the infant becomes friendly with unfamiliar adults", "To activate the infant's attachment system so its organization becomes visible", "To measure how well the infant copes alone with no adult in the room at all", "To see whether the infant prefers the stranger or the caregiver as a playmate"],
           answer: 1,
           explain: "Mild, escalating stressors switch on attachment behavior; how the infant seeks and uses the caregiver then reveals the attachment pattern."
         },
@@ -148,7 +148,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Why are the stressors kept mild and brief?",
-          choices: ["To avoid overwhelming the infant and to keep the procedure ethical", "Because longer stress is illegal", "To save the researchers time", "Because infants cannot feel stress"],
+          choices: ["To avoid overwhelming the infant and to keep the procedure ethical", "To make sure that every infant cries for about the same length of time", "To keep the infant interested in exploring the new toys throughout", "To stop the caregiver from guessing the real aim of the study"],
           answer: 0,
           explain: "Separations are curtailed if an infant becomes too distressed; the stress must be strong enough to activate attachment but mild enough to be ethical."
         },
@@ -175,7 +175,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which behavior is most diagnostic of attachment quality in the Strange Situation?",
-          choices: ["How much the infant cries during separation", "How the infant behaves when reunited with the caregiver", "How the infant plays before any stress", "How the infant reacts to the stranger's face"],
+          choices: ["How much the infant cries during the separations", "How the infant behaves when reunited with the caregiver", "How the infant explores the toys before any stress begins", "How the infant reacts when the stranger first enters"],
           answer: 1,
           explain: "Ainsworth found that the infant's response at reunion, not the amount of separation distress, best distinguishes attachment patterns."
         },
@@ -195,7 +195,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "A securely attached infant at reunion typically...?",
-          choices: ["Ignores the returning caregiver", "Arches away and cannot be soothed", "Seeks the caregiver, is comforted, and returns to play", "Freezes and stares blankly"],
+          choices: ["Greets the caregiver from afar but keeps playing at a distance", "Clings to the caregiver and cannot settle back into play", "Seeks the caregiver, is comforted, and returns to play", "Turns away and stays focused on the toys instead"],
           answer: 2,
           explain: "Secure infants greet the caregiver, are readily comforted, and then resume exploration, showing the caregiver serves as a secure base."
         },
@@ -232,7 +232,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "How many interactive behavior scales did Ainsworth use to code reunion behavior?",
-          choices: ["Two", "Four", "Six", "Ten"],
+          choices: ["Two", "Four", "Three", "Five"],
           answer: 1,
           explain: "Four seven-point scales are rated: proximity-seeking, contact-maintaining, avoidance, and resistance."
         },
@@ -263,7 +263,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "High resistance combined with high proximity-seeking is characteristic of which pattern?",
-          choices: ["Secure", "Insecure-avoidant", "Insecure-resistant (ambivalent)", "Disorganized"],
+          choices: ["Secure", "Insecure-avoidant", "Insecure-resistant (ambivalent)", "Disorganized/disoriented (type D)"],
           answer: 2,
           explain: "Resistant/ambivalent infants both seek the caregiver and angrily resist comfort, a conflicted mix of approach and rejection."
         },
@@ -290,7 +290,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Why is reunion so revealing of an infant's internal working model?",
-          choices: ["Because it shows how fast the infant runs", "Because it shows the infant's learned expectations about whether the caregiver will provide comfort", "Because it measures the infant's vocabulary", "Because it reflects the stranger's warmth"],
+          choices: ["Because it shows how quickly the infant forgets the distress of the separation episodes", "Because it shows the infant's learned expectations about whether the caregiver will provide comfort", "Because it shows how strongly and how loudly the infant protested while the caregiver was away", "Because it shows whether the infant has an easy or a difficult inborn temperament from birth"],
           answer: 1,
           explain: "Reunion behavior expresses the infant's internalized expectations, the working model, of the caregiver's availability and responsiveness."
         },
@@ -347,7 +347,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "For what age range was the Strange Situation designed and validated?",
-          choices: ["0-3 months", "6-9 months", "12-18 months", "3-5 years"],
+          choices: ["6-9 months", "9-12 months", "12-18 months", "24-36 months"],
           answer: 2,
           explain: "The procedure is validated for infants roughly 12 to 18 months old, when locomotion and stranger wariness make attachment behaviors clearly observable."
         },
@@ -367,7 +367,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Why does the procedure work well around 12-18 months?",
-          choices: ["Infants can drive themselves home", "Infants can crawl or walk to seek proximity and show clear wariness of strangers", "Infants can speak in full sentences", "Infants no longer form attachments"],
+          choices: ["Infants can understand the stranger's explanation of where the parent has gone", "Infants can crawl or walk to seek proximity and show clear wariness of strangers", "Infants have not yet formed an attachment, so the lab shows their true starting point", "Infants this age no longer cry at separation, so reunion behavior is easier to code"],
           answer: 1,
           explain: "By this age infants use locomotion to seek the caregiver and reliably show wariness of strangers, making attachment behavior easy to observe."
         },
@@ -400,7 +400,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which meta-analysis examined cross-cultural distributions of Strange Situation classifications?",
-          choices: ["Van IJzendoorn and Kroonenberg (1988)", "Watson and Rayner (1920)", "Milgram (1963)", "Piaget (1936)"],
+          choices: ["Van IJzendoorn and Kroonenberg (1988)", "Grossmann, Grossmann, and Spangler (1985)", "Hazan and Shaver (1987)", "Sroufe and Waters (1977)"],
           answer: 0,
           explain: "Van IJzendoorn and Kroonenberg's 1988 meta-analysis of 32 studies across eight countries mapped how classification rates vary within and between cultures."
         },
@@ -413,7 +413,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "A common criticism of the Strange Situation is that it...?",
-          choices: ["Takes several days to run", "May lack ecological validity because it is an artificial lab setting", "Requires expensive brain scans", "Cannot be coded reliably by trained observers"],
+          choices: ["Uses too few episodes to show how infants react to rising stress", "May lack ecological validity because it is an artificial lab setting", "Focuses on the stranger's behavior rather than on the infant's own behavior", "Classifies infants only by how much they cry during the separations"],
           answer: 1,
           explain: "Critics argue the contrived lab situation may not capture how infants behave in everyday life, questioning its ecological validity."
         },

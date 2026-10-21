@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What do you type inside a Code Block node?",
           choices: [
             "DesignScript text such as numbers, strings, math, ranges, and logic",
-            "Only Python code",
-            "C# compiled classes",
-            "Raw Revit journal commands"
+            "Python code that runs through the IronPython or CPython engine",
+            "C# classes that compile into a new Zero Touch node library",
+            "Revit journal commands that replay steps in the open model"
           ],
           answer: 0,
           explain: "A Code Block is a node where you write DesignScript directly, letting you replace many small nodes with one compact block of text."
@@ -95,9 +95,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Which DesignScript line correctly creates a point using a Create method?",
           choices: [
             "Point.ByCoordinates(0,10,0);",
-            "CreatePoint 0 10 0;",
-            "new Point(0,10,0);",
-            "Point = 0,10,0;"
+            "Point.Create(0,10,0);",
+            "Point.Coordinates(0,10,0);",
+            "Point = ByCoordinates(0,10,0);"
           ],
           answer: 0,
           explain: "Create methods are called directly on the type, so Point.ByCoordinates(0,10,0) builds a point at those coordinates."
@@ -130,10 +130,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What do the replication guides <1> and <2> control in a line like Point.ByCoordinates(x<1>, y<2>)?",
           choices: [
-            "The order that inputs are evaluated",
+            "The order the inputs are evaluated, from first to second",
             "How lists pair, similar to lacing (here a cross product / grid)",
-            "The number of decimal places",
-            "Which Revit view is active"
+            "Which list level the node reads from, like List@Level",
+            "How many copies of each point are created along each axis"
           ],
           answer: 1,
           explain: "Replication guides <1> <2> control how lists pair, much like lacing; using different guide numbers builds a grid via a cross product."
@@ -217,9 +217,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a good reason to reach for a Python Script node?",
           choices: [
             "To perform loops, conditionals, and operations not available as nodes",
-            "To avoid learning any DesignScript",
-            "Because Python is the only way to see geometry previews",
-            "Because nodes cannot pass lists"
+            "To avoid learning DesignScript, since Code Blocks cannot do math",
+            "Because only Python nodes can show geometry in the 3D preview",
+            "Because built-in nodes cannot pass lists from one to another"
           ],
           answer: 0,
           explain: "Python is ideal for loops, conditionals, and logic that has no ready-made node, extending what the shipped nodes can do."
@@ -235,10 +235,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "How do you add more input ports to a Python Script node?",
           choices: [
-            "Retype the whole script",
+            "Declare a new IN variable in the script",
             "Click the + button on the node",
-            "Add a Watch node",
-            "Rename the node"
+            "Connect a wire to an empty port area",
+            "Edit the node's properties dialog"
           ],
           answer: 1,
           explain: "The + button on the Python Script node adds input ports, which then appear as IN[2], IN[3], and so on."
@@ -254,10 +254,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Which Python line gets the current Revit document?",
           choices: [
-            "doc = Revit.ActiveDocument",
+            "doc = Revit.Application.ActiveDocument",
             "doc = DocumentManager.Instance.CurrentDBDocument",
-            "doc = TransactionManager.Document",
-            "doc = clr.CurrentDoc()"
+            "doc = TransactionManager.Instance.ActiveDocument",
+            "doc = clr.AddReference('RevitAPI')"
           ],
           answer: 1,
           explain: "doc = DocumentManager.Instance.CurrentDBDocument returns the active Revit database document you will read from and edit."
@@ -296,10 +296,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Why reach the Revit API from Python instead of only using shipped nodes?",
           choices: [
-            "It renders geometry faster",
+            "It renders geometry faster than the built-in Dynamo preview can",
             "It unlocks anything the Revit API supports, beyond the built-in nodes",
-            "It removes the need for transactions",
-            "It automatically fixes null values"
+            "It removes the need for transactions when editing the model",
+            "It fixes null values automatically before they reach other nodes"
           ],
           answer: 1,
           explain: "The Revit API exposes far more than the shipped nodes, so Python lets you do anything the API supports."
@@ -335,9 +335,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a Custom Node?",
           choices: [
             "A reusable node you build from a graph, saved as a .dyf file",
-            "A one-time throwaway Code Block",
-            "A Revit family type",
-            "A Python-only wrapper that cannot be shared"
+            "A Code Block that is saved inside a single graph as a .dyn file",
+            "A Revit family type created by a Dynamo graph",
+            "A Python Script node that cannot be shared or published"
           ],
           answer: 0,
           explain: "A Custom Node packages a graph into a reusable node saved as a .dyf file that you can drop into many graphs."
@@ -376,10 +376,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What defines the input ports of a Custom Node?",
           choices: [
-            "Watch nodes",
+            "Watch nodes placed at the start of the graph",
             "Input nodes placed inside the custom node graph",
-            "The color of the node",
-            "The number of comments"
+            "Code Block variables named in the node's title",
+            "Python IN variables declared in the .dyf file"
           ],
           answer: 1,
           explain: "Input nodes inside the custom node graph create its input ports, and Output nodes create its outputs."
@@ -389,9 +389,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a key benefit of using Custom Nodes?",
           choices: [
             "They keep graphs clean by hiding complexity and can be reused and shared",
-            "They disable the Revit API",
-            "They replace the need to ever save a file",
-            "They force every graph to run automatically"
+            "They run faster than the same nodes because they compile into C# code",
+            "They update Revit elements automatically without running the graph",
+            "They replace the need for packages, since they cannot be published"
           ],
           answer: 0,
           explain: "Custom Nodes hide complexity, keep graphs tidy, and can be published to share reusable logic across projects and teammates."
@@ -414,10 +414,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "How do you install a package in Dynamo?",
           choices: [
-            "Copy files into the Revit install folder by hand",
+            "Copy the package files into the Revit add-ins folder by hand",
             "Through the Package Manager (Packages menu > Search for a Package)",
-            "By writing a Python script",
-            "You cannot add packages, only custom nodes"
+            "Install it from the Revit Add-Ins tab in the ribbon",
+            "Run a Python script that downloads it into the graph"
           ],
           answer: 1,
           explain: "Packages are shared collections of custom nodes and extensions installed via the Package Manager under the Packages menu."
@@ -498,10 +498,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What does Generative Design in Revit do?",
           choices: [
-            "Runs a graph exactly once like Dynamo Player",
+            "Runs a graph exactly once, the same way Dynamo Player does",
             "Explores many design options so you can evaluate and pick one",
-            "Automatically models the final building",
-            "Replaces the Revit API"
+            "Automatically models the final building from a sketch",
+            "Optimizes the Revit file so large models open faster"
           ],
           answer: 1,
           explain: "Generative Design explores many options for a problem, measuring each so you can compare and choose the best one."
@@ -552,10 +552,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Which is a good use case for Generative Design?",
           choices: [
-            "Renaming a single wall",
+            "Renaming every sheet in the drawing set to match a new numbering scheme",
             "Layout optimization weighing daylight, area, and adjacency trade-offs",
-            "Opening a Revit view",
-            "Publishing a custom node"
+            "Placing one family instance at a known point on a level",
+            "Exporting a schedule of door data to Excel for review"
           ],
           answer: 1,
           explain: "Generative Design shines on optimization problems like layouts that balance daylight, area, and adjacency trade-offs."
@@ -579,9 +579,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Which tools help organize a graph visually?",
           choices: [
             "Groups (colored boxes) and Notes, plus renaming nodes",
-            "Only the Python engine selector",
-            "The Revit API alone",
-            "Deleting all wires"
+            "Freezing nodes and switching the run mode to Manual",
+            "Watch nodes placed after every node in the graph",
+            "Background preview toggles on each geometry node"
           ],
           answer: 0,
           explain: "Groups (colored boxes), Notes, and renamed nodes keep a graph readable, while Code Blocks and Custom Nodes reduce clutter."
@@ -614,10 +614,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "A common cause of null values in a Dynamo graph is:",
           choices: [
-            "Using a Group",
+            "Running the graph in Manual mode instead of Automatic",
             "A missing or misspelled, case-wrong parameter name",
-            "Adding a Note",
-            "Renaming a node"
+            "Placing related nodes together inside a colored Group",
+            "Renaming a node so its title is easier to read"
           ],
           answer: 1,
           explain: "Nulls often come from a parameter name that is missing, misspelled, or the wrong case; empty lists and lacing or list-level mismatches are other frequent culprits."

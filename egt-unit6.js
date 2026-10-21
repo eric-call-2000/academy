@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In the Hawk-Dove game, what are two individuals competing over?",
           choices: [
             "A single resource, such as food, territory, or a mate",
-            "The right to lead the whole herd forever",
-            "Nothing; they simply fight for fun",
-            "A cash prize measured in dollars"
+            "The right to lead the whole herd for the rest of their lives",
+            "The chance to mate with every female in the population at once",
+            "Status in a group, with no effect on survival or reproduction"
           ],
           answer: 0,
           explain: "The Hawk-Dove game models a contest between two individuals over one resource whose contribution to reproductive fitness is written V."
@@ -61,10 +61,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is V measured in units of fitness rather than money?",
           choices: [
-            "Because money would be easier to count",
-            "Because the animals agreed on a price beforehand",
+            "Because money is the easiest currency for researchers to count in field studies",
+            "Because the animals settle on an agreed value before each contest starts",
             "Because evolution selects on reproductive success, so payoffs are fitness",
-            "Because V never actually matters to the outcome"
+            "Because V matters only to humans and has no effect on the animals' behavior"
           ],
           answer: 2,
           explain: "In evolutionary game theory payoffs are changes in fitness (expected reproductive success), since that is what natural selection acts on."
@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In the Hawk-Dove game, what does the cost C represent?",
           choices: [
-            "The time wasted displaying to an opponent",
+            "The time and energy wasted displaying to an opponent",
             "The fitness cost of injury from an escalated fight",
-            "The value of the resource that is won",
-            "The number of Doves in the population"
+            "The value of the resource that the winner takes home",
+            "The fitness lost by a Dove that retreats from a Hawk"
           ],
           answer: 1,
           explain: "C is the cost of injury: the fitness lost by an individual that is hurt in a serious, escalated fight."
@@ -112,9 +112,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why does a large value of C discourage all-out fighting?",
           choices: [
             "Because a big injury cost can outweigh the resource's value V",
-            "Because Doves refuse to eat when C is large",
-            "Because C makes the resource worth more",
-            "Because a large C is against the rules"
+            "Because a large C makes the resource itself worth more to the winner",
+            "Because Doves stop competing for resources when C is large",
+            "Because a large C makes Hawks win every fight without risk"
           ],
           answer: 0,
           explain: "If C is large relative to V, the expected cost of fighting can exceed the benefit of the resource, making aggression a poor strategy."
@@ -139,10 +139,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Two evenly matched Hawks each have a 50 percent chance of winning V and a 50 percent chance of an injury costing C. What is each Hawk's expected payoff?",
           choices: [
-            "V + C",
+            "V - C",
             "V/2",
             "(V - C)/2",
-            "C - V"
+            "(C - V)/2"
           ],
           answer: 2,
           explain: "Averaging a 50 percent chance of gaining V and a 50 percent chance of losing C gives an expected payoff of (V - C)/2."
@@ -158,9 +158,9 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What does a Hawk receive when it meets a Dove?",
           choices: [
-            "Half the resource, V/2",
-            "Nothing, a payoff of 0",
-            "An injury cost of C",
+            "Half the resource, V/2, as when two Doves meet",
+            "Nothing, a payoff of 0, because Doves share",
+            "(V - C)/2, the same as it earns against another Hawk",
             "The whole resource, worth V, because the Dove retreats"
           ],
           answer: 3,
@@ -230,10 +230,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In a population of all Hawks, what payoff does each Hawk earn on average when C is greater than V?",
           choices: [
-            "V, the full resource",
-            "V/2",
+            "V/2, the same as Doves earn",
+            "V, the full resource each time",
             "(V - C)/2, which is negative",
-            "0"
+            "0, since gains and costs cancel"
           ],
           answer: 2,
           explain: "Every contest is Hawk versus Hawk, so each earns (V - C)/2; when C exceeds V this average is negative, meaning Hawks harm their own fitness."
@@ -243,9 +243,9 @@ window.ACADEMY.addUnit("egt", {
           q: "A single Dove mutant appears in a population of Hawks, with C greater than V. What does it earn?",
           choices: [
             "0, because it retreats from every Hawk it meets",
-            "A negative payoff, worse than the Hawks",
-            "The full V every time",
-            "The injury cost C"
+            "A negative payoff, worse than the Hawks earn",
+            "V/2, half the resource in each contest",
+            "(V - C)/2, the same payoff the Hawks earn"
           ],
           answer: 0,
           explain: "The lone Dove meets only Hawks and retreats each time, earning 0. Since 0 is greater than the Hawks' negative (V - C)/2, the Dove does better."
@@ -327,9 +327,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why can't a Dove invade a Hawk population when V is greater than C?",
           choices: [
             "Because the Dove earns 0 against Hawks, less than the Hawks' positive payoff",
-            "Because Doves are forbidden from entering",
-            "Because the Dove is injured every time",
-            "Because the Dove also earns (V - C)/2"
+            "Because the Dove earns V/2 against Hawks, which is more than the Hawks' payoff",
+            "Because the Dove pays the injury cost C in every contest with a Hawk",
+            "Because the Dove earns (V - C)/2, the same as the resident Hawks do"
           ],
           answer: 0,
           explain: "A Dove meeting Hawks earns 0, but the resident Hawks earn a positive (V - C)/2, so the Dove does worse and cannot spread."
@@ -354,10 +354,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Intuitively, why does aggression pay when V exceeds C?",
           choices: [
-            "Because injuries never happen",
+            "Because Hawks never get injured when they fight Doves",
             "Because the prize is worth more than the risk of being hurt",
-            "Because Doves are extinct everywhere",
-            "Because C becomes negative"
+            "Because the injury cost C becomes negative in that case",
+            "Because Doves share the resource whenever Hawks attack"
           ],
           answer: 1,
           explain: "When the resource is worth more than the cost of injury, the expected benefit of fighting outweighs the risk, so escalating is favored."
@@ -427,10 +427,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "As the injury cost C grows very large while V stays fixed, what happens to the Hawk fraction V/C?",
           choices: [
-            "It grows toward 1",
-            "It stays at 1/2",
+            "It grows toward 1, so the population becomes mostly Hawks",
+            "It stays at 1/2 no matter how large C becomes over time",
             "It shrinks toward 0, so the population becomes mostly Doves",
-            "It becomes negative"
+            "It drops to exactly 0 once C is larger than V by any amount"
           ],
           answer: 2,
           explain: "Since the Hawk fraction is V/C, a larger C makes the ratio smaller, so costlier injuries mean fewer Hawks and more restraint."
@@ -446,9 +446,9 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What real biological puzzle does the Hawk-Dove game help explain?",
           choices: [
-            "Why all animals are always violent",
-            "Why resources have no value",
-            "Why animals never compete at all",
+            "Why resources such as food and mates are worth fighting over at all",
+            "Why animals fight to the death whenever a valuable resource is at stake",
+            "Why some animals never compete for resources and simply share them all",
             "Why animals often use ritualized displays instead of fighting to the death"
           ],
           answer: 3,
@@ -471,10 +471,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "According to the model, when is Dove-like restraint most strongly favored?",
           choices: [
-            "When the resource value V is enormous",
+            "When the resource value V is very large",
             "When the cost of injury C is high relative to V",
-            "When there is no cost to fighting",
-            "When animals cannot see each other"
+            "When fighting carries little or no risk of injury",
+            "When V and C are almost exactly equal"
           ],
           answer: 1,
           explain: "The mixed ESS Hawk fraction is V/C, so a high injury cost relative to the prize means more restraint, that is, more Dove-like behaviour."
@@ -499,10 +499,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is 'for the good of the species' a poor explanation for restraint, according to game theory?",
           choices: [
-            "Because species do not really exist",
+            "Because species do not really exist as units that natural selection could ever act on",
             "Because a selfish Hawk mutant would out-reproduce restrained individuals and spread",
-            "Because restraint never actually occurs in nature",
-            "Because V and C are always equal"
+            "Because restraint never actually occurs in nature, so there is nothing to explain",
+            "Because V and C are always equal, so restraint makes no difference to fitness"
           ],
           answer: 1,
           explain: "Group-level restraint is not stable: a cheating Hawk would gain higher fitness and invade, so restraint must be explained at the individual level."
@@ -518,10 +518,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is a conditional strategy in the context of the Hawk-Dove game?",
           choices: [
-            "A strategy that ignores all information about the contest",
+            "A strategy that ignores all information and always plays Hawk or Dove with fixed odds",
             "A strategy that chooses Hawk or Dove depending on a cue, such as ownership or size",
-            "A strategy that always plays Hawk",
-            "A strategy available only to Doves"
+            "A strategy that both rivals agree on in advance so that neither of them ever escalates",
+            "A strategy that changes between Hawk and Dove at random from one season to the next"
           ],
           answer: 1,
           explain: "Conditional strategies use information, such as who owns the resource or who is larger, to decide whether to escalate, unlike unconditional Hawk or Dove."

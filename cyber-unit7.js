@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is an app permission?",
           choices: [
             "Approval for an app to use a specific device feature or your data, like the camera or contacts",
-            "A fee you pay to unlock an app",
-            "A password that logs you into an app",
-            "A rating that shows how popular an app is"
+            "A license fee that unlocks the full version of an app once the free trial period has ended",
+            "A login that connects the app to your account with the developer",
+            "A security check the app store runs on an app before it is allowed in the store"
           ],
           answer: 0,
           explain: "A permission is your consent for the app to access a feature or type of data, such as location, camera, microphone, or contacts."
@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which security idea best matches good app permissions?",
           choices: [
             "Least privilege, giving only the access that is actually needed",
-            "Always allow, so the app never breaks",
-            "Deny everything, even features the app needs",
-            "Share as much data as possible to help the app improve"
+            "Defense in depth, granting every permission behind a strong passcode",
+            "Allow by default, so features never break when you need them",
+            "Deny by default, refusing even features the app needs to work"
           ],
           answer: 0,
           explain: "Least privilege means granting the smallest access needed. Apps should follow it, and so should you when granting permissions."
@@ -94,9 +94,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is installing from an official app store generally safer than random websites?",
           choices: [
             "Stores run review and scanning that catch many bad apps before they reach you",
-            "Store apps are guaranteed to be completely free of any risk",
-            "Store apps never ask for any permissions",
-            "Stores make every app open source so you can read the code"
+            "Store apps are guaranteed to be free of malware because every line is checked",
+            "Store apps cannot request permissions, so they can't reach your data",
+            "Stores require every app to be open source so anyone can read the code"
           ],
           answer: 0,
           explain: "Official stores review and scan submissions, which blocks a lot of malware. It reduces risk but cannot catch everything."
@@ -125,9 +125,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "You get a text with a link to download a 'special version' of a popular app. What is the safest choice?",
           choices: [
             "Ignore the link and get the app from the official store instead",
-            "Tap the link and install right away to save time",
-            "Forward the link to friends first, then install",
-            "Turn off your screen lock, then install"
+            "Tap the link but scan the downloaded file with antivirus before installing",
+            "Install it only if the text came from a number you recognize",
+            "Reply to the text and ask whether the special version is safe"
           ],
           answer: 0,
           explain: "Unsolicited download links are a classic way to push fake or trojanized apps. Go to the official store yourself."
@@ -147,9 +147,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Even inside an official store, what helps you avoid a bad app?",
           choices: [
             "Check the developer name, reviews, and download count before installing",
-            "Pick whichever app has the flashiest icon",
-            "Install the first result no matter who made it",
-            "Choose the app that asks for the most permissions"
+            "Pick the app that ranks first in search results for the name you typed",
+            "Choose the app with the most permissions, since it has the most features",
+            "Trust any app with a high star rating, even from an unknown developer"
           ],
           answer: 0,
           explain: "A trusted developer, many genuine reviews, and a sensible permission list all point to a legitimate app."
@@ -172,9 +172,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is an impersonator app?",
           choices: [
             "A fake app that copies a real one's name and icon to trick you into installing it",
-            "An app that only works when you are offline",
-            "An official app made by the real company",
-            "An app that has no icon at all"
+            "An official app that lets you log in as another user to help them with support",
+            "An app that reads your messages and sends them to someone else in secret",
+            "A test version of a real app shared early with beta testers by its developer"
           ],
           answer: 0,
           explain: "Impersonators mimic a trusted app's look and name to fool you into handing over data or money."
@@ -207,9 +207,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which detail most helps you spot a fake version of a well-known app?",
           choices: [
             "The developer name does not match the real company",
-            "The app has a login screen",
-            "The app is free to download",
-            "The app has an update button"
+            "The app asks you to sign in with an account",
+            "The app is free and offers in-app purchases",
+            "The app's icon looks exactly the same as the real one"
           ],
           answer: 0,
           explain: "Fakes often copy the icon and name but come from a different, wrong developer. Verify the publisher."
@@ -236,9 +236,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "You installed an app and suddenly see strange charges and pop-ups. What is a sensible response?",
           choices: [
             "Uninstall the app, change affected passwords, and watch your accounts",
-            "Give it more permissions so it stops misbehaving",
-            "Install two more apps from the same developer",
-            "Ignore it since apps cannot cause charges"
+            "Grant the app more permissions so it can fix the problem itself",
+            "Turn off pop-ups in settings and keep using the app as normal",
+            "Leave a bad review and wait for the developer to release a fix"
           ],
           answer: 0,
           explain: "Remove the suspicious app, rotate any passwords it may have seen, and monitor your accounts for further abuse."
@@ -255,9 +255,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What does an app's privacy label or data section in the store try to show you?",
           choices: [
             "What kinds of data the app collects and how it may be used or shared",
-            "How fast the app runs on your device",
-            "How many colors the app uses",
-            "The exact price of every in-app purchase"
+            "Whether the app has passed a full independent security audit by the store",
+            "How much storage space and battery the app will use on your device",
+            "Which countries the app's servers and developers are located in"
           ],
           answer: 0,
           explain: "Privacy labels summarize the data an app says it collects and shares, so you can decide before installing."
@@ -290,9 +290,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Where can you often limit what an app collects after installing it?",
           choices: [
             "In your device privacy settings and the app's own settings",
-            "Only by deleting your entire operating system",
-            "Only by buying a brand-new phone",
-            "You can never change it once installed"
+            "Only by uninstalling the app and installing an older version",
+            "Only by contacting the app store to change the privacy label",
+            "Only by resetting your phone to its factory settings"
           ],
           answer: 0,
           explain: "Device settings and in-app settings let you turn off tracking, limit location, and reduce sharing after install."
@@ -340,9 +340,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "How does fleeceware usually keep charging you?",
           choices: [
             "Through auto-renewing subscriptions that are easy to start and hard to cancel",
-            "By asking for a one-time payment that is clearly labeled",
-            "By being completely free forever",
-            "By refusing to open until you call support"
+            "Through hidden malware that copies your card details and makes purchases",
+            "Through ads that charge you each time one is shown on the screen",
+            "Through one-time unlock fees that are charged again every time you open it"
           ],
           answer: 0,
           explain: "The trap is auto-renewal. A quick free-trial signup quietly turns into recurring charges you may not notice."
@@ -368,9 +368,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Before tapping 'Start free trial,' what is the smartest thing to check?",
           choices: [
             "The price after the trial and how to cancel the subscription",
-            "Whether the app icon is a bright color",
-            "How many total apps the developer has published",
-            "Whether the app has the longest description"
+            "Whether the trial includes every premium feature of the app",
+            "How many days the trial lasts compared with similar apps",
+            "Whether the developer has published other popular apps"
           ],
           answer: 0,
           explain: "Know the post-trial price and the cancel steps up front, so an auto-renewal cannot surprise you later."
@@ -416,9 +416,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "When you click 'Sign in with' or 'Connect' to link one app to another account, you are usually using what?",
           choices: [
             "OAuth, which grants an app limited access without giving it your password",
-            "A virus scanner",
-            "A way to share your password in plain text",
-            "A tool that deletes the other account"
+            "SSL, which encrypts the password before sending it to the other app",
+            "A shared password, which the other app stores to log in for you",
+            "Two-factor login, which texts a code to both apps at the same time"
           ],
           answer: 0,
           explain: "OAuth lets an app get limited, revocable access to your account. It never needs your actual password for that account."
@@ -441,9 +441,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why should you periodically review the third-party apps connected to your accounts?",
           choices: [
             "Old or abandoned apps still holding access are a risk if that app is breached",
-            "Reviewing them makes your phone charge faster",
-            "It permanently deletes your main account",
-            "It is the only way to read your email"
+            "Connected apps expire after a year and stop working unless they are renewed",
+            "Each connected app slows down sign-in for your main account over time",
+            "Connected apps can see your password, so it should be changed after review"
           ],
           answer: 0,
           explain: "Every connected app is a doorway into your account. Removing unused ones shrinks the ways an attacker could get in."
@@ -500,9 +500,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is running an outdated app with a known security flaw risky?",
           choices: [
             "Attackers already know the flaw, so unpatched devices are easier targets",
-            "Old apps automatically become more secure over time",
-            "Outdated apps cannot connect to the internet at all",
-            "Updates only ever change the app's color scheme"
+            "The app stops receiving data from its servers until it is updated",
+            "Outdated apps are removed from your phone by the store after a while",
+            "Old versions share your data with the store to remind you to update"
           ],
           answer: 0,
           explain: "Once a flaw is public and fixed, unpatched users stand out as the easy targets attackers focus on."
@@ -546,9 +546,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "You see a real update available for an app you trust. What is the best habit?",
           choices: [
             "Install it soon, especially if it mentions security fixes",
-            "Ignore all updates to avoid changing anything",
-            "Only update apps you never actually use",
-            "Wait a year before installing any update"
+            "Wait a few months so that other users can test it first for you",
+            "Update only when the app stops working properly",
+            "Uninstall and reinstall the app instead of updating"
           ],
           answer: 0,
           explain: "Applying legitimate updates promptly, security ones especially, keeps known vulnerabilities from lingering."
@@ -565,9 +565,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why does a screen lock help protect the apps on your device?",
           choices: [
             "It stops someone who grabs your device from instantly opening your logged-in apps",
-            "It makes your apps run faster",
-            "It automatically updates every app",
-            "It hides your device from the internet entirely"
+            "It encrypts your app data while it travels over public Wi-Fi networks",
+            "It blocks apps from sending data in the background while the screen is off",
+            "It stops malware from installing itself while the phone is not in use"
           ],
           answer: 0,
           explain: "Many apps stay signed in, so a lock is the barrier between a thief and your accounts, messages, and money."
@@ -617,9 +617,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which combination gives your installed apps the best everyday protection?",
           choices: [
             "A screen lock, current updates, and not rooting or jailbreaking the device",
-            "No screen lock so apps open faster",
-            "Rooting the device and skipping all updates",
-            "Sharing your passcode widely for convenience"
+            "A screen lock, a VPN that is always on, and allowing apps from any source",
+            "Rooting the device so you can install a stronger third-party firewall",
+            "Turning off updates so apps keep working the way you're used to"
           ],
           answer: 0,
           explain: "A lock, timely updates, and leaving built-in protections intact together defend the apps and data on your device."
@@ -629,9 +629,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a downside of jailbreaking or rooting for someone who just wants to use apps safely?",
           choices: [
             "It can disable protections and let untrusted apps do more harm",
-            "It forces every app to auto-update instantly",
-            "It makes screen locks impossible to remove",
-            "It guarantees apps can never misbehave again"
+            "It stops the phone from installing any apps from official stores",
+            "It makes the screen lock stronger but drains the battery faster",
+            "It turns on automatic updates that cannot be switched off later"
           ],
           answer: 0,
           explain: "By removing the sandbox and safeguards, rooting gives malicious or trojanized apps far more room to cause damage."

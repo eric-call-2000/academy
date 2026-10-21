@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("content", {
           q: "The audience retention graph shows:",
           choices: [
             "What portion of viewers are watching at each moment",
-            "How many tags you used",
-            "Your upload times",
-            "Your subscriber count"
+            "How many people clicked after seeing the thumbnail",
+            "How many subscribers each part of the video earned",
+            "Which traffic sources sent viewers to the video"
           ],
           answer: 0,
           explain: "It maps viewership across the video's timeline, moment by moment."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("content", {
           q: "The retention graph is most useful because it:",
           choices: [
             "Tells you exactly which moments to improve next time",
-            "Sets your resolution",
-            "Chooses your thumbnail",
-            "Adds tags"
+            "Predicts how many views the video will get next month",
+            "Shows which thumbnail version got the most clicks",
+            "Tells you the best time of day to publish each video"
           ],
           answer: 0,
           explain: "It pinpoints the specific spots to fix in future videos."
@@ -75,9 +75,9 @@ window.ACADEMY.addUnit("content", {
           q: "A dip right after the intro often means:",
           choices: [
             "The hook did not deliver on the packaging",
-            "The video is too short",
-            "You used too few tags",
-            "Your resolution is wrong"
+            "The middle of the video was too slow",
+            "The video is too short for its topic",
+            "The ending did not include a call to action"
           ],
           answer: 0,
           explain: "Early dips usually point to a weak or mismatched hook."
@@ -116,9 +116,9 @@ window.ACADEMY.addUnit("content", {
           q: "Applying dip lessons to future videos leads to:",
           choices: [
             "Gradually improving retention over time",
-            "Worse retention",
-            "More tags",
-            "Higher resolution"
+            "Higher click-through rates on every video",
+            "Fewer dips in the very next video only",
+            "A guaranteed jump in subscribers each week"
           ],
           answer: 0,
           explain: "Learning from dips compounds into steadily better videos."
@@ -135,9 +135,9 @@ window.ACADEMY.addUnit("content", {
           q: "The core job of attention-focused editing is to:",
           choices: [
             "Remove anything that does not add value or momentum",
-            "Make the video as long as possible",
-            "Add long silences",
-            "Keep every mistake in"
+            "Add as many effects and transitions as possible",
+            "Keep every take so the video feels authentic and raw",
+            "Make the video longer to raise total watch time"
           ],
           answer: 0,
           explain: "Cutting the dead weight keeps the video tight and engaging."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("content", {
           q: "A helpful editing question for each moment is:",
           choices: [
             "Does this earn its place, or can it be cut?",
-            "How can I make this longer?",
-            "How many tags fit here?",
-            "What resolution is this?"
+            "Does this have enough effects to look polished?",
+            "Could I stretch this part out to add watch time?",
+            "Does this match the style of the top channel?"
           ],
           answer: 0,
           explain: "Judging whether each second earns its place drives tight editing."
@@ -195,9 +195,9 @@ window.ACADEMY.addUnit("content", {
           q: "B-roll is:",
           choices: [
             "Supporting footage shown while you talk",
-            "Your main talking-head clip",
-            "A type of tag",
-            "The video description"
+            "Your main talking-head clip in a video",
+            "Bonus footage posted after the video",
+            "The backup recording from camera two"
           ],
           answer: 0,
           explain: "B-roll is secondary footage that illustrates or covers the main audio."
@@ -236,9 +236,9 @@ window.ACADEMY.addUnit("content", {
           q: "A changing visual every so often helps because it:",
           choices: [
             "Refreshes attention and breaks monotony",
-            "Increases your bitrate",
-            "Adds tags",
-            "Slows the pace"
+            "Makes the video eligible for more ad slots",
+            "Helps YouTube choose a better thumbnail",
+            "Lets you skip writing a script for that part"
           ],
           answer: 0,
           explain: "Visual variety re-engages the eye and sustains attention."
@@ -255,9 +255,9 @@ window.ACADEMY.addUnit("content", {
           q: "Background music should generally be:",
           choices: [
             "Quiet enough that your voice stays clear",
-            "Louder than your voice",
-            "Absent from every video always",
-            "The same volume as your voice"
+            "As loud as your voice to keep energy high",
+            "Louder than your voice at key moments",
+            "Left out of every video to avoid distraction"
           ],
           answer: 0,
           explain: "Music supports mood but must sit under the voice."
@@ -296,9 +296,9 @@ window.ACADEMY.addUnit("content", {
           q: "A common audio mistake in editing is:",
           choices: [
             "Music so loud it competes with the voice",
-            "Keeping the voice clear",
-            "Using licensed music",
-            "Balancing the mix"
+            "Keeping the voice clear above the music",
+            "Using properly licensed background music",
+            "Balancing the levels of music and voice"
           ],
           answer: 0,
           explain: "Overpowering music buries the voice and frustrates viewers."
@@ -315,9 +315,9 @@ window.ACADEMY.addUnit("content", {
           q: "YouTube chapters let viewers:",
           choices: [
             "Jump to specific sections of the video",
-            "Change your thumbnail",
-            "Add tags",
-            "Increase resolution"
+            "Watch the video split into separate uploads",
+            "Skip the ads that play during the video",
+            "Save parts of the video to a playlist"
           ],
           answer: 0,
           explain: "Chapters divide the video into labeled, jumpable sections."
@@ -356,9 +356,9 @@ window.ACADEMY.addUnit("content", {
           q: "Chapters are most valuable for:",
           choices: [
             "Longer, multi-part or reference-style videos",
-            "One-second clips",
-            "Videos with no structure",
-            "Audio-only content"
+            "Short clips under a minute on one point",
+            "Story videos meant to be watched start to end",
+            "Shorts, where viewers swipe through quickly"
           ],
           answer: 0,
           explain: "Longer, sectioned videos benefit most from navigable chapters."
@@ -375,9 +375,9 @@ window.ACADEMY.addUnit("content", {
           q: "The best video length is:",
           choices: [
             "As long as it needs to be to deliver value without filler",
-            "Always exactly 10 minutes",
-            "Always under 60 seconds",
-            "As long as possible regardless of content"
+            "Always over 8 minutes so the video can fit in mid-roll ads",
+            "As long as possible, since watch time is what matters most",
+            "Always under 60 seconds, since attention spans are so short"
           ],
           answer: 0,
           explain: "Length should serve the content, not a fixed target."
@@ -446,9 +446,9 @@ window.ACADEMY.addUnit("content", {
           q: "Treating retention data as feedback leads to:",
           choices: [
             "Editing and structure that steadily improve",
-            "Worse videos over time",
-            "More tags",
-            "Higher resolution"
+            "Higher click-through rates on each new video",
+            "Videos that get longer to raise total watch time",
+            "A fixed formula you never need to change again"
           ],
           answer: 0,
           explain: "Using the data closes the loop and compounds improvement."
@@ -487,9 +487,9 @@ window.ACADEMY.addUnit("content", {
           q: "The compounding payoff of the retention loop is:",
           choices: [
             "Each video becomes a little better than the last",
-            "Videos get worse",
-            "You never need to edit",
-            "Automatic monetization"
+            "Every video goes viral if you wait long enough",
+            "You stop needing analytics after a few videos",
+            "Your subscriber count doubles with each video"
           ],
           answer: 0,
           explain: "Consistent learning makes every video incrementally stronger."

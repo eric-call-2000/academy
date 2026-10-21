@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A stream overlay is:",
           choices: [
             "A graphics layer drawn on top of your video (frames, alerts, bars)",
-            "The game itself",
-            "Your microphone",
-            "The recording file"
+            "The video capture of your game or desktop that viewers watch",
+            "The encoder setting that compresses your video before it is sent",
+            "A separate chat window that viewers open next to the video player"
           ],
           answer: 0,
           explain: "Overlays are the branded graphics layered over your capture, not the capture itself."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Overlays are valuable because they:",
           choices: [
             "Brand your stream and surface live info without a separate app window",
-            "Improve your internet speed",
-            "Replace the need for a camera",
-            "Encode your video"
+            "Lower the bitrate your stream needs by covering parts of the gameplay",
+            "Let viewers interact with your game directly from the video player",
+            "Replace the webcam with an animated avatar"
           ],
           answer: 0,
           explain: "Overlays add branding and live information directly on screen."
@@ -135,9 +135,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "For an overlay that sits over gameplay, the page background should be:",
           choices: [
             "Transparent, so the video below shows through",
-            "Solid white",
-            "Solid black",
-            "A photo"
+            "Solid black, for strong contrast",
+            "The brand's base color, so every piece matches the standby screens",
+            "Semi-transparent white, so text stays readable over gameplay"
           ],
           answer: 0,
           explain: "Overlay pieces use body{background:transparent} so only the graphics show."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "If an overlay unexpectedly hides everything behind it, the likely cause is:",
           choices: [
             "The page has a solid background instead of transparent",
-            "The webcam is unplugged",
-            "The bitrate is too low",
-            "There are too few scenes"
+            "The Browser Source is set to a lower resolution than the canvas",
+            "The overlay source is placed below the game capture in the list",
+            "The page is missing its ?demo=1 URL parameter"
           ],
           answer: 0,
           explain: "A solid page background blocks the layers below; it should be transparent."
@@ -237,9 +237,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Keeping every overlay on the same tokens matters because it:",
           choices: [
             "Makes the whole stream look like one cohesive brand",
-            "Reduces your internet usage",
-            "Increases the frame rate",
-            "Removes the need for a camera"
+            "Lets OBS render every overlay faster",
+            "Is required for the overlays to load as Browser Sources at all",
+            "Keeps each overlay file smaller so it loads before the stream starts"
           ],
           answer: 0,
           explain: "Shared tokens give a consistent, professional, branded look."
@@ -267,9 +267,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The 'chrome' in these overlays is:",
           choices: [
             "A metallic-looking CSS gradient reused verbatim",
-            "The Chrome web browser",
-            "A capture card brand",
-            "A type of microphone"
+            "The window border and title bar around each Browser Source",
+            "A silver color token for body text",
+            "A drop-shadow filter applied to every overlay's text"
           ],
           answer: 0,
           explain: "--chrome is a fixed linear-gradient reused across all pieces for the mark."
@@ -386,9 +386,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Adding ?demo=1 to an overlay's URL typically:",
           choices: [
             "Shows a preview with a stand-in background",
-            "Deletes the file",
-            "Uploads your stream",
-            "Mutes your audio"
+            "Switches the overlay into its transparent production mode",
+            "Hides the overlay graphics until OBS connects",
+            "Loads the overlay with all of its URL parameters reset"
           ],
           answer: 0,
           explain: "?demo=1 turns on a preview mode with a placeholder background so the overlay reads."
@@ -427,9 +427,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "URL parameters are read in the page's JavaScript using:",
           choices: [
             "URLSearchParams on location.search",
-            "The webcam driver",
-            "The audio mixer",
-            "The recording path"
+            "document.cookie on the overlay page",
+            "localStorage values saved by OBS",
+            "The window.obsstudio settings object"
           ],
           answer: 0,
           explain: "Each file parses new URLSearchParams(location.search) to read its options."
@@ -446,9 +446,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The quickest way to preview an overlay before using OBS is to:",
           choices: [
             "Open the HTML file in a browser with ?demo=1",
-            "Publish your channel",
-            "Record a two-hour session",
-            "Reinstall OBS"
+            "Add it to a test scene in OBS and start a private stream",
+            "Open the HTML file in a text editor",
+            "Upload the file to a web host and open the public link"
           ],
           answer: 0,
           explain: "Opening the file with ?demo=1 shows it with a stand-in background instantly."
@@ -487,9 +487,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Once an overlay looks right in the browser, the next step is to:",
           choices: [
             "Load the same file as a Browser Source in OBS",
-            "Delete it",
-            "Lower your resolution",
-            "Turn off the overlay"
+            "Add a screenshot as an Image Source",
+            "Load it in OBS as a Window Capture of the browser tab",
+            "Convert the page to a video file and add it as a Media Source"
           ],
           answer: 0,
           explain: "A verified overlay drops straight into OBS as a Browser Source."

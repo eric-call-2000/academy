@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("obs", {
           q: "What is OBS Studio?",
           choices: [
             "Free, open-source software for recording and streaming video",
-            "A paid video editor for cutting clips together",
-            "A cloud service that hosts your finished videos",
-            "A webcam you plug into your computer"
+            "A paid video editor for cutting and exporting finished clips",
+            "A cloud service that hosts and shares your finished videos online",
+            "Webcam driver software that ships with most laptop cameras"
           ],
           answer: 0,
           explain: "OBS (Open Broadcaster Software) Studio is free and open-source, used to record and live stream."
@@ -68,9 +68,9 @@ window.ACADEMY.addUnit("obs", {
           q: "For a YouTube creator, the most common first use of OBS is:",
           choices: [
             "Recording high-quality video to edit and upload later",
-            "Encrypting files for security",
-            "Compressing photos for a website",
-            "Managing a mailing list"
+            "Live streaming every session straight to a channel with no editing",
+            "Editing and color grading footage that was shot on a camera",
+            "Converting old video files"
           ],
           answer: 0,
           explain: "Recording-first creators use OBS to capture footage they later edit and publish."
@@ -105,9 +105,9 @@ window.ACADEMY.addUnit("obs", {
           q: "On first launch, the Auto-Configuration Wizard helps by:",
           choices: [
             "Suggesting settings based on recording or streaming and your hardware",
-            "Editing your existing video files",
-            "Uploading your videos automatically",
-            "Buying a capture card for you"
+            "Installing the plugins and codecs that your recordings are going to need",
+            "Importing scenes and overlays from another streamer's setup",
+            "Connecting your accounts and uploading test videos for you"
           ],
           answer: 0,
           explain: "The wizard proposes a starting configuration tuned for recording or streaming on your machine."
@@ -171,9 +171,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The large area in the middle of OBS is the:",
           choices: [
             "Preview, showing what your recording looks like",
-            "File explorer",
-            "Web browser",
-            "Settings menu"
+            "Program view, showing exactly what viewers already received",
+            "Scenes list, showing layouts",
+            "Source properties panel, showing the selected input's settings"
           ],
           answer: 0,
           explain: "The preview shows the live composition of your current scene."
@@ -196,9 +196,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Where do you click to begin capturing video to a file?",
           choices: [
             "Start Recording in the Controls dock",
-            "The Scenes dock",
-            "The preview area",
-            "The Sources dock"
+            "Start Streaming in the Controls dock",
+            "The record icon in the Sources dock",
+            "Studio Mode in the Controls dock"
           ],
           answer: 0,
           explain: "Start Recording lives in the Controls dock on the right."
@@ -214,9 +214,9 @@ window.ACADEMY.addUnit("obs", {
           q: "If you accidentally close a dock, you can bring it back from:",
           choices: [
             "The Docks menu at the top",
-            "The recycle bin",
-            "A reinstall of OBS",
-            "The Windows registry"
+            "The Tools menu at the top",
+            "The Profile menu at the top",
+            "Settings, under the Advanced tab"
           ],
           answer: 0,
           explain: "The Docks menu lets you re-enable any dock and reset the layout."
@@ -233,9 +233,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The Base (Canvas) Resolution controls:",
           choices: [
             "The size of the space you arrange sources on",
-            "The exact size of your saved file only",
-            "Your monitor's refresh rate",
-            "Your microphone's sample rate"
+            "The exact pixel size of your saved file and nothing else",
+            "The pixel size of each webcam or capture card you add",
+            "Your monitor's resolution"
           ],
           answer: 0,
           explain: "The canvas is your design space where you place and size sources."
@@ -245,9 +245,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The Output (Scaled) Resolution controls:",
           choices: [
             "The resolution of the recorded or streamed video",
-            "How bright your webcam is",
-            "The number of scenes you can have",
-            "Your keyboard shortcuts"
+            "The size of the canvas you arrange sources on in the preview",
+            "The resolution each capture source sends into OBS",
+            "The OBS preview window size"
           ],
           answer: 0,
           explain: "The output resolution is the final pixel size of what OBS records or streams."
@@ -316,9 +316,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Before recording, you should confirm which is set correctly?",
           choices: [
             "The recording output folder path",
-            "Your desktop wallpaper",
-            "Your browser bookmarks",
-            "The system clock font"
+            "The scene transition you will use",
+            "The order of scenes in the Scenes list",
+            "The theme set under Appearance"
           ],
           answer: 0,
           explain: "Knowing where files land saves you hunting for the recording afterward."
@@ -341,9 +341,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A blank or black recording most often means:",
           choices: [
             "No source was added or the source is not capturing",
-            "Your file is corrupted forever",
-            "OBS is not installed",
-            "Your monitor is off"
+            "The recording format is set to MKV instead of MP4",
+            "The bitrate was set too low for the chosen resolution",
+            "The audio tracks were not enabled in the output settings"
           ],
           answer: 0,
           explain: "A black screen usually means there is no working source in the scene."
@@ -359,9 +359,9 @@ window.ACADEMY.addUnit("obs", {
           q: "After stopping, the fastest way to review your clip is to:",
           choices: [
             "Open the file from the recordings folder",
-            "Re-record it from scratch",
-            "Reinstall OBS",
-            "Change your resolution"
+            "Play it back inside the OBS preview area",
+            "Use File, Remux Recordings to open a player",
+            "Switch to Studio Mode and scrub the timeline"
           ],
           answer: 0,
           explain: "Just open the saved file to review what you captured."
@@ -393,9 +393,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A key advantage of recording over streaming for quality is:",
           choices: [
             "You can use higher quality settings without worrying about internet speed",
-            "It uses no disk space",
-            "It requires no microphone",
-            "It cannot be edited"
+            "Recording files are always smaller than the same stream would be",
+            "Recording uses less CPU because no encoder is needed at all",
+            "Recorded video automatically gets a higher frame rate than streams"
           ],
           answer: 0,
           explain: "Recording is limited by your disk, not your upload speed, so you can push quality higher."
@@ -418,9 +418,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Which is NOT true of recording compared to streaming?",
           choices: [
             "It must be uploaded live as it happens",
-            "It can be edited afterward",
-            "It can use higher bitrates safely",
-            "It is saved to your disk"
+            "It can be edited and trimmed afterward",
+            "It can use higher bitrates without lag",
+            "It is saved as a file on your own disk"
           ],
           answer: 0,
           explain: "Recording is saved locally and not uploaded live; that is streaming's constraint."
@@ -495,9 +495,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The safest habit is to record at a frame rate that:",
           choices: [
             "Matches what you will publish and your hardware can handle",
-            "Is always the maximum number possible",
-            "Changes randomly each recording",
-            "Is always 1 fps to save space"
+            "Is always the highest number your monitor's refresh rate allows",
+            "Is lower than your published video so the file stays small",
+            "Doubles your target so you can slow it down later in editing"
           ],
           answer: 0,
           explain: "Pick a frame rate your hardware sustains and that matches your final video."
@@ -568,9 +568,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The single best habit for a beginner is to:",
           choices: [
             "Record a short test and review it before the real take",
-            "Never check settings and hope for the best",
-            "Delete OBS after each use",
-            "Record only with the app minimized"
+            "Change every setting in OBS before the first recording",
+            "Record the real take first and fix problems while editing",
+            "Copy a popular streamer's settings and start recording right away"
           ],
           answer: 0,
           explain: "A quick test recording is the cheapest insurance against a ruined session."

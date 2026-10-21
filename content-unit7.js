@@ -26,9 +26,9 @@ window.ACADEMY.addUnit("content", {
           q: "A repeatable upload checklist helps you:",
           choices: [
             "Avoid forgetting key steps like the thumbnail or end screen",
-            "Increase your camera quality",
-            "Edit faster only",
-            "Skip making thumbnails"
+            "Skip testing thumbnails, since the checklist covers packaging",
+            "Get extra promotion, since YouTube rewards complete uploads",
+            "Publish at the exact same minute each week for the algorithm"
           ],
           answer: 0,
           explain: "A checklist prevents missing important publishing steps."
@@ -74,9 +74,9 @@ window.ACADEMY.addUnit("content", {
           q: "The first lines of a description are important because they:",
           choices: [
             "Show in search and above the fold, giving context",
-            "Set your resolution",
-            "Choose your thumbnail",
-            "Control your frame rate"
+            "Are the main thing YouTube uses to rank the video",
+            "Are where your tags must go to be counted at all",
+            "Are read aloud by YouTube as captions for viewers"
           ],
           answer: 0,
           explain: "The opening lines appear in previews and search, so they carry weight."
@@ -115,9 +115,9 @@ window.ACADEMY.addUnit("content", {
           q: "A description should primarily be written for:",
           choices: [
             "Humans, with natural relevance to the video",
-            "Only search bots with keyword spam",
-            "No one; leave it blank",
-            "Random words"
+            "Search bots, with as many keywords as will fit",
+            "Other creators, to invite collaboration offers",
+            "Advertisers, to raise the video's ad rates"
           ],
           answer: 0,
           explain: "Write helpfully for viewers; natural relevance also aids discovery."
@@ -134,9 +134,9 @@ window.ACADEMY.addUnit("content", {
           q: "On modern YouTube, tags are:",
           choices: [
             "A minor signal, far less important than packaging and content",
-            "The single most important ranking factor",
-            "Required to publish",
-            "What sets your resolution"
+            "The most important ranking factor, ahead of titles and thumbnails",
+            "Required for every upload, or the video will not show in search",
+            "Used only for Shorts and ignored entirely on long-form videos"
           ],
           answer: 0,
           explain: "Tags play a small role today; title, thumbnail, and content matter far more."
@@ -175,9 +175,9 @@ window.ACADEMY.addUnit("content", {
           q: "A reasonable approach to tags is to:",
           choices: [
             "Add a few relevant ones and move on",
-            "Add hundreds of unrelated tags",
-            "Spend hours perfecting them",
-            "Never publish without 500 tags"
+            "Use every tag the field allows",
+            "Copy the tag list of the top video in your niche",
+            "Spend as long on tags as on the thumbnail"
           ],
           answer: 0,
           explain: "A few relevant tags are fine; do not over-invest."
@@ -203,9 +203,9 @@ window.ACADEMY.addUnit("content", {
           q: "End screens are valuable because they:",
           choices: [
             "Send finishing viewers to another of your videos",
-            "Improve your camera",
-            "Add tags",
-            "Set resolution"
+            "Ask viewers to rate the video before they leave",
+            "Show ads at the end that pay more than mid-rolls",
+            "Let viewers replay the best part of the video"
           ],
           answer: 0,
           explain: "They convert a finished view into more watch time."
@@ -234,9 +234,9 @@ window.ACADEMY.addUnit("content", {
           q: "To leave room for an end screen, you should:",
           choices: [
             "Plan a few seconds of outro for it to appear over",
-            "End the video abruptly with no space",
-            "Remove the payoff",
-            "Add more tags"
+            "Cut the video right after the last point is made",
+            "Place the end screen during the video's main payoff",
+            "Save the payoff for after the end screen appears"
           ],
           answer: 0,
           explain: "End screens need a few seconds of outro space to display."
@@ -253,9 +253,9 @@ window.ACADEMY.addUnit("content", {
           q: "Playlists help your channel by:",
           choices: [
             "Encouraging viewers to watch multiple videos in a row",
-            "Increasing your resolution",
-            "Choosing your thumbnail",
-            "Adding tags"
+            "Raising each video's ranking in search for its keywords",
+            "Letting viewers download your videos for offline viewing",
+            "Grouping your videos so YouTube can set your ad rates"
           ],
           answer: 0,
           explain: "Autoplay through a playlist chains views into a longer session."
@@ -294,9 +294,9 @@ window.ACADEMY.addUnit("content", {
           q: "A good playlist is usually:",
           choices: [
             "A logically ordered set of related videos",
-            "Every video in random order",
-            "A single unrelated video",
-            "Only your worst videos"
+            "Every video on the channel, newest first",
+            "Your most viewed videos, whatever the topic",
+            "A mix of topics so viewers never get bored"
           ],
           answer: 0,
           explain: "Logical grouping and order make playlists effective."
@@ -313,9 +313,9 @@ window.ACADEMY.addUnit("content", {
           q: "The best posting schedule is one that:",
           choices: [
             "You can sustain consistently without dropping quality",
-            "Is always daily no matter what",
-            "Is random with no pattern",
-            "Stops after one video"
+            "Puts out a video every day, since frequency is key",
+            "Matches the schedule of the biggest niche channel",
+            "Changes week to week to keep the algorithm guessing"
           ],
           answer: 0,
           explain: "A sustainable, consistent cadence beats an unsustainable sprint."
@@ -354,9 +354,9 @@ window.ACADEMY.addUnit("content", {
           q: "If you must choose, prioritize:",
           choices: [
             "Consistent quality at a pace you can maintain",
-            "The highest possible frequency",
-            "Random bursts then silence",
-            "One perfect video ever"
+            "The highest upload frequency you can manage",
+            "Bursts of daily uploads with breaks in between",
+            "Long gaps so that each video can be perfect"
           ],
           answer: 0,
           explain: "Consistent quality at a sustainable pace is the durable strategy."
@@ -373,9 +373,9 @@ window.ACADEMY.addUnit("content", {
           q: "Replying to comments, especially early, can:",
           choices: [
             "Boost engagement and build a loyal community",
-            "Lower your resolution",
-            "Remove your tags",
-            "Delete your video"
+            "Raise the video's ad rates for that week only",
+            "Remove the need to post on a regular schedule",
+            "Unlock monetization sooner than the thresholds"
           ],
           answer: 0,
           explain: "Early engagement encourages more comments and strengthens loyalty."
@@ -414,9 +414,9 @@ window.ACADEMY.addUnit("content", {
           q: "A simple way to invite comments is to:",
           choices: [
             "Ask viewers a specific question in the video",
-            "Disable comments",
-            "Never mention comments",
-            "Add more tags"
+            "Pin your own comment and hide all the others",
+            "Remind viewers to like and subscribe at the start",
+            "Ask viewers to leave any comment at all, about anything"
           ],
           answer: 0,
           explain: "A clear, specific prompt encourages viewers to respond."
@@ -433,9 +433,9 @@ window.ACADEMY.addUnit("content", {
           q: "Collaborating with another creator can:",
           choices: [
             "Introduce you to their relevant audience",
-            "Lower your video quality",
-            "Remove your tags",
-            "Delete your channel"
+            "Merge both channels' subscriber counts",
+            "Double your ad rates on the joint video",
+            "Replace the need for your own packaging"
           ],
           answer: 0,
           explain: "Collabs put you in front of an aligned audience quickly."
@@ -474,9 +474,9 @@ window.ACADEMY.addUnit("content", {
           q: "The main growth benefit of collaboration is:",
           choices: [
             "Reaching a new but relevant audience efficiently",
-            "Higher resolution",
-            "More tags",
-            "Faster editing"
+            "Splitting the work so you can upload half as often",
+            "Getting the other creator to promote all your videos",
+            "Earning a share of the other creator's ad revenue"
           ],
           answer: 0,
           explain: "Collabs efficiently expand your reach into aligned audiences."

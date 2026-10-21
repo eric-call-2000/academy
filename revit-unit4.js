@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is a Level in Revit?",
-          choices: ["A horizontal datum plane at a defined height", "A type of wall", "A view template", "A schedule field"],
+          choices: ["A horizontal datum plane at a defined height", "A vertical datum line used to place columns", "A floor slab type set to a fixed thickness", "A saved plan view that shows a single storey"],
           answer: 0,
           explain: "A Level is a horizontal datum that marks a height in the model, such as a floor or roof line."
         },
@@ -26,7 +26,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "In which views are Levels normally created and edited?",
-          choices: ["Section and elevation views", "Floor plan views", "Schedules", "3D views only"],
+          choices: ["Section and elevation views", "Floor plan and ceiling plan views", "Drafting views and legends", "3D views and camera views"],
           answer: 0,
           explain: "Because Levels are horizontal, you see and edit them best in sections and elevations where their heights are visible."
         },
@@ -46,7 +46,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does the number shown on a Level line usually represent?",
-          choices: ["Its elevation height", "Its area", "Its material", "Its phase"],
+          choices: ["Its elevation height", "Its floor-to-floor height", "Its storey number", "Its slab thickness"],
           answer: 0,
           explain: "The Level head shows the elevation, the vertical height of that datum relative to a reference."
         },
@@ -72,7 +72,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What are Grids mainly used to locate?",
-          choices: ["Columns and structural members", "Levels", "Room tags", "Sheet borders"],
+          choices: ["Columns and structural members", "Levels and floor heights", "Room boundaries and room tags", "Sheet borders and title blocks"],
           answer: 0,
           explain: "Grids form a labeled reference network that positions columns and other structure."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is shown inside the bubble at the end of a Grid line?",
-          choices: ["The grid label", "The material", "The area", "The phase"],
+          choices: ["The grid label", "The grid's length", "The grid spacing", "The column size"],
           answer: 0,
           explain: "The grid head bubble displays the label, such as 1 or A, used to name intersections."
         }
@@ -131,7 +131,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is a Reference Plane best described as?",
-          choices: ["A construction line used as a work plane or constraint", "A finished wall", "A printed sheet", "A schedule"],
+          choices: ["A construction line used as a work plane or constraint", "A thin wall type used to divide rooms in a plan", "A model line that prints on sheets as part of the drawing set", "A detail line drawn only in the current view"],
           answer: 0,
           explain: "A Reference Plane is an infinite work-plane you draw to guide geometry and constraints, not a built element."
         },
@@ -151,7 +151,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "How do Reference Planes usually appear on a printed construction sheet?",
-          choices: ["They do not print by default", "As bold solid walls", "As dimension strings", "As filled regions"],
+          choices: ["They do not print by default", "As thin green dashed lines like on screen", "As light gray lines behind the model", "As dimension strings to nearby walls"],
           answer: 0,
           explain: "Reference Planes are drafting aids; they guide modeling but normally are not plotted on final sheets."
         },
@@ -183,7 +183,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "When a wall is hosted to Level 1 and Level 1 is raised, what happens?",
-          choices: ["The wall moves up with the Level", "The wall is deleted", "The wall ignores the change", "The wall becomes a Grid"],
+          choices: ["The wall moves up with the Level", "The wall stays in place and shows a warning", "Only the wall's top moves while its base stays", "The wall is moved to the next Level up"],
           answer: 0,
           explain: "Hosted elements follow their Level, so moving the Level shifts everything associated to it."
         },
@@ -203,7 +203,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why is Level-hosting helpful when a design changes?",
-          choices: ["Hosted elements update together automatically", "It hides the elements", "It prints faster", "It locks the file"],
+          choices: ["Hosted elements update together automatically", "Hosted elements are locked so they cannot move", "Each element can be adjusted without affecting others", "Elements are copied to every Level automatically"],
           answer: 0,
           explain: "Because elements track their Level, one datum edit updates many elements at once, keeping the model coordinated."
         },
@@ -235,7 +235,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is the work plane?",
-          choices: ["The plane new geometry is drawn on", "The active sheet", "The current schedule", "The print size"],
+          choices: ["The plane new geometry is drawn on", "The level that sets a view's cut height", "The flat face of the sheet you print", "The plane that crops a 3D view"],
           answer: 0,
           explain: "The work plane defines the flat surface where sketch and model geometry is placed."
         },
@@ -255,7 +255,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Which is a good habit before sketching model geometry in 3D?",
-          choices: ["Confirm the active work plane", "Delete all Levels", "Turn off the model", "Rename the file"],
+          choices: ["Confirm the active work plane", "Switch the view to Coarse detail", "Turn on the crop region of the view", "Set the view scale to 1:100"],
           answer: 0,
           explain: "Checking the active plane first avoids drawing on the wrong surface."
         },
@@ -287,7 +287,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does a Scope Box mainly control?",
-          choices: ["The extents of datums like Grids and Reference Planes", "The wall material", "The sheet number", "The text font"],
+          choices: ["The extents of datums like Grids and Reference Planes", "The view range cut height used by each floor plan view", "The area that a room tag reports in schedules", "The print area that each sheet will plot"],
           answer: 0,
           explain: "A Scope Box crops the extents of Grids and Reference Planes so they behave consistently across views."
         },
@@ -307,7 +307,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why are Scope Boxes useful on large buildings split into areas?",
-          choices: ["They limit datums and views to a defined zone", "They speed up printing only", "They change materials", "They rename sheets"],
+          choices: ["They limit datums and views to a defined zone", "They split the model into separate files per wing", "They assign each area to its own workset owner", "They give each zone its own set of Levels"],
           answer: 0,
           explain: "You can confine Grids and views to a wing or zone, keeping each area clean."
         },
@@ -384,7 +384,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why does Revit separate 2D and 3D datum extents?",
-          choices: ["So you can tidy a view without changing others", "To change materials", "To reduce file size", "To rename sheets"],
+          choices: ["So you can tidy a view without changing others", "So 3D datums print while 2D datums stay hidden", "So grids can have different labels in each view", "So linked models cannot move your datums"],
           answer: 0,
           explain: "The split lets you clean up one drawing without disturbing the datum everywhere else."
         }
@@ -398,7 +398,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does the Survey Point represent?",
-          choices: ["A known real-world reference point on the site", "The wall thickness", "The sheet size", "The print scale"],
+          choices: ["A known real-world reference point on the site", "The internal origin Revit uses for its own math", "The corner of the building where the grids start", "The spot where the site plan's north arrow sits"],
           answer: 0,
           explain: "The Survey Point ties the model to a real-world location, such as a surveyed site benchmark."
         },
@@ -411,7 +411,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why do these points matter when coordinating with other models?",
-          choices: ["They enable Shared Coordinates so models line up", "They set the font", "They change phases", "They print faster"],
+          choices: ["They enable Shared Coordinates so models line up", "They set each model's Levels to the same height", "They let linked models share the same worksets", "They make linked models load faster in views"],
           answer: 0,
           explain: "Shared Coordinates rely on these points so linked models align in real-world position."
         },
@@ -443,7 +443,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Shared Coordinates are mainly about making sure that what happens?",
-          choices: ["Linked models sit in the correct relative real-world position", "Walls change color", "Schedules sort faster", "Views print in color"],
+          choices: ["Linked models sit in the correct relative real-world position", "Linked models share the same Levels, Grids, and view templates", "Each model uses the same project units and title blocks", "Linked models update automatically when the host is saved"],
           answer: 0,
           explain: "The goal is correct real-world positioning so multiple models overlay accurately."
         }

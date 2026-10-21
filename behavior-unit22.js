@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which phenomenon posed a serious challenge to a strict behaviorist explanation?",
-          choices: ["A rat pressing a lever for food", "A pigeon pecking a lit key", "A child producing sentences never heard before", "A dog salivating to a bell"],
+          choices: ["A rat pressing a lever to receive food pellets", "A pigeon pecking a lit key on a ratio schedule", "A child producing sentences never heard before", "A dog salivating to a bell paired with meat"],
           answer: 2,
           explain: "Children generate novel, grammatical sentences they were never reinforced for. This linguistic productivity cannot come from reinforcing previously heard responses."
         },
@@ -89,7 +89,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What did latent learning demonstrate that challenged behaviorism?",
-          choices: ["Learning requires immediate reinforcement", "Learning can occur without reinforcement and stay hidden", "Reinforcement is the only cause of performance", "Rats cannot learn mazes"],
+          choices: ["Learning requires immediate reinforcement after each correct turn", "Learning can occur without reinforcement and stay hidden", "Reinforcement is the only cause of both learning and performance", "Rats are unable to learn mazes unless food is placed at the goal"],
           answer: 1,
           explain: "Latent learning shows learning can happen without reinforcement, separating learning (acquisition) from performance (showing it)."
         },
@@ -161,7 +161,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which behaviorist commitment did the information-processing metaphor reject?",
-          choices: ["That behavior can be measured", "That internal representations are worth studying", "That the mind should be treated as an unopenable black box", "That experiments should be controlled"],
+          choices: ["That behavior can be measured objectively and reliably", "That internal representations are worth modeling in detail", "That the mind should be treated as an unopenable black box", "That experiments should be carefully controlled and replicated"],
           answer: 2,
           explain: "The information-processing view opened the 'black box' to model internal processes, rejecting behaviorism's refusal to theorize about mental events."
         },
@@ -201,7 +201,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "The full title of Miller's 1956 paper refers to limits on our capacity for processing ____.",
-          choices: ["Food", "Information", "Emotion", "Reflexes"],
+          choices: ["Stimulation", "Information", "Perception", "Sensation"],
           answer: 1,
           explain: "The title is 'The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information.'"
         },
@@ -237,7 +237,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "At which 1956 meeting did several foundational cognitive-science papers converge?",
-          choices: ["The Dartmouth Summer Project", "The MIT Symposium on Information Theory", "The Solvay Conference", "The Macy Conferences"],
+          choices: ["The Dartmouth Summer Research Project", "The MIT Symposium on Information Theory", "The Hixon Symposium on Cerebral Mechanisms", "The Macy Conferences on Cybernetics"],
           answer: 1,
           explain: "George Miller pointed to the MIT Symposium on Information Theory (September 11, 1956) as the moment the field came together."
         },
@@ -280,7 +280,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "1956 is also a landmark year because the Dartmouth workshop coined which term?",
-          choices: ["Cybernetics", "Artificial intelligence", "Information theory", "Behaviorism"],
+          choices: ["Information processing", "Artificial intelligence", "Cognitive psychology", "Computational neuroscience"],
           answer: 1,
           explain: "The 1956 Dartmouth Summer Research Project is where the term 'artificial intelligence' was coined, reinforcing 1956 as a pivotal year."
         }
@@ -350,7 +350,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which critique most damaged behaviorism's account of language?",
-          choices: ["Watson's Little Albert study", "Chomsky's 1959 review of 'Verbal Behavior'", "Pavlov's dog studies", "Thorndike's law of effect"],
+          choices: ["Tolman's 1948 paper on cognitive maps in rats", "Chomsky's 1959 review of 'Verbal Behavior'", "The Brelands' 1961 'Misbehavior of Organisms'", "Miller's 1956 paper on the magical number seven"],
           answer: 1,
           explain: "Chomsky's review argued reinforcement cannot explain the creative, rule-governed nature of language, undercutting a core behaviorist claim."
         },
@@ -406,7 +406,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which clinical technique grew directly out of behaviorist principles?",
-          choices: ["Systematic desensitization", "Dream analysis", "Free association", "Rorschach testing"],
+          choices: ["Systematic desensitization", "Psychoanalytic dream analysis", "Free association therapy", "Rorschach inkblot testing"],
           answer: 0,
           explain: "Systematic desensitization, developed by Joseph Wolpe, uses classical-conditioning principles to reduce phobic fear."
         },
@@ -437,7 +437,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What broad methodological value did behaviorism leave to all of psychology?",
-          choices: ["Reliance on introspection", "A rigorous focus on observable, measurable data", "Rejection of experiments", "A preference for anecdotes"],
+          choices: ["A reliance on trained introspection as the main method", "A rigorous focus on observable, measurable data", "A rejection of laboratory experiments in favor of case studies", "A preference for rich anecdotes over controlled observation"],
           answer: 1,
           explain: "Behaviorism's demand for objective, measurable evidence became a lasting standard, one cognitive psychology kept."
         },

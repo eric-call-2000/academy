@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Mentalization is best defined as the capacity to:",
           choices: [
             "interpret behavior in terms of underlying mental states",
-            "memorize facts about other people's lives",
-            "control another person's emotions directly",
-            "suppress all unwanted feelings"
+            "predict what people will do based only on past actions",
+            "notice and copy the emotions that other people show",
+            "recall detailed facts about other people's lives"
           ],
           answer: 0,
           explain: "Mentalizing means making sense of actions - yours and others' - by reference to inner mental states like beliefs, wishes, and feelings."
@@ -40,9 +40,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Which statement is an example of mentalizing?",
           choices: [
             "He slammed the door, so the hinge must be loose",
-            "The door slammed shut because of the wind",
+            "The door slammed shut because the wind blew through",
             "He slammed the door, so he must be upset about something",
-            "I should oil the door to stop the noise"
+            "He slammed the door, so I should oil it to stop the noise"
           ],
           answer: 2,
           explain: "Only this option infers an inner mental state (being upset) as the cause of the behavior."
@@ -121,9 +121,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Mentalization theory is often described as integrating attachment theory with:",
           choices: [
-            "classical conditioning experiments only",
-            "behavior modification techniques",
-            "strict biological determinism",
+            "classical conditioning and behaviorist learning theory",
+            "behavior modification techniques and token economies",
+            "strict biological determinism and genetics research",
             "psychoanalysis and developmental cognitive science"
           ],
           answer: 3,
@@ -160,8 +160,8 @@ window.ACADEMY.addUnit("attachment", {
           choices: [
             "The Strange Situation Procedure",
             "The Adult Attachment Interview (AAI)",
-            "The Rorschach inkblot test",
-            "The Wechsler IQ test"
+            "The Experiences in Close Relationships scale",
+            "The Attachment Q-Sort"
           ],
           answer: 1,
           explain: "Reflective functioning is coded from the narrative of the Adult Attachment Interview."
@@ -230,10 +230,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "In marked mirroring, the caregiver reflects the infant's emotion in a way that is:",
           choices: [
-            "identical to the caregiver's own genuine panic",
+            "an exact copy of the caregiver's own genuine distress",
             "exaggerated and 'marked' so the baby knows it reflects them",
-            "kept totally neutral and blank",
-            "expressed only in words the baby cannot understand"
+            "calm and neutral, so the baby's feelings settle down quickly",
+            "described in words that name the feeling for the baby"
           ],
           answer: 1,
           explain: "The 'markedness' - a playful, exaggerated quality - tells the infant this display is about their own state, not the parent's."
@@ -283,9 +283,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Through repeated marked mirroring, the infant gradually develops:",
           choices: [
-            "fluent speech by six months",
-            "greater physical coordination",
-            "a fear of the caregiver",
+            "an early ability to speak in full sentences by age one",
+            "a habit of copying the caregiver's own feelings exactly",
+            "a lasting fear of showing strong emotions to other people",
             "a second-order representation of their own emotional states"
           ],
           answer: 3,
@@ -303,9 +303,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "The 'alien self' refers to:",
           choices: [
             "a foreign, unmentalized part internalized from mirroring failures",
-            "an imaginary friend in early childhood",
-            "a healthy sense of independence",
-            "a diagnosis given to withdrawn children"
+            "a pretend self the child invents for play with imaginary friends",
+            "the healthy private self a child keeps hidden from caregivers",
+            "the part of the self that copies parents' emotions accurately"
           ],
           answer: 0,
           explain: "When mirroring fails, the infant internalizes an image that does not match their own experience - an alien, unassimilated self-part."
@@ -373,10 +373,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Epistemic trust is:",
           choices: [
-            "a fear of learning new things",
-            "distrust of all authority figures",
+            "a general readiness to believe whatever anyone at all tells you",
+            "a habit of doubting what figures of authority try to teach",
             "openness to treating a trusted person's knowledge as relevant and reliable",
-            "the ability to memorize facts quickly"
+            "confidence that one's own feelings are always an accurate guide to the truth"
           ],
           answer: 2,
           explain: "Epistemic trust is the willingness to accept socially transmitted knowledge as trustworthy and personally relevant."
@@ -446,9 +446,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "In the teleological mode, mental states are understood only through:",
           choices: [
             "observable physical actions and outcomes",
-            "abstract philosophical reflection",
-            "spoken language alone",
-            "written explanations"
+            "inner feelings treated as outer reality",
+            "playful pretending cut off from reality",
+            "words that describe intentions directly"
           ],
           answer: 0,
           explain: "In the teleological mode, only tangible actions and results count as evidence of intentions - for example, care is 'proven' only by physical acts."
@@ -517,9 +517,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Fonagy and Bateman understand borderline personality disorder largely as a failure or instability of:",
           choices: [
             "mentalizing under emotional arousal",
-            "physical coordination",
-            "language ability",
-            "memory for facts"
+            "verbal memory and abstract reasoning",
+            "impulse control under any condition",
+            "memory for emotional events from childhood"
           ],
           answer: 0,
           explain: "In their model, borderline features reflect a fragile mentalizing capacity that breaks down when emotions run high."
@@ -551,10 +551,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "When a person with BPD becomes highly stressed, they are most likely to:",
           choices: [
-            "mentalize more clearly than usual",
+            "mentalize more clearly than usual about their own and others' feelings",
             "revert to prementalizing modes such as psychic equivalence",
-            "become perfectly calm",
-            "lose all long-term memory"
+            "shut down all feelings and become calm, flat, and detached",
+            "switch to careful, balanced reflection about what others intend"
           ],
           answer: 1,
           explain: "Stress overwhelms fragile mentalizing, so the person falls back into earlier modes like psychic equivalence and teleological thinking."
@@ -569,10 +569,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Mentalization-Based Treatment was developed by:",
           choices: [
-            "Aaron Beck and Albert Ellis",
+            "Aaron Beck and Judith Beck",
             "Marsha Linehan",
             "Anthony Bateman and Peter Fonagy",
-            "B. F. Skinner"
+            "Jeffrey Young and Janet S. Klosko"
           ],
           answer: 2,
           explain: "Anthony Bateman and Peter Fonagy developed MBT; Linehan is a distractor here, as she created DBT."

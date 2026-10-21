@@ -61,9 +61,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Why can a trainer usually NOT just wait to reinforce the complete target behavior in a naive animal?",
           choices: [
             "The complete behavior may almost never occur on its own, leaving nothing to reinforce",
-            "Reinforcers only work on reflexes, never on new behavior",
-            "Waiting always turns reinforcement into punishment",
-            "Animals cannot learn anything from consequences"
+            "Reinforcers only work on reflexes, so new operant behavior cannot be strengthened at all",
+            "Waiting too long always turns the delayed reinforcement into a form of punishment",
+            "Naive animals cannot learn from consequences until they are first classically conditioned"
           ],
           answer: 0,
           explain: "If the full behavior rarely or never happens spontaneously, there is no opportunity to reinforce it; shaping solves this by reinforcing available approximations."
@@ -85,10 +85,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Raising the criterion for reinforcement during shaping means...",
           choices: [
-            "Giving reinforcement no matter what the animal does",
-            "Switching from food reinforcement to punishment",
+            "Giving reinforcement more often no matter what the animal happens to be doing",
+            "Switching from food reinforcement to punishment once the animal begins responding",
             "Requiring responses that are progressively closer to the target before reinforcing",
-            "Reinforcing only the very first response the animal ever makes"
+            "Reinforcing only the very first approximation the animal makes and never changing it"
           ],
           answer: 2,
           explain: "As training proceeds, the trainer demands responses nearer the goal, so previously reinforced weaker approximations no longer earn reinforcement."
@@ -121,10 +121,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "If the criterion is raised too quickly and the animal stops responding, the best fix is to...",
           choices: [
-            "Punish the animal for stopping",
+            "Punish the animal each time it stops so that it returns to the harder response quickly",
             "Lower the criterion back to a level the animal can meet, then advance more gradually",
-            "Abandon shaping entirely",
-            "Deliver reinforcement continuously regardless of behavior"
+            "Abandon shaping and wait for the full target behavior to occur on its own",
+            "Deliver reinforcement continuously regardless of behavior until responding returns"
           ],
           answer: 1,
           explain: "Moving too fast can break the behavior down; returning to an achievable step and advancing in smaller increments restores steady progress."
@@ -163,9 +163,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Within shaping, differential reinforcement works by...",
           choices: [
             "Reinforcing responses that meet the criterion and extinguishing those that fall short",
-            "Reinforcing every response equally and often",
-            "Punishing all responses the animal makes",
-            "Reinforcing only responses that never change from trial to trial"
+            "Reinforcing every response equally often so that all variations are kept strong",
+            "Punishing responses that fall short while giving no reinforcement for those that meet it",
+            "Reinforcing only responses that stay exactly the same from one trial to the next"
           ],
           answer: 0,
           explain: "Responses closer to the target (meeting criterion) are reinforced; weaker off-target responses receive no reinforcement and drop out."
@@ -192,10 +192,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "A teacher reinforces a student for raising a hand and ignores blurting out. This is an example of...",
           choices: [
-            "Classical conditioning of a reflex",
+            "Classical conditioning of a hand-raising reflex in class",
             "Differential reinforcement of an alternative behavior",
-            "Continuous punishment",
-            "Autoshaping"
+            "Negative punishment of the blurting response",
+            "Noncontingent reinforcement of classroom behavior"
           ],
           answer: 1,
           explain: "Reinforcing the desired alternative (hand-raising) while extinguishing the problem response (blurting) is differential reinforcement of alternative behavior."
@@ -228,10 +228,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "A behavior chain is best described as...",
           choices: [
-            "A single reflex repeated many times in a row",
+            "A single reflex repeated many times in a row until it becomes a habit",
             "A sequence of responses linked so each produces the cue for the next",
-            "Two stimuli paired just before an unlearned reflex",
-            "A punishment delivered after every response"
+            "Two stimuli paired just before an unlearned reflex to create a new CS",
+            "A series of separate behaviors each reinforced by its own primary reward"
           ],
           answer: 1,
           explain: "In a chain, completing one response produces a stimulus that reinforces that step and then signals the next response in the sequence."
@@ -274,10 +274,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What primarily holds the interior links of a chain together?",
           choices: [
-            "The terminal reinforcer alone, delivered only once at the very end",
+            "The terminal reinforcer alone, which strengthens every link equally when it arrives at the end",
             "Stimuli that serve as both conditioned reinforcers and discriminative stimuli between links",
-            "Random pairing of unrelated stimuli",
-            "A punisher delivered after each link"
+            "Unconditioned stimuli that elicit each response reflexively without any prior learning",
+            "Punishers delivered after any link performed out of order, which keep the steps in sequence"
           ],
           answer: 1,
           explain: "Each interior stimulus reinforces the preceding response and cues the next, chaining the units together even before the terminal reinforcer arrives."
@@ -299,10 +299,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Forward chaining teaches a sequence by...",
           choices: [
-            "Teaching the last step first and adding earlier steps",
+            "Teaching the last step first and then adding each earlier step in reverse",
             "Teaching the first step first, then adding each following step in order",
-            "Teaching all steps at once with no fixed order",
-            "Never using any reinforcement"
+            "Teaching all of the steps at once in every session with no fixed order",
+            "Teaching each step separately and joining them only after all are mastered"
           ],
           answer: 1,
           explain: "Forward chaining begins with the first link and adds the next link only after the earlier ones are mastered, moving toward the end."
@@ -312,9 +312,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Backward chaining teaches a sequence by...",
           choices: [
             "Teaching the last step first, so the learner always finishes the chain and contacts the terminal reinforcer",
-            "Teaching only the first step and then stopping",
-            "Punishing the learner for the final step",
-            "Removing the terminal reinforcer from the chain"
+            "Teaching the first step first, so the learner builds forward until the chain reaches the terminal reinforcer",
+            "Teaching every step in each session, so the learner practices the whole chain from start to finish",
+            "Removing the terminal reinforcer, so each link is maintained only by the cue for the following step"
           ],
           answer: 0,
           explain: "In backward chaining the learner performs the final step first (earlier steps done by the trainer), immediately reaching the terminal reinforcer, then earlier links are added one at a time."
@@ -370,10 +370,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "A task analysis is...",
           choices: [
-            "A single reinforcer given only at the end of a task",
+            "A record of how long a learner takes to finish each complete task",
             "A breakdown of a complex skill into its ordered component steps",
-            "A schedule of punishment for errors",
-            "A measure of reaction time and nothing else"
+            "A schedule for delivering reinforcement only at the end of a task",
+            "An assessment of which reinforcers a learner prefers before training"
           ],
           answer: 1,
           explain: "Task analysis lists the discrete steps that make up a skill so each one can be taught and then chained together."
@@ -406,10 +406,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which is the best reason to make the steps in a task analysis small?",
           choices: [
-            "So the learner never receives any reinforcement",
+            "So the learner receives reinforcement only after the entire skill is complete",
             "So each step is easy to teach, prompt, and reinforce, which reduces errors",
-            "So the skill takes longer to perform for no reason",
-            "So that chaining is never needed"
+            "So the total number of steps stays small and the analysis is quicker to write",
+            "So that chaining is no longer needed to link the steps together"
           ],
           answer: 1,
           explain: "Smaller, clearly defined steps are easier to prompt and reinforce and make it clear exactly where a learner is struggling."
@@ -441,10 +441,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In autoshaping, a pigeon comes to peck a lit key because...",
           choices: [
-            "A trainer patiently reinforced successive approximations of pecking",
+            "A trainer patiently reinforced successive approximations of pecking at the lit key",
             "The lit key reliably precedes free food, so pecking emerges without deliberate shaping",
-            "Pecking the key is required in order to obtain the food",
-            "The key delivers a mild electric shock"
+            "Pecking the key is required to obtain the food, so the peck is operantly reinforced",
+            "The lit key delivers a mild shock that the pigeon learns to escape by pecking it"
           ],
           answer: 1,
           explain: "Autoshaping produces key-pecking automatically: the illuminated key signals upcoming food, and the pigeon pecks it even though no shaping was done and pecking is unnecessary."
@@ -472,10 +472,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Why is the phenomenon called 'auto'-shaping?",
           choices: [
-            "Because the experimenter must painstakingly shape each approximation by hand",
+            "Because an automated machine reinforces each successive approximation the bird makes",
             "Because the pecking response develops automatically, without the experimenter shaping it",
-            "Because it works only with automobiles",
-            "Because food is never actually presented"
+            "Because the pigeon shapes itself by deliberately copying other birds pecking the key",
+            "Because the response is an inborn reflex that requires no learning or food pairing at all"
           ],
           answer: 1,
           explain: "The 'auto' refers to the peck emerging on its own from the key-light and food pairing, sparing the experimenter the usual hand-shaping."
@@ -512,10 +512,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In Skinner's 1948 'Superstition in the Pigeon' study, food was delivered...",
           choices: [
-            "Only after the pigeon pecked a lit key",
+            "Only after the pigeon pecked a lit key a fixed number of times",
             "At regular time intervals regardless of what the pigeon was doing",
-            "Only when the pigeon stood perfectly still",
-            "Never during the experiment"
+            "Only when the pigeon turned in a full circle inside the chamber",
+            "At random times, but only while the pigeon was facing the food tray"
           ],
           answer: 1,
           explain: "Skinner delivered food on a fixed-time schedule independent of behavior, so reinforcement arrived no matter what the bird happened to be doing."
@@ -531,9 +531,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Skinner explained the pigeons' rituals as the result of...",
           choices: [
             "Accidental (adventitious) reinforcement of whatever behavior happened to precede the food",
-            "Deliberate shaping carried out by the experimenter",
-            "Classical conditioning of an inborn reflex",
-            "Physical illness in the birds"
+            "Deliberate shaping of the rituals carried out by the experimenter between food deliveries",
+            "Classical conditioning of an inborn pecking reflex to the sound of the feeder mechanism",
+            "The birds' belief that their own actions were what caused the food to be delivered"
           ],
           answer: 0,
           explain: "Whatever the pigeon happened to be doing just before food was accidentally strengthened, even though that behavior did not actually cause the food; this is adventitious reinforcement."

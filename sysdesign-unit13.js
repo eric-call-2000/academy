@@ -14,8 +14,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is a trust boundary in a threat model?",
           choices: [
-            "The physical perimeter of the datacenter that hosts the service",
-            "The maximum number of privileged accounts an organization allows",
+            "The physical perimeter of the datacenter that hosts the service, including its badge readers and cameras",
+            "The maximum number of privileged administrator accounts that an organization allows at one time",
             "A point where data or control crosses between components with different privilege or trust levels",
             "The list of third-party vendors that have signed a security addendum"
           ],
@@ -85,10 +85,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which statement about OAuth 2.0 is correct?",
           choices: [
-            "It is an authentication protocol that returns a verified user identity",
+            "It is an authentication protocol that returns a verified user identity to the client application",
             "It is a delegated authorization framework; OpenID Connect is the identity layer built on top of it",
-            "It replaces TLS by encrypting tokens at the application layer",
-            "It defines a standard password hashing scheme for identity providers"
+            "It replaces TLS by encrypting the access tokens and request bodies at the application layer",
+            "It defines a standard password hashing scheme that identity providers must use to store credentials"
           ],
           answer: 1,
           explain: "OAuth 2.0 lets a user delegate access to a resource without sharing credentials. It says nothing standard about who the user is; OpenID Connect adds the ID token and userinfo endpoint for that."
@@ -110,8 +110,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why should passwords be hashed with bcrypt, scrypt, or Argon2 rather than SHA-256?",
           choices: [
-            "SHA-256 output is too short to store safely in a database column",
-            "SHA-256 is reversible, so an attacker can decrypt the stored digest directly",
+            "SHA-256 output is too short to store safely in a database column without collisions between users",
+            "SHA-256 is reversible, so an attacker who steals the table can decrypt each stored digest directly",
             "SHA-256 lacks a standard library implementation in most languages",
             "Those KDFs are deliberately slow and salted, so offline guessing costs the attacker far more per candidate"
           ],
@@ -143,10 +143,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A stateless JWT access token is issued with a one hour lifetime and no server-side lookup. What is the main consequence?",
           choices: [
-            "The token cannot carry any claims about the user",
+            "The token cannot carry any claims about the user's roles, so every request still needs a lookup",
             "Revocation is not immediate; a stolen or logged-out token stays valid until it expires",
-            "The signature can be forged by anyone who can read the token",
-            "The token must be re-signed by the client on every request"
+            "The signature can be forged by anyone who is able to read the token's contents in transit",
+            "The token must be re-signed by the client with its own key on every request it sends"
           ],
           answer: 1,
           explain: "Statelessness buys you a skipped database read and costs you instant revocation. Short lifetimes plus a deny-list are the usual compromises."
@@ -162,10 +162,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the core difference between RBAC and ABAC?",
           choices: [
-            "RBAC works only for internal tools while ABAC is required for public APIs",
+            "RBAC works only for internal tools with a small number of users, while ABAC is required for public APIs",
             "RBAC assigns permissions through named roles; ABAC evaluates policies over attributes of the subject, resource, action, and environment",
-            "RBAC is enforced in the database while ABAC is enforced in the load balancer",
-            "RBAC requires encryption at rest while ABAC does not"
+            "RBAC is enforced inside the database through table grants, while ABAC is always enforced in the load balancer that sits in front of every service",
+            "RBAC requires encryption at rest for the role table while ABAC does not"
           ],
           answer: 1,
           explain: "RBAC is coarse and easy to reason about. ABAC handles rules like owner of the record, during business hours, from a managed device, which do not compress into role names."
@@ -187,10 +187,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Where should the authorization decision for a resource ideally be enforced?",
           choices: [
-            "In the frontend router, which already knows the user's role",
-            "In the API gateway alone, since it sees every request",
+            "In the frontend router, which already knows the user's role and can hide the pages they should not see",
+            "In the API gateway alone, since it sees every request before any service does",
             "In the service that owns the resource, on every request, after authentication",
-            "In a nightly audit job that revokes access retroactively"
+            "In a nightly audit job that reviews the access log and revokes access retroactively"
           ],
           answer: 2,
           explain: "Only the owning service knows the resource's attributes, such as who created it. Gateways can enforce coarse rules but cannot answer per-object ownership questions."
@@ -330,10 +330,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "An application fetches a URL supplied by the user to generate a link preview. Which vulnerability class does this most directly risk?",
           choices: [
-            "Cross-site request forgery, since the request originates from a browser",
+            "Cross-site request forgery, since the preview request is triggered from the user's browser session",
             "Server-side request forgery, letting the attacker reach internal hosts and metadata endpoints",
-            "Insecure deserialization, since the response body is parsed",
-            "Security misconfiguration, since preview generation is optional"
+            "Insecure deserialization, since the fetched response body is parsed by the server",
+            "Security misconfiguration, since link preview generation is an optional feature that should be disabled"
           ],
           answer: 1,
           explain: "SSRF turns your server into a proxy inside your own network. Allow-list destinations and block link-local and private ranges, including after DNS resolution and redirects."
@@ -352,8 +352,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is a blocklist of dangerous input patterns a weak primary defense?",
           choices: [
-            "Blocklists cannot be expressed in regular expressions",
-            "Blocklists require encrypting the request body before inspection",
+            "Blocklists cannot be expressed as regular expressions, so they have to be maintained by hand",
+            "Blocklists require the request body to be decrypted and re-encrypted before it can be inspected",
             "Blocklists must enumerate every attack encoding, and attackers only need one the list missed",
             "Blocklists are prohibited by the OWASP standards documents"
           ],
@@ -456,10 +456,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A read-only reporting service currently uses the same database credentials as the write path. What is the most direct least-privilege improvement?",
           choices: [
-            "Rate limit the reporting service so it cannot issue many queries",
+            "Rate limit the reporting service so that it cannot issue too many queries against the shared account",
             "Give the reporting service its own account with read-only grants on the tables it needs",
-            "Move the reporting service to a different availability zone",
-            "Cache reporting results so the database is queried less often"
+            "Move the reporting service to a different availability zone from the write path",
+            "Cache the reporting results so the database is queried less often with the shared credentials"
           ],
           answer: 1,
           explain: "A separate scoped identity means a compromise of the reporting service cannot write or drop data, and its activity is separable in audit logs."
@@ -520,10 +520,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A signup form reports Email already registered for existing accounts and Account created otherwise. What is the security problem?",
           choices: [
-            "It performs an extra database read, increasing latency",
+            "It performs an extra database read on every signup attempt, increasing latency for new users",
             "It allows account enumeration, letting an attacker confirm which emails are registered",
-            "It violates the requirement that error messages be localized",
-            "It exposes the database schema through the error string"
+            "It violates the requirement that every error message be localized into the user's language",
+            "It exposes the database schema through the wording of the error string"
           ],
           answer: 1,
           explain: "Enumeration turns a list of leaked emails into a list of confirmed users of your service. Generic responses plus an emailed confirmation avoid leaking membership."

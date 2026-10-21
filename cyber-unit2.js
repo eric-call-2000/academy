@@ -26,7 +26,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why is reusing the same password across sites dangerous?",
-          choices: ["It slows down login", "One breach exposes all those accounts", "It uses more storage", "It confuses your browser"],
+          choices: ["Websites can see which other sites share it", "One breach exposes all those accounts", "Reused passwords expire faster on most sites", "It makes the password easier to brute force"],
           answer: 1,
           explain: "If one site is breached, attackers try that same password everywhere else you used it."
         },
@@ -77,7 +77,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What is the main job of a password manager?",
-          choices: ["To speed up your internet", "To store a unique password for every account", "To block ads", "To back up your photos"],
+          choices: ["To change all your passwords every few days", "To store a unique password for every account", "To share one strong password across every site", "To replace the need for MFA on your accounts"],
           answer: 1,
           explain: "It creates and remembers a strong, unique password per site so you don't have to."
         },
@@ -97,7 +97,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why should your master password be extra strong?",
-          choices: ["It unlocks every other password", "It is shown to websites", "It is your username", "It expires hourly"],
+          choices: ["It unlocks every other password", "It is sent to every site you log in to", "It is used to encrypt your web traffic", "It doubles as your email password"],
           answer: 0,
           explain: "The master password protects the whole vault, so it is the one to make truly strong."
         },
@@ -158,14 +158,14 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why does MFA help even if your password leaks?",
-          choices: ["It changes your password", "The attacker still lacks the second factor", "It hides your username", "It deletes the leak"],
+          choices: ["It changes your password after every login", "The attacker still lacks the second factor", "It alerts the site to delete the leaked list", "It hides your password from the login page"],
           answer: 1,
           explain: "Without the second factor, a stolen password alone can't complete the login."
         },
         {
           type: "mcq",
           q: "Which second factor is generally the most phishing-resistant?",
-          choices: ["A code texted by SMS", "A physical security key", "An emailed link", "A security question"],
+          choices: ["A code texted by SMS", "A physical security key", "A push prompt on your phone", "A one-time code from an app"],
           answer: 1,
           explain: "Hardware security keys verify the real site and resist phishing better than SMS codes."
         },
@@ -178,7 +178,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "An 'authenticator app' proves you have your phone by showing what?",
-          choices: ["A rotating one-time code", "Your home address", "Your password", "Your email inbox"],
+          choices: ["A rotating one-time code", "A permanent backup PIN", "Your saved account password", "A magic link sent by email"],
           answer: 0,
           explain: "Authenticator apps generate short-lived codes that refresh every 30 seconds or so."
         },
@@ -204,7 +204,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What is a passkey?",
-          choices: ["A password you write down", "A device-stored key that logs you in without a typed password", "A backup email", "A type of virus"],
+          choices: ["A long password saved in your browser's autofill", "A device-stored key that logs you in without a typed password", "A one-time code texted to your phone at each login", "A master password that unlocks your password manager vault"],
           answer: 1,
           explain: "A passkey is a secure key on your device that replaces the typed password entirely."
         },
@@ -224,7 +224,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "When you unlock a passkey with Face ID, what does the fingerprint or face scan do?",
-          choices: ["Sends your face to the website", "Unlocks the key stored on your device", "Replaces your username", "Encrypts the whole internet"],
+          choices: ["Sends your face scan to the website to check", "Unlocks the key stored on your device", "Creates a new password for the site each time", "Replaces your username on the site's server"],
           answer: 1,
           explain: "The biometric only unlocks the local key; your face or fingerprint never leaves the device."
         },
@@ -248,7 +248,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Which is a real benefit of passkeys over passwords?",
-          choices: ["Nothing to type, remember, or reuse", "They work without any device", "They never need a screen", "They print themselves out"],
+          choices: ["Nothing to type, remember, or reuse", "They work on any device without setup", "They never need a device or an account", "They stop malware already on a device"],
           answer: 0,
           explain: "Passkeys remove typed passwords, so there's nothing to forget, reuse, or leak."
         }
@@ -272,7 +272,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why does a longer password resist brute force so well?",
-          choices: ["It looks nicer", "Each extra character multiplies the guesses needed", "It loads faster", "It uses less memory"],
+          choices: ["Long passwords are stored in a more secure format", "Each extra character multiplies the guesses needed", "Sites lock accounts sooner when passwords are long", "Long passwords cannot be stolen by phishing pages"],
           answer: 1,
           explain: "Every added character hugely increases the number of combinations to try."
         },
@@ -299,7 +299,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "How does turning on MFA help even after a password leaks?",
-          choices: ["It hides the password", "The attacker still needs the second factor", "It deletes the breach", "It slows the website"],
+          choices: ["It resets the leaked password automatically", "The attacker still needs the second factor", "It encrypts the password so it can't be used", "It blocks logins from every other country"],
           answer: 1,
           explain: "Even a correct stolen password fails without the second factor."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why do attackers target the account recovery path?",
-          choices: ["It is often the weakest way in", "It is more colorful", "It is faster to type", "It uses less data"],
+          choices: ["It is often the weakest way in", "It is never logged by most sites", "It skips encryption on most sites", "It shows your password in plain text"],
           answer: 0,
           explain: "If recovery is weak, an attacker can reset your password and skip it entirely."
         },
@@ -345,7 +345,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What makes classic security questions a weak recovery method?",
-          choices: ["Answers are often public or guessable", "They take too long", "They cost money", "They need MFA"],
+          choices: ["Answers are often public or guessable", "They require a phone number to work", "They lock you out after one wrong try", "They can only be set up by an admin"],
           answer: 0,
           explain: "Answers like a mother's maiden name or first pet can often be found or guessed."
         },
@@ -368,7 +368,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why should your recovery email itself have MFA turned on?",
-          choices: ["It controls resets for other accounts", "It sends faster", "It saves storage", "It blocks spam only"],
+          choices: ["It controls resets for other accounts", "It is the address websites show publicly", "It needs MFA before it can receive mail", "It stores copies of your saved passwords"],
           answer: 0,
           explain: "Because resets flow through it, the recovery email is a high-value target worth extra protection."
         }
@@ -444,7 +444,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What does 'Sign in with Google' let you do?",
-          choices: ["Use one trusted account to log into other apps", "Copy Google's password to every site", "Send Google your fingerprint", "Disable all security"],
+          choices: ["Use one trusted account to log into other apps", "Copy your Google password onto each other site", "Share your Google contacts with each app you use", "Give the other app your Google password to store"],
           answer: 0,
           explain: "The other app trusts your identity from the provider instead of making a new password."
         },
@@ -464,7 +464,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What is a real trade-off of single sign-on?",
-          choices: ["If that one account is compromised, many apps are at risk", "It uses more paper", "It only works offline", "It deletes your data"],
+          choices: ["If that one account is compromised, many apps are at risk", "Each app must still keep its own copy of your password", "You must type your password more often than before", "Apps using SSO cannot support MFA for their logins"],
           answer: 0,
           explain: "One key account unlocks many places, so protecting it becomes especially important."
         },
@@ -481,7 +481,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Because SSO makes one account so valuable, what should you do with it?",
-          choices: ["Protect it with a strong password and MFA", "Reuse its password everywhere", "Share it widely", "Skip its security settings"],
+          choices: ["Protect it with a strong password and MFA", "Use the same password for it as other sites", "Turn off MFA so logins to apps stay smooth", "Change its password daily to a short one"],
           answer: 0,
           explain: "The account that unlocks everything deserves your strongest protection."
         },

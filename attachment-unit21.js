@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "According to Sroufe's developmental pathways model, early attachment...",
-          choices: ["Directly and irreversibly causes specific disorders", "Sets a probabilistic trajectory that later experience can redirect", "Has no bearing at all on later development", "Determines the adult personality completely by age two"],
+          choices: ["Directly and irreversibly causes specific disorders later in life", "Sets a probabilistic trajectory that later experience can redirect", "Matters for infancy only, with little bearing on later development", "Determines the adult personality completely by about the age of two"],
           answer: 1,
           explain: "Sroufe argued that attachment launches probabilistic pathways, not fixed outcomes; later experiences can shift the trajectory."
         },
@@ -39,7 +39,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which metaphor did Bowlby use to describe developmental pathways?",
-          choices: ["A branching railway network whose lines diverge over time", "A single straight highway with no exits", "A sealed and locked box", "A spinning wheel of fortune"],
+          choices: ["A branching railway network whose lines diverge over time", "A single highway with one fixed route", "A staircase in which each step must be climbed in fixed order", "A river that always returns to its original course in the end"],
           answer: 0,
           explain: "Bowlby likened development to a branching railway system; each choice point opens or closes later routes."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Infant disorganized attachment most robustly predicts which two later outcomes?",
-          choices: ["Externalizing behavior problems and dissociative symptoms", "Higher IQ and athletic skill", "Improved peer relationships and empathy", "Reduced stress reactivity and calmness"],
+          choices: ["Externalizing behavior problems and dissociative symptoms", "Eating disorders and obsessive-compulsive symptoms", "Social anxiety and phobias rather than behavior problems", "Lower IQ and language delay in the school years"],
           answer: 0,
           explain: "Meta-analyses and the Minnesota study tie disorganization to elevated externalizing problems and to dissociation."
         },
@@ -137,7 +137,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In meta-analytic work, disorganized attachment showed the strongest association with which broad outcome domain?",
-          choices: ["Internalizing anxiety only", "Externalizing, aggressive, acting-out behavior", "Sensory processing", "Language delay"],
+          choices: ["Internalizing problems such as anxiety and low mood", "Externalizing, aggressive, acting-out behavior", "Academic achievement and reading", "Psychotic symptoms such as hallucinations in adolescence"],
           answer: 1,
           explain: "Van IJzendoorn and colleagues found disorganization most strongly linked to externalizing behavior problems."
         },
@@ -189,7 +189,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Why might resistant attachment foreshadow anxiety?",
-          choices: ["The infant learns the world is safe and predictable", "The infant experiences inconsistent care and stays hypervigilant to threat", "The infant never forms any attachment", "The infant suppresses all emotion completely"],
+          choices: ["The infant learns that care is reliably available and so expects comfort", "The infant experiences inconsistent care and stays hypervigilant to threat", "The infant learns to suppress distress, so worries build up out of awareness", "The infant is temperamentally fearless, so later stress hits harder than expected"],
           answer: 1,
           explain: "Inconsistent, unpredictable caregiving keeps the resistant infant chronically vigilant and easily distressed, a template for anxiety."
         },
@@ -241,7 +241,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which internal working model is most associated with depressive vulnerability?",
-          choices: ["Self as lovable, others as available", "Self as unworthy and others as unresponsive", "Self as powerful, others as weak", "No model of self or others at all"],
+          choices: ["Self as lovable, others as unreliable and hard to reach", "Self as unworthy and others as unresponsive", "Self as strong, others as untrustworthy", "Self as lovable, others as available and responsive"],
           answer: 1,
           explain: "A model of the self as unworthy and others as rejecting mirrors the hopelessness central to depression."
         },
@@ -345,7 +345,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "How might avoidant attachment contribute to conduct problems?",
-          choices: ["By fostering heightened empathy and closeness", "By deactivating attachment and dampening empathy and distress signals", "By making the child overly dependent", "By eliminating all aggression"],
+          choices: ["By heightening fear of abandonment, so the child clings and lashes out", "By deactivating attachment and dampening empathy and distress signals", "By making the child overly dependent on adults", "By teaching the child that anger brings a caregiver back"],
           answer: 1,
           explain: "Chronic deactivation of attachment can blunt empathy and emotional resonance, easing hostile, rule-breaking behavior."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which statement best captures the relationship between insecure attachment and disorder?",
-          choices: ["Insecurity is a diagnosis in itself", "Insecurity guarantees a future disorder", "Insecurity is a risk factor, not a disorder or a destiny", "Insecurity is entirely harmless"],
+          choices: ["Insecurity is a mild disorder in itself that needs clinical treatment", "Insecurity guarantees a future disorder unless therapy starts early", "Insecurity is a risk factor, not a disorder or a destiny", "Insecurity has no link to later mental health"],
           answer: 2,
           explain: "Insecure attachment raises the probability of difficulty but is neither a disorder nor a guarantee of one."
         },

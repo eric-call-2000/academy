@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a fair way to describe AI's role in marketing today?",
           choices: [
             "A helpful assistant that speeds up work you still guide and review",
-            "A magic button that runs your whole business alone",
-            "Only useful for huge companies with big budgets",
-            "A tool that replaces the need for any strategy"
+            "A full replacement for your marketing strategy and judgment",
+            "A tool that is mainly useful for large companies with big budgets",
+            "A system that can publish finished campaigns with no human review"
           ],
           answer: 0,
           explain: "AI is best treated as a fast assistant. You bring the strategy and judgment; it helps you move quicker."
@@ -62,9 +62,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which of these is NOT a good reason to use AI in marketing?",
           choices: [
             "To publish anything instantly without ever reading it",
-            "To beat writer's block with a first draft",
-            "To summarize long research quickly",
-            "To brainstorm many angles fast"
+            "To beat writer's block with a quick first draft",
+            "To summarize long research reports quickly",
+            "To brainstorm many different campaign angles fast"
           ],
           answer: 0,
           explain: "Publishing unread AI output is risky. AI is great for drafts, summaries, and brainstorming that you then review."
@@ -87,9 +87,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is the smartest first step when using AI to write an ad?",
           choices: [
             "Give it clear context, like your product, audience, and goal",
-            "Type one vague word and hope for the best",
-            "Ask it to copy a competitor's ad word for word",
-            "Publish the very first sentence it writes"
+            "Ask it for ten ad versions right away and pick the best one",
+            "Paste in a competitor's ad and ask for something similar",
+            "Keep the prompt short so the AI has more creative freedom"
           ],
           answer: 0,
           explain: "Good input gives good output. Context about your product, audience, and goal helps the AI draft something useful."
@@ -123,9 +123,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Claude, made by Anthropic, is an example of what kind of tool?",
           choices: [
             "An AI assistant that can help draft and edit text",
-            "A photo printer",
-            "A payment processor",
-            "A social media scheduling calendar"
+            "A design tool for making social media graphics",
+            "A scheduling tool for planning and posting content",
+            "An analytics dashboard for tracking ad performance"
           ],
           answer: 0,
           explain: "Claude by Anthropic is an AI assistant. Like ChatGPT by OpenAI, it helps draft, edit, and brainstorm copy."
@@ -158,9 +158,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a persona in marketing?",
           choices: [
             "A profile of a typical target customer",
-            "A legal document you must file",
-            "A type of paid ad",
-            "The name of a font"
+            "The personality of your brand's voice",
+            "A real customer chosen as a case study",
+            "A list of every customer's contact details"
           ],
           answer: 0,
           explain: "A persona is a semi-fictional profile of a typical customer, used to guide messaging and offers."
@@ -193,9 +193,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why should you verify facts from AI research summaries?",
           choices: [
             "AI can sometimes state things that are wrong or outdated",
-            "AI is always perfectly correct",
-            "Verifying is illegal",
-            "Facts never matter in marketing"
+            "AI summaries are always too short to include useful detail",
+            "Search engines penalize content that was written with AI",
+            "AI cannot read research, so it guesses every answer it gives"
           ],
           answer: 0,
           explain: "AI can make mistakes or use old information, so you should confirm important facts before relying on them."
@@ -300,9 +300,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What does personalization mean in marketing?",
           choices: [
             "Tailoring the message or offer to fit the individual",
-            "Sending the exact same email to everyone",
-            "Removing all names from messages",
-            "Only using paper mail"
+            "Sending one identical message to everyone on your list",
+            "Writing all messages in the founder's personal voice",
+            "Sending messages from a person rather than a brand"
           ],
           answer: 0,
           explain: "Personalization adapts content to the person, such as their interests, history, or location."
@@ -371,9 +371,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a common benefit of an AI chatbot on a website?",
           choices: [
             "It can answer common questions around the clock",
-            "It guarantees every visitor buys",
-            "It replaces the need for any product",
-            "It only works one hour a day"
+            "It can handle every complex complaint without help",
+            "It removes the need for any human support staff",
+            "It makes sure every visitor ends up buying"
           ],
           answer: 0,
           explain: "Chatbots handle routine questions any time of day, which helps customers and saves you effort."
@@ -442,9 +442,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "How can AI help with marketing analytics?",
           choices: [
             "Spot patterns and trends in large amounts of data",
-            "Delete all your data automatically",
-            "Guarantee the future with certainty",
-            "Replace the need to measure anything"
+            "Predict future sales with complete certainty",
+            "Replace the need to set goals or track metrics",
+            "Collect customer data without needing consent"
           ],
           answer: 0,
           explain: "AI is good at finding patterns humans might miss in big datasets, which guides decisions."
@@ -477,9 +477,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why should you sanity-check AI predictions?",
           choices: [
             "Predictions rely on past data and can be wrong",
-            "AI predictions are always exactly right",
-            "Checking wastes time and adds no value",
-            "The future is fully knowable"
+            "AI predictions are usually too cautious to use",
+            "Checking is required before any AI tool runs",
+            "AI predictions only cover the next single day"
           ],
           answer: 0,
           explain: "Predictions are estimates based on history. Real conditions change, so apply human judgment."
@@ -548,9 +548,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why keep a human in the loop with AI content?",
           choices: [
             "To catch mistakes and keep it authentic and accurate",
-            "To slow the work down for no reason",
-            "Because AI never makes any errors",
-            "To avoid ever publishing anything"
+            "Because platforms block any content made with AI tools",
+            "To make the writing longer and more detailed for search",
+            "Because AI can only produce drafts in a single format"
           ],
           answer: 0,
           explain: "A human check keeps content accurate and true to your brand, since AI can err or sound generic."

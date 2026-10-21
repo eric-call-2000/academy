@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why can a pure key-value store partition data across nodes so easily?",
           choices: [
-            "It keeps a complete copy of all data on every node",
+            "It keeps a complete copy of all data on every node, so any node can answer any request",
             "Every operation names exactly one key, so routing is a hash of that key",
-            "It stores keys in sorted order, which makes ranges contiguous",
-            "It defers all writes until a global coordinator approves them"
+            "It stores keys in sorted order so ranges stay contiguous",
+            "It defers all writes until a global coordinator has approved and ordered them"
           ],
           answer: 1,
           explain: "With no query touching more than one key, the router only needs the key to pick a node. Nothing forces two nodes to cooperate on a single request."
@@ -139,10 +139,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "An application needs to store a 4 MB rendered PDF against a user id in a key-value store. What is the main concern?",
           choices: [
-            "Key-value stores cannot store binary values at all",
+            "Key-value stores cannot store binary values at all, so the PDF must be base64 text",
             "Large values inflate replication traffic, memory, and tail latency per operation",
-            "The key would need to be a compound key, which is not supported",
-            "Values over 1 KB always require a secondary index to retrieve"
+            "The key would need to be a compound key, which most key-value stores do not support",
+            "Values over 1 KB always require a secondary index before they can be retrieved by key"
           ],
           answer: 1,
           explain: "Every replica must carry and ship the whole value on each write, so multi-megabyte values crowd out small hot keys. Blob storage with a key-value pointer is the normal answer."
@@ -212,10 +212,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "An analytics query needs to sum one numeric field across every document in a large collection. Why is a document store often a poor fit?",
           choices: [
-            "Document stores cannot express aggregation queries",
+            "Document stores cannot express aggregation queries, so the sum must happen in the application",
             "The engine reads whole documents, so it pays for every unrelated field",
             "Numeric fields are stored as strings and must be parsed",
-            "Aggregations always require a full table lock while running"
+            "Aggregations always take a full collection lock while they run, blocking every writer"
           ],
           answer: 1,
           explain: "Row-oriented or document-oriented layouts make you pay I/O for fields you did not ask for. Columnar storage exists precisely to avoid that for wide scans."
@@ -231,10 +231,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In a wide-column store, what does the partition key determine?",
           choices: [
-            "The sort order of rows inside a partition",
+            "The sort order of rows within a partition, which controls how range scans are served",
             "Which node or nodes hold the data, and the unit of single-request locality",
-            "Which columns are stored on disk versus computed at read time",
-            "The replication factor applied to that specific row"
+            "Which columns are stored on disk versus computed on the fly at read time",
+            "The replication factor that is applied to that specific row across the cluster"
           ],
           answer: 1,
           explain: "The partition key is hashed to place data. All rows sharing a partition key live together, which is why a query that names it can be served by one replica set."
@@ -256,9 +256,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is a hot partition, and why does it hurt?",
           choices: [
-            "A partition cached in memory, which starves other partitions of cache",
-            "A partition being compacted, which blocks all reads to the cluster",
-            "A partition whose replicas disagree, forcing a repair on every read",
+            "A partition cached entirely in memory, which starves the other partitions of cache space",
+            "A partition in the middle of compaction, which blocks all reads to the cluster until it ends",
+            "A partition whose replicas disagree, forcing a full repair on every read that touches it",
             "A partition key with far more traffic or data than others, so one node saturates"
           ],
           answer: 3,
@@ -303,10 +303,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which statement correctly states the trade between the two index structures?",
           choices: [
-            "B-trees are write-optimized and pay read amplification; LSM-trees are the reverse",
+            "B-trees are write-optimized and pay read amplification; LSM-trees are read-optimized and pay write amplification instead",
             "LSM-trees are write-optimized and pay read amplification; B-trees are read-optimized and pay write amplification",
-            "Both are read-optimized, but LSM-trees use less disk space",
-            "B-trees avoid amplification entirely because they update pages in place"
+            "Both structures are read-optimized, but LSM-trees use noticeably less disk space for the same data set",
+            "B-trees avoid amplification entirely because they update each page in place on disk, while LSM-trees pay it on both paths"
           ],
           answer: 1,
           explain: "LSM-trees turn writes into sequential appends and defer the sorting work to compaction, so a read may consult several files. B-trees keep one authoritative sorted structure, so reads are direct but writes rewrite whole pages."
@@ -361,10 +361,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A workload is overwhelmingly appends of new time-series rows with occasional point lookups. Which engine fits better and why?",
           choices: [
-            "A B-tree, because appends land at the rightmost leaf with no page splits",
-            "A B-tree, because point lookups dominate the total cost of the workload",
+            "A B-tree, because appends always land at the rightmost leaf, so there are never any page splits or rewrites",
+            "A B-tree, because the occasional point lookups dominate the total cost of the workload over time",
             "An LSM-tree, because writes become sequential flushes and lookups are filtered by Bloom filters",
-            "Either one, since the structures perform identically on append-heavy loads"
+            "Either one, since both structures perform essentially identically on append-heavy time-series loads"
           ],
           answer: 2,
           explain: "Write-dominated workloads reward the LSM's sequential-write path, and Bloom filters keep the occasional point read cheap enough that the read penalty rarely bites."
@@ -451,10 +451,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the main cost of storing large binaries as rows in a relational database?",
           choices: [
-            "Relational engines cannot store binary data types",
+            "Relational engines cannot store binary data types, so blobs must be encoded as text first",
             "Blobs bloat the pages, backups, replication stream, and buffer cache that queries depend on",
-            "Blobs prevent the database from taking any transaction locks",
-            "Blob columns can never be indexed, which breaks the primary key"
+            "Blobs prevent the database from taking any transaction locks on the rows that hold them",
+            "Blob columns can never be indexed, which breaks the primary key and any foreign keys pointing at it"
           ],
           answer: 1,
           explain: "Every byte in the database is a byte that gets replicated, backed up, restored, and cached. Multi-megabyte blobs crowd out the working set that queries actually need."
@@ -476,9 +476,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Object storage is usually described as flat. What does that mean in practice?",
           choices: [
-            "All objects must be the same size to be stored efficiently",
+            "All objects must be roughly the same size so the store can pack them efficiently on disk",
             "Objects are stored without any metadata beyond their bytes",
-            "Only one level of nesting is permitted inside a bucket",
+            "Only one level of nesting is permitted inside a bucket, so paths cannot go deeper than one folder",
             "There are no real directories - key prefixes only simulate a folder hierarchy"
           ],
           answer: 3,
@@ -534,9 +534,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A service must run ad hoc joins across several entities with strong multi-row transactions and moderate volume. What should you reach for first?",
           choices: [
-            "A leaderless key-value store with tunable quorums",
+            "A leaderless key-value store with tunable read and write quorums per request",
             "A single relational database, scaled up before it is scaled out",
-            "A wide-column store with one table per access pattern",
+            "A wide-column store with one denormalized table per access pattern",
             "Object storage with a search index layered on top"
           ],
           answer: 1,

@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The core of parent-offspring conflict is disagreement over ____.",
-          choices: ["the sex of the offspring", "how much investment the parent should give", "which parent provides care", "the number of grandchildren"],
+          choices: ["which of the two parents should provide most of the care", "how much investment the parent should give", "the sex ratio of offspring the parent should produce", "how many grandchildren the offspring should produce"],
           answer: 1,
           explain: "Offspring are selected to demand more investment than parents are selected to provide."
         },
@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Why does the current offspring 'want' more nursing than the mother is selected to give?",
-          choices: ["It can never digest solid food", "It is related to future siblings by only 0.5 or less, so it discounts their welfare", "The mother produces too little milk", "It is related to itself by only 0.5"],
+          choices: ["It cannot yet digest solid food, so it depends on milk longer than she expects", "It is related to future siblings by only 0.5 or less, so it discounts their welfare", "The mother produces too little milk to meet the needs of a growing infant", "It is related to its mother by 1.0, so it values her resources as its own"],
           answer: 1,
           explain: "Because the offspring values a future sibling (r at most 0.5) less than itself, it discounts the mother's future reproduction and demands more now."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Genomic imprinting means that a gene's expression depends on ____.",
-          choices: ["the offspring's sex", "which parent it was inherited from", "the mother's age", "random chance alone"],
+          choices: ["the sex of the offspring carrying it", "which parent it was inherited from", "the age of the mother at conception", "how many copies of the gene are present"],
           answer: 1,
           explain: "Imprinted genes are expressed differently depending on their parent of origin."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "'Discriminative parental solicitude' refers to the idea that parents ____.",
-          choices: ["invest equally in every child and unrelated child alike", "allocate care according to cues of relatedness and expected fitness returns", "never favor their own genetic children", "only ever invest in firstborns"],
+          choices: ["invest equally in every child, whether related to them or not", "allocate care according to cues of relatedness and expected fitness returns", "invest the most in whichever of their children demands care most loudly and often", "invest mainly in firstborns, whatever their health or prospects"],
           answer: 1,
           explain: "Daly and Wilson proposed that parents adjust investment based on parenthood certainty and the offspring's likely reproductive value."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The 'Cinderella effect' describes elevated risk of ____ for stepchildren.",
-          choices: ["academic failure", "abuse and even homicide by a stepparent", "childhood allergies", "left-handedness"],
+          choices: ["childhood allergies and asthma attacks", "abuse and even homicide by a stepparent", "being favored over their half-siblings", "inheriting most of a stepparent's wealth"],
           answer: 1,
           explain: "Daly and Wilson documented that stepchildren are at greater risk of maltreatment and lethal violence."
         },
@@ -241,7 +241,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What is the evolutionary rationale offered for the Cinderella effect?",
-          choices: ["Stepparents are inherently cruel people", "Stepchildren provoke abuse deliberately", "A stepparent has no genetic stake in an unrelated child, weakening parental solicitude", "Fairy tales directly cause real behavior"],
+          choices: ["Stepparents are on average more cruel by temperament than genetic parents", "Stepchildren deliberately provoke conflict with stepparents in order to gain extra attention from them", "A stepparent has no genetic stake in an unrelated child, weakening parental solicitude", "Widely told fairy tales teach stepparents to treat stepchildren harshly"],
           answer: 2,
           explain: "Lacking genetic relatedness, a stepparent's evolved parental-investment mechanisms are, on average, less engaged."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which of these is a genuine critique of the Cinderella-effect evidence?",
-          choices: ["Stepparents cannot legally adopt", "Confounds like poverty and young parenthood may inflate the association", "Fairy tales are fictional", "Genetic parents never harm children"],
+          choices: ["Stepparents cannot legally adopt, so official records miss most cases", "Confounds like poverty and young parenthood may inflate the association", "The effect appears only in fairy tales, not in any official records", "Genetic parents never harm their children, so no comparison group exists"],
           answer: 1,
           explain: "Critics note that stepfamilies differ from intact families in poverty, parental age, and stress, which could confound the risk estimate."
         },
@@ -384,7 +384,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "According to Sulloway, firstborns tend to be ____.",
-          choices: ["rebellious and open to radical ideas", "the most agreeable of all siblings", "conscientious and identified with parental authority", "indifferent to status"],
+          choices: ["rebellious and especially open to radical new ideas", "the most agreeable and easygoing of siblings", "conscientious and identified with parental authority", "indifferent to status and to parental approval"],
           answer: 2,
           explain: "Firstborns are predicted to defend the status quo and align with parents, having first claim on the 'responsible' niche."
         },

@@ -224,10 +224,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why is the peacock's tail called a 'problem' for evolution?",
           choices: [
-            "It helps the peacock survive too well",
+            "It is so attractive that rival males copy it and erase the advantage",
             "It is costly and lowers survival, yet still evolved",
-            "It has no effect on the peacock at all",
-            "It makes the peacock better at finding food"
+            "It appears in both sexes, so it cannot be explained by mate choice",
+            "It is controlled by too many genes for selection to act on it"
           ],
           answer: 1,
           explain: "The tail is metabolically costly and makes escape from predators harder, so its existence seems to defy simple survival selection."
@@ -249,10 +249,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "How does a peacock's large train most directly reduce its survival?",
           choices: [
-            "It makes the bird invisible to mates",
-            "It improves its ability to fly long distances",
+            "It uses up energy the bird needs for digesting food in winter",
+            "It attracts so many rival males that fights become far more frequent",
             "It is heavy and conspicuous, making escape from predators harder",
-            "It keeps the bird cooler in hot weather"
+            "It blocks the bird's vision and makes it harder to spot food on the ground"
           ],
           answer: 2,
           explain: "The bulky, brightly colored train is costly to grow and makes the peacock more visible and slower, raising predation risk."
@@ -296,9 +296,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "The Fisherian runaway process is driven by:",
           choices: [
             "A self-reinforcing loop between a trait and the preference for it",
-            "Only the survival advantage of a trait",
-            "Predators selecting for camouflage",
-            "Random genetic drift with no selection"
+            "The survival advantage of the trait, which choosers happen to detect",
+            "Costly signals that only high-quality individuals can afford to make",
+            "Random genetic drift that spreads both a trait and a preference by chance"
           ],
           answer: 0,
           explain: "In runaway selection, genes for a trait and genes for preferring it become correlated, so each amplifies the other."
@@ -367,9 +367,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "The core claim of Zahavi's handicap principle is that:",
           choices: [
             "Signals are honest because they are costly to produce",
-            "Cheap signals are the most reliable",
-            "Ornaments have no cost at all",
-            "Only weak individuals grow big ornaments"
+            "Signals spread because choosers like them, whatever their cost",
+            "Ornaments reveal parasites, so choosers avoid infected mates",
+            "Signals are honest because cheaters are punished by rivals"
           ],
           answer: 0,
           explain: "Zahavi argued a signal's very cost keeps it honest, because low-quality individuals cannot afford to fake it."
@@ -436,10 +436,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Good-genes models of mate choice propose that ornaments:",
           choices: [
-            "Are meaningless and chosen at random",
+            "Spread only because choosers like them, with no link to quality",
             "Advertise heritable quality that offspring can inherit",
-            "Only ever reduce an animal's fitness",
-            "Are always cheap and easy to grow"
+            "Show that the bearer can offer food, territory, and care to young",
+            "Reveal an individual's age, so choosers pick experienced mates"
           ],
           answer: 1,
           explain: "In good-genes models, choosers gain indirect benefits because attractive traits signal heritable quality passed to their young."
@@ -506,10 +506,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Applying sexual selection to humans means studying:",
           choices: [
-            "Only how humans digest food",
+            "How humans survive hazards like predators, hunger, and disease",
             "Human mate preferences and same-sex competition",
-            "Only the survival of infants",
-            "How humans navigate using the stars"
+            "How parents divide care and resources among their children",
+            "How humans form alliances and trade favors with non-kin"
           ],
           answer: 1,
           explain: "In humans, sexual selection theory examines what people find attractive (choice) and how they compete for mates (rivalry)."
@@ -531,10 +531,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which is an example of possible intrasexual competition in humans?",
           choices: [
-            "Preferring a kind and healthy-looking partner",
+            "Preferring a partner who seems kind and looks healthy",
             "Rivals competing for status and resources to attract mates",
-            "Choosing a mate based on a pleasant voice",
-            "Preferring a symmetrical face"
+            "Choosing a mate partly based on a deep, pleasant voice",
+            "Preferring a partner whose face is highly symmetrical"
           ],
           answer: 1,
           explain: "Competing with same-sex rivals over status and resources is a human parallel to intrasexual competition; the other options are mate-choice examples."

@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "In Ainsworth's Strange Situation, how does a securely attached (Group B) infant typically respond when the caregiver returns?",
           choices: [
-            "Ignores the caregiver and keeps playing with toys",
-            "Shows fear and freezing with no clear plan",
+            "Ignores the caregiver and keeps playing with the toys as if nothing happened",
+            "Approaches the caregiver, then freezes with a dazed look and no clear plan",
             "Actively seeks contact or interaction, is comforted, and returns to play",
-            "Cries but stiffens and arches away when picked up"
+            "Seeks contact but stays upset, stiffening and arching away when picked up"
           ],
           answer: 2,
           explain: "The secure signature at reunion is active greeting or contact-seeking followed by easy comforting and a return to exploration."
@@ -60,10 +60,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What does the secure infant's easy recovery at reunion most suggest about the caregiver?",
           choices: [
-            "The caregiver has discouraged all crying",
+            "The caregiver has taught the infant to keep its distress to itself",
             "The caregiver is a reliable, effective source of comfort",
-            "The caregiver frightens the infant",
-            "The caregiver responds only unpredictably"
+            "The infant has a calm temperament that needs little comforting",
+            "The caregiver responds warmly at some times and not at others"
           ],
           answer: 1,
           explain: "Ready comforting reflects an expectation, built from experience, that the caregiver reliably relieves distress."
@@ -365,8 +365,8 @@ window.ACADEMY.addUnit("attachment", {
           choices: [
             "Deactivating",
             "Hyperactivating",
-            "Disorganized",
-            "Avoidant"
+            "Disorganizing",
+            "Self-regulating"
           ],
           answer: 1,
           explain: "Resistance hyperactivates, or up-regulates, the attachment system to maximize the caregiver's attention."
@@ -505,9 +505,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What do the A, B, and C patterns have in common?",
           choices: [
             "Each is a coherent, organized strategy for managing the attachment relationship",
-            "They all reflect secure attachment",
-            "They all show a breakdown of any strategy",
-            "They are unrelated to the caregiving experienced"
+            "Each reflects a secure base that the infant can rely on when stressed or alarmed",
+            "Each shows that the infant has no clear strategy for managing its own distress",
+            "Each is fixed by the infant's temperament rather than by the care it has received"
           ],
           answer: 0,
           explain: "All three ABC patterns are organized: consistent, patterned solutions fitted to the caregiver's behavior."
@@ -523,8 +523,8 @@ window.ACADEMY.addUnit("attachment", {
           q: "Which classification lacks a coherent, organized strategy and was added later by Main and Solomon?",
           choices: [
             "Secure (B)",
-            "Avoidant (A)",
-            "Resistant (C)",
+            "Insecure-avoidant (A)",
+            "Insecure-resistant (C)",
             "Disorganized (D)"
           ],
           answer: 3,

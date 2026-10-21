@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "You visit a login page that uses plain HTTP, not HTTPS. What is the risk?",
-          choices: ["Your typed password could be read by someone on the network", "The page will load in black and white", "Your browser will run slower forever", "Nothing, HTTP is just as private"],
+          choices: ["Your typed password could be read by someone on the network", "The site will save your password in your browser by mistake", "Your browser will block the page from loading any images", "The page can install malware just because it uses HTTP"],
           answer: 0,
           explain: "Without HTTPS, data like passwords travels unencrypted and can be intercepted."
         },
@@ -56,7 +56,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "A phishing site set up by a scammer can still show a padlock. Why?",
-          choices: ["Anyone can get a certificate to encrypt their site", "Padlocks are handed out by the police", "Only real banks can show a padlock", "The padlock is fake and clickable"],
+          choices: ["Anyone can get a certificate to encrypt their site", "The padlock means the site was checked by the browser", "Scammers copy the padlock image from the real site", "Browsers show a padlock on every site by default"],
           answer: 0,
           explain: "Certificates that enable HTTPS are widely available, so a scam site can encrypt traffic too."
         },
@@ -140,7 +140,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What is the main job of a TLS certificate?",
-          choices: ["To help prove a site is who it claims to be and enable encryption", "To make the site load images faster", "To block ads on the page", "To store your password for you"],
+          choices: ["To help prove a site is who it claims to be and enable encryption", "To show that the site has been audited and checked to be free of malware", "To store users' login sessions so they stay signed in", "To speed up the page by caching images close to the user"],
           answer: 0,
           explain: "A certificate ties a site to a verified identity and provides the keys used to encrypt the connection."
         },
@@ -183,7 +183,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "A site you trust suddenly shows a 'name mismatch' certificate error. What is the safest response?",
-          choices: ["Stop and do not enter any information until you understand why", "Type your password quickly before it changes", "Turn off your antivirus and retry", "Ignore it because you trust the brand"],
+          choices: ["Stop and do not enter any information until you understand why", "Click through the warning, since the brand is one you already trust", "Refresh the page a few times until the warning stops showing", "Switch to private browsing mode and then log in as usual"],
           answer: 0,
           explain: "A mismatch can indicate an attacker impersonating the site, so pause and verify before entering anything."
         },
@@ -203,7 +203,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What is a session cookie mainly used for?",
-          choices: ["Keeping you logged in as you move around a site", "Speeding up your internet connection", "Blocking pop-up ads", "Storing your files on the server"],
+          choices: ["Keeping you logged in as you move around a site", "Saving your password so the browser can fill it in", "Tracking which sites you visit after you leave", "Storing a copy of each page to make it load faster"],
           answer: 0,
           explain: "A session cookie lets a site remember that you are logged in so you do not re-enter your password on every page."
         },
@@ -233,7 +233,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why might clearing your cookies log you out of websites?",
-          choices: ["The cookie that remembered your logged-in session was deleted", "Your password was reset by the site", "Your internet was disconnected", "The website was taken offline"],
+          choices: ["The cookie that remembered your logged-in session was deleted", "Clearing cookies also resets the passwords for those sites", "The browser blocks logins until new cookies are approved", "Clearing cookies tells each site to end your session on its server"],
           answer: 0,
           explain: "Login state is stored in a cookie, so deleting cookies removes that remembered session."
         },
@@ -246,7 +246,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Which habit best limits cross-site tracking by cookies?",
-          choices: ["Blocking or clearing third-party cookies", "Using a bigger monitor", "Increasing your screen brightness", "Turning off HTTPS"],
+          choices: ["Blocking or clearing third-party cookies", "Clearing your browser history each week", "Using a strong password on each site", "Turning on HTTPS-only mode in settings"],
           answer: 0,
           explain: "Blocking third-party cookies removes the main mechanism trackers use to follow you between sites."
         }
@@ -260,7 +260,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why is keeping your browser updated important for security?",
-          choices: ["Updates fix known security holes attackers exploit", "Updates make your fonts prettier", "Updates delete your bookmarks", "Updates are only about new colors"],
+          choices: ["Updates fix known security holes attackers exploit", "Updates reset saved passwords so old ones can't leak", "Updates clear tracking cookies from every website", "Updates turn on a VPN for all of your browsing"],
           answer: 0,
           explain: "Browser updates patch discovered vulnerabilities, so running old versions leaves known holes open."
         },
@@ -273,7 +273,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "You are about to install an extension. What is the safest thing to check first?",
-          choices: ["What permissions it asks for and whether the source is reputable", "How colorful its icon is", "Whether it has a fun name", "How large the download file is"],
+          choices: ["What permissions it asks for and whether the source is reputable", "How many downloads it has, since popular ones are always safe", "Whether it is free, since paid extensions can't contain malware", "Whether it has a good-looking icon and a professional description"],
           answer: 0,
           explain: "Excessive permissions and an unknown publisher are red flags. Install only what you trust and need."
         },
@@ -309,7 +309,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why can a compromised extension be dangerous even on secure HTTPS sites?",
-          choices: ["It runs inside your browser and can read the pages after they are decrypted", "It turns off your monitor", "It changes your keyboard layout", "It slows your internet plan"],
+          choices: ["It runs inside your browser and can read the pages after they are decrypted", "It can break HTTPS encryption on the network before data reaches you", "It can swap the site's certificate for a fake one while in transit", "It runs on the website's server and reads data before it is encrypted"],
           answer: 0,
           explain: "HTTPS protects data in transit, but an extension sees the page contents once they are decrypted in your browser."
         }
@@ -323,7 +323,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What is a phishing page trying to do?",
-          choices: ["Trick you into entering your login or personal details on a fake site", "Show you the weather forecast", "Speed up your downloads", "Update your browser for you"],
+          choices: ["Trick you into entering your login or personal details on a fake site", "Lock your files and then demand a payment before you can open them again", "Flood a real site with traffic so that it goes offline", "Install a browser update that quietly tracks your clicks"],
           answer: 0,
           explain: "Phishing pages imitate a trusted login so you hand over credentials to attackers."
         },
@@ -343,7 +343,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "An email link opens a login page that looks like your email provider. What should you check first?",
-          choices: ["The domain in the address bar matches the real provider", "The background color of the page", "How fast the page loaded", "Whether the logo is animated"],
+          choices: ["The domain in the address bar matches the real provider", "The page shows a padlock icon next to the address", "The logo and colors match the real provider's site", "The page greets you by your name or email address"],
           answer: 0,
           explain: "The address is the reliable signal. A wrong or lookalike domain reveals a phishing page even if it looks perfect."
         },
@@ -372,7 +372,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why do phishing messages often use urgency, like 'your account will be closed today'?",
-          choices: ["Pressure makes people act fast and skip careful checks", "Urgent messages load faster", "It is required by email rules", "It makes the message more polite"],
+          choices: ["Pressure makes people act fast and skip careful checks", "Urgent subject lines get past spam filters more easily", "Real providers always send closure notices with deadlines", "Urgency proves to readers that the message is official"],
           answer: 0,
           explain: "Creating panic is a social engineering tactic to stop you from pausing to verify."
         }
@@ -386,7 +386,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Before entering card details, what is the most reliable thing to confirm?",
-          choices: ["You are on the correct, legitimate domain over HTTPS", "The site has a big checkout button", "The site loaded quickly", "The prices are very low"],
+          choices: ["You are on the correct, legitimate domain over HTTPS", "The site shows trust badges and a secure checkout logo", "The site has many five-star reviews on its own pages", "The page loads quickly and the design looks professional"],
           answer: 0,
           explain: "Confirming the real domain over an encrypted connection is the key check before entering payment info."
         },
@@ -406,7 +406,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Which of these is a red flag on a checkout page?",
-          choices: ["A slightly misspelled domain in the address bar", "A clear list of items in your cart", "A standard shipping options menu", "A visible total price"],
+          choices: ["A slightly misspelled domain in the address bar", "A padlock icon shown in the browser's address bar", "A request for the card's security code at checkout", "An option to pay with a well-known payment service"],
           answer: 0,
           explain: "A misspelled or lookalike domain suggests a fake store trying to harvest your payment details."
         },
@@ -435,7 +435,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "A store asks you to pay by an unusual method with no buyer protection and pushes you to hurry. What does this suggest?",
-          choices: ["It may be a scam trying to make refunds impossible", "It is a normal secure checkout", "It is faster and therefore safer", "It means the store is well established"],
+          choices: ["It may be a scam trying to make refunds impossible", "It is a new store offering a discount for faster payment", "It is a normal checkout, since many stores use new methods", "It is safe as long as the page uses HTTPS and a padlock"],
           answer: 0,
           explain: "Demanding hard-to-reverse payments plus urgency is a classic sign of a fraudulent seller."
         }
@@ -469,7 +469,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why should you choose a blocker from a reputable, well-reviewed source?",
-          choices: ["A malicious or fake blocker could itself spy on your browsing", "Reputable ones have brighter icons", "It makes your screen larger", "It changes your default font"],
+          choices: ["A malicious or fake blocker could itself spy on your browsing", "Lesser-known blockers break HTTPS on most sites they touch", "Only reviewed blockers are allowed to block third-party cookies", "Popular blockers remove ads faster, which is the main risk"],
           answer: 0,
           explain: "A blocker sees your browsing, so a shady one could become the very tracker you were trying to avoid."
         },

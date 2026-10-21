@@ -26,7 +26,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is the main goal of ACC?",
-          choices: ["Connect design and construction data in one place", "Replace all your email", "Print paper drawings faster", "Manage your payroll"],
+          choices: ["Connect design and construction data in one place", "Replace email and chat as the team's only way to communicate", "Produce printed drawing sets faster for the jobsite", "Handle company accounting, payroll, and HR records"],
           answer: 0,
           explain: "ACC's purpose is to bring design and construction information together on one connected platform."
         },
@@ -46,7 +46,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which best describes the value of putting everyone's data in one place?",
-          choices: ["Teams work from the same information", "Everyone must use paper", "Files can never change", "Only one person can log in"],
+          choices: ["Teams work from the same information", "Each team keeps its own separate copy of every file", "Files are locked so they can no longer be changed", "Only one person needs to log in for the whole team"],
           answer: 0,
           explain: "A shared home for data means the whole team works from the same, current information."
         },
@@ -95,7 +95,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why is it useful to know both names?",
-          choices: ["Documents and coworkers may use either name", "They are unrelated tools", "One is free and one is paid", "Forma deletes your data"],
+          choices: ["Documents and coworkers may use either name", "They are separate tools that need different logins", "One name is the free version and the other is the paid version", "The newer name only applies to projects outside North America"],
           answer: 0,
           explain: "Knowing they mean the same thing avoids confusion when older docs say ACC and newer ones say Forma."
         },
@@ -150,7 +150,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "A benefit of one shared dataset is that...",
-          choices: ["Everyone sees consistent, current information", "Files disappear at night", "Only admins can read anything", "Each tool needs its own upload"],
+          choices: ["Everyone sees consistent, current information", "Each tool keeps its own copy, so nothing can be lost", "Only admins can view files, which keeps data secure", "Each product needs its own upload of the same files"],
           answer: 0,
           explain: "Sharing one dataset keeps information consistent and up to date for everyone."
         },
@@ -308,7 +308,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why is it helpful for subs and the GC to share one platform?",
-          choices: ["Everyone works from the same current information", "Only the GC can see anything", "It hides all the drawings", "It removes the need to communicate"],
+          choices: ["Everyone works from the same current information", "The GC can see subs' files, but subs cannot see the GC's", "Drawings stay private to the company that created them", "It removes the need for meetings and other communication"],
           answer: 0,
           explain: "A shared platform keeps every trade aligned on the latest information."
         },
@@ -328,7 +328,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Permissions in ACC mainly decide...",
-          choices: ["What each person can see and do", "The color of the logo", "The weather on site", "How fast files download"],
+          choices: ["What each person can see and do", "How much storage each project is allowed to use", "Which file formats can be uploaded to the project", "How fast files download for each user"],
           answer: 0,
           explain: "Permissions control access so each role sees the right information."
         },
@@ -358,7 +358,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does Desktop Connector do?",
-          choices: ["Syncs cloud files to the desktop", "Prints your drawings", "Sends text messages", "Runs clash detection"],
+          choices: ["Syncs cloud files to the desktop", "Prints drawing sets directly from the cloud", "Sends notifications to team members' phones", "Runs clash detection on your local models"],
           answer: 0,
           explain: "Desktop Connector makes ACC cloud files appear and sync in your desktop file system."
         },
@@ -384,7 +384,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why does mobile access matter on a construction project?",
-          choices: ["The field can see current info without going back to the trailer", "It replaces all the workers", "It stops the internet", "It hides the drawings from subs"],
+          choices: ["The field can see current info without going back to the trailer", "It lets the office track every worker's location throughout the day", "It replaces the need for printed safety signs and posted notices", "Subs can edit the drawings directly from their phones on site"],
           answer: 0,
           explain: "Mobile access puts the latest sheets and issues in the hands of people on site."
         },
@@ -440,7 +440,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a risk of NOT having a CDE?",
-          choices: ["People work from different, outdated files", "Files version themselves too often", "Everyone is forced to agree", "The project ends early"],
+          choices: ["People work from different, outdated files", "Files are versioned too often to keep track of", "Every change must be approved by the whole team", "Project data is stored in too many backups"],
           answer: 0,
           explain: "Without a shared source of truth, teams drift onto old or conflicting copies."
         },

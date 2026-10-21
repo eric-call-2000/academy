@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("culture", {
           q: "Berry's fourfold model is built on the answers to which two underlying questions?",
           choices: [
             "Whether to maintain one's heritage culture, and whether to have contact with the host society",
-            "Whether to learn the host language, and whether to earn citizenship",
-            "Whether one is wealthy, and whether one is educated",
-            "Whether one migrated voluntarily, and whether one intends to return home"
+            "Whether to learn the host society's language, and whether to apply for citizenship in the new country",
+            "Whether one is wealthy and well educated, and whether one has family in the host society",
+            "Whether one migrated voluntarily, and whether one intends to return home eventually"
           ],
           answer: 0,
           explain: "Berry crossed two dimensions - maintaining one's heritage culture and seeking contact with the host society - to derive the four strategies."
@@ -82,10 +82,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What does the term acculturative stress refer to?",
           choices: [
-            "The excitement immigrants feel when they first arrive in a new country",
+            "The excitement and nervous energy immigrants feel when they first arrive in a new country, before any problems begin",
             "The reduction in well-being and stress reactions that can arise from the demands of adapting to a new culture",
-            "A physical illness caused by unfamiliar foods",
-            "The economic cost of relocating"
+            "A physical illness caused by exposure to unfamiliar foods, climates, and germs after relocating abroad",
+            "The financial cost of relocating, including housing, travel, and lost income during the transition"
           ],
           answer: 1,
           explain: "Berry described acculturative stress as the psychological strain, anxiety, and lowered well-being that adapting to a new cultural context can produce."
@@ -150,10 +150,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "The bidimensional model treats a person's heritage-culture orientation and host-culture orientation as...",
           choices: [
-            "two ends of a single continuum",
+            "two ends of a single continuum, so gaining one means losing the other",
             "two independent dimensions that can each be high or low",
-            "identical constructs that always move together",
-            "irrelevant to identity"
+            "identical constructs that always rise and fall together",
+            "temporary stages that every immigrant passes through in order"
           ],
           answer: 1,
           explain: "The bidimensional view lets the two orientations vary separately, so a person can be high on one, both, or neither."
@@ -219,9 +219,9 @@ window.ACADEMY.addUnit("culture", {
           q: "Cultural frame switching refers to...",
           choices: [
             "biculturals shifting between two cultural lenses depending on cues in the situation",
-            "immigrants permanently forgetting their first culture",
-            "switching languages in the middle of a sentence",
-            "changing one's legal citizenship"
+            "immigrants gradually and permanently replacing their first culture with the host culture",
+            "switching between two languages in the middle of a sentence or conversation",
+            "adopting a third, blended culture that differs from both original cultures"
           ],
           answer: 0,
           explain: "Cultural frame switching (CFS) is the movement between two internalized cultural interpretive frames in response to situational cues."
@@ -254,9 +254,9 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "The dynamic constructivist approach to culture and cognition was articulated by which team in a 2000 American Psychologist article?",
           choices: [
-            "Markus and Kitayama",
-            "Triandis and Hofstede",
-            "Berry and Ward",
+            "Triandis, Bontempo, Villareal, and Asai",
+            "Nisbett, Peng, Choi, and Norenzayan",
+            "Berry, Phinney, Sam, and Vedder",
             "Hong, Morris, Chiu, and Benet-Martinez"
           ],
           answer: 3,
@@ -290,10 +290,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In Hong et al.'s priming studies, showing the Statue of Liberty tended to make Hong Kong biculturals...",
           choices: [
-            "make more external, situational attributions",
+            "make more external, situational attributions, as East Asians typically do",
             "make more internal, dispositional attributions, as Americans typically do",
-            "refuse to answer the questions",
-            "score lower on intelligence tests"
+            "show no change, since bicultural attributions are fixed",
+            "score lower on tests of reasoning and general knowledge"
           ],
           answer: 1,
           explain: "American icons activated a Western frame, nudging biculturals toward the internal, dispositional attributions common in individualist cultures."
@@ -303,9 +303,9 @@ window.ACADEMY.addUnit("culture", {
           q: "Priming the Great Wall of China tended to shift biculturals toward...",
           choices: [
             "more external, situational attributions, as East Asians typically show",
-            "more internal, dispositional attributions",
-            "no measurable change at all",
-            "greater physical aggression"
+            "more internal, dispositional attributions, as Americans typically show",
+            "no measurable change, since the prime was too subtle to have an effect",
+            "greater physical aggression toward the experimenter"
           ],
           answer: 0,
           explain: "Chinese icons activated an East Asian frame, nudging biculturals toward the situational, context-sensitive attributions common in collectivist cultures."
@@ -362,10 +362,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Bicultural identity integration (BII) describes...",
           choices: [
-            "how many languages a person can speak",
-            "whether an immigrant obtains legal citizenship",
+            "how many languages a person speaks fluently and how often each is used in daily life",
+            "whether an immigrant has obtained legal citizenship and full voting rights in the host country",
             "the degree to which a bicultural sees their two cultural identities as compatible versus conflicting",
-            "the income gap between immigrants and native-born residents"
+            "how far a bicultural has moved from the heritage culture toward the host culture over the years"
           ],
           answer: 2,
           explain: "BII is an individual difference in whether a person perceives their two cultures as blended and harmonious or as separate and clashing."
@@ -398,9 +398,9 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In Benet-Martinez et al.'s (2002) priming study, how did LOW-BII biculturals typically respond to cultural primes?",
           choices: [
-            "They assimilated smoothly toward the primed culture",
-            "They showed no response at all",
-            "They simply became more creative",
+            "They assimilated smoothly toward the primed culture, just like high-BII biculturals",
+            "They showed no response, since they identified with neither of their cultures",
+            "They became more creative but showed no change in their attributions",
             "They showed a contrastive (reverse) reaction, behaving opposite to the prime"
           ],
           answer: 3,
@@ -432,8 +432,8 @@ window.ACADEMY.addUnit("culture", {
           choices: [
             "immigrants who arrived in the host country as adults",
             "the children of immigrants, born or raised in the host country",
-            "grandparents who stayed in the home country",
-            "temporary tourists and visitors"
+            "the grandchildren of immigrants, whose parents were born in the host country",
+            "relatives who stayed behind in the home country after others left"
           ],
           answer: 1,
           explain: "The first generation are the immigrants themselves; the second generation are their children raised in the host society."
@@ -467,9 +467,9 @@ window.ACADEMY.addUnit("culture", {
           q: "Segmented assimilation theory (Portes and Zhou, 1993) argues that...",
           choices: [
             "immigrant descendants can follow several different adaptation paths, not one uniform route",
-            "all immigrants inevitably assimilate in the same way",
-            "acculturation never happens across generations",
-            "the second generation always returns to the home country"
+            "all immigrant groups eventually assimilate in the same way, given enough generations",
+            "acculturation stops after the first generation, so children keep their parents' culture",
+            "the second generation usually returns to the home country after reaching adulthood"
           ],
           answer: 0,
           explain: "Segmented assimilation holds that outcomes vary - upward mobility, downward assimilation, or selective acculturation that preserves ethnic ties."
@@ -502,10 +502,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Leung, Maddux, Galinsky, and Chiu (2008) argued that multicultural experience tends to...",
           choices: [
-            "reduce creativity",
+            "reduce creativity by causing confusion between cultural norms",
             "enhance creativity under the right conditions",
-            "have no effect on cognition",
-            "only improve rote memory"
+            "have little effect on creativity or other kinds of thinking",
+            "improve rote memory while leaving creativity unchanged"
           ],
           answer: 1,
           explain: "Their American Psychologist paper, 'Multicultural experience enhances creativity: The when and how,' linked cultural exposure to greater creativity when people engage with the culture."
@@ -538,10 +538,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "According to this research, the creativity benefits of multicultural exposure are STRONGEST when people...",
           choices: [
-            "feel threatened by the foreign culture",
-            "avoid engaging with the new culture",
+            "feel threatened by the foreign culture and defend their own",
+            "spend a long time abroad, even without engaging with locals",
             "are open and actually adapt to and learn from the culture",
-            "stay for only a single day"
+            "visit many countries briefly rather than staying in one"
           ],
           answer: 2,
           explain: "Openness and genuine adaptation are the conditions that turn exposure into creative gain; threat and avoidance can erase the effect."

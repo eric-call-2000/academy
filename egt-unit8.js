@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Which phrase best captures the shift from statics to dynamics?",
-          choices: ["From payoffs to players", "From 'which states are equilibria?' to 'how do strategy frequencies flow toward them?'", "From cooperation to defection", "From two players to many"],
+          choices: ["From 'how do players reason about others?' to 'which strategy is strictly dominant?'", "From 'which states are equilibria?' to 'how do strategy frequencies flow toward them?'", "From 'what is the payoff of each player?' to 'how many players are in the game?'", "From 'which states are equilibria?' to 'which equilibrium gives the highest total payoff?'"],
           answer: 1,
           explain: "Dynamics reframes the question from labeling equilibrium states to describing the flow that carries a population between states."
         },
@@ -65,7 +65,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "In the replicator equation, a strategy's frequency grows when...",
-          choices: ["it is chosen by the first player", "its payoff is negative", "it has the fewest users", "its payoff exceeds the population's average payoff"],
+          choices: ["it was the most common strategy in the previous generation", "it is used by the fewest individuals", "its payoff is positive in absolute terms, whatever others earn", "its payoff exceeds the population's average payoff"],
           answer: 3,
           explain: "Replicator dynamics rewards above-average performance: a strategy whose fitness beats the population mean gains share."
         },
@@ -91,7 +91,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Which phrase best restates the replicator logic of 'survival of the fitter, on average'?",
-          choices: ["All strategies grow equally", "Only the single best strategy ever survives immediately", "Above-average performers gain share; below-average performers lose share", "Frequencies change at random"],
+          choices: ["All strategies grow at the same rate whatever their payoff", "Only the single best strategy survives, and it does so immediately", "Above-average performers gain share; below-average performers lose share", "Strategies with positive payoffs grow; strategies with negative payoffs shrink"],
           answer: 2,
           explain: "Replicator dynamics redistributes population share from below-average strategies to above-average ones, relative to the current mean."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "In the replicator equation x_i' = x_i(f_i - phi), what does phi represent?",
-          choices: ["the fitness of strategy i alone", "the average (mean) fitness of the whole population", "the total number of strategies", "a fixed constant"],
+          choices: ["the fitness of strategy i on its own", "the average (mean) fitness of the whole population", "the total number of strategies in the game", "the highest fitness of any single strategy in the population"],
           answer: 1,
           explain: "phi is the population's mean fitness, the benchmark each strategy's own fitness f_i is compared against."
         },
@@ -137,7 +137,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "If f_i = phi for a strategy at some moment, then at that instant its frequency...",
-          choices: ["doubles", "drops to zero immediately", "becomes negative", "stays constant, since x_i' = 0"],
+          choices: ["doubles in the next instant", "drops to zero right away", "keeps growing at its old rate", "stays constant, since x_i' = 0"],
           answer: 3,
           explain: "With f_i equal to phi the factor (f_i - phi) is zero, so x_i' = 0 and the frequency does not change at that moment."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "A fixed point (rest point) of the replicator dynamics is a state where...",
-          choices: ["one strategy has payoff zero", "every strategy's frequency stops changing, so all x_i' = 0", "the game has no Nash equilibrium", "all payoffs equal one"],
+          choices: ["one strategy earns a payoff of zero", "every strategy's frequency stops changing, so all x_i' = 0", "all strategies earn exactly a payoff of one", "the population's average fitness has reached its highest possible value"],
           answer: 1,
           explain: "At a fixed point the rate of change of every frequency is zero, so the population composition is momentarily frozen."
         },
@@ -241,7 +241,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Which states are ALWAYS fixed points of the replicator dynamics, for any game?",
-          choices: ["only the exact center of the simplex", "states with negative frequencies", "the vertices of the simplex, where a single strategy is at 100%", "no states at all"],
+          choices: ["only the exact center of the simplex, where all strategies are equally common", "only the interior states where every strategy is present at once", "the vertices of the simplex, where a single strategy is at 100%", "only the states where every strategy earns a payoff of zero"],
           answer: 2,
           explain: "At a vertex one strategy has frequency 1 and all others 0, so every term x_i(f_i - phi) is zero; monomorphic (single-strategy) states are always rest points."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Is the converse true, that every asymptotically stable fixed point must be an ESS?",
-          choices: ["Yes, always, in every model", "No; asymptotic stability is more general and does not always imply the ESS conditions", "Only when there is exactly one strategy", "Only in zero-sum games"],
+          choices: ["Yes, always; the two notions are identical in every model of evolution", "No; asymptotic stability is more general and does not always imply the ESS conditions", "Yes, but only in games where every strategy earns a positive payoff", "Only in zero-sum games, where every stable point automatically satisfies both ESS conditions"],
           answer: 1,
           explain: "In one-population dynamics an ESS implies asymptotic stability, but the reverse implication can fail, so the two notions are not identical."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "According to the folk theorem of evolutionary dynamics, every Nash equilibrium is...",
-          choices: ["an unstable point only", "never a rest point", "a fixed point (rest point) of the replicator dynamics", "a point with zero payoff"],
+          choices: ["an asymptotically stable rest point of the dynamics", "an ESS of the game it is played in", "a fixed point (rest point) of the replicator dynamics", "an unstable point the dynamics move away from"],
           answer: 2,
           explain: "The folk theorem states that every Nash equilibrium is a rest point of the replicator dynamics, though not every rest point is Nash."
         },
@@ -378,7 +378,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "The state space of replicator dynamics with n strategies is...",
-          choices: ["the full n-dimensional cube", "the (n-1)-dimensional simplex, where frequencies are non-negative and sum to 1", "always a single line", "the set of all integers"],
+          choices: ["the full n-dimensional cube, where each frequency can be any number from 0 to 1", "the (n-1)-dimensional simplex, where frequencies are non-negative and sum to 1", "always a single line segment, however many strategies there are in the game", "the set of all n-tuples of real numbers, including negative frequencies"],
           answer: 1,
           explain: "Frequencies are non-negative and sum to one, so the state space is the (n-1)-dimensional probability simplex."
         },
@@ -398,7 +398,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "On the simplex, the edges and vertices (faces) are ____ under replicator dynamics.",
-          choices: ["invariant, so a strategy that is absent stays absent", "always unstable spirals", "where payoffs become undefined", "points of infinite frequency"],
+          choices: ["invariant, so a strategy that is absent stays absent", "unstable, so a strategy that is absent will soon reappear", "where every strategy earns exactly the same payoff", "the only places where fixed points can be found"],
           answer: 0,
           explain: "Since x_i' = x_i(f_i - phi), a frequency of zero stays zero, so faces of the simplex are invariant: orbits on an edge remain on that edge."
         },

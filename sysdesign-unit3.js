@@ -68,9 +68,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "A nullable foreign key column typically encodes which of the following?",
           choices: [
             "That the relationship is optional for the child row",
-            "That the parent table has no primary key",
-            "That the constraint is deferred until commit",
-            "That the relationship is many-to-many"
+            "That the parent table has no primary key defined",
+            "That the constraint check is deferred until the transaction commits",
+            "That the relationship between the two tables is many-to-many"
           ],
           answer: 0,
           explain: "NULL in a foreign key means no related parent, so the constraint is not checked for that row. Deferral and cardinality are controlled separately."
@@ -112,9 +112,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which situation is the most defensible reason to denormalize?",
           choices: [
             "A hot read path needs an aggregate that is expensive to recompute per request",
-            "The schema has more than a handful of tables and feels complicated",
+            "The schema has grown past a handful of tables and the joins feel complicated to read",
             "The ORM produces awkward class names for join tables",
-            "Writes are slow and the team wants fewer constraints to check"
+            "Writes are slow and the team wants fewer foreign key constraints to check on insert"
           ],
           answer: 0,
           explain: "Denormalization buys read speed at the cost of write complexity and duplication. It is justified by a measured read cost, not by schema aesthetics."
@@ -133,10 +133,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "You add a denormalized like_count column to posts. What is the main new correctness obligation?",
           choices: [
-            "The column must be indexed to be readable",
+            "The new column must be indexed before the application can read it in queries",
             "Every write that adds or removes a like must update the count in the same transaction",
-            "The likes table must be dropped to avoid two sources of truth",
-            "The count must be recomputed on every read to stay accurate"
+            "The likes table must be dropped so that there are never two separate sources of truth for the count",
+            "The count must be recomputed from the likes table on every read to stay accurate"
           ],
           answer: 1,
           explain: "The duplicate must be maintained atomically with the source of truth, or it drifts. Recomputing on read would defeat the purpose of caching the value."
@@ -205,10 +205,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A query filters on a boolean column where about half the rows are true. Why might the planner skip an index on that column?",
           choices: [
-            "Boolean columns cannot be stored in a B-tree",
+            "Boolean columns cannot be stored in a B-tree, so the index is never usable for this filter",
             "The predicate is unselective, so random row lookups cost more than a sequential scan",
-            "Indexes only support equality on integer and text types",
-            "Half-and-half distributions make the index tree unbalanced"
+            "Indexes only support equality comparisons on integer and text types",
+            "A half-and-half distribution makes the index tree unbalanced and slow to traverse"
           ],
           answer: 1,
           explain: "Fetching half the table through an index means many scattered page reads plus the index reads. A straight sequential scan reads pages in order and wins."
@@ -230,9 +230,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the key difference between EXPLAIN and EXPLAIN ANALYZE in Postgres?",
           choices: [
-            "EXPLAIN ANALYZE rewrites the query, EXPLAIN only inspects it",
+            "EXPLAIN ANALYZE rewrites the query into a cheaper equivalent form, while EXPLAIN only inspects the original",
             "EXPLAIN ANALYZE actually runs the query and reports actual rows and timings alongside the estimates",
-            "EXPLAIN ANALYZE updates the table statistics used by the planner",
+            "EXPLAIN ANALYZE refreshes the table statistics used by the planner before printing its estimates",
             "EXPLAIN ANALYZE shows only the cheapest node in the plan tree"
           ],
           answer: 1,
@@ -265,10 +265,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A plan is read in which direction to follow execution order?",
           choices: [
-            "Top to bottom, since the top node runs first",
-            "Left to right across each line of output",
+            "Top to bottom, since the top node in the output is the first one to run",
+            "Left to right across each line of output, as with an ordinary sentence",
             "Innermost and deepest nodes first, with results flowing up to the root",
-            "In the order the tables appear in the FROM clause"
+            "In the order the tables appear in the FROM clause of the query"
           ],
           answer: 2,
           explain: "The plan is a tree. Leaf nodes such as scans produce rows that flow upward through joins and aggregates to the top node, which emits the final result."
@@ -348,7 +348,7 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What mechanism most directly delivers durability in a typical relational engine?",
           choices: [
-            "Flushing every modified data page to disk before the commit returns",
+            "Flushing every modified data page for the transaction to disk before the commit returns",
             "Flushing the write-ahead log record for the transaction before the commit returns",
             "Holding row locks until a background checkpoint completes",
             "Replicating the transaction to a standby before the commit returns"
@@ -373,9 +373,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The N+1 query problem is best described as:",
           choices: [
-            "One query per row plus one final aggregate query at the end",
-            "N joined tables producing N+1 intermediate result sets",
-            "N connections opened plus one held open for the transaction",
+            "One query per row in the table, plus one final aggregate query at the end",
+            "N joined tables in one statement producing N+1 intermediate result sets",
+            "N connections opened for the reads plus one held open for the transaction",
             "One query to fetch a list, plus one additional query per row in that list"
           ],
           answer: 3,
@@ -408,10 +408,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Fetching parents and their children with a single joined query has which drawback compared to two queries?",
           choices: [
-            "It cannot use indexes on the child table",
+            "It cannot use any of the indexes on the child table, so it falls back to a full scan",
             "It breaks referential integrity checks during the read",
             "Parent columns are duplicated once per child row, inflating the bytes transferred",
-            "It requires a serializable transaction to be correct"
+            "It requires a serializable transaction to return a consistent result"
           ],
           answer: 2,
           explain: "This is the cartesian inflation problem. It gets much worse joining two child collections at once, which is why many ORMs default to a second query with an IN list."
@@ -420,10 +420,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is N+1 often invisible in local development but severe in production?",
           choices: [
-            "Local databases skip constraint checking to run faster",
+            "Local databases skip constraint checking and logging to run faster, which hides the extra work",
             "Local round trips are sub-millisecond and seed data is small, so 200 extra queries barely register",
-            "ORMs disable lazy loading outside of production mode",
-            "Connection pools reuse prepared statements only in production"
+            "ORMs disable lazy loading outside of production mode, so the extra queries never run locally",
+            "Connection pools reuse prepared statements only in production, which multiplies the parse cost of each query there"
           ],
           answer: 1,
           explain: "The pathology is per-query latency times row count. On a loopback socket with 10 seed rows it disappears; across a network with 500 rows it dominates the response."
@@ -446,9 +446,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Why is a Postgres connection comparatively expensive to hold open?",
           choices: [
             "Each connection is backed by a separate server process with its own memory allocation",
-            "Each connection reserves a dedicated slice of the shared buffer cache",
+            "Each connection reserves a dedicated slice of the shared buffer cache for its own pages",
             "Each connection holds an exclusive lock on the system catalogs",
-            "Each connection maintains its own copy of the write-ahead log"
+            "Each connection maintains its own private copy of the write-ahead log"
           ],
           answer: 0,
           explain: "The classic Postgres model forks a backend process per connection, so idle connections still consume memory and scheduling attention. That is why a pool in front of it matters so much."
@@ -470,9 +470,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "You run 10 application instances, each with a pool max of 50, against one database. What is the effective peak demand on the server?",
           choices: [
-            "50 connections, since the pool bound is global",
+            "50 connections, since the pool bound is shared globally across all instances",
             "500 connections, since each instance holds its own independent pool",
-            "10 connections, one per instance",
+            "10 connections, one per instance, since each pool shares a single connection",
             "It depends only on the database max_connections setting"
           ],
           answer: 1,
@@ -493,8 +493,8 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which application bug most reliably exhausts a connection pool?",
           choices: [
             "Opening a transaction, calling a slow external HTTP API inside it, then committing",
-            "Using parameterized queries instead of string concatenation",
-            "Reading more rows per query than the client needs",
+            "Using parameterized queries instead of building each SQL string by concatenation",
+            "Reading more rows per query than the client needs and discarding the rest in memory",
             "Running the same query from several threads at once"
           ],
           answer: 0,
@@ -529,9 +529,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Why is adding a NOT NULL column with no default to a large, busy table dangerous?",
           choices: [
             "On a table that already has rows the statement is rejected outright, and filling every row instead rewrites the table under an exclusive lock",
-            "It invalidates every index on the table",
-            "It forces the planner to discard all statistics for the table",
-            "It cannot be rolled back once committed"
+            "It invalidates every index on the table, which must then be rebuilt from scratch before queries can use them again",
+            "It forces the planner to discard all statistics for the table, so every query plan degrades badly until the next manual ANALYZE run finishes",
+            "It cannot be rolled back once committed, so a mistake in the column type requires a second full migration to undo it"
           ],
           answer: 0,
           explain: "Existing rows have no value to put in the new column, so the engine refuses the statement. Supplying a value for every row instead means a full rewrite while holding an exclusive lock. The safe sequence is add the column nullable, backfill in batches, then add the NOT NULL constraint."
@@ -553,7 +553,7 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A migration acquires a lock but a long-running read holds the table. What is the most common production failure that follows?",
           choices: [
-            "The migration silently applies to a stale snapshot of the table",
+            "The migration silently applies to a stale snapshot of the table taken before the read began",
             "The migration waits, and every subsequent query queues behind its pending lock request",
             "The database escalates to a serializable snapshot and aborts the reader",
             "The migration is rewritten by the planner into a non-locking form"

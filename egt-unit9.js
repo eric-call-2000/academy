@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What is a basin of attraction?",
           choices: [
             "The set of initial conditions that all converge to a particular attractor",
-            "A single equilibrium point of the dynamics",
-            "The speed at which a population reaches equilibrium",
-            "A strategy that can never be invaded"
+            "A single equilibrium point that the dynamics settle on in the end",
+            "The speed at which a population moves toward its equilibrium point",
+            "The boundary line that separates two neighboring attractors from each other"
           ],
           answer: 0,
           explain: "A basin of attraction is the collection of all starting states whose trajectories end up at the same attractor, so initial conditions decide the eventual outcome."
@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "If a population starts just on one side of a separatrix versus just on the other, what typically happens?",
           choices: [
-            "It always reaches the same equilibrium regardless of side",
+            "It always reaches the same equilibrium regardless of which side it started on",
             "It converges to different attractors depending on which side it started",
-            "It stays fixed at the separatrix forever",
-            "It oscillates between the two attractors"
+            "It stays fixed exactly on the separatrix forever and never moves away from it",
+            "It oscillates back and forth between the two attractors without settling down"
           ],
           answer: 1,
           explain: "The whole point of a separatrix is that nearby starts on opposite sides fall into different basins and reach different attractors."
@@ -84,10 +84,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A bistable system has:",
           choices: [
-            "One stable equilibrium and nothing else",
+            "One stable equilibrium with an unstable threshold on either side",
             "Two stable equilibria separated by an unstable threshold",
-            "Infinitely many stable equilibria",
-            "No equilibria at all"
+            "Two unstable equilibria separated by a single stable state",
+            "Two stable cycles that the population switches between"
           ],
           answer: 1,
           explain: "Bistability specifically means two stable rest states with an unstable equilibrium (a threshold) dividing their basins."
@@ -109,10 +109,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In the Stag Hunt game, why is it considered bistable?",
           choices: [
-            "Because only hunting hare is ever stable",
+            "Because only all-hunt-hare is stable, and stag hunters always die out",
             "Because both all-hunt-stag and all-hunt-hare are stable equilibria",
-            "Because there are no stable strategies",
-            "Because the population always cycles"
+            "Because the population keeps cycling between stag hunting and hare hunting",
+            "Because one interior mixture of stag and hare hunters attracts every starting point"
           ],
           answer: 1,
           explain: "Stag Hunt has two evolutionarily stable pure states (all stag, all hare), each with its own basin, which is the signature of bistability."
@@ -154,10 +154,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "An interior equilibrium of a population's strategy dynamics represents:",
           choices: [
-            "A state where only one strategy survives",
+            "A state where only one strategy survives and every other strategy has gone extinct",
             "A stable mixture where multiple strategies coexist at nonzero frequencies",
-            "A state with no individuals at all",
-            "A point outside the simplex"
+            "A point on an edge of the simplex where exactly two strategies are present",
+            "A state reached only when one strategy strictly dominates all of the others"
           ],
           answer: 1,
           explain: "Interior equilibria lie inside the strategy simplex, meaning every strategy is present at a positive frequency (a mixture)."
@@ -224,10 +224,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A saddle point is an equilibrium that is:",
           choices: [
-            "Stable in every direction",
-            "Unstable in every direction",
+            "Stable in every direction, so all nearby paths return",
+            "Unstable in every direction, so all nearby paths leave",
             "Stable along some directions but unstable along others",
-            "Never actually an equilibrium"
+            "Not an equilibrium, since the state is always moving"
           ],
           answer: 2,
           explain: "A saddle attracts trajectories along its stable directions and repels them along its unstable directions, making it stable only in part."
@@ -249,10 +249,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "For a two-dimensional linear system, a saddle point occurs when the eigenvalues of the Jacobian are:",
           choices: [
-            "Both negative real numbers",
-            "Both positive real numbers",
+            "Both negative real numbers, so every direction attracts",
+            "Both positive real numbers, so every direction repels",
             "Real with opposite signs (one positive, one negative)",
-            "A complex conjugate pair with zero real part"
+            "A complex pair with zero real part, giving cycles"
           ],
           answer: 2,
           explain: "Real eigenvalues of opposite sign give one attracting and one repelling direction, the defining signature of a saddle."
@@ -294,10 +294,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A closed orbit in a population's dynamics represents:",
           choices: [
-            "A trajectory that converges to a fixed point",
+            "A trajectory that spirals inward and settles at a fixed point over time",
             "A trajectory that returns to its starting state and repeats forever",
-            "A trajectory that escapes to infinity",
-            "A single equilibrium point"
+            "A trajectory that grows without limit and escapes to infinity eventually",
+            "A single equilibrium point where every strategy frequency stays the same"
           ],
           answer: 1,
           explain: "A closed orbit is a periodic trajectory: it loops back to where it began and repeats, so the population cycles indefinitely."
@@ -319,10 +319,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In the classic Lotka-Volterra predator-prey model, the populations trace out:",
           choices: [
-            "A stable fixed point",
+            "A spiral that settles at the coexistence equilibrium",
             "A family of closed orbits around the coexistence equilibrium",
-            "A saddle point escape",
-            "A monotone approach to extinction"
+            "A path that ends with the predators going extinct",
+            "A single isolated limit cycle that every orbit approaches over time"
           ],
           answer: 1,
           explain: "The Lotka-Volterra model produces a nested family of closed orbits circling the interior equilibrium, so predator and prey numbers cycle."
@@ -364,10 +364,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A neutrally stable equilibrium is one where nearby trajectories:",
           choices: [
-            "Converge back to the equilibrium",
-            "Diverge away from the equilibrium",
+            "Converge back to the equilibrium as time goes on",
+            "Diverge away from the equilibrium and never return",
             "Neither converge nor diverge, staying on nearby orbits",
-            "Immediately jump to a distant attractor"
+            "Jump straight to a distant attractor elsewhere"
           ],
           answer: 2,
           explain: "Neutral stability means perturbations neither shrink nor grow; the system stays on a nearby orbit without returning or escaping."
@@ -390,9 +390,9 @@ window.ACADEMY.addUnit("egt", {
           q: "For a linear two-dimensional system, neutral stability (a center) arises when the eigenvalues are:",
           choices: [
             "Purely imaginary (zero real part)",
-            "Both negative real",
-            "Both positive real",
-            "Real with opposite signs"
+            "Both negative real numbers (a sink)",
+            "Both positive real numbers",
+            "Real numbers with opposite signs"
           ],
           answer: 0,
           explain: "Purely imaginary eigenvalues produce undamped oscillation around a center, the hallmark of neutral stability."
@@ -459,10 +459,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A named tool for proving stability without solving the equations is a Lyapunov function, which near a stable equilibrium should:",
           choices: [
-            "Increase along trajectories",
-            "Stay constant along every trajectory",
+            "Increase steadily along every trajectory near the equilibrium",
+            "Change sign each time a trajectory passes by the equilibrium",
             "Not increase (be non-increasing) along trajectories",
-            "Change sign randomly"
+            "Equal zero at every point except the equilibrium itself"
           ],
           answer: 2,
           explain: "A Lyapunov function is like an energy that does not increase along trajectories, so the state cannot escape a neighborhood; strict decrease gives asymptotic stability."
@@ -505,9 +505,9 @@ window.ACADEMY.addUnit("egt", {
           q: "The key difference between discrete-time and continuous-time dynamics is that:",
           choices: [
             "Discrete-time updates in separate steps while continuous-time changes smoothly at every instant",
-            "Continuous-time can only describe extinction",
-            "Discrete-time has no equilibria",
-            "There is no real difference between them"
+            "Discrete-time models can describe only extinction, while continuous-time models cannot describe it at all",
+            "Discrete-time models have no equilibria, while continuous-time models always have exactly one of them",
+            "Discrete-time models are always stable, while continuous-time models can oscillate or show cycles"
           ],
           answer: 0,
           explain: "Discrete-time models jump forward one generation at a time, whereas continuous-time models change smoothly through differential equations."

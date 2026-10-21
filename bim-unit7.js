@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What does interoperability mean in a BIM context?",
           choices: [
-            "Running all software on the same operating system",
+            "Running all of the project software on the same operating system",
             "Different tools exchanging information reliably and using it meaningfully",
-            "Storing every file in a single folder",
-            "Using only one vendor for every discipline"
+            "Using a single vendor's software platform for every discipline on the project",
+            "Storing every discipline's files together in one shared folder"
           ],
           answer: 1,
           explain: "Interoperability is about different software exchanging data reliably and being able to use it, not about a shared OS or single vendor."
@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Why is interoperability especially important on multi-discipline projects?",
           choices: [
             "Because architects, engineers, and contractors often use different software",
-            "Because it makes files smaller",
-            "Because it removes the need for coordination meetings",
-            "Because it guarantees zero clashes"
+            "Because it lets the disciplines skip coordination meetings altogether",
+            "Because models exchanged in open formats are guaranteed to be clash free",
+            "Because each discipline is required by law to use the same software"
           ],
           answer: 0,
           explain: "Different disciplines typically use different applications, so exchanging data between them is essential."
@@ -85,10 +85,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What best describes a proprietary file format?",
           choices: [
-            "A published neutral format any vendor can implement",
+            "A published, neutral format that any software vendor can freely implement",
             "A format controlled by one vendor and tied to their software",
-            "A format that never changes",
-            "A format required by ISO 19650"
+            "A format that the project owner controls and licenses to the team",
+            "A format defined by ISO 19650 for exchanging project models"
           ],
           answer: 1,
           explain: "Proprietary formats are owned and controlled by a single vendor and usually tied to that vendor's tools."
@@ -103,10 +103,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Which is a key advantage of open formats over proprietary ones?",
           choices: [
-            "They always produce smaller files",
+            "They always produce smaller, faster files",
             "They reduce dependence on a single vendor",
-            "They render 3D faster",
-            "They are always newer"
+            "They keep every property with no data loss",
+            "They are required by every building code"
           ],
           answer: 1,
           explain: "Open formats reduce vendor lock-in because they are not controlled by one company."
@@ -174,10 +174,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What is the main purpose of IFC?",
           choices: [
-            "To render photorealistic images",
+            "To exchange issues and clashes between tools",
             "To exchange BIM data in an open, neutral way",
-            "To replace project scheduling software",
-            "To compress point clouds"
+            "To deliver asset handover data as spreadsheets",
+            "To store a vendor's native model format"
           ],
           answer: 1,
           explain: "IFC is designed as an open, neutral format for exchanging BIM information between tools."
@@ -231,10 +231,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Why is IFC valuable for openBIM workflows?",
           choices: [
-            "It ties every team to one vendor",
+            "It guarantees every property transfers with no loss between tools",
             "It lets different tools exchange model data without a proprietary link",
-            "It hides the model from other disciplines",
-            "It removes the need for a CDE"
+            "It replaces the need for a common data environment on the project",
+            "It requires all teams to use the same vendor's authoring software"
           ],
           answer: 1,
           explain: "IFC enables neutral exchange so teams are not locked into a single vendor's format."
@@ -275,10 +275,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Which of these best captures the goal of openBIM?",
           choices: [
-            "Locking each discipline into one vendor",
+            "Standardizing every team on one vendor's platform",
             "Enabling collaboration using shared open standards",
-            "Eliminating the need for models",
-            "Making all data private and unreadable"
+            "Publishing all project models openly to the public",
+            "Replacing native formats so they are never used"
           ],
           answer: 1,
           explain: "openBIM aims to enable collaboration through shared, open, neutral standards."
@@ -333,10 +333,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What is COBie primarily used to deliver?",
           choices: [
-            "Photorealistic renderings",
+            "Issues and clashes found during coordination",
             "Asset and handover information for operations",
-            "Structural analysis results",
-            "Point cloud scans"
+            "Detailed 3D geometry for fabrication",
+            "Cost and quantity data for tendering"
           ],
           answer: 1,
           explain: "COBie is a specification for delivering asset and handover data, useful in facility management."
@@ -351,10 +351,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Which type of information is COBie most focused on?",
           choices: [
-            "Detailed 3D geometry",
+            "Detailed 3D geometry such as fittings and connections",
             "Asset data such as equipment, spaces, and warranties",
-            "Live sensor streams",
-            "Camera animation paths"
+            "Clash records such as viewpoints and comments",
+            "Schedule data such as tasks, durations, and links"
           ],
           answer: 1,
           explain: "COBie focuses on non-graphical asset and handover data rather than detailed geometry."
@@ -411,10 +411,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "What does BCF exchange between tools?",
           choices: [
-            "Entire model geometry every time",
+            "Full model geometry with every property",
             "Issues and clashes as lightweight records",
-            "Rendering settings",
-            "License keys"
+            "Asset data for handover to operations",
+            "Schedule links between tasks and elements"
           ],
           answer: 1,
           explain: "BCF exchanges issues and clashes as compact records rather than full models."
@@ -430,9 +430,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which of these does a BCF issue typically include?",
           choices: [
             "A saved viewpoint, a comment, and the issue location",
-            "A full material library",
-            "The entire project schedule",
-            "The vendor's source code"
+            "A full copy of both models involved in the clash",
+            "The element's cost, quantity, and installation date",
+            "A COBie sheet listing the affected equipment"
           ],
           answer: 0,
           explain: "A BCF issue carries a viewpoint, comments, and the location of the problem."
@@ -476,9 +476,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What is vendor lock-in?",
           choices: [
             "Being dependent on one vendor because switching is hard or costly",
-            "A security feature that locks files",
-            "A type of open standard",
-            "A method of clash detection"
+            "A vendor setting that locks a model while another user edits it",
+            "A contract clause fixing the software version for the whole project",
+            "Choosing open formats so that no vendor can change the data later"
           ],
           answer: 0,
           explain: "Vendor lock-in means you are stuck with one vendor because moving away is difficult or expensive."
@@ -493,10 +493,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Why does long-term data readability matter for buildings?",
           choices: [
-            "Buildings are demolished within a year",
+            "Building codes require models to be reopened in the original software",
             "Buildings can operate for decades, long after software changes",
-            "Data is only needed during design",
-            "Owners never reuse project data"
+            "Owners must resubmit the full model to the authority every year",
+            "Native files must be converted to paper drawings at handover"
           ],
           answer: 1,
           explain: "Assets last decades, so owners need data that remains readable well beyond the original software."
@@ -545,10 +545,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Why can information be lost when moving between formats?",
           choices: [
-            "Files always corrupt during transfer",
+            "Files are always corrupted when they move between tools",
             "The target format may not support every concept from the source",
-            "Open formats delete data on purpose",
-            "Exchange is impossible between different tools"
+            "Open formats strip out property data on purpose to stay small",
+            "Exchange between tools from different vendors is not possible"
           ],
           answer: 1,
           explain: "Loss happens when the receiving format cannot represent everything the source contained."
@@ -563,10 +563,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Which practice most helps reduce surprises from data loss?",
           choices: [
-            "Never exporting to open formats",
+            "Exporting with every option on and skipping any manual checks",
             "Agreeing on exchange requirements and validating the result",
-            "Deleting the original model after export",
-            "Ignoring property data entirely"
+            "Exchanging only native files and never using open formats",
+            "Deleting property data before export so nothing can be lost"
           ],
           answer: 1,
           explain: "Defining what must be exchanged and validating the output limits unexpected data loss."

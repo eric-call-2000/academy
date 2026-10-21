@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why do models often stumble on tasks like counting the letters in a word or reversing a string?",
           choices: [
-            "The model has no memory of previous characters in the sequence",
+            "The model has no memory of the previous characters it has already read earlier in the sequence",
             "Individual characters are usually not separate tokens, so character structure is not directly visible",
-            "Such tasks are explicitly filtered out during training",
-            "Arithmetic and string operations are disabled at inference time"
+            "Such character-level tasks are explicitly filtered out of the training data to save compute",
+            "Arithmetic and string operations are switched off at inference time to keep latency low"
           ],
           answer: 1,
           explain: "The model sees integer ids for multi-character chunks. Character-level facts have to be inferred indirectly, which is why letter counting is unreliable."
@@ -184,10 +184,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A team notices quality dropping as they stuff more retrieved documents into the prompt. What is the most defensible explanation?",
           choices: [
-            "The model runs out of vocabulary entries when the input is long",
-            "Tokens beyond a fixed count are silently deleted by the tokenizer",
+            "The model runs out of vocabulary entries when the input gets long, so later words map to unknown tokens",
+            "Tokens beyond a fixed count are silently deleted by the tokenizer before the request reaches the model",
             "Attention is spread over more competing content, so relevant material can be diluted by irrelevant material",
-            "Long inputs force the model to switch to a smaller internal network"
+            "Long inputs force the model to switch over to a smaller internal network that can handle more tokens"
           ],
           answer: 2,
           explain: "More context is not automatically better. Adding weakly relevant material competes for attention, so retrieval precision usually matters more than volume."
@@ -266,9 +266,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which failure is most directly explained by optimizing against a learned reward model?",
           choices: [
             "The model produces agreeable, well-formatted answers that raters like more than they are correct",
-            "The model loses the ability to tokenize rare words",
-            "The model exceeds its context window on short prompts",
-            "The model returns embeddings instead of text"
+            "The model gradually loses the ability to tokenize rare words that raters seldom see in answers",
+            "The model starts exceeding its context window even on short prompts after training",
+            "The model returns embedding vectors instead of text for prompts the reward model scored low"
           ],
           answer: 0,
           explain: "The optimizer targets the proxy, not truth. Reward hacking of this kind is one root of sycophancy and overconfident, pleasant-sounding answers."
@@ -318,10 +318,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which prompt is most likely to produce a fabricated answer?",
           choices: [
-            "Summarize the following pasted document in three sentences",
+            "Summarize the following pasted document in three sentences for a busy executive reader",
             "Rewrite this paragraph in a more formal register",
             "Give me the exact citation and page number for a claim I did not provide a source for",
-            "Explain the difference between two concepts described in the prompt"
+            "Explain the difference between the two concepts that are described in full later in this prompt"
           ],
           answer: 2,
           explain: "Requests for precise identifiers with no source in context invite fabrication, because a well-formed-looking citation is a highly plausible continuation."
@@ -337,10 +337,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which measure most directly reduces hallucination on factual questions?",
           choices: [
-            "Instructing the model in the system prompt to never hallucinate",
-            "Raising the temperature so the model explores more answers",
+            "Instructing the model in the system prompt that it must never hallucinate and must always be accurate",
+            "Raising the temperature so the model explores more possible answers and picks the most common one",
             "Putting the authoritative source text in the context and asking the model to answer only from it",
-            "Asking the model to rate its own confidence and trusting scores above a threshold"
+            "Asking the model to rate its own confidence and trusting only the answers that score above a set threshold"
           ],
           answer: 2,
           explain: "Grounding replaces recall with reading. Instructions alone do not create knowledge, and self-reported confidence is generated text, not a calibrated measurement."
@@ -397,9 +397,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A support bot retrieves by embedding similarity and returns a passage that is on-topic but answers a different question. What is the underlying cause?",
           choices: [
-            "The embedding model was trained on the wrong language",
-            "Cosine similarity was computed instead of Euclidean distance",
-            "The vectors were normalized before indexing",
+            "The embedding model was trained on the wrong language for these support articles and their questions",
+            "Cosine similarity was computed for the search instead of Euclidean distance between the vectors",
+            "The vectors were normalized to unit length before they were added to the index",
             "Topical closeness in the space does not distinguish which specific question a passage answers"
           ],
           answer: 3,
@@ -426,9 +426,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Why does chunking strategy matter so much for embedding-based retrieval?",
           choices: [
             "Each chunk collapses to one vector, so an overly large chunk blurs several distinct topics together",
-            "Chunk boundaries determine the model's temperature setting",
-            "Vector indexes reject chunks that are not equal in length",
-            "Chunk count directly sets the size of the context window"
+            "Chunk boundaries determine the temperature setting the model uses when it generates the answer",
+            "Vector indexes reject chunks that are not all equal in length, so uneven ones are silently dropped",
+            "Chunk count directly sets the size of the context window available to the model at query time"
           ],
           answer: 0,
           explain: "One vector per chunk means one averaged meaning. Oversized chunks smear distinct ideas together, while tiny chunks lose the context needed to interpret them."
@@ -444,9 +444,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is output generation typically slower per token than processing the input prompt?",
           choices: [
-            "Output tokens are longer strings than input tokens",
-            "The tokenizer runs a second time on every output token",
-            "Output tokens bypass the KV cache and are recomputed from scratch",
+            "Output tokens are longer strings than input tokens, so each one takes more work to produce",
+            "The tokenizer has to run a second time on every output token before it can be returned",
+            "Output tokens bypass the KV cache and must each be recomputed from scratch over the whole prompt",
             "Input tokens can be processed in parallel, while output tokens must be generated one at a time"
           ],
           answer: 3,
@@ -516,10 +516,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the most defensible way to choose a model tier for a new feature?",
           choices: [
-            "Always start with the largest available model and never change",
+            "Always start with the largest available model tier and never revisit the choice once it ships",
             "Pick whichever model is cheapest and add retries when it fails",
             "Define an evaluation set for the task, then choose the smallest tier that passes it",
-            "Match whatever tier a competitor is publicly reported to use"
+            "Match whatever model tier a competitor is publicly reported to use for a similar feature"
           ],
           answer: 2,
           explain: "Tier choice is an empirical question about your task. An eval set turns it into a measurement instead of an argument, and it protects you when models change."
@@ -544,10 +544,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the strongest architectural argument for a cascade, where a small model runs first and escalates hard cases?",
           choices: [
-            "It removes the need for an evaluation set entirely",
-            "It guarantees the large model is never wrong on the escalated cases",
+            "It removes the need for an evaluation set entirely, since the larger model checks the smaller one",
+            "It guarantees the large model is never wrong on the cases the small model escalates to it",
             "Most real traffic is easy, so the expensive model only runs on the minority that needs it",
-            "Running two models in sequence is always faster than running one"
+            "Running two models in sequence is always faster end to end than running one large model alone"
           ],
           answer: 2,
           explain: "Cascades pay off when the difficulty distribution is skewed toward easy. They add complexity and a routing decision that itself needs evaluation."

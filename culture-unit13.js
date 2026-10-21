@@ -40,7 +40,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "A leading methodological criticism (e.g., Russell, 1994) of Ekman's recognition studies is that they:",
-          choices: ["Only ever tested happiness", "Used no photographs at all", "Used a forced-choice format that can inflate agreement", "Were never replicated anywhere"],
+          choices: ["Tested only happiness and surprise, the easiest emotions to recognize", "Relied on spontaneous expressions rather than posed photographs", "Used a forced-choice format that can inflate agreement", "Were never replicated outside the United States and Papua New Guinea"],
           answer: 2,
           explain: "James Russell argued that giving participants a short list of labels to choose from can artificially boost apparent cross-cultural agreement."
         },
@@ -70,7 +70,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Ekman and Friesen's framework, 'display rules' are:",
-          choices: ["Innate reflexes present at birth", "Brain regions that generate emotion", "A fixed list of basic emotions", "Culturally learned norms for managing expression"],
+          choices: ["Innate reflexes that control facial muscles from birth", "Brain circuits that generate each basic emotion", "A fixed list of basic emotions shared by all cultures", "Culturally learned norms for managing expression"],
           answer: 3,
           explain: "Display rules are socially learned conventions about how, when, and to whom emotions may be shown."
         },
@@ -90,7 +90,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which is a clear example of a display rule in action?",
-          choices: ["Blinking when a light flashes", "Keeping a somber face at a funeral even if you feel relief", "Feeling your heart race in fear", "Sweating when it is hot"],
+          choices: ["Blinking automatically when a bright light suddenly flashes", "Keeping a somber face at a funeral even if you feel relief", "Feeling your heart race and palms sweat during a scary movie", "Smiling spontaneously when you open a gift you really wanted"],
           answer: 1,
           explain: "Managing your outward expression to fit the social situation, despite what you feel inside, is precisely what a display rule prescribes."
         },
@@ -127,7 +127,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In the Japanese-American study, what did participants watch?",
-          choices: ["Comedy sketches", "Nature documentaries", "Stressful and disgusting films", "Sports highlights"],
+          choices: ["Comedy sketches and funny cartoons", "Calm, relaxing nature documentaries", "Stressful and disgusting films", "Sad scenes from popular dramas"],
           answer: 2,
           explain: "Participants viewed stress-inducing, disgusting films (such as surgical footage) while their faces were recorded."
         },
@@ -140,7 +140,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The key cultural difference appeared when:",
-          choices: ["An authority figure or experimenter was present", "The room was completely dark", "Participants wore headphones", "The films were shown in reverse"],
+          choices: ["An authority figure or experimenter was present", "Participants watched the films alone in a private room", "Participants were told their faces would not be recorded", "The films were shown a second time to the same group"],
           answer: 0,
           explain: "With an older experimenter present, Japanese participants masked negative expressions far more than Americans did."
         },
@@ -183,7 +183,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Tsai's theory, 'ideal affect' refers to:",
-          choices: ["The emotional states people ideally want to feel", "The emotions felt at this exact moment", "Emotions that are impossible to feel", "Only negative emotions"],
+          choices: ["The emotional states people ideally want to feel", "The emotions people actually feel at a given moment", "The emotions a culture says people should display in public", "The calmest emotional state a person can achieve"],
           answer: 0,
           explain: "Ideal affect is the set of affective states a person values and wants to feel, distinct from what they actually feel."
         },
@@ -220,7 +220,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Tsai's findings, a person's actual, momentary affect is predicted especially by their:",
-          choices: ["National GDP", "Temperament and personality", "Favorite color", "Height"],
+          choices: ["Cultural values and ideals", "Temperament and personality", "National wealth and income level", "Age and gender alone"],
           answer: 1,
           explain: "Tsai proposes that actual affect leans more on temperament, while ideal affect leans more on culture."
         },
@@ -240,7 +240,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Tsai's key cross-cultural finding about ideal affect is that:",
-          choices: ["European Americans value high-arousal states (excitement) while East Asians value low-arousal states (calm)", "Everyone values calm equally", "East Asians value excitement most", "No cultures differ in ideal affect"],
+          choices: ["European Americans value high-arousal states (excitement) while East Asians value low-arousal states (calm)", "East Asians value high-arousal states (excitement) while European Americans value low-arousal states (calm)", "Both groups value calm equally, but European Americans report feeling excitement more often", "Cultures differ in how often negative emotions are felt, but not in the emotions people idealize"],
           answer: 0,
           explain: "European Americans tended to idealize high-arousal positive (HAP) states, whereas East Asians idealized low-arousal positive (LAP) states."
         },
@@ -271,7 +271,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Tsai and colleagues found evidence of these arousal preferences even in:",
-          choices: ["Adult tax forms", "Legal contracts", "Children's storybooks", "Weather reports"],
+          choices: ["Infants' resting heart rates", "Brain scans of newborns", "Children's storybooks", "Toddlers' sleep schedules"],
           answer: 2,
           explain: "Best-selling U.S. children's storybooks showed bigger, more excited smiles and more aroused activities than Taiwanese books, transmitting ideal affect early."
         },
@@ -297,7 +297,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Batja Mesquita argues that emotions are best understood as:",
-          choices: ["Purely chemical reactions with no social meaning", "Relational events that happen between people, not just inside one person", "Fixed traits fixed at birth", "The same across all situations"],
+          choices: ["Purely chemical reactions inside the brain that carry no social meaning at all", "Relational events that happen between people, not just inside one person", "Fixed traits that are set at birth and change little over life", "Universal programs that unfold the same way in every situation"],
           answer: 1,
           explain: "Mesquita frames emotions as things that occur between people and are shaped by culture, captured in her book title 'Between Us.'"
         },
@@ -328,7 +328,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which of these best fits a socially ENGAGING emotion?",
-          choices: ["Pride in a personal award", "Feeling superior to a rival", "Feelings of closeness and connection to others", "Standing out from the group"],
+          choices: ["Pride in winning a personal award", "Feeling superior after outperforming a rival", "Feelings of closeness and connection to others", "Anger at someone who blocked your goals"],
           answer: 2,
           explain: "Engaging emotions such as feelings of connection foster interdependence and bind people together."
         },
@@ -341,7 +341,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The socially engaging vs. disengaging distinction maps most closely onto which cultural contrast?",
-          choices: ["Interdependent vs. independent selves", "Urban vs. rural", "Old vs. young", "Rich vs. poor"],
+          choices: ["Interdependent vs. independent selves", "Urban vs. rural ways of life", "Loose vs. tight social norms", "High vs. low power distance societies"],
           answer: 0,
           explain: "Engaging emotions align with interdependent (collectivist-leaning) selves and disengaging emotions with independent selves."
         }
@@ -375,7 +375,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Because sadness was hypocognized in Tahiti, people often described that experience as:",
-          choices: ["Intense joy", "Fatigue, sickness, or feeling strange", "Righteous anger", "Deep pride"],
+          choices: ["Intense joy or a burst of excitement", "Fatigue, sickness, or feeling strange", "Righteous anger at those who wronged them", "Guilt over letting down family members"],
           answer: 1,
           explain: "Lacking a specific word for sadness, Tahitians tended to describe the feeling as tiredness, illness, or a strange bodily state."
         },
@@ -412,7 +412,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Lisa Feldman Barrett argues that specific facial expressions are:",
-          choices: ["The only true source of emotion", "Identical in every mammal", "NOT reliable universal signals of specific emotions", "Impossible to photograph"],
+          choices: ["The primary cause of the emotions people feel", "Identical in all mammals, inherited from common ancestors", "NOT reliable universal signals of specific emotions", "Reliable signals once cultural display rules are removed"],
           answer: 2,
           explain: "Barrett contends that a given facial configuration does not map onto one emotion in a fixed, universal way."
         },
@@ -432,7 +432,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Barrett and colleagues' 2019 review 'Emotional Expressions Reconsidered,' the link between a facial configuration and an emotion is described as:",
-          choices: ["Perfectly one-to-one", "Variable and context-dependent, not universal", "Determined only by genes", "Present only in infants"],
+          choices: ["Reliable and one-to-one across all cultures", "Variable and context-dependent, not universal", "Determined mainly by genes, with little learning", "Universal in infants but lost in adulthood"],
           answer: 1,
           explain: "The large review concluded that facial movements are variable and context-sensitive, undercutting simple universal 'emotion detection.'"
         },

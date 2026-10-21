@@ -115,10 +115,10 @@ window.ACADEMY.addUnit("bim", {
           type: "mcq",
           q: "Which of these is an example of the 'I' (information) in a BIM model?",
           choices: [
-            "The color used to shade the screen",
+            "A rendered image of the wall saved for a presentation",
             "A wall's thermal U-value stored as a property",
-            "The zoom level of the view",
-            "The name of the person logged in"
+            "A 2D line drawn on a layer named for the wall",
+            "The file name and folder path where the model is saved"
           ],
           answer: 1,
           explain: "A thermal U-value stored as an object property is data about the asset, an example of the information in BIM."
@@ -147,9 +147,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What is the core difference between traditional CAD and BIM?",
           choices: [
             "CAD draws lines and separate drawings; BIM uses data-rich objects in a database",
-            "CAD is always 3D and BIM is always 2D",
-            "CAD stores information and BIM cannot",
-            "There is no meaningful difference"
+            "CAD works only in 2D, while BIM is simply the same drawings drawn in 3D",
+            "CAD files hold object data, while BIM stores only visual geometry for renders",
+            "CAD is used for design, while BIM is a scheduling tool used only on site"
           ],
           answer: 0,
           explain: "Traditional CAD produces lines and independent drawings, while BIM uses intelligent objects held in a coordinated database."
@@ -187,9 +187,9 @@ window.ACADEMY.addUnit("bim", {
           q: "In BIM, a wall element typically knows things such as its type, material, and dimensions. In plain CAD, a wall is usually:",
           choices: [
             "Just lines with no built-in knowledge of being a wall",
-            "A live database record",
-            "An object that schedules itself",
-            "A material takeoff by default"
+            "An object that stores its material and fire rating",
+            "A record that updates every linked view automatically",
+            "A typed element that reports its own area and volume"
           ],
           answer: 0,
           explain: "In plain CAD a wall is only geometry (lines), whereas a BIM wall is an object carrying meaning and data."
@@ -212,9 +212,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which is a commonly cited benefit of using BIM?",
           choices: [
             "Better coordination and fewer clashes between disciplines",
-            "Guaranteed zero cost on every project",
-            "Removing the need for any people",
-            "Making all data secret"
+            "Lower software licensing costs than any CAD package",
+            "No need for drawings or specifications on any project",
+            "Faster modeling because objects carry no extra data"
           ],
           answer: 0,
           explain: "BIM improves coordination and helps catch clashes early, reducing errors between disciplines."
@@ -237,9 +237,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Catching a pipe-versus-duct conflict in the model before construction is an example of:",
           choices: [
             "Clash detection improving coordination",
-            "Rendering a marketing image",
-            "Deleting project data",
-            "Increasing rework on site"
+            "Value engineering reducing project cost",
+            "Quantity takeoff for the cost estimate",
+            "4D sequencing of the installation order"
           ],
           answer: 0,
           explain: "Finding conflicts in the model is clash detection, which improves coordination and reduces on-site rework."
@@ -278,9 +278,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What is a federated model?",
           choices: [
             "Several discipline models combined into one coordinated whole for review",
-            "A single file that erases all discipline models",
-            "A model owned by one person only",
-            "A 2D drawing set with no data"
+            "A single model in which every discipline edits the same elements directly",
+            "An archived copy of the design model issued to the owner at handover",
+            "A model split into separate files so each floor can be worked on alone"
           ],
           answer: 0,
           explain: "A federated model brings separate discipline models together into one coordinated view while each stays authored separately."
@@ -313,9 +313,9 @@ window.ACADEMY.addUnit("bim", {
           q: "A key reason to federate models is to:",
           choices: [
             "Check how the disciplines fit together and spot clashes",
-            "Prevent anyone from ever editing again",
-            "Delete the structural model",
-            "Hide the architecture from the team"
+            "Merge every discipline's elements into one editable file",
+            "Reduce file size by deleting each discipline's own model",
+            "Transfer ownership of all models to the lead architect"
           ],
           answer: 0,
           explain: "Federation lets the team see how disciplines coordinate and detect clashes between them."
@@ -354,9 +354,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which statement best reflects the nature of BIM?",
           choices: [
             "BIM is people, process, and technology working together",
-            "BIM is only the software you buy",
-            "BIM is only a file format",
-            "BIM is only a 3D picture"
+            "BIM is mainly the modeling software a firm chooses to buy",
+            "BIM is a file format used to exchange 3D models with others",
+            "BIM is a set of 3D views used to present the design to clients"
           ],
           answer: 0,
           explain: "BIM is delivered by people, process, and technology combined, not by any single one of them."
@@ -379,9 +379,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which item is an example of the 'process' pillar of BIM?",
           choices: [
             "An agreed naming and information workflow the team follows",
-            "A laptop",
-            "A rendered sunset image",
-            "A single wall object"
+            "A modeling application licensed for every member of the team",
+            "A trained BIM coordinator who manages the federated model",
+            "A cloud server that hosts the project's shared model files"
           ],
           answer: 0,
           explain: "An agreed workflow, such as naming and information exchange rules, is part of the process pillar."
@@ -410,9 +410,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What do BIM maturity levels describe?",
           choices: [
             "How advanced and collaborative a team's ways of working are",
-            "The exact price of the software",
-            "The height of the building",
-            "The color of the model"
+            "How much detail and geometry each model element contains",
+            "Which version of the modeling software a team has installed",
+            "How far a project has progressed from design into construction"
           ],
           answer: 0,
           explain: "Maturity levels describe how advanced and integrated the ways of working are, from paper toward full collaboration."
@@ -435,9 +435,9 @@ window.ACADEMY.addUnit("bim", {
           q: "As maturity increases, ways of working generally move toward:",
           choices: [
             "More integrated collaboration around shared information",
-            "Less sharing of information",
-            "Only handwritten notes",
-            "Abandoning all standards"
+            "Each discipline keeping its own separate set of drawings",
+            "More detailed 2D drawings exchanged as printed paper sets",
+            "A single firm authoring every discipline's model alone"
           ],
           answer: 0,
           explain: "Higher maturity means more integrated, collaborative working built around shared, managed information."
@@ -493,9 +493,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which statement is TRUE rather than a myth?",
           choices: [
             "BIM is a process for managing information, supported by various tools",
-            "BIM is nothing more than a 3D picture",
-            "BIM requires one single mandatory program",
-            "BIM only helps skyscrapers"
+            "BIM is mainly a way to produce realistic 3D visuals of a design",
+            "BIM requires every project party to use the same single software",
+            "BIM is only worth adopting on very large and complex projects"
           ],
           answer: 0,
           explain: "The true statement is that BIM is an information-management process supported by a range of tools."

@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Besides feeding, what second method did Jones use to reduce Peter's fear?",
-          choices: ["Electric shock", "Social imitation, letting Peter watch other children play with the rabbit", "Hypnosis", "Physical punishment"],
+          choices: ["Mild punishment, scolding Peter whenever he cried at the sight of the rabbit", "Social imitation, letting Peter watch other children play with the rabbit", "Verbal persuasion, explaining to Peter that the rabbit could not hurt him", "Flooding, placing the rabbit in Peter's lap for a long, uninterrupted session"],
           answer: 1,
           explain: "Jones used modeling, or social imitation: Peter observed unafraid children handling the rabbit."
         },
@@ -105,7 +105,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What relaxation method is typically taught first in systematic desensitization?",
-          choices: ["Progressive muscle relaxation", "Electroconvulsive therapy", "Sleep deprivation", "Caffeine dosing"],
+          choices: ["Progressive muscle relaxation", "Guided hypnotic induction", "Free association of thoughts", "Biofeedback of heart rate"],
           answer: 0,
           explain: "Wolpe adapted Jacobson's progressive muscle relaxation as the calm response that competes with anxiety."
         },
@@ -156,7 +156,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which response is most commonly used to reciprocally inhibit anxiety in therapy?",
-          choices: ["Anger", "Fear", "Boredom", "Deep muscle relaxation"],
+          choices: ["Heightened vigilance", "Sustained fear arousal", "Cognitive distraction", "Deep muscle relaxation"],
           answer: 3,
           explain: "Deep relaxation is the classic response used to compete with and inhibit anxiety."
         },
@@ -198,7 +198,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What learning process best explains why exposure therapy reduces fear?",
-          choices: ["Reinforcement", "Extinction of the conditioned fear response", "Punishment", "Shaping"],
+          choices: ["Punishment of the avoidance response each time", "Extinction of the conditioned fear response", "Sensitization to the feared cue through repetition", "Higher-order conditioning of a new safe cue"],
           answer: 1,
           explain: "Facing the feared cue while nothing bad happens extinguishes the conditioned fear response."
         },
@@ -260,7 +260,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "How does flooding differ from systematic desensitization?",
-          choices: ["It climbs a gradual hierarchy", "It begins with full-intensity exposure to the most feared stimulus", "It relies on tangible rewards", "It avoids the feared stimulus"],
+          choices: ["It climbs a gradual hierarchy from mildly to intensely feared stimuli", "It begins with full-intensity exposure to the most feared stimulus", "It relies on tangible rewards for each step of approach toward the stimulus", "It pairs relaxation training with imagined scenes of the feared stimulus"],
           answer: 1,
           explain: "Flooding starts at maximum intensity, with no gradual hierarchy and no relaxation training."
         },
@@ -322,7 +322,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Aversion therapy works by pairing an unwanted behavior with:",
-          choices: ["A pleasant reward", "An unpleasant or noxious stimulus", "A neutral tone", "Nothing at all"],
+          choices: ["A pleasant reward for each attempt", "An unpleasant or noxious stimulus", "A neutral tone that signals nothing", "A calm state of deep relaxation"],
           answer: 1,
           explain: "The target behavior is paired with an aversive stimulus so it comes to evoke discomfort."
         },
@@ -384,7 +384,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Contingency management treats addiction primarily through:",
-          choices: ["Classical conditioning of fear", "Positive reinforcement of verified abstinence", "Aversive electric shock", "Free association"],
+          choices: ["Classical conditioning of fear to drug cues", "Positive reinforcement of verified abstinence", "Aversive electric shock after each drug use", "Free association about the roots of craving"],
           answer: 1,
           explain: "It rewards drug-free behavior with tangible incentives, applying operant positive reinforcement."
         },
@@ -404,7 +404,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What behavior is typically reinforced in contingency management for substance use?",
-          choices: ["Attending a single intake session", "Submitting a drug-negative (clean) urine sample", "Talking about childhood", "Completing a personality test"],
+          choices: ["Attending a single intake session at the clinic", "Submitting a drug-negative (clean) urine sample", "Talking openly about childhood in group therapy", "Completing a personality test before treatment"],
           answer: 1,
           explain: "Objectively verified abstinence, such as a clean urine screen, is the rewarded target behavior."
         },

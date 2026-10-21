@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "The fundamental attribution error refers to the tendency to:",
           choices: [
-            "Overweight situational forces and ignore personality",
+            "Overweight situational forces and underweight personality traits",
             "Overweight personal dispositions and underweight the situation",
-            "Explain all behavior as pure chance",
-            "Attribute behavior only to social class"
+            "Explain behavior mainly as the result of luck or chance events",
+            "Attribute others' behavior to their social class or background"
           ],
           answer: 1,
           explain: "The error is a bias toward internal, dispositional explanations for others' behavior while discounting powerful situational influences."
@@ -158,10 +158,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In one study, Morris and Peng (1994) analyzed:",
           choices: [
-            "Children's drawings of families",
+            "Children's drawings of their families in Chinese and American schools",
             "Newspaper coverage of two mass murders in Chinese- and English-language papers",
-            "Standardized IQ tests",
-            "Advertising slogans"
+            "Police interview transcripts from two murder investigations in China and the United States",
+            "Television advertising slogans aimed at Chinese and American consumers"
           ],
           answer: 1,
           explain: "They compared how English-language and Chinese-language newspapers explained the causes of two similar mass killings."
@@ -183,10 +183,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "One of the two cases involved Gang Lu, who was a:",
           choices: [
-            "Postal worker in Michigan",
-            "Journalist in Beijing",
+            "Postal worker at a branch in Royal Oak, Michigan",
+            "Visiting journalist from a newspaper in Beijing",
             "Physics graduate student at the University of Iowa",
-            "Police officer in Iowa City"
+            "Mathematics professor at Iowa State University"
           ],
           answer: 2,
           explain: "Gang Lu was a Chinese physics doctoral student at the University of Iowa; the other case was postal worker Thomas McIlvane."
@@ -231,9 +231,9 @@ window.ACADEMY.addUnit("culture", {
           q: "The correspondence bias is the tendency to:",
           choices: [
             "Assume behavior reflects a matching underlying disposition even under constraint",
-            "Assume all behavior is caused by luck",
-            "Sort people only by demographic group",
-            "Exchange letters with study participants"
+            "Assume behavior is mostly caused by luck and random circumstances",
+            "Judge people mainly by the demographic group they belong to",
+            "Overestimate how much other people share one's own opinions, choices, and personal habits"
           ],
           answer: 0,
           explain: "Gilbert and Malone (1995) described the bias as inferring a disposition that corresponds to the behavior, even when a situation forced it."
@@ -255,10 +255,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Choi and Nisbett (1998) found that Koreans reduced their dispositional attributions most when:",
           choices: [
-            "The essay topic was interesting",
+            "The essay topic was personally interesting or important to them",
             "The situational constraint on the writer was made salient",
-            "They were paid more money",
-            "The writer shared their nationality"
+            "They were paid more money for giving careful, accurate judgments",
+            "The essay writer shared their nationality and cultural background"
           ],
           answer: 1,
           explain: "When the no-choice constraint was made vivid, Koreans lowered their trait inferences far more than Americans did."
@@ -302,10 +302,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In Morris and Peng's (1994) fish animations, participants judged whether a fish's movement was caused by:",
           choices: [
-            "Water temperature versus food supply",
+            "Water temperature versus the location of the food supply",
             "Internal (dispositional) versus external (situational) forces",
-            "Time of day versus season",
-            "The fish's color versus its size"
+            "The time of day versus the season in which it was filmed",
+            "The color of the fish versus the brightness of the surrounding water"
           ],
           answer: 1,
           explain: "The animations forced a choice between an internal cause in the fish and an external cause in the surrounding group."
@@ -328,9 +328,9 @@ window.ACADEMY.addUnit("culture", {
           q: "The fish-animation results parallel which broader finding?",
           choices: [
             "Americans favor dispositional causes; East Asians weight situational causes more",
-            "Everyone reasons identically about animals",
-            "Fish behavior is truly caused by personality",
-            "Chinese participants ignored the group entirely"
+            "People in all cultures reason identically about animals and about humans",
+            "East Asians favor dispositional causes; Americans weight situational causes more",
+            "Chinese participants ignored the surrounding group and focused on the single fish"
           ],
           answer: 0,
           explain: "The fish study mirrors the newspaper study: a US tilt toward internal causes and a Chinese tilt toward external ones."
@@ -399,10 +399,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Why were Koreans less surprised by counter-dispositional behavior?",
           choices: [
-            "They ignored the story",
-            "They disliked the actor",
+            "They paid less attention to the details of the story",
+            "They already disliked the actor and expected poor behavior",
             "Their holistic view expects situations to shape behavior",
-            "They could not remember the trait"
+            "Their analytic view expects stable traits to predict behavior"
           ],
           answer: 2,
           explain: "Because they expect the situation to matter, trait-inconsistent behavior did not violate their expectations."
@@ -446,10 +446,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Hindsight bias is best described as:",
           choices: [
-            "Forgetting that past events happened",
+            "Forgetting that a past event happened once its outcome is known",
             "The 'I knew it all along' overestimation of how predictable an outcome was",
-            "Accurately predicting the future",
-            "Refusing ever to change one's mind"
+            "The tendency to predict future events more accurately after practice",
+            "Refusing to change one's mind even after seeing clear evidence against one's view"
           ],
           answer: 1,
           explain: "After learning a result, people overestimate how obvious or predictable it was beforehand."
@@ -471,10 +471,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Which reasoning style is linked to greater hindsight bias?",
           choices: [
-            "Analytic, dispositionist thinking",
-            "Random guessing",
+            "Analytic, dispositionist thinking focused on a single cause",
+            "Intuitive guessing without any reasoning about causes",
             "Holistic thinking that expects many interacting causes",
-            "Formal statistical training"
+            "Formal statistical training in probability and base rates"
           ],
           answer: 2,
           explain: "Holistic thinking, which expects rich webs of causes, makes outcomes seem foreseeable after the fact."
@@ -543,10 +543,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "How is a POSITIVE act by an out-group member typically explained under the ultimate attribution error?",
           choices: [
-            "As solid proof of good character",
-            "As identical to an in-group act",
+            "As solid proof of the person's good character",
+            "As equal in meaning to the same act by an in-group member",
             "As a fluke, luck, or special situation",
-            "It is never noticed at all"
+            "As evidence that the stereotype was wrong all along"
           ],
           answer: 2,
           explain: "Positive out-group behavior is discounted as exceptional or situational, protecting the negative stereotype."

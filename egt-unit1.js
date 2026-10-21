@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What best defines a strategic interaction?",
           choices: [
             "A situation where each player's outcome depends on the choices of others",
-            "A situation decided entirely by random chance",
-            "A choice made by one person in complete isolation",
-            "A calculation with no decision-makers involved"
+            "A situation where each player picks the action that is best in isolation",
+            "A contest in which one player always wins and the other always loses",
+            "A choice whose result is settled mostly by luck rather than by decisions"
           ],
           answer: 0,
           explain: "Game theory studies strategic interactions, where the result for each player is shaped not only by their own action but by the actions of everyone else."
@@ -39,9 +39,9 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Which of these is a genuine example of strategic interaction?",
           choices: [
-            "Deciding what to eat for breakfast alone",
-            "Rolling a die by yourself",
-            "Reading a book quietly",
+            "A farmer choosing crops based on next season's weather forecast",
+            "A shopper picking the cheapest brand on a store shelf",
+            "A student deciding how many hours to study before an exam",
             "Two firms setting prices, each affected by the other's price"
           ],
           answer: 3,
@@ -119,10 +119,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In game theory, a 'player' is best described as:",
           choices: [
-            "Only an individual human being",
+            "Only an individual human being who can reason about the game",
             "Any decision-making entity, such as a person, firm, animal, or gene",
-            "Whichever participant happens to move first",
-            "The eventual winner of the game"
+            "Whichever participant happens to make the first move in the game",
+            "Any person or firm, but never an animal or a gene, since they cannot choose"
           ],
           answer: 1,
           explain: "A player is any entity that makes strategic choices, which is why evolutionary game theory can treat organisms or genes as players."
@@ -295,9 +295,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In a zero-sum game, the players' payoffs in every outcome:",
           choices: [
             "Always sum to the same constant, so one player's gain is another's loss",
-            "Are always equal to each other",
-            "Are always positive for everyone",
-            "Never depend on the strategies chosen"
+            "Are always equal to each other, so every outcome is a draw",
+            "Are always positive, so every player gains something from playing",
+            "Add up to zero only when both players choose the same strategy"
           ],
           answer: 0,
           explain: "Zero-sum (more generally constant-sum) means the payoffs add up to a fixed total, so any gain for one is a matching loss for another."
@@ -365,9 +365,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In a simultaneous game, the players:",
           choices: [
             "Choose without knowing the others' current choices",
-            "Always move strictly one after another",
-            "Can always see every move that came before",
-            "Never have more than one strategy each"
+            "Always move one after another, seeing every earlier move",
+            "Move at the same instant but can see each other's plans",
+            "Have only one strategy each, so no real choice is made"
           ],
           answer: 0,
           explain: "Simultaneous play means each player commits without observing the others' concurrent choice, even if not literally at the same instant."
@@ -376,10 +376,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "The extensive form of a game is drawn as:",
           choices: [
-            "A single summary number",
+            "A payoff matrix listing each player's strategies in rows and columns",
             "A tree of nodes and branches showing the order of moves",
-            "A pie chart of payoffs",
-            "A payoff matrix and nothing more"
+            "A list of each player's strategies with their average payoffs",
+            "A single table showing which strategy dominates the others"
           ],
           answer: 1,
           explain: "The extensive form is a game tree whose nodes are decision points and whose branches are actions, capturing the sequence of play."
@@ -434,10 +434,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A rational player, in the game-theory sense, is one who:",
           choices: [
-            "Acts randomly at all times",
+            "Always picks the action that gives everyone the highest total payoff",
             "Chooses actions to maximize their own expected payoff given their beliefs",
-            "Always cooperates no matter the situation",
-            "Ignores the payoffs entirely"
+            "Picks whichever action gives the best result in the worst case only",
+            "Cooperates whenever cooperation is possible, whatever the payoffs"
           ],
           answer: 1,
           explain: "Rationality means having consistent preferences and choosing the action that best serves them given what the player believes."
@@ -459,10 +459,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "The concept of common knowledge was introduced and later formalized by:",
           choices: [
-            "Charles Darwin",
-            "Adam Smith working alone",
+            "John von Neumann and Oskar Morgenstern",
+            "John Nash and later Reinhard Selten",
             "David Lewis and later Robert Aumann",
-            "Isaac Newton"
+            "Thomas Schelling and John Harsanyi"
           ],
           answer: 2,
           explain: "Philosopher David Lewis introduced common knowledge in his 1969 book Convention, and Robert Aumann gave it a formal treatment in 1976."
@@ -505,9 +505,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In game theory, a payoff or utility number primarily represents:",
           choices: [
             "How much a player prefers an outcome relative to the alternatives",
-            "The exact dollar amount in every case",
-            "The number of players in the game",
-            "The amount of time the game takes"
+            "The exact amount of money a player wins or loses in that particular outcome",
+            "The probability that a player ends up in that outcome",
+            "How fair an outcome is to all players taken together"
           ],
           answer: 0,
           explain: "Utility encodes preference: a higher number simply means the outcome is more preferred by that player."
@@ -529,10 +529,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "An ordinal utility scale conveys:",
           choices: [
-            "The exact intensity of preferences measured in cash",
+            "The exact intensity of each preference, measured in money",
             "Only the rank order of outcomes, not the size of the gaps between them",
-            "Nothing at all about preferences",
-            "The number of strategies available"
+            "The probabilities a player assigns to each outcome happening",
+            "Both the ranking of outcomes and exactly how much more each one is preferred"
           ],
           answer: 1,
           explain: "Ordinal utility captures only which outcome is preferred to which; it does not claim the numerical gaps are meaningful."

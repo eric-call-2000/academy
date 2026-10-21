@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Where is the SAFEST place to keep a small secret like a login token on a phone?",
-          choices: ["The platform's secure keystore or keychain", "A plain text file in app storage", "A hidden folder on the SD card", "The app's log files"],
+          choices: ["The platform's secure keystore or keychain", "The app's shared preferences settings file", "A Base64-encoded string inside the app's code", "A hidden folder on the phone's SD card"],
           answer: 0,
           explain: "Mobile platforms provide a hardware-backed keystore or keychain built for secrets. Plain files, SD cards, and logs are easy to read."
         },
@@ -62,7 +62,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why encrypt data at rest even if the app has a login screen?",
-          choices: ["A lost or stolen device can have its raw storage read directly", "It makes the app start faster", "It removes the need for a password", "It stops all network attacks"],
+          choices: ["A lost or stolen device can have its raw storage read directly", "Encrypted data loads faster than plain data on most phones", "Encryption at rest also protects data while it's sent to servers", "The login screen stops working if data is not encrypted"],
           answer: 0,
           explain: "A login screen does not protect files if someone pulls the storage off a lost device. Encryption at rest is the backstop."
         }
@@ -89,14 +89,14 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What does TLS protect against?",
-          choices: ["Someone reading or tampering with data in transit", "A weak password", "A user forgetting to log out", "Malware already on the phone"],
+          choices: ["Someone reading or tampering with data in transit", "Malware that is already installed and running on the phone", "Attackers guessing a user's weak password", "Data being read from the storage of a lost or stolen device"],
           answer: 0,
           explain: "TLS protects the connection - it keeps data confidential and detects tampering while it moves across the network."
         },
         {
           type: "mcq",
           q: "What is certificate pinning?",
-          choices: ["The app only trusts a specific known server certificate or key", "Attaching a certificate to every email", "Storing the password inside the certificate", "Turning off HTTPS for speed"],
+          choices: ["The app only trusts a specific known server certificate or key", "The app installs its own certificate authority on the device", "The app renews its server certificate automatically each year", "The app stores the user's password inside a signed certificate"],
           answer: 0,
           explain: "Pinning tells the app to accept only a specific expected certificate or public key, making it much harder to swap in a fake one."
         },
@@ -125,7 +125,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "A developer disables certificate validation to make testing easier and ships it. Why is that dangerous?",
-          choices: ["The app will trust fake servers and can be intercepted", "The app will run too slowly", "Users will need to log in twice", "The app will use more battery"],
+          choices: ["The app will trust fake servers and can be intercepted", "The app will fail to connect to the real server in production", "The app will show certificate warnings to users on every launch", "The app store will reject the app until validation is restored"],
           answer: 0,
           explain: "Turning off validation means any server, including an attacker's, is trusted. This is a common and serious mistake to leave in production."
         }
@@ -195,7 +195,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What is an authentication token used for?",
-          choices: ["Proving a user is already logged in on later requests", "Encrypting the whole database", "Speeding up the network", "Storing the user's photos"],
+          choices: ["Proving a user is already logged in on later requests", "Encrypting the user's password before it is stored", "Storing the user's settings between app sessions", "Checking that a request came over a secure connection"],
           answer: 0,
           explain: "After login, the app sends a token to prove identity on each request, so the user does not re-enter a password every time."
         },
@@ -215,7 +215,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why use a short-lived access token together with a refresh token?",
-          choices: ["A stolen access token stops working soon, while the refresh token stays better protected", "It removes the need for a password", "It makes tokens impossible to steal", "It lets the app skip HTTPS"],
+          choices: ["A stolen access token stops working soon, while the refresh token stays better protected", "The refresh token replaces the password, so users never need to log in again", "Two tokens are harder to steal than one, since attackers need to get both at once", "Short tokens are smaller, so requests travel faster over slow mobile networks"],
           answer: 0,
           explain: "The access token expires fast to limit exposure; the refresh token, kept more securely, is used to get new access tokens."
         },
@@ -244,7 +244,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "A user logs out. What should the server do with their tokens?",
-          choices: ["Invalidate them so they can no longer be used", "Nothing, they expire eventually anyway", "Email the token to the user", "Store the token in a public list"],
+          choices: ["Invalidate them so they can no longer be used", "Keep them active until they expire on their own", "Delete them from the phone but keep them valid", "Refresh them so the next login is faster"],
           answer: 0,
           explain: "Logout should invalidate the session or refresh token so a copied token cannot keep working after the user leaves."
         }
@@ -271,14 +271,14 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Broken access control means what?",
-          choices: ["Users can do or see things they should not be allowed to", "The login page is slow", "Passwords are too short", "The server ran out of disk space"],
+          choices: ["Users can do or see things they should not be allowed to", "Users cannot log in because the password check is broken", "The login page lets attackers try unlimited password guesses", "Session cookies are sent without the Secure flag set"],
           answer: 0,
           explain: "Broken access control lets someone reach data or actions beyond their rights - a top web application risk and squarely an authorization failure."
         },
         {
           type: "mcq",
           q: "A user changes the id in a request from their own to someone else's and sees that person's data. What flaw is this?",
-          choices: ["Missing authorization check on the object", "A slow database", "A weak TLS cipher", "A spelling mistake"],
+          choices: ["Missing authorization check on the object", "Missing authentication on the login page", "Cross-site scripting in the profile page", "SQL injection in the request's id field"],
           answer: 0,
           explain: "The server should confirm the user owns or may access that object. Trusting the id alone is a classic access-control bug."
         },
@@ -320,7 +320,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why can't you trust client-side validation alone?",
-          choices: ["Requests can be sent to the server without using the app", "The app is written in a slow language", "Users always type correctly", "The server has no CPU"],
+          choices: ["Requests can be sent to the server without using the app", "Client checks run after the data is already saved", "Phones reject validation code written in JavaScript", "Client-side checks only run when the device is offline"],
           answer: 0,
           explain: "Anyone can send raw requests directly to your API, skipping the app entirely, so the server is the only place validation is enforced."
         },
@@ -334,14 +334,14 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "The standard defense against SQL injection is to use what?",
-          choices: ["Parameterized queries (prepared statements)", "A longer password", "A faster database", "More client-side checks"],
+          choices: ["Parameterized queries (prepared statements)", "Encoding output as HTML entities on display", "Client-side input checks in the mobile app", "Encrypting the database tables at rest"],
           answer: 0,
           explain: "Parameterized queries keep user input as data, never as executable SQL, which stops the input from changing the query's meaning."
         },
         {
           type: "mcq",
           q: "What is the standard defense against cross-site scripting (XSS)?",
-          choices: ["Encode or escape output so input is not run as code", "Hide the page source", "Use a shorter URL", "Turn off cookies"],
+          choices: ["Encode or escape output so input is not run as code", "Use parameterized queries for every database call", "Hash all user input before saving it to the database", "Serve every page over HTTPS with a valid certificate"],
           answer: 0,
           explain: "Output encoding makes user-supplied text display as text rather than execute as script in the page."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What is reverse engineering of an app?",
-          choices: ["Taking the shipped app apart to study its code and data", "Making the app run backward", "Deleting the app from the store", "Translating the app to another language"],
+          choices: ["Taking the shipped app apart to study its code and data", "Rebuilding an old app version from its saved source code", "Testing an app by sending it random inputs to make it crash", "Copying a popular app's design to publish a lookalike app"],
           answer: 0,
           explain: "Reverse engineering unpacks and inspects the app to find secrets, logic, or weaknesses - a reason not to hide secrets in the client."
         },
@@ -390,7 +390,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Which is an example of insecure data storage on a mobile device?",
-          choices: ["Saving auth tokens in a plain, readable file", "Using the secure keychain for secrets", "Encrypting the local database", "Sending data over HTTPS"],
+          choices: ["Saving auth tokens in a plain, readable file", "Keeping secrets in the platform keychain", "Encrypting the local database with a key", "Sending all app data to the server over HTTPS"],
           answer: 0,
           explain: "Plain readable files are insecure storage. Use the platform keychain or keystore and encrypt sensitive local data."
         },
@@ -420,7 +420,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why is it risky to rely on the app's UI to enforce a rule like a spending limit?",
-          choices: ["The request can be sent without the UI, bypassing the rule", "The UI uses too much memory", "The UI cannot show numbers", "The rule would slow the phone down"],
+          choices: ["The request can be sent without the UI, bypassing the rule", "The UI can't display large numbers without rounding errors", "UI checks only run when the phone has a network connection", "Limits in the UI are shown to every user, revealing the rule"],
           answer: 0,
           explain: "Client controls can be skipped by sending direct requests, so critical rules must be enforced on the server too."
         },
@@ -440,7 +440,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why should app updates be digitally signed?",
-          choices: ["So the device can verify the update is genuine and untampered", "So the update downloads faster", "So the app uses less storage", "So users skip the login screen"],
+          choices: ["So the device can verify the update is genuine and untampered", "So the update is encrypted while it downloads over Wi-Fi", "So the update installs faster by skipping the store review", "So the device can check the update is the newest version"],
           answer: 0,
           explain: "A signature lets the device confirm the update really came from the developer and was not altered on the way."
         },
@@ -460,7 +460,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What is the security value of monitoring crashes and error logs?",
-          choices: ["Unusual patterns can reveal attacks or bugs early", "It makes the app free to run", "It replaces the need for HTTPS", "It stops users from logging in"],
+          choices: ["Unusual patterns can reveal attacks or bugs early", "Logs encrypt user data before it is sent to servers", "Crash reports stop attackers from repeating an exploit", "Monitoring blocks any request that causes an error"],
           answer: 0,
           explain: "Spikes in crashes, errors, or odd requests can be the first sign of an attack or a serious flaw, so monitoring buys early warning."
         },
@@ -489,7 +489,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "An update mechanism downloads code over plain HTTP with no signature check. Why is that dangerous?",
-          choices: ["An attacker could replace it with malicious code the app would run", "The update would be too large", "Users would need to re-register", "The app would look outdated"],
+          choices: ["An attacker could replace it with malicious code the app would run", "The update could be cached by the network and arrive out of date", "The download would fail on networks that block plain HTTP", "The app store would remove the app for skipping its review"],
           answer: 0,
           explain: "Without HTTPS and signature checks, an attacker on the network can swap in malware, so updates must be both encrypted and signed."
         }

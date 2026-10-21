@@ -118,7 +118,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Direct reciprocity requires that:",
-          choices: ["players are close genetic relatives", "the same two individuals interact repeatedly", "a third party observes each move", "the population lives on a lattice"],
+          choices: ["the players are close genetic relatives", "the same two individuals interact repeatedly", "a third party observes and reports each move", "the population is spread across a lattice"],
           answer: 1,
           explain: "Direct reciprocity depends on repeated encounters between the same pair, so future rounds can reward or punish."
         },
@@ -170,7 +170,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Indirect reciprocity differs from direct reciprocity mainly because:",
-          choices: ["it needs no genetic relatedness", "the return of help can come from a third party, not the recipient", "it only works on spatial lattices", "it requires between-group competition"],
+          choices: ["the same two players must meet again for the favor to be returned", "the return of help can come from a third party, not the recipient", "it only works when players live on a spatial lattice", "it relies on competition between whole groups of players rather than individuals"],
           answer: 1,
           explain: "In indirect reciprocity your good deeds build a reputation, and someone else may then help you."
         },
@@ -190,7 +190,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Nowak's condition for indirect reciprocity is q > c/b. What does q represent?",
-          choices: ["the probability of knowing someone's reputation", "the probability of another direct round", "the coefficient of relatedness", "the number of groups in the population"],
+          choices: ["the probability of knowing someone's reputation", "the probability of another round with the same partner", "the coefficient of relatedness between the players", "the fraction of the group that gossips about others"],
           answer: 0,
           explain: "q is the probability that you know a partner's reputation; cooperation pays when q > c/b."
         },
@@ -222,7 +222,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Network (spatial) reciprocity allows cooperation to persist because:",
-          choices: ["every player interacts with every other player", "cooperators form clusters and mainly interact with each other", "players are always close relatives", "reputations spread through gossip"],
+          choices: ["every player interacts with every other player equally often", "cooperators form clusters and mainly interact with each other", "players on a network are always close genetic relatives", "reputations spread through gossip along the network's links"],
           answer: 1,
           explain: "On a network, cooperators can clump together so most of their interactions are with fellow cooperators."
         },
@@ -242,7 +242,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Nowak's condition for network reciprocity is b/c > k. What is k?",
-          choices: ["the number of groups", "the average number of neighbors (degree)", "the probability of reputation", "the mutation rate"],
+          choices: ["the number of groups", "the average number of neighbors (degree)", "the probability of knowing a reputation", "the number of rounds in the game"],
           answer: 1,
           explain: "k is the average degree of the network; sparser networks (small k) make cooperation easier."
         },
@@ -275,7 +275,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Group selection (multilevel selection) favors cooperation through:",
-          choices: ["competition between groups, where cooperative groups outproduce selfish ones", "high genetic relatedness within families", "repeated pairwise encounters", "reputations spread by gossip"],
+          choices: ["competition between groups, where cooperative groups outproduce selfish ones", "high genetic relatedness among family members who share the same genes", "repeated pairwise encounters between the same two individuals over time", "reputations that spread through gossip across the whole population"],
           answer: 0,
           explain: "Cooperation loses within a group but cooperative groups grow faster, so between-group selection can win."
         },
@@ -295,7 +295,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Nowak's condition for group selection is b/c > 1 + n/m. In this expression, n and m are:",
-          choices: ["relatedness and reputation", "neighbors and rounds", "cost and benefit", "group size (n) and number of groups (m)"],
+          choices: ["relatedness (n) and reputation (m)", "neighbors per player (n) and rounds (m)", "cost (n) and benefit (m)", "group size (n) and number of groups (m)"],
           answer: 3,
           explain: "n is the maximum group size and m is the number of groups; many small groups make the threshold easier."
         },
@@ -333,7 +333,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Nowak's threshold for group selection is:",
-          choices: ["b/c > k", "b/c > 1/r", "w > c/b", "b/c > 1 + n/m"],
+          choices: ["b/c > k (degree)", "b/c > 1/r", "q > c/b", "b/c > 1 + n/m"],
           answer: 3,
           explain: "Group selection requires b/c > 1 + n/m, with n the group size and m the number of groups."
         },
@@ -379,7 +379,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "The unifying insight behind all five rules is that cooperation evolves when there is some form of:",
-          choices: ["random, well-mixed interaction", "assortment, so cooperators are more likely to interact with cooperators", "unlimited population growth", "complete absence of defectors"],
+          choices: ["random, well-mixed interaction, so every player meets every other equally often", "assortment, so cooperators are more likely to interact with cooperators", "unlimited population growth, so that cooperators never run short of resources", "a complete absence of defectors from the population at the very beginning"],
           answer: 1,
           explain: "Every rule creates positive assortment: relatedness, repetition, reputation, clustering, or grouping links cooperators together."
         },
@@ -405,7 +405,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Which statement best captures Nowak's 2006 contribution?",
-          choices: ["He proved cooperation cannot evolve", "He unified diverse cooperation mechanisms into five simple rules", "He replaced natural selection with kin selection", "He showed only humans cooperate"],
+          choices: ["He proved that cooperation cannot evolve without kin selection", "He unified diverse cooperation mechanisms into five simple rules", "He replaced natural selection with a theory of group selection", "He showed that only humans have the cognition to cooperate"],
           answer: 1,
           explain: "Nowak's review synthesized decades of theory into five compact, comparable mechanisms."
         },

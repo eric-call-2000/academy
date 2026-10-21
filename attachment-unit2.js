@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "For humans, the EEA is usually described as which kind of setting?",
           choices: [
-            "Industrial cities",
-            "Agricultural villages",
+            "Early farming villages",
+            "Large settled market towns",
             "Small hunter-gatherer groups",
-            "Seafaring colonies"
+            "Extended clan households"
           ],
           answer: 2,
           explain: "The human EEA is typically characterized as the small, nomadic hunter-gatherer bands of the Pleistocene."
@@ -84,10 +84,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "According to Bowlby, what is the primary biological function of the attachment system?",
           choices: [
-            "Teaching language",
+            "Ensuring a steady supply of food",
             "Protection from predators and danger",
-            "Providing nutrition",
-            "Encouraging solitary play"
+            "Teaching the infant social skills",
+            "Providing warmth and physical comfort"
           ],
           answer: 1,
           explain: "Bowlby held that attachment evolved chiefly to keep infants safe by maintaining protective proximity to a caregiver."
@@ -179,10 +179,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "In imprinting, what does the young bird typically follow?",
           choices: [
-            "The largest object nearby",
+            "The first object that feeds it",
             "The first moving object it sees",
-            "The warmest object nearby",
-            "The object that feeds it"
+            "The first sound it hears in the egg",
+            "The nearest warm object in the nest"
           ],
           answer: 1,
           explain: "Imprinting causes the hatchling to follow the first moving object it perceives, which is usually its mother."
@@ -226,10 +226,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What best describes a critical period?",
           choices: [
-            "A window in which learning is completely impossible",
+            "A flexible window when a bond forms most easily but can still form later",
             "A fixed window during which a bond must form or it may never form",
-            "A period that begins only in adulthood",
-            "A window that has no time limit at all"
+            "A stage when the infant first shows fear of unfamiliar adults",
+            "A time after birth when the mother's hormones prompt her to bond"
           ],
           answer: 1,
           explain: "A critical period is a rigid, time-limited window during which a specific bond or ability must develop."
@@ -261,10 +261,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Why do many theorists prefer 'sensitive period' over 'critical period' for human attachment?",
           choices: [
-            "Human attachment cannot form at all",
-            "Humans imprint in exactly the same way as geese",
+            "Human infants bond only after the first year of life",
+            "Human attachment follows the same rigid timing as imprinting",
             "Human attachments can still form beyond the ideal window",
-            "Humans have no early bonding window whatsoever"
+            "Human bonds depend on feeding rather than on early timing"
           ],
           answer: 2,
           explain: "Human attachment is more flexible than bird imprinting, so a sensitive window fits the evidence better than a rigid one."
@@ -440,10 +440,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "When Harlow's infant monkeys were frightened by a novel or scary object, what did they do?",
           choices: [
-            "Ran to the wire mother",
+            "Ran to the wire mother that had fed them",
             "Ran to the cloth mother and clung to her",
-            "Froze and did nothing",
-            "Attacked the object immediately"
+            "Ran to whichever mother was nearer at the time",
+            "Hid in a corner away from both mothers"
           ],
           answer: 1,
           explain: "Frightened monkeys rushed to the soft cloth mother and clung to her for comfort."

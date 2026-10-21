@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Who introduced the four-category model of adult attachment in 1991?",
-          choices: ["Kim Bartholomew and Leonard Horowitz", "Cindy Hazan and Phillip Shaver", "John Bowlby and Mary Ainsworth", "George, Kaplan, and Main"],
+          choices: ["Kim Bartholomew and Leonard Horowitz", "Cindy Hazan and Phillip Shaver", "Kelly Brennan, Catherine Clark, and Phillip Shaver", "Carol George, Nancy Kaplan, and Mary Main"],
           answer: 0,
           explain: "Bartholomew and Horowitz (1991) proposed the four-category model, expanding earlier three-category descriptions of adult attachment."
         },
@@ -186,7 +186,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Attachment anxiety is primarily characterized by:",
-          choices: ["A fear of abandonment and heightened sensitivity to rejection", "A wish to avoid intimacy at all costs", "Complete indifference to relationships", "An absence of any emotional response to partners"],
+          choices: ["A fear of abandonment and heightened sensitivity to rejection", "Discomfort with closeness and a strong wish to stay independent", "A calm confidence that partners will be there when needed", "A lack of interest in close relationships of any kind"],
           answer: 0,
           explain: "High anxiety centers on worry that a partner will leave or withhold love, along with strong reactions to any hint of rejection."
         },
@@ -243,7 +243,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Attachment avoidance is best described as:",
-          choices: ["Discomfort with closeness and reluctance to depend on others", "An intense fear of being abandoned", "A constant craving for reassurance", "A balanced comfort with intimacy"],
+          choices: ["Discomfort with closeness and reluctance to depend on others", "An intense fear of being abandoned by a romantic partner", "A constant need for reassurance and closeness from others", "A balanced comfort with both intimacy and independence"],
           answer: 0,
           explain: "High avoidance centers on unease with intimacy and a strong preference for independence over depending on a partner."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The ECR-R retained which two dimensions from the original ECR?",
-          choices: ["Warmth and dominance", "Approach and withdrawal", "Attachment anxiety and attachment avoidance", "Self-esteem and sociability"],
+          choices: ["Attachment security and attachment insecurity", "Closeness and dependence on romantic partners", "Attachment anxiety and attachment avoidance", "Fearfulness and preoccupation with partners"],
           answer: 2,
           explain: "The revision kept the same two constructs, anxiety and avoidance, and only improved how precisely they are measured."
         },
@@ -445,7 +445,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What is the main reason the two traditions can diverge?",
-          choices: ["They were invented in the same year", "They tap different targets and levels of awareness", "They both use identical interview coding", "They only apply to children"],
+          choices: ["They were developed by researchers who disagreed about Bowlby's theory", "They tap different targets and levels of awareness", "One measures adults while the other measures only children", "They were tested on samples from different countries and cultures"],
           answer: 1,
           explain: "The AAI captures largely unconscious discourse patterns about caregivers, while self-reports capture conscious feelings about romantic partners, so they measure different things."
         },

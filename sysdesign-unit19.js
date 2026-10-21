@@ -14,9 +14,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A prompt says: Summarize this ticket. The model returns a three-paragraph narrative when the team wanted one line. What is the underlying cause?",
           choices: [
-            "The model lacks the capability to write short summaries",
-            "The temperature setting was too low for concise output",
-            "The ticket text was too long to summarize in one line",
+            "The model lacks the capability to write short summaries of technical support tickets",
+            "The temperature setting was too low, which pushes the model toward long and repetitive output",
+            "The ticket text was too long for any model to summarize faithfully in a single line",
             "The prompt left length unspecified, so the model's prior filled the gap"
           ],
           answer: 3,
@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which revision most reduces ambiguity in the instruction Write a good error message for this failure?",
           choices: [
-            "Write a really good, clear, professional error message",
-            "You are an expert technical writer. Write a good error message",
+            "Write a really good, clear, concise, and professional error message that any user will be able to understand",
+            "You are an expert technical writer with twenty years of experience. Write a good error message for this failure",
             "Write one sentence, under 120 characters, stating what failed and the next action the user should take",
-            "Write an error message that follows industry best practices"
+            "Write an error message for this failure that follows all current industry best practices for usability and tone"
           ],
           answer: 2,
           explain: "Specifying observable properties - length, content, and required elements - removes dimensions the model would otherwise resolve on its own. Adjectives like good and professional specify nothing checkable."
@@ -121,10 +121,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A prompt ends with: Respond in JSON. The service still sometimes gets a prose preamble before the JSON. What is the strongest fix?",
           choices: [
-            "Repeat the phrase Respond in JSON three more times in the prompt",
-            "Raise the temperature so the model explores formats more freely",
+            "Repeat the phrase Respond in JSON three more times in the prompt, including once at the very start and once in the system prompt",
+            "Raise the temperature so the model explores more output formats freely and settles on clean JSON",
             "Constrain the response with a schema or a forced tool call so the format is enforced, not requested",
-            "Add the word IMPORTANT in capitals before the instruction"
+            "Add the word IMPORTANT in capitals before the instruction and explain that the service will break otherwise"
           ],
           answer: 2,
           explain: "A natural-language format request is a preference the sampler can violate. Schema constraint or forced tool use makes the format a property of the decoding, not a hope."
@@ -156,9 +156,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Few-shot examples most clearly outperform prose instructions when the target is which of the following?",
           choices: [
-            "A fact the model does not know and must be told",
+            "A fact the model does not know and must be told before it can answer correctly",
             "A format or subtle style that is easier to show than to describe",
-            "A safety rule that must never be violated",
+            "A safety rule that must never be violated under any circumstances, even by a user who insists",
             "A long chain of arithmetic that must be exactly right"
           ],
           answer: 1,
@@ -181,9 +181,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A team adds twelve few-shot examples and accuracy on a hard subclass drops. What is the most likely explanation?",
           choices: [
-            "The examples exceeded the maximum count the model can attend to",
-            "Few-shot prompting only works with fewer than five examples",
-            "Adding examples always lowers accuracy by diluting the instructions",
+            "The twelve examples exceeded the maximum number of examples the model is able to attend to at once",
+            "Few-shot prompting only works reliably with fewer than five examples in the prompt",
+            "Adding examples always lowers accuracy across every class by diluting the instructions that come before them",
             "The examples do not cover that subclass, so the model generalizes from the nearest ones"
           ],
           answer: 3,
@@ -230,9 +230,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "What is the core engineering advantage of schema-constrained or tool-forced output over parsing prose?",
           choices: [
             "Validation happens before your code sees the response, so malformed output is not your problem",
-            "It makes the model reason more accurately about the task",
-            "It reduces token cost by removing the need for instructions",
-            "It removes the possibility of factually wrong values"
+            "It makes the model reason more accurately about the task, because the schema guides its thinking step by step",
+            "It reduces token cost substantially by removing the need for any instructions in the prompt",
+            "It removes the possibility of factually wrong values appearing inside the returned fields"
           ],
           answer: 0,
           explain: "The win is structural, not cognitive: the shape is guaranteed at the boundary. The values inside can still be wrong, so semantic validation is still yours to do."
@@ -306,9 +306,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A support bot gets worse after the team raises retrieval from 3 chunks to 30. What is the most likely mechanism?",
           choices: [
-            "The extra chunks exceeded the model's vocabulary limit",
+            "The extra chunks pushed the prompt past the model's vocabulary limit, so later words were dropped",
             "The added chunks are mostly irrelevant and dilute the signal the model must attend to",
-            "More chunks force the model to switch to a smaller internal model",
+            "More chunks force the model to switch to a smaller internal model that can hold the longer prompt",
             "Retrieval systems cannot return more than a few results accurately"
           ],
           answer: 1,
@@ -325,9 +325,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which item most deserves a slot in a limited context window for a question about a specific refund policy?",
           choices: [
-            "The full company handbook, so nothing relevant is missed",
-            "A summary of every policy the company has ever published",
-            "The last two hundred turns of the user's chat history",
+            "The full company handbook, so that nothing that might be relevant to the refund question is missed",
+            "A summary of every policy the company has ever published, including retired and superseded ones",
+            "The last two hundred turns of the user's chat history with the support bot",
             "The three paragraphs of policy text that govern refunds, with their effective dates"
           ],
           answer: 3,
@@ -383,9 +383,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Why do practical chunking schemes usually overlap adjacent chunks by some number of tokens?",
           choices: [
             "Overlap reduces the chance that a fact straddling a boundary is split across two chunks",
-            "Overlap lets the vector index compress the embeddings more efficiently",
-            "Overlap is required for cosine similarity to be well defined",
-            "Overlap allows the model to skip re-ranking entirely"
+            "Overlap lets the vector index compress the stored embeddings more efficiently on disk",
+            "Overlap is required for cosine similarity between neighboring chunks to be well defined",
+            "Overlap allows the system to skip the re-ranking stage entirely for most queries"
           ],
           answer: 0,
           explain: "A hard split can cut a definition from its subject. Overlap gives each fact a chance to appear intact in at least one chunk, at the cost of index size."
@@ -417,10 +417,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Chunks are split at a fixed token count with no regard for document structure. Which failure should you expect first?",
           choices: [
-            "The embedding model will refuse chunks that end mid-sentence",
+            "The embedding model will refuse to embed any chunk that ends in the middle of a sentence",
             "Answers will get split across boundaries, so no single chunk contains the whole answer",
-            "The vector index will grow without bound",
-            "Cosine similarity will start returning values above one"
+            "The vector index will grow without bound as the same text is embedded again and again",
+            "Cosine similarity will start returning values above one for chunks that were cut mid-table"
           ],
           answer: 1,
           explain: "Structure-blind splitting cuts tables, lists, and multi-sentence definitions apart. Splitting on headings, paragraphs, or sentences respects the units that carry meaning."
@@ -442,10 +442,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The system returns a confident answer, but the retrieved chunks contain nothing about the question. Which failure mode is this, and what is the fix?",
           choices: [
-            "Chunk boundary split; increase the overlap between chunks",
-            "Retrieved-but-ignored; move the chunks earlier in the prompt",
+            "A chunk boundary split; increase the overlap between adjacent chunks so the answer stays intact",
+            "Retrieved-but-ignored; move the retrieved chunks earlier in the prompt so the model reads them first",
             "Answering with nothing relevant retrieved; require grounding and allow an explicit I do not know",
-            "Embedding drift; re-index with a newer embedding model"
+            "Embedding drift; re-index the whole corpus with a newer embedding model and rerun the query"
           ],
           answer: 2,
           explain: "This is the most dangerous mode because the output looks authoritative. The fix is a relevance threshold plus a prompt that makes abstention a legal and expected answer."
@@ -477,9 +477,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which evaluation design best isolates whether a regression came from retrieval or from generation?",
           choices: [
-            "Compare only the final answers before and after the change",
-            "Ask the model to rate its own confidence on each answer",
-            "Increase the number of retrieved chunks and see whether accuracy recovers",
+            "Compare only the final answers before and after the change, using the same set of test questions each time",
+            "Ask the model to rate its own confidence on each answer and compare the averages across versions",
+            "Increase the number of retrieved chunks and see whether end-to-end accuracy recovers after the change",
             "Measure retrieval metrics on a labeled query-to-chunk set and generation metrics on fixed gold context, separately"
           ],
           answer: 3,
@@ -513,10 +513,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Prompt caching reuses computation for what exactly?",
           choices: [
-            "Any repeated substring anywhere in the prompt",
+            "Any repeated substring that appears anywhere in the prompt, in any position",
             "A stable prefix of the prompt that is byte-identical to a previous request",
-            "The generated response for identical questions",
-            "The embeddings of retrieved chunks across requests"
+            "The generated response returned for identical questions from different users",
+            "The embeddings of retrieved chunks that are reused across many requests"
           ],
           answer: 1,
           explain: "Caching operates on a prefix because the internal state at each position depends on everything before it. Change one token early and every later position must be recomputed."
