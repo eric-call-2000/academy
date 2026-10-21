@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does it mean that Claude has 'vision'?",
           choices: [
             "It can look at images you upload and describe or analyze them",
-            "It can watch you through your webcam",
-            "It can generate photorealistic images from scratch",
-            "It can only read plain text, never pictures"
+            "It can create photorealistic images from a written text description",
+            "It can watch live video from your camera and react to it in real time",
+            "It can read text in images, but cannot interpret charts or photos"
           ],
           answer: 0,
           explain: "Vision means Claude can accept images as input and reason about what is in them, from photos to screenshots."
@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which of these is a good use of Claude's vision?",
           choices: [
             "Uploading a photo of a chart and asking what the trend is",
-            "Asking Claude to feel the texture of an object",
-            "Having Claude smell a scanned document",
-            "Asking Claude to physically hold your phone"
+            "Asking Claude to generate a brand-new photo from scratch for a poster",
+            "Asking Claude to identify a stranger in a crowd photo by name",
+            "Having Claude edit the pixels of a photo to remove the background"
           ],
           answer: 0,
           explain: "Vision shines at reading charts, diagrams, and screenshots and explaining what they show."
@@ -94,9 +94,9 @@ window.ACADEMY.addUnit("ai", {
           q: "After you upload a long PDF, what can Claude do?",
           choices: [
             "Summarize it and answer questions about its contents",
-            "Only count how many pages it has",
-            "Delete the original file from your computer",
-            "Print it to your home printer"
+            "Read only the first page, since PDFs are too long to process",
+            "Edit the original PDF file directly on your computer",
+            "Search the web for other copies of the same document"
           ],
           answer: 0,
           explain: "Claude can read the contents of a document and help you understand, summarize, or search it."
@@ -147,9 +147,9 @@ window.ACADEMY.addUnit("ai", {
           q: "You have five research PDFs. A good task for Claude is:",
           choices: [
             "Compare their main findings and note where they disagree",
-            "Feel which paper is heaviest",
-            "Rank them by paper color",
-            "Mail the authors on your behalf"
+            "Check each paper's citations against the live publisher sites",
+            "Rank them by how often each one has been cited by others",
+            "Email each paper's authors to ask follow-up questions"
           ],
           answer: 0,
           explain: "Claude can read multiple documents and compare or contrast what they say."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does extended thinking give Claude?",
           choices: [
             "More time to reason step by step before answering",
-            "The ability to browse the internet",
-            "A faster answer with no reasoning",
-            "Permission to skip hard questions"
+            "Access to fresh information from the web for each answer",
+            "A larger context window for very long documents",
+            "Permanent memory of everything you have discussed"
           ],
           answer: 0,
           explain: "Extended thinking lets Claude work through a problem more carefully before giving its final answer."
@@ -219,9 +219,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A good sign you might want extended thinking is when:",
           choices: [
             "The problem has many steps that build on each other",
-            "You just want a quick greeting",
-            "You need a one-word answer",
-            "You are asking for the current time"
+            "You need a quick, friendly reply to a simple message",
+            "You want a short creative tagline for a new product",
+            "You are asking for one fact, like a country's capital"
           ],
           answer: 0,
           explain: "Chains of dependent steps are exactly where more reasoning time helps most."
@@ -248,9 +248,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is 'tool use' (also called function calling)?",
           choices: [
             "Claude calling tools or APIs you defined to fetch data or act",
-            "Claude physically picking up a hammer",
-            "Claude drawing pictures of tools",
-            "Claude refusing to answer without a tool"
+            "Claude writing the source code for a new tool you describe to it",
+            "Claude choosing which of its own models should answer a question",
+            "Claude running inside another app as a built-in helper feature"
           ],
           answer: 0,
           explain: "Tool use lets Claude reach beyond text by calling functions or APIs a developer provides."
@@ -266,9 +266,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why does tool use matter?",
           choices: [
             "It lets Claude get live or private data it could not know on its own",
-            "It replaces the need to ever talk to Claude",
-            "It makes Claude conscious",
-            "It stops Claude from ever making errors"
+            "It makes Claude's answers longer and more detailed on every topic",
+            "It lets Claude permanently learn whatever a tool returns to it",
+            "It removes the need to write a prompt, since tools do the work"
           ],
           answer: 0,
           explain: "Tools connect Claude to current or system-specific information, like a weather API or a database."
@@ -331,9 +331,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is MCP (Model Context Protocol)?",
           choices: [
             "An open standard from Anthropic for connecting AI to apps, data, and tools",
-            "A paid Claude subscription tier",
-            "A programming language invented by Google",
-            "A type of graphics card"
+            "A file format for saving and sharing prompts between different AI models",
+            "A training method for teaching models to follow instructions more reliably",
+            "A safety policy that limits which tools a model is ever allowed to call"
           ],
           answer: 0,
           explain: "MCP is an open standard from Anthropic that gives models a common way to connect to outside systems."
@@ -356,9 +356,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What problem does MCP help solve?",
           choices: [
             "Connecting a model to many tools without a custom integration each time",
-            "Making Claude type faster",
-            "Removing the need for any tools at all",
-            "Turning text into video"
+            "Making a model remember every past conversation with a particular user",
+            "Shrinking a model so it can run on a phone without an internet connection",
+            "Stopping a model from making mistakes when it answers factual questions"
           ],
           answer: 0,
           explain: "MCP standardizes connections so you do not have to reinvent an integration for every new tool or data source."
@@ -384,9 +384,9 @@ window.ACADEMY.addUnit("ai", {
           q: "An MCP connection might let Claude reach:",
           choices: [
             "A company's files, a calendar, or an internal database",
-            "Your dreams",
-            "The distant future",
-            "Physical objects in your kitchen"
+            "Any website on the internet, without any setup needed",
+            "Its own training data, to add new facts permanently",
+            "Other users' private chats, to learn from what they ask"
           ],
           answer: 0,
           explain: "MCP connects Claude to real data and tools like files, calendars, and databases through a shared protocol."
@@ -403,9 +403,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is 'computer use'?",
           choices: [
             "Claude operating a computer by moving the cursor, clicking, and typing",
-            "Claude repairing broken laptops",
-            "Claude only reading files, never acting",
-            "Claude building physical computers"
+            "Claude writing code that you then copy and run on your own computer",
+            "Claude reading files on your computer without being able to change them",
+            "Claude running faster because it uses your computer's own hardware"
           ],
           answer: 0,
           explain: "Computer use lets Claude control a screen the way a person would, to complete tasks in software."
@@ -457,9 +457,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A fitting task for computer use might be:",
           choices: [
             "Filling out a repetitive web form step by step",
-            "Physically dusting your desk",
-            "Charging your phone battery",
-            "Cooking your dinner"
+            "Answering a quick factual question from memory",
+            "Writing a short poem about autumn for a card",
+            "Explaining a math concept in simple language"
           ],
           answer: 0,
           explain: "On-screen, repetitive workflows are a natural fit for a system that can click and type."
@@ -476,9 +476,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What are Artifacts in Claude?",
           choices: [
             "A side panel where Claude shows code, documents, or small working apps you can preview",
-            "Ancient museum pieces",
-            "A billing feature",
-            "A way to delete your chat history"
+            "A saved library of your past chats that Claude can search when you ask a new question",
+            "Files you upload so Claude can read them, such as PDFs, spreadsheets, and images",
+            "A list of the sources and citations Claude used when writing its most recent answer"
           ],
           answer: 0,
           explain: "Artifacts give a dedicated space to view, run, and iterate on things like code, docs, or mini apps."
@@ -494,9 +494,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A good reason to use an Artifact is:",
           choices: [
             "You want to see a small app actually run and then tweak it",
-            "You want to permanently delete Claude",
-            "You want Claude to forget your request",
-            "You want to disable code entirely"
+            "You want a quick one-line answer to a simple factual question",
+            "You want Claude to remember a fact in every future chat",
+            "You want to search your past conversations for a detail"
           ],
           answer: 0,
           explain: "Artifacts let you preview and refine working content instead of just reading it in the chat."
@@ -529,9 +529,9 @@ window.ACADEMY.addUnit("ai", {
           q: "If code from Claude has a bug, the best move is:",
           choices: [
             "Describe the error to Claude and ask it to fix it",
-            "Assume it can never be fixed",
-            "Ship it without testing",
-            "Blame the programming language"
+            "Start a fresh chat and ask for the code again",
+            "Ask Claude to rewrite it in a different language",
+            "Regenerate the reply until the code happens to work"
           ],
           answer: 0,
           explain: "Sharing the error message lets Claude diagnose and revise the code, often in the same Artifact."
@@ -559,9 +559,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does a large 'context window' let you do?",
           choices: [
             "Give Claude a lot of text at once, like a whole long document",
-            "Open more browser windows",
-            "See Claude's source code",
-            "Make the app run faster"
+            "Have Claude remember your past chats across separate sessions",
+            "Get longer replies from Claude, up to the size of a whole book",
+            "Run several conversations with Claude side by side at once"
           ],
           answer: 0,
           explain: "A larger context window means Claude can consider more input at once, such as long documents or transcripts."
@@ -577,9 +577,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A great use of a long context window is:",
           choices: [
             "Pasting a long report and asking questions across all of it",
-            "Sending a single one-word message",
-            "Asking for the time",
-            "Saying hello"
+            "Asking a quick question that only needs a one-line answer",
+            "Having Claude remember your preferences in future chats",
+            "Getting Claude to reply faster to short, simple messages"
           ],
           answer: 0,
           explain: "Long inputs like big reports or many pages benefit most from a large context window."
@@ -612,9 +612,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which task best combines long context and many languages?",
           choices: [
             "Summarizing a long multilingual document into English",
-            "Turning on your porch light",
-            "Counting to three",
-            "Drawing a single dot"
+            "Translating one short English sentence into Spanish",
+            "Answering a quick trivia question in French",
+            "Spell-checking a single paragraph of English text"
           ],
           answer: 0,
           explain: "A big, mixed-language document plays to both the large context window and multilingual strength."

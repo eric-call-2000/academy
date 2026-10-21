@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What best describes an AI agent?",
           choices: [
             "An LLM that plans and takes multiple steps using tools to reach a goal",
-            "A chatbot that only ever answers one message at a time",
-            "A physical robot with arms and legs",
-            "A search engine that returns a list of links"
+            "A chatbot that answers each message once, using only what it was trained on",
+            "A fixed script of steps a programmer wrote, with the LLM filling in the text",
+            "A larger, more capable LLM that answers harder questions in a single reply"
           ],
           answer: 0,
           explain: "An agent goes beyond a single reply: it plans, acts, checks results, and keeps going until the goal is met."
@@ -87,9 +87,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is 'tool use' (also called function calling)?",
           choices: [
             "The model chooses to call a function you defined to fetch data or act",
-            "The model rewrites its own source code",
-            "The user manually copies text between two apps",
-            "The model deletes tools it does not like"
+            "The model writes new code for a tool and installs it on your computer",
+            "The developer calls the model from inside an app, like any other function",
+            "The model looks up an answer in its training data, like a built-in index"
           ],
           answer: 0,
           explain: "You describe available tools, and the model decides when to call one and with what inputs."
@@ -134,9 +134,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why write a clear description for each tool?",
           choices: [
             "So the model can tell when that tool is the right one to call",
-            "So the tool runs faster on the server",
-            "So the tool costs less money to store",
-            "Descriptions are decorative and ignored by the model"
+            "So users can read what each tool does in the app's settings",
+            "So the tool's server knows which model is sending it requests",
+            "So the model can rewrite the tool's code if it is not working"
           ],
           answer: 0,
           explain: "The model reads your descriptions to decide which tool fits the task, so clarity matters."
@@ -159,9 +159,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does RAG (Retrieval-Augmented Generation) do?",
           choices: [
             "Retrieves relevant documents and adds them to the prompt before answering",
-            "Retrains the whole model on your data every night",
-            "Blocks the model from using any outside information",
-            "Randomly generates text with no sources"
+            "Retrains the model on your documents so it permanently learns their content",
+            "Checks the model's finished answer against a database and flags errors",
+            "Generates several answers and picks the one that most of them agree on"
           ],
           answer: 0,
           explain: "RAG fetches relevant text and puts it in the prompt so the answer is grounded in real sources."
@@ -205,9 +205,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A big benefit of RAG over relying on the model's memory alone is that it can:",
           choices: [
             "Use fresh or private info the model was never trained on",
-            "Make the model conscious",
-            "Remove the need for any prompt at all",
-            "Guarantee the model never makes a mistake"
+            "Answer faster, since it skips reading the whole prompt",
+            "Stop hallucinations entirely, whatever the documents say",
+            "Remember each user's past questions between sessions"
           ],
           answer: 0,
           explain: "RAG can supply new, changing, or private data the model could not have memorized in training."
@@ -230,9 +230,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is an embedding?",
           choices: [
             "A list of numbers that captures the meaning of a piece of text",
-            "A picture of the text",
-            "A password that locks a document",
-            "The file name of a document"
+            "A short summary of a document, written by the model in plain words",
+            "An index of the keywords in a text and where each one appears",
+            "A compressed copy of the text that can be expanded back exactly"
           ],
           answer: 0,
           explain: "An embedding turns text into a vector of numbers so similar meanings land near each other."
@@ -276,9 +276,9 @@ window.ACADEMY.addUnit("ai", {
           q: "How does a vector database decide which stored text is relevant?",
           choices: [
             "It finds embeddings closest to the question's embedding",
-            "It picks documents at random",
-            "It always returns the newest document",
-            "It only matches identical spelling"
+            "It returns documents that share the most exact keywords",
+            "It ranks documents by how recently they were added",
+            "It asks the model to read every document in full first"
           ],
           answer: 0,
           explain: "Closeness between vectors stands in for closeness in meaning, so nearby embeddings are the best matches."
@@ -301,9 +301,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is MCP (Model Context Protocol)?",
           choices: [
             "An open standard for connecting tools and data sources to an AI assistant",
-            "A brand of laptop",
-            "A type of image file",
-            "A pricing plan for AI subscriptions"
+            "A training method that teaches a model to follow instructions more closely",
+            "A file format for saving prompts so they can be shared between models",
+            "A paid plan that lets an AI assistant browse the web on your behalf"
           ],
           answer: 0,
           explain: "MCP is an open standard, introduced by Anthropic, for wiring tools and data into an assistant in a consistent way."
@@ -336,9 +336,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why is a shared standard like MCP useful?",
           choices: [
             "Any compliant tool can connect without custom one-off integration each time",
-            "It makes the model run without electricity",
-            "It hides all data from the user forever",
-            "It replaces the need for any model at all"
+            "It makes every connected tool faster, since requests skip the AI model",
+            "It lets the model learn permanently from each tool it is connected to",
+            "It guarantees that every tool's data is accurate and safe to use as-is"
           ],
           answer: 0,
           explain: "With a common standard, a tool built once can plug into any assistant that speaks MCP."
@@ -372,9 +372,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a multi-agent system?",
           choices: [
             "Several specialized agents cooperating on a task, often with a coordinator",
-            "A single agent copied to run twice as fast",
-            "A group of humans without any AI",
-            "One model answering one question"
+            "One agent that keeps several copies of its memory for different users",
+            "One model that answers the same question several times and votes",
+            "A single agent that can call many different tools during a task"
           ],
           answer: 0,
           explain: "Multi-agent means several agents, often specialized, working together on parts of a larger task."
@@ -418,9 +418,9 @@ window.ACADEMY.addUnit("ai", {
           q: "One reason to split work across specialized agents is that:",
           choices: [
             "Each agent can focus on one job it handles well",
-            "It guarantees zero cost",
-            "It makes the agents conscious",
-            "It removes the need to check any results"
+            "More agents always means a cheaper overall task",
+            "Agents don't make mistakes when they work in teams",
+            "Splitting work removes the need for a coordinator"
           ],
           answer: 0,
           explain: "Specialization lets each agent focus, which can improve quality on complex, multi-part tasks."
@@ -443,9 +443,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does 'human-in-the-loop' mean?",
           choices: [
             "A person reviews or approves certain agent actions before they happen",
-            "The agent runs with no oversight at all",
-            "A human does the whole task by hand",
-            "The agent only works at night"
+            "A person reads the agent's logs after the whole task has finished",
+            "The agent learns from human examples that were collected in training",
+            "The agent asks a person for help only when it hits a system error"
           ],
           answer: 0,
           explain: "Human-in-the-loop keeps a person in the decision path to approve or correct risky actions."
@@ -514,9 +514,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why can a long agent run go badly wrong?",
           choices: [
             "A small early mistake can compound across later steps",
-            "Agents get tired and need to rest",
-            "Longer runs always cost nothing",
-            "Agents refuse to take more than one step"
+            "The model forgets its goal after about ten steps",
+            "Every tool call adds a delay that ends the run",
+            "Long runs switch to a smaller, less capable model"
           ],
           answer: 0,
           explain: "In a multi-step loop, one early error can feed the next step and snowball into a big failure."
@@ -549,9 +549,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which statement about today's AI agents is accurate?",
           choices: [
             "They are narrow and can fail on messy real-world tasks, not general AGI",
-            "They are conscious and fully general like a human",
-            "They never make mistakes once set up",
-            "They no longer need any testing or oversight"
+            "They can handle almost any office task as long as they have the right tools",
+            "They work reliably once tested, so ongoing oversight is no longer needed",
+            "They only work inside the app of the company that trained their model"
           ],
           answer: 0,
           explain: "Today's agents are narrow tools that can be brittle; they are not general, conscious, or error-free."

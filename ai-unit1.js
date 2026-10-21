@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is the simplest way to describe artificial intelligence?",
           choices: [
             "Machines doing tasks that normally need human-like intelligence",
-            "Any computer program that runs fast",
-            "A robot with feelings and self-awareness",
-            "A website that stores a lot of data"
+            "Any computer program that runs faster than a person can work by hand",
+            "Software that follows a long list of if-then rules written by experts",
+            "A machine that has become conscious and aware of its own thoughts"
           ],
           answer: 0,
           explain: "AI is about machines performing tasks we associate with human intelligence, like recognizing images or understanding language. Speed alone is not AI."
@@ -74,9 +74,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Generative AI is best known for doing what?",
           choices: [
             "Creating new content like text, images, or audio",
-            "Deleting old files automatically",
-            "Making computers physically faster",
-            "Blocking all internet ads"
+            "Sorting existing records into predefined categories",
+            "Speeding up the hardware a program runs on",
+            "Storing large amounts of data for fast lookup"
           ],
           answer: 0,
           explain: "Generative AI produces new content. It is the branch behind chatbots and image generators."
@@ -93,9 +93,9 @@ window.ACADEMY.addUnit("ai", {
           q: "How is machine learning different from traditional hand-coded programming?",
           choices: [
             "It learns patterns from data instead of following rules a person wrote",
-            "It never needs a computer to run",
-            "It always gives the exact same answer as a calculator",
-            "It only works on phones"
+            "It runs the same hand-written rules, just on much faster, more powerful hardware",
+            "It stores every possible answer in advance and looks the right one up",
+            "It needs no data at all, only a well-written description of the task"
           ],
           answer: 0,
           explain: "In machine learning, you feed the system data and it learns the patterns itself, rather than a programmer writing every rule by hand."
@@ -128,9 +128,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which situation best fits reinforcement learning?",
           choices: [
             "An agent learning to play a game by getting rewards for good moves",
-            "Sorting emails using a fixed rule about the word sale",
-            "Adding a column of numbers",
-            "Copying data between two spreadsheets"
+            "Sorting emails into folders using thousands of examples labeled by people",
+            "Grouping customers into segments when no labels exist at all",
+            "Predicting next month's sales from a table of past monthly figures"
           ],
           answer: 0,
           explain: "Reinforcement learning improves through trial and error, using rewards and penalties as feedback, which fits game-playing agents well."
@@ -171,9 +171,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does generative AI mainly do that predictive or analytical AI does not?",
           choices: [
             "It creates new content such as text, images, or audio",
-            "It only sorts numbers into order",
-            "It just measures how fast a computer runs",
-            "It only deletes duplicate files"
+            "It forecasts future values from historical data trends",
+            "It sorts existing items into categories it has learned",
+            "It scores how likely a customer is to cancel a service"
           ],
           answer: 0,
           explain: "Generative AI produces new content. Predictive or analytical AI mostly classifies, scores, or forecasts existing data."
@@ -219,9 +219,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why was the late-2022 chatbot moment such a big deal?",
           choices: [
             "It made powerful generative AI easy to use through a simple chat box",
-            "It was the first computer ever built",
-            "It replaced the internet entirely",
-            "It removed the need for electricity"
+            "It was the first time a neural network had ever been trained on text",
+            "It showed that AI models no longer make factual mistakes of any kind",
+            "It proved that computers had become conscious and could truly think"
           ],
           answer: 0,
           explain: "A friendly chat interface let ordinary people use advanced AI without any technical skills, driving huge adoption."
@@ -238,9 +238,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a large language model (LLM) trained to do at its core?",
           choices: [
             "Predict likely language, one piece of text at a time",
-            "Store every website word for word",
-            "Physically build robots",
-            "Connect two phones on a call"
+            "Store every web page it reads word for word for later lookup",
+            "Look up verified facts in a built-in encyclopedia",
+            "Follow grammar rules that linguists wrote by hand"
           ],
           answer: 0,
           explain: "An LLM learns from huge amounts of text and predicts the most plausible next piece of language. That prediction skill powers chat responses."
@@ -273,9 +273,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which statement about LLMs is accurate?",
           choices: [
             "They predict text and are not conscious or self-aware",
-            "They think and feel like humans",
-            "They always know the current date and news",
-            "They can never make a mistake"
+            "They understand and feel things the way people do",
+            "They always know today's date and the latest news",
+            "They check every answer against a database of verified facts"
           ],
           answer: 0,
           explain: "LLMs are powerful text predictors, but they are not conscious and can be wrong or out of date."
@@ -291,9 +291,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why can an LLM answer questions on so many topics?",
           choices: [
             "It was trained on a very large and broad collection of text",
-            "It secretly calls a human for every answer",
-            "It downloads a fresh brain for each question",
-            "It only memorized a single textbook"
+            "It searches the live internet before answering every question",
+            "It hands each question to a team of human experts behind the scenes",
+            "It loads a separate specialist model for each topic you ask about"
           ],
           answer: 0,
           explain: "Training on a huge, broad text collection gives the model wide-ranging language patterns to draw on."
@@ -332,9 +332,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which task is usually better suited to traditional rule-based software than to AI?",
           choices: [
             "Calculating exact sales tax on a purchase",
-            "Writing a friendly email draft",
-            "Summarizing a long article",
-            "Describing what is in a photo"
+            "Drafting a friendly reply to a customer email",
+            "Summarizing the main points of a long article",
+            "Describing what appears in a vacation photo"
           ],
           answer: 0,
           explain: "Exact math with clear rules is a perfect fit for deterministic software. The other tasks need flexible, human-like judgment that suits AI."
@@ -344,9 +344,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which task plays to the strengths of AI over rigid rules?",
           choices: [
             "Summarizing a messy customer review in plain language",
-            "Returning the exact balance of a bank account",
-            "Sorting numbers from low to high",
-            "Checking if a password matches exactly"
+            "Returning the exact balance of a customer's bank account",
+            "Sorting a list of order numbers from lowest to highest",
+            "Checking whether an entered password matches exactly"
           ],
           answer: 0,
           explain: "Understanding messy, natural language is where AI shines. Exact lookups and comparisons are better left to deterministic code."
@@ -471,9 +471,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What are a model's parameters?",
           choices: [
             "The internal values it adjusts during training",
-            "The buttons on your keyboard",
-            "The Wi-Fi settings on your router",
-            "The color theme of the chat app"
+            "The instructions you type into the chat box each time",
+            "The settings you choose, like reply length",
+            "The examples in the data it was trained on"
           ],
           answer: 0,
           explain: "Parameters are the tunable internal values a model learns during training. More parameters can mean more capacity."
@@ -483,9 +483,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is the dataset in machine learning?",
           choices: [
             "The collection of data used to train or test a model",
-            "A single button in the app",
-            "The name of the AI company",
-            "The speed of the internet connection"
+            "The set of rules a programmer writes to guide the model",
+            "The internal numbers a model adjusts while it learns",
+            "The list of prompts users type into a finished model"
           ],
           answer: 0,
           explain: "The dataset is the body of examples used to train and evaluate a model. Its quality strongly affects results."
@@ -527,9 +527,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which everyday feature is powered by AI?",
           choices: [
             "Video recommendations that match your taste",
-            "A light switch turning a bulb on",
-            "A paper calendar on the wall",
-            "A mechanical wind-up clock"
+            "A timer that turns the lights off at 11 p.m.",
+            "A calculator app adding up a list of prices",
+            "An alarm clock set to ring at the same time"
           ],
           answer: 0,
           explain: "Recommendation systems learn your preferences from data, which is a common everyday use of AI."
@@ -562,9 +562,9 @@ window.ACADEMY.addUnit("ai", {
           q: "How does a spam filter typically decide what is junk?",
           choices: [
             "It learns patterns from many labeled spam and non-spam emails",
-            "It flips a coin for each email",
-            "It blocks every email with a picture",
-            "It asks a human to read each message"
+            "It blocks only messages from a fixed list of banned addresses",
+            "It deletes every email that contains a link or an attachment",
+            "It flags any message longer than a set number of characters"
           ],
           answer: 0,
           explain: "Spam filters learn from labeled examples, a supervised learning task, to spot junk automatically."

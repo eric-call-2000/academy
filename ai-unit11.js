@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is the main benefit of asking AI for a rough first draft?",
           choices: [
             "It gives you something to react to and reshape instead of a blank page",
-            "It guarantees the final text will be perfect",
-            "It means you never have to edit anything",
-            "It replaces the need to have any ideas of your own"
+            "It produces text that is ready to publish without any further editing",
+            "It saves time because AI drafts never contain factual mistakes",
+            "It locks in the structure early, so you don't have to rethink it"
           ],
           answer: 0,
           explain: "A messy first draft is easier to improve than an empty page — reacting is easier than starting."
@@ -40,9 +40,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt is most likely to produce a useful first draft?",
           choices: [
             "Write a 150-word welcome email to new gym members, friendly and encouraging",
-            "Write something good",
-            "Email",
-            "Make it nice please"
+            "Write a really great welcome email for our gym that people will love to read",
+            "Write an email to our new members; make it professional and well written",
+            "Draft something welcoming for new people who just joined; keep it short"
           ],
           answer: 0,
           explain: "Specific goals — length, audience, and tone — steer the model toward a usable draft."
@@ -69,9 +69,9 @@ window.ACADEMY.addUnit("ai", {
           q: "If the first draft misses the mark, what is the best next move?",
           choices: [
             "Tell the AI what was wrong and ask it to try again",
-            "Give up and write it entirely from scratch",
-            "Publish it anyway since AI wrote it",
-            "Ask the same exact prompt over and over"
+            "Regenerate with the same prompt until one works",
+            "Start over from scratch in a brand-new chat",
+            "Ask the AI to rate its own draft out of ten"
           ],
           answer: 0,
           explain: "Writing with AI is a back-and-forth — clear feedback gets you a better next draft."
@@ -88,9 +88,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which task is proofreading focused on?",
           choices: [
             "Catching spelling, grammar, and punctuation errors",
-            "Inventing a brand new topic",
-            "Changing the meaning of the whole piece",
-            "Adding as many words as possible"
+            "Reorganizing the argument so it flows more logically",
+            "Checking that every fact and statistic is correct",
+            "Rewriting the piece in a different tone of voice"
           ],
           answer: 0,
           explain: "Proofreading is the polish pass: correctness and clarity, not new ideas."
@@ -113,9 +113,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt best asks AI to edit while keeping your meaning?",
           choices: [
             "Fix the grammar and tighten this, but keep my meaning and list what you changed",
-            "Rewrite this completely however you want",
-            "Make it longer no matter what",
-            "Change the topic to something else"
+            "Rewrite this so it sounds as polished and professional as you possibly can",
+            "Improve this text in any way you think is best, and make it more persuasive",
+            "Proofread this and make it shorter, more engaging, and more exciting to read"
           ],
           answer: 0,
           explain: "A good editing prompt sets limits (keep my meaning) and asks for transparency (list changes)."
@@ -141,9 +141,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why is it smart to review AI edits rather than trust them blindly?",
           choices: [
             "The AI can misread your intent or introduce a subtle error",
-            "The AI is always wrong on purpose",
-            "Editing tools cost extra money per word",
-            "Reviewing edits is against the rules"
+            "AI edits are usually worse than the original text",
+            "Reviewing teaches the AI your preferences for next time",
+            "Edits only count once you approve them one by one"
           ],
           answer: 0,
           explain: "AI edits are usually helpful but not infallible — a quick review protects your meaning."
@@ -160,9 +160,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does 'tone' refer to in writing?",
           choices: [
             "The attitude and feeling your words convey, like formal or friendly",
-            "The font size on the page",
-            "The number of paragraphs",
-            "The color of the text"
+            "How long your sentences are and how many paragraphs you write",
+            "The grammar rules you follow, such as commas and capital letters",
+            "The main point or argument that your piece of writing is making"
           ],
           answer: 0,
           explain: "Tone is the mood of your writing — the same message can sound formal, casual, or urgent."
@@ -195,9 +195,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt best changes the tone of existing text?",
           choices: [
             "Rewrite this in a warmer, more casual tone without changing the facts",
-            "Make it different",
-            "Rewrite this",
-            "Add tone to it"
+            "Rewrite this so it sounds better and is a lot more enjoyable to read",
+            "Make this text more engaging, and feel free to add some new details",
+            "Change the tone of this however you think works best for most readers"
           ],
           answer: 0,
           explain: "Name the target tone and set a boundary (keep the facts) for a clean tone shift."
@@ -231,9 +231,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does 'TL;DR' mean?",
           choices: [
             "Too Long; Didn't Read — a very short summary",
-            "The Longest Detailed Report",
-            "Total Length Divided by Rows",
-            "Try Later; Do Research"
+            "To Learn; Do Review — a list of study tasks",
+            "Top Line; Detailed Report — a full write-up",
+            "Total Length; Draft Ready — a word count"
           ],
           answer: 0,
           explain: "A TL;DR gives the gist in a sentence or two for readers short on time."
@@ -266,9 +266,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt gives you the most control over a summary?",
           choices: [
             "Summarize this article in 3 bullet points, each under 15 words",
-            "Summarize this",
-            "Make it shorter",
-            "Give me the important stuff"
+            "Summarize this article clearly and concisely for a busy reader",
+            "Give me a short, accurate summary of the article's key points",
+            "Summarize the important parts of this article in your own words"
           ],
           answer: 0,
           explain: "Naming the format and length gives you a predictable, usable summary."
@@ -303,9 +303,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What information helps the AI draft a better reply to an email?",
           choices: [
             "The original message and the outcome you want",
-            "Only your favorite color",
-            "Nothing — it can read your mind",
-            "The time of day only"
+            "Your job title and a list of your past emails",
+            "A request that the reply sound very professional",
+            "How many words you'd like the reply to have"
           ],
           answer: 0,
           explain: "Give the AI the email you're answering plus your goal so the reply fits the situation."
@@ -328,9 +328,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt is best for a quick, effective email?",
           choices: [
             "Draft a short, polite email declining this meeting and suggesting next week",
-            "Write an email",
-            "Say no",
-            "Do the email thing"
+            "Write a professional email about this meeting invitation for me to send",
+            "Help me reply to this meeting invite in a way that sounds really polite",
+            "Write a reply to this email; I can't make it, so say something nice"
           ],
           answer: 0,
           explain: "Specify length, tone, and the exact outcome for a message you can send with minimal edits."
@@ -356,9 +356,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why keep most emails concise?",
           choices: [
             "Busy readers are more likely to read and act on short messages",
-            "Long emails always get more replies",
-            "Short emails are against email etiquette",
-            "Length has no effect on anything"
+            "Short emails are less likely to be caught by spam filters",
+            "Long emails come across as rude to most readers at work",
+            "Email apps cut off messages after a few hundred words"
           ],
           answer: 0,
           explain: "Concise emails respect the reader's time and make your ask easy to see and answer."
@@ -375,9 +375,9 @@ window.ACADEMY.addUnit("ai", {
           q: "How is AI most useful during brainstorming?",
           choices: [
             "It quickly produces many options for you to pick and combine",
-            "It always finds the one perfect answer",
-            "It removes the need for any human judgment",
-            "It refuses to give more than one idea"
+            "It finds the single best idea, so you can skip comparing options",
+            "It checks which ideas have already been used by competitors",
+            "It replaces your judgment about which ideas fit your goals"
           ],
           answer: 0,
           explain: "AI shines at volume — generate lots of options, then use your judgment to choose the best."
@@ -400,9 +400,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt best kicks off a brainstorm?",
           choices: [
             "Give me 10 name ideas for a coffee shop, mixing playful and classic styles",
-            "Names",
-            "Help",
-            "Coffee"
+            "What would be the best possible name for my new coffee shop, in your view?",
+            "I'm opening a coffee shop and need a name; what do you think I should pick?",
+            "Suggest a good, catchy name for a coffee shop that people will remember"
           ],
           answer: 0,
           explain: "Set the quantity and the range of styles to get a broad, useful list of ideas."
@@ -429,9 +429,9 @@ window.ACADEMY.addUnit("ai", {
           q: "If a brainstorm feels too safe and generic, what helps?",
           choices: [
             "Ask for bolder, more unexpected options or add specific constraints",
-            "Ask the exact same question again",
-            "Accept the first idea without changes",
-            "Stop brainstorming entirely"
+            "Lower the temperature so the model gives more focused, reliable ideas",
+            "Ask for fewer ideas so the model spends more effort on each one",
+            "Regenerate the same prompt a few times and combine the results"
           ],
           answer: 0,
           explain: "Pushing for bold ideas or adding constraints steers the model off the safe, obvious path."
@@ -448,9 +448,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why rewrite the same content for different audiences?",
           choices: [
             "Different readers need different levels of detail, vocabulary, and tone",
-            "It is required by law",
-            "Rewriting always makes text longer",
-            "Audiences never affect how you should write"
+            "Rewriting improves the facts, since each version is checked again",
+            "Each audience needs a longer version with more background added",
+            "Search engines rank the same page higher when it has more versions"
           ],
           answer: 0,
           explain: "A message for a 5th grader and one for an executive should read very differently."
@@ -483,9 +483,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt rewrites for a specific audience most clearly?",
           choices: [
             "Rewrite this for a busy executive: formal, under 100 words, lead with the takeaway",
-            "Make it for someone else",
-            "Change the audience",
-            "Rewrite for people"
+            "Rewrite this for a different kind of reader so that it works better for them",
+            "Make this suitable for a more senior audience, and improve it where you can",
+            "Rewrite this for an important reader, keeping it professional and polished"
           ],
           answer: 0,
           explain: "Naming the reader, tone, and length gives the model a clear target to hit."
@@ -501,9 +501,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What usually changes when you rewrite from beginner level to expert level?",
           choices: [
             "You can use more technical vocabulary and skip basic explanations",
-            "You must remove all punctuation",
-            "You always make it much longer",
-            "Nothing changes at all"
+            "You need to add many more examples and step-by-step walkthroughs",
+            "You should switch to a much more casual and playful tone overall",
+            "You keep the same words but cut the text roughly in half"
           ],
           answer: 0,
           explain: "Experts share a vocabulary, so you can go deeper and drop the beginner scaffolding."
@@ -520,9 +520,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is the best way to help AI capture your writing voice?",
           choices: [
             "Give it real samples of your past writing to learn from",
-            "Tell it to guess how you write",
-            "Never give it any examples",
-            "Ask it to copy a famous author instead"
+            "Describe your voice in a few adjectives, like 'warm'",
+            "Ask it to write the way most people in your job write",
+            "Let it write freely, then accept whatever it produces"
           ],
           answer: 0,
           explain: "Concrete samples show the AI your real rhythm, word choices, and quirks better than a description."
@@ -545,9 +545,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which is a warning sign that AI output does NOT sound like you?",
           choices: [
             "It uses phrases and a rhythm you would never choose",
-            "It fixes a spelling mistake",
-            "It matches your usual length",
-            "It keeps your main point"
+            "It fixes a spelling mistake you had made earlier",
+            "It keeps your usual length and paragraph breaks",
+            "It keeps your main point and your examples"
           ],
           answer: 0,
           explain: "Unfamiliar phrasing is a cue to revise — trust your ear and rework it into your own words."

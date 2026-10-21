@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "You are new to a topic and want a quick overview. What is a good first ask?",
           choices: [
             "Explain this topic in plain language, like I am a beginner",
-            "Write a 40-page textbook with citations",
-            "Just say yes or no",
-            "Refuse to help until I take a course"
+            "Give me the most detailed, technical explanation you can",
+            "List every important paper ever published on this topic",
+            "Quiz me on this topic before you explain anything at all"
           ],
           answer: 0,
           explain: "Asking for a plain-language, beginner-level overview gives you a fast, usable mental model to build on."
@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which request helps you choose between two tools?",
           choices: [
             "Compare these two options side by side with pros and cons for my use case",
-            "Tell me which one is objectively best forever",
-            "Pick one at random",
-            "List every tool that has ever existed"
+            "Tell me which of these two tools most people use, so I can go with that",
+            "Describe the first tool in detail; I'll decide about the second one later",
+            "Which of these two tools is better overall? Just give me the answer, please"
           ],
           answer: 0,
           explain: "A side-by-side comparison tied to your use case turns a vague choice into a clear tradeoff you can act on."
@@ -78,9 +78,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A good way to catch a wrong answer is to:",
           choices: [
             "Cross-check the claim against an authoritative source",
-            "Assume the AI is always right",
-            "Ask the same question in the same words again",
-            "Never ask follow-up questions"
+            "Ask the AI whether it is confident in its own answer",
+            "Rephrase the question and see if the answer changes",
+            "Trust it if the answer is detailed and well written"
           ],
           answer: 0,
           explain: "Cross-checking against a reliable source is the simplest way to catch a confident but wrong answer."
@@ -97,9 +97,9 @@ window.ACADEMY.addUnit("ai", {
           q: "You paste a 30-page report. Which ask gets you the most useful result?",
           choices: [
             "Summarize the main points and flag anything that looks risky",
-            "Say whether it is good or bad in one word",
-            "Rewrite the whole report longer",
-            "Ignore the report and guess"
+            "Tell me whether this report is good or bad overall",
+            "Rewrite the whole report in simpler language for me",
+            "List every number that appears anywhere in the report"
           ],
           answer: 0,
           explain: "Asking for a summary plus risks turns a long document into decisions and things to watch for."
@@ -122,9 +122,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why is it smart to ask AI to quote the exact text it is referring to?",
           choices: [
             "So you can check the summary against the real document",
-            "Because quotes make the answer longer",
-            "So the AI works slower",
-            "Because it is required by law"
+            "So the AI reads the document more carefully the first time",
+            "So the summary is shorter and quicker for you to read",
+            "So the AI can't add any knowledge from its own training"
           ],
           answer: 0,
           explain: "Asking for the exact quoted text lets you verify the summary against the source and catch mistakes."
@@ -161,9 +161,9 @@ window.ACADEMY.addUnit("ai", {
           q: "The AI summarized a report but missed a section you care about. Best next step?",
           choices: [
             "Ask it to focus specifically on that section",
-            "Assume the section was unimportant",
-            "Start a brand new unrelated topic",
-            "Give up on the document"
+            "Ask it to summarize the whole report again",
+            "Paste the report again in case it was cut off",
+            "Ask for a longer summary of the whole document"
           ],
           answer: 0,
           explain: "Redirecting the AI to the exact section you care about gets you the detail the general summary skipped."
@@ -180,9 +180,9 @@ window.ACADEMY.addUnit("ai", {
           q: "You need a spreadsheet formula but do not know the syntax. A good ask is:",
           choices: [
             "Write a formula that sums column B only where column A equals Paid",
-            "Do my whole job for me",
-            "Guess what my spreadsheet looks like",
-            "Delete my data"
+            "Write me a formula for my spreadsheet; it's about tracking payments",
+            "What's the best formula to use for adding things up in a spreadsheet?",
+            "Help me with a SUMIF formula; I'm not sure how the syntax works"
           ],
           answer: 0,
           explain: "Describing exactly what you want in plain words lets the AI produce the correct formula for you."
@@ -205,9 +205,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does it mean to turn numbers into words with AI?",
           choices: [
             "Write a plain-language summary explaining what the data shows",
-            "Convert every number into a spelled-out digit",
-            "Delete all the numbers",
-            "Translate the file into another language"
+            "Spell out every number in the table as words, like 'forty-two'",
+            "Round every number in the table so it is easier to read at a glance",
+            "Replace the numbers with labels such as high, medium, and low"
           ],
           answer: 0,
           explain: "Turning numbers into words means explaining, in plain language, what a table or chart actually tells you."
@@ -243,9 +243,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Before pasting a spreadsheet with customer names into a public AI tool, you should:",
           choices: [
             "Consider removing or masking sensitive personal data first",
-            "Paste everything and hope for the best",
-            "Add even more personal data",
-            "Email it to strangers"
+            "Check that the file is under the tool's upload size limit",
+            "Convert the spreadsheet to a PDF so it can't be edited",
+            "Ask the tool to promise it won't save the customer names"
           ],
           answer: 0,
           explain: "Protecting sensitive data is part of using AI responsibly — mask or remove it before sharing."
@@ -262,9 +262,9 @@ window.ACADEMY.addUnit("ai", {
           q: "You have messy meeting notes. Which ask is most useful?",
           choices: [
             "Summarize these notes and list the action items with owners",
-            "Make the notes twice as long",
-            "Delete the notes",
-            "Translate them into emojis only"
+            "Rewrite these notes as full sentences in a formal style",
+            "Turn these notes into a long, detailed meeting transcript",
+            "Tell me whether this meeting was a good use of everyone's time"
           ],
           answer: 0,
           explain: "Asking for a summary plus action items with owners turns raw notes into a plan people can follow."
@@ -308,9 +308,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why review the AI draft before sending it to your team?",
           choices: [
             "It might miss context or state something incorrectly",
-            "Because AI drafts are always perfect",
-            "Because sending is not allowed",
-            "To make the email longer for no reason"
+            "AI drafts are usually far too long to send as they are",
+            "Your team may notice that AI helped write the draft",
+            "AI drafts often include formatting email apps can't show"
           ],
           answer: 0,
           explain: "You are accountable for what you send, and AI can miss nuance or get a detail wrong, so review first."
@@ -379,9 +379,9 @@ window.ACADEMY.addUnit("ai", {
           q: "The AI's plan assumes a bigger team than you have. Best move?",
           choices: [
             "Tell it your real team size and ask it to revise",
-            "Follow the wrong plan anyway",
-            "Abandon planning entirely",
-            "Pretend you have more people"
+            "Follow the plan and hire people to fill the gaps",
+            "Cut the plan's tasks in half and keep the timeline",
+            "Ask for a new plan in a new chat with no context"
           ],
           answer: 0,
           explain: "Correcting a wrong assumption and asking for a revision gets you a plan that fits your actual resources."
@@ -397,9 +397,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which detail would most improve the plan the AI gives you?",
           choices: [
             "Your deadline, budget, and who is available",
-            "Your favorite color",
-            "The weather today",
-            "Nothing, plans need no context"
+            "A request that the plan be very detailed",
+            "Examples of plans that other teams have used",
+            "A note that the plan is important to get right"
           ],
           answer: 0,
           explain: "Concrete constraints like deadline, budget, and people make the plan realistic instead of generic."
@@ -461,9 +461,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why should you still try problems yourself instead of only reading AI answers?",
           choices: [
             "Active practice builds real skill better than passive reading",
-            "It is against the rules to read",
-            "Because AI cannot generate problems",
-            "Reading is never useful"
+            "AI answers are usually wrong, so you need to check every one",
+            "Reading solutions is slower than solving the problems yourself",
+            "You can't ask an AI for practice problems on most subjects"
           ],
           answer: 0,
           explain: "Actively practicing and getting feedback builds durable skill far better than passively reading solutions."
@@ -486,9 +486,9 @@ window.ACADEMY.addUnit("ai", {
           q: "How should you treat AI output when making an important decision?",
           choices: [
             "As helpful input that you weigh, not the final decision",
-            "As an unquestionable order to follow",
-            "As irrelevant noise to ignore",
-            "As a legally binding verdict"
+            "As the answer to follow, since it has seen more data than you",
+            "As a tiebreaker you only use when you can't decide yourself",
+            "As unreliable, so it's best to leave AI out of big decisions"
           ],
           answer: 0,
           explain: "AI can lay out options and tradeoffs, but the judgment and accountability stay with you."
@@ -511,9 +511,9 @@ window.ACADEMY.addUnit("ai", {
           q: "You are choosing a vendor. Which ask gives the most useful structure?",
           choices: [
             "Compare these vendors across cost, support, and reliability",
-            "Just pick one for me and I will do it",
-            "Tell me vendors are all the same",
-            "List unrelated companies"
+            "Which of these vendors is the best one? Just tell me which",
+            "Tell me everything you know about each of these vendors",
+            "Which vendor do most companies like mine usually choose?"
           ],
           answer: 0,
           explain: "Comparing options across the criteria you care about makes the tradeoffs visible and decision-ready."
@@ -621,9 +621,9 @@ window.ACADEMY.addUnit("ai", {
           q: "For a heavy, repeated task where cost and speed matter, how might you pick a Claude model?",
           choices: [
             "Use a faster, smaller tier like Haiku when it is good enough, and a more capable tier like Opus for hard work",
-            "Always use the most expensive option for everything",
-            "Never think about which model to use",
-            "Pick a model at random each run"
+            "Use the most capable tier like Opus for every run, since quality always matters more than the cost of calls",
+            "Use the smallest, cheapest tier like Haiku for everything, since cost is the only thing that really matters",
+            "Pick whichever model tier was released most recently, since newer models are always the right choice here"
           ],
           answer: 0,
           explain: "Matching the model tier to the task — Haiku for speed, Sonnet for balance, Opus for the hardest work — keeps reusable workflows efficient."

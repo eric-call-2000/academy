@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a zero-shot prompt?",
           choices: [
             "A prompt with no examples, just the instruction",
-            "A prompt that always fails on the first try",
-            "A prompt with exactly five examples",
-            "A prompt that costs zero money"
+            "A prompt with one worked example placed before the task",
+            "A prompt the model must answer on its very first attempt",
+            "A prompt with the temperature set to zero for consistency"
           ],
           answer: 0,
           explain: "Zero-shot means you ask the model to do the task directly, without showing it any worked examples first."
@@ -27,9 +27,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What makes a prompt few-shot?",
           choices: [
             "It includes a few example inputs and outputs to guide the model",
-            "It uses very few words",
-            "It only works a few times per day",
-            "It asks for a short answer"
+            "It is kept to a few short sentences so the model stays focused",
+            "It asks for a short answer of only a few words or one line",
+            "It splits the task across a few separate prompts sent in sequence"
           ],
           answer: 0,
           explain: "Few-shot means you show the model a handful of examples so it learns the pattern you want."
@@ -67,9 +67,9 @@ window.ACADEMY.addUnit("ai", {
           q: "When is few-shot most helpful?",
           choices: [
             "When the task is unusual or you need a very specific output format",
-            "When you want the cheapest possible prompt",
-            "When the task is extremely common and simple",
-            "When you want the model to ignore your instructions"
+            "When the task is common and simple, so the model already knows it well",
+            "When you need the shortest, cheapest prompt that still gets an answer",
+            "When the model has already done the task correctly with no examples"
           ],
           answer: 0,
           explain: "Examples shine for niche tasks or exact formats the model might not guess on its own."
@@ -116,9 +116,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why should few-shot examples be diverse?",
           choices: [
             "So the model learns the general rule, not one narrow case",
-            "So the prompt looks longer and more serious",
-            "So the model gets confused and asks questions",
-            "So you use up more of the context window"
+            "So the prompt fills more of the context window with useful detail",
+            "So the model copies the exact wording of the last example it saw",
+            "So every example looks identical and the format is unmistakable"
           ],
           answer: 0,
           explain: "Variety across your examples helps the model generalize instead of memorizing a single shape."
@@ -145,9 +145,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which is a sign of a weak few-shot example set?",
           choices: [
             "Examples that contradict each other in style or labeling",
-            "Examples that all follow the same clean format",
-            "Examples that cover a few different situations",
-            "Examples that match the output you want"
+            "Examples that all follow the same clean, consistent format",
+            "Examples that cover a few quite different situations",
+            "Examples whose outputs match the format you want back"
           ],
           answer: 0,
           explain: "Contradictory examples send mixed signals and the model may pick the wrong pattern."
@@ -170,9 +170,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does chain-of-thought prompting ask the model to do?",
           choices: [
             "Work through the reasoning step by step before giving the answer",
-            "Answer as fast as possible with no explanation",
-            "Always answer in a single word",
-            "Refuse hard questions"
+            "Give the final answer first and then list the sources it relied on",
+            "Chain several separate prompts together, each feeding the next one",
+            "Answer in a short chain of linked bullet points with no explanation"
           ],
           answer: 0,
           explain: "Chain-of-thought means letting the model reason out loud before committing to a final answer."
@@ -201,9 +201,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why does thinking step by step often raise accuracy?",
           choices: [
             "It gives the model room to break the problem into checkable pieces",
-            "It makes the model smarter permanently",
-            "It connects the model to the internet",
-            "It guarantees the answer is always correct"
+            "It switches the model to a larger, more capable version for that reply",
+            "It lets the model look up the answer in its training data more directly",
+            "It permanently teaches the model the method so later answers improve"
           ],
           answer: 0,
           explain: "Reasoning in steps lets the model handle one piece at a time instead of guessing the whole answer at once."
@@ -213,9 +213,9 @@ window.ACADEMY.addUnit("ai", {
           q: "If you want the reasoning but only need the final line, what can you do?",
           choices: [
             "Ask it to reason, then give the final answer clearly at the end",
-            "Forbid it from reasoning entirely",
-            "Ask for the answer before it thinks",
-            "Tell it to skip the question"
+            "Forbid any reasoning so the reply contains only the final line of text",
+            "Ask for the final answer first and the reasoning after it",
+            "Set the temperature to zero so it skips the reasoning step"
           ],
           answer: 0,
           explain: "You can let it reason and then request a clearly marked final answer to grab."
@@ -317,9 +317,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why should you tell the model the output format you want?",
           choices: [
             "So you get results in a shape you can actually use",
-            "So the model runs faster",
-            "So the answer is always shorter",
-            "So the model stops reasoning"
+            "So the model spends less time reasoning about the content",
+            "So the answer is more accurate as well as better organized",
+            "So the model can skip the parts of the task you didn't mention"
           ],
           answer: 0,
           explain: "Naming the format up front saves you from reformatting the answer yourself later."
@@ -352,9 +352,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which instruction most clearly specifies format?",
           choices: [
             "Answer as a numbered list with one step per line",
-            "Give me a good answer",
-            "Tell me about it",
-            "Be helpful"
+            "Give me a thorough, detailed, and genuinely helpful answer",
+            "Explain how to do this as clearly as you possibly can",
+            "Be concise, professional, and well organized in your reply"
           ],
           answer: 0,
           explain: "Concrete formatting instructions remove guesswork about how the answer should look."
@@ -389,9 +389,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a delimiter in a prompt?",
           choices: [
             "A marker that separates your instructions from the content",
-            "A type of AI model",
-            "A word the model cannot read",
-            "A way to make the model faster"
+            "A limit on how many words the model is allowed to write",
+            "A rule telling the model which topics it must not discuss at all",
+            "A setting that ends the reply when a certain word appears"
           ],
           answer: 0,
           explain: "Delimiters like quotes, tags, or headings draw a clear line between instructions and material."
@@ -424,9 +424,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why does structure like headings help long prompts?",
           choices: [
             "It makes each part easy to find and follow",
-            "It hides the instructions from the model",
-            "It shortens the model's memory",
-            "It disables reasoning"
+            "It lets the model skip sections it doesn't need to read",
+            "It raises the model's context limit for that prompt",
+            "It tells the model which parts it can safely ignore"
           ],
           answer: 0,
           explain: "Labeled sections keep a complex prompt organized so the model treats each part correctly."
@@ -459,9 +459,9 @@ window.ACADEMY.addUnit("ai", {
           q: "When is showing the reasoning most valuable?",
           choices: [
             "When you need to verify a multi-step or high-stakes result",
-            "When you already trust the answer completely",
-            "When you want the shortest possible reply",
-            "When the question has an obvious one-word answer"
+            "When the answer is a simple fact you could look up yourself in seconds",
+            "When you want the shortest and fastest reply the model can give",
+            "When you need the same short output format across many requests"
           ],
           answer: 0,
           explain: "Seeing the working lets you check the logic on problems where correctness matters."
@@ -493,9 +493,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A downside of always demanding full reasoning is that:",
           choices: [
             "Responses get longer and slower than you need",
-            "The model refuses to answer",
-            "The answer becomes secret",
-            "You can never see the final result"
+            "The final answer becomes less accurate overall",
+            "The model is more likely to refuse the request",
+            "The reasoning replaces the final answer entirely"
           ],
           answer: 0,
           explain: "Reasoning has a cost in length and time, so match it to the task."
@@ -511,9 +511,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which phrasing asks for reasoning shown?",
           choices: [
             "Explain your reasoning, then give the answer",
-            "Just say yes or no",
-            "One word only",
-            "Skip the explanation"
+            "Give only the final answer, with no working shown",
+            "Answer in one word and skip any explanation",
+            "List your sources, then give a one-line answer"
           ],
           answer: 0,
           explain: "Asking it to explain then answer surfaces the logic you can inspect."
@@ -530,9 +530,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a negative constraint?",
           choices: [
             "An instruction about what the model should not do",
-            "A rude prompt",
-            "A prompt that always fails",
-            "A way to make the model shorter"
+            "An example of a bad answer that the model should copy closely",
+            "A setting that lowers the model's temperature",
+            "A limit on the total length of the model's reply"
           ],
           answer: 0,
           explain: "Negative constraints set boundaries by naming what to avoid, not just what to do."
@@ -565,9 +565,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which is a well-formed negative constraint?",
           choices: [
             "Do not include any personal opinions",
-            "Be good",
-            "Try harder",
-            "Make it nice"
+            "Please try to be as objective as you can",
+            "Make it balanced, fair, and professional",
+            "Keep it neutral and good, like a real expert"
           ],
           answer: 0,
           explain: "A clear do-not rule is specific and checkable, unlike vague praise words."
@@ -593,9 +593,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A risk of only listing things to avoid, with no positive direction, is that:",
           choices: [
             "The model may not know what you actually want",
-            "The model will crash",
-            "The answer becomes encrypted",
-            "The model stops reading"
+            "The model will ignore every one of the constraints",
+            "The reply will always come back far too long to use",
+            "The model treats each constraint as a task to perform"
           ],
           answer: 0,
           explain: "Guardrails narrow the options, but you still need to point at the goal you do want."

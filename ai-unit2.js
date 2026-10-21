@@ -10,14 +10,14 @@ window.ACADEMY.addUnit("ai", {
       title: "The Big AI Labs",
       intro: "A handful of organizations build the frontier models most people use today.",
       questions: [
-        { type: "mcq", q: "Which company makes Claude?", choices: ["Anthropic", "OpenAI", "Google", "Meta"], answer: 0, explain: "Claude is the AI assistant built by Anthropic." },
+        { type: "mcq", q: "Which company makes Claude?", choices: ["Anthropic", "OpenAI", "Google DeepMind", "Meta AI"], answer: 0, explain: "Claude is the AI assistant built by Anthropic." },
         { type: "mcq", q: "Which company makes ChatGPT?", choices: ["OpenAI", "Anthropic", "Mistral", "xAI"], answer: 0, explain: "OpenAI builds ChatGPT and the GPT model family behind it." },
         { type: "mcq", q: "The Gemini models come from which company?", choices: ["Google", "Meta", "Anthropic", "OpenAI"], answer: 0, explain: "Gemini is Google's family of AI models, developed by Google DeepMind." },
         { type: "truefalse", q: "Meta is known for releasing open-weight AI models called Llama.", answer: true, explain: "Meta's Llama models are open-weight, meaning the weights can be downloaded and run by others." },
         { type: "truefalse", q: "Mistral is a company that only makes self-driving cars, not AI models.", answer: false, explain: "Mistral is an AI lab known for its open-weight language models." },
         { type: "match", q: "Match each AI lab to a product it is known for.", pairs: [["Anthropic", "Claude"], ["OpenAI", "ChatGPT"], ["Google", "Gemini"], ["xAI", "Grok"]], explain: "Each of these labs has its own flagship assistant or model family." },
         { type: "fill", q: "The company behind the Grok assistant is called ____.", answer: "xAI", accept: ["xai"], explain: "xAI, founded by Elon Musk, builds the Grok assistant." },
-        { type: "mcq", q: "What does it mean for a company to build a 'frontier model'?", choices: ["One of the most capable models available at the time", "A model that only runs offline", "A model made only for children", "A model with no safety testing"], answer: 0, explain: "Frontier models are the leading, most capable models of their moment." }
+        { type: "mcq", q: "What does it mean for a company to build a 'frontier model'?", choices: ["One of the most capable models available at the time", "A model built only for one narrow task, such as translation", "A model that runs entirely offline on a phone or laptop", "An older model kept available for long-term stability"], answer: 0, explain: "Frontier models are the leading, most capable models of their moment." }
       ]
     },
     {
@@ -40,13 +40,13 @@ window.ACADEMY.addUnit("ai", {
       title: "ChatGPT & the GPT Models",
       intro: "ChatGPT is the app; the GPT models are the engines running underneath it.",
       questions: [
-        { type: "mcq", q: "What is the difference between ChatGPT and GPT?", choices: ["ChatGPT is the app; GPT is the model family it runs on", "They are two rival companies", "GPT is the app; ChatGPT is the model", "There is no difference at all"], answer: 0, explain: "ChatGPT is the product you chat with; the GPT models are the underlying engines." },
+        { type: "mcq", q: "What is the difference between ChatGPT and GPT?", choices: ["ChatGPT is the app; GPT is the model family it runs on", "GPT is the app; ChatGPT is the model family underneath it", "They are rival products made by two different companies", "ChatGPT is open-weight, while GPT models are kept closed"], answer: 0, explain: "ChatGPT is the product you chat with; the GPT models are the underlying engines." },
         { type: "truefalse", q: "OpenAI makes both ChatGPT and the GPT model family.", answer: true, explain: "OpenAI builds the GPT models and the ChatGPT app that uses them." },
-        { type: "mcq", q: "In OpenAI's naming, what does a name ending in 'mini' usually signal?", choices: ["A smaller, faster, cheaper version", "The single most powerful model", "A model that only does images", "A model with no text ability"], answer: 0, explain: "A 'mini' suffix usually marks a smaller, faster, lower-cost version of a model." },
+        { type: "mcq", q: "In OpenAI's naming, what does a name ending in 'mini' usually signal?", choices: ["A smaller, faster, cheaper version", "The newest and most capable model", "A version limited to images and audio", "An early preview released for testing"], answer: 0, explain: "A 'mini' suffix usually marks a smaller, faster, lower-cost version of a model." },
         { type: "match", q: "Match the term to what it refers to.", pairs: [["ChatGPT", "The chat app"], ["GPT", "The model family"], ["OpenAI", "The company"]], explain: "The company, the model family, and the app are three separate things." },
         { type: "truefalse", q: "The same GPT model can be reached through the ChatGPT app or through OpenAI's API.", answer: true, explain: "One model can power both a friendly app and other software through an API." },
         { type: "fill", q: "The letters GPT stand for Generative Pre-trained ____.", answer: "Transformer", accept: ["transformer"], explain: "GPT means Generative Pre-trained Transformer, the model architecture behind it." },
-        { type: "mcq", q: "Which statement is most accurate about ChatGPT?", choices: ["It is a product from OpenAI powered by GPT models", "It is an open-weight model anyone can download", "It is made by Google", "It is the same thing as Claude"], answer: 0, explain: "ChatGPT is OpenAI's product, running on the GPT model family." }
+        { type: "mcq", q: "Which statement is most accurate about ChatGPT?", choices: ["It is a product from OpenAI powered by GPT models", "It is an open-weight model anyone can download and run", "It is Google's chat app built on its Gemini models", "It is a single model that never changes or gets updated"], answer: 0, explain: "ChatGPT is OpenAI's product, running on the GPT model family." }
       ]
     },
     {
@@ -55,12 +55,12 @@ window.ACADEMY.addUnit("ai", {
       intro: "Gemini is Google's multimodal model family, woven into Search, Workspace, and its own app.",
       questions: [
         { type: "mcq", q: "Gemini is the AI model family from which company?", choices: ["Google", "OpenAI", "Anthropic", "Mistral"], answer: 0, explain: "Gemini is Google's family of AI models." },
-        { type: "mcq", q: "What does it mean that Gemini is 'multimodal'?", choices: ["It can work with more than just text, like images and audio", "It can only be used in multiple countries", "It runs on many computers at once", "It has multiple company owners"], answer: 0, explain: "Multimodal means the model handles several kinds of input, such as text, images, and audio." },
+        { type: "mcq", q: "What does it mean that Gemini is 'multimodal'?", choices: ["It can work with more than just text, like images and audio", "It is offered in many languages and in many countries at once", "It runs across many data-center computers at the same time", "It combines several separate models made by different companies"], answer: 0, explain: "Multimodal means the model handles several kinds of input, such as text, images, and audio." },
         { type: "truefalse", q: "Google has built Gemini features into products like Search and Workspace.", answer: true, explain: "Gemini shows up across Google products, including Search and Workspace apps." },
         { type: "match", q: "Match each product to its maker.", pairs: [["Gemini", "Google"], ["Claude", "Anthropic"], ["ChatGPT", "OpenAI"]], explain: "Knowing which company owns which product helps you navigate the landscape." },
         { type: "fill", q: "A model that can handle text, images, and audio is described as ____.", answer: "multimodal", accept: ["multimodal", "multi-modal"], explain: "Multimodal models accept and can produce more than one type of media." },
         { type: "truefalse", q: "Gemini can only understand plain text and cannot process images.", answer: false, explain: "Gemini is multimodal, so it can work with images and other media, not just text." },
-        { type: "mcq", q: "Which Google team is closely associated with building Gemini?", choices: ["Google DeepMind", "Google Maps", "Google Ads", "Google Fonts"], answer: 0, explain: "Google DeepMind is the AI research group behind Gemini." }
+        { type: "mcq", q: "Which Google team is closely associated with building Gemini?", choices: ["Google DeepMind", "Google Cloud Labs", "Google Research Africa", "Google Search Quality"], answer: 0, explain: "Google DeepMind is the AI research group behind Gemini." }
       ]
     },
     {
@@ -68,13 +68,13 @@ window.ACADEMY.addUnit("ai", {
       title: "Open-Weight Models: Llama, Mistral & More",
       intro: "Some models keep their weights private, while open-weight models can be downloaded and run yourself.",
       questions: [
-        { type: "mcq", q: "What is an 'open-weight' model?", choices: ["One whose weights you can download and run yourself", "One that is always free of bugs", "One that only runs in a browser", "One with no training data"], answer: 0, explain: "Open-weight models publish their weights so others can download and run them." },
+        { type: "mcq", q: "What is an 'open-weight' model?", choices: ["One whose weights you can download and run yourself", "One whose training data is fully published for review", "One that anyone can use for free through a web chat app", "One that has passed an independent open safety audit"], answer: 0, explain: "Open-weight models publish their weights so others can download and run them." },
         { type: "mcq", q: "Which of these is a well-known open-weight model family?", choices: ["Meta's Llama", "OpenAI's GPT", "Anthropic's Claude", "Google's Gemini app"], answer: 0, explain: "Meta's Llama models are open-weight; Claude, GPT, and Gemini are closed." },
         { type: "truefalse", q: "Mistral is known for releasing open-weight models.", answer: true, explain: "Mistral releases open-weight models that developers can run themselves." },
         { type: "truefalse", q: "Closed models like Claude and GPT let you download their raw weights for free.", answer: false, explain: "Closed models are used through apps or APIs; their weights are not published for download." },
         { type: "match", q: "Match each model family to whether it is open-weight or closed.", pairs: [["Llama", "Open-weight"], ["Mistral", "Open-weight"], ["Claude", "Closed"], ["GPT", "Closed"]], explain: "Llama and Mistral publish weights; Claude and GPT are accessed through apps or APIs." },
         { type: "fill", q: "Meta's open-weight model family is called ____.", answer: "Llama", accept: ["llama"], explain: "Llama is Meta's family of open-weight language models." },
-        { type: "mcq", q: "One practical benefit of open-weight models is that you can:", choices: ["Run them on your own hardware for more control and privacy", "Guarantee they never make mistakes", "Use them without any computer at all", "Force other companies to close their models"], answer: 0, explain: "Running a model yourself can give you more control over privacy and customization." },
+        { type: "mcq", q: "One practical benefit of open-weight models is that you can:", choices: ["Run them on your own hardware for more control and privacy", "Rely on them being more accurate than any closed model", "Skip testing, since the open community has already vetted them", "Get the newest abilities first, before closed models have them"], answer: 0, explain: "Running a model yourself can give you more control over privacy and customization." },
         { type: "truefalse", q: "Open-weight does not necessarily mean the training data is fully public.", answer: true, explain: "Open weights let you run the model, but the training data is often not released." }
       ]
     },
@@ -87,7 +87,7 @@ window.ACADEMY.addUnit("ai", {
         { type: "match", q: "Match each layer to its role.", pairs: [["Model", "The engine"], ["App", "The car"], ["API", "The connection developers plug into"]], explain: "The model powers the app, and an API lets other software connect to the model." },
         { type: "truefalse", q: "One model can power many different apps through an API.", answer: true, explain: "APIs let a single model serve many products beyond its own chat app." },
         { type: "fill", q: "Developers connect their own software to a model through an ____.", answer: "API", accept: ["api", "application programming interface"], explain: "An API (application programming interface) lets software talk to the model." },
-        { type: "mcq", q: "Claude.ai and ChatGPT are best described as:", choices: ["Products (apps) built around underlying models", "Two names for the same model", "Programming languages", "Types of computer hardware"], answer: 0, explain: "Claude.ai and ChatGPT are apps, each built around an underlying model." },
+        { type: "mcq", q: "Claude.ai and ChatGPT are best described as:", choices: ["Products (apps) built around underlying models", "Two names for one shared underlying model", "Model families that you download and run locally", "Programming languages for building AI systems"], answer: 0, explain: "Claude.ai and ChatGPT are apps, each built around an underlying model." },
         { type: "order", q: "Order these from the underlying engine up to what the user touches.", items: ["The model", "The API", "The app"], explain: "The model is the base, the API exposes it, and the app is what the user interacts with." },
         { type: "truefalse", q: "The chat app and the model inside it are always exactly the same thing.", answer: false, explain: "The app is the product wrapper; the model is the engine running inside it." }
       ]
@@ -98,11 +98,11 @@ window.ACADEMY.addUnit("ai", {
       intro: "Most model names combine a family, a version, and a size once you know how to read them.",
       questions: [
         { type: "mcq", q: "Model names often combine which pieces of information?", choices: ["Family, version, and size", "Price, color, and weight", "Country, language, and date only", "The user's name"], answer: 0, explain: "A typical name tells you the family, the version, and the size of the model." },
-        { type: "mcq", q: "In a name like 'Llama 70B', what does the '70B' most likely refer to?", choices: ["About 70 billion parameters", "70 buttons in the app", "A price of 70 dollars", "70 megabytes of memory"], answer: 0, explain: "A number followed by B usually means billions of parameters, a rough size measure." },
+        { type: "mcq", q: "In a name like 'Llama 70B', what does the '70B' most likely refer to?", choices: ["About 70 billion parameters", "About 70 billion training words", "A context window of 70,000 tokens", "A model file about 70 GB in size"], answer: 0, explain: "A number followed by B usually means billions of parameters, a rough size measure." },
         { type: "truefalse", q: "A model labeled '8B' generally has fewer parameters than one labeled '70B'.", answer: true, explain: "More billions of parameters usually means a larger model, so 70B is bigger than 8B." },
         { type: "match", q: "Match each Claude size name to its tier.", pairs: [["Opus", "Largest"], ["Sonnet", "Middle"], ["Haiku", "Smallest"]], explain: "For Claude, the size is spoken as a name rather than a parameter number." },
         { type: "fill", q: "In model names, the letter B after a number usually stands for ____.", answer: "billion", accept: ["billion", "billions"], explain: "8B or 70B means roughly 8 or 70 billion parameters." },
-        { type: "mcq", q: "What does 'mini' typically indicate in a model name?", choices: ["A smaller, faster, cheaper variant", "The most powerful variant", "A model for images only", "A broken model"], answer: 0, explain: "A 'mini' label usually marks a smaller, quicker, lower-cost version." },
+        { type: "mcq", q: "What does 'mini' typically indicate in a model name?", choices: ["A smaller, faster, cheaper variant", "The most capable, flagship variant", "A variant tuned only for coding", "An early test build for developers"], answer: 0, explain: "A 'mini' label usually marks a smaller, quicker, lower-cost version." },
         { type: "truefalse", q: "Every AI company uses the exact same naming system for its models.", answer: false, explain: "Naming varies by company, though most encode some mix of family, version, and size." },
         { type: "order", q: "Order these Llama-style sizes from smallest to largest.", items: ["8B", "13B", "70B"], explain: "More billions of parameters means a larger model." }
       ]
@@ -113,13 +113,13 @@ window.ACADEMY.addUnit("ai", {
       intro: "Match the model to the job by weighing reasoning power, speed, cost, context length, and privacy.",
       questions: [
         { type: "mcq", q: "For a very hard reasoning task where quality matters most, you would lean toward:", choices: ["A larger, more capable model like Opus", "The smallest possible model", "Any model, since they are all identical", "A model with no reasoning ability"], answer: 0, explain: "Harder tasks are usually a better fit for a larger, more capable tier." },
-        { type: "mcq", q: "For a simple, high-volume task where speed and low cost matter, you would lean toward:", choices: ["A smaller, faster model like Haiku", "The biggest, slowest model", "No model at all", "A model chosen at random"], answer: 0, explain: "Smaller models like Haiku are cheaper and faster for simple, frequent tasks." },
+        { type: "mcq", q: "For a simple, high-volume task where speed and low cost matter, you would lean toward:", choices: ["A smaller, faster model like Haiku", "The largest model, to be safe on quality", "A model with the longest context window", "An open-weight model you fine-tune first"], answer: 0, explain: "Smaller models like Haiku are cheaper and faster for simple, frequent tasks." },
         { type: "truefalse", q: "Choosing a model always means the biggest model is the best choice.", answer: false, explain: "The best choice depends on the job; a smaller model can be faster and cheaper when that is what you need." },
         { type: "match", q: "Match each need to the factor you should weigh.", pairs: [["Handling very long documents", "Context length"], ["Keeping data on your own hardware", "Privacy"], ["Fast, cheap answers", "Speed and cost"], ["Hardest reasoning", "Capability"]], explain: "Different jobs put weight on different factors when picking a model." },
         { type: "fill", q: "The amount of text a model can consider at once is called its ____ length.", answer: "context", accept: ["context"], explain: "Context length is how much text the model can take in and reason over at once." },
         { type: "truefalse", q: "If privacy is critical, running an open-weight model on your own hardware is one option to consider.", answer: true, explain: "Open-weight models can run on your own machines, which can help with privacy needs." },
         { type: "order", q: "Order these steps for choosing a model well.", items: ["Define what the task needs", "Try a few candidate models", "Compare their results", "Pick the best fit"], explain: "A good approach is to define the need, test a few options, compare, and then choose." },
-        { type: "mcq", q: "A smart general habit when picking a model is to:", choices: ["Try a few and compare results on your real task", "Always use whatever was released first", "Never test any model before committing", "Pick based only on the coolest name"], answer: 0, explain: "Testing a few models on your actual task is the most reliable way to choose." }
+        { type: "mcq", q: "A smart general habit when picking a model is to:", choices: ["Try a few and compare results on your real task", "Pick whichever model tops the latest public leaderboard", "Always choose the largest model so quality is never an issue", "Stick with the first model you tried so results stay consistent"], answer: 0, explain: "Testing a few models on your actual task is the most reliable way to choose." }
       ]
     }
   ]

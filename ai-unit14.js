@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does 'multimodal' mean for an AI model?",
           choices: [
             "It can work with more than one kind of input or output, like text and images",
-            "It runs in more than one country",
-            "It can only handle plain text",
-            "It has more than one owner company"
+            "It combines several separate models from different companies into one product",
+            "It can switch between several writing modes, such as formal and casual",
+            "It can run on more than one kind of device, like phones and laptops"
           ],
           answer: 0,
           explain: "Multimodal means several 'modes' of data, such as text, images, and audio, not just one."
@@ -50,9 +50,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which is an example of a multimodal task?",
           choices: [
             "Uploading a photo and asking the AI to describe what is in it",
-            "Asking a calculator to add two numbers",
-            "Sorting a list of names alphabetically",
-            "Setting a phone alarm"
+            "Asking the AI to translate a paragraph from English into French",
+            "Asking the AI to write a short poem about the ocean at night",
+            "Pasting a long article and asking for a three-bullet summary"
           ],
           answer: 0,
           explain: "Mixing an image input with a text answer is multimodal because two modes are involved."
@@ -68,9 +68,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why are multimodal models useful?",
           choices: [
             "They let you mix inputs, like showing a chart and asking about it in words",
-            "They remove the need for the internet",
-            "They make text-only tasks impossible",
-            "They only work offline"
+            "They are always more accurate than text-only models on written tasks",
+            "They use less computing power than a text model of the same size",
+            "They can learn new facts from each image you upload to them"
           ],
           answer: 0,
           explain: "Combining modes lets you point at a picture and ask about it in plain language."
@@ -97,9 +97,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does a text-to-image tool do?",
           choices: [
             "Creates a new image from a written description",
-            "Deletes images from your phone",
-            "Only shrinks existing photos",
-            "Reads text out loud"
+            "Finds an existing image that matches your words",
+            "Turns a photo into a written description",
+            "Adds a text caption on top of an image"
           ],
           answer: 0,
           explain: "Text-to-image models generate a fresh picture based on the words you give them."
@@ -150,9 +150,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Stable Diffusion is notable partly because it is:",
           choices: [
             "Open-weight, so people can download and run it themselves",
-            "The only tool that makes video",
-            "Made by Google",
-            "Unable to use text prompts"
+            "The first image generator ever to accept text prompts",
+            "Built into most phone cameras to improve photos",
+            "Trained only on images its makers took themselves"
           ],
           answer: 0,
           explain: "Stable Diffusion, from Stability AI, is open-weight and can run on your own hardware."
@@ -179,9 +179,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt is most likely to give a strong result?",
           choices: [
             "A red fox sitting in a snowy forest at sunrise, soft warm light, photo style",
-            "fox",
-            "make something nice",
-            "picture please"
+            "A really beautiful, high-quality, award-winning picture of a fox, please",
+            "Make me an amazing, stunning image of a cute fox that everyone will love",
+            "Draw a fox in whatever style and setting you think would look the best"
           ],
           answer: 0,
           explain: "Detailed prompts with subject, setting, lighting, and style guide the tool far better than one vague word."
@@ -225,9 +225,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which detail describes composition?",
           choices: [
             "Close-up from a low angle, subject on the left",
-            "Bright yellow color",
-            "Made by Adobe",
-            "Saved as a PNG file"
+            "Warm golden colors with soft, hazy sunlight",
+            "Painted in the style of a watercolor sketch",
+            "A calm, peaceful mood with a hint of mystery"
           ],
           answer: 0,
           explain: "Composition covers framing and layout, like camera angle and where the subject sits."
@@ -243,9 +243,9 @@ window.ACADEMY.addUnit("ai", {
           q: "If an image is close but the lighting is wrong, a good next step is to:",
           choices: [
             "Keep the prompt but change the lighting words and regenerate",
-            "Give up on the tool entirely",
-            "Delete all your earlier prompts forever",
-            "Switch to a spreadsheet"
+            "Start over with a completely new prompt in a fresh session",
+            "Add 'better quality' to the end of the prompt and try again",
+            "Keep regenerating with the same prompt until the light changes"
           ],
           answer: 0,
           explain: "Small targeted edits to the prompt let you fix one thing at a time."
@@ -262,9 +262,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a 'vision' model good at?",
           choices: [
             "Looking at an image and describing or analyzing what is in it",
-            "Making the screen brighter",
-            "Charging your battery",
-            "Printing documents"
+            "Creating a brand-new image from a short written description",
+            "Improving the sharpness and colors of a low-quality photo",
+            "Recognizing who a stranger is from a photo of their face"
           ],
           answer: 0,
           explain: "Vision models take an image as input and can describe, read, or reason about its contents."
@@ -280,9 +280,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which is a realistic use of AI vision?",
           choices: [
             "Uploading a receipt and asking the AI to pull out the total",
-            "Physically mailing a letter for you",
-            "Cooking your dinner",
-            "Driving to the store"
+            "Asking the AI to take a new photo of your desk for you",
+            "Having the AI watch a live sports game and call each play",
+            "Asking the AI to fix a blurry photo so it looks sharp"
           ],
           answer: 0,
           explain: "Reading text and details out of an image, like a receipt, is a classic vision task."
@@ -315,9 +315,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A good tip when using AI vision on a document photo is to:",
           choices: [
             "Use a clear, well-lit image so details are readable",
-            "Use the blurriest photo you can find",
-            "Cover half the page first",
-            "Turn the image upside down on purpose"
+            "Use the highest file size, even if the photo is blurry",
+            "Crop out the headings so only the numbers remain",
+            "Convert the photo to black and white before uploading"
           ],
           answer: 0,
           explain: "Clear, legible images help the model read details accurately."
@@ -343,9 +343,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is OpenAI's Whisper mainly used for?",
           choices: [
             "Transcribing speech into text",
-            "Generating images",
-            "Editing videos",
-            "Writing music lyrics"
+            "Turning written text into speech",
+            "Translating text between languages",
+            "Generating music from a description"
           ],
           answer: 0,
           explain: "Whisper, from OpenAI, is a well-known speech-to-text transcription model."
@@ -368,9 +368,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Text-to-speech is useful for:",
           choices: [
             "Making an audiobook or voiceover from written text",
-            "Deleting your emails",
-            "Compressing photos",
-            "Blocking spam calls"
+            "Turning a recorded meeting into written notes",
+            "Translating a podcast into another language",
+            "Removing background noise from a recording"
           ],
           answer: 0,
           explain: "Text-to-speech reads text aloud, handy for narration and accessibility."
@@ -415,9 +415,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does a text-to-video tool do?",
           choices: [
             "Generates a video clip from a written description",
-            "Speeds up your internet",
-            "Only trims existing videos",
-            "Converts video into a spreadsheet"
+            "Writes a transcript of what is said in a video",
+            "Finds existing videos that match your search",
+            "Adds subtitles to a video in another language"
           ],
           answer: 0,
           explain: "Text-to-video models create new moving footage based on a prompt."
@@ -450,9 +450,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A common limitation of today's AI video is:",
           choices: [
             "Clips are often short and can have strange glitches",
-            "It only works in black and white",
-            "It can never include any motion",
-            "It requires no prompt at all"
+            "Clips can only be made from a photo, never from text",
+            "Every clip has to be edited by hand to add any motion",
+            "Clips are always silent, since models can't make sound"
           ],
           answer: 0,
           explain: "Generated clips tend to be brief and may show odd artifacts, since the tech is still maturing."
@@ -487,9 +487,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is voice cloning?",
           choices: [
             "Using AI to copy a specific person's voice",
-            "Turning music into a photo",
-            "Deleting all your audio files",
-            "Making a phone ring louder"
+            "Using AI to transcribe a recorded voice",
+            "Using AI to remove noise from a recording",
+            "Using AI to translate speech in real time"
           ],
           answer: 0,
           explain: "Voice cloning recreates a particular person's voice from samples of their speech."
@@ -505,9 +505,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why is voice cloning risky?",
           choices: [
             "It can be misused to impersonate people or scam others",
-            "It always improves sound quality",
-            "It makes voices impossible to record",
-            "It has no possible downsides"
+            "It needs hours of studio recordings to work at all",
+            "It only works in English, so it excludes most people",
+            "Cloned voices sound robotic, so listeners lose trust"
           ],
           answer: 0,
           explain: "Cloned voices can fuel impersonation scams and fraud, so consent and caution matter."
@@ -539,9 +539,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A responsible rule for voice cloning is:",
           choices: [
             "Only clone a voice with the person's clear permission",
-            "Clone celebrity voices for pranks",
-            "Never tell anyone the audio is AI-made",
-            "Use it to pretend to be someone's boss"
+            "Only clone voices of public figures, who are fair game",
+            "Only use cloned voices in private, not on social media",
+            "Only clone a voice if you add background music to it"
           ],
           answer: 0,
           explain: "Consent is the key guardrail. Cloning a voice without permission invites abuse."
@@ -558,9 +558,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a deepfake?",
           choices: [
             "AI-generated fake video or audio that looks or sounds real",
-            "A very deep swimming pool",
-            "A slow internet connection",
-            "A type of camera lens"
+            "A real video that has been edited to remove some parts",
+            "A low-quality copy of a video that has been shared often",
+            "An AI filter that adds effects to your selfies and videos"
           ],
           answer: 0,
           explain: "A deepfake is synthetic media crafted to convincingly imitate a real person or event."
@@ -593,9 +593,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A good habit when you see a suspicious clip online is to:",
           choices: [
             "Check the source and look for signs it may be AI-made",
-            "Immediately share it everywhere",
-            "Assume it must be real",
-            "Believe it because it looks polished"
+            "Share it with a note asking others whether it's real",
+            "Trust it if it has many views and shares already",
+            "Look at the comments to see what most people think"
           ],
           answer: 0,
           explain: "Verifying the source and looking for provenance or watermarks guards against being fooled."
@@ -622,9 +622,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why do deepfakes matter for everyday people?",
           choices: [
             "They can spread misinformation and enable scams",
-            "They make your phone faster",
-            "They only exist in movies",
-            "They are impossible to create"
+            "They only target celebrities and public figures",
+            "They are easy to spot, so they rarely fool anyone",
+            "They are illegal everywhere, so they're rarely made"
           ],
           answer: 0,
           explain: "Convincing fakes can mislead the public and power fraud, so awareness protects you."

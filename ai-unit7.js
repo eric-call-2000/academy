@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Which company makes Claude?",
-          choices: ["Anthropic", "OpenAI", "Google", "Meta"],
+          choices: ["Anthropic", "OpenAI", "Google DeepMind", "Meta AI"],
           answer: 0,
           explain: "Claude is built by Anthropic. OpenAI makes ChatGPT, Google makes Gemini, and Meta makes Llama."
         },
@@ -26,7 +26,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What kind of tool is Claude?",
-          choices: ["An AI assistant you chat with", "A spreadsheet program", "A web browser", "A video game"],
+          choices: ["An AI assistant you chat with", "A search engine that lists web links", "A code editor for writing software", "A voice assistant built into phones"],
           answer: 0,
           explain: "Claude is an AI assistant: you give it instructions in plain language and it responds."
         },
@@ -46,7 +46,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Which best describes what Claude does under the hood?",
-          choices: ["Predicts plausible text based on patterns it learned", "Looks up every answer in a fixed database", "Runs a human operator behind the scenes", "Copies answers word-for-word from the internet live"],
+          choices: ["Predicts plausible text based on patterns it learned", "Looks up each answer in a fixed database of verified facts", "Searches the live web for every question before answering", "Follows a script of hand-written rules for each topic"],
           answer: 0,
           explain: "Like other large language models, Claude predicts likely next words. That is why it can occasionally get things wrong."
         },
@@ -151,7 +151,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Two models share the same tier but are different generations. What is the safest general expectation?",
-          choices: ["The newer generation is usually more capable", "The older generation is always better", "They are guaranteed identical", "Generation never affects quality"],
+          choices: ["The newer generation is usually more capable", "The older one is better, having been tested longer", "They behave identically, since the tier is the same", "Generation only changes price, never capability"],
           answer: 0,
           explain: "Within a tier, the newer generation is generally the more capable and refined option."
         },
@@ -191,7 +191,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What is claude.ai?",
-          choices: ["The website and apps where you chat with Claude", "A programming language", "A search engine", "An email provider"],
+          choices: ["The website and apps where you chat with Claude", "The developer API for building apps with Claude", "A search engine that Anthropic runs alongside Claude", "Anthropic's research blog about its Claude models"],
           answer: 0,
           explain: "claude.ai is where most people chat with Claude, available on web, desktop, and mobile."
         },
@@ -230,7 +230,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Integrations let Claude do what?",
-          choices: ["Connect to other tools and data you use", "Physically repair hardware", "Replace your operating system", "Run without any internet ever"],
+          choices: ["Connect to other tools and data you use", "Run fully offline without any internet connection", "Retrain Claude on your files so it learns them", "Share your chats publicly with other Claude users"],
           answer: 0,
           explain: "Integrations connect Claude to other tools and sources so it can act on your context."
         },
@@ -251,7 +251,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What does the model picker on claude.ai let you do?",
-          choices: ["Choose which Claude model to use", "Change your billing address", "Pick a screen color", "Delete your account"],
+          choices: ["Choose which Claude model to use", "Choose which language Claude replies in", "Pick a writing style for Claude's answers", "Switch between your saved Projects quickly"],
           answer: 0,
           explain: "The model picker lets you select the Claude model or tier that fits your task."
         },
@@ -264,7 +264,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Why would you attach a file to a chat?",
-          choices: ["So Claude can read it and help with its contents", "To speed up your internet", "To change the app theme", "To log out faster"],
+          choices: ["So Claude can read it and help with its contents", "So Claude retrains on it and remembers it in every future chat", "So the file is backed up safely in your Claude account", "So Claude can share the file with your other contacts"],
           answer: 0,
           explain: "Attaching a file lets Claude read a document, image, or data and work with it directly."
         },
@@ -304,7 +304,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What is the main benefit of a Project on claude.ai?",
-          choices: ["Claude keeps your context and instructions across many chats", "It makes your screen brighter", "It removes the model picker", "It disables chat history"],
+          choices: ["Claude keeps your context and instructions across many chats", "Claude retrains itself on your files so it knows them permanently", "It lets several people chat with Claude in one shared thread", "It gives you a faster, more capable model than ordinary chats"],
           answer: 0,
           explain: "A Project holds shared documents and instructions so Claude remembers your context in every chat inside it."
         },
@@ -317,7 +317,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What do custom instructions in a Project do?",
-          choices: ["Tell Claude how to behave for that Project's chats", "Change your password", "Pick the app language only", "Speed up your Wi-Fi"],
+          choices: ["Tell Claude how to behave for that Project's chats", "Change Claude's behavior in every chat across your account", "Set which files Claude is allowed to read in the Project", "Choose the model that every chat in the Project will use"],
           answer: 0,
           explain: "Custom instructions set standing guidance — like tone or rules — that applies to chats in the Project."
         },
@@ -349,7 +349,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "When is a Project especially useful?",
-          choices: ["When many chats share the same background and rules", "When you only ever ask one question", "When you want to forget your context", "When you never attach anything"],
+          choices: ["When many chats share the same background and rules", "When you have a single quick question to ask just once", "When you want each chat to start with a blank slate", "When you need Claude to search the live web for news"],
           answer: 0,
           explain: "Projects shine when repeated chats lean on the same documents and instructions."
         }
@@ -363,7 +363,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What is an Artifact in Claude?",
-          choices: ["A viewable, editable output shown in a side panel", "A type of Claude model", "A billing plan", "A kind of error message"],
+          choices: ["A viewable, editable output shown in a side panel", "A saved copy of a past chat you can return to later", "A file you upload so Claude can read its contents", "A record of the sources Claude used for its answer"],
           answer: 0,
           explain: "An Artifact is a rendered output — like code, a document, or a small app — shown beside the chat."
         },
@@ -376,7 +376,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Where does an Artifact usually appear?",
-          choices: ["In a side panel next to the conversation", "In your email inbox", "Only after you download a file", "In the model picker"],
+          choices: ["In a side panel next to the conversation", "In a new browser tab that opens automatically", "Inline in the chat, mixed in with the text", "In the Project's shared knowledge files"],
           answer: 0,
           explain: "Artifacts open in a side panel so you can view them alongside the chat."
         },
@@ -416,7 +416,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "How does Claude ideally handle a question it is not sure about?",
-          choices: ["It admits the uncertainty instead of faking confidence", "It always makes up a confident answer", "It refuses to say anything at all", "It changes the subject silently"],
+          choices: ["It admits the uncertainty instead of faking confidence", "It gives its best guess confidently so the user isn't confused", "It declines to answer until the user provides a source", "It searches the web automatically before saying anything"],
           answer: 0,
           explain: "Being honest about uncertainty is part of Claude's style — it flags when it is not sure."
         },
