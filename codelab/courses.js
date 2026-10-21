@@ -16,6 +16,12 @@
    from the lessons actually present, so neither can be inflated without
    writing lessons. See core.js for the model.
 
+   `stage` — which part of the path the course belongs to (look.js STAGES:
+   found · front · back · qual · ops · cap). The stage owns the colour the
+   catalog, course header and unit headers paint with; `color` is kept only
+   as a fallback for a course with no stage. `icon` (emoji) likewise only
+   backs up look.js's line icon, which is chosen by course id.
+
    `stub: true` — on the roadmap, no lessons written yet. Pays 0 credits and
    loads nothing; `plannedCredits`/`plannedCategories` record what it WOULD
    pay, which is how the job board can name the courses that would close a
@@ -23,7 +29,7 @@
    ============================================================ */
 
 window.CODELAB.defineCourse({
-  id: "html", prefix: "html", title: "Learn HTML",
+  id: "html", prefix: "html", stage: "found", title: "Learn HTML",
   icon: "🧱", color: "#ff9600", level: "Beginner", hours: 10, items: 44,
   credits: 5, categories: { fnd: 5 },
   blurb: "Structure, text, tables, forms, semantic markup and accessibility — the full foundation of every website.",
@@ -31,7 +37,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "css", prefix: "css", title: "Learn CSS",
+  id: "css", prefix: "css", stage: "found", title: "Learn CSS",
   icon: "🎨", color: "#a560e8", level: "Beginner", hours: 11, items: 44,
   credits: 4, categories: { fnd: 3, fe: 1 },
   blurb: "Selectors, the box model, colors, typography, effects, transitions and animation — design that ships.",
@@ -39,7 +45,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "resp", prefix: "resp", title: "Responsive Design & Layout",
+  id: "resp", prefix: "resp", stage: "found", title: "Responsive Design & Layout",
   icon: "📐", color: "#2bb3a3", level: "Intermediate", hours: 6, items: 30,
   credits: 3, categories: { fe: 3 },
   blurb: "Flexbox in depth, Grid areas, auto-fit galleries, media queries, clamp() and fluid type — one page that looks right on every screen.",
@@ -47,7 +53,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "js", prefix: "js", title: "Learn JavaScript",
+  id: "js", prefix: "js", stage: "found", title: "Learn JavaScript",
   icon: "⚡", color: "#1cb0f6", level: "Beginner", hours: 14, items: 50,
   credits: 6, categories: { fnd: 6 },
   blurb: "The language of the web — variables, logic, functions, closures, loops, data and eight units of real programs.",
@@ -57,7 +63,7 @@ window.CODELAB.defineCourse({
 /* The first THEORY course: most of its time is concept lessons (predict,
    trace, order, explain) rather than code, which validate.js checks. */
 window.CODELAB.defineCourse({
-  id: "algo", prefix: "algo", title: "How Code Scales",
+  id: "algo", prefix: "algo", stage: "front", title: "How Code Scales",
   icon: "📈", color: "#4f46e5", level: "Intermediate", hours: 9, items: 40,
   theory: true,
   credits: 5, categories: { fnd: 5 },
@@ -68,7 +74,7 @@ window.CODELAB.defineCourse({
 /* The second THEORY course, built in tranches; credits restate what's
    written so far and the sheets follow at completion. */
 window.CODELAB.defineCourse({
-  id: "web", prefix: "web", title: "How the Web Works",
+  id: "web", prefix: "web", stage: "front", title: "How the Web Works",
   icon: "🌐", color: "#0ea5e9", level: "Intermediate", hours: 8, items: 38,
   theory: true,
   credits: 4, categories: { fnd: 4 },
@@ -77,7 +83,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "dom", prefix: "dom", title: "Building Interactive Websites",
+  id: "dom", prefix: "dom", stage: "front", title: "Building Interactive Websites",
   icon: "🖱️", color: "#58cc02", level: "Intermediate", hours: 8, items: 40,
   credits: 4, categories: { fe: 4 },
   blurb: "The DOM, events, forms, hand-built components, data-driven rendering and timers — eight units of truly interactive pages.",
@@ -85,7 +91,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "async", prefix: "async", title: "Async JavaScript & APIs",
+  id: "async", prefix: "async", stage: "front", title: "Async JavaScript & APIs",
   icon: "📡", color: "#f25f9c", level: "Intermediate", hours: 6, items: 30,
   credits: 3, categories: { fe: 2, be: 1 },
   blurb: "Promises, async/await, fetch, error handling, POST/PUT/DELETE, debounce and optimistic UI — talk to servers like every real web app.",
@@ -93,7 +99,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "debug", prefix: "debug", title: "Debugging & Diagnosis",
+  id: "debug", prefix: "debug", stage: "qual", title: "Debugging & Diagnosis",
   icon: "🐞", color: "#be123c", level: "Intermediate", hours: 8, items: 35,
   credits: 4, categories: { fnd: 1, qa: 3 },
   blurb: "Read the error before you touch the code: stack traces, reproducing a bug on purpose and isolating it, print debugging done well, breakpoints and the paused program, bugs that aren't in your JavaScript at all — then two real apps to fix. Take it after Async JavaScript & APIs.",
@@ -101,7 +107,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "srv", prefix: "srv", title: "Back-End Foundations",
+  id: "srv", prefix: "srv", stage: "back", title: "Back-End Foundations",
   icon: "🖥️", color: "#6c5ce7", level: "Intermediate", hours: 8, items: 38,
   credits: 4, categories: { be: 4 },
   blurb: "Servers, routing, REST, queries, middleware, auth, validation and pagination — the other half of full-stack, one honest function at a time.",
@@ -109,7 +115,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "test", prefix: "test", title: "Testing Fundamentals",
+  id: "test", prefix: "test", stage: "qual", title: "Testing Fundamentals",
   icon: "🧪", color: "#e11d48", level: "Intermediate", hours: 9, items: 40,
   credits: 5, categories: { qa: 5 },
   blurb: "How do you know it works? Assertions, a test runner you build yourself, TDD, test doubles, async and DOM testing, coverage — and suites graded on whether they catch real bugs.",
@@ -117,7 +123,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "cap", prefix: "cap", title: "Full-Stack Capstone",
+  id: "cap", prefix: "cap", stage: "cap", title: "Full-Stack Capstone",
   icon: "🚀", color: "#f59e0b", level: "Advanced", hours: 6, items: 28,
   credits: 3, categories: { fe: 1, be: 1, integ: 1 },
   blurb: "Put it all together — client and server in one page, optimistic UI, import/export, accessibility, and NoteStream: your portfolio app.",
@@ -125,7 +131,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "sec", prefix: "sec", title: "Web Security Basics",
+  id: "sec", prefix: "sec", stage: "qual", title: "Web Security Basics",
   icon: "🛡️", color: "#dc2626", level: "Intermediate", hours: 7, items: 33,
   credits: 4, categories: { sec: 3, be: 1 },
   blurb: "Break your own app, then defend it: XSS you can watch fire, escaping and sanitizing, injection, secrets in shipped source, auth and password storage, and the security headers that harden what ships.",
@@ -133,7 +139,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "ship", prefix: "ship", title: "Deploying Your App",
+  id: "ship", prefix: "ship", stage: "ops", title: "Deploying Your App",
   icon: "🛰️", color: "#0891b2", level: "Intermediate", hours: 8, items: 35,
   credits: 4, categories: { ops: 4 },
   blurb: "From localhost to live: how a static host resolves URLs, env vars and builds, a real Cloudflare Worker with CORS, DNS, and shipping, breaking and rolling back.",
@@ -142,7 +148,7 @@ window.CODELAB.defineCourse({
 
 // Backend Specialist Track
 window.CODELAB.defineCourse({
-  id: "nodejs", prefix: "nodejs", title: "Node.js Deep Dive",
+  id: "nodejs", prefix: "nodejs", stage: "back", title: "Node.js Deep Dive",
   icon: "⚡", color: "#68a063", level: "Advanced", hours: 7, items: 37,
   credits: 3, categories: { be: 3 },
   blurb: "Event loop, streams, buffers, file system, modules, npm ecosystem, error handling, debugging, performance, and clustering — production Node.js patterns.",
@@ -150,7 +156,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "db", prefix: "db", title: "Database Mastery",
+  id: "db", prefix: "db", stage: "back", title: "Database Mastery",
   icon: "🗄️", color: "#eab308", level: "Advanced", hours: 6, items: 32,
   credits: 3, categories: { data: 3 },
   blurb: "SQL fundamentals, database design, normalization, indexes, migrations, NoSQL basics, ORM patterns, transactions, and performance tuning — the data layer mastered.",
@@ -158,7 +164,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "api", prefix: "api", title: "Advanced API Design",
+  id: "api", prefix: "api", stage: "back", title: "Advanced API Design",
   icon: "🔌", color: "#8b5cf6", level: "Advanced", hours: 8, items: 38,
   credits: 4, categories: { be: 4 },
   blurb: "The contract, and what breaks it. Back-End Foundations stopped at { status, body }; everything that makes an API survive contact with real clients lives in the field it left out. Problem+json errors, cursors that survive concurrent writes, conditional writes that refuse to clobber, idempotency keys that make a retried POST safe, a real rate limiter, and changing a live API without breaking the clients already using it.",
@@ -166,7 +172,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "auth", prefix: "auth", title: "Authentication & Security",
+  id: "auth", prefix: "auth", stage: "qual", title: "Authentication & Security",
   icon: "🔐", color: "#ef4444", level: "Advanced", hours: 9, items: 41,
   credits: 5, categories: { sec: 3, be: 2 },
   blurb: "How a server knows it's still you: server-side sessions and a hand-written Set-Cookie, cookie-jar rules, CSRF, HMAC signing, JWTs, OAuth 2.0 with PKCE, and second factors — built by hand against a simulated browser and identity provider, then applied in two capstone projects.",
@@ -176,7 +182,7 @@ window.CODELAB.defineCourse({
 
 // DevOps/Engineering Track
 window.CODELAB.defineCourse({
-  id: "cli", prefix: "cli", title: "The Command Line & Your Machine",
+  id: "cli", prefix: "cli", stage: "found", title: "The Command Line & Your Machine",
   icon: "⌨️", color: "#475569", level: "Beginner", hours: 6, items: 35,
   credits: 3, categories: { ops: 2, fnd: 1 },
   blurb: "The machine every other course quietly assumes you can drive. Paths and the filesystem, making and breaking files, reading them without an editor, pipes and redirection and exit codes, globs and the searching they unlock, environment variables and PATH and permissions — and finally programs of your own: a script with a shebang, an execute bit, and a place on PATH. Typed into a real terminal, graded on what actually happened.",
@@ -184,7 +190,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "git", prefix: "git", title: "Git & Version Control",
+  id: "git", prefix: "git", stage: "found", title: "Git & Version Control",
   icon: "🌿", color: "#f97316", level: "Intermediate", hours: 8, items: 37,
   credits: 4, categories: { ops: 4 },
   blurb: "Undo for your whole project, typed into a real terminal: snapshots and the staging area, branches, merges and genuine conflicts, every way to undo — restore, reset, revert, stash, and the reflog that finds \"deleted\" commits — then rebase and a remote that rejects your push. Take it any time after Learn HTML; GitHub itself and pull requests are left to your real machine.",
@@ -195,7 +201,7 @@ window.CODELAB.defineCourse({
    pipeline, and every checkpoint grades the RUN (T.run/T.deployed/T.merged),
    never the YAML text. Composes the shell, Git and Docker engines. */
 window.CODELAB.defineCourse({
-  id: "cicd", prefix: "cicd", title: "CI/CD Pipelines",
+  id: "cicd", prefix: "cicd", stage: "ops", title: "CI/CD Pipelines",
   icon: "🔄", color: "#06b6d4", level: "Intermediate", hours: 7, items: 29,
 
   credits: 3, categories: { ops: 2, qa: 1 },
@@ -204,7 +210,7 @@ window.CODELAB.defineCourse({
 });
 
 window.CODELAB.defineCourse({
-  id: "docker", prefix: "docker", title: "Docker & Containers",
+  id: "docker", prefix: "docker", stage: "ops", title: "Docker & Containers",
   icon: "🐳", color: "#2563eb", level: "Intermediate", hours: 8, items: 36,
   credits: 4, categories: { ops: 4 },
   blurb: "\"It works on my machine\" — so ship the machine. Images and containers, a Dockerfile you write and build, layers and the build cache, smaller and safer images, ports and networks, volumes that survive, and a Compose stack you repair. Orchestration and CI belong to later courses.",
@@ -214,7 +220,7 @@ window.CODELAB.defineCourse({
 /* Concept-led theory course built in tranches; credits restate what's
    written so far and the DevOps sheet is already counting on it. */
 window.CODELAB.defineCourse({
-  id: "cloud", prefix: "cloud", title: "Cloud Platforms & Deployment",
+  id: "cloud", prefix: "cloud", stage: "ops", title: "Cloud Platforms & Deployment",
   icon: "☁️", color: "#7c3aed", level: "Intermediate", hours: 8, items: 37,
   theory: true,
   credits: 4, categories: { ops: 4 },
@@ -224,7 +230,7 @@ window.CODELAB.defineCourse({
 
 // Quality & Data Track
 window.CODELAB.defineCourse({
-  id: "etl", prefix: "etl", title: "Data Pipelines & ETL",
+  id: "etl", prefix: "etl", stage: "back", title: "Data Pipelines & ETL",
   icon: "🚰", color: "#ca8a04", level: "Advanced", hours: 9, items: 40,
   credits: 4, categories: { data: 4 },
   blurb: "Getting data in without getting it wrong: CSV parsed by the RFC, encodings and chunked input, JSON Lines, types converted on purpose, bad rows quarantined with their reasons, schema drift and duplicates caught before loading, and pipelines that plan their tasks, retry safely and run for their logical date. Idempotent loads, incremental updates and history follow.",

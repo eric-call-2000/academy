@@ -1,6 +1,9 @@
 /* ============================================================
-   CodeLab — Original Theme (Duolingo-inspired)
-   Maintains the current design for backwards compatibility
+   CodeLab — Base Theme (id "original", kept for saved preferences)
+   The default look: Nunito, a sky-blue accent and green for success,
+   on flat surfaces. Every colour that sits behind white text passes
+   4.5:1 (the old #0ea5e9 / #58cc02 did not). The raised 3D press is
+   kept only for the celebratory Continue button (--btn-lift).
    ============================================================ */
 
 :root {
@@ -10,17 +13,17 @@
   --line: #e2e8f0;
   --bg: #f5f7fb;
   --card: #ffffff;
-  --accent: #0ea5e9;
-  --accent-dark: #0284c7;
+  --accent: #0369a1;
+  --accent-dark: #075985;
   --accent-secondary: #6366f1;
-  --success: #58cc02;
-  --success-dark: #46a302;
-  --danger: #ff4b4b;
-  --danger-dark: #d63a3a;
-  --gold: #f59e0b;
-  --gold-dark: #d97706;
-  --orange: #ff9600;
-  --yellow-dark: #e0a800;
+  --success: #15803d;
+  --success-dark: #166534;
+  --danger: #dc2626;
+  --danger-dark: #b91c1c;
+  --gold: #b45309;
+  --gold-dark: #92400e;
+  --orange: #c2410c;
+  --yellow-dark: #a16207;
   --code-bg: #0b1220;
   --code-bg2: #101a2e;
   --code-line: #1e2a44;
@@ -29,19 +32,20 @@
   --code-inline-color: #4338ca;
   --font: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  
+
   /* Decorative values */
-  --btn-radius: 14px;
-  --btn-shadow: 0 4px 0 var(--success-dark);
-  --card-radius: 20px;
-  --card-shadow: 0 3px 0 var(--line);
-  --item-radius: 14px;
-  --item-hover: #f1f5f9;
-  --progress-height: 14px;
+  --btn-radius: 12px;
+  --btn-shadow: none;
+  --btn-lift: 0 4px 0 var(--success-dark);
+  --card-radius: 16px;
+  --card-shadow: none;
+  --item-radius: 10px;
+  --item-hover: var(--surface-2);
+  --progress-height: 8px;
   --logo-gradient: linear-gradient(90deg, var(--accent), var(--accent-secondary));
   --hero-gradient: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-  --hero-shadow: 0 12px 30px rgba(14, 165, 233, .35);
+  --hero-shadow: none;
   --topbar-bg: rgba(255,255,255,.92);
   --sheet-backdrop: rgba(2, 8, 23, .55);
-  --cert-gradient: linear-gradient(135deg, #0ea5e9, #6366f1);
+  --cert-gradient: linear-gradient(135deg, #0369a1, #6366f1);
 }
