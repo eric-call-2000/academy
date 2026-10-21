@@ -96,9 +96,14 @@
     if (store.currentUser === name) { store.currentUser = null; state = null; }
     saveStore();
   }
+  // A visitor trying Academy without a profile ("Try a lesson"). Their progress lives
+  // only in memory, shaped like a profile, until they create a profile to keep it.
+  var guest = null;
+  function curUser() { return store.users[store.currentUser] || guest; }
+
   // Choose which track the current user is studying; points `state` at that (user × track) progress.
   function selectTrack(trackId) {
-    var u = store.users[store.currentUser];
+    var u = curUser();
     if (!u) return;
     if (!u.tracks[trackId]) u.tracks[trackId] = freshState();
     u.lastTrack = trackId;   // the catalog's "Continue learning" row
@@ -134,7 +139,15 @@
     for (var i = 0; i < LESSONS.length; i++) if (!isDone(i)) return i;
     return LESSONS.length; // all done
   }
-  function isUnlocked(gi) { return gi <= firstIncompleteIndex(); }
+  // A lesson is open once everything before it is done, or once the lesson just
+  // before it is (so a learner who starts mid-course, like "Try a lesson", can go on).
+  function isUnlocked(gi) { return gi <= firstIncompleteIndex() || isDone(gi - 1); }
+  // Where "Continue" goes: the lesson after the last one finished, else the first not done.
+  function nextIndex() {
+    var l = state.lastGi;
+    if (typeof l === "number" && l + 1 < LESSONS.length && !isDone(l + 1)) return l + 1;
+    return firstIncompleteIndex();
+  }
 
   /* ---------- tiny DOM helpers ---------- */
   var app = document.getElementById("app");
@@ -250,8 +263,16 @@
       if (state.streak) right.appendChild(el("span", "stat-chip streak", glyph("flame") + state.streak + "-day streak"));
       right.appendChild(el("span", "stat-chip", state.xp + " XP"));
     } else {
-      var best = userBestStreak(store.currentUser);
+      var best = userBestStreak(curUser());
       if (best) right.appendChild(el("span", "stat-chip streak", glyph("flame") + best + "-day streak"));
+    }
+    if (!store.users[store.currentUser]) {
+      var save = el("button", "btn primary small", "Create a profile");
+      save.onclick = function () { createProfile(current); };
+      right.appendChild(save);
+      inner.appendChild(right);
+      bar.appendChild(inner);
+      return bar;
     }
     var userBtn = el("button", "user-chip");
     userBtn.innerHTML = '<span class="user-av" style="background:' + avatarColor(store.currentUser) + '">' + initial(store.currentUser) + '</span>' +
@@ -263,17 +284,143 @@
     bar.appendChild(inner);
     return bar;
   }
-  function userBestStreak(name) {
-    var u = store.users[name];
+  function userBestStreak(u) {
     if (!u || !u.tracks) return 0;
     return Object.keys(u.tracks).reduce(function (m, tid) { return Math.max(m, u.tracks[tid].streak || 0); }, 0);
   }
   function plural(n, word) { return n.toLocaleString() + " " + word + (n === 1 ? "" : "s"); }
 
   /* ============================================================
+     WELCOME  (first visit on this device: no profiles yet)
+     ============================================================ */
+  function courseStats() {
+    var quiz = TRACKS.filter(function (t) { return !t.link; });
+    return {
+      courses: TRACKS.length,
+      labs: TRACKS.length - quiz.length,
+      lessons: quiz.reduce(function (n, t) { return n + trackLessonTotal(t); }, 0),
+      questions: quiz.reduce(function (n, t) {
+        return n + (t.units || []).reduce(function (m, u) {
+          return m + (u.lessons || []).reduce(function (k, l) { return k + (l.questions || []).length; }, 0);
+        }, 0);
+      }, 0)
+    };
+  }
+  // The lesson "Try a lesson" opens: window.ACADEMY.sample in tracks.js, else the first lesson.
+  function sampleLesson() {
+    var want = window.ACADEMY.sample || {};
+    var t = trackById(want.track) || TRACKS.filter(function (x) { return !x.link && trackLessonTotal(x); })[0];
+    if (!t) return null;
+    var gi = 0, found = null;
+    (t.units || []).forEach(function (u, ui) {
+      (u.lessons || []).forEach(function (l) {
+        if (!found && (l.id === want.lesson || (!want.lesson && gi === 0))) found = { track: t, gi: gi, lesson: l, unitIndex: ui };
+        gi++;
+      });
+    });
+    return found || { track: t, gi: 0, lesson: t.units[0].lessons[0], unitIndex: 0 };
+  }
+  function startGuest() { if (!guest) guest = { tracks: {} }; }
+  function trySample() {
+    var s = sampleLesson();
+    if (!s) return;
+    startGuest();
+    selectTrack(s.track.id);
+    startLesson(s.gi);
+  }
+  // Ask for a name and create a profile. A guest's progress moves into it.
+  function createProfile(after) {
+    var name = prompt("Name for this profile:");
+    if (name === null) return;   // cancelled
+    var n = addUser(name);
+    if (guest) {
+      store.users[n].tracks = guest.tracks;
+      if (guest.lastTrack) store.users[n].lastTrack = guest.lastTrack;
+      guest = null;
+      saveStore();
+      toast("Profile created. Your progress is saved on this device.");
+    }
+    if (after === "course" && currentTrackId) { selectTrack(currentTrackId); renderHome(); }
+    else renderTracks();
+  }
+  function guestNote(where) {
+    if (!guest || store.users[store.currentUser]) return null;
+    var n = el("div", "guest-note");
+    n.appendChild(el("span", null, "You're trying Academy without a profile, so your progress isn't saved yet."));
+    var b = el("button", "text-btn", "Create a profile to keep it");
+    b.onclick = function () { createProfile(where); };
+    n.appendChild(b);
+    return n;
+  }
+
+  function renderWelcome() {
+    document.querySelectorAll(".lesson-screen, .center-screen").forEach(function (n) { n.remove(); });
+    app.innerHTML = "";
+    var st = courseStats();
+    var sample = sampleLesson();
+
+    var bar = el("header", "appbar");
+    var inner = el("div", "appbar-inner");
+    inner.appendChild(el("div", "logo", '<span class="logo-mark">A</span><span>Academy</span>'));
+    var signIn = el("button", "btn ghost small", "Create a profile");
+    signIn.onclick = function () { createProfile(); };
+    inner.appendChild(signIn);
+    bar.appendChild(inner);
+    app.appendChild(bar);
+
+    var page = el("main", "page welcome");
+    var hero = el("section", "welcome-hero");
+    hero.appendChild(el("h1", "welcome-title", "Short, rigorous lessons on AI, software, building and the mind."));
+    hero.appendChild(el("p", "welcome-sub", "Answer questions, see why each answer is right, and keep your place in every course. " +
+      "Start with a lesson now; make a profile when you want to save your progress."));
+    var actions = el("div", "welcome-actions");
+    var tryBtn = el("button", "btn primary large", "Try a lesson");
+    tryBtn.onclick = trySample;
+    actions.appendChild(tryBtn);
+    var browse = el("button", "btn ghost large", "Browse all courses");
+    browse.onclick = function () { startGuest(); renderTracks(); };
+    actions.appendChild(browse);
+    hero.appendChild(actions);
+    if (sample) {
+      var qn = (sample.lesson.questions || []).length;
+      hero.appendChild(el("p", "welcome-hint", "No sign-up. " + plural(qn, "question") + " from " + esc(sample.track.title) +
+        ": <b>" + esc(sample.lesson.title) + "</b>"));
+    }
+    page.appendChild(hero);
+
+    var stats = el("dl", "welcome-stats tnum");
+    [[st.courses, "courses and labs"], [st.lessons, "lessons"], [st.questions, "questions, each explained"], [st.labs, "hands-on lab apps"]]
+      .forEach(function (p) { stats.appendChild(el("div", null, "<dt>" + p[0].toLocaleString() + "</dt><dd>" + p[1] + "</dd>")); });
+    page.appendChild(stats);
+
+    var cats = (window.ACADEMY.categories || []);
+    var shelf = el("section", "welcome-shelf");
+    cats.forEach(function (c) {
+      var list = TRACKS.filter(function (t) { return t.category === c.id; });
+      if (!list.length) return;
+      var col = el("div", "shelf-col");
+      col.appendChild(el("h2", null, esc(c.title)));
+      var ul = el("ul");
+      list.forEach(function (t) {
+        var li = el("li");
+        li.appendChild(courseTile(t, "sm"));
+        li.appendChild(el("span", null, esc(t.title)));
+        ul.appendChild(li);
+      });
+      col.appendChild(ul);
+      shelf.appendChild(col);
+    });
+    page.appendChild(shelf);
+
+    app.appendChild(page);
+    window.scrollTo(0, 0);
+  }
+
+  /* ============================================================
      PROFILE PICKER  ("Who's studying?")
      ============================================================ */
   function renderProfiles() {
+    if (!userNames().length) return renderWelcome();
     document.querySelectorAll(".lesson-screen, .center-screen").forEach(function (n) { n.remove(); });
     app.innerHTML = "";
     var scr = el("div", "profiles-screen");
@@ -300,7 +447,7 @@
         }
       };
       card.appendChild(del);
-      card.onclick = function () { selectUser(name); renderTracks(); };
+      card.onclick = function () { guest = null; selectUser(name); renderTracks(); };
       card.onkeydown = function (e) { if (e.key === "Enter") card.onclick(); };
       grid.appendChild(card);
     });
@@ -309,15 +456,13 @@
     add.appendChild(el("div", "avatar add-avatar", glyph("plus")));
     add.appendChild(el("div", "profile-name", "Add learner"));
     add.appendChild(el("div", "profile-meta", "New profile"));
-    add.onclick = function () {
-      var name = prompt("Name for this profile:");
-      if (name === null) return;   // cancelled
-      addUser(name);
-      renderTracks();
-    };
+    add.onclick = function () { guest = null; createProfile(); };
     grid.appendChild(add);
 
     scr.appendChild(grid);
+    var tryLink = el("button", "text-btn", "Or try a lesson without a profile");
+    tryLink.onclick = function () { store.currentUser = null; saveStore(); trySample(); };
+    scr.appendChild(tryLink);
     app.appendChild(scr);
     window.scrollTo(0, 0);
   }
@@ -329,15 +474,16 @@
     return (t.units || []).reduce(function (s, un) { return s + (un.lessons || []).length; }, 0);
   }
   // First lesson not yet completed in a track, as {unitIndex, lessonIndex, lesson} (null when finished).
+  // Same rule as nextIndex(), for a track that isn't loaded.
   function nextLessonIn(t, prog) {
-    var gi = 0;
-    var units = t.units || [];
-    for (var ui = 0; ui < units.length; ui++) {
-      var ls = units[ui].lessons || [];
-      for (var li = 0; li < ls.length; li++, gi++) {
-        if (!(prog && prog.completed && prog.completed["g" + gi])) return { unitIndex: ui, lessonIndex: li, gi: gi, lesson: ls[li], unit: units[ui] };
-      }
-    }
+    var done = (prog && prog.completed) || {};
+    var all = [];
+    (t.units || []).forEach(function (u, ui) {
+      (u.lessons || []).forEach(function (l, li) { all.push({ unitIndex: ui, lessonIndex: li, gi: all.length, lesson: l, unit: u }); });
+    });
+    var l = prog && prog.lastGi;
+    if (typeof l === "number" && l + 1 < all.length && !done["g" + (l + 1)]) return all[l + 1];
+    for (var i = 0; i < all.length; i++) if (!done["g" + i]) return all[i];
     return null;
   }
 
@@ -347,7 +493,7 @@
     app.appendChild(appBar("catalog"));
     var page = el("main", "page");
 
-    var u = store.users[store.currentUser] || { tracks: {} };
+    var u = curUser() || { tracks: {} };
     var courseCount = TRACKS.length;
 
     var intro = el("div", "cat-intro");
@@ -363,6 +509,8 @@
     search.appendChild(input);
     intro.appendChild(search);
     page.appendChild(intro);
+    var gn = guestNote("catalog");
+    if (gn) page.appendChild(gn);
 
     // Continue learning: the course this profile opened most recently, if it has a next lesson.
     var last = u.lastTrack && trackById(u.lastTrack);
@@ -459,11 +607,50 @@
     top.appendChild(nm);
     card.appendChild(top);
     if (t.blurb) card.appendChild(el("p", "lab-blurb", esc(t.blurb)));
+    if (t.latest) {
+      var news = el("p", "lab-latest hidden");
+      card.appendChild(news);
+      loadLatest(t, function (up) {
+        if (!up) return;
+        news.innerHTML = '<span class="live" aria-hidden="true"></span><span>Updated ' + fmtDay(up.date) + ": " + esc(up.title) + "</span>";
+        news.classList.remove("hidden");
+      });
+    }
     var foot = el("div", "lab-foot");
     foot.appendChild(el("span", "tnum", doneCount > 0 ? (doneCount + " done · " + (prog.xp || 0) + " XP") : esc(t.size || "")));
     foot.appendChild(el("b", null, esc(doneCount > 0 ? "Open lab" : (t.cta || "Open lab")) + glyph("arrow")));
     card.appendChild(foot);
     return card;
+  }
+
+  // Newest dated update a lab publishes (tracks.js `latest`: a script of
+  // window.POLITICS.addUpdate({ date, title, … }) calls, as in politics/updates.js).
+  // Loaded once per visit with a stand-in POLITICS that only collects the calls.
+  var latestCache = {};
+  function loadLatest(t, done) {
+    if (t.id in latestCache) return done(latestCache[t.id]);
+    var prev = window.POLITICS, items = [];
+    window.POLITICS = { addUpdate: function (u) { if (u && u.date && u.title) items.push(u); } };
+    var s = document.createElement("script");
+    s.src = t.latest;
+    s.onload = s.onerror = function () {
+      if (prev === undefined) delete window.POLITICS; else window.POLITICS = prev;
+      var today = todayISO();
+      items = items.filter(function (u) { return u.date <= today; })
+        .sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+      latestCache[t.id] = items[0] || null;
+      done(latestCache[t.id]);
+    };
+    document.head.appendChild(s);
+  }
+  function todayISO() {
+    var d = new Date();
+    return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+  }
+  function fmtDay(iso) {
+    var p = String(iso).split("-");
+    var d = new Date(+p[0], +p[1] - 1, +p[2]);
+    return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
   }
 
   // A quiz course in the catalog.
@@ -495,7 +682,8 @@
      ============================================================ */
   var openUnits = {};   // trackId -> { unitIndex: true } for units the learner expanded
 
-  function renderHome() {
+  // focusNext: scroll to the unit holding the next lesson (used after finishing a lesson).
+  function renderHome(focusNext) {
     document.querySelectorAll(".lesson-screen, .center-screen").forEach(function (n) { n.remove(); });
     app.innerHTML = "";
     app.appendChild(appBar("course"));
@@ -508,9 +696,11 @@
     var done = Object.keys(state.completed).length;
     var total = LESSONS.length;
     var qCount = ALL_QUESTIONS.length;
-    var nextGi = firstIncompleteIndex();
+    var nextGi = nextIndex();
     var nextEntry = LESSONS[nextGi] || null;
 
+    var gn = guestNote("course");
+    if (gn) page.appendChild(gn);
     var crumb = el("div", "crumb");
     var back = el("button", null, "Catalog");
     back.onclick = function () { renderTracks(); };
@@ -629,12 +819,14 @@
         saveStore(); renderHome();
       }
     };
-    side.appendChild(reset);
+    if (store.users[store.currentUser]) side.appendChild(reset);
     grid.appendChild(side);
 
     page.appendChild(grid);
     app.appendChild(page);
     window.scrollTo(0, 0);
+    var openUnit = focusNext && nextEntry && main.querySelectorAll(".unit")[nextEntry.unitIndex];
+    if (openUnit && nextEntry.unitIndex > 0) window.scrollTo(0, openUnit.getBoundingClientRect().top + window.scrollY - 76);
   }
   function globalIndexOf(ui, li) {
     for (var i = 0; i < LESSONS.length; i++)
@@ -1119,6 +1311,7 @@
     var gained = session.correct * 10 + 5; // 10 per correct + completion bonus
     var firstTime = !isDone(session.gi);
     state.completed["g" + session.gi] = true;
+    state.lastGi = session.gi;
     state.xp += gained;
     bumpStreak();
     saveState();
@@ -1136,7 +1329,7 @@
 
     var actions = el("div", "actions");
     var cont = el("button", "btn primary", "Continue");
-    cont.onclick = function () { renderHome(); };
+    cont.onclick = function () { renderHome(true); };
     actions.appendChild(cont);
     scr.appendChild(actions);
 
@@ -1246,7 +1439,7 @@
     app.innerHTML = '<div style="padding:40px;text-align:center;font-weight:800;color:#777">' +
       "No tracks loaded. Make sure tracks.js and the unit files are present.</div>";
   } else if (!store.currentUser || !store.users[store.currentUser]) {
-    renderProfiles();   // no profile yet -> pick or create one
+    renderProfiles();   // no profile chosen -> pick one (or, on a first visit, the welcome screen)
   } else {
     renderTracks();     // profile set -> choose which track to study
   }
