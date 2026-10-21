@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which everyday example best illustrates escape behavior?",
-          choices: ["Buckling a seatbelt before the car beeps", "Studying to prevent a bad grade", "Putting on sunglasses because the sun is already in your eyes", "Saving money for a future emergency"],
+          choices: ["Buckling a seatbelt before the car's warning chime begins to sound", "Studying hard the night before to prevent a bad grade on the test", "Putting on sunglasses because the sun is already in your eyes", "Saving money each month so you never face an unpaid bill later"],
           answer: 2,
           explain: "The glare is already present, so putting on sunglasses terminates an ongoing aversive stimulus, which is escape."
         },
@@ -65,7 +65,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "How does avoidance learning differ from escape learning?",
-          choices: ["The aversive stimulus is always more intense in avoidance", "The response prevents the aversive event rather than terminating an ongoing one", "Avoidance uses positive reinforcement instead of negative", "There is never a warning signal in avoidance"],
+          choices: ["The aversive stimulus used is always much more intense in avoidance than in escape", "The response prevents the aversive event rather than terminating an ongoing one", "Avoidance relies on positive reinforcement, while escape relies on negative reinforcement", "Avoidance never includes a warning signal, while escape always begins with one"],
           answer: 1,
           explain: "In avoidance the response occurs before the aversive event and stops it from happening; escape only terminates an event already in progress."
         },
@@ -91,7 +91,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "In a typical signaled avoidance procedure, the aversive event is prevented when the organism responds:",
-          choices: ["After the aversive stimulus has ended", "Only during the aversive stimulus", "At a random time unrelated to the signal", "During the warning signal, before the aversive stimulus"],
+          choices: ["After the aversive stimulus has already ended on its own", "Only while the aversive stimulus is being delivered", "At random times, unrelated to when the signal appears", "During the warning signal, before the aversive stimulus"],
           answer: 3,
           explain: "Responding during the warning signal and before the aversive stimulus is what allows the event to be avoided."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What is the core puzzle of the avoidance paradox?",
-          choices: ["Why organisms escape faster than they avoid", "Why warning signals are needed at all", "How the non-occurrence of an aversive event can reinforce a response", "Why punishment weakens behavior"],
+          choices: ["Why organisms learn escape responses faster than avoidance responses", "Why a warning signal is needed at all for avoidance to be learned", "How the non-occurrence of an aversive event can reinforce a response", "Why punishment weakens behavior more slowly than extinction does"],
           answer: 2,
           explain: "In successful avoidance nothing aversive happens, so it is unclear what consequence could strengthen the response."
         },
@@ -137,7 +137,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which observation makes the paradox especially striking?",
-          choices: ["Avoidance responses can be extremely persistent and resistant to extinction", "Avoidance is only ever seen in humans", "Avoidance requires no learning at all", "Avoidance always fades after a single trial"],
+          choices: ["Avoidance responses can be extremely persistent and resistant to extinction", "Avoidance responses have only been observed in humans, never in other animals", "Avoidance responses appear fully formed on the first trial with no learning", "Avoidance responses always fade after a single trial without the aversive event"],
           answer: 0,
           explain: "Well-learned avoidance is remarkably resistant to extinction, which deepens the mystery of what maintains it."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "According to Mowrer's two-process (two-factor) theory, first proposed in 1947, avoidance learning combines:",
-          choices: ["Two separate operant reinforcement schedules", "Pavlovian fear conditioning and operant escape from fear", "Positive reinforcement and positive punishment", "Habituation and sensitization"],
+          choices: ["Two separate operant schedules of positive reinforcement", "Pavlovian fear conditioning and operant escape from fear", "Positive reinforcement of the response and positive punishment", "Habituation to the shock and sensitization to the warning signal"],
           answer: 1,
           explain: "Mowrer proposed a classically conditioned fear response plus an operantly reinforced escape from that fear."
         },
@@ -189,7 +189,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Under two-process theory, what does the organism actually escape when it makes an avoidance response?",
-          choices: ["The food reinforcer", "A neutral house light", "The primary aversive shock only", "The conditioned fear elicited by the warning signal"],
+          choices: ["The loss of the food reinforcer earned in the box", "The neutral house light that marks each session", "The primary aversive shock itself, and nothing else", "The conditioned fear elicited by the warning signal"],
           answer: 3,
           explain: "The response terminates the fear-arousing CS, so avoidance is really escape from conditioned fear."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Robert Bolles's 1970 concept of species-specific defense reactions (SSDRs) proposes that:",
-          choices: ["Animals come prepared with innate defensive behaviors such as fleeing, freezing, and fighting", "Animals must learn every avoidance response from scratch by trial and error", "Avoidance is impossible without a warning signal", "Defensive behavior is entirely reinforced by food"],
+          choices: ["Animals come prepared with innate defensive behaviors such as fleeing, freezing, and fighting", "Animals must learn every avoidance response from scratch through trial-and-error experience", "Avoidance responses can be learned only when a clear warning signal precedes the aversive event", "Defensive behaviors are acquired mainly through positive reinforcement with food after danger"],
           answer: 0,
           explain: "Bolles argued that natural selection provides innate defensive reactions because there is no time to learn them when facing a predator."
         },
@@ -247,7 +247,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Why did Bolles think rats learn to run or freeze to avoid shock much faster than they learn to press a lever?",
-          choices: ["Lever pressing is physically impossible for rats", "Running produces food while lever pressing does not", "Running and freezing are natural defensive reactions, whereas lever pressing is not", "Rats cannot perceive the warning signal for lever pressing"],
+          choices: ["Lever pressing is physically too difficult for rats to perform under stress", "Running is usually reinforced with food in the apparatus, while lever pressing is not", "Running and freezing are natural defensive reactions, whereas lever pressing is not", "Rats cannot perceive the warning signal when it is paired with lever pressing"],
           answer: 2,
           explain: "Avoidance is fast when the response is an existing SSDR; arbitrary responses like lever pressing conflict with defensive tendencies and are learned poorly."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Solomon and Wynne's classic 1953 shuttle-box studies with dogs are famous for showing that avoidance responses were:",
-          choices: ["Impossible to establish in dogs", "Quickly forgotten after training", "Extremely persistent and highly resistant to extinction", "Only learned with food rewards"],
+          choices: ["Impossible to establish reliably in dogs, even with strong shock", "Quickly forgotten once the shock was turned off", "Extremely persistent and highly resistant to extinction", "Learned only when food rewards followed each jump"],
           answer: 2,
           explain: "Solomon and Wynne found that traumatic avoidance responses in dogs were remarkably persistent and resisted extinction."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "The conditioned emotional response (CER), also called conditioned suppression, was first described by:",
-          choices: ["Estes and Skinner in 1941", "Pavlov in 1897", "Bolles in 1970", "Thorndike in 1911"],
+          choices: ["Estes and Skinner in 1941", "Watson and Rayner in 1920", "Solomon and Wynne in 1953", "Brown and Jenkins in 1968"],
           answer: 0,
           explain: "Estes and Skinner (1941) introduced the CER as a way to measure conditioned fear or anxiety."
         },
@@ -345,7 +345,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "A suppression ratio near 0 in a CER experiment indicates:",
-          choices: ["No fear and normal responding during the CS", "The animal responds faster during the CS", "The CS has no effect on behavior", "Strong suppression, meaning the CS elicits strong fear"],
+          choices: ["No suppression, meaning the animal feels no fear during the CS", "Faster responding during the CS than during the baseline period", "Little suppression, so the CS has almost no effect on behavior", "Strong suppression, meaning the CS elicits strong fear"],
           answer: 3,
           explain: "A ratio near 0 means responding nearly stops during the CS, reflecting strong conditioned fear; a ratio near 0.5 means little suppression."
         },
@@ -397,7 +397,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Why is inconsistent punishment (punishing a response only sometimes) generally less effective?",
-          choices: ["It makes the punisher more intense", "It delivers the punishment sooner", "The behavior still gets reinforced on unpunished occasions, so it persists", "It removes the need for any reinforcement"],
+          choices: ["It makes each punisher so intense that the learner quickly habituates to it", "It delivers the punishment too soon after the response to be noticed", "The behavior still gets reinforced on unpunished occasions, so it persists", "It removes the reinforcement for the behavior on every unpunished occasion"],
           answer: 2,
           explain: "When a response is only sometimes punished but otherwise still pays off, it continues to be reinforced and is suppressed far less."
         },

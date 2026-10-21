@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is a quantity takeoff?",
-          choices: ["Counting and measuring the materials and work shown on the drawings", "Removing waste material from a site", "A discount taken off a supplier invoice", "The deadline to submit a bid"],
+          choices: ["Counting and measuring the materials and work shown on the drawings", "Pricing each line item using supplier quotes and labor rates", "Comparing subcontractor bids line by line to find scope gaps", "Subtracting scope that was removed from the contract by change order"],
           answer: 0,
           explain: "A takeoff is the process of measuring and counting every item of work from the plans so it can be priced."
         },
@@ -27,7 +27,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which is the most accurate estimate, built by pricing every measured item of work?",
-          choices: ["Detailed (unit-price) estimate", "Square-foot estimate", "Conceptual estimate", "ROM estimate"],
+          choices: ["Detailed (unit-price) estimate", "Square-foot (area-based) estimate", "Assembly (systems) estimate", "Parametric (cost model) estimate"],
           answer: 0,
           explain: "A detailed unit-price estimate prices each takeoff quantity individually and is the most accurate but most time-consuming."
         },
@@ -64,7 +64,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "An assembly (systems) estimate prices work by:",
-          choices: ["Grouping related items into one unit, like a complete wall per square foot", "Counting only the doors", "Using last year's total job cost", "Guessing from a photo"],
+          choices: ["Grouping related items into one unit, like a complete wall per square foot", "Applying a single cost per square foot of building to the whole floor area", "Pricing each nail, stud and sheet separately from the takeoff", "Scaling last year's total job cost by a regional cost index"],
           answer: 0,
           explain: "An assembly estimate bundles materials and labor for a system, such as a finished wall, into a single unit price."
         }
@@ -78,7 +78,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "On a drawing set, what does the scale tell you?",
-          choices: ["How a measured length on paper relates to real-world size", "The total project cost", "The number of sheets", "The crew size needed"],
+          choices: ["How a measured length on paper relates to real-world size", "How large the sheet will print when plotted at full size", "How accurate the dimensions are compared to the field survey", "How many drawings fit on one sheet of the set"],
           answer: 0,
           explain: "Scale, such as 1/4 inch equals 1 foot, converts a measured distance on the sheet into actual dimensions."
         },
@@ -129,7 +129,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A callout (detail bubble) on a plan usually points you to:",
-          choices: ["An enlarged detail drawing elsewhere in the set", "The contractor's phone number", "The bid due date", "The paint color only"],
+          choices: ["An enlarged detail drawing elsewhere in the set", "A note in the specifications describing the material", "A revision made since the last drawing issue", "The room number and finish schedule for that space"],
           answer: 0,
           explain: "A callout references another sheet or detail where that condition is drawn at a larger, clearer scale."
         }
@@ -143,7 +143,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Items like doors, toilets and light fixtures are taken off in which unit?",
-          choices: ["Each (EA), a simple count", "Square foot (SF)", "Cubic yard (CY)", "Linear foot (LF)"],
+          choices: ["Each (EA), a simple count", "Square foot (SF), by area", "Linear foot (LF), by length", "Lump sum (LS), one price"],
           answer: 0,
           explain: "Discrete, countable items are measured as Each (EA) rather than by length, area or volume."
         },
@@ -209,14 +209,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which tool is used to measure distances directly on a paper drawing?",
-          choices: ["A scale ruler (architect's or engineer's scale)", "A torque wrench", "A laser level", "A moisture meter"],
+          choices: ["A scale ruler (architect's or engineer's scale)", "A planimeter traced around each room outline", "A laser distance meter aimed at the sheet", "A protractor set along the dimension lines"],
           answer: 0,
           explain: "A scale ruler reads off true dimensions at the drawing's scale for manual takeoff."
         },
         {
           type: "mcq",
           q: "What is on-screen (digital) takeoff?",
-          choices: ["Measuring quantities directly on an electronic drawing with software", "Printing the plans larger", "Faxing the plans to a sub", "Counting by hand only"],
+          choices: ["Measuring quantities directly on an electronic drawing with software", "Scanning paper plans so they can be emailed to subcontractors", "Entering hand-counted quantities into a spreadsheet for pricing", "Viewing the plans on a tablet in the field instead of on paper"],
           answer: 0,
           explain: "Digital takeoff lets the estimator click counts and trace lengths and areas right on a PDF or CAD file."
         },
@@ -260,7 +260,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "An assembly in takeoff is useful because it:",
-          choices: ["Counts one item but generates several related quantities at once", "Hides the scope from the estimator", "Replaces the drawings", "Eliminates the need for pricing"],
+          choices: ["Counts one item but generates several related quantities at once", "Combines every trade's takeoff into a single lump-sum line item", "Locks quantities so they cannot change when drawings are revised", "Applies the waste factor automatically to every material in the job"],
           answer: 0,
           explain: "An assembly links components, so counting one wall can produce studs, plates, drywall and screws together."
         }
@@ -274,7 +274,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "To get concrete volume for a footing, you multiply:",
-          choices: ["Width by depth by length, then convert to cubic yards", "Length by the price", "Width by the number of doors", "Area by the scale only"],
+          choices: ["Width by depth by length, then convert to cubic yards", "Width by length only, then convert to square yards", "Width by depth by length, then divide by 9 for cubic yards", "Perimeter by depth, then convert to cubic feet"],
           answer: 0,
           explain: "Concrete is length times width times depth, then the cubic feet are divided by 27 to get cubic yards."
         },
@@ -288,7 +288,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why do estimators add a waste or shrinkage factor to a concrete quantity?",
-          choices: ["To cover spillage, over-excavation and uneven subgrade", "To make the bid look higher", "Because concrete shrinks to nothing", "To pay for rebar separately"],
+          choices: ["To cover spillage, over-excavation and uneven subgrade", "To account for the water that evaporates during curing", "To build in extra profit on the material line", "To cover concrete used for test cylinders only"],
           answer: 0,
           explain: "A small percentage is added so the order accounts for spillage and ground irregularities, avoiding a short pour."
         },
@@ -301,7 +301,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Formwork is most often measured by:",
-          choices: ["Square feet of contact area (SFCA) against the concrete", "Cubic yards", "Each", "Tons"],
+          choices: ["Square feet of contact area (SFCA) against the concrete", "Cubic yards of concrete the forms will hold", "Linear feet of wall measured along the top", "Square feet of finished floor area measured in plan view"],
           answer: 0,
           explain: "Formwork is quantified as the area of form face touching the concrete, called square feet of contact area."
         },
@@ -319,7 +319,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "In earthwork, the difference between cut and fill describes:",
-          choices: ["Material removed versus material added to reach grade", "The price of concrete", "The number of footings", "The rebar spacing"],
+          choices: ["Material removed versus material added to reach grade", "Topsoil stripped versus topsoil respread at the end", "Soil volume in the bank versus after it is compacted in place", "Excavation done by machine versus done by hand"],
           answer: 0,
           explain: "Cut is soil excavated away and fill is soil brought in or moved to build the site up to the design grade."
         },
@@ -340,14 +340,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Dimensional lumber volume for pricing is measured in:",
-          choices: ["Board feet (BF)", "Square yards", "Tons", "Cubic yards"],
+          choices: ["Board feet (BF)", "Linear feet (LF)", "Cubic feet (CF)", "Square feet (SF)"],
           answer: 0,
           explain: "Framing lumber is quantified in board feet, the nominal volume measure used to price wood."
         },
         {
           type: "mcq",
           q: "To estimate studs in a wall, you mainly use the wall length and the:",
-          choices: ["On-center spacing of the studs", "Paint color", "Number of doors only", "Roof pitch"],
+          choices: ["On-center spacing of the studs", "Wall height and stud length", "Number of top and bottom plates", "Weight of the roof framing above"],
           answer: 0,
           explain: "Dividing wall length by the on-center spacing, then adding for corners and openings, gives the stud count."
         },
@@ -367,14 +367,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Drywall is commonly taken off by:",
-          choices: ["Square feet of wall and ceiling, then converted to sheets", "Cubic yards", "Linear feet only", "Tons"],
+          choices: ["Square feet of wall and ceiling, then converted to sheets", "Linear feet of wall, then converted to rolls of tape", "Number of rooms, using a standard sheet count per room", "Cubic feet of wall cavity, then converted to bundles"],
           answer: 0,
           explain: "Wall and ceiling area is measured in square feet, then divided by the sheet size to get the number of boards."
         },
         {
           type: "mcq",
           q: "Why add a waste factor to framing and drywall quantities?",
-          choices: ["To cover cutoffs, breakage and offcuts that cannot be reused", "To inflate profit", "Because lumber evaporates", "To skip ordering plates"],
+          choices: ["To cover cutoffs, breakage and offcuts that cannot be reused", "To cover material the supplier may forget to deliver", "To account for lumber shrinking as it dries on site", "To build extra profit into the material line without showing it"],
           answer: 0,
           explain: "A few percent extra accounts for cuts, damage and scrap so the crew does not run short on material."
         },
@@ -425,14 +425,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is markup in an estimate?",
-          choices: ["The amount added to direct cost to cover overhead and profit", "A red pen note on the plans", "The drawing scale", "The waste factor"],
+          choices: ["The amount added to direct cost to cover overhead and profit", "The percentage added to quantities to cover cutoffs and waste", "The reserve added to cover unknown conditions and risk", "The difference between the low bid and the next lowest bid"],
           answer: 0,
           explain: "Markup is added on top of direct costs so the contractor recovers overhead and earns a profit."
         },
         {
           type: "mcq",
           q: "Overhead in pricing usually refers to:",
-          choices: ["Indirect costs of running the business and the job, like office and supervision", "Only the roof materials", "The crane height", "The architect's fee"],
+          choices: ["Indirect costs of running the business and the job, like office and supervision", "Direct costs of the labor, materials and equipment installed in the permanent work", "The margin the contractor earns after every cost has been paid", "Money reserved for unknown site conditions found during the work"],
           answer: 0,
           explain: "Overhead covers indirect costs such as office expenses, insurance and supervision not tied to one work item."
         },
@@ -470,7 +470,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Extending a takeoff means:",
-          choices: ["Multiplying each quantity by its unit price to get a line item total", "Making the drawings bigger", "Adding more days to the schedule", "Deleting scope"],
+          choices: ["Multiplying each quantity by its unit price to get a line item total", "Adding a waste factor to each quantity before it is ordered", "Carrying a takeoff onto later sheets when the drawings are revised", "Adding extra days to the bid period so subs can finish pricing"],
           answer: 0,
           explain: "Extension multiplies quantity by unit price for each item, and the line totals are summed into the estimate."
         },
@@ -484,7 +484,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Contingency in a bid is:",
-          choices: ["Money set aside for unknowns and risk", "The profit only", "The drawing scale", "A type of rebar"],
+          choices: ["Money set aside for unknowns and risk", "Money added to cover company overhead", "The contractor's planned profit on the job", "Money held back from each payment until closeout"],
           answer: 0,
           explain: "Contingency is a reserve added to cover unforeseen conditions and estimating uncertainty."
         },
@@ -497,7 +497,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A subcontractor plug or quote in an estimate is:",
-          choices: ["A price the sub provides for their scope, inserted into the estimate", "A drywall fastener", "The general's profit", "A type of dimension string"],
+          choices: ["A price the sub provides for their scope, inserted into the estimate", "An allowance the owner sets for work not yet designed", "The GC's own self-performed labor price for that trade", "A list of exclusions and qualifications the sub attaches to their proposal"],
           answer: 0,
           explain: "A sub quote is the price a specialty contractor gives for their portion, dropped into the general's estimate."
         },
@@ -542,7 +542,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Compared with a spreadsheet, dedicated estimating software mainly helps by:",
-          choices: ["Linking takeoff to pricing and reducing manual transfer errors", "Drawing the building", "Pouring the concrete", "Hiring the crew"],
+          choices: ["Linking takeoff to pricing and reducing manual transfer errors", "Removing the need for an estimator to review the quantities", "Producing the design drawings and specs alongside the bid", "Guaranteeing the final bid will be lower than competitors"],
           answer: 0,
           explain: "Estimating software ties quantities to cost data and recaps, cutting the hand transfers where mistakes creep in."
         },
@@ -562,14 +562,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Writing 1,250 as 1,520 by accident is an example of a:",
-          choices: ["Transposed number error", "Unit mismatch", "Waste factor", "Markup"],
+          choices: ["Transposed number error", "Unit mismatch error", "Rounding error", "Double-counting error"],
           answer: 0,
           explain: "Transposing digits swaps their order and silently changes a quantity or price, so totals must be checked."
         },
         {
           type: "mcq",
           q: "A unit mismatch error happens when you:",
-          choices: ["Multiply a quantity by a price meant for a different unit", "Use the right crew", "Add contingency", "Read the correct scale"],
+          choices: ["Multiply a quantity by a price meant for a different unit", "Count the same item twice on overlapping drawing sheets", "Swap two digits while copying a quantity into the estimate", "Round quantities up before applying the waste factor"],
           answer: 0,
           explain: "Pricing square feet with a per-cubic-yard cost, for example, produces a wildly wrong total."
         },

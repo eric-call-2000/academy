@@ -39,7 +39,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What is the main cross-cultural critique of Kohlberg's top stage?",
-          choices: ["It focuses on emotion rather than logic", "It reflects a Western, individualist, justice-centered ideal", "It applies only to young children", "It ignores the role of punishment"],
+          choices: ["It focuses on emotion and intuition rather than logical reasoning", "It reflects a Western, individualist, justice-centered ideal", "It is reached only by young children in traditional societies", "It ignores the role of punishment and obedience in moral growth"],
           answer: 1,
           explain: "Critics note that ranking abstract individual-rights justice as the pinnacle privileges Western liberal values over community- and duty-based moralities."
         },
@@ -171,7 +171,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Haidt's 'Julie and Mark' story, what makes it a good test of moral intuition?",
-          choices: ["It involves clear physical harm to a stranger", "It describes consensual, harm-free sibling incest that still feels wrong", "It has an obviously correct utilitarian answer", "It centers on stealing to save a life"],
+          choices: ["It involves clear physical harm to a stranger who did nothing wrong", "It describes consensual, harm-free sibling incest that still feels wrong", "It has an obviously correct answer that maximizes overall welfare", "It asks whether stealing medicine to save a dying spouse is acceptable"],
           answer: 1,
           explain: "The story removes harm (protected sex, no pregnancy, kept secret) so that lingering disapproval reveals intuition operating without a harm-based reason."
         },
@@ -197,7 +197,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What do dumbfounding results suggest about moral reasoning?",
-          choices: ["It always precedes moral judgment", "It often functions as after-the-fact justification", "It is unrelated to emotion", "It is identical across all cultures"],
+          choices: ["It usually comes first and determines the moral judgment", "It often functions as after-the-fact justification", "It operates independently of emotion and intuition", "It is identical across cultures and social classes"],
           answer: 1,
           explain: "The studies imply reasoning frequently rationalizes an intuition already reached, rather than driving the verdict."
         },
@@ -250,7 +250,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "A distinctive feature of purity violations is that they can feel wrong even when...",
-          choices: ["a law is clearly broken", "there is no identifiable victim or harm", "money changes hands", "two adults disagree"],
+          choices: ["the act is performed by a close friend", "there is no identifiable victim or harm", "the act involves money or payment", "the person was punished for it already"],
           answer: 1,
           explain: "Purity and sanctity judgments often condemn acts that harm no one, which is why they resist purely harm-based explanations."
         },
@@ -362,7 +362,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Parochial altruism is best described as...",
-          choices: ["Kindness extended equally to everyone", "In-group generosity paired with out-group hostility", "Selfishness toward all groups", "Concern only for non-human animals"],
+          choices: ["Kindness extended equally to all people, including strangers", "In-group generosity paired with out-group hostility", "Generosity toward outsiders paired with suspicion of one's own group", "Helping relatives only in proportion to shared genes"],
           answer: 1,
           explain: "Parochial altruism couples self-sacrifice for one's group with wariness or aggression toward outsiders, a recurring feature of human cooperation."
         },
@@ -402,7 +402,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Joseph Henrich's 2020 book on this topic is titled...",
-          choices: ["The Righteous Mind", "The Expanding Circle", "The WEIRDest People in the World", "Moral Tribes"],
+          choices: ["The Secret of Our Success", "The Better Angels of Our Nature", "The WEIRDest People in the World", "The Righteous Mind"],
           answer: 2,
           explain: "Henrich's 'The WEIRDest People in the World' (2020) argues that WEIRD psychology is historically and culturally unusual."
         },

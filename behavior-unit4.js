@@ -85,10 +85,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Stimulus discrimination is best defined as:",
           choices: [
-            "Responding equally to a wide range of similar stimuli",
+            "Responding equally to a wide range of stimuli that resemble the CS",
             "Responding to the CS but not to similar stimuli that do not signal the US",
-            "Losing the CR entirely across all stimuli",
-            "Pairing a CS with a second neutral stimulus"
+            "Losing the CR entirely across all stimuli after the US is withheld",
+            "Pairing a CS with a second neutral stimulus to create a new CS"
           ],
           answer: 1,
           explain: "Discrimination narrows responding so the CR occurs to the trained cue and not to look-alike cues."
@@ -120,10 +120,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Generalization and discrimination are best described as:",
           choices: [
-            "Identical processes with different names",
+            "Identical processes described under different names",
             "Complementary opposites that balance each other",
-            "Two forms of extinction",
-            "Processes unrelated to conditioning"
+            "Two forms of extinction that weaken the CR",
+            "Unrelated processes that never occur in conditioning"
           ],
           answer: 1,
           explain: "Generalization broadens responding while discrimination narrows it; together they tune behavior to the right cues."
@@ -157,9 +157,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "A generalization gradient shows that response strength is:",
           choices: [
             "Greatest for the CS and declines as stimuli become less similar",
-            "Equal across all stimuli regardless of similarity",
-            "Greatest for the most dissimilar stimulus",
-            "Zero at the CS itself"
+            "Equal across all stimuli, no matter how similar they are to the CS",
+            "Greatest for the stimulus that is least similar to the CS",
+            "Lowest at the CS itself and rising as stimuli become different"
           ],
           answer: 0,
           explain: "The gradient peaks at the training stimulus and tapers off as stimuli grow more different from it."
@@ -193,9 +193,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "A pigeon trained to peck at a 550 nm light pecks most to 550 nm and progressively less at 540 and 560 nm. This pattern is a:",
           choices: [
             "Extinction curve",
-            "Learning curve",
+            "Spontaneous recovery curve",
             "Generalization gradient",
-            "Fixed-ratio schedule"
+            "Acquisition curve"
           ],
           answer: 2,
           explain: "Guttman and Kalish (1956) documented exactly this wavelength gradient, with responding highest at the trained color."
@@ -228,10 +228,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In higher-order conditioning, a new neutral stimulus is paired with:",
           choices: [
-            "The unconditioned stimulus",
+            "The original unconditioned stimulus itself",
             "An already-established conditioned stimulus",
-            "Nothing at all",
-            "The unconditioned response"
+            "A second, entirely novel neutral stimulus",
+            "The unconditioned response from earlier trials"
           ],
           answer: 1,
           explain: "The new cue borrows its power from an existing CS rather than from the original US."
@@ -264,10 +264,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which is generally true of the CR produced by higher-order conditioning?",
           choices: [
-            "It is stronger than the response to the original CS",
+            "It is usually stronger and longer lasting than the first-order CR",
             "It is usually weaker and more fragile than the first-order CR",
-            "It never extinguishes",
-            "It requires the US on every trial"
+            "It never extinguishes once it has been established",
+            "It needs the US delivered on every trial to persist"
           ],
           answer: 1,
           explain: "Because no US backs it up, a higher-order CR is typically weaker and extinguishes more readily."
@@ -301,9 +301,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Second-order conditioning specifically refers to:",
           choices: [
             "Pairing a new stimulus with a CS that itself became a CS through one round of US pairing",
-            "Pairing two unconditioned stimuli together",
-            "The extinction of a second-order CS",
-            "A schedule of partial reinforcement"
+            "Pairing two unconditioned stimuli together so that one comes to predict the other",
+            "The extinction of a second CS after the first CS has lost its power to elicit a CR",
+            "A partial reinforcement schedule in which the US follows only every second CS"
           ],
           answer: 0,
           explain: "In second-order conditioning the new cue is trained against CS1, which had earlier been paired with the US."
@@ -348,9 +348,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Why does a second-order CR often extinguish quickly?",
           choices: [
             "Because the US is never delivered to sustain it",
-            "Because CS1 is too strong",
-            "Because the response is innate",
-            "Because the CR is actually unconditioned"
+            "Because CS1 is too strong and overshadows the new cue",
+            "Because the response is innate and cannot be modified",
+            "Because the CR is actually an unconditioned reflex"
           ],
           answer: 0,
           explain: "With no US ever reinforcing CS2, its associative strength is fragile and fades rapidly."
@@ -373,9 +373,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "An excitatory conditioned stimulus is one that:",
           choices: [
             "Signals the US will occur and elicits the CR",
-            "Signals the US will not occur",
-            "Has no effect on behavior",
-            "Is identical to the US"
+            "Signals the US will not occur and suppresses the CR",
+            "Has no predictive value and leaves behavior unchanged",
+            "Is physically identical to the US it is paired with"
           ],
           answer: 0,
           explain: "An excitatory CS predicts the US, so it raises the expectation of the US and elicits the CR."
@@ -442,10 +442,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Experimental neurosis refers to:",
           choices: [
-            "A fast, efficient form of learning",
+            "A fast, efficient form of learning that occurs when cues are very easy to tell apart",
             "Disturbed, agitated behavior produced when a required discrimination becomes impossible",
-            "The ordinary extinction of a CR",
-            "A schedule of partial reinforcement"
+            "The ordinary extinction of a CR when the US is withheld over many trials",
+            "A lasting fear produced by pairing a neutral stimulus with a painful shock"
           ],
           answer: 1,
           explain: "Pavlov used the term for the breakdown in behavior that occurred when a discrimination task exceeded the animal's capacity."
@@ -478,10 +478,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which factor was key to producing experimental neurosis?",
           choices: [
-            "Giving the animal too much food",
+            "Giving the animal much more food than it could eat in a session",
             "Forcing a discrimination that exceeded the animal's sensory capacity",
-            "Removing the animal from the lab",
-            "Using only excitatory conditioning"
+            "Removing the animal from the laboratory between training sessions",
+            "Using only excitatory conditioning with no inhibitory cues at all"
           ],
           answer: 1,
           explain: "The clash between excitation and inhibition when the two cues became indistinguishable drove the disturbance."
@@ -514,10 +514,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In Siegel's model, the conditioned response to drug-associated cues is:",
           choices: [
-            "Identical to the drug's direct effect",
+            "Identical to the drug's direct effect (a mimicking response)",
             "Opposite to the drug's direct effect (a compensatory response)",
-            "Completely unrelated to the drug",
-            "Always absent"
+            "Unrelated to the drug's effect (a general arousal response)",
+            "Absent entirely, since drug cues cannot become conditioned stimuli"
           ],
           answer: 1,
           explain: "The body prepares for the drug by mounting a response that counteracts it, which is what produces tolerance."
@@ -539,10 +539,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Siegel's model explains why a tolerant user who takes the usual dose in an unfamiliar place can overdose, because:",
           choices: [
-            "The drug itself is chemically stronger there",
+            "The drug itself becomes chemically stronger when taken in a new environment",
             "Familiar drug cues are absent, so the compensatory CR is not triggered and tolerance drops",
-            "Users always take a larger amount in new places",
-            "The drug becomes an unconditioned stimulus"
+            "Users nearly always take a much larger amount than usual when in new places",
+            "The new setting becomes an unconditioned stimulus that adds to the drug's effect"
           ],
           answer: 1,
           explain: "Without the usual cues, the protective compensatory response is not elicited, so the same dose hits far harder."

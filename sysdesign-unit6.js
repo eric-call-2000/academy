@@ -130,10 +130,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The classic hazard of statement-based replication is that:",
           choices: [
-            "It cannot replicate DELETE statements at all",
+            "It cannot replicate DELETE statements at all, so deleted rows reappear on followers",
             "Nondeterministic calls such as NOW() or RAND() give different results on each replica",
-            "It requires every follower to run an identical operating system build",
-            "It doubles the size of the write-ahead log kept on the leader"
+            "It requires every follower to run an identical operating system and kernel build",
+            "It doubles the size of the write-ahead log the leader has to keep on disk for followers"
           ],
           answer: 1,
           explain: "Re-executing a statement only reproduces the leader state if the statement is deterministic. Auto-increment values and triggers cause the same class of divergence."
@@ -155,9 +155,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Read-your-writes consistency guarantees that:",
           choices: [
-            "Every replica has applied a write before that write is acknowledged",
+            "Every replica has applied a write before that write is acknowledged back to the client that sent it",
             "A user who submitted a write will see it on their later reads, even if other users do not yet",
-            "All users observe every write in the same single global order",
+            "All users observe every write in the same single global order, regardless of which replica they read",
             "No read ever returns data that is more than one second stale"
           ],
           answer: 1,
@@ -203,9 +203,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which client-side technique gives read-your-writes without sending reads to the leader?",
           choices: [
             "Record the log position of the user last write and only read from a replica that has applied at least that position",
-            "Retry every read three times and return whichever answer appears most often",
-            "Cache the written value in the client and never read that record again",
-            "Write to two replicas at once and then read from whichever responds first"
+            "Retry every read three times against different replicas and return whichever answer appears most often",
+            "Wait a fixed one second after each write before reading that record from any replica",
+            "Write to two replicas at once and then read from whichever replica responds first afterward"
           ],
           answer: 0,
           explain: "Carrying a logical timestamp or log position lets the router pick a sufficiently caught-up replica, which keeps read load off the leader."
@@ -262,10 +262,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The defining problem introduced by multi-leader replication is:",
           choices: [
-            "Followers can never catch up with any of the leaders",
+            "Followers can never fully catch up with any of the leaders once writes start arriving at both",
             "Two leaders can accept conflicting writes to the same record, which must then be resolved",
-            "Reads become impossible for the duration of a network partition",
-            "The write-ahead log format stops being portable between nodes"
+            "Reads become impossible on every node for the whole duration of a network partition between leaders",
+            "The write-ahead log format stops being portable between nodes running different versions"
           ],
           answer: 1,
           explain: "With more than one node accepting writes, concurrent edits to the same record are inevitable, so a conflict resolution policy becomes part of the design: LWW, version vectors, CRDTs, or an application-level merge."
@@ -280,10 +280,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which situation most justifies multi-leader replication?",
           choices: [
-            "A single-region service that wants faster analytics queries",
-            "A read-heavy service that wants to add more cache nodes",
+            "A single-region service that wants faster analytics queries over its operational data",
+            "A read-heavy service that wants to add more cache nodes in front of its database",
             "Clients that must accept writes while offline and merge them on reconnect",
-            "A service that needs strict linearizability on every write"
+            "A service that needs strict linearizability on every write it accepts from any client"
           ],
           answer: 2,
           explain: "Offline-capable clients and collaborative editing are effectively multi-leader whether you plan for it or not, since each device accepts local writes. Multi-datacenter write locality is the other classic case."
@@ -309,10 +309,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A table partitioned by range on a timestamp, where writes always carry the current time, will:",
           choices: [
-            "Spread writes evenly across all of the partitions",
+            "Spread writes evenly across all of the partitions because timestamps are always unique",
             "Send nearly every write to the one partition holding the newest range",
-            "Be unable to serve range scans by time at all",
-            "Require a directory service in order to route reads"
+            "Be unable to serve any range scans by time, since the ranges are split across nodes",
+            "Require a separate directory service in order to route reads to the right partition"
           ],
           answer: 1,
           explain: "This is the classic monotonic-key hot spot. A common fix is to prefix the key with something that varies, such as a sensor or tenant id, so that the current hour is spread over many partitions."
@@ -334,9 +334,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The main cost of directory-based partitioning is that:",
           choices: [
-            "It cannot address more than a few hundred distinct keys",
-            "It forbids adding new partitions after the system has launched",
-            "It only works when the partitioning key happens to be an integer",
+            "It cannot address more than a few hundred distinct keys before the directory becomes too large to store",
+            "It forbids adding new partitions after the system has launched, so capacity is fixed up front",
+            "It only works when the partitioning key happens to be an integer that can be compared in ranges",
             "The lookup service becomes a critical dependency that must be highly available and kept consistent"
           ],
           answer: 3,
@@ -353,9 +353,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "A global, term-partitioned secondary index makes those reads cheaper, but:",
           choices: [
             "A single document write may have to update index entries on several partitions",
-            "Range scans over the primary key stop working",
+            "Range scans over the primary key stop working once the index is partitioned by term",
             "The index itself can no longer be replicated",
-            "Reads must still contact every partition in the cluster"
+            "Reads by term must still contact every partition in the cluster to find all matches"
           ],
           answer: 0,
           explain: "The index is partitioned by term rather than by document, so one write touches whichever partitions own its terms. That usually pushes the index update into an asynchronous path."
@@ -407,10 +407,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Virtual nodes help mainly because:",
           choices: [
-            "They cut the number of hash computations needed per lookup",
-            "They let the ring use a smaller and faster hash function",
+            "They cut the number of hash computations per lookup",
+            "They let the ring use a smaller and faster hash function without hurting the spread",
             "They even out lumpy ownership and spread recovery work over many nodes",
-            "They remove the need to replicate each key to any other node"
+            "They remove the need to replicate each key to any other physical node in the cluster"
           ],
           answer: 2,
           explain: "When a server dies, its many small ranges are inherited by many different peers, so the rebuild load is shared instead of landing entirely on one unlucky neighbor."
@@ -477,10 +477,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The cost of splitting a hot key with random suffixes is that:",
           choices: [
-            "Writes to that key stop being durable",
+            "Writes to that key stop being durable until the suffixes are merged back together",
             "The key can no longer be hashed at all",
             "Reads must query every suffix variant and combine the results",
-            "The partition map has to be rebuilt on each write"
+            "The partition map has to be rebuilt and redistributed to every router on each write"
           ],
           answer: 2,
           explain: "You moved work from the write path to the read path, and you now have to track which keys were split. That bookkeeping is why this is a targeted fix and not a default."

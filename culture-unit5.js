@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Which behavior best expresses an independent self-construal?",
           choices: [
-            "Adjusting one's opinion to preserve group harmony",
-            "Choosing a career to honor family expectations",
+            "Adjusting one's stated opinion so the group can stay in harmony",
+            "Choosing a career path that honors the family's expectations",
             "Expressing a unique personal opinion even when it differs from the group",
-            "Deferring to a senior member out of respect for hierarchy"
+            "Deferring to a senior colleague's view out of respect for hierarchy and seniority"
           ],
           answer: 2,
           explain: "The independent self prizes self-expression and standing out; voicing one's own distinct view is a core enactment of that model."
@@ -109,10 +109,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Which self-description reflects an interdependent construal?",
           choices: [
-            "I am independent and hardworking",
+            "I am independent, hardworking, and ambitious",
             "I am a daughter and a member of my study group",
-            "I am naturally curious and outgoing",
-            "I am confident in my own judgment"
+            "I am naturally curious, creative, and outgoing",
+            "I am confident in my own judgment and decisions"
           ],
           answer: 1,
           explain: "Describing oneself through roles and group memberships (daughter, group member) is the signature of an interdependent self."
@@ -179,10 +179,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "According to Markus and Kitayama, which regions were associated with the interdependent self-construal?",
           choices: [
-            "North America and Western Europe",
+            "North America and much of Western Europe",
             "Many East Asian and other non-Western cultures",
-            "Only Scandinavian countries",
-            "Exclusively English-speaking nations"
+            "Mainly the Nordic and Scandinavian countries",
+            "English-speaking nations such as Britain and Australia"
           ],
           answer: 1,
           explain: "They linked the interdependent construal to many East Asian and other non-Western cultures, contrasting it with the independent Western pattern."
@@ -249,10 +249,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "How do cultural self-construals relate to memory in this research?",
           choices: [
-            "They have no measurable effect on encoding",
+            "They affect how people rate themselves but have no measurable effect on encoding",
             "They shape which information becomes self-relevant and thus memorable",
-            "They only affect memory for numbers",
-            "They erase the self-reference effect entirely"
+            "They change memory only for numbers and abstract facts, not for social information",
+            "They remove the self-reference effect entirely in interdependent cultures"
           ],
           answer: 1,
           explain: "Because construals differ in what counts as self-relevant, they influence what gets encoded self-referentially and later remembered."
@@ -319,10 +319,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "A response of 'I am a member of the debate club' on the TST is classified as:",
           choices: [
-            "A personal trait attribute",
+            "A personal trait or attribute statement",
             "A social or relational self-description",
-            "A physical characteristic",
-            "An emotional state"
+            "A physical or bodily characteristic",
+            "An emotional or momentary state description"
           ],
           answer: 1,
           explain: "Naming a group membership is a social/relational self-statement, the kind more common among interdependent respondents."
@@ -364,10 +364,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Zhu and colleagues (2007) found that among Chinese participants, thinking about the self and thinking about the mother:",
           choices: [
-            "Activated completely separate brain regions",
+            "Activated clearly separate regions, as they do in Western participants",
             "Engaged overlapping brain activity, notably in medial prefrontal cortex",
-            "Produced no measurable brain activity",
-            "Only overlapped for strangers, not the mother"
+            "Produced overlap only for strangers, not for the mother or close family",
+            "Engaged overlapping activity mainly in the visual cortex rather than the frontal lobes"
           ],
           answer: 1,
           explain: "Zhu et al. reported that for Chinese participants, mother-representations recruited the same medial prefrontal region as self-representations, unlike in Western participants."
@@ -389,10 +389,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "The finding that the mother 'overlaps the self' best supports which idea?",
           choices: [
-            "The self is always a fully isolated unit",
+            "The self is always a bounded unit separate from other people",
             "Close relationships can be incorporated into the self-concept",
-            "Memory for others is unrelated to the self",
-            "Only strangers are encoded self-referentially"
+            "Memory for close others works independently of memory for the self",
+            "Self-referential encoding applies equally to strangers and to family"
           ],
           answer: 1,
           explain: "Overlapping representations show that for interdependent selves, close others are woven into the very structure of the self-concept."
@@ -459,10 +459,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "The 'inflated' independent self refers to the tendency, common in Western samples, to:",
           choices: [
-            "Rate oneself as below average on most traits",
+            "Rate oneself as below average on most desirable traits",
             "View oneself as better than average and distinctive",
-            "Avoid all self-evaluation",
-            "Describe oneself only through group roles"
+            "Avoid evaluating oneself in comparison with other people",
+            "Describe oneself mainly through group roles and duties"
           ],
           answer: 1,
           explain: "Independent contexts foster self-enhancement, so people often see themselves as better-than-average and specially distinctive."
@@ -504,10 +504,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "The relational-interdependent self-construal emphasizes defining the self through:",
           choices: [
-            "Membership in large abstract groups only",
+            "Membership in large, abstract groups such as nation or religion",
             "Close personal relationships such as friends and family",
-            "Fixed traits that never change",
-            "Competition with strangers"
+            "Stable personal traits that stay the same across situations",
+            "Competitive comparison with peers and strangers"
           ],
           answer: 1,
           explain: "Cross and colleagues distinguished a relational-interdependent construal centered on close dyadic relationships, separate from broad group-based interdependence."
@@ -529,10 +529,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "A limitation of treating independence and interdependence as a strict dichotomy is that it can:",
           choices: [
-            "Explain every individual perfectly",
+            "Exaggerate how much self-construals differ between individuals in one culture",
             "Overlook within-culture variation and multiple self-construals",
-            "Prove culture has no effect on the self",
-            "Eliminate the need for measurement"
+            "Imply that culture has no real effect on how the self is organized",
+            "Remove the need to measure self-construal with validated scales"
           ],
           answer: 1,
           explain: "A rigid either/or view hides substantial variation within cultures and the fact that people hold several construals at once."

@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A goal bar displays:",
           choices: [
             "Progress toward a target (e.g. 142 / 200 subs)",
-            "The full game",
-            "A follower toast",
-            "The countdown"
+            "Your latest subscriber's name with a short animation",
+            "A countdown until the stream goes live (e.g. 5:00)",
+            "The current viewer count compared with your average"
           ],
           answer: 0,
           explain: "It shows a value out of a max as a filling bar with a count."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A goal bar motivates viewers by:",
           choices: [
             "Making shared progress toward a target visible",
-            "Encoding the video",
-            "Muting the mic",
-            "Replacing the webcam"
+            "Thanking each new subscriber with a pop-up card",
+            "Showing how long the stream has been running",
+            "Ranking the top donors from the current stream"
           ],
           answer: 0,
           explain: "Visible progress encourages viewers to help reach the goal."
@@ -116,9 +116,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The track (behind the fill) is:",
           choices: [
             "The base color with a hairline border",
-            "Bright white",
-            "A game capture",
-            "Transparent nothing"
+            "Solid Electric Blue with a glow",
+            "The chrome gradient at low opacity",
+            "Fully transparent, with no border"
           ],
           answer: 0,
           explain: "The track is a dark base pill with a subtle hairline border."
@@ -145,9 +145,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "goalbar.html?label=SUB GOAL&value=142&max=200 shows:",
           choices: [
             "A sub goal at 142 of 200 (71%)",
-            "A follower alert",
-            "The countdown",
-            "The webcam"
+            "A sub goal at 142 of 200 (58%)",
+            "A sub goal needing 142 more to reach 200",
+            "A sub goal at 200 of 142, already complete"
           ],
           answer: 0,
           explain: "It fills to 142/200, which is 71%."
@@ -193,9 +193,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "When the goal updates, the fill:",
           choices: [
             "Animates smoothly from 0 to the new width",
-            "Jumps instantly with no motion",
-            "Disappears",
-            "Turns into a video"
+            "Jumps to the new width instantly, with no motion",
+            "Fades out and back in at the new width",
+            "Pulses yellow, then snaps to the new width"
           ],
           answer: 0,
           explain: "A CSS width transition animates the fill to its target."
@@ -234,9 +234,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "wibblyGoal({label, value, max}) is used to:",
           choices: [
             "Update the bar and animate the fill live",
-            "Start recording",
-            "Change your bitrate",
-            "Mute the mic"
+            "Add a new goal bar to OBS",
+            "Reset the bar to zero at the start of a stream",
+            "Read the goal from the page's URL parameters"
           ],
           answer: 0,
           explain: "The API updates the numbers and animates to the new fill."
@@ -253,9 +253,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "At 100%, the goal bar:",
           choices: [
             "Turns yellow to celebrate reaching the goal",
-            "Disappears",
-            "Turns red as an error",
-            "Resets to zero"
+            "Turns chrome to celebrate reaching the goal",
+            "Slides off-screen and resets to zero for the next goal",
+            "Turns pink and pulses until the stream ends"
           ],
           answer: 0,
           explain: "Reaching the max flips the colors to Signal Yellow."
@@ -293,9 +293,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The 'done' state changes:",
           choices: [
             "The fill, the label, and the count colors",
-            "Only your bitrate",
-            "The webcam",
-            "The game"
+            "Only the fill color, while the text stays the same",
+            "The track's border and the bar's position",
+            "Only the bar's position"
           ],
           answer: 0,
           explain: "Fill, label, and count all switch to the celebration color."
@@ -322,9 +322,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The goal bar's default top-left position is chosen to:",
           choices: [
             "Mirror the HUD bug for a balanced layout",
-            "Cover the webcam",
-            "Sit over YouTube's controls",
-            "Hide off-screen"
+            "Sit beside the facecam so viewers see both together",
+            "Keep it inside YouTube's bottom keep-clear zone",
+            "Cover the webcam's corner"
           ],
           answer: 0,
           explain: "Top-left mirrors the HUD for balance."
@@ -370,9 +370,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "To bump the goal live, you call:",
           choices: [
             "wibblyGoal({ label:'SUB GOAL', value:143, max:200 })",
-            "startRecording()",
-            "setResolution('4k')",
-            "muteMic()"
+            "wibblyAlert({ type:'sub', value:143, max:200 })",
+            "wibblyGoal.set('SUB GOAL', 143)",
+            "wibblyLowerThird({ name:'SUB GOAL', role:'143' })"
           ],
           answer: 0,
           explain: "wibblyGoal updates the numbers and animates the new fill."
@@ -411,9 +411,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Live updates keep the goal bar:",
           choices: [
             "Accurate and motivating in real time",
-            "Encoding the video",
-            "Muted",
-            "Hidden"
+            "Lighter on CPU than a static bar",
+            "Hidden until the goal is actually met",
+            "Synced to the countdown on the standby screen"
           ],
           answer: 0,
           explain: "Real-time updates make the goal feel live and worth chasing."
@@ -441,9 +441,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The goal bar Browser Source should be sized to:",
           choices: [
             "Full canvas (the page positions the bar)",
-            "The bar's exact pixels",
-            "1x1",
-            "The webcam size"
+            "The bar's exact pixel size, placed by hand",
+            "The same size as the HUD bug it mirrors",
+            "Half the canvas width, anchored top-left"
           ],
           answer: 0,
           explain: "The page anchors the bar within 1920x1080, so size the source to match."

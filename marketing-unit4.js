@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is the core idea of content marketing?",
           choices: [
             "Creating useful content to attract and keep an audience",
-            "Buying as many ads as your budget allows",
-            "Cold-calling strangers from a purchased list",
-            "Sending the same coupon to everyone every day"
+            "Running display ads alongside articles on popular sites",
+            "Publishing product announcements and promotions every day",
+            "Paying publishers to feature your product in their articles"
           ],
           answer: 0,
           explain: "Content marketing earns attention by publishing genuinely helpful content, rather than interrupting people with ads."
@@ -79,9 +79,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a lead magnet?",
           choices: [
             "A free, useful resource offered in exchange for contact info",
-            "A magnet you mail to every household",
-            "A paid ad on a search engine",
-            "A discount code printed on a receipt"
+            "A paid search ad that pulls in people looking for your product",
+            "A discount code you print on receipts to bring buyers back",
+            "A popular post that attracts lots of followers to your page"
           ],
           answer: 0,
           explain: "A lead magnet (like a checklist or guide) trades genuine value for an email address so you can keep in touch."
@@ -205,9 +205,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which practice hurts SEO rather than helping it?",
           choices: [
             "Stuffing a page with the same keyword unnaturally",
-            "Writing a clear, helpful title",
-            "Answering the reader's question fully",
-            "Adding descriptive alt text to images"
+            "Writing a clear title that matches what people search",
+            "Answering the reader's question fully and directly",
+            "Adding descriptive alt text to the images on the page"
           ],
           answer: 0,
           explain: "Keyword stuffing reads badly and search engines discount it; natural, helpful writing wins."
@@ -248,9 +248,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "How should a small business choose which social platforms to use?",
           choices: [
             "Pick the ones where your audience already spends time",
-            "Join every platform that exists",
-            "Only use whichever launched most recently",
-            "Avoid social media entirely no matter what"
+            "Join every major platform so you never miss a customer",
+            "Start with whichever platform has the most total users",
+            "Choose the newest platform, since it has less competition"
           ],
           answer: 0,
           explain: "Go where your customers are, rather than trying to be everywhere at once."
@@ -366,9 +366,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a realistic first step for a busy solo founder building a calendar?",
           choices: [
             "Choose a posting frequency you can actually sustain",
-            "Commit to ten posts a day forever",
-            "Never plan and post randomly",
-            "Copy a competitor's calendar exactly"
+            "Post as often as possible at first to build momentum fast",
+            "Copy the posting schedule of a successful competitor exactly",
+            "Plan a full year of daily posts before publishing anything"
           ],
           answer: 0,
           explain: "Pick a cadence you can keep long-term; consistency you can sustain beats an unrealistic pace."
@@ -391,9 +391,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What does engagement usually refer to on social media?",
           choices: [
             "Interactions like comments, replies, shares, and DMs",
-            "The number of employees you have",
-            "How much you spend on office rent",
-            "The color scheme of your logo"
+            "The total number of followers your account has",
+            "How many people saw your post in their feed",
+            "How many times your post was shown on screens"
           ],
           answer: 0,
           explain: "Engagement measures how people interact with your content, not just how many see it."
@@ -426,9 +426,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why is user-generated content valuable?",
           choices: [
             "It feels authentic and builds trust with new customers",
-            "It is always more expensive than ads",
-            "It hides what customers really think",
-            "It replaces the need for any product"
+            "It gives you full control over exactly what gets said",
+            "It reaches more people than paid ads for the same money",
+            "It saves you from needing to make any content yourself"
           ],
           answer: 0,
           explain: "People trust other customers, so real UGC can be more persuasive than polished ads."
@@ -462,9 +462,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a hook in a piece of content?",
           choices: [
             "The opening that grabs attention right away",
-            "The legal disclaimer at the very end",
-            "The price listed in the caption",
-            "The username of the account"
+            "The call to action that closes the post",
+            "The hashtags added to get more reach",
+            "The link that sends people to your site"
           ],
           answer: 0,
           explain: "A hook is the first line or moment that stops the scroll and pulls people in."
@@ -487,9 +487,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a smart, realistic way to think about going viral?",
           choices: [
             "Focus on consistently useful content; virality is a bonus you cannot guarantee",
-            "Assume every post will go viral if you try hard",
-            "Copy trends exactly with no relevance to your brand",
-            "Post once and wait for fame"
+            "Jump on every trending sound and meme, even when it has little to do with your brand",
+            "Post a high volume of content each day, since going viral is mostly a numbers game",
+            "Pour your budget into one big polished video and wait for it to take off on its own"
           ],
           answer: 0,
           explain: "Virality is unpredictable, so build a steady content habit and let occasional hits be a bonus."
@@ -533,9 +533,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is influencer or creator marketing?",
           choices: [
             "Partnering with creators to reach their audience",
-            "Buying billboards in every city",
-            "Sending mass spam emails",
-            "Deleting your own social accounts"
+            "Building your own large following on social media",
+            "Buying sponsored ads that show in people's feeds",
+            "Asking your own employees to post about your brand"
           ],
           answer: 0,
           explain: "You collaborate with a creator so their engaged, trusting audience learns about you."

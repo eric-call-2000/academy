@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "According to Volume 1, what is the main biological function of the attachment behavioral system?",
-          choices: ["Ensuring the infant is fed on schedule", "Protection from predators by keeping the infant near a caregiver", "Teaching the infant language", "Regulating body temperature"],
+          choices: ["Ensuring the infant is fed often enough to grow", "Protection from predators by keeping the infant near a caregiver", "Teaching the infant social skills by copying the caregiver's actions", "Keeping the infant warm through close body contact during the night"],
           answer: 1,
           explain: "Bowlby argued proximity-keeping evolved chiefly to protect the vulnerable infant from predators."
         },
@@ -95,7 +95,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In Volume 2, what did Bowlby identify as the key condition that makes a child confident rather than anxious?",
-          choices: ["The child's IQ", "The number of siblings", "The perceived availability and responsiveness of the attachment figure", "The child's diet"],
+          choices: ["The child's inborn temperament and level of fearfulness", "The amount of time the caregiver spends physically holding the child", "The perceived availability and responsiveness of the attachment figure", "How quickly the caregiver teaches the child to cope alone with stress"],
           answer: 2,
           explain: "Confidence rests on expecting the attachment figure to be available and responsive when needed."
         },
@@ -181,7 +181,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What does Bowlby's principle of monotropy claim?",
-          choices: ["Infants can never form more than one bond", "Infants show a bias toward one principal attachment figure", "Only mothers can be caregivers", "Attachment ends by age two"],
+          choices: ["Infants can form only one bond, usually with the mother", "Infants show a bias toward one principal attachment figure", "Infants attach equally to every adult who cares for them", "Infants attach to whoever feeds them most often each day"],
           answer: 1,
           explain: "Monotropy is a bias toward a single principal figure, not an absolute limit of one relationship."
         },
@@ -201,7 +201,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "When is the child's bias toward the principal figure strongest?",
-          choices: ["When the child is content and playing", "Only at mealtimes", "When the child is frightened, ill, or tired", "Only during sleep"],
+          choices: ["When the child is content and absorbed in play nearby", "When the child meets a new adult in a familiar setting", "When the child is frightened, ill, or tired", "When the child is hungry and waiting to be fed"],
           answer: 2,
           explain: "Under distress, illness, or fatigue the child preferentially seeks the principal attachment figure."
         },
@@ -280,7 +280,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What does the hierarchy concept let attachment theory explain?",
-          choices: ["Why children never bond to fathers", "Why feeding alone causes attachment", "Why children can be cared for by several people yet still prefer one", "Why attachment is unimportant"],
+          choices: ["Why children bond only to the person who feeds them most often", "Why children attach equally to every adult who looks after them", "Why children can be cared for by several people yet still prefer one", "Why children stop needing attachment figures once they start school"],
           answer: 2,
           explain: "The hierarchy shows multiple caregivers can share care while one remains preferred at the top."
         }
@@ -294,7 +294,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "According to Bowlby, anxious attachment arises mainly from what?",
-          choices: ["Too much affection", "Uncertainty about whether the attachment figure will be available and responsive", "High intelligence", "Having many toys"],
+          choices: ["Too much affection and attention, which makes the child overly dependent", "Uncertainty about whether the attachment figure will be available and responsive", "An inborn anxious temperament that shows up regardless of how care is given", "Being cared for by several adults instead of one principal caregiver"],
           answer: 1,
           explain: "Chronic uncertainty about a caregiver's availability and responsiveness breeds anxiety."
         },
@@ -324,7 +324,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which parental behavior did Bowlby say fuels anxious attachment?",
-          choices: ["Consistent, predictable responsiveness", "Playing games together", "Reading bedtime stories", "Repeated threats of abandonment or separation"],
+          choices: ["Encouraging the child to play on their own for short periods", "Leaving the child with a familiar grandparent for an afternoon", "Setting firm, consistent bedtimes and household routines each day", "Repeated threats of abandonment or separation"],
           answer: 3,
           explain: "Threats to abandon or send the child away directly attack the child's confidence in the figure's availability."
         },
@@ -337,7 +337,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Bowlby said confidence in a caregiver's availability is built up during which span?",
-          choices: ["Only the first month of life", "Infancy, childhood, and adolescence", "Adulthood only", "A single critical day"],
+          choices: ["Only the first six months of life", "Infancy, childhood, and adolescence", "Early adulthood, through first romances", "The first two years, then fixed for life"],
           answer: 1,
           explain: "Bowlby held that expectations of availability develop across infancy, childhood, and adolescence and tend to persist."
         }
@@ -371,7 +371,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "When does Bowlby say attachment-related anger turns dysfunctional?",
-          choices: ["When it briefly signals protest", "When it leads to reunion", "When it fades quickly", "When it becomes intense, persistent rage that drives the figure away"],
+          choices: ["When it is shown openly as protest during a short separation", "When it is directed at the caregiver on reunion after a separation", "When it appears at all, since any anger harms the attachment bond", "When it becomes intense, persistent rage that drives the figure away"],
           answer: 3,
           explain: "Anger becomes dysfunctional when it is so intense or prolonged that it damages the bond it was meant to protect."
         },
@@ -394,7 +394,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What is the adaptive purpose of a child's protest anger at separation?",
-          choices: ["To punish the caregiver permanently", "To promote reunion and discourage future separations", "To end the relationship", "To attract strangers"],
+          choices: ["To punish the caregiver so they feel guilty about leaving", "To promote reunion and discourage future separations", "To release built-up tension so the child can calm down alone", "To signal to other adults that the child needs a new caregiver"],
           answer: 1,
           explain: "Protest anger functions to bring the caregiver back and to make future separations less likely."
         }
@@ -408,7 +408,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What are Bowlby's 'internal working models'?",
-          choices: ["Muscle-memory habits", "Mental representations of self and attachment figures that guide expectations", "Purely genetic instincts", "Temporary passing moods"],
+          choices: ["Habits of behavior learned through repeated rewards and punishments", "Mental representations of self and attachment figures that guide expectations", "Inborn instincts that fix how a person relates to others from birth", "Conscious beliefs about relationships that people can easily put into words"],
           answer: 1,
           explain: "Working models are internal representations of self and others, built from experience, that guide expectations and behavior."
         },
@@ -438,7 +438,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Why are working models called the cognitive core of attachment theory?",
-          choices: ["They explain digestion", "They only matter in infancy", "They carry early attachment experience forward to shape later relationships", "They replace emotion entirely"],
+          choices: ["They explain how infants learn to speak by copying the sounds caregivers make", "They describe only what happens in infancy and fade once childhood ends", "They carry early attachment experience forward to shape later relationships", "They show that attachment is mainly about thinking, with emotion left aside"],
           answer: 2,
           explain: "Working models are the mechanism that transmits early experience into lasting relationship patterns across life."
         },

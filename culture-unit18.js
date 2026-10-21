@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("culture", {
           "q": "In a dignity culture, where does a person's fundamental worth come from?",
           "choices": [
             "It is inherent in the individual and cannot be given or taken away by others",
-            "It is granted by one's rank in a social hierarchy",
-            "It must be claimed and defended against challengers",
-            "It is measured by the amount of property one owns"
+            "It is granted by one's rank and position in a social hierarchy",
+            "It must be claimed publicly and then defended against anyone who challenges it",
+            "It is measured by one's wealth, property, and success in life"
           ],
           "answer": 0,
           "explain": "Dignity cultures hold that worth is inherent and inalienable -- it belongs to each person simply by being human and does not rise or fall with others' judgments."
@@ -179,10 +179,10 @@ window.ACADEMY.addUnit("culture", {
           "type": "mcq",
           "q": "What most distinguishes worth in an honor culture?",
           "choices": [
-            "It is inherent and cannot be lost",
-            "It is quietly granted by superiors",
+            "It is inherent in each person and cannot be lost through others' actions",
+            "It is quietly granted by superiors according to one's place in a hierarchy",
             "It is a reputation that must be claimed and defended in the eyes of others",
-            "It is irrelevant to how one is treated"
+            "It plays little role in how people are treated by others"
           ],
           "answer": 2,
           "explain": "Honor is a claimed public reputation; it is only as secure as one's willingness and ability to defend it when challenged."
@@ -208,10 +208,10 @@ window.ACADEMY.addUnit("culture", {
           "type": "mcq",
           "q": "Nisbett and Cohen's research on the U.S. South linked honor culture to which pattern?",
           "choices": [
-            "Higher tolerance for insults and lower stress responses",
+            "Higher tolerance for insults and lower physiological stress responses than Northern men showed",
             "Stronger reactions to insults, including physiological arousal and endorsement of violence to defend reputation",
-            "A complete absence of concern for reputation",
-            "A preference for resolving disputes only through courts"
+            "Less concern for personal reputation, combined with greater reliance on family networks",
+            "A preference for resolving personal disputes through courts and formal legal procedures rather than by fighting"
           ],
           "answer": 1,
           "explain": "In Nisbett and Cohen's 'Culture of Honor' studies, insulted Southern men showed elevated cortisol and testosterone and were more likely to endorse aggressive responses."
@@ -310,10 +310,10 @@ window.ACADEMY.addUnit("culture", {
           "type": "mcq",
           "q": "According to the framework, which regions are often associated with each logic?",
           "choices": [
-            "Dignity with the Middle East, honor with East Asia, face with Northern Europe",
+            "Dignity with the Middle East and Mediterranean, honor with East Asia, face with Northern Europe and North America",
             "Dignity with Northern Europe and Anglo North America, honor with the Mediterranean and Middle East, face with East Asia",
-            "All three logics with sub-Saharan Africa only",
-            "Dignity, honor, and face all with East Asia"
+            "Dignity with East Asia, honor with Northern Europe and Anglo North America, face with the Mediterranean",
+            "Dignity, honor, and face all with East Asia, which combines the three logics most strongly"
           ],
           "answer": 1,
           "explain": "As broad tendencies, dignity is linked to Northern European and Anglo-American cultures, honor to Mediterranean and Middle Eastern cultures, and face to East Asian cultures."
@@ -345,10 +345,10 @@ window.ACADEMY.addUnit("culture", {
           "type": "mcq",
           "q": "How does a dignity logic typically shape the response to an insult?",
           "choices": [
-            "Retaliate immediately to restore reputation",
+            "Retaliate quickly and publicly so that others see one's reputation has been restored",
             "Stay composed and, if needed, appeal to rules or institutions rather than fight",
-            "Withdraw silently to preserve group harmony",
-            "Demand a public apology through intermediaries"
+            "Withdraw quietly and avoid the person to preserve group harmony",
+            "Seek an apology through intermediaries so that no one loses face publicly"
           ],
           "answer": 1,
           "explain": "Because dignity treats worth as insult-proof, the ideal response is composure and, where needed, recourse to fair rules or institutions rather than personal combat."
@@ -357,10 +357,10 @@ window.ACADEMY.addUnit("culture", {
           "type": "mcq",
           "q": "How does an honor logic typically shape the response to an insult?",
           "choices": [
-            "Treat the insult as meaningless",
-            "Immediately forgive to keep harmony",
+            "Treat the insult as meaningless, since worth cannot be taken away",
+            "Overlook it quietly so that group harmony is not disturbed",
             "Answer the challenge, sometimes aggressively, to protect reputation",
-            "Route the matter to a neutral court and move on"
+            "Report the matter to a neutral authority, such as a court, and then move on"
           ],
           "answer": 2,
           "explain": "Honor requires answering challenges to protect a reputation, so insults tend to provoke direct and sometimes aggressive responses."
@@ -429,9 +429,9 @@ window.ACADEMY.addUnit("culture", {
           "q": "What is the central claim of Stella Ting-Toomey's face-negotiation theory?",
           "choices": [
             "Conflict styles across cultures are driven by concerns about face and by facework strategies",
-            "Conflict is caused entirely by economic scarcity",
-            "All cultures use identical conflict tactics",
-            "Face has no role in how people handle disputes"
+            "Conflict across cultures arises mainly from economic scarcity and competition for resources",
+            "All cultures use the same conflict tactics, though they describe them in different terms",
+            "Face matters in conflict only in East Asia, where it replaces concerns about the self"
           ],
           "answer": 0,
           "explain": "Ting-Toomey's face-negotiation theory holds that culturally patterned face concerns shape the facework and conflict styles people choose."
@@ -457,10 +457,10 @@ window.ACADEMY.addUnit("culture", {
           "type": "mcq",
           "q": "According to the theory, which conflict style is MORE typical of collectivistic, high-context cultures?",
           "choices": [
-            "Dominating and competing",
+            "Dominating and competing to win",
             "Avoiding and obliging (accommodating)",
-            "Openly confronting to win",
-            "Ignoring face entirely"
+            "Openly confronting the other party",
+            "Venting emotions openly to clear the air quickly"
           ],
           "answer": 1,
           "explain": "Collectivistic cultures, being more concerned with other- and mutual-face, more often use avoiding and obliging styles to preserve relationships."
@@ -511,10 +511,10 @@ window.ACADEMY.addUnit("culture", {
           "type": "mcq",
           "q": "In the Chinese concept of face, what does 'lian' refer to?",
           "choices": [
-            "Social prestige earned through success and connections",
+            "Social face -- the prestige a person earns through success, status, and connections",
             "Moral face -- the integrity and decency the community grants a person of good character",
-            "The amount of money a family controls",
-            "Physical appearance and beauty"
+            "Financial face -- the amount of wealth and property a family is seen to control",
+            "Physical face -- the attractiveness, grooming, and appearance a person presents to others"
           ],
           "answer": 1,
           "explain": "Lian is moral face: the respect a person receives for meeting basic standards of decency and integrity; to lose lian is to be seen as morally bankrupt."
@@ -523,10 +523,10 @@ window.ACADEMY.addUnit("culture", {
           "type": "mcq",
           "q": "What does 'mianzi' primarily refer to?",
           "choices": [
-            "A person's inner conscience",
+            "A person's inner conscience and sense of moral integrity as judged by the whole community",
             "Reputation and social prestige gained through achievement, status, and connections",
-            "Inherent human worth shared by all",
-            "The willingness to fight over insults"
+            "The inherent worth that every person has simply by being human",
+            "A person's readiness to fight to defend the family against insults"
           ],
           "answer": 1,
           "explain": "Mianzi is social face -- prestige and reputation accumulated through success, status, wealth, and relationships; it can be built up, lent, and lost."
@@ -594,10 +594,10 @@ window.ACADEMY.addUnit("culture", {
           "type": "mcq",
           "q": "In a dignity culture, what does an effective apology usually emphasize?",
           "choices": [
-            "A public display that restores the offended party's reputation",
+            "A public ceremony that restores the offended party's standing in the eyes of the whole community",
             "Sincere acknowledgment of wrongdoing and a commitment to fair conduct, often addressed to conscience and rules",
-            "A gift given through an intermediary to avoid direct contact",
-            "A show of strength to prove one cannot be pushed around"
+            "A gift delivered through an intermediary so that the two parties avoid direct contact and embarrassment",
+            "A show of strength demonstrating that one cannot be pushed around, even while admitting a mistake"
           ],
           "answer": 1,
           "explain": "In dignity cultures, repair centers on sincere, individual acknowledgment of fault and a return to fair, principled behavior."
@@ -606,10 +606,10 @@ window.ACADEMY.addUnit("culture", {
           "type": "mcq",
           "q": "In a face culture, culturally skilled reconciliation often works by:",
           "choices": [
-            "Forcing a public confrontation to settle the score",
+            "Holding a public confrontation so the offender is openly corrected",
             "Using indirect communication and intermediaries so both parties can save face",
-            "Ignoring the offense entirely and never mentioning it",
-            "Demanding a duel to restore honor"
+            "Never mentioning the offense again, so that it is simply forgotten",
+            "Insisting on a direct, private apology addressed to the individual's conscience"
           ],
           "answer": 1,
           "explain": "Face-based repair relies on indirectness and go-betweens so neither side is openly shamed and harmony can be restored while preserving face."

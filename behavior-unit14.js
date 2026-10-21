@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "What does the equipotentiality premise assume about conditioning?",
           choices: [
             "That any perceivable stimulus can be associated equally well with any response or outcome",
-            "That only biologically relevant stimuli can be conditioned",
-            "That reinforcement schedules determine which stimuli can be learned",
-            "That animals inherit fixed associations that cannot be changed"
+            "That only biologically relevant stimuli, such as tastes and smells, can be conditioned at all",
+            "That reinforcement schedules, rather than the stimuli used, determine what can be learned",
+            "That animals inherit fixed associations between cues and outcomes that cannot be changed"
           ],
           answer: 0,
           explain: "Equipotentiality holds that all stimuli are interchangeable inputs -- any CS is as conditionable as any other, so the brain is treated as a general-purpose association former."
@@ -60,10 +60,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which finding most directly violates the equipotentiality premise?",
           choices: [
-            "A pigeon pecking faster on a variable-ratio schedule",
+            "A pigeon pecking faster on a variable-ratio schedule than on a fixed-interval one",
             "A rat forming a taste-illness link far more easily than a taste-shock link",
-            "A dog salivating to a bell after repeated pairings",
-            "A child imitating a modeled behavior"
+            "A dog salivating to a bell after many repeated pairings with meat powder",
+            "A child imitating a behavior after watching a model be rewarded for it"
           ],
           answer: 1,
           explain: "If cues were equipotential, taste-illness and taste-shock should be equally learnable. That they are not shows built-in associative biases the premise denies."
@@ -202,10 +202,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Why did the aversion attach to the sauce rather than to the familiar filet mignon?",
           choices: [
-            "The filet was eaten in a larger quantity",
+            "The filet was eaten in a much larger quantity than the sauce",
             "Novel tastes are far more likely to be blamed for later illness",
-            "Meat cannot support conditioned aversions",
-            "The sauce was consumed last"
+            "Meat proteins cannot support conditioned taste aversions in humans",
+            "The sauce was eaten last, closest in time to the illness"
           ],
           answer: 1,
           explain: "Novelty drives taste-aversion learning; familiar, previously safe foods are unlikely to be newly blamed, a bias sometimes called learned safety."
@@ -273,10 +273,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What broad principle do these selective pairings illustrate?",
           choices: [
-            "All cues are equally associable with all outcomes",
+            "Equipotentiality: all cues are equally associable with all outcomes in any species",
             "Belongingness: organisms are predisposed to link certain cues with certain consequences",
-            "Reinforcement must be immediate to work",
-            "Extinction erases prepared associations quickly"
+            "Contiguity: reinforcement must follow a response immediately in order to work at all",
+            "Rapid extinction: prepared associations are erased more quickly than arbitrary ones"
           ],
           answer: 1,
           explain: "Belongingness, or cue-to-consequence specificity, directly contradicts equipotentiality by showing evolved constraints on which pairings form easily."
@@ -298,10 +298,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What is 'instinctive drift'?",
           choices: [
-            "The gradual fading of a response when reinforcement stops",
+            "The gradual fading of a trained response once its reinforcement has been discontinued for good",
             "The tendency of a conditioned animal to revert to instinctive behavior that disrupts the trained response",
-            "The spread of a response to similar stimuli",
-            "The slow drift of a reinforcement schedule over time"
+            "The spread of a trained response to new stimuli that physically resemble the one used during training",
+            "The slow, unplanned drift of a reinforcement schedule toward longer intervals as training continues"
           ],
           answer: 1,
           explain: "Instinctive drift is the pull back toward species-typical instinctive behavior, even when it delays or blocks reinforcement of the trained act."
@@ -344,10 +344,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What does instinctive drift reveal about operant conditioning?",
           choices: [
-            "It has no biological limits",
-            "It works only on mammals",
+            "It has no biological limits as long as reinforcement is consistent",
+            "It works only with mammals, not with birds or other animals",
             "It is constrained by an animal's evolved, species-typical behavior",
-            "It requires continuous reinforcement to occur at all"
+            "It requires continuous reinforcement for any learning to occur"
           ],
           answer: 2,
           explain: "The drift demonstrates that conditioning operates within boundaries set by evolution; instinct can override the contingencies the trainer arranges."
@@ -555,10 +555,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What was the central message of 'The Misbehavior of Organisms'?",
           choices: [
-            "Operant conditioning is universally powerful and unbounded",
-            "Instinct never affects conditioned behavior",
+            "Operant conditioning is universally powerful and can train any response in any species",
+            "Instinct never affects conditioned behavior once the training is complete",
             "An organism's evolutionary history sets limits on what conditioning can achieve",
-            "Reinforcement schedules are irrelevant to animal training"
+            "Reinforcement schedules are irrelevant to how commercial animals are trained"
           ],
           answer: 2,
           explain: "The Brelands concluded that behavior cannot be understood apart from an animal's instinctive, evolved repertoire, tempering strong behaviorist claims."

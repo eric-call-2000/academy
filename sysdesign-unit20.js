@@ -39,9 +39,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which rewrite most reduces the space of wrong-but-plausible outputs?",
           choices: [
-            "Add a new user profile feature that follows our normal patterns",
-            "Add a user profile feature, and be careful to make it high quality and maintainable",
-            "Add a user profile page similar to the ones you have seen in other codebases",
+            "Add a new user profile feature that follows our normal patterns and fits in with the existing pages",
+            "Add a user profile feature, and be careful to make it high quality, well tested, and easy to maintain later",
+            "Add a user profile page similar to the ones you have seen in other well designed codebases",
             "Add GET /users/:id returning id, displayName, avatarUrl; 404 on unknown id; covered by a route test"
           ],
           answer: 3,
@@ -155,10 +155,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why does a self-verifiable acceptance criterion matter more for agent work than for a human teammate?",
           choices: [
-            "Agents write worse code, so they need stricter gates than humans do",
+            "Agents write worse code than people do, so their work needs stricter review gates than a teammate's",
             "An agent that cannot check its own work either stops early or keeps going with no signal for when to stop",
-            "Humans do not benefit from acceptance criteria, since they can ask questions in person",
-            "Self-verification is only about reducing token cost, not about correctness"
+            "Humans do not benefit from acceptance criteria, since they can always ask clarifying questions in person",
+            "Self-verification is mainly about reducing token cost on long tasks, not about whether the result is correct"
           ],
           answer: 1,
           explain: "A task an agent can verify by itself is a task it can actually finish. Without a check, the stopping point is arbitrary."
@@ -190,10 +190,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A task says migrate the config loader to the new schema. Which addition best converts it into a done definition?",
           choices: [
-            "And make sure it is backwards compatible with the old format",
+            "And make sure the new loader stays fully backwards compatible with every version of the old config format",
             "And existing callers keep working, verified by the full suite passing plus a new test loading a legacy config file",
-            "And do it carefully, since config bugs are hard to catch in review",
-            "And document the change in the migration notes for the team"
+            "And do it carefully and review the diff twice yourself, since config bugs are notoriously hard to catch in code review",
+            "And document every change in the migration notes so the rest of the team knows what changed and why"
           ],
           answer: 1,
           explain: "It names the behavior to preserve and the specific observation that proves it. The others state intent or process without a check."
@@ -260,10 +260,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "You split a feature into six tasks, but four of them cannot be checked until all six land. What went wrong?",
           choices: [
-            "Nothing - partial work is inherently unverifiable and this is expected",
+            "Nothing went wrong, because partial work on a feature is inherently unverifiable and this outcome is expected",
             "The tasks were split by file rather than by observable result, so most pieces produce no checkable outcome alone",
-            "There were too few tasks, and splitting further would restore independent verification",
-            "The tasks needed a shared branch, which would have made them checkable together"
+            "There were too few tasks, and splitting the feature further into smaller pieces would restore independent verification",
+            "The tasks needed to share a single branch, which would have made them checkable together as they landed"
           ],
           answer: 1,
           explain: "Splitting along file boundaries is convenient but produces fragments. Splitting along observable results keeps each piece independently checkable."
@@ -367,9 +367,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What makes a project instruction file different in kind from repeating a rule in each prompt?",
           choices: [
-            "It is read faster, which lowers latency on every task",
+            "It is read faster than prompt text, which lowers the latency of every task the agent runs in the repo",
             "It is durable context that survives the conversation and applies to work you did not personally start",
-            "It cannot be overridden, so it is a stronger form of instruction than a prompt",
+            "It cannot be overridden by later instructions, so it is a stronger form of instruction than any prompt",
             "It replaces the need for acceptance criteria on tasks that touch the same files"
           ],
           answer: 1,
@@ -402,10 +402,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A conventions file has grown to cover every preference anyone has ever expressed. What is the predictable failure?",
           choices: [
-            "It becomes too large to parse, causing a hard load error",
-            "It makes the repo slower to clone and check out",
+            "It becomes too large for the tooling to parse, causing a hard load error at the start of every session",
+            "It makes the repository noticeably slower to clone and check out for new contributors",
             "Load-bearing rules get diluted among trivia, so the ones that matter stop being followed",
-            "It becomes legally binding on contributors, which creates review overhead"
+            "It becomes legally binding on contributors, which adds review overhead to every change"
           ],
           answer: 2,
           explain: "Signal density matters. A conventions file earns its place by containing rules whose violation would actually cause harm."

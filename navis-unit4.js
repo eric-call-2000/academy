@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "In coordination, what is a clash?",
-          choices: ["Two elements overlapping in the same space", "A file that will not open", "A missing viewpoint", "A slow computer"],
+          choices: ["Two elements overlapping in the same space", "Two models that use different units or origins", "Two trades scheduled in the same area on the same day", "Two elements with conflicting property values"],
           answer: 0,
           explain: "A clash is a physical interference where two model elements occupy the same space."
         },
@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why do we find clashes before construction?",
-          choices: ["To fix problems on screen instead of in the field", "To make the model bigger", "To slow down the schedule", "To delete the source files"],
+          choices: ["To fix problems on screen instead of in the field", "To prove the design meets the building code", "To generate the quantities needed for the estimate", "To create the as-built record for the owner"],
           answer: 0,
           explain: "Catching interferences in the model is far cheaper than fixing them on site."
         },
@@ -52,7 +52,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Fixing a clash on site instead of in the model usually means it is:",
-          choices: ["More expensive and disruptive", "Free and instant", "Impossible to fix", "Better for the schedule"],
+          choices: ["More expensive and disruptive", "Faster, since crews can see the conflict", "Cheaper, because the model work is skipped", "Covered by the designer's insurance"],
           answer: 0,
           explain: "Field rework costs far more time and money than resolving a clash in the model."
         }
@@ -79,7 +79,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "A clearance clash checks that elements keep a minimum:",
-          choices: ["Distance apart", "File size", "Color", "Layer name"],
+          choices: ["Distance apart", "Overlap volume", "Level of detail", "Number of connections"],
           answer: 0,
           explain: "Clearance clashes flag elements that are closer than a set separation distance."
         },
@@ -151,7 +151,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Using search sets for A and B is helpful because they:",
-          choices: ["Update automatically as the model changes", "Delete the source files", "Turn off Clash Detective", "Lock the camera"],
+          choices: ["Update automatically as the model changes", "Store a fixed list that never changes", "Include every object in the model by default", "Ignore objects hidden in the current view"],
           answer: 0,
           explain: "Search sets are rule based, so an A versus B test built on them stays current."
         },
@@ -204,7 +204,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Rule based search sets are a good choice for test selections because they:",
-          choices: ["Stay accurate when the model updates", "Cannot be reused", "Only work once", "Delete viewpoints"],
+          choices: ["Stay accurate when the model updates", "Freeze the selection to the first run", "Run faster than any other selection type", "Hide objects that are not in the test"],
           answer: 0,
           explain: "Search sets refresh with the model, so re running the test stays reliable."
         },
@@ -230,7 +230,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "When you click a clash in the results list, Navisworks usually:",
-          choices: ["Zooms to and highlights the two elements", "Closes the file", "Deletes the elements", "Exports an NWD"],
+          choices: ["Zooms to and highlights the two elements", "Opens the source file of the first element", "Marks the clash as Reviewed automatically", "Hides all other files in the federation"],
           answer: 0,
           explain: "Selecting a result focuses the view on the clashing elements so you can inspect them."
         },
@@ -256,7 +256,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Grouping and assigning clashes mainly helps you:",
-          choices: ["Organize and route issues to the right person", "Increase file size", "Hide the model", "Change the schedule"],
+          choices: ["Organize and route issues to the right person", "Merge the clashing elements into one object", "Fix the clashes directly in the source models", "Raise the tolerance so fewer clashes appear"],
           answer: 0,
           explain: "Grouping related clashes and assigning them keeps coordination organized."
         },
@@ -282,7 +282,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does the tolerance value control?",
-          choices: ["How much overlap counts as a clash", "The model color", "The camera angle", "The file format"],
+          choices: ["How much overlap counts as a clash", "How many clashes a test will report", "Which disciplines are tested together", "How often the test runs automatically"],
           answer: 0,
           explain: "Tolerance is the threshold of overlap or separation that triggers a reported clash."
         },
@@ -302,7 +302,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "If a test is returning too many trivial overlaps, a reasonable step is to:",
-          choices: ["Increase the tolerance", "Delete the model", "Turn off Navisworks", "Rename the file"],
+          choices: ["Increase the tolerance", "Decrease the tolerance", "Switch to a clearance test", "Add more files to Selection A"],
           answer: 0,
           explain: "Raising the tolerance filters out tiny overlaps and focuses on real issues."
         },
@@ -321,7 +321,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "For a clearance clash, tolerance often represents the:",
-          choices: ["Required gap between elements", "Font size", "Number of viewpoints", "File version"],
+          choices: ["Required gap between elements", "Allowed overlap between elements", "Maximum number of reported clashes", "Minimum size an element must be"],
           answer: 0,
           explain: "In a clearance test, tolerance is the minimum spacing that must be maintained."
         }
@@ -413,7 +413,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why build these tests from search sets by discipline?",
-          choices: ["They stay accurate as models are updated", "They hide the model", "They lock the schedule", "They shrink the file"],
+          choices: ["They stay accurate as models are updated", "They freeze results so clashes never change", "They hide disciplines that are not being tested", "They resolve duplicate clashes automatically"],
           answer: 0,
           explain: "Discipline based search sets keep tests current every time you re run them."
         },

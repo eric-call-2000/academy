@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Which is NOT a resource animals commonly contest?",
-          choices: ["Mates", "Territory", "Food", "Photosynthesis"],
+          choices: ["Breeding mates", "Nesting territory", "Food sources", "Photosynthesis"],
           answer: 3,
           explain: "Animals fight over mates, territory and food; photosynthesis is a plant process, not a contested prize."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "In red deer, rival stags often assess each other by roaring and parallel walking before...",
-          choices: ["immediately killing the loser", "possibly locking antlers if neither backs down", "ignoring each other entirely", "leaving the area together"],
+          choices: ["immediately fighting to the death without any display", "possibly locking antlers if neither backs down", "walking away without any contest when they first meet", "sharing the harem equally once the roaring ends"],
           answer: 1,
           explain: "Red deer stags escalate through roaring contests and parallel walking, and only lock antlers if the display does not settle it."
         },
@@ -143,7 +143,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "In the context of animal conflict, a 'display' is best described as...",
-          choices: ["a lethal attack aimed at vital organs", "a chemical that poisons a rival", "a signal such as posturing, roaring or showing weapons", "a way of sharing the resource equally"],
+          choices: ["a fight in which both rivals try to injure each other", "a way of splitting the resource equally between rivals", "a signal such as posturing, roaring or showing weapons", "a retreat that ends the contest without any signal"],
           answer: 2,
           explain: "Displays are signals - postures, calls or shows of size or weapons - that convey information without inflicting injury."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Which earlier view did Maynard Smith and Price argue against?",
-          choices: ["That animals never fight at all", "That genes are the unit of selection", "That restraint evolves 'for the good of the species'", "That mutations are always harmful"],
+          choices: ["That animals never fight over resources at all", "That genes, not species, are the units of selection", "That restraint evolves 'for the good of the species'", "That fights between animals are mostly harmless"],
           answer: 2,
           explain: "The paper rejected the popular idea that animals restrain themselves for the benefit of their species."
         },
@@ -189,7 +189,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Why does 'restraint for the good of the species' fail as an evolutionary explanation?",
-          choices: ["A selfish, ruthless mutant would spread at the expense of restrained individuals", "Species can consciously agree on rules of combat", "Restraint has no effect on survival either way", "Group selection is always stronger than individual selection"],
+          choices: ["A selfish, ruthless mutant would spread at the expense of restrained individuals", "Species can consciously agree on rules of combat that every member follows", "Restraint has no effect on survival or reproduction either way", "Group selection is always stronger than selection acting on single individuals in a population"],
           answer: 0,
           explain: "Natural selection acts on individuals; a mutant that exploits others' restraint gains an advantage and spreads."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "According to Maynard Smith and Price, restraint can only evolve if it...",
-          choices: ["benefits the species as a whole", "increases the individual's own expected fitness", "is agreed upon by the whole population", "has no cost or benefit at all"],
+          choices: ["benefits the species or the group as a whole over time", "increases the individual's own expected fitness", "is agreed upon by the whole population", "reduces injuries for both contestants"],
           answer: 1,
           explain: "Selection favours traits that raise the bearer's own reproductive success, so restraint must pay the individual."
         },
@@ -273,7 +273,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "In the model, a 'strategy' is...",
-          choices: ["a single fixed move used only once", "a conscious plan the animal reasons out", "a rule specifying how to behave in each situation of the contest", "the resource being fought over"],
+          choices: ["a single fixed move used only once in a fight", "a conscious plan that the animal reasons out before each fight begins", "a rule specifying how to behave in each situation of the contest", "the resource the animals are fighting over"],
           answer: 2,
           explain: "A strategy is a behavioural rule - for example, when to display, escalate or retreat - not a conscious plan."
         },
@@ -345,7 +345,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Which of these did the simulation payoffs account for?",
-          choices: ["The animal's fur colour", "The observer's opinion", "Gains from winning and costs of injury and wasted time", "The phase of the moon"],
+          choices: ["Only the value of the resource for whichever animal wins the contest", "Only the risk of injury for each contestant", "Gains from winning and costs of injury and wasted time", "The size and age of each animal"],
           answer: 2,
           explain: "Scores combined the benefit of winning with the costs of serious injury and of wasting time and energy."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "What new concept did the results motivate?",
-          choices: ["The food chain", "The Hardy-Weinberg law", "Natural selection itself", "The evolutionarily stable strategy (ESS)"],
+          choices: ["The idea of group selection", "Kin selection and inclusive fitness theory", "The Nash equilibrium", "The evolutionarily stable strategy (ESS)"],
           answer: 3,
           explain: "The paper's central innovation was the ESS - a strategy that cannot be invaded by any alternative once it is common."
         },
@@ -397,7 +397,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Why wasn't simply 'the best strategy against the current population' enough?",
-          choices: ["Because animals cannot have strategies", "Because the population itself is made of strategies that can change, so stability against invasion matters", "Because natural selection does not act on behaviour", "Because payoffs cannot be measured"],
+          choices: ["Because animals cannot have strategies, so there is no best strategy to choose in the first place", "Because the population itself is made of strategies that can change, so stability against invasion matters", "Because natural selection does not act on behavior at all, only on physical traits such as body size and weapons", "Because the best strategy against the current population is always the one that is most common"],
           answer: 1,
           explain: "Fitness depends on what everyone else is doing, so the key question is whether a strategy resists invasion, not just whether it is momentarily best."
         },

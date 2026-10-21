@@ -68,9 +68,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Why use worksharing instead of emailing copies of the file around?",
           choices: [
             "Everyone stays in sync on one live model",
-            "It makes the file smaller",
-            "It removes the need for backups",
-            "It prints faster"
+            "Each person gets a frozen copy they can edit freely",
+            "Files are merged automatically when emailed back",
+            "The model stays smaller because views are split up"
           ],
           answer: 0,
           explain: "Worksharing keeps a single source of truth so edits do not conflict or get lost."
@@ -93,9 +93,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a local model?",
           choices: [
             "Your personal working copy of the central model",
-            "A separate unrelated project",
-            "A PDF export of the model",
-            "The template used to start the project"
+            "The main shared file that stores everyone's work",
+            "A backup of the central model saved each hour",
+            "A linked model from another discipline's team"
           ],
           answer: 0,
           explain: "Each team member works in a local copy synced to the central model."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a workset?",
           choices: [
             "A named group of elements in a shared model",
-            "A type of wall",
-            "A printed drawing set",
-            "A backup file"
+            "A separate file each team member edits alone",
+            "A saved set of views placed on one sheet",
+            "A named selection that filters a schedule"
           ],
           answer: 0,
           explain: "Worksets are collections of elements used to organize a worksharing project."
@@ -194,9 +194,9 @@ window.ACADEMY.addUnit("revit", {
           q: "One practical benefit of closing worksets you are not using is that it can help Revit:",
           choices: [
             "Open and run faster on large models",
-            "Print in color",
-            "Delete elements",
-            "Create new families"
+            "Lock elements so others cannot edit them",
+            "Sync changes to central more often",
+            "Purge unused families automatically"
           ],
           answer: 0,
           explain: "Not opening every workset reduces what Revit loads, improving performance."
@@ -229,9 +229,9 @@ window.ACADEMY.addUnit("revit", {
           q: "A good way to split worksets on a building project might be by:",
           choices: [
             "Building zones or systems, like Shell or Interiors",
-            "The color of each element",
-            "The alphabet order of family names",
-            "The day of the week"
+            "The person who first created each element",
+            "The view each element was drawn in",
+            "The date each element was added to the model"
           ],
           answer: 0,
           explain: "Teams commonly divide worksets by area, floor, or system to reduce conflicts."
@@ -259,9 +259,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a linked Revit model?",
           choices: [
             "Another RVT file referenced inside your project",
-            "A copy pasted into your walls",
-            "A schedule of doors",
-            "A backup of your file"
+            "Another RVT file copied and merged into your project",
+            "A local copy of the central model on your drive",
+            "A family file loaded from the office library"
           ],
           answer: 0,
           explain: "A link references a separate RVT so you can see and coordinate with it."
@@ -277,9 +277,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Why would a structural team link the architectural Revit model?",
           choices: [
             "To coordinate structure with the architecture",
-            "To delete the architect's walls",
-            "To rename the architect's views",
-            "To print the architect's sheets"
+            "To edit the architect's walls in the same file",
+            "To copy the architect's sheets into its own set",
+            "To merge both models into one central file"
           ],
           answer: 0,
           explain: "Links let each discipline see the others to coordinate a shared building."
@@ -312,9 +312,9 @@ window.ACADEMY.addUnit("revit", {
           q: "A benefit of keeping each discipline in its own file and linking is:",
           choices: [
             "Teams work in parallel without fighting over one file",
-            "It makes the model impossible to view",
-            "It removes the need for coordination",
-            "It merges everything into one wall"
+            "Every element is checked for clashes automatically",
+            "Each team can edit the other teams' elements directly",
+            "Linked files never need to be reloaded or updated"
           ],
           answer: 0,
           explain: "Links keep files separate for ownership while still coordinating together."
@@ -337,9 +337,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What does Copy/Monitor do?",
           choices: [
             "Copies key elements and alerts you when the originals change",
-            "Deletes duplicate elements",
-            "Prints coordination sheets",
-            "Exports the model to CAD"
+            "Copies elements once from a link with no further tracking",
+            "Keeps linked elements updated automatically with no review",
+            "Compares two models and lists every element that differs"
           ],
           answer: 0,
           explain: "Copy/Monitor copies elements and warns you if the monitored originals move or change."
@@ -349,9 +349,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Which elements are commonly set up with Copy/Monitor between models?",
           choices: [
             "Levels, grids, and columns",
-            "Dimension text only",
-            "Sheet borders",
-            "View titles"
+            "Rooms, areas, and tags",
+            "Sheets, views, and titles",
+            "Dimensions and text notes"
           ],
           answer: 0,
           explain: "Datums like levels and grids, plus columns, are typical Copy/Monitor targets."
@@ -390,9 +390,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is the main value of monitoring instead of just copying once?",
           choices: [
             "You are told when the source changes so you can respond",
-            "It makes the file open faster",
-            "It hides the linked model",
-            "It renames your levels"
+            "Your copies update by themselves with no review needed",
+            "The source model is locked so it cannot be changed",
+            "The linked model is hidden once copies are made"
           ],
           answer: 0,
           explain: "Monitoring provides ongoing awareness, not a one-time copy."
@@ -409,9 +409,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What problem do Shared Coordinates solve?",
           choices: [
             "Placing every model in one common location",
-            "Making walls thicker",
-            "Speeding up printing",
-            "Counting doors"
+            "Keeping each model's units the same",
+            "Matching levels between linked models",
+            "Aligning each model's internal origin"
           ],
           answer: 0,
           explain: "Shared Coordinates give all linked models a single agreed position and orientation."
@@ -427,9 +427,9 @@ window.ACADEMY.addUnit("revit", {
           q: "One common way to bring a link in already positioned to a shared system is to place it by:",
           choices: [
             "Shared Coordinates",
-            "Element color",
-            "Sheet number",
-            "Family name"
+            "Origin to Origin",
+            "Center to Center",
+            "Project Base Point"
           ],
           answer: 0,
           explain: "Positioning a link by Shared Coordinates uses the agreed common location."
@@ -492,9 +492,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What does an Interference Check (clash check) find?",
           choices: [
             "Elements that physically overlap or collide",
-            "Spelling mistakes in sheet names",
-            "Missing dimensions",
-            "Unused families"
+            "Elements that are missing tags in a view",
+            "Walls that do not join cleanly at corners",
+            "Links that sit in the wrong coordinates"
           ],
           answer: 0,
           explain: "Interference Check reports where elements clash, like a duct hitting a beam."
@@ -527,9 +527,9 @@ window.ACADEMY.addUnit("revit", {
           q: "When Copy/Monitor detects a change in a link, which tool helps you review and resolve it?",
           choices: [
             "Coordination Review",
-            "The wall tool",
-            "The text tool",
-            "The print dialog"
+            "Interference Check",
+            "Manage Links",
+            "Review Warnings"
           ],
           answer: 0,
           explain: "Coordination Review lists monitor warnings so you can accept or reject changes."
@@ -545,9 +545,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Why run clash checks regularly during design?",
           choices: [
             "Catch conflicts early before they reach the field",
-            "To make the file larger",
-            "To delete the linked models",
-            "To change the units"
+            "Keep linked models from loading out of date",
+            "Remove the need for coordination meetings",
+            "Lock the model so no one adds new conflicts"
           ],
           answer: 0,
           explain: "Early clash detection prevents costly conflicts during construction."
@@ -575,9 +575,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is IFC used for?",
           choices: [
             "A neutral, open format for exchanging BIM data between programs",
-            "A Revit family category",
-            "A type of wall",
-            "A printing setting"
+            "Autodesk's own file format for sharing Revit families between projects",
+            "A 2D drawing format for sending line work to AutoCAD",
+            "A cloud service that hosts models for team review"
           ],
           answer: 0,
           explain: "IFC (Industry Foundation Classes) is an open standard for sharing BIM across software."
@@ -628,9 +628,9 @@ window.ACADEMY.addUnit("revit", {
           q: "A reason to link a CAD site plan rather than import it is:",
           choices: [
             "Reloading updates it and it is easier to remove later",
-            "It permanently merges into your walls",
-            "It prints faster than everything else",
-            "It converts to a Revit family automatically"
+            "It becomes Revit geometry you can edit like walls",
+            "It sets the project's shared coordinates for you",
+            "It is converted into a toposurface automatically"
           ],
           answer: 0,
           explain: "Links keep external data separate and updatable, unlike a baked-in import."

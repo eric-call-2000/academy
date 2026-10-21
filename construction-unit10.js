@@ -20,14 +20,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does the term rough-in refer to on an MEP project?",
-          choices: ["Installing pipe, duct, conduit and boxes before walls and ceilings are closed", "The final connection of fixtures and trim", "The demolition of existing systems", "Painting the mechanical room"],
+          choices: ["Installing pipe, duct, conduit and boxes before walls and ceilings are closed", "Setting the final fixtures, devices, trim and grilles once the walls are painted", "Removing old piping and wiring before the new systems are installed", "Testing and balancing each system before the owner moves in"],
           answer: 0,
           explain: "Rough-in is the concealed work installed in the structure before drywall; trim-out is the visible finish work that follows."
         },
         {
           type: "mcq",
           q: "Why do MEP systems require especially heavy coordination during design and construction?",
-          choices: ["Many systems compete for the same limited space above ceilings and in chases", "They all use the same electrical voltage", "They are installed by a single trade", "They never cross structural members"],
+          choices: ["Many systems compete for the same limited space above ceilings and in chases", "All MEP systems run on the same voltage and must share electrical panels", "A single trade installs every MEP system, so one crew controls the sequence", "MEP equipment is ordered last, so its sizes are unknown until after framing"],
           answer: 0,
           explain: "Duct, pipe, conduit, sprinkler and structure all share tight plenum space, so clash-free routing must be coordinated."
         },
@@ -91,14 +91,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A packaged rooftop unit (RTU) is best described as which of the following?",
-          choices: ["A self-contained HVAC unit with heating and cooling in one cabinet on the roof", "A water-only heating boiler", "A standby electrical generator", "A plumbing booster pump"],
+          choices: ["A self-contained HVAC unit with heating and cooling in one cabinet on the roof", "A roof-mounted cooling tower that rejects heat from the chilled water loop", "A split-system condenser that sits on the roof and feeds an indoor furnace", "A roof exhaust fan that pulls stale air out of restrooms and kitchens"],
           answer: 0,
           explain: "An RTU packages compressor, coils, fan and often gas heat in one rooftop cabinet ducted into the space below."
         },
         {
           type: "mcq",
           q: "How does a heat pump differ from a basic air conditioner?",
-          choices: ["It can reverse its refrigerant flow to provide heating as well as cooling", "It burns fuel oil for heat", "It only works below freezing", "It uses no compressor"],
+          choices: ["It can reverse its refrigerant flow to provide heating as well as cooling", "It burns natural gas in a heat exchanger to add heat in winter", "It uses no compressor and moves heat with a water loop alone", "It pumps heat only from the ground, so it cannot work with outdoor air"],
           answer: 0,
           explain: "A reversing valve lets a heat pump move heat either direction, so the same unit both heats and cools."
         },
@@ -148,21 +148,21 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the primary job of an air handling unit (AHU)?",
-          choices: ["Filter, condition and blow air into the duct system", "Generate electricity for the building", "Pump domestic water to fixtures", "Store rainwater for reuse"],
+          choices: ["Filter, condition and blow air into the duct system", "Produce chilled water for the coils in each zone", "Exhaust stale air from restrooms and kitchens only", "Reject heat from the condenser water to the outdoors"],
           answer: 0,
           explain: "An AHU contains the fan, coils and filters that condition air and push it through supply ductwork."
         },
         {
           type: "mcq",
           q: "What is the difference between supply air and return air?",
-          choices: ["Supply air is delivered to the space; return air is drawn back to the AHU", "Supply air is outdoor only; return air is exhaust only", "They are the same thing", "Supply air is always unconditioned"],
+          choices: ["Supply air is delivered to the space; return air is drawn back to the AHU", "Supply air is outdoor air only; return air is exhausted straight outside", "Supply air is unconditioned; return air is the air that has been cooled", "Return air is delivered to the space; supply air is drawn back to the AHU"],
           answer: 0,
           explain: "Supply ducts deliver conditioned air to rooms, and return ducts bring room air back to be reconditioned."
         },
         {
           type: "mcq",
           q: "What does a VAV box do in a variable-air-volume system?",
-          choices: ["Modulates the volume of supply air to a zone to hold setpoint", "Generates chilled water", "Boosts water pressure", "Filters the outdoor air intake"],
+          choices: ["Modulates the volume of supply air to a zone to hold setpoint", "Holds supply airflow constant and varies the air temperature", "Mixes outdoor and return air before it reaches the AHU", "Filters and humidifies the outdoor air at the intake"],
           answer: 0,
           explain: "A VAV terminal box throttles airflow (and may reheat) so each zone gets only the air it needs at the moment."
         },
@@ -219,7 +219,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the water service in a plumbing system?",
-          choices: ["The pipe bringing potable water from the main into the building", "The drain leaving the building", "The vent through the roof", "The electrical feed to the pump"],
+          choices: ["The pipe bringing potable water from the main into the building", "The pipe carrying wastewater from the building to the sewer main", "The pipe that carries water from the meter to each fixture", "The line that feeds the fire sprinkler riser from the street"],
           answer: 0,
           explain: "The water service line connects the public or private main to the building's water meter and distribution piping."
         },
@@ -233,14 +233,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why is backflow prevention required on a potable water system?",
-          choices: ["To stop contaminated water from reversing into the clean supply", "To raise the water temperature", "To reduce the water bill", "To soften the water"],
+          choices: ["To stop contaminated water from reversing into the clean supply", "To keep water pressure from rising too high at the fixtures", "To trap sediment before it reaches the water heater", "To stop sewer gas from entering through the fixture drains"],
           answer: 0,
           explain: "Backflow preventers and air gaps keep cross-connected or contaminated water from siphoning back into potable lines."
         },
         {
           type: "mcq",
           q: "What does a water heater provide to the distribution system?",
-          choices: ["Hot water on a separate set of distribution lines", "Cold water pressure boosting", "Drainage venting", "Electrical grounding"],
+          choices: ["Hot water on a separate set of distribution lines", "Extra pressure to the cold-water lines on upper floors", "Heated water for the radiant floors and radiators only", "Treated, softened water for the whole building supply"],
           answer: 0,
           explain: "A storage or tankless water heater feeds the hot-water side, run in parallel with the cold-water distribution."
         },
@@ -297,21 +297,21 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the main purpose of a P-trap under a fixture?",
-          choices: ["Hold a water seal that blocks sewer gas from entering the room", "Increase water pressure", "Filter solids from the supply", "Heat the drain water"],
+          choices: ["Hold a water seal that blocks sewer gas from entering the room", "Catch hair and debris so the drain line does not clog", "Let air into the drain line so water flows out without gurgling", "Slow the drain flow so solids settle before the main"],
           answer: 0,
           explain: "The curved trap retains water that seals against sewer gases while still letting waste pass through."
         },
         {
           type: "mcq",
           q: "Why must drain lines be installed with proper slope or fall?",
-          choices: ["So gravity carries solids and liquids without clogging", "So water flows uphill", "To increase supply pressure", "To vent the roof"],
+          choices: ["So gravity carries solids and liquids without clogging", "So the drain stays full of water to block sewer gas", "So the vent pipes can pull air down through the roof", "So supply pressure stays even at every fixture"],
           answer: 0,
           explain: "A typical fall of about a quarter inch per foot keeps flow fast enough to carry solids but not so fast it leaves them behind."
         },
         {
           type: "mcq",
           q: "What is the difference between sanitary and storm drainage?",
-          choices: ["Sanitary carries sewage; storm carries rainwater runoff", "They are identical systems", "Sanitary carries rain; storm carries sewage", "Storm only carries hot water"],
+          choices: ["Sanitary carries sewage; storm carries rainwater runoff", "Sanitary carries rainwater; storm carries building sewage", "Storm drains run inside; sanitary drains run outside", "Sanitary is pressurized; storm always flows by gravity"],
           answer: 0,
           explain: "Sanitary systems handle building sewage to treatment, while storm systems route rain runoff, and codes keep them separate."
         },
@@ -361,28 +361,28 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does a transformer do in a building's electrical service?",
-          choices: ["Steps voltage up or down between systems", "Stores electricity in batteries", "Generates power from fuel", "Measures energy usage for billing"],
+          choices: ["Steps voltage up or down between systems", "Stores backup power in batteries for outages", "Converts AC power to DC for building loads", "Measures energy use for the utility bill"],
           answer: 0,
           explain: "Transformers change voltage levels, for example stepping utility medium voltage down to usable building voltage."
         },
         {
           type: "mcq",
           q: "What is the role of a panelboard or load center?",
-          choices: ["Distributes power to branch circuits and houses their breakers", "Generates standby power", "Steps down medium voltage", "Meters the utility feed"],
+          choices: ["Distributes power to branch circuits and houses their breakers", "Switches the building to generator power during an outage", "Steps the utility voltage down to a usable building voltage", "Meters the utility feed and records the demand charges"],
           answer: 0,
           explain: "A panelboard divides incoming power into individual branch circuits, each protected by an overcurrent device."
         },
         {
           type: "mcq",
           q: "What is the difference between a feeder and a branch circuit?",
-          choices: ["A feeder supplies a panel; a branch circuit serves the final loads", "A feeder is low voltage; a branch is high voltage", "They are the same thing", "A branch circuit feeds the utility"],
+          choices: ["A feeder supplies a panel; a branch circuit serves the final loads", "A branch circuit supplies a panel; a feeder serves the final loads", "A feeder is low voltage; a branch circuit is always high voltage", "A feeder comes from the utility; a branch circuit is on generator"],
           answer: 0,
           explain: "Feeders carry power between distribution equipment, while branch circuits run from the last panel to outlets and devices."
         },
         {
           type: "mcq",
           q: "What does a circuit breaker primarily protect against?",
-          choices: ["Overcurrent from overloads and short circuits", "Low water pressure", "Static electricity only", "Voltage that is too low"],
+          choices: ["Overcurrent from overloads and short circuits", "Ground-fault current leaking through a person", "Voltage that drops too low during brownouts", "Lightning surges coming in on the utility line"],
           answer: 0,
           explain: "A breaker trips to interrupt current when an overload or fault would otherwise overheat conductors."
         },
@@ -432,28 +432,28 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the difference between conduit and conductors?",
-          choices: ["Conduit is the protective raceway; conductors are the wires inside it", "Conduit is the wire; conductors are the pipe", "They are the same thing", "Conduit carries water"],
+          choices: ["Conduit is the protective raceway; conductors are the wires inside it", "Conduit is the wire; conductors are the pipe or raceway around it", "Conduit carries low-voltage data; conductors carry line power", "Conduit is used outdoors only; conductors are used indoors only"],
           answer: 0,
           explain: "Conduit is the tube or raceway that protects and routes the conductors, the metal wires that actually carry current."
         },
         {
           type: "mcq",
           q: "Where is GFCI protection most required by code?",
-          choices: ["Near water, such as bathrooms, kitchens and outdoors", "Only in attics", "Only on lighting circuits", "Only in mechanical rooms"],
+          choices: ["Near water, such as bathrooms, kitchens and outdoors", "In bedrooms, to protect against arcing in wiring", "On dedicated circuits for large motors and HVAC", "In electrical rooms next to the service panel"],
           answer: 0,
           explain: "A GFCI trips on small ground-fault current to prevent shock, so it is required at wet and damp locations."
         },
         {
           type: "mcq",
           q: "What hazard does an AFCI breaker specifically guard against?",
-          choices: ["Arcing faults that can start fires", "Water leaks", "Low voltage", "High water pressure"],
+          choices: ["Arcing faults that can start fires", "Ground faults that can shock a person", "Voltage surges from lightning strikes", "Low voltage that damages motors"],
           answer: 0,
           explain: "An arc-fault circuit interrupter detects dangerous arcing in wiring and trips to reduce electrical fire risk."
         },
         {
           type: "mcq",
           q: "Why are grounding and bonding important in an electrical system?",
-          choices: ["They provide a safe path for fault current and a common reference", "They increase the voltage", "They reduce the lighting level", "They heat the conduit"],
+          choices: ["They provide a safe path for fault current and a common reference", "They raise the system voltage to reduce losses in long runs", "They keep lightning from striking the building at all", "They stop arcing in damaged wiring before it starts a fire"],
           answer: 0,
           explain: "Grounding ties the system to earth and bonding ties metal parts together so faults trip protection safely."
         },
@@ -503,28 +503,28 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the main goal of MEP coordination above ceilings and in shafts?",
-          choices: ["Route systems clash-free while keeping required clearances", "Choose the paint color", "Pour the foundation", "Size the parking lot"],
+          choices: ["Route systems clash-free while keeping required clearances", "Lower the ceiling height so every system fits above it", "Assign each trade its own floor so crews never overlap", "Install the largest duct last so it can fit around pipes"],
           answer: 0,
           explain: "Coordination stacks duct, pipe, conduit and sprinkler in tight space so nothing clashes and access is preserved."
         },
         {
           type: "mcq",
           q: "What is a chase in a building?",
-          choices: ["A concealed vertical or horizontal space for routing MEP systems", "A type of breaker", "A rooftop fan", "A water meter"],
+          choices: ["A concealed vertical or horizontal space for routing MEP systems", "A rated shaft enclosure around an exit stair that protects egress", "A dropped ceiling grid that hides lights and diffusers", "A trench in the slab that holds the main sewer line"],
           answer: 0,
           explain: "A chase is a dedicated cavity, like a wall pocket or shaft, that hides risers and runs of pipe, duct and conduit."
         },
         {
           type: "mcq",
           q: "What does a building automation system (BAS) do?",
-          choices: ["Monitors and controls HVAC and other systems through sensors and controllers", "Generates electricity", "Stores domestic water", "Frames the building structure"],
+          choices: ["Monitors and controls HVAC and other systems through sensors and controllers", "Generates backup power and switches the building over during an outage", "Detects fire and smoke and sounds the alarm through horns and strobes", "Tracks the building's energy bills and reports them to the utility"],
           answer: 0,
           explain: "A BAS uses controllers and sensors to run HVAC, lighting and equipment efficiently and to alarm on faults."
         },
         {
           type: "mcq",
           q: "Why must equipment access and clearance be planned in MEP layouts?",
-          choices: ["So units can be serviced, replaced and code clearances are met", "So they look symmetrical only", "To reduce the electrical bill", "To increase duct pressure"],
+          choices: ["So units can be serviced, replaced and code clearances are met", "So equipment lines up evenly with the ceiling grid and light fixtures", "So the units run quieter and use less electricity", "So duct pressure stays high enough at the far end"],
           answer: 0,
           explain: "Service access and code clearances let technicians reach filters, coils, valves and panels safely for maintenance."
         },

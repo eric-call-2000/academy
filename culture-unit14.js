@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Which behavior is a typical expression of self-enhancement?",
           choices: [
-            "Dwelling on tasks you failed at",
+            "Dwelling on failures to find ways to improve next time",
             "Taking credit for successes and downplaying failures",
-            "Publicly criticizing your own abilities",
-            "Rating yourself as merely average"
+            "Publicly pointing out weaknesses in one's own abilities",
+            "Rating oneself as average to avoid seeming arrogant"
           ],
           answer: 1,
           explain: "Self-enhancers claim credit for good outcomes and minimize responsibility for bad ones to protect self-regard."
@@ -156,10 +156,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "The better-than-average effect is the tendency to:",
           choices: [
-            "Rate oneself as worse than most people",
+            "Rate oneself as below average on most desirable traits",
             "Rate oneself as above average on desirable traits",
-            "Refuse to compare oneself to others",
-            "Rate everyone as exactly average"
+            "Avoid comparing oneself with other people at all",
+            "Rate others as above average to seem modest"
           ],
           answer: 1,
           explain: "The effect is the statistically improbable belief that one is better than the average person on positive traits."
@@ -181,10 +181,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What does cross-cultural research generally find about the better-than-average effect?",
           choices: [
-            "It is equally strong in every culture",
+            "It is about equally strong in every culture that has been studied",
             "It tends to be weaker in East Asian than in North American samples",
-            "It is strongest in East Asian samples",
-            "It does not exist anywhere"
+            "It tends to be stronger in East Asian than in North American samples",
+            "It appears only in children and disappears by adulthood"
           ],
           answer: 1,
           explain: "The self-serving better-than-average bias is typically weaker among East Asians, consistent with weaker self-enhancement there."
@@ -209,10 +209,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Weaker better-than-average findings in East Asia are usually explained by:",
           choices: [
-            "Lower intelligence in those samples",
+            "Smaller sample sizes in most East Asian studies",
             "A cultural emphasis on modesty and self-criticism",
-            "A refusal to answer survey questions",
-            "Random measurement error only"
+            "Respondents skipping comparison questions on surveys",
+            "Random measurement error in translated questionnaires"
           ],
           answer: 1,
           explain: "Norms favoring modesty and self-critical improvement dampen self-flattering comparative judgments."
@@ -263,10 +263,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "How do these findings connect to the self-improvement versus self-enhancement distinction?",
           choices: [
-            "They show both cultures ignore feedback",
+            "Persistence after failure reflects self-enhancement; persistence after success reflects self-improvement",
             "Persistence after failure reflects self-improvement; persistence after success reflects self-enhancement",
-            "They show feedback has no effect on behavior",
-            "They prove self-enhancement is universal"
+            "They show feedback has no effect on how long people persist on a task",
+            "They show self-enhancement is universal, since everyone persists more after success"
           ],
           answer: 1,
           explain: "Persisting after failure fits an improvement orientation, while persisting after success fits an enhancement orientation."
@@ -310,10 +310,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "An incremental theory of ability holds that a trait can be:",
           choices: [
-            "Never improved",
+            "Measured once and fixed for the rest of one's life",
             "Developed and increased through effort and learning",
-            "Changed only by other people",
-            "Ignored entirely"
+            "Changed only through the help of teachers and parents",
+            "Improved only by people born with natural talent"
           ],
           answer: 1,
           explain: "Incremental theorists believe abilities grow incrementally through effort, strategy, and practice."
@@ -351,10 +351,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "An incremental theory pairs most naturally with which motive?",
           choices: [
-            "Avoiding all challenges",
+            "Avoiding challenges that might reveal a lack of ability",
             "Self-improvement through effortful correction of weaknesses",
-            "Rating oneself above average",
-            "Refusing feedback"
+            "Self-enhancement through rating oneself above average",
+            "Protecting self-esteem by discounting negative feedback"
           ],
           answer: 1,
           explain: "If ability is malleable, working to correct weaknesses makes sense, aligning with a self-improvement orientation."
@@ -371,9 +371,9 @@ window.ACADEMY.addUnit("culture", {
           q: "Primary control refers to attempts to:",
           choices: [
             "Change the external world to fit one's wishes",
-            "Change oneself to fit the world",
-            "Avoid any action at all",
-            "Rely entirely on others"
+            "Change oneself to fit the world as it is",
+            "Accept outcomes as fate without taking any action",
+            "Rely on powerful others to act on one's behalf"
           ],
           answer: 0,
           explain: "Primary control means acting on the environment to bring it in line with one's own goals."
@@ -382,10 +382,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Secondary control refers to attempts to:",
           choices: [
-            "Force the environment to change",
+            "Act directly on the environment so that it comes to fit one's own goals and wishes",
             "Adjust oneself, one's expectations, or emotions to fit existing conditions",
-            "Ignore the situation completely",
-            "Delegate all decisions to a computer"
+            "Ignore the situation and avoid thinking about it altogether",
+            "Try a second, backup plan for changing the situation after the first fails"
           ],
           answer: 1,
           explain: "Secondary control means accommodating to reality by adjusting the self rather than the world."
@@ -442,10 +442,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Self-effacement in self-presentation means:",
           choices: [
-            "Boasting about your achievements",
+            "Highlighting your achievements to make a good impression",
             "Modestly downplaying your own accomplishments",
-            "Refusing to speak to others",
-            "Claiming credit for others' work"
+            "Avoiding conversations about yourself altogether",
+            "Praising others' work so they will praise yours"
           ],
           answer: 1,
           explain: "Self-effacement is a modest style that minimizes praise of oneself."
@@ -495,10 +495,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "How does self-effacement relate to self-enhancement research?",
           choices: [
-            "It is another word for self-enhancement",
+            "It is simply another term for self-enhancement in collectivist cultures",
             "It can mask or reduce visible self-enhancement in East Asian samples",
-            "It has no connection to self-presentation",
-            "It only applies to children"
+            "It inflates self-enhancement scores in East Asian samples",
+            "It applies only to children, who have not yet learned to self-enhance"
           ],
           answer: 1,
           explain: "Modest, self-effacing norms can suppress overt self-enhancing statements, helping explain lower self-enhancement scores."
@@ -526,10 +526,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "A prevention focus is oriented toward:",
           choices: [
-            "Achieving gains and hopes",
+            "Achieving gains and pursuing hopes and aspirations",
             "Avoiding losses and fulfilling duties and safety",
-            "Taking maximum risks",
-            "Seeking novelty for its own sake"
+            "Taking bold risks to maximize potential rewards",
+            "Seeking novelty and new experiences for their own sake"
           ],
           answer: 1,
           explain: "Prevention focus emphasizes security, responsibilities, and avoiding negative outcomes."

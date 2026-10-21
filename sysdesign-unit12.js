@@ -49,10 +49,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which statement best captures the difference between monitoring and observability?",
           choices: [
-            "Monitoring uses logs while observability uses metrics",
+            "Monitoring is built on logs and dashboards, while observability is built only on metrics",
             "Monitoring answers questions you knew to ask; observability lets you ask new ones",
-            "Monitoring is for developers; observability is for the operations team",
-            "Monitoring runs in production; observability runs only in staging"
+            "Monitoring is a practice for developers; observability is a practice for the operations team",
+            "Monitoring runs in production, while observability is only used in staging environments"
           ],
           answer: 1,
           explain: "Monitoring is the pre-registered set of known questions. Observability is the property that lets you interrogate the system about failures nobody predicted."
@@ -72,9 +72,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A vendor claims their product delivers observability just by installing an agent. What is the most accurate response?",
           choices: [
-            "Agents cannot collect any useful telemetry without code changes",
-            "Observability is a purchasable product, so installing it is sufficient",
-            "Agents remove the need for any application-specific instrumentation",
+            "Agents cannot collect any useful telemetry at all until the application code is changed by hand",
+            "Observability is a purchasable product, so installing the vendor's agent is sufficient on its own",
+            "Agents remove the need for any application-specific instrumentation, since they trace every function call",
             "Auto-instrumentation is a real head start, but domain fields still need deliberate work"
           ],
           answer: 3,
@@ -265,10 +265,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A page renders only after fanning out to 50 backend calls in parallel, each with a p99 of 100 ms. What should you expect?",
           choices: [
-            "Page p99 stays near 100 ms because the calls run in parallel",
-            "Page p99 is roughly 50 times 100 ms, since the delays accumulate",
+            "Page p99 stays close to 100 ms, because the calls run in parallel rather than one after another",
+            "Page p99 is roughly 50 times 100 ms, since the delays of the parallel calls still accumulate",
             "A large share of page loads wait on at least one slow call, so the tail dominates",
-            "The slow calls cancel each other out because they are independent"
+            "The slow calls tend to cancel each other out because they are independent of one another"
           ],
           answer: 2,
           explain: "With 50 independent calls, the chance none exceeds its p99 is about 0.99 to the 50th, roughly 60 percent, so about 40 percent of page loads hit at least one tail call. This is the core argument of Dean and Barroso's paper The Tail at Scale."
@@ -283,9 +283,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the strongest reason to write an SLO as a percentile rather than as an average?",
           choices: [
-            "Percentiles are computationally cheaper than averages to maintain",
-            "Averages are mathematically undefined when traffic is low",
-            "Percentiles are simply easier to explain to executives",
+            "Percentiles are computationally cheaper than averages to maintain over a sliding window",
+            "Averages are mathematically undefined when traffic is low, so they break at night",
+            "Percentiles are simply easier to explain to executives who read the monthly reliability report",
             "A percentile promises something about a share of real requests, which is what users feel"
           ],
           answer: 3,
@@ -408,9 +408,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Your team receives 40 alerts a night and almost none require action. What is the underlying failure?",
           choices: [
-            "The monitoring system is under-provisioned for that alert volume",
-            "The on-call rotation is too small for the number of services owned",
-            "The alerts are being routed to the wrong communication channel",
+            "The monitoring system is under-provisioned for that alert volume and drops the important ones",
+            "The on-call rotation is too small for the number of services the team owns",
+            "The alerts are being routed to the wrong communication channel, so the right people never see them",
             "The alerts fire on conditions that are neither urgent nor actionable, so real ones get ignored"
           ],
           answer: 3,
@@ -451,10 +451,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which definition of a golden signal is stated correctly?",
           choices: [
-            "Traffic means the share of requests that returned an error",
+            "Traffic means the share of requests that returned an error to the client",
             "Saturation means how full the most constrained resource currently is",
-            "Latency means the number of requests handled per second",
-            "Errors means how close the service is to its capacity limit"
+            "Latency means the number of requests the service handles each second",
+            "Errors means how close the service is to its capacity limit right now"
           ],
           answer: 1,
           explain: "Saturation is fullness of the limiting resource. Traffic is demand, latency is time to serve, errors is the failure rate. The other three options swap those definitions around."

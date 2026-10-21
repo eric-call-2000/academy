@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does Walk mode do in Navisworks?",
-          choices: ["Moves you through the model at a set eye height like walking", "Deletes selected objects", "Runs a clash test", "Publishes an NWD"],
+          choices: ["Moves you through the model at a set eye height like walking", "Rotates the model around a pivot point at its center", "Lets you move freely in any direction like a flight simulator", "Turns the camera in place without moving its position"],
           answer: 0,
           explain: "Walk moves you forward, back, and side to side as if you were on foot inside the model."
         },
@@ -56,7 +56,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why do coordinators switch between navigation modes during a review?",
-          choices: ["Different modes make it easier to reach and study different areas", "It changes the file format", "It runs Quantification automatically", "It hides all clashes"],
+          choices: ["Different modes make it easier to reach and study different areas", "Each mode loads a different level of model detail for the area in view", "Some modes are required before clash tests can run", "Switching modes refreshes the source files automatically"],
           answer: 0,
           explain: "Picking the right mode gets your camera where you need it faster and with less effort."
         }
@@ -70,7 +70,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does a saved viewpoint capture?",
-          choices: ["The camera position and view state you set up", "The whole schedule", "The clash tolerance value", "Every material cost"],
+          choices: ["The camera position and view state you set up", "A copy of the model geometry at that moment", "The clash test settings active at the time", "The selected objects and their properties only"],
           answer: 0,
           explain: "A viewpoint stores where the camera is and how the scene looks so you can come right back to it."
         },
@@ -112,7 +112,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why are viewpoints valuable for coordination?",
-          choices: ["They let the team jump straight to a known problem area", "They compress the NWD file", "They replace Clash Detective", "They edit the schedule"],
+          choices: ["They let the team jump straight to a known problem area", "They store a frozen copy of the geometry for comparison", "They automatically assign clashes to the right trade", "They update the source models with review comments"],
           answer: 0,
           explain: "Instead of describing where an issue is, you just recall the viewpoint everyone can see."
         }
@@ -126,7 +126,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is the point of sectioning a model?",
-          choices: ["To cut away parts so you can see inside", "To publish an NWF", "To assign a clash", "To change navigation mode"],
+          choices: ["To cut away parts so you can see inside", "To split the model into separate files", "To divide the model into zones for clash tests", "To hide whole files from the Selection Tree"],
           answer: 0,
           explain: "Sectioning removes part of the view so hidden interior elements become visible."
         },
@@ -161,7 +161,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "When reviewing a congested ceiling, why would you section the model?",
-          choices: ["To expose ducts and pipes hidden above the ceiling", "To run Quantification", "To merge NWC files", "To change the color palette"],
+          choices: ["To expose ducts and pipes hidden above the ceiling", "To delete the ceiling tiles from the source model", "To limit the clash test to the ceiling level only", "To measure the ceiling height from the floor"],
           answer: 0,
           explain: "Cutting away the ceiling reveals the MEP routing you need to coordinate."
         },
@@ -181,7 +181,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What can the measure tools in Navisworks check?",
-          choices: ["Distances, angles, and areas", "Only the file size", "The project schedule", "The clash status only"],
+          choices: ["Distances, angles, and areas", "Volumes and weights of objects", "Code compliance and fire ratings", "Only straight-line point distances"],
           answer: 0,
           explain: "Measure tools cover point-to-point distances, angles, and areas for quick checks."
         },
@@ -223,7 +223,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why is measuring useful before flagging a clash?",
-          choices: ["It helps you judge how serious the interference or tight clearance really is", "It publishes the model", "It assigns the clash to a trade", "It runs the animation"],
+          choices: ["It helps you judge how serious the interference or tight clearance really is", "It automatically sets the tolerance used by the next clash test you run", "It moves the element to the correct clearance distance", "It records the dimension in the source model for the designer"],
           answer: 0,
           explain: "A quick measurement shows whether a tight spot is a real problem or acceptable."
         }
@@ -237,7 +237,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is a redline in Navisworks?",
-          choices: ["A markup drawn on a viewpoint to point out an issue", "A type of clash test", "A file format", "A navigation mode"],
+          choices: ["A markup drawn on a viewpoint to point out an issue", "A clash result highlighted in red in the scene view", "A comment attached to an object's properties", "A section line drawn through the model"],
           answer: 0,
           explain: "Redlines are markups like arrows, clouds, and text drawn onto a viewpoint."
         },
@@ -279,7 +279,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why do coordinators use redlines and comments together?",
-          choices: ["The redline shows where and the comment says what to do", "It speeds up the file export", "It runs a clash test", "It hides the model"],
+          choices: ["The redline shows where and the comment says what to do", "Redlines alone are deleted when the file is refreshed", "Comments are needed to make a redline visible to others", "The comment sets the clash status and the redline assigns it"],
           answer: 0,
           explain: "Visual markup plus a written note removes guesswork for the trade fixing it."
         }
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why would you change visual settings during a review?",
-          choices: ["To make elements clearer and easier to tell apart", "To delete elements", "To change the schedule", "To publish the file"],
+          choices: ["To make elements clearer and easier to tell apart", "To reduce the file size before publishing an NWD", "To change the material data stored in each object", "To set which objects are included in a clash test"],
           answer: 0,
           explain: "The right rendering and lighting make congested areas much easier to understand."
         },
@@ -336,7 +336,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "How do visual settings support coordination?",
-          choices: ["Clearer views make it easier to spot conflicts and explain them", "They compute quantities", "They assign clashes", "They save the schedule"],
+          choices: ["Clearer views make it easier to spot conflicts and explain them", "Render settings decide which clashes are reported", "Lighting changes update the materials in the source models", "Visual styles are saved into each clash result as data"],
           answer: 0,
           explain: "A readable view means the team catches issues faster and agrees on them sooner."
         }
@@ -350,7 +350,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does hiding an element do in a review?",
-          choices: ["Removes it from view so you can see what is behind", "Deletes it from the source file", "Runs a clash test on it", "Publishes it as an NWD"],
+          choices: ["Removes it from view so you can see what is behind", "Deletes it from the source file so it no longer exists", "Excludes it from every clash test in the project", "Makes it transparent so it shows as a ghosted outline"],
           answer: 0,
           explain: "Hiding just clears it from view; the element still exists in the model."
         },
@@ -392,7 +392,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why isolate a system during coordination?",
-          choices: ["It removes clutter so you can study that system clearly", "It exports the schedule", "It changes the clash tolerance", "It renames the file"],
+          choices: ["It removes clutter so you can study that system clearly", "It deletes the other systems from the federated model", "It locks that system so it cannot be clashed against others", "It saves that system as a separate NWC cache file"],
           answer: 0,
           explain: "With everything else hidden, conflicts within that system stand out."
         }
@@ -406,7 +406,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why organize viewpoints before a coordination meeting?",
-          choices: ["So the team can move quickly through the issues in order", "To delete the model", "To run Quantification", "To change navigation modes"],
+          choices: ["So the team can move quickly through the issues in order", "So Navisworks can refresh the source models faster", "So each viewpoint is converted into a clash test", "So the viewpoints are included in the published NWC"],
           answer: 0,
           explain: "A tidy, ordered set keeps the meeting moving and makes sure nothing is missed."
         },
@@ -448,7 +448,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is the payoff of an organized viewpoint set?",
-          choices: ["Faster, clearer coordination meetings with fewer missed issues", "A smaller NWC cache", "Automatic clash resolution", "A new file format"],
+          choices: ["Faster, clearer coordination meetings with fewer missed issues", "A smaller NWC cache that loads faster each time", "Clashes that resolve themselves once they are grouped", "Automatic updates to the source models after each meeting"],
           answer: 0,
           explain: "Organization turns scattered notes into a smooth, repeatable review agenda."
         }

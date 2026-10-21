@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What is a token, in the context of language models?",
-          choices: ["A chunk of text, often a word or piece of a word", "A single letter of the alphabet", "A complete sentence", "A password for the AI"],
+          choices: ["A chunk of text, often a word or piece of a word", "Exactly one character, such as a letter or a space", "One full sentence, from capital letter to full stop", "A unit of payment you buy to send each message"],
           answer: 0,
           explain: "Models break text into tokens, which are chunks roughly the size of a word or part of a word, not single letters."
         },
@@ -73,7 +73,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What is the context window?",
-          choices: ["The text the model can consider at once in a conversation", "A pop-up window in the app", "The model's permanent long-term memory", "The screen size of your device"],
+          choices: ["The text the model can consider at once in a conversation", "The model's permanent memory of everything you have ever said", "The portion of its training data the model can still recall", "The maximum length of a single reply the model can write"],
           answer: 0,
           explain: "The context window is the working memory for a single conversation, holding the tokens the model can currently see."
         },
@@ -113,7 +113,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Which is a smart move when an important detail was mentioned far earlier?",
-          choices: ["Restate the key detail so it is fresh in context", "Assume the model always remembers everything", "Delete your whole history", "Switch to a smaller window"],
+          choices: ["Restate the key detail so it is fresh in context", "Trust that the model keeps every detail of the chat forever", "Raise the temperature so the model looks harder", "Start a new chat so the model has more space"],
           answer: 0,
           explain: "Re-supplying a crucial detail keeps it inside the window where the model can use it."
         },
@@ -133,7 +133,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "At its core, how does a language model generate text?",
-          choices: ["By predicting the next token over and over", "By copying answers from a saved list", "By searching the live internet each time", "By asking a human to type each word"],
+          choices: ["By predicting the next token over and over", "By retrieving a stored answer that matches", "By searching the live web for each new reply", "By planning the whole reply and then writing it"],
           answer: 0,
           explain: "Generation is a loop of predicting the most fitting next token, then repeating with that token added."
         },
@@ -159,7 +159,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Each new prediction is based on what?",
-          choices: ["All the text so far, including tokens it just wrote", "Only the very last letter", "A random coin flip alone", "The user's name"],
+          choices: ["All the text so far, including tokens it just wrote", "Only your latest message, not anything it wrote itself", "Only the last few words, since older text is discarded", "A fixed plan it wrote down before starting the reply"],
           answer: 0,
           explain: "The model conditions each prediction on everything currently in context, including its own recent output."
         },
@@ -172,7 +172,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What does the model actually choose at each step?",
-          choices: ["A likely next token from many options", "The final sentence all at once", "A picture to draw", "The user's next question"],
+          choices: ["A likely next token from many options", "The whole sentence, planned all at once", "The single best answer from a stored list", "A topic, which it then fills in with words"],
           answer: 0,
           explain: "At every step it selects a probable next token, and the running result becomes the full answer."
         }
@@ -186,14 +186,14 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What does a higher temperature setting tend to do?",
-          choices: ["Make output more varied and creative", "Make output shorter every time", "Turn off the model", "Guarantee the same answer twice"],
+          choices: ["Make output more varied and creative", "Make output more accurate and factual", "Make the model reply noticeably faster", "Make output longer and more detailed"],
           answer: 0,
           explain: "Higher temperature increases randomness in token choices, producing more varied and creative text."
         },
         {
           type: "mcq",
           q: "What does a lower temperature tend to produce?",
-          choices: ["More focused and consistent output", "More typos", "Longer answers only", "Random emojis"],
+          choices: ["More focused and consistent output", "More creative and surprising output", "Fewer factual errors in every case", "Much shorter answers each time"],
           answer: 0,
           explain: "Lower temperature makes the model favor the most likely tokens, giving steadier, more predictable results."
         },
@@ -213,7 +213,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What is top-p (nucleus) sampling?",
-          choices: ["Limiting choices to the most likely tokens that add up to a probability cutoff", "Setting the maximum reply length", "Choosing the model size", "Turning captions on"],
+          choices: ["Limiting choices to the most likely tokens that add up to a probability cutoff", "Capping how many tokens the reply may contain before the model is forced to stop", "Picking only the one most likely token at every step, with no randomness", "Keeping a fixed number of top tokens at each step, such as the best 40"],
           answer: 0,
           explain: "Top-p keeps only the smallest set of top tokens whose combined probability passes a threshold, then samples from those."
         },
@@ -246,14 +246,14 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What is training?",
-          choices: ["The phase where the model learns patterns from lots of data", "Typing a prompt into the chat", "Reading the live news feed", "Saving your chat history"],
+          choices: ["The phase where the model learns patterns from lots of data", "The step where you type a prompt and the model replies", "The process of a model looking up facts in a live web search engine", "The chat app saving your past messages to remember you"],
           answer: 0,
           explain: "Training is the costly, up-front process where the model learns from a large body of data."
         },
         {
           type: "mcq",
           q: "What is inference?",
-          choices: ["Using the already-trained model to answer a prompt", "Teaching the model brand-new facts each time", "Deleting the model", "Downloading more data live"],
+          choices: ["Using the already-trained model to answer a prompt", "Updating the model's weights with each new question", "The model learning about you from your past chats", "The first phase, where the model learns from data"],
           answer: 0,
           explain: "Inference is running the finished model on your input; it does not retrain the model."
         },
@@ -279,14 +279,14 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Why might a model not know about something that happened yesterday?",
-          choices: ["It happened after the training cutoff", "It refuses to answer new questions", "It ran out of tokens", "Its temperature was too low"],
+          choices: ["It happened after the training cutoff", "Its context window was already full", "Its temperature was set too low to recall it", "It only remembers events from its own chats"],
           answer: 0,
           explain: "Recent events after the training cutoff were not in the data the model learned from."
         },
         {
           type: "mcq",
           q: "How can a tool help a model discuss very recent events despite a cutoff?",
-          choices: ["By connecting it to web search or fresh documents", "By raising the temperature", "By making prompts longer", "By retraining on the spot for you"],
+          choices: ["By connecting it to web search or fresh documents", "By raising the temperature so it guesses more freely", "By writing a longer, more detailed prompt about it", "By asking it to retrain itself during the conversation"],
           answer: 0,
           explain: "Feeding in current sources at inference time, such as web results, supplies knowledge past the cutoff."
         },
@@ -306,14 +306,14 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What is the transformer, in AI?",
-          choices: ["The neural network design behind most modern LLMs", "A type of power supply", "A robot that folds laundry", "A file format for images"],
+          choices: ["The neural network design behind most modern LLMs", "A tool that converts text from one language to another", "The training dataset that most modern LLMs learn from", "The chip hardware that large models run on in data centers"],
           answer: 0,
           explain: "The transformer is the architecture that powers most of today's large language models."
         },
         {
           type: "mcq",
           q: "In plain terms, what does the attention mechanism do?",
-          choices: ["Lets the model weigh which words matter for each other", "Turns the screen brightness up", "Stores your password", "Counts how many users are online"],
+          choices: ["Lets the model weigh which words matter for each other", "Stores important facts so the model never forgets them", "Reads the text strictly one word at a time, left to right", "Filters out rude or unsafe words before the model replies"],
           answer: 0,
           explain: "Attention lets the model focus on the relevant words when interpreting each part of the text."
         },
@@ -359,7 +359,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What is an embedding?",
-          choices: ["A representation of text as a list of numbers capturing meaning", "A picture pasted into a document", "A secret key for the model", "The title of a chat"],
+          choices: ["A representation of text as a list of numbers capturing meaning", "A short summary of a document written by the model in plain words", "An index of keywords pointing to where each word appears in a text", "A compressed copy of the text that can be unzipped back exactly"],
           answer: 0,
           explain: "An embedding turns text into a vector of numbers that encodes its meaning."
         },
@@ -372,7 +372,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What does semantic search do that keyword search does not?",
-          choices: ["Finds results by meaning, even with different words", "Only matches exact spelling", "Sorts files by date", "Changes your font"],
+          choices: ["Finds results by meaning, even with different words", "Finds results faster by skipping less popular pages", "Finds results only when every keyword appears exactly", "Finds results by date, putting the newest items first"],
           answer: 0,
           explain: "Semantic search compares embeddings, so it can match related meaning even when the exact words differ."
         },
@@ -386,7 +386,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What does RAG (retrieval-augmented generation) do?",
-          choices: ["Fetches relevant documents and feeds them to the model as context", "Retrains the model on your files", "Makes the model reply faster", "Deletes old chats"],
+          choices: ["Fetches relevant documents and feeds them to the model as context", "Retrains the model on your documents so it permanently learns them", "Checks each finished answer against a fact database and fixes errors", "Splits a big question into parts and sends each to a separate model"],
           answer: 0,
           explain: "RAG retrieves relevant text, often via embeddings, and adds it to the prompt so answers are grounded in it."
         },
@@ -405,7 +405,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Two sentences that mean nearly the same thing will have embeddings that are what?",
-          choices: ["Near each other in vector space", "Exact opposites", "Always identical numbers", "Unrelated by design"],
+          choices: ["Near each other in vector space", "Exactly identical, number for number", "Far apart, since the wording differs", "Unrelated, as each is random by design"],
           answer: 0,
           explain: "Similar meaning maps to nearby vectors, which is the whole basis for comparing texts by meaning."
         }
@@ -419,7 +419,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "What is an AI hallucination?",
-          choices: ["When the model states something false as if it were true", "When the app crashes", "When the screen flickers", "When you type too fast"],
+          choices: ["When the model states something false as if it were true", "When the model refuses to answer a reasonable question", "When the model repeats the same sentence again and again", "When the model switches language partway through a reply"],
           answer: 0,
           explain: "A hallucination is confident output that is simply wrong, because the model predicted plausible text, not verified fact."
         },
@@ -432,7 +432,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Why can hallucinations be especially risky?",
-          choices: ["The wrong answer often sounds confident and fluent", "The model always warns you first", "They only happen in other languages", "They are highlighted in red"],
+          choices: ["The wrong answer often sounds confident and fluent", "The model usually flags them, but users ignore it", "They mostly appear in long replies in rare languages", "They only happen when the temperature is set very high"],
           answer: 0,
           explain: "Hallucinations arrive in fluent, confident language, so they are easy to trust by mistake."
         },
@@ -446,7 +446,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Which type of detail is most worth double-checking?",
-          choices: ["Specific facts, numbers, quotes, and citations", "The greeting at the start", "The color of the text", "How polite the tone is"],
+          choices: ["Specific facts, numbers, quotes, and citations", "The general tone and structure of the reply", "Common definitions of well-known everyday terms", "The wording of the summary at the end of the reply"],
           answer: 0,
           explain: "Precise details like stats, names, and sources are where hallucinations do the most damage, so verify them."
         },
@@ -465,7 +465,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Which practice best reduces the harm of hallucinations?",
-          choices: ["Cross-check key claims against trusted sources", "Assume every answer is perfect", "Only ever ask one question", "Turn temperature to zero and trust it fully"],
+          choices: ["Cross-check key claims against trusted sources", "Set temperature to zero and trust the output", "Ask the model whether its own answer is correct", "Use the largest model, which never makes things up"],
           answer: 0,
           explain: "Cross-checking against reliable sources catches confident errors before they cause problems."
         }

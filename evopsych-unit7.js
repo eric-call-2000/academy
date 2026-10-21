@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Who ran the foundational experiments on reproductive variance, and in what organism?",
           choices: [
             "Angus Bateman, using fruit flies (Drosophila)",
-            "Robert Trivers, using baboons",
-            "Charles Darwin, using finches",
-            "William Hamilton, using paper wasps"
+            "Robert Trivers, using Jamaican anole lizards",
+            "Ronald Fisher, using laboratory house mice",
+            "William Hamilton, using fig wasps in the lab"
           ],
           answer: 0,
           explain: "Bateman's 1948 study of Drosophila melanogaster tracked how reproductive success changed with number of mates in each sex."
@@ -105,10 +105,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which of the following counts as parental investment under Trivers's definition?",
           choices: [
-            "A courtship display that attracts additional mates",
+            "A courtship display that attracts additional mates to the nest site",
             "Time and energy spent feeding and guarding one's existing offspring",
-            "Producing large numbers of sperm",
-            "Fighting rival males for territory"
+            "Producing large numbers of sperm to fertilize many females' eggs",
+            "Fighting rival males to win a territory that attracts more mates"
           ],
           answer: 1,
           explain: "Parental investment is directed at a specific offspring and trades off against future reproduction; feeding and guarding young qualifies."
@@ -152,9 +152,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "The 'limiting sex' in mating is best described as...",
           choices: [
             "the sex whose reproduction is capped by its own high investment, making it the resource others compete for",
-            "the sex that always produces the smaller gametes",
-            "the sex that is always physically larger",
-            "the sex with the higher potential reproductive rate"
+            "the sex that produces the smaller gametes and so can reproduce faster than the other sex",
+            "the sex with the higher potential reproductive rate, which in turn limits how often the other sex can breed",
+            "the sex that is physically larger and so limits access to mates by fighting off rivals"
           ],
           answer: 0,
           explain: "Because its heavy investment slows its reproduction, the limiting sex is scarce and becomes the bottleneck the other sex competes over."
@@ -177,9 +177,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Why does the higher-investing sex tend to become choosier?",
           choices: [
             "Because each reproductive event costs it more, so a poor choice is more expensive",
-            "Because it produces so many gametes it can afford to waste them",
-            "Because it is under weaker sexual selection",
-            "Because it has more potential mates available at any time"
+            "Because it produces so many gametes that it can afford to be selective about each",
+            "Because it is under weaker sexual selection and has less need to compete",
+            "Because it has more potential mates available at any time, so it can afford to wait"
           ],
           answer: 0,
           explain: "When one mating consumes a large share of lifetime reproduction, mistakes are costly, so selectivity pays off."
@@ -248,9 +248,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Why is anisogamy considered the foundation of the whole investment asymmetry?",
           choices: [
             "It is the earliest and most basic difference in investment per gamete, from which later differences cascade",
-            "It determines which sex survives longer",
-            "It matters only in mammals",
-            "It equalizes the reproductive potential of the sexes"
+            "It decides which sex lives longer, and the longer-lived sex always invests more in offspring",
+            "It applies only to mammals, where internal gestation adds to the cost of the large egg",
+            "It equalizes the reproductive potential of both sexes, so any later differences come from culture"
           ],
           answer: 0,
           explain: "The initial difference in cost per gamete sets up divergent selection pressures that build into broader differences in parental investment."
@@ -294,10 +294,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "'Obligate' parental investment refers to...",
           choices: [
-            "any investment beyond the bare minimum",
+            "any investment a parent makes beyond the bare minimum required",
             "the minimum investment required to produce viable offspring",
-            "investment that only fathers provide",
-            "investment measured only in calories"
+            "investment that only the father provides after offspring are born",
+            "the total investment a parent makes over its whole lifetime"
           ],
           answer: 1,
           explain: "Obligate investment is the unavoidable minimum a parent must supply for offspring to exist at all."
@@ -306,10 +306,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "In mammals, which sex typically has the far larger obligate investment, and why?",
           choices: [
-            "Males, because they defend territory",
-            "Neither; it is equal in mammals",
+            "Males, because they must defend territories and mates",
+            "Neither; obligate investment is equal in most mammals",
             "Females, because of internal gestation and lactation",
-            "Males, because they produce more gametes"
+            "Males, because they produce far more gametes in total"
           ],
           answer: 2,
           explain: "A female mammal must gestate and then nurse offspring, an unavoidable large cost, whereas a male's minimum can be just insemination."
@@ -365,10 +365,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The operational sex ratio (OSR) is defined as the ratio of...",
           choices: [
-            "all males to all females in a population",
+            "all adult males to all adult females in a population, counted over a whole year",
             "sexually receptive (available) males to sexually receptive females at a given time",
-            "offspring to adults",
-            "juveniles to breeding adults"
+            "males to females at birth, before any differences in survival take effect",
+            "breeding males to breeding females, counted over each one's whole lifetime"
           ],
           answer: 1,
           explain: "The OSR counts only currently available or receptive individuals, not everyone in the population."
@@ -391,9 +391,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Which factor can skew the operational sex ratio toward more available males?",
           choices: [
             "A long female gestation or care period that removes females from the mating pool",
-            "Equal parental investment by both sexes",
-            "Males dying much younger than females",
-            "A general food shortage affecting everyone"
+            "Equal parental investment by both sexes during the breeding season",
+            "Males dying much younger than females because of risky competition over access to mates",
+            "A food shortage that delays breeding equally for males and females"
           ],
           answer: 0,
           explain: "When females are tied up in gestation or care, fewer are receptive, leaving relatively more available males and a male-biased OSR."
@@ -438,9 +438,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "In sex-role-reversed species, which pattern is observed?",
           choices: [
             "Males invest more, and females compete and are often larger or more ornamented",
-            "Females invest more and also compete",
-            "Neither sex invests in offspring",
-            "Both sexes are equally choosy and equally competitive"
+            "Females invest more and also compete more fiercely, while males stay choosy",
+            "Both sexes invest equally and are equally choosy and equally competitive",
+            "Males invest more, and males also compete and grow the larger ornaments"
           ],
           answer: 0,
           explain: "When males become the higher-investing sex, the theory predicts females compete for them and males become the choosy sex."
@@ -455,10 +455,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why are sex-role-reversed species important evidence for Trivers's theory?",
           choices: [
-            "They show that competition follows gamete size, not investment",
+            "They show that competition follows gamete size, not the amount of parental investment each sex makes",
             "They show that choosy and competitive roles follow which sex invests more, not the sex label itself",
-            "They disprove parental investment theory",
-            "They show that females are always the choosy sex"
+            "They show that females are always the choosy sex, whatever each sex invests",
+            "They show that the sex with more mates always provides the most parental care"
           ],
           answer: 1,
           explain: "The theory predicts roles from relative investment; reversed species confirm it because the higher-investing sex is choosy whether it is male or female."
@@ -510,9 +510,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "The asymmetry called 'paternity uncertainty' arises specifically because...",
           choices: [
             "fertilization is internal, so a mother always knows the offspring is hers but a father cannot be sure",
-            "males produce smaller gametes than females",
-            "females tend to live longer than males",
-            "males invest more than females do"
+            "males provide less parental care, so they spend less time near offspring and often cannot recognize them",
+            "fertilization is external, so neither parent can be sure which of the eggs are theirs",
+            "females live longer than males, so fathers often die before their offspring mature"
           ],
           answer: 0,
           explain: "With internal fertilization the mother gives birth and is certain of maternity, while the father can never be fully certain of paternity."

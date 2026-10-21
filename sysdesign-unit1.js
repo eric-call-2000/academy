@@ -49,10 +49,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which of these is the clearest sign that a design discussion has gone off the rails?",
           choices: [
-            "The designer states the expected read-to-write ratio before choosing a datastore",
+            "The designer states the expected read-to-write ratio and peak request rate before choosing a datastore",
             "The designer names a specific queue product before any ordering or load requirement is stated",
             "The designer lists the failure modes of each external dependency",
-            "The designer writes down a target p99 latency for the main read path"
+            "The designer writes down a target p99 latency for the main read path before sketching any components"
           ],
           answer: 1,
           explain: "Naming a product before naming the requirement means the requirement will be reverse-engineered to fit the product. The other three moves all establish the criteria a product would later be judged against."
@@ -121,9 +121,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which statement correctly distinguishes an SLO from an SLA?",
           choices: [
             "An SLO is an internal target for a measured indicator; an SLA is an external commitment with consequences if the target is missed",
-            "An SLO is the commitment made to customers; an SLA is the raw metric collected from the servers",
-            "An SLO applies only to latency, while an SLA applies only to availability",
-            "An SLO is evaluated monthly by definition, while an SLA is evaluated per individual request"
+            "An SLO is the contractual commitment made to paying customers, with refunds if missed; an SLA is the raw indicator collected from the servers",
+            "An SLO applies only to latency targets measured internally, while an SLA applies only to availability",
+            "An SLO is evaluated over a monthly window by definition, while an SLA is evaluated separately for each individual request"
           ],
           answer: 0,
           explain: "The chain is indicator, objective, agreement: an SLI is the measurement, an SLO is the target you hold yourselves to, and an SLA adds contractual penalties. SLAs are normally set looser than SLOs."
@@ -246,8 +246,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The usual way to turn an average request rate into a peak request rate is to:",
           choices: [
-            "divide it by the number of application servers in the fleet",
-            "use the same value, since an average already accounts for busy periods",
+            "divide it by the number of application servers in the fleet, since each server sees only its share",
+            "use the same value, since an average taken over a full day already accounts for the busy periods",
             "multiply by a small factor, often 2x to 10x, because traffic is not uniform across the day",
             "multiply it by the number of database replicas serving read traffic"
           ],
@@ -300,8 +300,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "When someone says a particular design is simply the best one, the honest version of that claim is usually:",
           choices: [
-            "the design has no remaining failure modes to enumerate",
-            "the design uses the most modern components currently available",
+            "the design has been reviewed so thoroughly that it has no remaining failure modes to enumerate",
+            "the design uses the most modern components currently available from the major cloud vendors",
             "the design minimizes cost, latency, and complexity all at once",
             "the workload and the priorities were fixed, so one option won for that specific case"
           ],
@@ -477,9 +477,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which problem appears once you scale horizontally that did not exist on a single machine?",
           choices: [
-            "CPU cache locality inside a single process",
-            "Garbage collection pauses in the application runtime",
-            "Fragmentation of the local disk volume",
+            "CPU cache locality and false sharing between threads inside a single process",
+            "Garbage collection pauses in the application runtime under heavy allocation",
+            "Fragmentation of the local disk volume as files grow and shrink",
             "Coordination between nodes, including partial failure and data placement"
           ],
           answer: 3,
@@ -513,8 +513,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What belongs on a first-pass system diagram?",
           choices: [
-            "Every class in the main service, with its methods",
-            "The exact instance type and region for each server",
+            "Every class in the main service, with its public methods and their relationships",
+            "The exact instance type, region, and availability zone for each server",
             "Clients, services, datastores, and the direction data flows between them",
             "The build pipeline and the branching model of each repository"
           ],

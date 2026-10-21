@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is a sheet in Revit?",
-          choices: ["A printable page that holds views and a title block", "A saved 3D camera angle", "A type of wall family", "A backup of the project database"],
+          choices: ["A printable page that holds views and a title block", "A saved 3D camera angle used for presentations", "A drafting view that holds general notes and details", "A schedule that lists every view by its number"],
           answer: 0,
           explain: "Sheets are the pages of your drawing set; you drop views onto them and print or export them."
         },
@@ -39,7 +39,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Where do fields like project name and client usually come from in a title block?",
-          choices: ["Project Information parameters shared across the model", "A separate text file you edit by hand", "The Windows system clock only", "A linked spreadsheet that must stay open"],
+          choices: ["Project Information parameters shared across the model", "Text typed separately into each sheet's title block", "The file properties that Windows saves for the .rvt", "Shared parameters stored in each view's properties"],
           answer: 0,
           explain: "Title block labels can read Project Information parameters so one edit updates every sheet at once."
         },
@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why does changing a view's scale matter for sheet layout?",
-          choices: ["It changes how much space the viewport takes on the sheet", "It renames the sheet automatically", "It deletes other viewports", "It changes the file type to CAD"],
+          choices: ["It changes how much space the viewport takes on the sheet", "It changes the model's real size and its dimensions", "It changes which elements are cut by the view range", "It changes the title block size to fit the drawing"],
           answer: 0,
           explain: "Scale sets the printed size of the drawing, so it drives how views fit on the page."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does a view title show beneath a viewport?",
-          choices: ["The view name, detail number, and scale", "The full model file path", "The list of every working user", "The print driver name"],
+          choices: ["The view name, detail number, and scale", "The sheet number, sheet name, and date", "The view type, level, and detail level", "The view template name and its phase"],
           answer: 0,
           explain: "A view title typically labels the drawing with its name, detail number, and scale."
         },
@@ -137,7 +137,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Once a referenced view is placed on a sheet, what happens to its bubbles elsewhere?",
-          choices: ["They auto-fill with the correct sheet and detail number", "They must be typed in by hand", "They turn into revision clouds", "They delete the view"],
+          choices: ["They auto-fill with the correct sheet and detail number", "They stay blank until you type the numbers in by hand", "They show the view name but not the sheet number", "They point to the sheet but need a manual refresh first"],
           answer: 0,
           explain: "Revit links the bubble to the placed view, so the sheet and detail numbers fill in automatically."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is a revision cloud used for?",
-          choices: ["Marking an area of a drawing that changed", "Rendering realistic sky", "Hiding a wall temporarily", "Backing up the model"],
+          choices: ["Marking an area of a drawing that changed", "Hiding an area of a view from printing", "Shading a zone of a plan to show its use", "Grouping elements in an area for selection"],
           answer: 0,
           explain: "A revision cloud outlines the region that changed so reviewers can spot updates quickly."
         },
@@ -189,7 +189,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Where does the list of revisions on a sheet usually appear?",
-          choices: ["In a revision schedule inside the title block", "In the 3D view only", "In the print dialog", "In the material browser"],
+          choices: ["In a revision schedule inside the title block", "In the Project Information dialog only", "In a note block placed beside each cloud", "In the sheet's view title under each viewport"],
           answer: 0,
           explain: "Title blocks include a revision schedule that lists the number, description, and date for that sheet."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is a sheet list in Revit?",
-          choices: ["A schedule that indexes all the sheets in the set", "A list of every family loaded", "A backup of print settings", "A folder of exported PDFs"],
+          choices: ["A schedule that indexes all the sheets in the set", "A browser folder that groups sheets by discipline", "A print set saved for batch printing to PDF", "A list of the views placed on each sheet in the set"],
           answer: 0,
           explain: "A sheet list is a special schedule that reads sheet numbers and names to build the drawing index."
         },
@@ -241,7 +241,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Which columns would you typically show in a sheet list?",
-          choices: ["Sheet number and sheet name", "Wall thickness and area", "Room finishes", "Camera positions"],
+          choices: ["Sheet number and sheet name", "Viewport count and title block", "Level name and level elevation", "View scale and detail level"],
           answer: 0,
           explain: "A drawing index lists each sheet by its number and name so readers can find pages."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why do offices often export to PDF instead of sending the .rvt file?",
-          choices: ["PDFs are fixed, easy to view, and do not need Revit", "PDFs are always smaller than the model", "PDFs can be edited in Revit directly", "PDFs update the model automatically"],
+          choices: ["PDFs are fixed, easy to view, and do not need Revit", "PDFs keep the full model data so others can edit it", "PDFs update by themselves when the model changes later", "PDFs are the only format Revit is able to export"],
           answer: 0,
           explain: "PDFs freeze the issued set into a portable format anyone can open without Revit."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "When exporting to CAD, what does Revit typically produce?",
-          choices: ["DWG or DXF files of the views", "A single PDF only", "A new Revit template", "A rendered image"],
+          choices: ["DWG or DXF files of the views", "IFC files of the whole model", "RFA family files of each element", "PDF sheets with layered lines"],
           answer: 0,
           explain: "CAD export writes DWG or DXF files so teams using AutoCAD can open the geometry."
         },
@@ -345,7 +345,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why would you export to IFC instead of DWG?",
-          choices: ["IFC carries 3D objects and their data for other BIM tools", "IFC prints faster than DWG", "IFC is only for 2D line work", "IFC replaces the need for sheets"],
+          choices: ["IFC carries 3D objects and their data for other BIM tools", "IFC keeps each view's line work on separate CAD layers", "IFC files open in AutoCAD with the original layers intact", "IFC exports print-ready sheets with title blocks included"],
           answer: 0,
           explain: "IFC preserves 3D elements and parameters, so it suits model coordination across BIM platforms."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why does a consistent sheet numbering scheme matter?",
-          choices: ["It keeps the set ordered and easy to find pages in", "It makes the model render faster", "It changes the model units", "It hides revision clouds"],
+          choices: ["It keeps the set ordered and easy to find pages in", "It lets Revit place views on sheets automatically", "It links each sheet to its own view template", "It stops two people from editing the same sheet"],
           answer: 0,
           explain: "A logical numbering scheme groups disciplines and sorts sheets so readers can navigate the set."
         },
@@ -397,7 +397,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "How can you group and sort sheets in the Project Browser?",
-          choices: ["With browser organization rules based on parameters", "By deleting sheets you do not want to see", "By changing the print driver", "By exporting to IFC"],
+          choices: ["With browser organization rules based on parameters", "With view templates applied to each type of sheet", "With worksets that hold each discipline's sheets", "With filters set in Visibility/Graphics overrides"],
           answer: 0,
           explain: "Browser organization sorts and groups sheets and views by parameter values you choose."
         },

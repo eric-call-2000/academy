@@ -70,7 +70,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What does Schwartz's Embeddedness orientation emphasize?",
-          choices: ["Individuals as fully autonomous agents", "People as embedded in a collective, maintaining the status quo", "Mastery and exploitation of the natural world", "An equal distribution of power and resources"],
+          choices: ["Individuals as autonomous agents who pursue their own ideas and feelings", "People as embedded in a collective, maintaining the status quo", "Mastery and active change of the social and natural environment", "Equal treatment of others and voluntary concern for their welfare"],
           answer: 1,
           explain: "Embeddedness views people as parts of a collectivity whose meaning comes from shared goals and preserving tradition, opposing the Autonomy pole."
         },
@@ -129,14 +129,14 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What does the acronym GLOBE stand for?",
-          choices: ["Global Organizational Behavior Enterprise", "Global Leadership and Organizational Behavior Effectiveness", "General Longitudinal Observation of Business Ethics", "Global Overview of Business Environments"],
+          choices: ["Global Learning and Organizational Behavior Evaluation", "Global Leadership and Organizational Behavior Effectiveness", "General Longitudinal Observation of Business Ethics", "Global Leadership, Organization, and Business Environment"],
           answer: 1,
           explain: "GLOBE is the Global Leadership and Organizational Behavior Effectiveness research program, launched by Robert House."
         },
         {
           type: "mcq",
           q: "What was GLOBE's key methodological innovation compared with Hofstede?",
-          choices: ["Measuring each dimension as both practices ('As Is') and values ('Should Be')", "Measuring only what people ideally value", "Measuring only observed economic output", "Combining everything into a single blended index"],
+          choices: ["Measuring each dimension as both practices ('As Is') and values ('Should Be')", "Measuring only what people ideally value, rather than what they actually do", "Measuring observed economic output instead of self-reported attitudes and values", "Combining all dimensions into a single blended index of national culture"],
           answer: 0,
           explain: "GLOBE separately scored cultural practices ('As Is') and aspirational values ('Should Be') for each of its nine dimensions."
         },
@@ -194,7 +194,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "What are the two main dimensions of the Inglehart-Welzel cultural map?",
-          choices: ["Individualism and masculinity", "Power distance and uncertainty avoidance", "Traditional versus secular-rational and survival versus self-expression", "Universalism and particularism"],
+          choices: ["Individualism versus collectivism and masculinity versus femininity", "Power distance and uncertainty avoidance, measured on separate scales", "Traditional versus secular-rational and survival versus self-expression", "Universalism versus particularism and achievement versus ascription"],
           answer: 2,
           explain: "The map's vertical axis runs traditional to secular-rational, and its horizontal axis runs survival to self-expression."
         },
@@ -359,14 +359,14 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Gelfand's terms, a 'tight' culture has:",
-          choices: ["Weak norms and high tolerance of deviance", "Strong social norms and low tolerance of deviance", "No social norms at all", "Only economic norms"],
+          choices: ["Weak social norms and high tolerance of deviance", "Strong social norms and low tolerance of deviance", "Strong family ties but few formal laws or rules", "Many written laws that are rarely enforced in practice"],
           answer: 1,
           explain: "Tight cultures maintain many strong norms and punish deviations firmly, leaving little room for behavioral latitude."
         },
         {
           type: "mcq",
           q: "A 'loose' culture is characterized by:",
-          choices: ["Weak social norms and greater tolerance of deviant behavior", "Strong norms and harsh sanctions for violations", "No variation between individuals", "Mandatory religious observance"],
+          choices: ["Weak social norms and greater tolerance of deviant behavior", "Strong norms and harsh sanctions for anyone who breaks them", "Little variation between individuals in how they behave", "Weak family ties and a low value placed on group loyalty"],
           answer: 0,
           explain: "Loose cultures have weaker norms and permit a wider range of behavior with milder sanctions."
         },
@@ -416,7 +416,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which dimension appears, under different names, across nearly all major value frameworks?",
-          choices: ["Tightness-looseness", "Individualism-collectivism", "Future orientation", "Neutral-affective"],
+          choices: ["Tightness-looseness", "Individualism-collectivism", "Traditional versus secular-rational", "Uncertainty avoidance"],
           answer: 1,
           explain: "The contrast between the individual and the group recurs in Hofstede, Schwartz, GLOBE, Trompenaars, and Inglehart alike."
         },

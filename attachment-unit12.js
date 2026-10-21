@@ -39,7 +39,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "At the 'level of representation,' security is inferred from...",
-          choices: ["how coherently a person mentally organizes and discusses attachment", "how much money the family earned", "the person's current physical health", "whether the person can recite Bowlby's theory"],
+          choices: ["how coherently a person mentally organizes and discusses attachment", "how happy or unhappy the person's childhood experiences actually were", "how the person behaves toward a partner during a short separation", "how many specific childhood events the person can remember in detail"],
           answer: 0,
           explain: "Representation refers to how attachment experiences are mentally organized and expressed in language, not to material or factual details."
         },
@@ -65,7 +65,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Who developed the Adult Attachment Interview protocol?",
-          choices: ["Sigmund Freud and Carl Jung", "John Bowlby and Mary Ainsworth", "Carol George, Nancy Kaplan, and Mary Main", "Harry Harlow and Robert Zimmerman"],
+          choices: ["Mary Ainsworth and Mary Main", "Cindy Hazan and Phillip Shaver", "Carol George, Nancy Kaplan, and Mary Main", "Alan Sroufe, Byron Egeland, and Elizabeth Carlson"],
           answer: 2,
           explain: "George, Kaplan, and Main created the AAI protocol (1984, 1985, 1996); the representational framework behind it came from Main, Kaplan, and Cassidy (1985)."
         },
@@ -97,7 +97,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The AAI is scored primarily on...",
-          choices: ["the coherence and organization of the person's discourse", "whether the childhood described was happy", "the person's vocabulary size", "how quickly the person answers"],
+          choices: ["the coherence and organization of the person's discourse", "whether the childhood the person describes was happy or painful", "how many positive memories the person can recall about each parent", "how strongly the person expresses emotion about their parents"],
           answer: 0,
           explain: "Coding centers on the coherence of the narrative and the speaker's state of mind, not the pleasantness of the reported past."
         },
@@ -124,7 +124,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The AAI is especially revealing because it exposes discrepancies between...",
-          choices: ["a person's height and weight", "general (semantic) descriptions and specific (episodic) memories", "the interviewer's mood and the interviewee's mood", "reading ability and speaking ability"],
+          choices: ["what a person says about their parents and what the parents say about them", "general (semantic) descriptions and specific (episodic) memories", "the person's childhood attachment pattern and their adult romantic style", "how a person feels about their mother and how they feel about their father"],
           answer: 1,
           explain: "A speaker may claim a 'loving' parent (semantic) yet fail to supply, or even contradict it with, specific memories (episodic)."
         },
@@ -143,7 +143,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What is a 'state of mind with respect to attachment'?",
-          choices: ["a diagnosed mental illness", "the person's IQ score", "the current mental organization guiding how a person processes attachment information", "a temporary mood on the day of the interview"],
+          choices: ["a fixed personality trait inherited from one's parents that does not change over a lifetime", "the attachment pattern a person showed as an infant in the Strange Situation", "the current mental organization guiding how a person processes attachment information", "the mood a person happens to be in on the day of the interview itself"],
           answer: 2,
           explain: "It is a relatively stable way of organizing and regulating attachment-related thoughts, feelings, and memories."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In AAI coding, the secure category label 'F' stands for...",
-          choices: ["Fearful", "Free or autonomous", "Fragile", "Formal"],
+          choices: ["Fearful-avoidant", "Free or autonomous", "Fully resolved", "Family-focused"],
           answer: 1,
           explain: "F denotes a free, autonomous state of mind that values attachment while thinking about it flexibly and objectively."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "A hallmark of the dismissing state of mind is to...",
-          choices: ["idealize parents with positive adjectives that no memory supports", "give long, angry, run-on accounts of parents", "cry uncontrollably about the past", "confuse whether a dead parent is alive"],
+          choices: ["idealize parents with positive adjectives that no memory supports", "give long, angry, run-on accounts of past conflicts with parents", "show lapses in reasoning when discussing a loss or a trauma", "describe both good and hard memories in a balanced, reflective way"],
           answer: 0,
           explain: "Dismissing speakers offer glowing general portraits (idealization) that specific memories fail to support or even contradict."
         },
@@ -273,7 +273,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In AAI coding, the preoccupied category label 'E' stands for...",
-          choices: ["Empty", "Entangled or enmeshed", "Efficient", "Even"],
+          choices: ["Evasive", "Entangled or enmeshed", "Emotionally dismissing", "Earned"],
           answer: 1,
           explain: "E marks a mind still enmeshed or entangled in past attachment relationships, unable to step back and reflect."
         },
@@ -299,7 +299,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which infant Strange Situation classification corresponds to preoccupied adults?",
-          choices: ["Secure (B)", "Avoidant (A)", "Resistant or ambivalent (C)", "Disorganized (D)"],
+          choices: ["Secure (B)", "Insecure-avoidant (A)", "Resistant or ambivalent (C)", "Disorganized/disoriented (D)"],
           answer: 2,
           explain: "Preoccupied adults tend to have resistant or ambivalent (C) infants who stay distressed and hard to settle."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The unresolved (U) classification is triggered by lapses that appear specifically when discussing...",
-          choices: ["favorite foods", "loss through death, or abuse and trauma", "the weather during childhood", "school subjects"],
+          choices: ["their earliest memories of starting school", "loss through death, or abuse and trauma", "times they felt rejected as a teenager", "their current romantic relationships"],
           answer: 1,
           explain: "U is scored from monitoring lapses that surface during talk about bereavement or frightening abuse."
         },

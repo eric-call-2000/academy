@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A stinger transition is:",
           choices: [
             "An animated wipe that covers the switch between two scenes",
-            "A type of alert",
-            "A microphone filter",
-            "A goal bar"
+            "A short sound effect that plays when you change scenes",
+            "An alert that pops up when a raid arrives mid-stream",
+            "A slow crossfade that gradually blends one scene into the next one"
           ],
           answer: 0,
           explain: "It's a motion graphic that hides the cut from one scene to another."
@@ -75,9 +75,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "OBS's Stinger transition requires:",
           choices: [
             "A video file (not an HTML page)",
-            "An HTML file directly",
-            "An audio file",
-            "A game capture"
+            "An HTML page loaded directly from disk",
+            "An animated GIF exported from the page",
+            "A Browser Source"
           ],
           answer: 0,
           explain: "OBS consumes a video for stingers; HTML must be rendered out first."
@@ -115,9 +115,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The ?render=1 parameter on stinger.html:",
           choices: [
             "Hides the UI and makes the background transparent for capturing",
-            "Uploads to YouTube",
-            "Starts recording your game",
-            "Mutes the mic"
+            "Exports the animation straight to a webm file in your downloads folder",
+            "Plays the wipe over two demo scenes to preview the swap",
+            "Renders the stinger at 4K so it stays sharp when scaled"
           ],
           answer: 0,
           explain: "?render=1 strips the preview UI and transparency-prepares it for capture."
@@ -134,9 +134,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The stinger's Transition Point tells OBS:",
           choices: [
             "When to swap scenes (while the screen is covered)",
-            "How loud the audio is",
-            "The bitrate",
-            "The webcam size"
+            "When to start playing the stinger video after you click",
+            "How long the whole stinger video should last",
+            "When to fade the stinger's audio out"
           ],
           answer: 0,
           explain: "OBS swaps scenes at the transition point, hidden behind the panel."
@@ -175,9 +175,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The transition point is configured in OBS under:",
           choices: [
             "Scene Transitions > Stinger settings",
-            "Audio Mixer",
-            "The webcam properties",
-            "The recording path"
+            "Settings > Video > Transition Point",
+            "The Browser Source properties",
+            "Settings > Advanced > Scene Swap"
           ],
           answer: 0,
           explain: "You set it in the Stinger transition's settings."
@@ -205,9 +205,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The ?render=1 view is used because it:",
           choices: [
             "Removes UI and keeps the background transparent for a clean capture",
-            "Uploads the video",
-            "Adds a watermark",
-            "Starts your game"
+            "Plays the wipe over demo scenes so you can check the swap timing",
+            "Exports a ProRes mov automatically, with alpha included in the file",
+            "Adds a solid green background so you can chroma key it out later in OBS"
           ],
           answer: 0,
           explain: "It strips the preview controls and keeps transparency for capture."
@@ -236,9 +236,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Rendering to video is a one-time step because:",
           choices: [
             "Once exported, OBS reuses the same file for every transition",
-            "It must be re-rendered every scene change",
-            "OBS renders HTML live",
-            "It changes your bitrate"
+            "OBS converts the HTML to video itself after the first use",
+            "The page saves a cache that OBS reads on later switches",
+            "It must be re-rendered whenever you add a new scene"
           ],
           answer: 0,
           explain: "You render once, then OBS plays the file on each switch."
@@ -324,9 +324,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "stinger.html?demo=1 helps you:",
           choices: [
             "Confirm the scene swaps exactly under full cover",
-            "Upload the file",
-            "Record your game",
-            "Mute audio"
+            "Capture the wipe with a transparent background",
+            "Test how the stinger sounds over your mic audio",
+            "Export the stinger directly to a video file"
           ],
           answer: 0,
           explain: "It visualizes the A->B swap at the transition point."
@@ -385,9 +385,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The gameplay scene layers, front to back, are:",
           choices: [
             "HUD > facecam > alerts > goal bar > game",
-            "Game > everything else",
-            "Only the webcam",
-            "Only the game"
+            "Game > goal bar > alerts > facecam > HUD",
+            "HUD > alerts > game > facecam > goal bar",
+            "Facecam > HUD > game > alerts > goal bar"
           ],
           answer: 0,
           explain: "Overlays stack in front of the game in that order."
@@ -444,9 +444,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A private test before going public helps you:",
           choices: [
             "Catch layout and timing issues where they don't matter",
-            "Increase your bitrate",
-            "Skip previewing",
-            "Avoid ever streaming"
+            "Build up followers before your first public stream",
+            "Skip checking the keep-clear zones on the real platform",
+            "Get the platform to approve your overlays before launch"
           ],
           answer: 0,
           explain: "A private run surfaces problems without a live audience seeing them."

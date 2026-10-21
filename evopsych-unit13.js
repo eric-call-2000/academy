@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "In evolutionary psychology, what does physical attractiveness primarily function to signal?",
           choices: [
-            "A person's wealth and social class",
+            "A person's wealth, social class, and access to resources",
             "Cues to health, fertility, and genetic quality (mate value)",
-            "Learned cultural fashions with no biological basis",
-            "A person's moral character"
+            "Learned cultural fashions that vary with no biological basis",
+            "A person's moral character and trustworthiness as a partner"
           ],
           answer: 1,
           explain: "The core adaptationist claim is that attractiveness judgments track fitness-relevant cues such as health, fertility, and heritable quality, guiding mate choice."
@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which finding most challenges the view that beauty standards are purely learned and arbitrary?",
           choices: [
-            "Fashion in clothing changes each decade",
+            "Clothing and body-shape fashions that change noticeably from one decade to the next",
             "Cross-cultural agreement on which faces are attractive, including among infants",
-            "People disagree strongly about celebrity attractiveness",
-            "Beauty products are a large industry"
+            "Strong disagreement among people about which celebrities are attractive",
+            "The large and growing global industry for beauty and cosmetic products"
           ],
           answer: 1,
           explain: "High cross-cultural agreement, and infants gazing longer at faces adults rate attractive, suggests some tuning is early-emerging and not merely taught."
@@ -110,10 +110,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "In attractiveness research, symmetrical faces are generally rated as:",
           choices: [
-            "Less attractive because they look artificial",
-            "Attractive only in women, never in men",
+            "Less attractive on average, because perfect symmetry looks artificial",
+            "More attractive in women's faces only, with no effect in men's faces",
             "More attractive on average, though the effect can be modest",
-            "Irrelevant to attractiveness judgments"
+            "Unrelated to attractiveness once skin texture is held constant"
           ],
           answer: 2,
           explain: "Meta-analyses find a positive but often modest association between facial symmetry and rated attractiveness across many studies."
@@ -156,9 +156,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What did Langlois and Roggman's 1990 study demonstrate?",
           choices: [
-            "Unusual, distinctive faces are the most attractive",
-            "Only symmetry, not averageness, affects attractiveness",
-            "Attractiveness cannot be measured experimentally",
+            "Distinctive faces with unusual features are rated the most attractive",
+            "Symmetry, rather than averageness, explains all attractiveness judgments",
+            "Computer-averaged composite faces are rated less attractive than most of the individual faces",
             "Computer-averaged composite faces are rated more attractive than most individual faces"
           ],
           answer: 3,
@@ -181,10 +181,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which is a leading evolutionary explanation for why average faces are attractive?",
           choices: [
-            "Average faces are the rarest and thus prized",
+            "Average faces are rare in real populations, so they stand out and are prized",
             "Averageness may signal genetic diversity and developmental normality, and is easier for the brain to process",
-            "Average faces always have the most extreme features",
-            "People are taught in childhood to prefer averaged photos"
+            "Average faces have the most extreme, exaggerated sex-typical features of all",
+            "People learn in early childhood, mainly through media images and parental praise, to prefer faces that look averaged"
           ],
           answer: 1,
           explain: "Proposed accounts include averageness signaling heterozygosity and normal development, plus a cognitive fluency benefit of easily processed prototypes."
@@ -228,9 +228,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "Which facial features are considered testosterone-linked masculine cues?",
           choices: [
             "A pronounced brow ridge, wider and longer lower jaw, and thinner cheeks",
-            "Large eyes, full lips, and a small chin",
-            "A rounded forehead and narrow jaw",
-            "High, smooth cheekbones with a soft jawline"
+            "Large eyes, full lips, a small chin, and high, smoothly rounded cheekbones",
+            "A rounded forehead, a narrow jaw, and a short, small lower face",
+            "Smooth skin, a small nose, and a soft, gently curved jawline"
           ],
           answer: 0,
           explain: "Testosterone during development promotes a heavier brow, broader and longer jaw, and more angular features, the classic masculine markers."
@@ -239,10 +239,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which features are typically described as estrogen-linked feminine cues?",
           choices: [
-            "A heavy brow ridge and square jaw",
+            "A heavy brow ridge, a square jaw, and a long, wide lower face",
             "Full lips, larger eyes, a smaller nose and chin, and higher cheekbones",
-            "Thin lips and a broad lower face",
-            "A receding hairline and coarse skin"
+            "Thin lips, small eyes, a broad nose, and a wide, angular lower face",
+            "A receding hairline, coarse skin, and deep-set eyes under a heavy brow"
           ],
           answer: 1,
           explain: "Estrogen caps bone growth in the lower face and enhances lips and eye size, producing softer, more feminine facial proportions."
@@ -323,9 +323,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which is a major critique of the strong 'universal 0.7' claim?",
           choices: [
-            "No one has ever measured waist-to-hip ratio",
-            "Waist-to-hip ratio only matters for men",
-            "The ratio is impossible to see in real bodies",
+            "WHR cannot be measured reliably, so no study has tested it in more than one culture",
+            "Waist-to-hip ratio matters only for judging men's bodies, not women's bodies",
+            "The 0.7 ratio is preferred everywhere, but only when judging line drawings and never when judging real people or photographs",
             "Preferred WHR varies across cultures and ecologies, and body mass often predicts attractiveness at least as strongly"
           ],
           answer: 3,
@@ -376,10 +376,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What did Tovee and colleagues argue about BMI versus waist-to-hip ratio in judging female body attractiveness?",
           choices: [
-            "WHR explains nearly all the variance and BMI is irrelevant",
-            "Neither BMI nor WHR relates to attractiveness",
+            "WHR explains nearly all of the variance in ratings, so BMI is largely irrelevant",
+            "Neither BMI nor WHR predicts attractiveness once facial beauty is controlled",
             "BMI is often the stronger predictor of attractiveness ratings for real photographed bodies",
-            "Only height matters, not mass"
+            "Height, rather than body mass or body shape, best predicts how attractive photographed bodies are rated"
           ],
           answer: 2,
           explain: "Tovee's group found that for images of real bodies, BMI typically accounts for more variance in attractiveness ratings than WHR does."
@@ -394,10 +394,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The shift in preferred body weight between resource-rich and resource-poor environments is best described as evidence of:",
           choices: [
-            "A fixed, invariant beauty standard",
+            "A fixed, invariant beauty standard that holds in all places",
             "Ecologically sensitive, condition-dependent preferences",
-            "Purely random variation with no pattern",
-            "A cue unrelated to health"
+            "Purely random variation with no pattern across environments",
+            "Media influence that is unrelated to health or resources"
           ],
           answer: 1,
           explain: "The pattern illustrates that mate preferences are calibrated by local ecology rather than being one fixed ideal everywhere."
@@ -441,9 +441,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "How does carotenoid coloration in skin act as a health cue?",
           choices: [
             "Carotenoids from fruits and vegetables give skin a golden-yellow tint linked to diet and immune health",
-            "Carotenoids bleach the skin to signal age",
-            "Carotenoids are produced only by disease",
-            "Carotenoids have no measurable effect on skin color"
+            "Carotenoids are made by the skin in response to sunlight, so the tint mainly signals how much time is spent outdoors",
+            "Carotenoids build up in the skin during illness, so a yellow tint signals a current infection",
+            "Carotenoids lighten skin with age, so a paler tone signals youth and fertility"
           ],
           answer: 0,
           explain: "Dietary carotenoid pigments add a yellowish hue that observers find healthy-looking, and because carotenoids also support immunity the color can be an honest signal."
@@ -465,10 +465,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why is glossy, well-maintained hair sometimes treated as a cue to condition?",
           choices: [
-            "Hair grows only when a person is ill",
-            "Hair color is unrelated to any physiological state",
+            "Hair grows fastest during illness, so long hair reveals a recent bout of infection",
+            "Hair color changes daily with mood, so its shine reflects a person's current emotional state",
             "Hair records months of growth, so its length and quality can reflect sustained health and nutrition",
-            "Long hair guarantees high status in all cultures"
+            "Long hair signals high status in every culture, regardless of a person's health"
           ],
           answer: 2,
           explain: "Because hair grows slowly over months, its shine, strength, and length can integrate a record of nutrition, stress, and health over time."
@@ -511,10 +511,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What did the classic 'ovulatory shift hypothesis' predict?",
           choices: [
-            "Women lose all mate preferences during ovulation",
+            "Near ovulation, women show heightened preference for cues of male investment such as kindness, warmth, loyalty, and generosity",
             "Near ovulation, women show heightened preference for cues of male genetic quality such as facial masculinity and symmetry",
-            "Men's preferences change across the female cycle",
-            "Ovulation has no effect on any behavior"
+            "Women lose most of their mate preferences near ovulation and choose partners almost at random",
+            "Men's preferences for female faces shift across their partner's cycle, peaking near her ovulation"
           ],
           answer: 1,
           explain: "The hypothesis held that fertile-phase women would more strongly prefer good-genes cues (masculinity, symmetry, dominance), especially for short-term partners."
@@ -536,10 +536,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which methodological problem was blamed for many early, inflated ovulatory-shift results?",
           choices: [
-            "Samples that were far too large",
+            "Samples that were far too large, so trivial effects became statistically significant",
             "Small samples, imprecise ovulation timing, and analytic flexibility (researcher degrees of freedom)",
-            "Refusal to publish any positive findings",
-            "Using only preregistered designs from the start"
+            "Journals refusing to publish positive findings, so only null results reached the literature",
+            "Strict preregistration that prevented researchers from testing new hypotheses"
           ],
           answer: 1,
           explain: "Small underpowered samples, crude cycle-phase estimation, and many uncontrolled analytic choices produced false positives that later work could not confirm."

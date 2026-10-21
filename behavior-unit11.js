@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What was Hull's central goal in adopting the hypothetico-deductive method?",
           choices: [
-            "To describe behavior purely through introspection",
+            "To describe behavior through careful introspective reports of experience",
             "To build behavior theory as a formal deductive system, like geometry",
-            "To reject all use of mathematics in psychology",
-            "To study only unconscious motivation"
+            "To replace mathematical models with rich qualitative case descriptions",
+            "To study unconscious motives through the analysis of dreams and slips"
           ],
           answer: 1,
           explain: "Hull admired Euclid and Newton and wanted psychology to derive behavioral predictions from explicit axioms."
@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In Hull's theory, a stimulus-response bond is reinforced when the response ____.",
           choices: [
-            "increases a biological need",
+            "increases a drive tied to a biological need",
             "reduces a drive tied to a biological need",
-            "is followed by punishment",
-            "produces a cognitive map"
+            "is followed by an aversive stimulus or punishment",
+            "produces a cognitive map of the goal location"
           ],
           answer: 1,
           explain: "Reinforcement, for Hull, is drive reduction: the bond strengthens when the response lowers the drive/need state."
@@ -122,9 +122,9 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which sequence best captures Hull's reinforcement logic?",
           choices: [
-            "Reward, then need, then drive, then response",
-            "Drive reduction, then need, then stimulus, then drive",
-            "Response, then punishment, then learning",
+            "Reward, then need, then drive, then response, then increased habit strength",
+            "Drive reduction, then need, then stimulus, then drive, then response",
+            "Stimulus, then response, then punishment, then learning, then drive",
             "Need, then drive, then response, then drive reduction, then reinforcement"
           ],
           answer: 3,
@@ -158,10 +158,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What does the symbol sHr stand for in Hull's system?",
           choices: [
-            "Stimulus intensity",
+            "Stimulus intensity, the physical strength of the stimulus",
             "Habit strength, the strength of a stimulus-response bond",
-            "Drive magnitude",
-            "Incentive value"
+            "Drive magnitude, the strength of the organism's current need",
+            "Incentive value, the size or quality of the reward obtained"
           ],
           answer: 1,
           explain: "sHr denotes habit strength, the learned association between a stimulus (s) and a response (r)."
@@ -229,10 +229,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In Hull's 1943 theory, reaction potential (sEr) was calculated as:",
           choices: [
-            "sHr plus D",
-            "sHr minus D",
+            "sHr plus D (habit strength added to the drive level)",
+            "sHr minus D (habit strength less drive)",
             "sHr multiplied by D (habit strength times drive)",
-            "D divided by sHr"
+            "D divided by sHr (drive over habit strength)"
           ],
           answer: 2,
           explain: "Reaction potential is the multiplicative product of habit strength and drive."
@@ -255,9 +255,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "In his later system Hull expanded the rule to sEr = sHr x D x K x V. What does K represent?",
           choices: [
             "incentive motivation (reward magnitude)",
-            "the number of reinforced trials",
-            "stimulus-intensity dynamism",
-            "reactive inhibition"
+            "the number of reinforced trials (practice)",
+            "stimulus-intensity dynamism (signal strength)",
+            "reactive inhibition (fatigue from responding)"
           ],
           answer: 0,
           explain: "K is incentive motivation, reflecting the size or quality of the reward; V is stimulus-intensity dynamism."
@@ -301,10 +301,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "An intervening variable in Hull's theory is:",
           choices: [
-            "a directly observable stimulus",
+            "a directly observable stimulus that the experimenter manipulates",
             "an unobservable construct linking observable inputs and outputs",
-            "a measurement error to be removed",
-            "a type of spinal reflex"
+            "a measurement error that must be removed before analysis",
+            "a spinal reflex that operates without any learning history"
           ],
           answer: 1,
           explain: "Constructs like sHr and D cannot be seen directly but are tied to observable independent and dependent variables."
@@ -336,10 +336,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Why did Hull anchor intervening variables to observables on both sides?",
           choices: [
-            "To make them purely philosophical",
-            "To avoid using any mathematics",
+            "To make the constructs purely philosophical and beyond testing",
+            "To avoid needing any mathematics when stating the theory's laws",
             "To keep the constructs scientifically measurable and testable",
-            "To hide them from experimental scrutiny"
+            "To protect the constructs from direct experimental scrutiny"
           ],
           answer: 2,
           explain: "By tying constructs to manipulable inputs and measurable outputs, Hull kept them empirically grounded and falsifiable."
@@ -371,10 +371,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In the expanded equation, the incentive factor K depends mainly on:",
           choices: [
-            "the number of reinforced trials",
+            "the number of reinforced trials received",
             "the magnitude or quality of the reward",
-            "the loudness of the stimulus",
-            "the age of the animal"
+            "the physical intensity of the stimulus",
+            "the hours of food deprivation before testing"
           ],
           answer: 1,
           explain: "K, incentive motivation, scales with how large or attractive the reward is, independent of habit."
@@ -442,10 +442,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Hull's goal-gradient hypothesis (1932) states that the tendency to respond:",
           choices: [
-            "is constant at every point in a maze",
+            "stays constant at every point along the path to the goal",
             "gets stronger the closer the animal is to the goal",
-            "is strongest at the start box",
-            "disappears near the reward"
+            "is strongest in the start box and weakens later",
+            "weakens as the animal approaches the reward"
           ],
           answer: 1,
           explain: "Response strength increases as the reward draws nearer, so animals move faster near the goal."
@@ -467,10 +467,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which observation is predicted by the goal gradient?",
           choices: [
-            "Errors are equally likely everywhere in the maze",
-            "Rats slow down as they near the food",
+            "Errors are equally likely in every part of the maze throughout training",
+            "Rats slow down noticeably as they get close to the food box",
             "Blind alleys near the goal are dropped sooner than distant ones",
-            "Rats prefer longer paths to the reward"
+            "Blind alleys near the start are eliminated before those near the goal"
           ],
           answer: 2,
           explain: "Stronger responding near the goal means near-goal errors get eliminated before more distant ones."
@@ -538,9 +538,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "A major reason for the decline of Hull's grand system was that:",
           choices: [
             "its precise numerical constants failed to generalize across situations",
-            "it ignored reinforcement entirely",
-            "no one could read its notation",
-            "it was never actually published"
+            "it ignored reinforcement entirely in favor of cognitive maps",
+            "its symbolic notation was too unusual for other researchers to follow",
+            "it relied solely on introspective reports rather than on animal experiments"
           ],
           answer: 0,
           explain: "The exact quantitative constants Hull specified did not hold beyond the narrow experiments they came from, undermining the whole system."

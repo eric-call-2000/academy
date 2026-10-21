@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In the classic Prisoner's Dilemma story, why can't the two suspects coordinate their answers?",
           choices: [
             "They are held in separate cells and cannot communicate",
-            "They speak different languages",
-            "They have already been convicted",
-            "The prosecutor lets them confer first"
+            "They do not trust each other enough to talk it over",
+            "They have already been convicted of the main crime",
+            "The prosecutor tells each one what the other has said"
           ],
           answer: 0,
           explain: "The whole tension comes from isolation: each must choose alone, without knowing what the other will do."
@@ -157,10 +157,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In the one-shot Prisoner's Dilemma, defection is a dominant strategy because...",
           choices: [
-            "it is the kind thing to do",
+            "it maximizes the total payoff of the two players taken together as a group",
             "it always yields a higher payoff than cooperating, whatever the other player does",
-            "it maximizes the group's total payoff",
-            "it is chosen at random"
+            "it is the choice both players would agree on if they could talk beforehand",
+            "it gives the higher payoff only when the other player decides to cooperate"
           ],
           answer: 1,
           explain: "A dominant strategy beats the alternative in every case, so a self-interested player defects regardless of the partner's move."
@@ -228,9 +228,9 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is the Prisoner's Dilemma called a social dilemma?",
           choices: [
-            "It can only be played in groups of ten",
-            "It requires players to be irrational",
-            "Cooperation is always the equilibrium",
+            "Players acting irrationally drive the group to a worse outcome than intended",
+            "It can only be played in large groups rather than by two individual players",
+            "Cooperation is the equilibrium, yet the players fail to reach it in practice",
             "Individually rational choices lead to a collectively worse outcome"
           ],
           answer: 3,
@@ -299,10 +299,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In the donation form of the game, a cooperator ____.",
           choices: [
-            "receives a benefit while paying nothing",
-            "harms the partner to help itself",
+            "receives a benefit b while paying no cost at all",
+            "pays a cost c to reduce the partner's payoff by b",
             "pays a cost c to give a benefit b to the partner",
-            "does nothing at all"
+            "gives benefit b to the partner only if b is less than c"
           ],
           answer: 2,
           explain: "Cooperation is modeled as donation: the cooperator pays cost c so the partner gains benefit b, with b greater than c."
@@ -396,10 +396,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why can't 'always cooperate' be an ESS in the one-shot game?",
           choices: [
-            "Cooperators earn too much",
-            "Cooperation is illegal",
+            "Cooperators earn R, which is more than the T that a defector would earn",
+            "A cooperating mutant earns S against defectors and cannot spread at all",
             "A defecting mutant earns T against cooperators, beating their R, and spreads",
-            "There are never any mutants"
+            "Mutual cooperation gives both players a lower payoff than mutual defection"
           ],
           answer: 2,
           explain: "In a cooperator population a defector scores T against every cooperator's R; since T > R, defection invades and cooperation is unstable."
@@ -513,10 +513,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Repeating the game many times can favour cooperation through ____.",
           choices: [
-            "shorter memories",
+            "kin selection, where players mainly help their close genetic relatives",
             "direct reciprocity, where players can reward and punish over time",
-            "removing all future rounds",
-            "playing only once"
+            "a shorter memory, so players quickly forget who defected against them",
+            "a fixed number of rounds that both players know in advance of play"
           ],
           answer: 1,
           explain: "When players meet again, direct reciprocity lets today's cooperation be rewarded and defection punished tomorrow."
@@ -548,10 +548,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Robert Axelrod's computer tournaments around 1980 found that the winning strategy was ____.",
           choices: [
-            "Always Defect",
-            "Always Cooperate",
+            "Grim Trigger, submitted by Martin Shubik",
+            "Tit-for-Two-Tats, submitted by John Maynard Smith",
             "Tit-for-Tat, submitted by Anatol Rapoport",
-            "Random"
+            "Always Defect, written by Axelrod himself"
           ],
           answer: 2,
           explain: "In Axelrod's iterated-dilemma tournaments, Anatol Rapoport's simple Tit-for-Tat scored highest overall."

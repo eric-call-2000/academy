@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What is the core logic of the comparative method in evolutionary psychology?",
           choices: [
-            "Surveying a single population repeatedly over many years",
-            "Randomly assigning subjects to experimental conditions",
+            "Surveying a single population repeatedly over many years to track changes",
+            "Randomly assigning subjects to experimental conditions in the laboratory",
             "Comparing traits across species to reconstruct evolutionary history and infer function",
-            "Interviewing people about their earliest childhood memories"
+            "Comparing people across many different cultures to find out which traits are learned locally"
           ],
           answer: 2,
           explain: "The comparative method looks across related species, using their similarities and differences to infer how and why a trait evolved."
@@ -188,10 +188,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why do evolutionary psychologists study contemporary hunter-gatherers?",
           choices: [
-            "Because they are genetically different from other humans",
+            "Because they are genetically different from other humans and preserve ancient genes",
             "Because their subsistence ecology can illuminate conditions under which human adaptations evolved",
-            "Because they never experience any cultural change",
-            "Because agriculture is thought to have no effect on human behavior"
+            "Because they never experience any cultural change and so are living fossils of our ancestral past",
+            "Because agriculture had no effect on behavior, so all societies are the same"
           ],
           answer: 1,
           explain: "Foraging life resembles the ecological problems humans faced for most of our history, offering clues about the environments that shaped our psychology."
@@ -260,9 +260,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "What makes adoption studies useful for separating genes from family environment?",
           choices: [
             "Adopted children share genes but not the rearing home with their biological parents",
-            "Adopted children are genetically identical to their adoptive parents",
-            "Adoption removes all environmental influence",
-            "Adopted children have no biological parents"
+            "Adopted children are genetically identical to the adoptive parents who raise them",
+            "Adoption removes all environmental influences on a child's later development",
+            "Adoptive families share genes but not the home with the child's biological siblings"
           ],
           answer: 0,
           explain: "Because adoptees are raised apart from biological kin, resemblance to birth parents points to genes and resemblance to adoptive parents points to shared environment."
@@ -326,10 +326,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The human belly button (navel) is best described as which of the following?",
           choices: [
-            "An adaptation for storing fat",
+            "An adaptation for storing fat around the middle of the body",
             "A by-product of the umbilical cord, not designed for any function",
-            "Random developmental noise unique to each person",
-            "An adaptation specifically for attracting mates"
+            "Random developmental noise that differs from person to person",
+            "An adaptation that evolved specifically to attract mates through display"
           ],
           answer: 1,
           explain: "The navel is a by-product of how the umbilical cord attaches; it shows no special design for a function, so it is not itself an adaptation."
@@ -363,9 +363,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "In evolutionary psychology, 'reverse engineering' the mind means:",
           choices: [
             "Reasoning from an adaptive problem to the design a mechanism would need to solve it",
-            "Taking a physical brain apart neuron by neuron",
-            "Running a factory production line backwards",
-            "Guessing a person's childhood from their current behavior"
+            "Taking a physical brain apart neuron by neuron to see how it works",
+            "Inferring a person's childhood experiences from their current behavior",
+            "Tracing a trait backward through the fossil record to find when it first appeared"
           ],
           answer: 0,
           explain: "Just as an engineer infers a device's purpose from its structure, evolutionary psychologists infer likely mechanisms from the adaptive problems ancestors faced."
@@ -446,8 +446,8 @@ window.ACADEMY.addUnit("evopsych", {
           choices: [
             "People are purely selfish payoff maximizers",
             "People will pay a cost to punish perceived unfairness",
-            "People cannot understand the rules of the game",
-            "Money has no value to the participants"
+            "People misunderstand the rules of the game",
+            "People reject offers to signal wealth to the experimenter"
           ],
           answer: 1,
           explain: "Rejecting a low offer sacrifices money to deny the proposer a payoff, revealing a willingness to punish unfairness rather than pure self-interest."
@@ -470,9 +470,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "What is the main advantage of laboratory economic games for testing social predictions?",
           choices: [
             "They allow controlled manipulation of incentives and comparison of conditions",
-            "They perfectly replicate ancestral environments",
-            "They eliminate the need for any theory",
-            "They can only be run with non-human animals"
+            "They perfectly replicate the conditions of ancestral environments",
+            "They remove the need for theory, since results speak for themselves",
+            "They capture real-world behavior far better than any field observation can"
           ],
           answer: 0,
           explain: "By holding conditions constant and varying one factor, games let researchers isolate what actually drives cooperative or punishing behavior."
@@ -515,10 +515,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The 'challenge hypothesis' (Wingfield et al., 1990) predicts that testosterone rises in response to:",
           choices: [
-            "Restful sleep and relaxation",
+            "Restful sleep and periods of relaxation",
             "Competitive or mating-related challenges",
-            "Eating a large meal",
-            "Cold temperatures only"
+            "Eating a large, high-calorie meal",
+            "Caring for and holding a newborn infant"
           ],
           answer: 1,
           explain: "The challenge hypothesis holds that testosterone increases during competition and mating opportunities, fueling status-seeking behavior."

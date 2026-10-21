@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is the best mental model for coding with an AI like Claude?",
           choices: [
             "A pair-programmer that drafts and explains code with you",
-            "A flawless compiler that never makes mistakes",
-            "A replacement for ever reading code yourself",
-            "A search engine that only returns links"
+            "An autopilot that ships finished code with no review needed",
+            "A senior engineer whose code you can merge without reading",
+            "A smarter autocomplete that only finishes the line you type"
           ],
           answer: 0,
           explain: "The AI is a collaborator that speeds you up, but you stay the reviewer and decision-maker."
@@ -31,7 +31,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Which company makes Claude, a popular AI coding assistant?",
-          choices: ["Anthropic", "OpenAI", "Google", "Meta"],
+          choices: ["Anthropic", "OpenAI", "GitHub Copilot", "Google DeepMind"],
           answer: 0,
           explain: "Anthropic makes Claude; OpenAI makes ChatGPT, Google makes Gemini, and Meta makes Llama."
         },
@@ -93,9 +93,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a good first question when you are handed unfamiliar code?",
           choices: [
             "Can you explain what this code does in plain English?",
-            "Can you delete all of this code for me?",
-            "Can you make this code longer?",
-            "Can you tell me who wrote this?"
+            "Can you rewrite this code in a more modern style for me?",
+            "Can you add comments above every line of this code?",
+            "Can you find and fix every bug in this code right now?"
           ],
           answer: 0,
           explain: "Asking for a plain-English summary is a fast way to understand code you did not write."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What makes a good request when asking an AI to write new code?",
           choices: [
             "A clear description of the goal, inputs, and outputs",
-            "The single word 'code'",
-            "A demand that it never explain anything",
-            "The longest possible prompt with no specifics"
+            "The name of the language and a request for clean code",
+            "A long list of best practices it should always follow",
+            "A request for the fastest possible version of the code"
           ],
           answer: 0,
           explain: "Clear goals and expected inputs and outputs lead to code that fits your actual need."
@@ -259,9 +259,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What should you give the AI to get the best help fixing a bug?",
           choices: [
             "The exact error message and the relevant code",
-            "Only the word 'broken'",
-            "A screenshot with no text at all",
-            "Nothing — let the AI guess"
+            "A short note saying the program doesn't work",
+            "Your whole project, every file, pasted in at once",
+            "A description of what the code is meant to do"
           ],
           answer: 0,
           explain: "The full error message plus the surrounding code gives the AI what it needs to diagnose the bug."
@@ -311,9 +311,9 @@ window.ACADEMY.addUnit("ai", {
           q: "The AI suggests a fix but you do not understand why it works. What is wise?",
           choices: [
             "Ask the AI to explain why the fix resolves the bug",
-            "Apply it blindly and never think about it",
-            "Delete the whole file to be safe",
-            "Assume the bug can never come back"
+            "Apply it, since the error message has gone away now",
+            "Ask for a second, different fix and compare",
+            "Commit it and plan to look into it later"
           ],
           answer: 0,
           explain: "Understanding the fix helps you avoid the same class of bug next time."
@@ -323,9 +323,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which extra clue helps an AI debug faster?",
           choices: [
             "What you expected to happen versus what actually happened",
-            "The color of your code editor theme",
-            "How many hours you have been awake",
-            "The brand of your keyboard"
+            "Which programming language and editor you are using",
+            "How long the bug has existed in the code base",
+            "Which other fixes you have already tried and given up on"
           ],
           answer: 0,
           explain: "Expected-versus-actual behavior tells the AI exactly where reality diverged."
@@ -342,9 +342,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does 'vibe coding' generally describe?",
           choices: [
             "Building software mostly by describing it in plain language to an AI",
-            "Writing code only at night for the mood",
-            "Coding without ever running the program",
-            "Coding by copying random files together"
+            "Writing code by hand while listening to music to stay in the flow",
+            "Pair programming with a colleague who reviews each line as you type",
+            "Copying snippets from forums and adjusting them until they work"
           ],
           answer: 0,
           explain: "Vibe coding leans on natural-language prompts and iteration rather than writing every line by hand."
@@ -367,9 +367,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why is testing your app often during vibe coding important?",
           choices: [
             "Small errors can pile up if you never run what you build",
-            "Testing makes the AI charge you extra",
-            "Apps only work if never tested",
-            "Testing deletes the AI's memory"
+            "The AI can only see your code after you have run it",
+            "Each test run teaches the AI to avoid similar bugs",
+            "Apps built with AI cannot be published until tested"
           ],
           answer: 0,
           explain: "Frequent testing catches problems early, before they snowball into a tangled mess."
@@ -396,9 +396,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a realistic expectation for a vibe-coded app?",
           choices: [
             "It may need cleanup, testing, and review before it is solid",
-            "It will be perfect and bug-free on the first try",
-            "It can never be improved once generated",
-            "It will run without any code being written at all"
+            "It will be production-ready as long as the prompt was detailed",
+            "It will work for small apps but can never grow into a big one",
+            "It will need to be rewritten by hand before anyone can use it"
           ],
           answer: 0,
           explain: "AI accelerates building, but real apps still need review and polishing to be reliable."
@@ -445,9 +445,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does 'agentic' mean for an AI coding assistant?",
           choices: [
             "It can take multi-step actions like editing files and running commands",
-            "It only works on weekends",
-            "It refuses to write any code",
-            "It can feel emotions about your code"
+            "It suggests code in your editor but never changes any files on its own",
+            "It answers coding questions in a chat window, one message at a time",
+            "It uses a special model trained only on code instead of general text"
           ],
           answer: 0,
           explain: "Agentic assistants carry out multi-step tasks on their own, not just single suggestions. Today's AI is still a narrow tool, not a conscious being."
@@ -522,9 +522,9 @@ window.ACADEMY.addUnit("ai", {
           q: "The AI references a library function you have never heard of. What should you do?",
           choices: [
             "Verify the function actually exists before relying on it",
-            "Assume it must be real and ship it",
-            "Delete your whole project",
-            "Trust it because the AI sounds confident"
+            "Use it, since the AI was trained on that library's code",
+            "Ask the AI whether it's sure, and trust the second answer",
+            "Ignore it and rewrite the whole feature from scratch"
           ],
           answer: 0,
           explain: "AI can invent plausible-sounding functions, so confirm they exist in the real library."
@@ -551,9 +551,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why should you be extra careful with generated code that handles passwords or user data?",
           choices: [
             "Mistakes there can create real security and privacy risks",
-            "That code is always slower to run",
-            "The AI refuses to write such code",
-            "It never needs testing"
+            "That code usually runs more slowly than code written by hand",
+            "AI models are not allowed to see real passwords during training",
+            "Generated code for user data can't be covered by tests"
           ],
           answer: 0,
           explain: "Security-sensitive code deserves the closest review, since bugs can expose private data."
@@ -570,9 +570,9 @@ window.ACADEMY.addUnit("ai", {
           q: "To actually learn while coding with AI, what should you do?",
           choices: [
             "Ask why the code works, not just what to paste",
-            "Copy answers without ever reading them",
-            "Avoid asking any questions",
-            "Never write code yourself"
+            "Ask for the shortest possible version of the code",
+            "Have the AI write it, then copy it out by hand",
+            "Only use the AI once you already know the topic"
           ],
           answer: 0,
           explain: "Understanding the 'why' builds skill; blind copy-paste leaves you dependent on the AI."
@@ -595,9 +595,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which request helps you learn rather than just get an answer?",
           choices: [
             "Explain this concept and give me a small exercise to try",
-            "Just write the whole thing for me",
-            "Tell me nothing about how it works",
-            "Give me the answer with no explanation"
+            "Write the full solution with comments so I can study it",
+            "Show me three different ways to write this same function",
+            "Give me a link to the official documentation for this"
           ],
           answer: 0,
           explain: "Asking for an explanation plus practice makes the AI a teacher, not just an answer machine."
@@ -634,9 +634,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a risk of only copying AI code without understanding it?",
           choices: [
             "You struggle to fix or extend it later on your own",
-            "Your code becomes automatically perfect",
-            "The AI stops working forever",
-            "You learn faster than everyone else"
+            "Copied code always runs slower than code you write",
+            "AI code usually breaks after the library updates",
+            "Your editor can't check code that you didn't type"
           ],
           answer: 0,
           explain: "Without understanding, you cannot debug or grow the code when the AI is not around."

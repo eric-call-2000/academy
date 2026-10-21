@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt follows the 'be clear and direct' rule best?",
           choices: [
             "Write a 3-sentence summary of this email for a busy manager",
-            "Do something with this email",
-            "Handle this",
-            "Make it good"
+            "Please read this email carefully and do whatever seems most useful",
+            "Summarize this email well, and make sure the summary is really good",
+            "Look at this email and tell me anything interesting you notice"
           ],
           answer: 0,
           explain: "A specific task, length, and audience remove guesswork and produce a better result."
@@ -40,9 +40,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A good way to make a fuzzy request clearer is to add:",
           choices: [
             "Concrete details like format, length, and audience",
-            "More exclamation points",
-            "The word 'please' three times",
-            "A demand that Claude never make mistakes"
+            "Strong emphasis, such as IMPORTANT in capital letters",
+            "A reminder that Claude must try its very hardest",
+            "A warning that mistakes will not be tolerated"
           ],
           answer: 0,
           explain: "Concrete constraints give Claude a clear target to aim at, unlike emphasis or scolding."
@@ -68,9 +68,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why is 'be clear and direct' the foundational Claude technique?",
           choices: [
             "It removes ambiguity, which is the top cause of off-target answers",
-            "It makes prompts shorter, which is always better",
-            "It forces Claude to answer in one word",
-            "It hides your real goal from the model"
+            "It keeps prompts as short as possible, which always improves answers",
+            "It switches Claude into a stricter mode that follows rules more closely",
+            "It lets Claude skip reasoning and go straight to a final answer"
           ],
           answer: 0,
           explain: "Most weak outputs trace back to unclear asks; clarity fixes the problem at its source."
@@ -87,9 +87,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is the main benefit of wrapping content in XML-style tags for Claude?",
           choices: [
             "It clearly separates instructions from data and other sections",
-            "It makes the model run faster",
-            "It encrypts your prompt",
-            "It removes the need for any instructions"
+            "It cuts the token count, so long prompts cost noticeably less",
+            "It tells Claude to reply in XML instead of normal prose",
+            "It hides sensitive data so Claude cannot read those parts"
           ],
           answer: 0,
           explain: "Tags like <document> and <instructions> mark boundaries so Claude does not mix up the parts."
@@ -122,9 +122,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Tags are especially helpful when your prompt contains:",
           choices: [
             "Multiple distinct parts, like a long document plus instructions plus examples",
-            "Only a single short question",
-            "Just an emoji",
-            "Nothing at all"
+            "A single short question that needs a quick, direct, one-line answer back",
+            "A casual request where the exact output format doesn't matter much",
+            "A follow-up message in a chat that already has plenty of context"
           ],
           answer: 0,
           explain: "The more moving parts a prompt has, the more tags pay off by keeping each part clearly labeled."
@@ -182,9 +182,9 @@ window.ACADEMY.addUnit("ai", {
           q: "For the best results, your examples should be:",
           choices: [
             "Relevant, correct, and varied enough to cover edge cases",
-            "As long and complicated as possible",
-            "Full of deliberate mistakes",
-            "Copied from an unrelated task"
+            "Nearly identical, so Claude sees one clear pattern",
+            "As long and detailed as possible to show every case",
+            "Taken from a related task so Claude generalizes widely"
           ],
           answer: 0,
           explain: "Claude imitates your examples, so flawed or off-topic samples teach flawed or off-topic behavior."
@@ -210,9 +210,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Wrapping each example in tags like <example> mainly helps by:",
           choices: [
             "Making the example boundaries clear so Claude parses them cleanly",
-            "Making the prompt look prettier only",
-            "Hiding the examples from Claude",
-            "Turning the examples into images"
+            "Telling Claude to copy the examples word for word in its answer",
+            "Letting Claude skip the examples when it decides they don't apply",
+            "Marking the examples as more important than your actual instructions"
           ],
           answer: 0,
           explain: "Tags combine two techniques: clear structure plus concrete demonstrations of the target output."
@@ -229,9 +229,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Asking Claude to reason step by step before answering is often called:",
           choices: [
             "Chain-of-thought prompting",
-            "Prefilling",
-            "Fine-tuning",
-            "Tokenizing"
+            "Few-shot prompting",
+            "Prompt chaining",
+            "Self-consistency checks"
           ],
           answer: 0,
           explain: "Chain-of-thought prompting lets the model work through intermediate steps, which improves hard answers."
@@ -282,9 +282,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A key reason chain-of-thought helps is that it:",
           choices: [
             "Breaks a big problem into smaller steps the model handles better",
-            "Lets Claude browse the web",
-            "Removes the need for a clear question",
-            "Makes answers shorter automatically"
+            "Gives Claude extra facts that weren't included in its training data",
+            "Makes the model's final answer shorter and quicker to read",
+            "Lets Claude check each of its answers against a trusted source"
           ],
           answer: 0,
           explain: "Smaller, explicit steps are easier to get right than one giant leap to the answer."
@@ -301,9 +301,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a system prompt used for?",
           choices: [
             "Setting Claude's role, expertise, and tone for the whole conversation",
-            "Storing your password",
-            "Connecting Claude to your printer",
-            "Deleting old chats"
+            "Giving Claude one specific task to complete in its very next reply only",
+            "Storing facts that Claude should remember across all of your future chats",
+            "Choosing which Claude model and settings the conversation will run on"
           ],
           answer: 0,
           explain: "The system prompt sets standing instructions and persona that apply to every turn that follows."
@@ -335,9 +335,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Besides expertise, a system prompt is a great place to set:",
           choices: [
             "Tone, output style, and rules to follow every time",
-            "The current weather",
-            "Your monitor's brightness",
-            "Random unrelated trivia"
+            "The one-off question you want answered right now",
+            "Facts Claude should learn permanently for all users",
+            "The documents you want summarized in this reply"
           ],
           answer: 0,
           explain: "Persistent rules like tone and format belong in the system prompt so you need not repeat them each turn."
@@ -370,9 +370,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does prefilling Claude's response mean?",
           choices: [
             "Starting the assistant's answer for it so it continues in that format",
-            "Filling in a web form for the user",
-            "Pre-loading the whole conversation history",
-            "Paying for tokens in advance"
+            "Loading your whole conversation history before Claude starts replying",
+            "Writing out the full answer yourself so Claude only has to check it",
+            "Filling in example answers at the top of the prompt for Claude to copy"
           ],
           answer: 0,
           explain: "You supply the first characters of Claude's reply, and it continues from there in the shape you set."
@@ -395,9 +395,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Prefilling is most useful when you need:",
           choices: [
             "A strict, machine-readable format like JSON or a specific structure",
-            "A long, chatty conversation",
-            "Claude to ask you more questions",
-            "Claude to refuse the task"
+            "A long, open-ended conversation where Claude explores many different ideas",
+            "Claude to ask you clarifying questions before it starts on the task",
+            "Claude to explain its reasoning at length before the final answer"
           ],
           answer: 0,
           explain: "Locking the opening characters is ideal when downstream code must parse a precise, consistent format."
@@ -439,9 +439,9 @@ window.ACADEMY.addUnit("ai", {
           q: "For a long document plus a question, where should the document usually go?",
           choices: [
             "Near the top, with your question at the bottom",
-            "Split randomly through the prompt",
-            "Only in the system prompt title",
-            "It does not matter at all"
+            "At the bottom, after the question it relates to",
+            "In the middle, between two copies of the question",
+            "In a separate chat, referenced by its file name"
           ],
           answer: 0,
           explain: "Anthropic recommends document first, question last, which helps Claude answer long inputs accurately."
@@ -464,9 +464,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Wrapping the long document in tags like <document> mainly helps because it:",
           choices: [
             "Clearly marks where the source starts and ends",
-            "Compresses the document to save money",
-            "Translates the document automatically",
-            "Deletes irrelevant pages for you"
+            "Lets Claude skim the document instead of reading it",
+            "Tells Claude to trust it more than its own knowledge",
+            "Shrinks the document so it uses fewer tokens"
           ],
           answer: 0,
           explain: "Clear boundaries let Claude tell the source material apart from your instructions and questions."
@@ -492,9 +492,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A benefit of asking Claude to quote before it concludes is:",
           choices: [
             "You can verify the answer against the cited passages",
-            "It makes the answer impossible to check",
-            "It hides where the answer came from",
-            "It forces the answer to be a single word"
+            "It makes the final answer shorter and quicker to read",
+            "It stops Claude from using any outside knowledge at all",
+            "It guarantees the conclusion is correct, not just supported"
           ],
           answer: 0,
           explain: "Quoted evidence gives you a fast way to confirm the answer really matches the source text."
@@ -511,9 +511,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does prompt chaining mean?",
           choices: [
             "Breaking a complex task into a sequence of smaller, focused prompts",
-            "Sending the same prompt over and over",
-            "Chaining Claude to a single topic forever",
-            "Encrypting your prompts"
+            "Sending the same prompt several times and keeping the most common answer",
+            "Asking Claude to reason step by step inside one single long prompt",
+            "Linking several different models so each one answers the same prompt"
           ],
           answer: 0,
           explain: "Chaining hands Claude one clear subtask at a time, feeding each output into the next step."
@@ -546,9 +546,9 @@ window.ACADEMY.addUnit("ai", {
           q: "A big advantage of chaining is that between steps you can:",
           choices: [
             "Inspect and correct the intermediate result before continuing",
-            "Skip reading anything Claude produced",
-            "Guarantee the model never makes mistakes",
-            "Avoid writing any prompts at all"
+            "Let Claude decide which steps to skip based on how it is going",
+            "Switch to a bigger model for each step to raise overall accuracy",
+            "Use a single prompt for everything, which keeps the context together"
           ],
           answer: 0,
           explain: "Checkpoints between steps let you catch and fix problems early instead of at the very end."

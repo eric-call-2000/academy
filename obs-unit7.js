@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Hotkeys in OBS are useful because they let you:",
           choices: [
             "Control OBS without switching windows or clicking",
-            "Increase your internet speed",
-            "Add more RAM",
-            "Change your monitor size"
+            "Record video faster than clicking the buttons in OBS does",
+            "Run OBS actions automatically on a set timer or schedule",
+            "Change Windows keyboard shortcuts while OBS stays open"
           ],
           answer: 0,
           explain: "Hotkeys trigger actions while you stay in your game or app."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A push-to-talk or push-to-mute hotkey helps by:",
           choices: [
             "Letting you quickly silence background noise or sneezes",
-            "Uploading your video",
-            "Adding scenes",
-            "Improving your camera"
+            "Turning on Noise Suppression only while you are speaking",
+            "Lowering the desktop audio whenever you start talking",
+            "Switching to a different microphone when you press the key"
           ],
           answer: 0,
           explain: "A quick mute hotkey keeps coughs and interruptions out of the recording."
@@ -81,9 +81,9 @@ window.ACADEMY.addUnit("obs", {
           q: "An OBS Profile saves:",
           choices: [
             "Settings like output, resolution, bitrate, and hotkeys",
-            "Your scenes and sources",
-            "Your recorded video files",
-            "Your desktop wallpaper"
+            "Your scenes, sources, and the way they are arranged",
+            "The filters and transitions applied in each scene",
+            "Your recorded video files and the folder they are in"
           ],
           answer: 0,
           explain: "Profiles store settings; scene collections store the scenes themselves."
@@ -121,9 +121,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A good reason to make a second profile is:",
           choices: [
             "Different quality settings for recording vs. streaming",
-            "To delete your footage",
-            "To disable audio",
-            "To slow down your PC"
+            "To keep a separate set of scenes for each type of video",
+            "To store a backup copy of all your recorded footage",
+            "To give each webcam its own color correction filters"
           ],
           answer: 0,
           explain: "Profiles make it easy to keep distinct settings per use case."
@@ -146,9 +146,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A scene collection holds:",
           choices: [
             "A complete set of scenes and their sources",
-            "Only your bitrate",
-            "Your recorded files",
-            "Your microphone driver"
+            "Your output, bitrate, and hotkey settings",
+            "Every recording you have made with those scenes",
+            "The encoder and audio track setup for a profile"
           ],
           answer: 0,
           explain: "A scene collection is the full group of scenes you have built."
@@ -187,9 +187,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Exporting a scene collection is useful for:",
           choices: [
             "Backing it up or moving it to another computer",
-            "Uploading your video",
-            "Increasing frame rate",
-            "Muting your mic"
+            "Recording two scene collections at the same time",
+            "Merging your profile settings into a single file",
+            "Merging two profiles"
           ],
           answer: 0,
           explain: "Export creates a portable backup of all your scenes and sources."
@@ -212,9 +212,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The eye icon next to a source controls its:",
           choices: [
             "Visibility (shown or hidden)",
-            "Volume",
-            "File format",
-            "Frame rate"
+            "Volume level (muted or not)",
+            "Lock (movable or not)",
+            "Filters (on or off)"
           ],
           answer: 0,
           explain: "The eye toggles whether a source appears in the scene."
@@ -253,9 +253,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Toggling sources instead of building many scenes can:",
           choices: [
             "Simplify your setup and speed up recording",
-            "Increase your upload speed",
-            "Delete your files",
-            "Lower your resolution"
+            "Increase recording quality without changing settings",
+            "Record each hidden source to its own separate file",
+            "Let OBS switch scenes for you based on the active window"
           ],
           answer: 0,
           explain: "Smart toggles reduce the number of scenes you must manage."
@@ -278,9 +278,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The Replay Buffer lets you:",
           choices: [
             "Save the last several seconds after something great happens",
-            "Record in 4K only",
-            "Upload to YouTube",
-            "Mute your mic"
+            "Record a second copy of your video at a lower quality",
+            "Pause the recording and resume it later in the same file",
+            "Rewind the live preview and re-record a missed section"
           ],
           answer: 0,
           explain: "It continuously buffers recent footage so you can capture a moment retroactively."
@@ -319,9 +319,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The replay buffer is especially handy for:",
           choices: [
             "Capturing an unexpected great moment in gameplay",
-            "Editing your video",
-            "Uploading automatically",
-            "Improving your lighting"
+            "Recording a long tutorial that you planned out in advance",
+            "Backing up an entire session in case OBS crashes",
+            "Saving separate audio tracks for each of your sources"
           ],
           answer: 0,
           explain: "It shines when you cannot predict the highlight in advance."
@@ -344,9 +344,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The Screenshot feature captures:",
           choices: [
             "A still image of a source or the whole output",
-            "A full video recording",
-            "Your audio only",
-            "Your settings file"
+            "A short looping clip of the last few seconds",
+            "Only the webcam image, never the full canvas",
+            "A copy of your scene layout as a backup file"
           ],
           answer: 0,
           explain: "Screenshot saves a single frame as an image."
@@ -385,9 +385,9 @@ window.ACADEMY.addUnit("obs", {
           q: "For a high-quality thumbnail base, it helps to screenshot:",
           choices: [
             "A well-lit, well-framed moment",
-            "A blurry, dark frame",
-            "The OBS settings window",
-            "An empty scene"
+            "Any random frame, since thumbnails get edited heavily anyway",
+            "The darkest moment, since you can brighten it later on",
+            "A frame in motion, so the thumbnail feels more energetic"
           ],
           answer: 0,
           explain: "A sharp, well-composed frame makes a better thumbnail starting point."
@@ -404,9 +404,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A habit that speeds up editing is:",
           choices: [
             "Clapping or making a marker sound to find edit points",
-            "Recording with the mic muted",
-            "Never testing audio",
-            "Filling your disk"
+            "Recording one long take and never pausing between sections",
+            "Turning off the preview while recording to save resources",
+            "Recording each section to a different output folder"
           ],
           answer: 0,
           explain: "A clap or verbal marker gives you an obvious audio spike to cut on."
@@ -445,9 +445,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The overall goal of editing-friendly recording is to:",
           choices: [
             "Make the raw footage easy and fast to cut",
-            "Make files as large as possible",
-            "Avoid ever editing",
-            "Reduce your resolution"
+            "Make every recording as long and complete as possible",
+            "Capture footage good enough that no editing is needed",
+            "Record at the highest settings even if the PC struggles"
           ],
           answer: 0,
           explain: "Good capture habits turn a painful edit into a quick one."
@@ -481,9 +481,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A repeatable workflow mainly helps by:",
           choices: [
             "Reducing mistakes and setup time",
-            "Increasing your bitrate",
-            "Slowing your PC",
-            "Removing audio"
+            "Raising the quality of every recording",
+            "Letting OBS fix your settings for you",
+            "Smaller files"
           ],
           answer: 0,
           explain: "Routine reduces errors and gets you recording faster."
@@ -522,9 +522,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The payoff of mastering workflow is:",
           choices: [
             "You spend energy on content, not fighting your setup",
-            "Bigger files",
-            "Slower uploads",
-            "Worse audio"
+            "Your recordings use higher settings without any extra work",
+            "OBS updates and tunes your settings for you automatically",
+            "You never need to test a recording before a real take again"
           ],
           answer: 0,
           explain: "A smooth workflow frees your attention for making good content."

@@ -60,8 +60,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A team exposes /getUser, /getUserOrders, and /updateUserEmail, all accepting POST. Where does this sit on the maturity ladder?",
           choices: [
-            "Level 3, because every operation has a distinct URI",
-            "Level 2, because it uses POST correctly everywhere",
+            "Level 3, because every operation has its own distinct and descriptive URI",
+            "Level 2, because it uses POST correctly and consistently for every operation",
             "Level 1, since there are several URIs but verbs carry no meaning",
             "Level 0, since HTTP is used only as a transport"
           ],
@@ -138,9 +138,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which response field pair is the healthier default for a cursor-paginated collection endpoint?",
           choices: [
-            "total_count and total_pages computed on every request",
+            "total_count and total_pages, computed fresh for the matching set on every request",
             "next_cursor and has_more, with total counts optional or omitted",
-            "current_offset and page_size echoed back to the client",
+            "current_offset and page_size echoed back to the client so it can request the next page",
             "last_modified and etag in place of any paging metadata"
           ],
           answer: 1,
@@ -157,10 +157,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A request is well-formed JSON but asks to book a room that is already taken. Which status best fits?",
           choices: [
-            "400 Bad Request, since the booking cannot be satisfied",
-            "500 Internal Server Error, since the write failed",
+            "400 Bad Request, since the booking the client asked for cannot be satisfied",
+            "500 Internal Server Error, since the write to the bookings table failed",
             "409 Conflict, since the request conflicts with current resource state",
-            "422 Unprocessable Content, since the room id is unusable"
+            "422 Unprocessable Content, since the room id in the body is unusable for a new booking"
           ],
           answer: 2,
           explain: "409 signals a conflict with the present state of the target resource, which a client may resolve by re-reading and retrying. 400 implies a malformed request; 500 wrongly blames the server; 422 is for a body that is semantically invalid on its own terms, not for one that clashes with state that may change a second later."
@@ -265,9 +265,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "A field must be removed from a widely used response. What is the safest sequence?",
           choices: [
             "Announce deprecation, keep serving the field, measure remaining callers, then remove",
-            "Remove it behind a feature flag and roll forward if error rates stay flat",
-            "Null the field first so the shape is stable, then delete it the next day",
-            "Remove it in a patch release and publish a migration guide afterward"
+            "Remove it behind a feature flag and roll forward if error rates stay flat for an hour",
+            "Return null for the field first so the shape stays stable, then delete the key the next day",
+            "Remove it in a patch release and publish a detailed migration guide for callers afterward"
           ],
           answer: 0,
           explain: "You cannot remove what you cannot see being used. Deprecation plus per-field usage telemetry turns a breaking change into a measurable one; nulling a field is itself a breaking change for callers that read it."
@@ -336,9 +336,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A client reuses the same idempotency key but sends a different request body. What should a careful server do?",
           choices: [
-            "Silently process the new body and overwrite the stored response",
+            "Silently process the new body as a new operation and overwrite the stored response for that key",
             "Reject the request with an error, since the key was bound to different parameters",
-            "Merge the two bodies and apply the union of the requested changes",
+            "Merge the two bodies and apply the union of the requested changes in a single operation",
             "Ignore the key entirely and treat it as a fresh, unkeyed request"
           ],
           answer: 1,
@@ -424,10 +424,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is a distributed rate limiter usually built on a shared counter store rather than per-instance memory?",
           choices: [
-            "Shared stores are faster than local memory for counter increments",
+            "Shared stores are faster than local memory for counter increments under heavy load",
             "Per-instance counters multiply the effective limit by the number of instances",
-            "Local memory cannot represent token bucket state accurately",
-            "Shared stores remove the need for any client-side backoff"
+            "Local memory cannot represent token bucket state accurately once the refill rate is high",
+            "Shared stores remove the need for any client-side backoff when a limit is reached"
           ],
           answer: 1,
           explain: "With N gateway instances each enforcing the limit locally, a client spread across them can send up to N times the intended rate. A shared store, or a coordinated share-per-instance scheme, avoids that."
@@ -443,10 +443,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What does GraphQL primarily solve that a fixed REST endpoint does not?",
           choices: [
-            "Guaranteed lower database load for every query shape",
+            "Guaranteed lower database load for every query shape the client sends",
             "Transport-level compression of large response payloads",
             "Client-specified field selection, ending over- and under-fetching",
-            "Built-in authorization enforcement at the field level"
+            "Built-in authorization enforcement at the field level, with no server code needed"
           ],
           answer: 2,
           explain: "The client declares exactly which fields it needs, so one endpoint serves many screens without shipping unused data or forcing extra round trips. Authorization is still the server's job to implement."

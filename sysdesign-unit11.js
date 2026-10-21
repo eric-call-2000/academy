@@ -97,9 +97,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why should a published SLA usually be looser than the internal SLO for the same service?",
           choices: [
-            "Because SLAs are measured over shorter windows than SLOs",
-            "Because SLAs measure latency while SLOs measure availability",
-            "Because the SLO must be met exactly or the SLA is void",
+            "Because SLAs are measured over much shorter windows than SLOs, so short blips count more",
+            "Because SLAs measure latency for customers while SLOs measure availability for engineers",
+            "Because the SLO must be met exactly every month or the SLA is considered void",
             "Because the gap gives you room to detect and fix degradation before you owe customers anything"
           ],
           answer: 3,
@@ -122,10 +122,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which availability SLI most closely reflects what users actually experience?",
           choices: [
-            "Server process uptime as reported by the host monitoring agent",
+            "Server process uptime as reported by the monitoring agent running on each host",
             "The fraction of successful responses measured at the load balancer or client",
             "Mean time between deploys of the service binary",
-            "CPU utilization staying below its configured threshold"
+            "CPU utilization staying below its configured alerting threshold across the fleet"
           ],
           answer: 1,
           explain: "Process uptime and CPU are proxies that can look healthy while users get errors. Request success rate measured close to the user captures the real experience."
@@ -134,10 +134,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A team reports mean latency of 120 ms and declares its latency SLO met. What is the main flaw in this reasoning?",
           choices: [
-            "Mean latency should be compared against throughput, not an SLO",
-            "Latency SLOs are only valid for write requests",
+            "Mean latency should be compared against throughput, not against a latency SLO",
+            "Latency SLOs are only valid for write requests, so read latency cannot be judged this way",
             "The mean hides the tail, so a small share of very slow requests is invisible",
-            "Mean latency cannot be computed without knowing the error rate"
+            "Mean latency cannot be computed correctly without also knowing the error rate for the period"
           ],
           answer: 2,
           explain: "Latency distributions are heavily skewed. Good SLOs are stated as a percentile threshold, for example 99% of requests under 300 ms, precisely so the tail is visible."
@@ -159,10 +159,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What makes gray failure especially dangerous compared with an outright crash?",
           choices: [
-            "It only affects write paths, which are harder to retry",
-            "It is always caused by hardware rather than software",
+            "It only affects write paths, which are much harder to retry safely than reads",
+            "It is always caused by failing hardware rather than by software bugs, so it cannot be patched",
             "The node still passes health checks, so it keeps receiving traffic while serving degraded results",
-            "It cannot be reproduced in a staging environment"
+            "It cannot be reproduced in a staging environment, so it is only ever diagnosed during production incidents"
           ],
           answer: 2,
           explain: "Gray failure is a differential observation: the system's own health check sees a healthy node while clients see errors or timeouts. Automated recovery never fires because nothing looks broken."
@@ -185,9 +185,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "A cache in front of a database loses all its entries at once. Every request now goes to the database, which collapses. What is this pattern called?",
           choices: [
             "Thundering herd, also described as a cache stampede",
-            "Split brain",
-            "Head-of-line blocking",
-            "Backpressure inversion"
+            "Split brain between two cache replicas after a partition",
+            "Head-of-line blocking in the database connection pool",
+            "Backpressure inversion at the overloaded database"
           ],
           answer: 0,
           explain: "The herd of simultaneous misses hits the origin all at once. Request coalescing, staggered TTLs, and serving stale entries during refresh are the standard mitigations."
@@ -212,10 +212,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which design choice most directly limits the blast radius of a partial failure?",
           choices: [
-            "Increasing the global connection pool size on every service",
+            "Increasing the global connection pool size on every service so no caller has to wait",
             "Partitioning traffic into cells or shards so a failure affects only one partition",
-            "Configuring a single shared thread pool for all downstream calls",
-            "Raising client timeouts so slow responses are not counted as errors"
+            "Configuring a single shared thread pool that all downstream calls draw from fairly",
+            "Raising client timeouts so that slow responses are no longer counted as errors"
           ],
           answer: 1,
           explain: "Cell-based or sharded architectures bound how many users any single failure can touch. A shared global pool does the opposite by coupling every caller together."
@@ -231,10 +231,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the core advantage of propagating an absolute deadline instead of giving each hop its own fixed timeout?",
           choices: [
-            "It removes the need to configure any timeout at the edge",
-            "It guarantees that every downstream call completes successfully",
+            "It removes the need to configure any timeout at the edge, since the deadline replaces all of them",
+            "It guarantees that every downstream call completes successfully before the original caller gives up",
             "Downstream hops know the remaining time and abandon work the caller has already given up on",
-            "It converts synchronous calls into asynchronous ones automatically"
+            "It converts synchronous calls into asynchronous ones automatically, so no hop ever blocks waiting on another"
           ],
           answer: 2,
           explain: "A deadline carried through the call chain shrinks as time is consumed. Each hop can refuse work that cannot finish in time, so nobody burns capacity on a doomed request."
@@ -268,9 +268,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "A team sets every service timeout to a uniform 30 seconds. What is the most likely consequence under load?",
           choices: [
             "Threads and connections stay occupied for a long time, so queues build up and the system fails slowly instead of shedding",
-            "Downstream services will reject requests earlier than necessary",
+            "Downstream services will start rejecting requests earlier than necessary, since they see the long timeout as a signal of overload",
             "Retry budgets will be consumed before the first attempt completes",
-            "Latency percentiles will improve because fewer requests are cancelled"
+            "Latency percentiles will improve under load because far fewer requests get cancelled before they finish"
           ],
           answer: 0,
           explain: "Long uniform timeouts turn overload into deep queueing. Timeouts should be derived from observed latency, typically a modest multiple of the high percentile, not picked as a round number."
@@ -286,9 +286,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which timeout setting is the most defensible starting point for a downstream call?",
           choices: [
             "A value slightly above the observed p99 latency for that call, revisited as latency changes",
-            "The default provided by the HTTP client library, whatever it happens to be",
-            "The mean latency of the call, so slow requests are cut off quickly",
-            "The same value used by every other call in the service, for consistency"
+            "The default provided by the HTTP client library, whatever value it happens to ship with",
+            "The mean latency of the call, so that any slower than average request is cut off quickly",
+            "The same value used by every other call in the service, so the configuration stays consistent"
           ],
           answer: 0,
           explain: "Anchoring to the measured tail latency of that specific call keeps healthy requests from being cut off while still bounding the wait. Library defaults are frequently infinite."
@@ -304,9 +304,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is jitter added to exponential backoff rather than using clean doubling intervals?",
           choices: [
-            "It removes the need for a maximum retry limit",
-            "It makes retry timing reproducible for debugging",
-            "It compensates for clock skew between client and server",
+            "It removes the need for a maximum retry limit, since the random waits keep growing",
+            "It makes retry timing reproducible, which helps when debugging failures afterward",
+            "It compensates for clock skew between the client and the server it is retrying against",
             "It desynchronizes clients so they do not all retry at the same instants"
           ],
           answer: 3,
@@ -342,9 +342,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "A retry budget, sometimes called an adaptive retry throttle, works by:",
           choices: [
             "Capping retries as a small ratio of successful requests, so retries stop when the dependency is broadly failing",
-            "Allowing each client a fixed number of retries per day",
-            "Increasing the retry count automatically when error rates rise",
-            "Delaying all retries until the next deployment window"
+            "Allowing each client a fixed number of retries per day, after which all further retries are rejected outright",
+            "Increasing the retry count automatically whenever error rates rise, so more requests eventually succeed",
+            "Delaying all retries until the next deployment window, when the dependency is likely to have been fixed"
           ],
           answer: 0,
           explain: "Tying the allowed retry volume to recent success volume means retries help with isolated blips but shut off automatically during a real outage, preventing amplification."
@@ -395,10 +395,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the bulkhead pattern?",
           choices: [
-            "Duplicating every service across two availability zones",
+            "Duplicating every service across two availability zones so a zone outage cannot take the whole service down",
             "Isolating resources such as thread or connection pools per dependency so one slow dependency cannot exhaust them all",
-            "Buffering writes in a queue so the database is never called synchronously",
-            "Rejecting requests once a global concurrency limit is reached"
+            "Buffering all writes in a queue so that the database is never called synchronously from the request path",
+            "Rejecting new requests once a single global concurrency limit for the whole process has been reached"
           ],
           answer: 1,
           explain: "Named after ship compartments, bulkheads bound the damage. With one shared pool, a single slow dependency ties up every worker and takes down calls that had nothing to do with it."
@@ -413,10 +413,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A breaker is configured to trip after 5 consecutive failures. On a service handling thousands of requests per second, the likely problem is:",
           choices: [
-            "It will never trip, because failures are rarely consecutive",
-            "It cannot enter half-open without a success threshold",
+            "It ignores timeouts entirely, so only explicit error responses from the service are ever counted",
+            "It cannot enter the half-open state unless a separate success threshold is also configured",
             "It trips too easily, because a brief blip on a high-volume service produces 5 failures almost instantly",
-            "Consecutive-failure counting is incompatible with exponential backoff"
+            "Consecutive-failure counting is incompatible with exponential backoff in the client, so retries reset the count"
           ],
           answer: 2,
           explain: "At high volume, thresholds should be based on an error rate over a rolling window with a minimum request count, not a raw consecutive count that trivial noise can satisfy."
@@ -448,10 +448,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What distinguishes load shedding from rate limiting?",
           choices: [
-            "Load shedding applies only to write traffic; rate limiting applies only to reads",
+            "Load shedding applies only to write traffic that would change state, while rate limiting applies only to read traffic from clients",
             "Load shedding drops requests based on the server's current health and capacity; rate limiting enforces a defined quota per client",
-            "Load shedding happens at the client; rate limiting happens at the server",
-            "Load shedding is permanent; rate limiting is temporary"
+            "Load shedding happens at the client before a request is sent, while rate limiting happens at the server after it arrives",
+            "Load shedding is permanent for a client once triggered, while rate limiting is temporary"
           ],
           answer: 1,
           explain: "Rate limiting enforces a policy contract regardless of load. Load shedding is a reaction to real-time overload, protecting the server from collapse even when every client is within quota."
@@ -537,10 +537,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A system uses asynchronous cross-region replication with about 10 seconds of typical lag. What does this imply?",
           choices: [
-            "RPO is effectively zero because replication is continuous",
+            "RPO is effectively zero because replication runs continuously, so no acknowledged write can be lost",
             "RPO is roughly the replication lag, so a regional loss can lose the last several seconds of writes",
-            "RTO is necessarily zero because a standby already holds the data",
-            "Both RTO and RPO are determined solely by backup retention policy"
+            "RTO is necessarily zero because a standby in the other region already holds a copy of the data",
+            "Both RTO and RPO are determined solely by the backup retention policy, not by the replication setup"
           ],
           answer: 1,
           explain: "Async replication acknowledges the write before the remote copy is durable, so unreplicated writes are lost on failover. Only synchronous replication gives an RPO of zero, at the cost of write latency."

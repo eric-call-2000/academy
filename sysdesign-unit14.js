@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the core technical difference between a container and a virtual machine?",
           choices: [
-            "A container virtualizes hardware and boots its own kernel, while a VM shares the host kernel",
+            "A container virtualizes the hardware and boots its own guest kernel, while a VM shares the host kernel with every other VM on the machine",
             "A container isolates a process and its filesystem while sharing the host kernel, while a VM virtualizes hardware and runs its own kernel",
-            "A container can only run stateless code, while a VM is the only way to run a database",
-            "A container is a compressed disk image, while a VM is a running copy of that same image"
+            "A container can only run stateless application code, while a VM is the only safe way to run a database or anything that writes to disk",
+            "A container is a compressed disk image stored in a registry, while a VM is a running copy of that same image"
           ],
           answer: 1,
           explain: "Containers are isolated processes on a shared kernel, built from namespaces and cgroups. VMs virtualize hardware and boot a separate guest kernel, which is why they are heavier to start."
@@ -121,9 +121,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which practice most directly reduces the risk of a secret leaking through configuration?",
           choices: [
             "Storing secrets in a dedicated secret manager and injecting them at runtime with short-lived, rotatable values",
-            "Base64-encoding the secret before putting it in the repository",
-            "Keeping secrets in a private repository that only the team can clone",
-            "Passing secrets as command-line arguments to the process at startup"
+            "Base64-encoding the secret before committing it, so the raw value never appears in plain text in the repository or its history",
+            "Keeping secrets in a private repository that only members of the team are allowed to clone",
+            "Passing secrets as command-line arguments to the process at startup so they never touch the disk at all"
           ],
           answer: 0,
           explain: "Base64 is encoding, not encryption, and private repos still persist secrets in history. Command-line arguments are visible in the process table. A secret manager plus rotation limits both exposure and blast radius."
@@ -156,10 +156,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What distinguishes continuous delivery from continuous deployment?",
           choices: [
-            "Continuous delivery runs tests, while continuous deployment skips tests to move faster",
-            "Continuous delivery applies only to libraries, while continuous deployment applies only to services",
+            "Continuous delivery runs the full test suite on each change, while continuous deployment skips the slower tests to move faster",
+            "Continuous delivery applies only to libraries and packages, while continuous deployment applies only to long-running services in production",
             "Continuous delivery keeps every change releasable with a manual go decision; continuous deployment ships every passing change automatically",
-            "Continuous delivery builds artifacts nightly, while continuous deployment builds them per commit"
+            "Continuous delivery builds release artifacts nightly, while continuous deployment builds them per commit"
           ],
           answer: 2,
           explain: "Both require an always-releasable trunk. The difference is only whether a human presses the button on the final promotion to production."
@@ -192,9 +192,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A test in your pipeline fails roughly one run in twenty for no code-related reason. What is the right response?",
           choices: [
-            "Add an automatic retry so the pipeline is green again and move on",
-            "Delete the test permanently, since unreliable signal is worse than no signal at all",
-            "Increase the timeout on every test in the suite to reduce the failure rate",
+            "Add an automatic retry around the test so the pipeline goes green again, then move on to other work",
+            "Delete the test permanently, since an unreliable signal is worse than having no signal at all",
+            "Increase the timeout on every test in the suite, since slow environments are usually what causes intermittent failures",
             "Quarantine or fix the flaky test, because tolerated flakiness trains the team to ignore red builds"
           ],
           answer: 3,
@@ -228,9 +228,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "What does it mean that declarative infrastructure as code is idempotent?",
           choices: [
             "Applying the same configuration repeatedly converges on the same end state instead of stacking changes",
-            "Each apply creates a new copy of the infrastructure, so history is preserved",
-            "The tool refuses to run twice against the same environment without a manual reset",
-            "Every resource is destroyed and recreated on each run to guarantee a clean state"
+            "Each apply creates a new copy of the infrastructure alongside the old one, so the full history of every environment is preserved",
+            "The tool refuses to run twice against the same environment without a manual reset of its state file",
+            "Every resource is destroyed and recreated on each run to guarantee a clean, known state"
           ],
           answer: 0,
           explain: "You describe the desired end state, and the tool computes the diff against reality. Running it again when nothing changed is a no-op, which is what makes reruns safe."
@@ -298,9 +298,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the defining difference between blue/green and canary deployment?",
           choices: [
-            "Blue/green requires containers, while canary works only on virtual machines",
-            "Blue/green updates instances in place one at a time, while canary replaces the whole fleet simultaneously",
-            "Blue/green applies to databases only, while canary applies to stateless services only",
+            "Blue/green requires the service to run in containers, while canary deployment works only on virtual machines",
+            "Blue/green updates the instances in place one at a time, while canary replaces the whole fleet with the new version simultaneously",
+            "Blue/green applies to database deployments only, while canary applies to stateless services only",
             "Blue/green runs two full environments and flips all traffic at once; canary shifts a small percentage of traffic to the new version first"
           ],
           answer: 3,
@@ -345,9 +345,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Your service is deployed blue/green, but blue and green share one production database. What does that constrain?",
           choices: [
             "Schema changes must be compatible with both versions, since a rollback cannot undo writes the new version already made",
-            "Nothing, because the database is outside the deployment boundary",
-            "Only read queries may run during the cutover window",
-            "The database must be duplicated too, or the flip cannot proceed"
+            "Nothing at all, because the database sits outside the deployment boundary and is versioned separately from the code",
+            "Only read queries may run against the database during the cutover window, so writes must be paused for the flip",
+            "The database must be duplicated as well, or the flip from blue to green cannot proceed"
           ],
           answer: 0,
           explain: "The traffic flip is instant; data is not. A rollback returns the old code to a database the new code has already written to, so schema and data changes must be backward compatible."
@@ -369,10 +369,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the central idea that feature flags enable?",
           choices: [
-            "They eliminate the need for automated tests by letting you fix bugs in production",
-            "They allow multiple versions of the same binary to run without a load balancer",
+            "They eliminate the need for automated tests, because any bug can be fixed in production by switching the flag back off",
+            "They allow multiple versions of the same binary to run side by side in production without a load balancer",
             "They separate deploy, meaning code is shipped to production, from release, meaning users can see the behavior",
-            "They replace version control branches by storing feature code in a configuration service"
+            "They replace version control branches by storing the feature code itself in a configuration service until launch"
           ],
           answer: 2,
           explain: "Deploy is a technical event; release is a product event. A flag lets code sit dormant in production until someone decides to turn it on, and lets it be turned off without a redeploy."
@@ -452,9 +452,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Why is renaming a column in a single migration unsafe during a rolling deploy?",
           choices: [
             "There is a window where old code still queries the old name that no longer exists, causing errors",
-            "Renames always require an exclusive table lock in every database engine",
-            "The rename invalidates all indexes on the table and forces a full rebuild",
-            "Renames cannot be expressed in most migration frameworks without raw SQL"
+            "The rename copies every row into a new column, so the table doubles in size until the next vacuum",
+            "The rename invalidates every index on the table and forces a full rebuild before queries can run again",
+            "Renames cannot be expressed in most migration frameworks without falling back to raw SQL"
           ],
           answer: 0,
           explain: "During a rollout, both versions run simultaneously. A rename is a destructive change that breaks whichever version is not yet updated, and it breaks rollback too."
@@ -486,10 +486,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "You need to make a column NOT NULL on a large, busy table. What is the safest ordering?",
           choices: [
-            "Add the constraint immediately and let the database reject any offending writes as they occur",
-            "Stop writes, alter the column, and restart writes during a short maintenance window",
+            "Add the constraint immediately and let the database reject any offending writes as they occur, then fix the callers that start failing in production",
+            "Stop all writes, alter the column, and restart writes during a short maintenance window",
             "Ensure the application always writes a value, backfill remaining nulls in batches, validate, then add the constraint",
-            "Drop the column and recreate it as NOT NULL with a default value"
+            "Drop the column and recreate it as NOT NULL with a default value, then redeploy the application code that writes to it"
           ],
           answer: 2,
           explain: "The constraint can only be added cheaply once no nulls remain, and nulls only stop appearing once the application guarantees a value. Dropping the column would destroy data."
@@ -511,10 +511,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why should cloud cost be treated as an architectural constraint rather than a finance problem discovered later?",
           choices: [
-            "Because cloud providers charge penalties for unplanned architecture changes",
+            "Because cloud providers charge contractual penalties when a customer makes unplanned changes to a running architecture",
             "Because the choices that determine the bill are design choices - data placement, replication factor, chattiness, retention - and they are expensive to reverse afterward",
-            "Because the finance team cannot read infrastructure invoices without engineering help",
-            "Because reserved capacity discounts are only available before a system is designed"
+            "Because the finance team cannot read infrastructure invoices without engineering help, so the bill is never reviewed until it is far too late to change anything",
+            "Because reserved capacity discounts are only available before a system is designed and deployed"
           ],
           answer: 1,
           explain: "Cost is a consequence of design. Cross-zone chatter, replication factor, and log retention are set in the architecture and become structural once traffic depends on them."
@@ -546,10 +546,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Your observability bill now rivals your compute bill. Which response addresses the structural cause?",
           choices: [
-            "Turn off logging in production and rely on user reports to detect incidents",
-            "Move all logs to a self-hosted cluster without changing volume or retention",
+            "Turn off logging in production entirely and rely on user reports and support tickets to detect incidents",
+            "Move all logs to a self-hosted cluster without changing the volume or retention, so the vendor bill goes away",
             "Sample high-volume traces, set retention by signal value, and aggregate high-cardinality debug logs into metrics",
-            "Increase log verbosity so each incident needs fewer follow-up deploys"
+            "Increase log verbosity so that each incident needs fewer follow-up deploys to gather more information"
           ],
           answer: 2,
           explain: "Telemetry cost scales with volume times retention times cardinality. Self-hosting shifts the cost to your own operations without reducing any of those three terms."

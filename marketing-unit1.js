@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which best describes marketing?",
           choices: [
             "Creating, communicating, and delivering value to customers",
-            "Only running paid ads",
-            "Only making a logo look nice",
-            "Only cold-calling strangers"
+            "Running paid ads that put your offer in front of buyers",
+            "Designing a logo and visual identity that looks professional",
+            "Persuading strangers to buy through cold calls and pitches"
           ],
           answer: 0,
           explain: "Marketing is the whole system of creating and delivering value, not just one tactic like ads."
@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "How does marketing differ from sales?",
           choices: [
             "Marketing creates interest and demand; sales closes the individual deal",
-            "They are exactly the same job",
-            "Marketing only happens after the sale",
-            "Sales creates the product design"
+            "They are the same job with two different titles on the org chart",
+            "Marketing only begins after the sale, once the customer has paid",
+            "Sales builds awareness at scale; marketing handles each single buyer"
           ],
           answer: 0,
           explain: "Marketing builds awareness and demand at scale; sales turns interested people into buyers one at a time."
@@ -68,9 +68,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which of these is NOT a core job of marketing?",
           choices: [
             "Manufacturing the physical product on the factory line",
-            "Communicating value to the right people",
-            "Understanding customer needs",
-            "Delivering value through the right channels"
+            "Communicating value clearly to the right group of people",
+            "Understanding customer needs before deciding what to offer",
+            "Delivering value to buyers through the most fitting channels"
           ],
           answer: 0,
           explain: "Building the product is operations. Marketing focuses on creating, communicating, and delivering value."
@@ -160,9 +160,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "A value proposition is best described as:",
           choices: [
             "The clear promise of value a customer gets from your offer",
-            "A list of your company's internal goals",
-            "The price tag alone",
-            "Your office address"
+            "A summary of the company's internal growth and revenue goals",
+            "The price of the offer compared with what competitors charge",
+            "A list of every product feature the team has built so far"
           ],
           answer: 0,
           explain: "A value proposition states the concrete value a customer receives from choosing you."
@@ -229,9 +229,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a target audience?",
           choices: [
             "The specific group of people you aim to serve",
-            "Everyone on earth",
-            "Only your current employees",
-            "The competitor's staff"
+            "Everyone who could possibly use the product",
+            "The people who already follow you on social",
+            "The competitors you are trying to win against"
           ],
           answer: 0,
           explain: "A target audience is the defined group most likely to want and buy your offer."
@@ -241,9 +241,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "A niche market is best described as:",
           choices: [
             "A focused segment with specific needs",
-            "The largest possible mass market",
-            "A market with no customers",
-            "Only foreign customers"
+            "The largest mass market you can reach",
+            "A market where no competitors exist",
+            "Any market outside your home country"
           ],
           answer: 0,
           explain: "A niche is a narrow, well-defined slice of the market with particular needs."
@@ -275,9 +275,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why does niching often win for a solo founder or small business?",
           choices: [
             "You can tailor your message and stand out with fewer resources",
-            "Because niches never have any competition ever",
-            "Because it guarantees you will go viral",
-            "Because you never have to talk to customers"
+            "Niche markets usually have no competitors, so you win by default",
+            "A narrow focus makes it much more likely your content goes viral",
+            "Niche customers rarely compare prices, so you can charge anything"
           ],
           answer: 0,
           explain: "A tight niche lets small players tailor messaging and compete without a huge budget."
@@ -372,9 +372,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a touchpoint?",
           choices: [
             "Any moment a person interacts with your brand",
-            "The physical cash register only",
-            "A competitor's website",
-            "The factory loading dock"
+            "Only the moment a customer pays at checkout",
+            "The final sales call before a deal is signed",
+            "A paid ad placement that you buy on a platform"
           ],
           answer: 0,
           explain: "A touchpoint is any interaction, like an ad, a review, an email, or a support chat."
@@ -418,9 +418,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why map the customer journey?",
           choices: [
             "To understand and improve each step of the experience",
-            "To make the process longer on purpose",
-            "To hide information from customers",
-            "To avoid ever talking to customers"
+            "To find the single channel that brings in the most sales",
+            "To add more steps so buyers have time to think it over",
+            "To decide which departments should own which customers"
           ],
           answer: 0,
           explain: "Mapping reveals friction points so you can smooth the path and keep people moving forward."
@@ -443,9 +443,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is the main role of marketing?",
           choices: [
             "Create demand and generate leads at scale",
-            "Sign every contract personally",
-            "Ship the physical packages",
-            "Handle company payroll"
+            "Negotiate and sign each contract one by one",
+            "Handle billing and support after the sale",
+            "Decide product features and the build plan"
           ],
           answer: 0,
           explain: "Marketing builds awareness and demand and hands qualified leads to sales."
@@ -455,9 +455,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is the main role of sales?",
           choices: [
             "Close individual deals with interested prospects",
-            "Design the company logo",
-            "Write blog posts for the public",
-            "Run the email newsletter"
+            "Build broad awareness of the brand across channels",
+            "Publish blog posts and videos to attract an audience",
+            "Run the newsletter that nurtures leads over time"
           ],
           answer: 0,
           explain: "Sales works one-on-one to turn qualified leads into paying customers."
@@ -512,9 +512,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Inbound marketing works by:",
           choices: [
             "Attracting people with useful content they seek out",
-            "Cold-calling random phone numbers",
-            "Buying billboards on every highway",
-            "Sending unsolicited mass mail"
+            "Calling prospects directly from a purchased list",
+            "Placing billboards and TV spots in front of crowds",
+            "Sending promotional mail to a broad mailing list"
           ],
           answer: 0,
           explain: "Inbound draws people in with content like blogs, videos, and search results they choose to engage with."
@@ -524,9 +524,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Outbound marketing works by:",
           choices: [
             "Pushing your message out to reach people directly",
-            "Waiting for customers to find you by luck",
-            "Only publishing help articles",
-            "Never contacting anyone"
+            "Publishing help articles that rank in search results",
+            "Waiting for referrals from happy current customers",
+            "Drawing people in with content they choose to find"
           ],
           answer: 0,
           explain: "Outbound reaches out to an audience with ads, cold outreach, or direct mail."

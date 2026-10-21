@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("obs", {
           q: "In a screen-plus-facecam layout, the main content should usually be:",
           choices: [
             "The largest element, with the facecam in a corner",
-            "Hidden behind the webcam",
-            "The same size as everything else",
-            "Off-screen"
+            "Hidden behind the webcam so your face is the focus",
+            "The same size as the facecam so both get equal space",
+            "Shrunk into a corner so the facecam can fill the frame"
           ],
           answer: 0,
           explain: "The main content dominates; the facecam is a small corner accent."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Consistency in layout across videos helps by:",
           choices: [
             "Making your channel instantly recognizable",
-            "Slowing down your PC",
-            "Increasing file size",
-            "Removing your audio"
+            "Making every video file smaller and faster to upload",
+            "Letting OBS switch scenes for you automatically",
+            "Raising the video quality of every recording"
           ],
           answer: 0,
           explain: "A repeatable layout builds a recognizable brand feel."
@@ -81,8 +81,8 @@ window.ACADEMY.addUnit("obs", {
           q: "A lower third typically displays:",
           choices: [
             "Your name, title, or a short label",
-            "The entire video",
-            "Your bitrate",
+            "The full video title and description text",
+            "A scrolling chat feed from your viewers",
             "A full-screen image"
           ],
           answer: 0,
@@ -122,9 +122,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A clean lower third design usually has:",
           choices: [
             "Readable text with good contrast and simple styling",
-            "Tiny gray text on a busy background",
-            "Flashing rainbow colors",
-            "Text that fills the whole screen"
+            "Small decorative text with lots of motion and effects",
+            "Bright flashing colors so it catches viewers' eyes",
+            "Large text that covers most of the bottom half of the frame"
           ],
           answer: 0,
           explain: "Readability and restraint make a lower third look professional."
@@ -147,9 +147,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A Browser source in OBS shows:",
           choices: [
             "A web page or overlay URL inside your scene",
-            "Only static images",
-            "Your microphone waveform",
-            "The recording folder"
+            "Only a static screenshot of a web page you saved",
+            "The recordings folder as a list of saved files",
+            "A copy of your whole browser window with its tabs"
           ],
           answer: 0,
           explain: "Browser sources render a live web page as a layer in the scene."
@@ -188,9 +188,9 @@ window.ACADEMY.addUnit("obs", {
           q: "To make a browser overlay's background see-through, the page should:",
           choices: [
             "Use a transparent background (no solid fill)",
-            "Be pure white",
-            "Be a JPEG",
-            "Have a full black background"
+            "Use a solid white background so the text stands out",
+            "Be saved as a JPEG image with a light background",
+            "Use a full black background that OBS removes for you"
           ],
           answer: 0,
           explain: "Transparent CSS backgrounds let the scene show through around the overlay."
@@ -213,9 +213,9 @@ window.ACADEMY.addUnit("obs", {
           q: "To add a channel logo, use which source?",
           choices: [
             "Image (a PNG with transparency)",
-            "Audio Input Capture",
-            "Display Capture",
-            "Game Capture"
+            "Display Capture of the logo file",
+            "Media Source (an MP3 file)",
+            "Color Source with a text label"
           ],
           answer: 0,
           explain: "A transparent PNG placed via an Image source works well for logos."
@@ -254,9 +254,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Keeping a logo small and in a corner is good practice because it:",
           choices: [
             "Brands the video without distracting from content",
-            "Uses less internet",
-            "Adds more scenes",
-            "Improves audio"
+            "Makes the recording file smaller and faster to export",
+            "Helps OBS encode the video with less CPU work",
+            "Hides the facecam when the main content is busy"
           ],
           answer: 0,
           explain: "A subtle corner logo brands without stealing attention."
@@ -289,9 +289,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A Stinger transition uses:",
           choices: [
             "A short video clip to wipe between scenes",
-            "Only a solid color",
-            "Your microphone",
-            "The recording folder"
+            "Only a solid color that fades between scenes",
+            "A slide in from one side using the next scene",
+            "An instant cut"
           ],
           answer: 0,
           explain: "Stingers play a video (often with transparency) to cover the switch."
@@ -320,9 +320,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A Stinger transition needs which asset?",
           choices: [
             "A video file (often with an alpha/transparent frame)",
-            "A JPEG only",
-            "A text file",
-            "An audio-only clip"
+            "A still PNG image of your logo with no background",
+            "A text file listing the scenes to switch between",
+            "An audio clip that plays a whoosh during the change"
           ],
           answer: 0,
           explain: "Stingers play a video file; alpha lets it reveal the next scene mid-animation."
@@ -345,9 +345,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Studio Mode adds a workflow with:",
           choices: [
             "A preview on the left and the live program on the right",
-            "A second microphone",
-            "Automatic uploading",
-            "A larger canvas only"
+            "A second canvas that records your webcam to its own file",
+            "Two previews side by side, one for each connected monitor",
+            "A live program view plus a list of all your saved scenes"
           ],
           answer: 0,
           explain: "Studio Mode splits into a preview you edit and a program that is live."
@@ -385,9 +385,9 @@ window.ACADEMY.addUnit("obs", {
           q: "For a solo recording-first creator, Studio Mode is:",
           choices: [
             "Optional, since you can fix things in editing",
-            "Mandatory for any recording",
-            "Required to add audio",
-            "The only way to record"
+            "Required, because OBS cannot record outside Studio Mode",
+            "Essential, since it is the only way to add transitions",
+            "Needed whenever you want to record more than one scene"
           ],
           answer: 0,
           explain: "It is helpful for live work but not essential when you edit afterward."
@@ -410,9 +410,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Keeping key text away from the very edges of the frame helps because:",
           choices: [
             "Different players and platforms may crop the edges",
-            "It uses less internet",
-            "It adds scenes",
-            "It boosts your mic"
+            "Text near the edges takes longer for OBS to encode",
+            "Edge content lowers the overall sharpness of the video",
+            "OBS automatically blurs anything close to the canvas border"
           ],
           answer: 0,
           explain: "Edge content can be cut off by overlays, players, or platform cropping."
@@ -451,9 +451,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The 'safe zone' is:",
           choices: [
             "The central area unlikely to be cropped or covered",
-            "Your recording folder",
-            "A type of transition",
-            "A microphone setting"
+            "The outer border where logos and watermarks belong",
+            "The part of the canvas that OBS never records to disk",
+            "The folder where OBS keeps backup copies of your scenes"
           ],
           answer: 0,
           explain: "The safe zone is the reliable central area for important elements."
@@ -487,9 +487,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A recognizable brand look mostly comes from:",
           choices: [
             "Consistent colors, fonts, and layout across videos",
-            "Using a different style every video",
-            "The highest possible bitrate",
-            "Recording in the dark"
+            "Using a new style each video so the channel never feels stale",
+            "Recording every video at the highest bitrate your PC can handle",
+            "Adding as many animated overlays and effects as you can fit"
           ],
           answer: 0,
           explain: "Consistency in the visual system is what makes a brand recognizable."
@@ -528,9 +528,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Saving your finished branded setup as a scene collection lets you:",
           choices: [
             "Reuse and back up your whole look easily",
-            "Increase your frame rate",
-            "Remove your audio",
-            "Speed up your internet"
+            "Share one profile's settings across every computer automatically",
+            "Record two different layouts at the same time to separate files",
+            "Merge all your scenes into one scene that holds every source"
           ],
           answer: 0,
           explain: "A scene collection captures your branded scenes for reuse and backup."

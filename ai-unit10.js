@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("ai", {
         {
           type: "mcq",
           q: "Which company builds Claude and offers the Claude API?",
-          choices: ["Anthropic", "OpenAI", "Google", "Meta"],
+          choices: ["Anthropic", "OpenAI", "Google DeepMind", "Amazon Web Services"],
           answer: 0,
           explain: "Anthropic makes Claude. OpenAI makes ChatGPT, Google makes Gemini, and Meta makes Llama."
         },
@@ -69,9 +69,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why is it risky to embed your API key directly in a public website's JavaScript?",
           choices: [
             "Anyone can read it and run up charges on your account",
-            "The key stops working after one request",
-            "Claude refuses keys used in browsers",
-            "It makes responses slower"
+            "The key expires the first time a browser sends it",
+            "Browsers block requests that include an API key",
+            "The model answers slower when called from a browser"
           ],
           answer: 0,
           explain: "Front-end code is visible to everyone. Keep keys on a server so they cannot be stolen and abused."
@@ -88,9 +88,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is Claude Code?",
           choices: [
             "An agentic command-line tool that reads, edits, and runs code in your project",
-            "A website for chatting with Claude",
-            "A programming language made by Anthropic",
-            "A spreadsheet plugin"
+            "A code-completion plugin that only suggests the next line as you type in an editor",
+            "A version of the Claude chat app with a dark theme and a built-in code viewer",
+            "A Claude model trained only on code, available through a separate paid API"
           ],
           answer: 0,
           explain: "Claude Code runs in your terminal and can actually work inside your codebase, not just talk about it."
@@ -124,9 +124,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why is it wise to review Claude Code's changes before committing them?",
           choices: [
             "AI can make mistakes, so a human should verify the diff",
-            "The tool deletes files at random",
-            "Reviewing makes the code run faster",
-            "Commits are impossible without review"
+            "Claude Code can't run tests, so nothing is checked before",
+            "Unreviewed commits are rejected by every git server",
+            "Reviewing teaches Claude Code to avoid that mistake later"
           ],
           answer: 0,
           explain: "Claude Code is powerful but not perfect. You stay in control by reviewing what it changed."
@@ -142,9 +142,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which task fits Claude Code well?",
           choices: [
             "Refactor a function and update its tests across several files",
-            "Physically install a graphics card",
-            "Predict tomorrow's lottery numbers",
-            "Charge your laptop battery"
+            "Chat about which programming language is best to learn first",
+            "Look up today's stock prices without any tools connected",
+            "Design a logo for your project as a high-resolution image"
           ],
           answer: 0,
           explain: "Claude Code shines at multi-file coding work: reading context, editing, and running tests."
@@ -161,9 +161,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does prompt caching let you do?",
           choices: [
             "Reuse a large, unchanging chunk of context across many requests",
-            "Store Claude's answers forever with no cost",
-            "Skip writing prompts entirely",
-            "Train Claude on your data"
+            "Store every answer so identical questions are never sent twice",
+            "Keep the model's memory of a user across separate conversations",
+            "Save a fine-tuned copy of the model trained on your documents"
           ],
           answer: 0,
           explain: "Caching stores a stable prefix (like a long document or instructions) so it does not have to be reprocessed each time."
@@ -186,9 +186,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which content is the best candidate to cache?",
           choices: [
             "A long reference document reused on every request",
-            "The user's brand-new question each time",
-            "A random number",
-            "The current timestamp"
+            "The user's new question, which changes each time",
+            "The model's reply from the previous request",
+            "A timestamp added to the top of every request"
           ],
           answer: 0,
           explain: "Cache the big, reused, stable parts. The changing user question is what varies from call to call."
@@ -231,9 +231,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a token, roughly?",
           choices: [
             "A small chunk of text, often a word or part of a word",
-            "A dollar amount you deposit",
-            "A single letter only",
-            "A full paragraph"
+            "One full sentence, which is how cost is measured",
+            "A single character, such as one letter or a space",
+            "A credit you buy in advance for each API request"
           ],
           answer: 0,
           explain: "Models read and write in tokens, which are pieces of text. Cost and limits are measured in tokens."
@@ -256,9 +256,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is the main user-facing benefit of streaming?",
           choices: [
             "The reader sees words appear quickly instead of staring at a blank screen",
-            "It makes the answer cheaper per token",
-            "It removes all mistakes from the answer",
-            "It caches the prompt automatically"
+            "Each token costs less to generate because it is sent as soon as it's ready",
+            "The model reasons more carefully because it writes one token at a time",
+            "The full answer arrives sooner, since streaming speeds up the model itself"
           ],
           answer: 0,
           explain: "Streaming lowers perceived wait time. Words show up as they are produced."
@@ -268,9 +268,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which move most reliably lowers the cost of an API call?",
           choices: [
             "Send less input and ask for a shorter output",
-            "Add more filler to the prompt",
-            "Request the longest possible answer",
-            "Repeat the question three times"
+            "Turn streaming on so tokens are billed as sent",
+            "Raise the temperature so it answers faster",
+            "Send the request at a quieter time of day"
           ],
           answer: 0,
           explain: "Fewer tokens in and out means lower cost. Trim the prompt and cap the output length."
@@ -299,9 +299,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does giving Claude tools let it do?",
           choices: [
             "Call functions to fetch data or take actions beyond just writing text",
-            "Rewrite its own training data",
-            "Run without any prompt",
-            "Become conscious"
+            "Learn new facts permanently from whatever data the tools happen to return",
+            "Run without a prompt, since the tools decide what the model should do",
+            "Switch automatically to a larger model whenever a task gets difficult"
           ],
           answer: 0,
           explain: "Tool use lets the model call functions you define, like looking up a record or sending a request."
@@ -324,9 +324,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is an MCP server, in plain terms?",
           choices: [
             "A component that exposes tools or data to an AI app in a standard way",
-            "A physical rack in a data center only",
-            "A model that replaces Claude",
-            "A billing dashboard"
+            "A hosted copy of the model that a company runs on its own hardware",
+            "A cloud service that stores your chat history for every AI app you use",
+            "A security layer that blocks any tool calls the model was not trained on"
           ],
           answer: 0,
           explain: "An MCP server offers capabilities (tools, files, data) that a compatible AI client can use."
@@ -369,9 +369,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is an AI agent?",
           choices: [
             "A system that plans and takes multiple steps, using tools, to reach a goal",
-            "A single one-word answer",
-            "A model with no access to tools",
-            "A human customer-support rep"
+            "A chatbot that answers each message once, using only its training data",
+            "A model fine-tuned on one company's documents to answer its questions",
+            "A scripted workflow where each step is fixed in advance by a programmer"
           ],
           answer: 0,
           explain: "An agent loops through thinking, acting, and observing across several steps instead of replying once."
@@ -394,9 +394,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why add guardrails and step limits to an agent?",
           choices: [
             "To keep it from looping forever or taking unsafe actions",
-            "To make it slower on purpose",
-            "To stop it from ever using tools",
-            "To hide its answers"
+            "To make each step cheaper by shortening the model's replies",
+            "To force it to ask the user before every single tool call",
+            "To stop it from using tools that return private data"
           ],
           answer: 0,
           explain: "Autonomy needs limits. Caps and checks prevent runaway loops and risky actions."
@@ -423,9 +423,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which task is a good fit for an agent rather than a single prompt?",
           choices: [
             "Research a topic across several sources and compile a summary",
-            "Return the current time as one word",
-            "Echo back a single sentence",
-            "Add two numbers"
+            "Rewrite one paragraph in a friendlier tone for an email",
+            "Translate a short product description into Spanish",
+            "Answer a quick definition question about a common word"
           ],
           answer: 0,
           explain: "Multi-step tasks that need tools and iteration are where agents earn their keep."
@@ -442,9 +442,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why ask Claude for structured output like JSON?",
           choices: [
             "So your program can reliably parse and use the fields",
-            "To make the answer longer",
-            "Because JSON is the only format Claude knows",
-            "To hide the answer from users"
+            "So the answer is more accurate than a plain-text reply",
+            "So the model uses fewer tokens and costs a lot less",
+            "So users can read the answer more easily on screen"
           ],
           answer: 0,
           explain: "A fixed shape lets code read specific fields without guessing, which makes apps more reliable."
@@ -512,9 +512,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a good use of the system prompt for safety?",
           choices: [
             "Set clear rules and boundaries for how the assistant should behave",
-            "Store the user's password",
-            "Speed up token billing",
-            "Replace all testing"
+            "Store user passwords so the assistant can verify who is chatting",
+            "Replace testing, since the rules guarantee the model follows them",
+            "Hide the model's name so users can't tell which AI they are using"
           ],
           answer: 0,
           explain: "A well-written system prompt defines scope and limits, steering the model toward safe behavior."
@@ -537,9 +537,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why is monitoring important after you ship an AI feature?",
           choices: [
             "To catch failures, misuse, and cost spikes early",
-            "To make the model smarter automatically",
-            "To delete all logs",
-            "To avoid ever updating the prompt"
+            "So the model retrains itself on its own mistakes",
+            "To prove the feature works, so testing can stop",
+            "To make responses faster as more people use it"
           ],
           answer: 0,
           explain: "Monitoring surfaces problems in real usage so you can respond before they grow."

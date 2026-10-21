@@ -20,7 +20,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Sexual selection has two main mechanisms. What are they?",
-          choices: ["Predation and camouflage", "Intrasexual competition and intersexual choice", "Mutation and genetic drift", "Migration and isolation"],
+          choices: ["Predation pressure and camouflage", "Intrasexual competition and intersexual choice", "Mutation and random genetic drift", "Kin selection and reciprocal altruism toward mates"],
           answer: 1,
           explain: "Intrasexual selection is competition within one sex (often male-male), while intersexual selection is choice by the other sex (often female choice)."
         },
@@ -108,7 +108,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "What is the characteristic long-run behavior of the Battle of the Sexes dynamics?",
-          choices: ["A single fixed pure strategy", "Immediate extinction of females", "Cyclical oscillation of strategy frequencies", "Every individual becoming identical"],
+          choices: ["Settling at a single fixed pure strategy", "Rapid extinction of one of the strategies", "Cyclical oscillation of strategy frequencies", "Convergence to a stable mixed equilibrium"],
           answer: 2,
           explain: "The replicator dynamics of this game typically cycle, with the proportions of coy/fast and faithful/philandering rising and falling rather than settling."
         },
@@ -198,7 +198,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Why can the runaway process accelerate a trait's exaggeration?",
-          choices: ["Predators start to prefer ornamented males", "Sons inherit the trait and daughters inherit the preference", "The trait lowers the mutation rate", "Food suddenly becomes more abundant"],
+          choices: ["Predators come to prefer the males with the most ornaments", "Sons inherit the trait and daughters inherit the preference", "The trait lowers the mutation rate in the sons that carry it", "Daughters inherit the trait and sons inherit the preference instead"],
           answer: 1,
           explain: "The genetic coupling creates positive feedback: more ornamented sons and choosier daughters each generation push the trait further."
         },
@@ -212,7 +212,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "What eventually halts a runaway process?",
-          choices: ["The trait stops being heritable", "Females forget their preference", "Natural selection against an overly costly trait", "The population goes extinct instantly"],
+          choices: ["The trait stops being passed on from fathers to sons", "Females lose their preference after a few generations", "Natural selection against an overly costly trait", "Males stop competing with each other for mates"],
           answer: 2,
           explain: "Runaway continues until the survival cost of the exaggerated trait balances its mating benefit, reaching an equilibrium."
         },
@@ -242,7 +242,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Fisher's sex-ratio argument explains why many species tend toward what?",
-          choices: ["Mostly females", "Mostly males", "Roughly equal investment in the sexes", "No offspring of either sex"],
+          choices: ["Mostly females, since one male can mate with many", "Mostly males, since males compete for mates", "Roughly equal investment in the sexes", "A ratio that drifts at random from one generation to the next"],
           answer: 2,
           explain: "When one sex is rarer, parents producing it gain a fitness advantage, pushing investment back toward equality."
         },
@@ -269,7 +269,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Why does the fact that every offspring has exactly one mother and one father matter here?",
-          choices: ["It makes total male and total female reproductive success equal", "It doubles the mutation rate", "It removes all competition", "It prevents any sex-ratio bias forever"],
+          choices: ["It makes total male and total female reproductive success equal", "It doubles the mutation rate in each generation", "It removes all competition between members of the same sex", "It means parents must always produce one son and one daughter"],
           answer: 0,
           explain: "Since the total genetic contribution of all males equals that of all females, the rarer sex has higher per-capita success."
         },
@@ -326,7 +326,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "The 50/50 outcome is best described as which kind of equilibrium?",
-          choices: ["A stable point maintained by negative frequency dependence", "An unstable point that any push destroys", "A point requiring no selection at all", "A ratio set purely by random chance"],
+          choices: ["A stable point maintained by negative frequency dependence", "An unstable point that any small push in either direction destroys", "A point that needs no selection at all to keep it in place", "A ratio set purely by random chance in each new generation"],
           answer: 0,
           explain: "Deviations are self-correcting, so 50/50 is a stable equilibrium held by negative frequency-dependent selection."
         },
@@ -369,7 +369,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Why does local mate competition favor female-biased broods?",
-          choices: ["Sons are always cheaper to produce", "Brothers compete with each other for the same females", "Daughters cannot reproduce", "Predators specifically target females"],
+          choices: ["Sons are always cheaper to produce than daughters", "Brothers compete with each other for the same females", "Daughters cannot mate with males from their own brood", "Predators target daughters more often than sons in the brood"],
           answer: 1,
           explain: "Extra sons mostly compete against their own brothers, so a mother gains more grandchildren by making daughters instead."
         },
@@ -383,7 +383,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Local mate competition breaks Fisher's 1:1 prediction because it violates which assumption?",
-          choices: ["That offspring are heritable", "That mating is random across the whole population", "That females can reproduce", "That the two sexes cost the same to make"],
+          choices: ["That every offspring is born with the same fitness", "That mating is random across the whole population", "That females are able to reproduce on their own", "That sons and daughters cost the same to make"],
           answer: 1,
           explain: "Fisher assumed population-wide random mating; when mating is local among relatives, sons compete with kin and the ratio skews female."
         },
@@ -413,7 +413,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "The operational sex ratio (OSR) is defined as the ratio of what?",
-          choices: ["All males to all females in a population", "Sexually receptive males to receptive females at a given time", "Juveniles to adults", "Surviving to dead individuals"],
+          choices: ["All males to all females in the population, counting every adult and juvenile together", "Sexually receptive males to receptive females at a given time", "Juveniles to adults in the population during the breeding season", "Males that hold territories to males that do not"],
           answer: 1,
           explain: "The OSR counts only currently available, ready-to-mate individuals, not the whole population."
         },
@@ -440,7 +440,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Which factor most directly makes one sex's contribution to the OSR smaller?",
-          choices: ["Longer time spent unavailable while caring for young", "A brighter body color", "A larger total population size", "A colder climate on its own"],
+          choices: ["Longer time spent unavailable while caring for young", "A brighter body color that attracts more mates", "A larger total population size in the area", "A colder climate during the breeding season"],
           answer: 0,
           explain: "The longer individuals are out of the mating pool, for example while caring for young, the fewer of that sex are available, shifting the OSR."
         },

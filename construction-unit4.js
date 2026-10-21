@@ -27,7 +27,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does the spacing term 16 OC mean for wall studs?",
-          choices: ["16 studs per wall", "Centers spaced 16 inches apart", "16-foot stud length", "16 nails per stud"],
+          choices: ["Clear gaps of 16 inches between stud faces", "Centers spaced 16 inches apart", "One stud for every 16 feet of wall", "A 16-inch offset from each corner"],
           answer: 1,
           explain: "On-center spacing measures from the center of one stud to the center of the next, and 16 inches is the common residential interval."
         },
@@ -63,7 +63,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "An I-joist gets its name from its shape. Why is it used instead of solid lumber for floors?",
-          choices: ["It is cheaper than any board", "It spans farther with less weight and resists warping", "It is required by fire code", "It needs no support at the ends"],
+          choices: ["It is fire-rated and needs no protection under floors", "It spans farther with less weight and resists warping", "It can be notched anywhere for pipes without losing strength", "It carries more load because it is made of solid hardwood"],
           answer: 1,
           explain: "An engineered I-joist uses a tall web and flanges to span long distances with less material and far less warping than sawn lumber."
         }
@@ -77,14 +77,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "The first piece of wood placed on top of the foundation wall, bolted down, is the:",
-          choices: ["Rim joist", "Sill plate (mudsill)", "Subfloor", "Top plate"],
+          choices: ["Rim joist (band joist)", "Sill plate (mudsill)", "Bottom plate (sole plate)", "Ledger board"],
           answer: 1,
           explain: "The sill plate, or mudsill, is anchored to the foundation and gives the floor framing something to rest on."
         },
         {
           type: "mcq",
           q: "What is the purpose of anchor bolts in a floor system?",
-          choices: ["To join two joists", "To fasten the sill plate to the foundation", "To level the subfloor", "To support the roof"],
+          choices: ["To join the rim joist to the floor joists", "To fasten the sill plate to the foundation", "To connect the floor joists to a center beam", "To hold the subfloor panels down at the edges"],
           answer: 1,
           explain: "Anchor bolts are set into the concrete and tie the sill plate down so the house cannot slide off its foundation."
         },
@@ -98,7 +98,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the main reason to glue AND screw a subfloor to the joists?",
-          choices: ["To save on nails", "To prevent squeaks and stiffen the floor", "To make it waterproof", "To speed up framing"],
+          choices: ["To seal the floor against moisture from below", "To prevent squeaks and stiffen the floor", "To meet the fire rating between floors", "To let the panels expand without buckling"],
           answer: 1,
           explain: "Construction adhesive plus screws bonds the subfloor to the joists, reducing movement that causes squeaks and creating a stiffer floor."
         },
@@ -137,7 +137,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Most exterior load-bearing walls are capped with a double top plate. Why use two stacked plates?",
-          choices: ["To make the wall taller", "To tie walls together and spread roof loads", "To hold insulation", "It is purely decorative"],
+          choices: ["To give a nailing surface for the exterior siding", "To tie walls together and spread roof loads", "To provide room for running wires above the studs", "To keep the studs from twisting as the lumber dries"],
           answer: 1,
           explain: "The doubled top plate laps at corners and intersections, locking walls together and distributing loads from above."
         },
@@ -151,14 +151,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "The shorter stud that sits under the header and transfers its load to the bottom plate is the:",
-          choices: ["King stud", "Cripple stud", "Jack (trimmer) stud", "Sill stud"],
+          choices: ["King (full-height) stud", "Cripple (filler) stud", "Jack (trimmer) stud", "Corner (backer) stud"],
           answer: 2,
           explain: "The jack stud, also called a trimmer, is cut to the header height and carries the header load down to the bottom plate."
         },
         {
           type: "mcq",
           q: "A short stud above a header or below a window sill, filling the gap to the plate, is a:",
-          choices: ["Cripple stud", "King stud", "Trimmer", "Post"],
+          choices: ["Cripple stud", "King stud", "Trimmer stud", "Fire blocking"],
           answer: 0,
           explain: "Cripple studs are short studs that fill in above headers and below sills to maintain the on-center stud pattern."
         },
@@ -201,7 +201,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the main difference between rafters and trusses?",
-          choices: ["Rafters are steel; trusses are wood", "Trusses are prefab engineered units; rafters are cut and framed on site", "Trusses are only for flat roofs", "There is no difference"],
+          choices: ["Rafters are prefab engineered units; trusses are cut and framed on site", "Trusses are prefab engineered units; rafters are cut and framed on site", "Trusses are used only on flat roofs; rafters only on sloped roofs", "Rafters carry roof loads; trusses only support the ceiling below"],
           answer: 1,
           explain: "Trusses arrive as engineered triangulated assemblies, while rafters are individual sloped members cut and assembled at the site."
         },
@@ -215,14 +215,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Where two roof slopes meet to form an inside corner that channels water, that line is a:",
-          choices: ["Hip", "Ridge", "Valley", "Eave"],
+          choices: ["Hip", "Ridge", "Valley", "Cricket"],
           answer: 2,
           explain: "A valley is the inward angle where two slopes meet, and it must be flashed because water concentrates there."
         },
         {
           type: "mcq",
           q: "Roof pitch is most often expressed as:",
-          choices: ["Degrees only", "Rise in inches per 12 inches of run", "A percentage of total height", "Feet per mile"],
+          choices: ["Run in inches per 12 inches of rise", "Rise in inches per 12 inches of run", "Degrees of angle measured from the ridge", "Inches of overhang per foot of wall"],
           answer: 1,
           explain: "Residential pitch is written as rise over run, such as 6/12, meaning the roof rises 6 inches for every 12 inches of horizontal run."
         },
@@ -251,7 +251,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A collar tie connects opposing rafters in the upper third of the roof. What does it mainly resist?",
-          choices: ["Rafters sagging at midspan", "Rafters separating at the ridge in wind uplift", "Snow load on the deck", "Wall racking"],
+          choices: ["Rafters sagging at midspan under snow loads", "Rafters separating at the ridge in wind uplift", "Outward thrust pushing the top of the walls apart", "Racking of the roof frame along the ridge line"],
           answer: 1,
           explain: "Collar ties keep opposing rafters from pulling apart at the ridge under uplift and wind forces."
         }
@@ -265,14 +265,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does it mean when a house is dried in?",
-          choices: ["The drywall is finished", "The shell keeps out rain so interior work can start", "The lumber has fully cured", "The paint has dried"],
+          choices: ["The drywall is hung, taped and finished throughout", "The shell keeps out rain so interior work can start", "The framing lumber has dried to its final moisture", "The foundation has been waterproofed and backfilled"],
           answer: 1,
           explain: "The dry-in is the point where roof, sheathing, wrap, and openings keep weather out so interior trades can work."
         },
         {
           type: "mcq",
           q: "Which is a common structural wall sheathing panel?",
-          choices: ["Drywall", "OSB (oriented strand board)", "Particleboard", "MDF"],
+          choices: ["Gypsum board (drywall)", "OSB (oriented strand board)", "MDF (medium-density fiberboard)", "Particleboard (chipboard)"],
           answer: 1,
           explain: "OSB and plywood are the structural panels nailed to the framing to add strength and a surface for the wrap."
         },
@@ -286,7 +286,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Flashing is installed at penetrations and transitions primarily to:",
-          choices: ["Add insulation value", "Direct water away from vulnerable joints", "Hold the siding tight", "Improve appearance only"],
+          choices: ["Add insulation value at gaps in the wall", "Direct water away from vulnerable joints", "Seal air leaks so the wall passes a blower door test", "Hold the siding tight against the sheathing"],
           answer: 1,
           explain: "Flashing is shaped metal or membrane that channels water out and over the barrier instead of letting it into the wall."
         },
@@ -311,7 +311,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why does water management matter so much in wall assemblies?",
-          choices: ["Water makes lumber heavier", "Trapped moisture causes rot, mold, and failure", "It changes the paint color", "It only affects the basement"],
+          choices: ["Wet lumber is heavier and overloads the foundation", "Trapped moisture causes rot, mold, and failure", "Water lowers the R-value only while it is raining", "Moisture mainly causes paint and siding to fade"],
           answer: 1,
           explain: "A wall that cannot drain or dry will trap moisture, leading to rot, mold, and structural decay over time."
         }
@@ -332,7 +332,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Ice and water shield is a self-adhering membrane installed mainly at:",
-          choices: ["The ridge only", "Eaves and valleys prone to ice dams", "The center of the field", "The chimney top"],
+          choices: ["The ridge line, where the shingles meet at the top", "Eaves and valleys prone to ice dams", "Across the full field as the only underlayment", "Around attic vents and pipe boots only"],
           answer: 1,
           explain: "Ice and water shield seals around fasteners at eaves and valleys, where ice dams and concentrated runoff threaten leaks."
         },
@@ -346,7 +346,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Shingle exposure refers to:",
-          choices: ["The total shingle length", "The portion of each course left visible to the weather", "How many nails are used", "The color of the shingle"],
+          choices: ["The total length of each shingle from top to bottom", "The portion of each course left visible to the weather", "The amount each course overlaps the one beneath it", "The direction the roof faces relative to sun and wind"],
           answer: 1,
           explain: "Exposure is the visible part of each shingle course after the next course overlaps it, and it sets the coverage pattern."
         },
@@ -375,7 +375,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Asphalt shingles are the most common residential roofing because they are:",
-          choices: ["The most fireproof option", "Affordable, easy to install, and widely available", "Permanent and never wear out", "Required by all building codes"],
+          choices: ["The most fire-resistant roofing option available", "Affordable, easy to install, and widely available", "Rated to last longer than metal or slate roofing", "Required by most residential building codes"],
           answer: 1,
           explain: "Asphalt shingles dominate residential roofs thanks to low cost, easy installation, and broad availability."
         }
@@ -389,7 +389,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Fenestration is the construction term for:",
-          choices: ["The framing of floors", "The arrangement of windows and doors in a wall", "The roof venting system", "The insulation layer"],
+          choices: ["The pattern of vents and louvers along a roof", "The arrangement of windows and doors in a wall", "The layering of wrap and flashing on a wall", "The spacing of studs and headers in a frame"],
           answer: 1,
           explain: "Fenestration covers the openings in a building envelope, mainly its windows and doors."
         },
@@ -403,7 +403,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Pan flashing at the bottom of a window rough opening is there to:",
-          choices: ["Hold the window in place", "Catch and drain any water that gets behind the unit", "Insulate the sill", "Hide the fasteners"],
+          choices: ["Hold the window level and square in the opening", "Catch and drain any water that gets behind the unit", "Insulate the sill against cold air coming in", "Seal the gap between the frame and the drywall"],
           answer: 1,
           explain: "Pan flashing lines the sill so any intruding water is collected and drained back out to the wrap."
         },
@@ -439,7 +439,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "When installing a window, why flash the sides and head over the house wrap but tuck the sill flashing under it?",
-          choices: ["To save material", "So water always sheds outward, layer over layer", "To make it look cleaner", "Code does not allow any other way"],
+          choices: ["So the flashing tape can stick to bare sheathing", "So water always sheds outward, layer over layer", "So air cannot leak in around the window frame", "So the window can be removed later without damage"],
           answer: 1,
           explain: "Shingling the flashing over the wrap on top and tucking it under at the bottom keeps water moving down and out at every layer."
         }
@@ -474,7 +474,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why must drain lines be installed with a consistent slope?",
-          choices: ["To save pipe", "So gravity keeps waste flowing toward the sewer", "To reduce noise", "To match the supply lines"],
+          choices: ["So trapped air can vent out through the roof", "So gravity keeps waste flowing toward the sewer", "So water pressure stays steady at each fixture", "So the pipe joints stay tight as the house settles"],
           answer: 1,
           explain: "Drains rely on gravity, so a steady slope, often a quarter inch per foot, keeps solids and water moving out."
         },
@@ -499,7 +499,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A stub-out during rough-in is:",
-          choices: ["A capped pipe left projecting for a future fixture", "A removed section of pipe", "A type of vent", "A cleanout cover"],
+          choices: ["A capped pipe left projecting for a future fixture", "A short vent pipe that ends inside the wall cavity", "A section of pipe cut out to bypass a leak", "A removable cap that gives access to clear clogs"],
           answer: 0,
           explain: "A stub-out is a short capped pipe left sticking out of the wall or floor to connect a fixture during trim-out."
         }
@@ -513,7 +513,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "The main box where power enters the home and divides into circuits is the:",
-          choices: ["Junction box", "Service panel (load center)", "Receptacle", "Meter base"],
+          choices: ["Junction box (splice box)", "Service panel (load center)", "Meter base (meter socket)", "Subpanel (branch panel)"],
           answer: 1,
           explain: "The service panel, or load center, holds the breakers that split incoming power into the branch circuits."
         },
@@ -527,14 +527,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does a circuit breaker do?",
-          choices: ["Increases voltage", "Trips to stop current when a circuit is overloaded or faulted", "Stores electricity", "Converts AC to DC"],
+          choices: ["Steps the voltage down so it is safe for household use", "Trips to stop current when a circuit is overloaded or faulted", "Stores extra power and releases it when demand spikes", "Splits the incoming power evenly across every outlet"],
           answer: 1,
           explain: "A breaker interrupts the circuit when current exceeds a safe level, protecting the wiring from overheating."
         },
         {
           type: "mcq",
           q: "A GFCI device is required near water sources because it:",
-          choices: ["Boosts power to appliances", "Shuts off quickly if current leaks to ground", "Filters noise from the line", "Dims the lights"],
+          choices: ["Trips when the circuit draws more amps than it is rated for", "Shuts off quickly if current leaks to ground", "Protects against arcing in damaged wiring", "Keeps the outlet dry with a sealed cover"],
           answer: 1,
           explain: "A GFCI senses tiny current leaks to ground and cuts power fast to prevent shock, which is vital near sinks and outdoors."
         },
@@ -577,14 +577,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "In a typical forced-air system, the furnace heats air and the ____ provides cooling.",
-          choices: ["Register", "Condenser (AC unit)", "Return grille", "Plenum"],
+          choices: ["Register (supply vent)", "Condenser (AC unit)", "Return grille", "Plenum (air chamber)"],
           answer: 1,
           explain: "The outdoor condenser, the AC unit, removes heat for cooling while the furnace handles heating through the same blower and ducts."
         },
         {
           type: "mcq",
           q: "What is the difference between supply and return ducts?",
-          choices: ["Supply brings conditioned air in; return pulls room air back", "Supply is for cooling only; return for heating only", "They are the same thing", "Return ducts carry water"],
+          choices: ["Supply brings conditioned air in; return pulls room air back", "Supply carries cooled air; return carries heated air", "Supply brings outside fresh air in; return exhausts it outdoors", "Return brings conditioned air in; supply pulls room air back"],
           answer: 0,
           explain: "Supply ducts deliver heated or cooled air to rooms, and return ducts draw room air back to the equipment to recondition it."
         },
@@ -627,7 +627,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Batt insulation differs from blown insulation mainly because batts are:",
-          choices: ["Pre-cut blanket rolls fit between framing", "Sprayed as a liquid", "Loose fill poured into cavities", "Rigid foam panels"],
+          choices: ["Pre-cut blanket rolls fit between framing", "Sprayed on as a liquid foam that expands", "Loose fibers blown into enclosed cavities", "Rigid foam boards nailed over the sheathing"],
           answer: 0,
           explain: "Batts are pre-formed blankets cut to fit between studs and joists, while blown insulation is loose fill blown into cavities."
         }

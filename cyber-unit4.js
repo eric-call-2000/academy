@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "You get an email with a link. What is a safe first step before clicking?",
-          choices: ["Hover over the link to preview the real destination", "Click it fast so the offer does not expire", "Forward it to friends to test it", "Reply asking if the link is safe"],
+          choices: ["Hover over the link to preview the real destination", "Check that the email includes the company's logo and footer", "Reply to the sender and ask whether the link is safe", "Open the link in a private window so it can't track you"],
           answer: 0,
           explain: "Hovering shows the actual URL, letting you spot a fake or mismatched address before you commit to clicking."
         },
@@ -62,7 +62,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "You get an unexpected message from a friend with only a strange link and no words. What is the smart move?",
-          choices: ["Verify with your friend through another channel first", "Click it since it is from a friend", "Reply to the message with your password", "Share the link with others right away"],
+          choices: ["Verify with your friend through another channel first", "Click it, since links from friends are usually safe", "Reply in the same chat to ask what the link is for", "Open it on your phone instead of your laptop to be safe"],
           answer: 0,
           explain: "Hacked accounts often blast out links. Confirming through a separate channel catches this before you click."
         }
@@ -76,7 +76,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why can public Wi-Fi at a cafe be risky?",
-          choices: ["Others on the network may be able to snoop on unprotected traffic", "It always installs viruses automatically", "It permanently deletes your files", "It makes your device faster but less private"],
+          choices: ["Others on the network may be able to snoop on unprotected traffic", "Cafe routers install tracking software on every device that joins", "Public networks share your saved files with anyone else connected", "Free Wi-Fi is too slow for HTTPS, so sites fall back to plain text"],
           answer: 0,
           explain: "On an open or shared network, an attacker may be positioned to observe traffic that is not encrypted."
         },
@@ -96,7 +96,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "On sketchy public Wi-Fi, which activity is riskiest to do?",
-          choices: ["Logging into your bank on an unprotected connection", "Reading a public news article", "Checking the weather", "Looking at a map"],
+          choices: ["Logging into your bank on an unprotected connection", "Reading public news articles on a site that uses HTTPS", "Streaming a video from a well-known service in the app", "Searching for directions to a nearby store on a map"],
           answer: 0,
           explain: "Sensitive logins expose the most if intercepted, so save them for a trusted network or protect them with a VPN."
         },
@@ -125,7 +125,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What is a lookalike or rogue hotspot?",
-          choices: ["A fake Wi-Fi network set up to lure and snoop on victims", "A backup network your phone provides", "A faster version of official Wi-Fi", "A network that blocks all ads"],
+          choices: ["A fake Wi-Fi network set up to lure and snoop on victims", "A second access point that extends the cafe's real network", "A personal hotspot shared from someone's phone for friends", "A guest network that keeps visitors apart from staff devices"],
           answer: 0,
           explain: "A rogue hotspot mimics a trusted network's name so people connect to an attacker-controlled access point."
         }
@@ -139,7 +139,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What does a VPN actually do?",
-          choices: ["Encrypts your connection and hides your IP from sites you visit", "Removes all viruses from your device", "Makes you completely anonymous online", "Blocks every possible scam automatically"],
+          choices: ["Encrypts your connection and hides your IP from sites you visit", "Scans your downloads and removes any viruses it finds on the device", "Makes you fully anonymous so no one can ever link activity to you", "Blocks phishing sites and scam emails before they reach you"],
           answer: 0,
           explain: "A VPN routes your traffic through an encrypted tunnel and swaps your visible IP for the VPN server's."
         },
@@ -189,7 +189,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Which is a fair, honest way to describe a VPN to a friend?",
-          choices: ["It encrypts your connection and hides your IP, but is not antivirus or total anonymity", "It makes you invisible and unhackable", "It removes viruses and blocks all scams", "It is only useful for streaming and nothing else"],
+          choices: ["It encrypts your connection and hides your IP, but is not antivirus or total anonymity", "It makes you fully anonymous online, so websites and apps can never track you at all", "It removes viruses and blocks scams, so you can skip other security tools", "It is only useful for streaming shows from other countries and nothing else"],
           answer: 0,
           explain: "Setting realistic expectations helps people use a VPN well without a false sense of total safety."
         }
@@ -203,7 +203,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why do software updates often matter for security?",
-          choices: ["They frequently fix known vulnerabilities attackers exploit", "They only change the app's colors", "They always slow your device down", "They remove all your files"],
+          choices: ["They frequently fix known vulnerabilities attackers exploit", "They mostly add new features, so security fixes are rare", "They reset your settings to the safest possible defaults", "They scan your device for malware each time they install"],
           answer: 0,
           explain: "Many updates patch security holes. Applying them quickly closes doors attackers already know about."
         },
@@ -223,7 +223,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "You keep clicking Remind Me Later on an important security update. What is the risk?",
-          choices: ["A known vulnerability stays open for attackers longer", "Your device becomes more secure", "Nothing ever changes about risk", "The update becomes unnecessary over time"],
+          choices: ["A known vulnerability stays open for attackers longer", "The update expires and can no longer be installed later", "Your device stops receiving all other app updates", "Your files are locked until the update is finally applied"],
           answer: 0,
           explain: "Delaying leaves a known hole open. The longer you wait, the more time attackers have to use it."
         },
@@ -252,7 +252,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "A pop-up on a random website screams that your device needs an urgent update. What should you suspect?",
-          choices: ["It may be a fake update scam trying to install malware", "It is always the official system updater", "It is a helpful reminder you should trust", "It will speed up your device"],
+          choices: ["It may be a fake update scam trying to install malware", "It is your browser's built-in updater checking the version", "It is a real alert, since sites can detect outdated systems", "It is an ad that is annoying but cannot cause any harm"],
           answer: 0,
           explain: "Real updates come from your system or app store, not surprise website pop-ups, which are a known malware trick."
         }
@@ -297,7 +297,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "A file named invoice.pdf.exe arrives unexpectedly. Why is that a red flag?",
-          choices: ["The real ending is .exe, a program, disguised to look like a document", "PDF files can never be dangerous", "The name is too long to be real", "It means the file is empty"],
+          choices: ["The real ending is .exe, a program, disguised to look like a document", "PDF files with two dots in the name cannot be opened by readers", "The .pdf part means the file was compressed and may be corrupted", "Invoices are always sent as Word files, never as PDFs"],
           answer: 0,
           explain: "A double extension hides that the file is an executable program, a classic trick to get you to run malware."
         },
@@ -330,7 +330,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why does oversharing on social media create security risk?",
-          choices: ["Details you post can help attackers guess answers, target you, or impersonate you", "It makes your posts load faster", "It has no effect on your security at all", "It only affects your battery life"],
+          choices: ["Details you post can help attackers guess answers, target you, or impersonate you", "Social media sites sell your password to advertisers along with your posts", "Posting often makes your account easier to brute force by attackers", "Public posts are automatically scanned by malware that infects your device"],
           answer: 0,
           explain: "Small facts like your pet's name, birthday, or workplace can feed guessing, targeting, and impersonation."
         },
@@ -350,7 +350,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Which post is riskiest to share publicly?",
-          choices: ["A photo tagged with your full home address and that you are away on vacation", "A picture of a sunset with no details", "A quote you like", "A public news link"],
+          choices: ["A photo tagged with your full home address and that you are away on vacation", "A photo of your new office building with the company's name on the sign", "A post about a concert you went to last month with a group of your friends", "A selfie with your pet at the park near where you work"],
           answer: 0,
           explain: "Revealing that your home is empty plus its location is an open invitation to burglars and stalkers."
         },
@@ -379,7 +379,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "A quiz asks for your first pet, first car, and street you grew up on for fun. Why be cautious?",
-          choices: ["Those are common security question answers attackers love to collect", "Quizzes are always completely safe", "It improves your account security to share them", "It has nothing to do with your accounts"],
+          choices: ["Those are common security question answers attackers love to collect", "Quiz sites install tracking cookies that can read your saved passwords", "Answering quizzes makes your profile public to everyone by default", "Quiz sites need those details to confirm your age before you play"],
           answer: 0,
           explain: "Fun quizzes often harvest exactly the details used to reset or guess account credentials."
         }
@@ -393,7 +393,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "What does the 3-2-1 backup rule stand for?",
-          choices: ["Three copies of your data, on two types of media, with one copy offsite", "Three passwords, two devices, one login", "Three folders, two drives, one week", "Three updates, two reboots, one scan"],
+          choices: ["Three copies of your data, on two types of media, with one copy offsite", "Three backups a day, kept on two drives, for one week before deleting", "Three copies of your data, on two cloud accounts, with one kept at home", "Three passwords for the backup, two admins, and one encrypted drive"],
           answer: 0,
           explain: "The 3-2-1 rule spreads risk: multiple copies, different media, and an offsite copy for disasters."
         },
@@ -413,7 +413,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Why keep backups on two different types of media?",
-          choices: ["A single failure or type of problem is less likely to wipe out all copies", "It makes files open faster", "It is required by law everywhere", "It reduces the number of copies needed"],
+          choices: ["A single failure or type of problem is less likely to wipe out all copies", "Two media types let you restore twice as fast after a failure", "Backup software requires two media types before it will run", "Different media compress files better, so copies take less space"],
           answer: 0,
           explain: "Different media fail in different ways, so spreading copies lowers the chance of losing everything at once."
         },
@@ -442,7 +442,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Ransomware encrypts your files and demands payment. What makes recovery much easier?",
-          choices: ["Having recent, clean, offline or offsite backups to restore from", "Having no backups at all", "Paying immediately with no other plan", "Turning off your firewall"],
+          choices: ["Having recent, clean, offline or offsite backups to restore from", "Having files synced live to a cloud drive that mirrors your device", "Having antivirus installed that can decrypt the locked files", "Having the attackers' contact details so you can negotiate"],
           answer: 0,
           explain: "Clean backups let you wipe and restore instead of negotiating with attackers, which is why offsite copies matter."
         }
@@ -456,7 +456,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "Which of these is a classic red flag of a scam or phishing message?",
-          choices: ["Extreme urgency demanding you act right now", "A calm message you were expecting", "A normal newsletter you signed up for", "A receipt for a purchase you made"],
+          choices: ["Extreme urgency demanding you act right now", "A greeting that uses your first and last name", "A link to the company's real, official website", "A message that was sent outside of working hours"],
           answer: 0,
           explain: "Manufactured urgency pressures you to act before thinking, a hallmark of phishing and scams."
         },
@@ -476,7 +476,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "An email claims to be from your bank, but the sender address is bank-security@random-domain.info. What does that suggest?",
-          choices: ["A mismatched sender address is a strong sign of phishing", "It is definitely your real bank", "The domain does not matter at all", "Long addresses are always trustworthy"],
+          choices: ["A mismatched sender address is a strong sign of phishing", "Banks often use outside domains, so it is probably genuine", "The domain is fine because it includes the word bank", "Long sender addresses are a sign of a secure mail server"],
           answer: 0,
           explain: "A sender address that does not match the real organization's domain is a classic phishing tell."
         },
@@ -506,7 +506,7 @@ window.ACADEMY.addUnit("cyber", {
         {
           type: "mcq",
           q: "A text says you must pay a fee with gift cards to release a package. Why is this a scam?",
-          choices: ["Demanding untraceable gift card payment is a well-known scam tactic", "Gift cards are the standard way to pay shipping fees", "Real couriers always text about gift cards", "It is a normal and safe request"],
+          choices: ["Demanding untraceable gift card payment is a well-known scam tactic", "Package fees are always paid by the sender, never the person receiving", "The text came from a short number, which couriers never use", "Gift cards can only be used in stores, not to pay online fees"],
           answer: 0,
           explain: "Legitimate businesses do not demand gift cards. Scammers love them because they are hard to trace or reverse."
         }

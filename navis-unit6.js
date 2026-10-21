@@ -136,7 +136,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What do you attach to a task so it has something to animate?",
-          choices: ["A set of model objects", "A viewpoint camera", "A clash tolerance", "A material library"],
+          choices: ["A set of model objects", "A saved viewpoint camera", "A clash test result", "A cost code and rate"],
           answer: 0,
           explain: "You attach model objects, usually via a selection or search set, so the task drives those objects."
         },
@@ -184,7 +184,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why are search sets often preferred over selection sets for 4D links?",
-          choices: ["They update automatically with the model", "They are always smaller", "They store camera angles", "They run clash tests"],
+          choices: ["They update automatically with the model", "They store the task dates with the objects", "They are faster to create by hand", "They keep the original objects even if deleted"],
           answer: 0,
           explain: "Search sets re-run their rules, so links stay valid as objects are added or changed in the model."
         }
@@ -218,7 +218,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What typically appears on screen during playback to show the current point in the schedule?",
-          choices: ["A date or time readout", "A clash matrix", "A quantity takeoff", "A material palette"],
+          choices: ["A date or time readout", "A clash count overlay", "A quantity takeoff table", "A section box outline"],
           answer: 0,
           explain: "A date or time readout tells you where in the schedule the current frame sits."
         },
@@ -237,7 +237,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does the playback slider let you do?",
-          choices: ["Move to any moment in the schedule", "Change the clash tolerance", "Rename a search set", "Export an NWD"],
+          choices: ["Move to any moment in the schedule", "Adjust each task's duration", "Set the clash tolerance over time", "Move tasks earlier or later in the plan"],
           answer: 0,
           explain: "The slider scrubs through time so you can pause at any date and inspect the build state."
         },
@@ -320,7 +320,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is the purpose of a TimeLiner data source?",
-          choices: ["To import tasks from external scheduling software", "To store viewpoints", "To run clash tests", "To publish an NWD"],
+          choices: ["To import tasks from external scheduling software", "To link model objects to tasks by property rules", "To export the 4D animation to a video file", "To store the cost data for each task"],
           answer: 0,
           explain: "A data source connects TimeLiner to an external schedule so tasks are imported rather than typed by hand."
         },
@@ -340,7 +340,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "After the external schedule changes, what lets the imported tasks update in TimeLiner?",
-          choices: ["Refreshing the data source", "Deleting all sets", "Running a clash", "Rotating the camera"],
+          choices: ["Refreshing the data source", "Re-attaching every task by hand", "Re-running the clash tests", "Resetting the simulation start date"],
           answer: 0,
           explain: "Refreshing the data source re-imports the current schedule so the 4D model reflects the latest plan."
         },
@@ -368,7 +368,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why is importing from a data source useful for large projects?",
-          choices: ["It keeps 4D in sync with the real schedule", "It removes the need for a model", "It disables playback", "It deletes search sets"],
+          choices: ["It keeps 4D in sync with the real schedule", "It links tasks to objects without any sets", "It makes playback run at a faster frame rate", "It lets the model be edited from the schedule"],
           answer: 0,
           explain: "Large schedules change often, so a refreshable data source keeps the 4D model aligned with the real plan."
         }
@@ -382,7 +382,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "How can a TimeLiner simulation be shared with people who do not have Navisworks?",
-          choices: ["Export it as a video animation", "Email the search sets", "Print the clash matrix", "Send only the NWC cache"],
+          choices: ["Export it as a video animation", "Publish it as an NWC cache file", "Share the TimeLiner CSV export", "Email the NWF with linked sources"],
           answer: 0,
           explain: "Exporting to a video lets anyone watch the sequence in a standard media player, no Navisworks needed."
         },
@@ -430,7 +430,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Who typically benefits from an exported 4D video?",
-          choices: ["Stakeholders reviewing the plan", "Only the clash engine", "Only the NWC cache", "Only the Selection Tree"],
+          choices: ["Stakeholders reviewing the plan", "The scheduling software itself", "Only the model authors in Revit", "Clash reviewers checking tolerances"],
           answer: 0,
           explain: "Owners, trades, and other stakeholders can review the planned sequence from a simple video."
         }
@@ -444,7 +444,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Which problem is 4D especially good at revealing that a static 3D model cannot?",
-          choices: ["Time-based conflicts between activities", "The final material colors", "The number of layers", "The file format"],
+          choices: ["Time-based conflicts between activities", "Hard clashes between pipes, ducts and beams", "Missing property data on objects", "Errors in the material takeoff"],
           answer: 0,
           explain: "4D shows when activities overlap in time and space, exposing conflicts a static model would miss."
         },
@@ -464,7 +464,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "How does 4D improve construction sequencing?",
-          choices: ["It shows the planned order of work visually", "It removes the schedule", "It hides the model", "It prints drawings"],
+          choices: ["It shows the planned order of work visually", "It calculates task durations from the model", "It sets the critical path automatically", "It assigns crews to each task by trade"],
           answer: 0,
           explain: "Seeing the order play out helps teams confirm and refine a buildable sequence before work starts."
         },
@@ -487,7 +487,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is the overall value of adding 4D to a project?",
-          choices: ["Catching schedule and space problems before the field does", "Reducing the number of trades", "Removing the need for coordination", "Eliminating the model"],
+          choices: ["Catching schedule and space problems before the field does", "Generating the baseline schedule automatically from the model", "Producing the bid quantities for every trade", "Removing the need for a separate scheduling tool"],
           answer: 0,
           explain: "4D lets teams find and fix sequencing and logistics issues in planning rather than on site."
         },

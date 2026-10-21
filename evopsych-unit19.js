@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Who proposed the preparedness theory of phobias in 1971?",
-          choices: ["Ivan Pavlov", "John Garcia", "Martin Seligman", "B.F. Skinner"],
+          choices: ["John B. Watson", "Susan Mineka", "Martin Seligman", "Joseph Wolpe"],
           answer: 2,
           explain: "Martin Seligman's 1971 paper 'Phobias and Preparedness' introduced the idea that evolution biases which fears we learn."
         },
@@ -182,7 +182,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Cook & Mineka studied observational fear learning primarily in which animal?",
-          choices: ["Rats", "Pigeons", "Rhesus monkeys", "Dogs"],
+          choices: ["Laboratory rats", "Domestic pigeons", "Rhesus monkeys", "Chimpanzees"],
           answer: 2,
           explain: "Their landmark observational-conditioning experiments used laboratory-reared rhesus monkeys."
         },
@@ -353,7 +353,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "On Seligman's continuum, associations an organism learns only with great difficulty, if at all, are called...",
-          choices: ["Prepared", "Unprepared", "Contra-prepared", "Superprepared"],
+          choices: ["Prepared", "Unprepared", "Contra-prepared", "Counter-conditioned"],
           answer: 2,
           explain: "Contra-prepared associations occupy the hard end of the continuum, resisting learning even with extensive training."
         },
@@ -439,7 +439,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Why do phobias cluster around snakes rather than automobiles?",
-          choices: ["Cars are objectively safe", "Snakes were recurrent ancestral dangers", "Cars are extremely rare", "Snakes are more common today"],
+          choices: ["Cars cause fewer deaths each year than snakes do", "Snakes were recurrent ancestral dangers", "People rarely see cars until late childhood", "Snake encounters are more common today than car rides"],
           answer: 1,
           explain: "Snakes threatened humans across evolutionary time, so we are prepared to fear them; cars are too recent to have shaped this bias."
         },

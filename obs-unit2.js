@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A scene in OBS is best described as:",
           choices: [
             "A saved arrangement of sources you can switch to",
-            "A single video file",
-            "A microphone setting",
-            "A type of transition only"
+            "A single video file that OBS saves to your recordings folder",
+            "A group of audio settings",
+            "A transition effect that plays when you switch layouts"
           ],
           answer: 0,
           explain: "Each scene is a reusable layout of sources you can jump between."
@@ -50,9 +50,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Why use several scenes instead of one?",
           choices: [
             "To switch cleanly between different looks without rearranging live",
-            "Because OBS requires at least ten scenes",
-            "To make recordings smaller",
-            "To avoid using sources"
+            "Because OBS can only hold a few sources in each scene at once",
+            "To make each recording file smaller by splitting the content",
+            "To record each scene to its own separate file automatically"
           ],
           answer: 0,
           explain: "Prebuilt scenes let you change the look instantly instead of dragging sources mid-recording."
@@ -68,9 +68,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The Scene Transition setting controls:",
           choices: [
             "How one scene changes into another (like a cut or fade)",
-            "How loud your microphone is",
-            "The recording file format",
-            "Your monitor brightness"
+            "How one source is layered on top of another within a scene",
+            "How often OBS saves a backup copy of your scene collection",
+            "How fast a source fades in when you toggle its visibility"
           ],
           answer: 0,
           explain: "Transitions define the visual change when switching scenes, such as Cut or Fade."
@@ -87,9 +87,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A source is:",
           choices: [
             "One input or item placed inside a scene",
-            "A whole layout",
-            "The recording folder",
-            "A keyboard shortcut"
+            "A whole saved layout you can switch to",
+            "A filter that changes how an input looks",
+            "The output setting that decides file format"
           ],
           answer: 0,
           explain: "Sources are the individual building blocks, and scenes hold them."
@@ -141,9 +141,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Which is NOT a typical visual source?",
           choices: [
             "Audio Output Capture",
-            "Display Capture",
-            "Image",
-            "Browser"
+            "Video Capture Device",
+            "Window Capture",
+            "Image Slide Show"
           ],
           answer: 0,
           explain: "Audio Output Capture is an audio source; the others put pixels on screen."
@@ -195,8 +195,8 @@ window.ACADEMY.addUnit("obs", {
           q: "A common Display Capture problem on laptops with two GPUs is:",
           choices: [
             "A black screen because OBS runs on the wrong GPU",
-            "The file becomes audio only",
-            "The scene deletes itself",
+            "Desktop audio gets captured twice and plays back with an echo",
+            "The preview shows the wrong scene each time you switch layouts",
             "The webcam turns off"
           ],
           answer: 0,
@@ -213,9 +213,9 @@ window.ACADEMY.addUnit("obs", {
           q: "For recording a browser-based demo cleanly, the best first choice is usually:",
           choices: [
             "Window Capture of the browser",
-            "Game Capture",
-            "Audio Output Capture",
-            "Color Source"
+            "Game Capture of the browser",
+            "Display Capture of the monitor",
+            "Video Capture Device"
           ],
           answer: 0,
           explain: "Window Capture isolates the browser so desktop clutter stays out of the shot."
@@ -232,9 +232,9 @@ window.ACADEMY.addUnit("obs", {
           q: "To add a webcam, you create which source?",
           choices: [
             "Video Capture Device",
-            "Image",
-            "Color Source",
-            "Text"
+            "Image Slide Show",
+            "Media Source",
+            "Application Audio Capture"
           ],
           answer: 0,
           explain: "Video Capture Device covers webcams and capture cards."
@@ -257,9 +257,9 @@ window.ACADEMY.addUnit("obs", {
           q: "If your webcam looks soft or dark, a good first step is to:",
           choices: [
             "Open its properties and adjust resolution/format and lighting",
-            "Delete all your scenes",
-            "Lower your recording folder",
-            "Restart your router"
+            "Raise its brightness with a Color Correction filter and leave it",
+            "Switch the canvas resolution to 4K so the image looks sharper",
+            "Increase the recording bitrate until the webcam looks clearer"
           ],
           answer: 0,
           explain: "Webcam properties expose resolution, FPS, and format; lighting fixes the rest."
@@ -285,9 +285,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A capture card is used to bring in video from:",
           choices: [
             "A console or a second computer",
-            "Your keyboard",
-            "Your mouse",
-            "A printer"
+            "A phone camera over Wi-Fi",
+            "A USB microphone or audio mixer",
+            "A browser tab or a web page"
           ],
           answer: 0,
           explain: "Capture cards ingest HDMI from consoles or another PC as a Video Capture Device."
@@ -304,9 +304,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The red handles around a selected source let you:",
           choices: [
             "Resize and reposition it",
-            "Change its audio",
-            "Rename the scene",
-            "Start recording"
+            "Crop it and change its colors",
+            "Change which scene it belongs to",
+            "Set its order in the Sources list"
           ],
           answer: 0,
           explain: "The bounding box handles resize and move the source within the canvas."
@@ -339,9 +339,9 @@ window.ACADEMY.addUnit("obs", {
           q: "To make a source keep its shape while resizing, you should:",
           choices: [
             "Drag a corner handle so it scales proportionally",
-            "Drag a side handle only",
-            "Change the frame rate",
-            "Mute the audio"
+            "Drag a side handle so only one edge moves",
+            "Hold Alt while dragging a handle to crop it",
+            "Change the canvas resolution in Video settings"
           ],
           answer: 0,
           explain: "Corner handles scale width and height together, preserving aspect ratio."
@@ -357,9 +357,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The Edit Transform window is useful because it lets you:",
           choices: [
             "Enter exact position, size, and crop values",
-            "Change your internet speed",
-            "Add new hotkeys for Windows",
-            "Rename the recording"
+            "Apply color filters and blur effects to the source",
+            "Change the order of sources in the Sources list",
+            "Set hotkeys that show and hide the selected source"
           ],
           answer: 0,
           explain: "Edit Transform gives precise numeric control over placement and cropping."
@@ -376,9 +376,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A source higher in the Sources list appears:",
           choices: [
             "In front of sources below it",
-            "Behind sources below it",
-            "Only in audio",
-            "In a separate scene"
+            "Behind sources listed below it",
+            "Only in the preview, not the recording",
+            "Larger than sources below it"
           ],
           answer: 0,
           explain: "Top of the list renders on top; think of stacking sheets of paper."
@@ -426,9 +426,9 @@ window.ACADEMY.addUnit("obs", {
           q: "If your webcam is hidden behind your screen capture, you should:",
           choices: [
             "Move the webcam source up in the list",
-            "Delete the scene",
-            "Lower your bitrate",
-            "Change the file format"
+            "Move the webcam source down in the list",
+            "Lock the screen capture so it cannot move",
+            "Add a Crop filter to the screen capture"
           ],
           answer: 0,
           explain: "Raising the webcam in the list brings it in front of the screen."
@@ -445,9 +445,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Putting sources into a Group lets you:",
           choices: [
             "Move and toggle them as one unit",
-            "Increase your frame rate",
-            "Change your microphone",
-            "Speed up your internet"
+            "Share their filters with every scene",
+            "Record each of them to its own track",
+            "Copy them to all scenes"
           ],
           answer: 0,
           explain: "Groups let you transform and show/hide several sources together."
@@ -470,9 +470,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A good use of a group is:",
           choices: [
             "Bundling a lower-third bar, name text, and logo together",
-            "Storing your recordings",
-            "Setting your bitrate",
-            "Muting your desktop audio"
+            "Holding every webcam you own so they record to separate files",
+            "Storing your finished recordings inside a single scene folder",
+            "Combining your mic and desktop audio into one louder source"
           ],
           answer: 0,
           explain: "Groups shine for overlay elements you always move and toggle together."
@@ -498,9 +498,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Ungrouping sources will:",
           choices: [
             "Separate them back into individual sources",
-            "Delete them permanently",
-            "Merge them into one image",
-            "Turn off your camera"
+            "Delete the grouped sources from the scene",
+            "Merge them into one flattened image source",
+            "Remove their filters and transform settings"
           ],
           answer: 0,
           explain: "Ungrouping simply returns the members to standalone sources."
@@ -517,9 +517,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Duplicating a scene is handy when you want to:",
           choices: [
             "Make a variant without rebuilding it from scratch",
-            "Delete all your sources",
-            "Lower your resolution",
-            "Disable audio forever"
+            "Copy its sources into a brand new scene collection file",
+            "Record two scenes at the same time to separate files",
+            "Merge two existing scenes into a single combined layout"
           ],
           answer: 0,
           explain: "Duplicating gives you a near-identical starting point to tweak."
@@ -529,9 +529,9 @@ window.ACADEMY.addUnit("obs", {
           q: "When you add an Existing source instead of a new one, changes to it:",
           choices: [
             "Appear in every scene that uses it",
-            "Only affect one scene",
-            "Are lost immediately",
-            "Break the recording"
+            "Only affect the scene where you make them",
+            "Create a separate copy with its own settings",
+            "Apply after a restart"
           ],
           answer: 0,
           explain: "A shared existing source updates everywhere it appears."
@@ -570,9 +570,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The main payoff of good reuse habits is:",
           choices: [
             "Faster setup and a consistent brand look",
-            "Larger recording files",
-            "Slower rendering",
-            "More dropped frames"
+            "Smaller recording files and lower CPU use",
+            "Higher video quality in every single recording",
+            "Fewer audio problems when you go live"
           ],
           answer: 0,
           explain: "Reuse saves setup time and keeps your videos visually consistent."

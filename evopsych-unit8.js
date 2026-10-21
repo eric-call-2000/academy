@@ -46,7 +46,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "In their opening chapter, Tooby and Cosmides critiqued which view of the mind?",
-          choices: ["The Standard Social Science Model (SSSM)", "The Computational Theory of Mind", "The Triune Brain Model", "Classical conditioning"],
+          choices: ["The Standard Social Science Model (SSSM)", "The Computational Theory of Mind (CTM)", "The Modern Synthesis of evolutionary biology", "The Triune Brain Model (MacLean)"],
           answer: 0,
           explain: "Their chapter 'The Psychological Foundations of Culture' attacked the Standard Social Science Model, which treats the mind as a general-purpose, content-free learner."
         },
@@ -70,7 +70,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What does it mean for a mental mechanism to be 'domain-specific'?",
-          choices: ["It is specialized to handle one particular kind of problem", "It can solve any problem using general logic", "It only operates during sleep", "It is stored in a single brain cell"],
+          choices: ["It is specialized to handle one particular kind of problem", "It can solve any kind of problem using one general set of rules", "It is located in one small, fixed region of the brain", "It is learned entirely from experience within one area of life"],
           answer: 0,
           explain: "A domain-specific mechanism is dedicated to a narrow class of adaptive problems rather than being a general all-purpose reasoner."
         },
@@ -83,7 +83,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "In Cosmides's Wason selection task studies, people reason much better when the identical logic problem is framed as what?",
-          choices: ["An abstract letters-and-numbers puzzle", "A social-contract, cheater-detection situation", "A mathematics exam", "A rote memory test"],
+          choices: ["An abstract letters-and-numbers card puzzle", "A social-contract, cheater-detection situation", "A familiar everyday rule about travel or food", "A formal logic problem with labeled premises"],
           answer: 1,
           explain: "Cosmides (1989) found people solve the same conditional far better in social-exchange framings, suggesting a specialized cheater-detection mechanism."
         },
@@ -113,7 +113,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "According to this view, domain-specific mechanisms were shaped primarily by what?",
-          choices: ["Conscious decisions to specialize", "Cultural fashion of the moment", "Natural selection acting on recurrent ancestral problems", "Purely random daily experience"],
+          choices: ["Learning from repeated experience during each person's childhood", "Cultural traditions passed down and refined over many generations", "Natural selection acting on recurrent ancestral problems", "Random genetic drift acting on brain structure over deep time"],
           answer: 2,
           explain: "Recurrent adaptive problems over deep time selected for dedicated mechanisms optimized to solve each one."
         }
@@ -127,7 +127,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "In the Swiss-army-knife metaphor, the mind is portrayed as what?",
-          choices: ["A single all-purpose blade", "A bundle of many specialized tools", "An empty toolbox", "A featureless blank slate"],
+          choices: ["A single all-purpose blade for every job", "A bundle of many specialized tools", "An empty toolbox that learning fills in", "One general tool that adapts to any task"],
           answer: 1,
           explain: "Like a Swiss army knife, the mind is pictured as many dedicated instruments, each built for a particular job."
         },
@@ -226,7 +226,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The Muller-Lyer illusion persisting even when you KNOW the two lines are equal best illustrates which property?",
-          choices: ["Informational encapsulation", "Conscious control", "Domain generality", "Learning from feedback"],
+          choices: ["Informational encapsulation", "Cognitive penetrability", "Domain-general processing", "Top-down belief updating"],
           answer: 0,
           explain: "Your belief that the lines are equal cannot penetrate the perceptual module, showing it is encapsulated."
         }
@@ -240,7 +240,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The 'massive modularity' thesis claims what?",
-          choices: ["Only perception is modular", "The entire mind, including reasoning, is composed of many specialized modules", "The mind has exactly one module", "Mental modules do not really exist"],
+          choices: ["Only perception and language are modular, while central reasoning stays general-purpose", "The entire mind, including reasoning, is composed of many specialized modules", "The mind is one general learning system that later divides into modules", "Each module sits in its own dedicated region of the brain, like an organ"],
           answer: 1,
           explain: "Massive modularity says even central cognition is built from a large number of domain-specific mechanisms."
         },
@@ -260,7 +260,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "How do Cosmides and Tooby differ from Fodor on modularity's scope?",
-          choices: ["They restrict modules to reflexes only", "They deny that modules exist", "They extend modularity to central reasoning, which Fodor left non-modular", "They agree modularity applies only to vision"],
+          choices: ["They restrict modularity to perception, which Fodor had extended to reasoning", "They deny that the mind has modules, which Fodor treated as the core of cognition", "They extend modularity to central reasoning, which Fodor left non-modular", "They agree with Fodor that modules exist only for input systems like vision"],
           answer: 2,
           explain: "Their strong claim is that reasoning itself is modular, precisely the domain Fodor said was not modular."
         },
@@ -296,7 +296,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Why do evolutionary psychologists argue a purely general-purpose mind is inadequate?",
-          choices: ["It would face combinatorial explosion and could not tell what is relevant", "General minds are physically impossible to build", "It would think far too quickly", "Computation cannot occur in brains"],
+          choices: ["It would face combinatorial explosion and could not tell what is relevant", "It would need far more neurons than any brain could physically contain or power", "It would think so quickly that it would act before checking the facts", "It could not store memories, since it has no dedicated memory module"],
           answer: 0,
           explain: "Without built-in assumptions, a general system has no way to prune the exploding space of possibilities or judge relevance."
         },
@@ -316,7 +316,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "How do domain-specific mechanisms help with combinatorial explosion?",
-          choices: ["By trying every possibility at random", "By constraining the search to a small set of relevant options", "By slowing all thinking down", "By deleting all stored information"],
+          choices: ["By trying every possibility very quickly until one of them works", "By constraining the search to a small set of relevant options", "By storing the answer to every possible problem in memory", "By passing each problem to a central general-purpose reasoner"],
           answer: 1,
           explain: "Built-in, problem-specific assumptions narrow the search space so a good solution can be found efficiently."
         },
@@ -329,7 +329,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The frame problem originally comes from which field?",
-          choices: ["Artificial intelligence", "Astronomy", "Geology", "Macroeconomics"],
+          choices: ["Artificial intelligence", "Developmental biology", "Behavioral economics", "Cognitive neuroscience"],
           answer: 0,
           explain: "It was posed in artificial intelligence (McCarthy and Hayes, 1969) and later borrowed as an argument for specialized minds."
         },
@@ -375,7 +375,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "An evolved psychological mechanism exists in its current form because it:",
-          choices: ["Was designed by a committee of experts", "Was invented within the last century", "Recurrently solved a specific adaptive problem over evolutionary time", "Serves no function at all"],
+          choices: ["Was learned anew by each generation from the culture around it", "Spread by chance through drift, without solving any problem", "Recurrently solved a specific adaptive problem over evolutionary time", "Solved a problem that arose only once in recent human history"],
           answer: 2,
           explain: "By definition, an EPM exists because it solved a recurrent survival or reproduction problem across ancestral generations."
         },
@@ -438,7 +438,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The 'grain problem' for modularity concerns which question?",
-          choices: ["How much grain the brain consumes for fuel", "How fine- or coarse-grained modules should be individuated", "Whether neurons are edible", "How fast a single neuron fires"],
+          choices: ["How many neurons each module needs in order to function", "How fine- or coarse-grained modules should be individuated", "Whether modules develop gradually or appear all at once", "Whether modules can share information with one another"],
           answer: 1,
           explain: "The grain problem asks how many modules there are and how narrowly each should be defined, which the thesis leaves unclear."
         },

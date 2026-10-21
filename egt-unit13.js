@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why is Tit-for-Tat vulnerable when two TFT players meet and one accidentally defects?",
           choices: [
             "Each player retaliates against the other's last move, so a single defection ricochets back and forth",
-            "One player immediately switches to all-cooperate to smooth things over",
-            "Both players forgive instantly and never notice the error",
-            "TFT ignores the opponent's previous move entirely"
+            "One player immediately switches to always cooperating, which lets the other exploit it from then on",
+            "Both players forgive the error instantly, but they then defect together for the rest of the game",
+            "Each player ignores the opponent's last move, so the error is never noticed or corrected at all"
           ],
           answer: 0,
           explain: "Because TFT copies the opponent's last move, one accidental defection makes each player defect in turn, producing an alternating chain of retaliation."
@@ -120,10 +120,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why does adding noise make strict Tit-for-Tat perform worse?",
           choices: [
-            "Noise removes all payoffs from the game",
+            "Noise removes all of the payoffs from the game, so every strategy scores the same",
             "Noise turns rare mistakes into echoing retaliation that TFT cannot repair",
-            "Noise forces every player to always cooperate",
-            "Noise has no effect on Tit-for-Tat at all"
+            "Noise forces every player to cooperate, which Tit-for-Tat then exploits too often",
+            "Noise makes Tit-for-Tat defect first, so its partners never learn to trust it"
           ],
           answer: 1,
           explain: "In a noisy world, occasional errors are inevitable, and TFT's inability to forgive them turns each mistake into a costly retaliation echo."
@@ -155,10 +155,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "How does Generous Tit-for-Tat (GTFT) differ from strict Tit-for-Tat?",
           choices: [
-            "It always defects first",
+            "It always defects on the first move, then copies the opponent",
             "It occasionally cooperates even after the opponent defected",
-            "It never punishes defection under any circumstances",
-            "It copies the opponent's move twice each round"
+            "It never punishes defection under any circumstances at all",
+            "It copies the opponent's last move, but only every other round"
           ],
           answer: 1,
           explain: "GTFT plays like TFT but, with some probability, forgives a defection by cooperating anyway -- this occasional generosity is its defining feature."
@@ -181,9 +181,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What is the risk of being TOO generous (forgiving nearly every defection)?",
           choices: [
             "You become exploitable by strategies that always defect",
-            "You can no longer cooperate with anyone",
-            "You are forced to defect on the first move",
-            "Your payoffs are guaranteed to be highest"
+            "You can no longer cooperate with other forgiving strategies",
+            "You are forced to defect on the first move of every game",
+            "You start punishing too harshly and trigger long feuds"
           ],
           answer: 0,
           explain: "Excessive generosity invites exploitation: a pure defector can keep taking advantage if you forgive too readily, so the forgiveness rate must be tuned."
@@ -226,10 +226,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is the core rule of the Win-Stay, Lose-Shift (Pavlov) strategy?",
           choices: [
-            "Always copy the opponent's last move",
+            "Copy whatever the opponent did on the previous move, starting by cooperating",
             "Repeat your last move if it earned a good payoff, switch if it earned a poor one",
-            "Always defect regardless of outcome",
-            "Cooperate only on even-numbered rounds"
+            "Defect forever after the opponent defects even a single time in the game",
+            "Cooperate on the first move, then switch moves every round no matter what"
           ],
           answer: 1,
           explain: "Pavlov judges its own last outcome: a good payoff means 'win, stay' (repeat the move); a poor payoff means 'lose, shift' (switch the move)."
@@ -271,10 +271,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "After mutual defection (both got a poor payoff), what does Pavlov do next?",
           choices: [
-            "Stay and keep defecting",
+            "Stay with defecting, since it is safe",
             "Shift, moving toward cooperation",
-            "Quit the game",
-            "Copy the opponent forever"
+            "Copy the opponent's move",
+            "Defect for two more rounds"
           ],
           answer: 1,
           explain: "Mutual defection is a 'lose' outcome, so Pavlov shifts its move -- switching from defect toward cooperation to try for a better result."
@@ -296,10 +296,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Against an unconditional cooperator (always cooperates), how does Pavlov behave once it happens to defect?",
           choices: [
-            "It shifts back to cooperation immediately out of guilt",
+            "It shifts back to cooperation at once, because it was not punished for defecting",
             "It keeps defecting, because exploiting a cooperator is a 'win' worth staying with",
-            "It copies the cooperator and cooperates forever",
-            "It leaves the game"
+            "It copies the cooperator from then on and cooperates for the rest of the game",
+            "It alternates between cooperating and defecting so the cooperator does not leave"
           ],
           answer: 1,
           explain: "Defecting on a cooperator yields the top payoff -- a 'win' -- so Pavlov's win-stay rule tells it to keep defecting and exploit the naive partner."
@@ -322,9 +322,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why is exploiting unconditional cooperators an EVOLUTIONARY advantage for Pavlov?",
           choices: [
             "It earns extra payoff that unforgiving TFT would forgo",
-            "It makes Pavlov cooperate more often",
-            "It guarantees Pavlov always loses",
-            "It stops all defectors from reproducing"
+            "It makes Pavlov cooperate more often and so avoid costly feuds",
+            "It lets Pavlov punish defectors more harshly than TFT can do",
+            "It keeps the cooperators alive so Pavlov can rely on them later"
           ],
           answer: 0,
           explain: "In evolutionary terms, more payoff means more reproductive success; harvesting free gains from naive cooperators helps Pavlov out-reproduce plain TFT."
@@ -367,10 +367,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What did Martin Nowak and Karl Sigmund report in their 1993 Nature paper?",
           choices: [
-            "That Tit-for-Tat is unbeatable in every setting",
+            "That Tit-for-Tat stays unbeatable in every evolutionary setting, with or without noise or errors",
             "That Win-Stay, Lose-Shift (Pavlov) can emerge and outperform Tit-for-Tat in evolutionary simulations",
-            "That cooperation can never evolve at all",
-            "That all strategies converge to always-defect"
+            "That cooperation cannot evolve at all once mistakes are added to the repeated Prisoner's Dilemma",
+            "That every population eventually converges on Always Defect, whatever strategies it starts with"
           ],
           answer: 1,
           explain: "Nowak and Sigmund (1993) found that Pavlov (Win-Stay, Lose-Shift) tended to emerge and dominate, correcting errors and exploiting cooperators better than TFT."
@@ -392,10 +392,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In their simulations, what conditions helped Pavlov out-compete Tit-for-Tat?",
           choices: [
-            "A perfectly error-free environment",
+            "A perfectly error-free environment in which Tit-for-Tat players never make mistakes",
             "The presence of noise plus cooperative populations Pavlov could exploit and error-correct within",
-            "A rule banning cooperation",
-            "Removing all payoffs from the game"
+            "A population made up mostly of unconditional defectors that Pavlov could easily exploit",
+            "Long games with no noise, so that every strategy could build up trust over many rounds"
           ],
           answer: 1,
           explain: "With noise and a mix of strategies, Pavlov's error-correction and its ability to exploit unconditional cooperators let it displace TFT over time."
@@ -437,10 +437,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What key idea does Contrite Tit-for-Tat add to plain Tit-for-Tat?",
           choices: [
-            "It never defects under any circumstances",
+            "It forgives every defection by the opponent and cooperates on the next move, whatever the reason for the defection",
             "It tracks whether it was at fault, and accepts punishment for its own mistaken defection instead of retaliating",
-            "It always defects after any cooperation",
-            "It ignores its own past moves entirely"
+            "It defects twice in a row after any defection, so that opponents learn to fear its retaliation",
+            "It ignores the opponent's moves and only repeats its own last move, much like a Win-Stay strategy"
           ],
           answer: 1,
           explain: "Contrite TFT keeps a 'standing' record; if it recognizes its own erroneous defection was the cause, it cooperates (accepts the punishment) rather than escalating."
@@ -508,10 +508,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is the central lesson of the strategies that came after Tit-for-Tat?",
           choices: [
-            "There is one universally best strategy for all situations",
+            "There is one universally best strategy that wins in every possible situation",
             "A strategy's success depends on the strategic environment it faces",
-            "Cooperation can never succeed",
-            "Only always-defect ever wins"
+            "Cooperation can never succeed once noise is added to the repeated game",
+            "Only Always Defect wins in the long run, whatever the population looks like"
           ],
           answer: 1,
           explain: "No strategy dominates everywhere; performance depends on the opponents present, the noise level, and the population's structure -- the strategic environment."
@@ -533,10 +533,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In a noisy environment with many unconditional cooperators, which strategy is likely to gain an edge?",
           choices: [
-            "Strict Tit-for-Tat, because it never forgives",
+            "Strict Tit-for-Tat, because it never forgives a single defection",
             "Pavlov, because it corrects errors and exploits naive cooperators",
-            "A strategy that quits immediately",
-            "Any strategy at all -- the environment does not matter"
+            "Always Cooperate, because it never starts a feud with anyone",
+            "Grim Trigger, because it punishes errors more firmly than others"
           ],
           answer: 1,
           explain: "Noise rewards error-correction and abundant cooperators reward exploitation, both of which favor Pavlov -- illustrating environment-dependent success."

@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is Navisworks mainly used for?",
-          choices: ["Project review and coordination of combined models", "Authoring detailed Revit families", "Running structural analysis calculations", "Rendering marketing images only"],
+          choices: ["Project review and coordination of combined models", "Authoring and editing building geometry for each discipline", "Running structural and energy analysis on a design model", "Producing construction drawing sheets from a 3D model"],
           answer: 0,
           explain: "Navisworks is a review and coordination tool that combines models from many sources so teams can check the whole project together."
         },
@@ -46,7 +46,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Which task is a natural fit for Navisworks?",
-          choices: ["Reviewing a whole building from several teams at once", "Drawing a single door detail", "Editing a spreadsheet of quantities by hand", "Writing structural design code"],
+          choices: ["Reviewing a whole building from several teams at once", "Modeling a new door family with detailed parameters", "Producing the dimensioned floor plans for a permit set", "Calculating beam sizes for the structural frame"],
           answer: 0,
           explain: "Navisworks shines at whole-project review where models from many teams need to be seen together."
         },
@@ -144,7 +144,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is an NWC file best described as?",
-          choices: ["A lightweight cache exported from the authoring app", "A published snapshot for clients", "A file that stores all your clash results", "A native Revit project file"],
+          choices: ["A lightweight cache exported from the authoring app", "A published, read-only snapshot for sharing with clients", "A working file that links source models and stores your review data", "A native project file that can be edited in Revit"],
           answer: 0,
           explain: "NWC is a lightweight cache that speeds up loading a source model into Navisworks."
         },
@@ -250,7 +250,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why does supporting many formats matter for coordination?",
-          choices: ["Different teams use different tools, and all their models must come together", "It makes the file smaller", "It replaces the need for a schedule", "It removes the need for clash detection"],
+          choices: ["Different teams use different tools, and all their models must come together", "Converting every model to one format makes the files edit faster", "Each format holds clash results that the others cannot store", "It lets Navisworks edit each model's geometry directly in its original authoring format"],
           answer: 0,
           explain: "On a real project, teams use varied software, so reading many formats is what makes a full federation possible."
         },
@@ -269,7 +269,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is the benefit of Navisworks reading CAD as well as BIM formats?",
-          choices: ["Older CAD deliverables can still join the federated model", "It disables clash detection", "It hides the geometry", "It forces everyone onto one vendor"],
+          choices: ["Older CAD deliverables can still join the federated model", "CAD files can be converted into fully editable Revit families", "BIM properties are stripped so all files look the same", "CAD layers automatically become clash test selections"],
           answer: 0,
           explain: "Reading both CAD and BIM lets legacy drawings and modern models coexist in one review."
         }
@@ -290,7 +290,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is the main benefit of a federated model?",
-          choices: ["You can review all disciplines together and catch conflicts", "It edits the source geometry for you", "It removes the need for any source files", "It automatically designs the building"],
+          choices: ["You can review all disciplines together and catch conflicts", "Changes made in it are pushed back into each source model", "It merges every source into one file so the originals are not needed", "It assigns each conflict to the responsible trade automatically"],
           answer: 0,
           explain: "Seeing everything together is what lets teams spot conflicts and coordinate across disciplines."
         },
@@ -335,7 +335,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is a key reason teams use Navisworks instead of their authoring tools for review?",
-          choices: ["It handles very large, multi-source models lightly and quickly", "It has more drawing tools than Revit", "It is the only tool that can open a PDF", "It automatically fixes clashes for you"],
+          choices: ["It handles very large, multi-source models lightly and quickly", "It offers more modeling tools than the authoring applications", "It automatically resolves clashes by moving elements", "It is the only tool that can display models in 3D"],
           answer: 0,
           explain: "Navisworks is optimized to open and navigate huge combined models smoothly, which authoring tools struggle to do."
         },
@@ -355,7 +355,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why not just open every discipline's file in its own native app for review?",
-          choices: ["They may use different software and be too heavy to combine there", "Native apps cannot save files", "It is illegal to open two apps", "Native apps have no 3D view"],
+          choices: ["They may use different software and be too heavy to combine there", "Native apps cannot display models from other disciplines at all", "Native apps do not allow files to be saved after a review", "Opening models in native apps changes their geometry"],
           answer: 0,
           explain: "Teams use varied software and the combined size is often too heavy for a single authoring tool, so a review tool is needed."
         },
@@ -374,7 +374,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "A federation is very large and comes from five different software packages. Navisworks helps because it is:",
-          choices: ["Lightweight and reads many formats", "The only tool with a mouse", "A spreadsheet program", "A cloud-only chat app"],
+          choices: ["Lightweight and reads many formats", "A modeling tool that edits every format", "A cloud-only viewer for single files", "Built to export each model to PDF"],
           answer: 0,
           explain: "Lightweight performance plus broad format support is exactly the situation Navisworks is built for."
         }
@@ -388,7 +388,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What happens when you refresh in Navisworks?",
-          choices: ["It reloads the referenced source files so the scene reflects their latest state", "It deletes your saved viewpoints", "It rebuilds the source models from scratch", "It permanently freezes the model"],
+          choices: ["It reloads the referenced source files so the scene reflects their latest state", "It pushes your Navisworks markups back into the source models", "It redraws the current view to clear display glitches without reading any files", "It reruns every clash test and resolves the old results"],
           answer: 0,
           explain: "Refreshing rereads the referenced sources so your federation shows the most recent versions."
         },
@@ -408,7 +408,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why is refreshing important on a live project?",
-          choices: ["Source models change often, and reviews must use current data", "It makes the file smaller each time", "It is required to open Navisworks", "It converts everything to PDF"],
+          choices: ["Source models change often, and reviews must use current data", "It compresses the federated file so it opens faster each time", "It is required before any viewpoint can be saved", "It publishes a new NWD for the client automatically"],
           answer: 0,
           explain: "Design changes constantly, so refreshing keeps coordination decisions based on current models."
         },

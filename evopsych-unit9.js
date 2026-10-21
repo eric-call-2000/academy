@@ -44,7 +44,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The abstract Wason task tests understanding of which logical structure?",
-          choices: ["A statistical correlation", "The material conditional, 'if P then Q'", "A syllogism about categories", "A probability estimate"],
+          choices: ["A statistical correlation between P and Q", "The material conditional, 'if P then Q'", "The biconditional, 'P if and only if Q'", "A categorical syllogism, 'all A are B'"],
           answer: 1,
           explain: "The task asks which cards could falsify a conditional 'if P then Q' rule."
         },
@@ -57,7 +57,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What is the most common mistake people make on the abstract task?",
-          choices: ["They turn over every card", "They refuse to choose", "They turn the vowel and the even-number card, seeking confirmation", "They turn only the consonant card"],
+          choices: ["They turn the vowel and the odd-number card, exactly as formal logic requires", "They turn only the consonant and the odd-number card", "They turn the vowel and the even-number card, seeking confirmation", "They turn every card to make sure the rule is fully checked"],
           answer: 2,
           explain: "People show a matching and confirmation bias, checking the even-number card (Q) instead of the falsifying odd-number card (not-Q)."
         }
@@ -91,7 +91,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "In social contract theory, a 'cheater' is best defined as someone who...",
-          choices: ["breaks any logical rule", "takes the benefit without paying the cost", "pays the cost but takes no benefit", "misremembers the rule"],
+          choices: ["breaks any rule, whether or not it involves an exchange", "takes the benefit without paying the cost", "pays the cost but never takes the benefit", "misremembers the terms of a social exchange"],
           answer: 1,
           explain: "Cheating specifically means illicitly taking a benefit while failing to meet the required cost."
         },
@@ -148,7 +148,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Cosmides showed the facilitation is NOT simply due to familiarity because...",
-          choices: ["only children showed it", "unfamiliar, invented social contracts also boosted performance", "it disappeared when people were paid", "it only worked with numbers"],
+          choices: ["familiar rules that were not social contracts boosted it just as much", "unfamiliar, invented social contracts also boosted performance", "people who had studied logic showed the largest improvement", "the effect vanished when participants were paid for accuracy"],
           answer: 1,
           explain: "Made-up, unfamiliar exchange rules still produced high accuracy, so mere familiarity cannot explain the jump."
         },
@@ -204,7 +204,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "How does the permission-schema account differ from social contract theory?",
-          choices: ["It says reasoning never improves", "It requires cost-benefit exchange specifically", "It is domain-general rather than specialized for cheaters", "It denies that people can reason at all"],
+          choices: ["It requires a cost-benefit exchange rather than any permission", "It says people can only reason well about abstract rules", "It is domain-general rather than specialized for cheaters", "It holds that the facilitation comes from familiarity alone"],
           answer: 2,
           explain: "Cheng and Holyoak claim a broad permission schema, not a narrow evolved cheater detector, drives the effect."
         },
@@ -240,7 +240,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Research on hazard management suggests people have a separate reasoning system tuned for what?",
-          choices: ["Grammar", "Precautions against danger", "Arithmetic", "Facial recognition"],
+          choices: ["Detecting cheaters in exchanges", "Precautions against danger", "Abstract conditional logic", "Tracking social status"],
           answer: 1,
           explain: "Precautionary reasoning appears to be a distinct inference system for avoiding hazards."
         },
@@ -260,7 +260,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "On a precaution version of the selection task, which cases do people spontaneously check?",
-          choices: ["People who followed every rule", "Someone doing the hazard and someone lacking the precaution", "Only the safest people", "No one in particular"],
+          choices: ["Someone who took the precaution and someone not doing the hazard", "Someone doing the hazard and someone lacking the precaution", "Someone doing the hazard and someone who took the precaution", "Someone not doing the hazard and someone lacking the precaution"],
           answer: 1,
           explain: "They look for danger: a person engaged in the hazard (P) who did not take the precaution (not-Q)."
         },
@@ -326,7 +326,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "According to EMT, a predictable bias evolves when...",
-          choices: ["errors are impossible", "the two kinds of error are equally costly", "one kind of error was reliably more costly than the other over evolutionary time", "the environment never changes"],
+          choices: ["the two kinds of error were equally costly over evolutionary time", "errors were rare enough that selection could ignore their costs", "one kind of error was reliably more costly than the other over evolutionary time", "one kind of error was more common than the other, whatever its cost, over many generations"],
           answer: 2,
           explain: "A recurrent cost asymmetry across ancestral generations is what selects for a directional bias."
         },
@@ -372,7 +372,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "The smoke detector principle helps explain why which responses are so easily triggered?",
-          choices: ["Defenses like fear, anxiety, and nausea", "Memory for faces", "Language learning", "Color vision"],
+          choices: ["Defenses like fear, anxiety, and nausea", "Social emotions like gratitude and guilt", "Pleasures like eating sweets and fats", "Learned habits like routines and skills"],
           answer: 0,
           explain: "Protective responses such as fear, anxiety, cough, and nausea are cheap defenses that fire readily to avoid rare disasters."
         },

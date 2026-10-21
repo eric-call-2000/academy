@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In Rescorla's 1968 'truly random control,' what relationship held between the CS and the US?",
           choices: [
-            "The US always followed the CS immediately",
-            "The US never occurred during the experiment",
+            "The US always followed the CS immediately on every single trial",
+            "The US never occurred at any point during the experiment",
             "The US was equally likely whether or not the CS was present",
-            "The CS reliably signaled a period free of the US"
+            "The CS reliably signaled a period that was free of the US"
           ],
           answer: 2,
           explain: "In the truly random control the US occurs at the same rate with or without the CS, so there is no contingency even though CS and US are sometimes paired."
@@ -80,10 +80,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "According to the Rescorla-Wagner view, what drives associative learning?",
           choices: [
-            "The sheer number of CS-US pairings",
+            "The sheer number of CS-US pairings given across all of training",
             "The discrepancy between what is expected and what occurs",
-            "The physical closeness of CS and US in space",
-            "The intensity of the CS on its own"
+            "The physical closeness of the CS and US in space",
+            "The intensity of the CS on its own, apart from the US"
           ],
           answer: 1,
           explain: "Learning is proportional to prediction error, the gap between the expected outcome and the actual outcome, not just to how often or how closely CS and US pair."
@@ -147,9 +147,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Which formula expresses the Rescorla-Wagner model of associative change on a trial?",
           choices: [
             "delta V = alpha x beta x (lambda - sum V)",
-            "delta V = lambda + sum V",
-            "delta V = alpha / beta",
-            "delta V = lambda x sum V"
+            "delta V = alpha x beta x (lambda + sum V)",
+            "delta V = alpha x (lambda - beta) x sum V",
+            "delta V = (alpha + beta) x lambda x sum V"
           ],
           answer: 0,
           explain: "The model states delta V = alpha x beta x (lambda - sum V): the change in a cue's strength is a learning rate times the prediction error (lambda minus the total expectation)."
@@ -182,10 +182,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What does the model predict happens when sum V exceeds lambda?",
           choices: [
-            "Associative strength increases further",
-            "Nothing changes",
+            "Associative strength increases further (delta V is positive)",
+            "Associative strength stays the same (delta V is zero)",
             "Associative strength decreases (delta V is negative)",
-            "The US intensity increases"
+            "The US intensity rises to match the larger expectation"
           ],
           answer: 2,
           explain: "If cues collectively over-predict the US, lambda minus sum V is negative, so delta V is negative and the cues lose strength."
@@ -244,10 +244,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Why does the Rescorla-Wagner model predict blocking?",
           choices: [
-            "Cue B has inherently low salience",
-            "The US is too weak to support learning",
+            "Cue B has inherently low salience, so its alpha is near zero regardless of training with A",
+            "The US is too weak to support learning about any cue once a second cue is added to A",
             "V of A is already near lambda, so (lambda - sum V) is near zero and nothing is left for B",
-            "B and A are perceptually identical"
+            "Cue A becomes a conditioned inhibitor and actively cancels whatever strength B gains"
           ],
           answer: 2,
           explain: "The pretrained cue A pushes sum V up to lambda, driving prediction error to about zero on compound trials, so B cannot gain strength."
@@ -279,10 +279,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Overshadowing occurs when:",
           choices: [
-            "A single cue is presented alone many times",
+            "A single cue presented alone many times becomes harder to condition when it is later paired",
             "A more salient cue in a compound gains most of the strength, leaving little for the weaker cue",
-            "A cue signals the absence of the US",
-            "Two cues are each trained to full strength separately"
+            "A cue that signals the absence of the US acquires negative strength and suppresses responding",
+            "Two cues trained to full strength separately lose strength when they are reinforced together"
           ],
           answer: 1,
           explain: "In a compound of unequal cues, the stronger (more salient) cue takes the larger share of associative strength, overshadowing the weaker cue."
@@ -314,10 +314,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "How does the Rescorla-Wagner model explain overshadowing?",
           choices: [
-            "Each cue independently reaches full lambda",
+            "Each cue independently reaches the full value of lambda over enough trials",
             "The cues share the available lambda in proportion to their salience (alpha)",
-            "The weaker cue becomes a conditioned inhibitor",
-            "The US intensity is cut in half"
+            "The weaker cue becomes a conditioned inhibitor that opposes the stronger one",
+            "The US intensity is cut in half whenever two cues are presented together"
           ],
           answer: 1,
           explain: "Both cues draw on the same limited lambda; the higher-alpha cue learns faster and claims more, so the low-alpha cue ends up weak."
@@ -345,10 +345,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What is the overexpectation effect?",
           choices: [
-            "Two novel cues gaining strength faster than one",
+            "Two novel cues trained together gaining associative strength faster than a single novel cue would",
             "Two separately trained predictors, when combined, losing associative strength because they over-predict the US",
-            "A cue signaling that the US will not occur",
-            "A single cue reaching lambda more slowly"
+            "A cue that is repeatedly paired with the absence of the US coming to signal that it will not occur",
+            "A single cue reaching lambda more slowly because its salience is lower than the other cues present"
           ],
           answer: 1,
           explain: "Two cues each trained to lambda, when reinforced together, jointly predict more than the US supports, so both lose strength."
@@ -376,10 +376,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Why do the cues lose strength in overexpectation?",
           choices: [
-            "Because the US doubled in strength",
+            "Because the US doubles in strength when two cues are present",
             "Because sum V exceeds lambda, giving a negative discrepancy",
-            "Because the cues become inhibitory to one another",
-            "Because their salience suddenly dropped"
+            "Because the two cues become conditioned inhibitors of one another",
+            "Because their salience drops sharply once they are combined"
           ],
           answer: 1,
           explain: "The combined expectation over-predicts the US, so lambda minus sum V is negative and strength is driven back down toward lambda."
@@ -477,10 +477,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What does latent inhibition refer to?",
           choices: [
-            "Faster conditioning after a cue is pre-exposed",
+            "Faster conditioning to a cue that was pre-exposed without the US",
             "Slower conditioning to a cue that was pre-exposed without the US",
-            "The loss of an established conditioned response",
-            "Inhibition of a second, added cue"
+            "The loss of an established conditioned response after CS-alone trials",
+            "Weaker conditioning to an added cue when a trained cue is already present"
           ],
           answer: 1,
           explain: "Latent inhibition is the finding that repeatedly presenting a CS alone, with no US, slows later conditioning to that CS."

@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In a fan-out / fan-in pattern, what is the fan-in step responsible for?",
           choices: [
-            "Dispatching each worker with its own slice of the input",
+            "Dispatching each worker with its own slice of the input and a copy of the shared instructions",
             "Merging, deduplicating, and reconciling worker outputs into one result",
             "Setting the concurrency cap for the worker pool",
-            "Retrying any worker that exceeded its token budget"
+            "Retrying any worker that exceeded its token budget or returned an empty result"
           ],
           answer: 1,
           explain: "Fan-out splits and dispatches; fan-in merges. The merge step is where duplicates get collapsed and contradictions between workers get resolved."
@@ -122,10 +122,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Fan-out over 12 items with a concurrency cap of 4 means the run behaves how?",
           choices: [
-            "All 12 start at once and the excess 8 fail fast",
-            "The cap is advisory, so all 12 proceed at reduced throughput",
+            "All 12 start at once, and the 8 items above the cap fail fast with a rate-limit error",
+            "The cap is only advisory, so all 12 items proceed together at reduced throughput per item",
             "The work proceeds in roughly three waves of 4, each wave paced by its slowest item",
-            "Items 5 through 12 are silently dropped from the batch"
+            "Items 5 through 12 are silently dropped from the batch once the first four have started"
           ],
           answer: 2,
           explain: "A concurrency cap serializes the excess into waves. Total wall clock is roughly the number of waves times the slowest item per wave."
@@ -161,8 +161,8 @@ window.ACADEMY.addUnit("sysdesign", {
           choices: [
             "The stages use different models",
             "The next stage genuinely needs cross-item context, such as dedup across the full set",
-            "You want progress reporting to be easier to display",
-            "Each item's stage-2 work depends only on that same item's stage-1 output"
+            "You want progress reporting to be easier to display to the user as each stage finishes",
+            "Each item's stage-2 work depends only on that same item's stage-1 output and nothing else"
           ],
           answer: 1,
           explain: "A barrier earns its cost only when the next stage needs to see the whole set at once: full-set dedup, an early exit decision, or comparison between findings."
@@ -185,9 +185,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Three stages, each with items ranging 1 to 10 minutes. Which statement is correct?",
           choices: [
             "A barriered run can approach 30 minutes while a pipeline approaches the slowest single chain",
-            "A pipeline is slower because items no longer share warm context",
-            "Both finish at the same time since the total work is identical",
-            "A barriered run is faster because stages start with complete information"
+            "A pipeline is slower overall, because items moving through it no longer share warm context between stages",
+            "Both finish at about the same time, since the total amount of work is identical either way",
+            "A barriered run is faster, because every stage starts with complete information about the whole set"
           ],
           answer: 0,
           explain: "Barriers add up the per-stage maxima: 10 + 10 + 10. A pipeline is bounded by whichever single item's own three-stage chain is longest."
@@ -196,10 +196,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which requirement genuinely forces a barrier?",
           choices: [
-            "Each summary must be written in the same tone",
+            "Each summary in stage 2 must be written in the same consistent tone as all the others",
             "Stage 2 must abort the whole run if fewer than half of stage 1 found anything",
-            "Stage 2 needs the file path produced by stage 1 for that item",
-            "Results must be presented to the user in the original input order"
+            "Stage 2 needs the file path that stage 1 produced for that same item before it can start",
+            "Results must be presented to the user in the original input order once the run is complete"
           ],
           answer: 1,
           explain: "An early-exit decision over the full set cannot be made until the full set exists. Ordering the output is a presentation concern and can be handled after the fact."
@@ -258,8 +258,8 @@ window.ACADEMY.addUnit("sysdesign", {
           choices: [
             "Ask for pairwise or rubric-anchored comparisons instead of a free numeric score",
             "Raise the temperature so the judge produces more varied numbers",
-            "Average three runs of the same scoring prompt for stability",
-            "Widen the scale to 1 to 100 to increase resolution"
+            "Average three runs of the same scoring prompt for each answer to make the scores more stable",
+            "Widen the scale to 1 to 100 so that each score has more resolution between candidates"
           ],
           answer: 0,
           explain: "LLM judges are far better at relative comparison than absolute calibration. Pairwise judgments or explicit rubric anchors give discriminating signal where a bare scale does not."
@@ -284,10 +284,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which is the most serious risk of a verifier whose rejection criteria are vague?",
           choices: [
-            "It slows the pipeline by a fixed constant per item",
+            "It slows the whole pipeline down by a fixed constant amount of time for every item it checks",
             "It consumes context that the producer agent needed",
             "It generates false positives that erode trust and get the gate disabled",
-            "It requires a barrier before the merge stage"
+            "It requires an extra barrier before the merge stage so that every verdict is collected first"
           ],
           answer: 2,
           explain: "A gate that fires on correct work trains everyone to ignore or remove it, which is worse than having no gate at all. Precision matters more than recall for automated blockers."
@@ -329,9 +329,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "You want three verifiers on a data-migration script. The best assignment of lenses is:",
           choices: [
             "Correctness of the transform, rollback safety, and reproducibility of the run",
-            "Style, formatting, and naming conventions",
-            "Three passes for correctness at increasing levels of strictness",
-            "One reviewer per third of the file, same criteria for each"
+            "Style, formatting, and naming conventions across the whole script",
+            "Three passes over correctness of the transform at increasing levels of strictness",
+            "One reviewer per third of the file, applying the same criteria to each part of the script"
           ],
           answer: 0,
           explain: "Those three lenses target genuinely different failure modes of a migration. Splitting by file region or strictness leaves whole categories, such as rollback, unexamined."
@@ -356,10 +356,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the main cost of pushing perspective diversity too far?",
           choices: [
-            "The agents begin sharing context and lose independence",
-            "Merging becomes impossible because outputs vary in format",
+            "The agents begin sharing context with one another and lose their independence from each other",
+            "Merging becomes impossible because the outputs vary too much in format and structure",
             "Lenses drift into areas irrelevant to the task, adding noise to triage",
-            "Concurrency caps stop applying to heterogeneous workers"
+            "Concurrency caps stop applying correctly once the workers are configured differently"
           ],
           answer: 2,
           explain: "Diversity is only useful within the space of plausible failures. A lens with no bearing on the task returns findings nobody will act on."
@@ -430,8 +430,8 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "An orchestrator's window fills up halfway through a 20-item fan-out. The most direct structural fix is:",
           choices: [
             "Tighten the return contract so each subagent reports far less",
-            "Increase the concurrency cap so the run ends sooner",
-            "Move the merge step to the front of the pipeline",
+            "Increase the concurrency cap so the whole run finishes sooner, before the window fills",
+            "Move the merge step to the front of the pipeline so results are combined as they arrive",
             "Give each subagent a larger context window"
           ],
           answer: 0,
@@ -454,10 +454,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which cost grows fastest as you add subagents to a fan-out?",
           choices: [
-            "The orchestrator's own system prompt",
+            "The orchestrator's own system prompt, which is rewritten each time a new subagent is added to the run",
             "The fixed per-agent overhead of instructions and tool schemas, paid N times",
             "The size of the final merged answer",
-            "The wall-clock time of the slowest single item"
+            "The wall-clock time of the slowest single item, which keeps growing with every subagent added"
           ],
           answer: 1,
           explain: "Every agent re-pays for its system prompt, briefing, and tool definitions. That fixed overhead multiplied by N often dominates the useful work on small subtasks."

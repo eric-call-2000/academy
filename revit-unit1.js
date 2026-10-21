@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is Revit, in one sentence?",
           choices: [
             "A BIM authoring app that builds a parametric model of a building",
-            "A spreadsheet program for cost estimates",
-            "A photo editor for renderings",
-            "A file-sharing website for drawings"
+            "A 2D drafting program that draws building plans with lines and arcs",
+            "A rendering tool that turns imported CAD drawings into photoreal images",
+            "A cloud service for sharing and marking up sets of construction drawings"
           ],
           answer: 0,
           explain: "Revit is Autodesk's BIM authoring application for architecture, structure, and MEP. It creates a model, not just drawings."
@@ -82,9 +82,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is the key difference between BIM and traditional CAD?",
           choices: [
             "BIM objects carry data and relationships; CAD lines usually do not",
-            "BIM is only for 2D and CAD is only for 3D",
-            "CAD is newer than BIM",
-            "BIM cannot produce printed drawings"
+            "BIM is for 3D modeling only, while CAD is for 2D drafting only",
+            "CAD stores layers and blocks; BIM stores only geometry without layers",
+            "BIM files are just CAD files saved in a newer and smaller format"
           ],
           answer: 0,
           explain: "In BIM a wall knows it is a wall with height, material, and cost. In CAD a wall is often just lines."
@@ -122,9 +122,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Why does BIM reduce coordination errors compared to loose CAD files?",
           choices: [
             "All views come from one coordinated model",
-            "It prints faster",
-            "It uses fewer colors",
-            "It hides all dimensions"
+            "Each drawing is checked automatically against the building code",
+            "Every change must be approved by the project manager first",
+            "Sheets are exported to PDF after each design change"
           ],
           answer: 0,
           explain: "One model means plans, sections, and schedules stay in sync, so they are far less likely to disagree."
@@ -177,9 +177,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is a linked model in Revit?",
           choices: [
             "Another model referenced into yours without merging into it",
-            "A backup copy of your project",
-            "A printed PDF of the model",
-            "A deleted file in the recycle bin"
+            "A copy of another model imported and merged into your own file",
+            "A backup of your project that Revit saves for you automatically",
+            "A shortcut in the browser that opens a view in a different file"
           ],
           answer: 0,
           explain: "Linking references another file (RVT, CAD, or IFC) so you can see it while it stays a separate model."
@@ -229,9 +229,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Which statement about Revit disciplines is true?",
           choices: [
             "Architecture, Structure, and MEP share the same Revit platform",
-            "Each discipline needs a totally different program",
-            "Only architects can use Revit",
-            "MEP work must be done in a spreadsheet"
+            "Each discipline needs its own separate program from a different vendor",
+            "Only architects can model in Revit; engineers just view the results",
+            "MEP systems must be modeled in AutoCAD and then imported into Revit"
           ],
           answer: 0,
           explain: "One platform serves all three disciplines, which is a big reason Revit is strong for coordination."
@@ -253,9 +253,9 @@ window.ACADEMY.addUnit("revit", {
           q: "How do separate discipline models usually work together in Revit?",
           choices: [
             "They are linked so each team sees the others while keeping its own model",
-            "They are all forced into one person's file",
-            "They never see each other",
-            "They are emailed as printed pages only"
+            "They are merged into one central file that only one person can edit",
+            "They are exported to DWG every week and traced over by each other team",
+            "They are kept fully apart and compared only at the end of design"
           ],
           answer: 0,
           explain: "Teams often keep separate models and link them, so each discipline coordinates without merging files."
@@ -282,9 +282,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What does parametric mean in Revit?",
           choices: [
             "Geometry is driven by adjustable values and rules",
-            "Every shape is locked and cannot change",
-            "Only colors can be changed",
-            "The model is a flat picture"
+            "Elements are drawn as fixed shapes you edit by hand",
+            "The model is built from many 2D views stacked together",
+            "Shapes are measured automatically after you draw them by hand"
           ],
           answer: 0,
           explain: "Parametric means values like height or width drive the geometry, so editing a number reshapes the element."
@@ -334,9 +334,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What are the two Type-or-Instance scopes actually about?",
           choices: [
             "Whether a change hits all elements of a type or just one placed element",
-            "Whether the file is saved or not",
-            "Whether the model is 2D or 3D",
-            "Whether the view is a plan or a section"
+            "Whether a parameter shows in the 3D view or only in the plan views",
+            "Whether a parameter is stored in the project or in a shared file",
+            "Whether an element is a loadable family or a system family in the model"
           ],
           answer: 0,
           explain: "Type versus Instance is about how widely a parameter change spreads, not about views or file state."
@@ -353,9 +353,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Why start a new project from a template (rte) instead of a blank file?",
           choices: [
             "It preloads standards, settings, and content so you work faster and more consistently",
-            "It makes the file smaller",
-            "It hides the model from your team",
-            "It removes all views permanently"
+            "It locks the model so only the template author can change settings later",
+            "It creates a smaller file because unused categories are stripped out",
+            "It links the new project to the office server so every change syncs automatically"
           ],
           answer: 0,
           explain: "Templates carry your standards, families, and settings, so every project starts consistent instead of from scratch."
@@ -418,9 +418,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Why does saving often and keeping backups matter in Revit?",
           choices: [
             "Models are large and complex, so losing unsaved work is costly",
-            "Saving changes the building design",
-            "Backups delete your project",
-            "Revit cannot recover from any crash ever"
+            "Revit only checks the model for errors at the moment you save it",
+            "Each save makes the model smaller by purging unused content for you",
+            "Backups are needed before consultants are allowed to link the model"
           ],
           answer: 0,
           explain: "Revit models represent a lot of work. Frequent saves and backups protect you from crashes and mistakes."
@@ -484,9 +484,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What does purging do to a Revit model?",
           choices: [
             "Removes unused families, types, and other content to slim the file",
-            "Deletes all of your walls",
-            "Prints every sheet",
-            "Locks the model so no one can edit it"
+            "Deletes hidden elements in every view so the model draws faster",
+            "Removes warnings from the model by fixing overlapping elements",
+            "Compresses the file by merging duplicate views and sheets together"
           ],
           answer: 0,
           explain: "Purging removes unused items the model is not actually using, which reduces bloat and can improve performance."

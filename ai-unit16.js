@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does it mean when an AI 'hallucinates'?",
           choices: [
             "It makes up information that sounds plausible but is false",
-            "It refuses to answer your question",
-            "It becomes conscious for a moment",
-            "It slows down and lags"
+            "It refuses to answer a question it could have answered",
+            "It repeats the same phrase over and over in its reply",
+            "It switches to a different language partway through"
           ],
           answer: 0,
           explain: "A hallucination is confidently stated but made-up content. LLMs predict plausible text, so they can invent facts, quotes, or sources."
@@ -97,9 +97,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Where does an AI model's bias mostly come from?",
           choices: [
             "Patterns in the data it was trained on",
-            "The color of the app's interface",
-            "The user's typing speed",
-            "The time of day you use it"
+            "Rules its makers wrote into the model",
+            "The opinions of the users who chat with it",
+            "Random noise added during each reply"
           ],
           answer: 0,
           explain: "Models learn statistical patterns from large amounts of human-created data, so biases in that data can show up in outputs."
@@ -160,9 +160,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a good habit when an AI gives advice about people or groups?",
           choices: [
             "Ask whether the answer would be fair to everyone involved",
-            "Assume the model has no opinions",
-            "Accept it because a computer said it",
-            "Never question detailed answers"
+            "Trust it, since models are trained to be neutral by default",
+            "Ask the model to confirm that its own answer is unbiased",
+            "Accept it if the answer is detailed and cites statistics"
           ],
           answer: 0,
           explain: "Pausing to ask whether an output is fair helps you catch bias before it influences a decision about real people."
@@ -179,9 +179,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which of these is the WORST thing to paste into an AI chat?",
           choices: [
             "A customer's full credit card number",
-            "A public news headline",
-            "A made-up example name",
-            "A question about grammar"
+            "A draft of your own cover letter",
+            "Your company's public press release",
+            "A question about a medical term"
           ],
           answer: 0,
           explain: "Never paste secrets like card numbers, passwords, or private personal data. Once shared, you lose control over where it goes."
@@ -204,9 +204,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why should you assume anything you paste could be stored?",
           choices: [
             "You may not control how the provider retains data",
-            "AI tools never keep any data ever",
-            "Storage is impossible on the internet",
-            "Text disappears the moment you send it"
+            "Every chat you send is published publicly online",
+            "AI tools keep data only if you upload a file",
+            "Deleting a chat removes it from every server instantly"
           ],
           answer: 0,
           explain: "Retention varies by tool and plan, so the safe default is to assume input could be logged and act accordingly."
@@ -249,9 +249,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a prompt injection attack?",
           choices: [
             "Hidden instructions in content the AI reads that try to hijack its behavior",
-            "Typing too fast into the chat box",
-            "A software update for the model",
-            "A way to make the AI respond faster"
+            "A user asking the AI the same question many times to get a different answer",
+            "An attack that steals the model's weights by sending it very long prompts",
+            "A bug where the AI repeats part of your prompt back to you in its answer"
           ],
           answer: 0,
           explain: "Prompt injection hides malicious instructions inside data the AI processes, trying to trick it into ignoring your real goal."
@@ -344,9 +344,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does RLHF (reinforcement learning from human feedback) do?",
           choices: [
             "Uses human ratings to steer the model toward better responses",
-            "Deletes the model's training data",
-            "Makes the model run without electricity",
-            "Turns the model into a search engine"
+            "Lets the model learn live from each user's chats as they happen",
+            "Has humans write every answer that the model will ever give",
+            "Removes harmful text from the training data before training"
           ],
           answer: 0,
           explain: "RLHF trains the model using human preferences about which answers are better, nudging it toward helpful, safe behavior."
@@ -384,8 +384,8 @@ window.ACADEMY.addUnit("ai", {
           choices: [
             "Anthropic",
             "OpenAI",
-            "Google",
-            "Meta"
+            "Google DeepMind",
+            "Microsoft Research"
           ],
           answer: 0,
           explain: "Anthropic makes Claude. OpenAI makes ChatGPT, Google makes Gemini, and Meta makes Llama."
@@ -402,9 +402,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is the honest thing to do when AI helped write something important?",
           choices: [
             "Disclose that AI was involved when it matters",
-            "Always hide that AI was used",
-            "Claim you wrote every word alone",
-            "Delete the work so no one asks"
+            "Only mention it if someone asks you directly",
+            "Mention it only if the AI wrote most of it",
+            "Never mention it, since you edited the result"
           ],
           answer: 0,
           explain: "Disclosing AI use where it matters, such as school or work, keeps you honest and respects the rules of that setting."
@@ -497,9 +497,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a healthy way to use AI for a serious topic like a legal question?",
           choices: [
             "Use it to learn background, then confirm with a professional",
-            "Skip the professional to save money",
-            "Follow its advice exactly with no review",
-            "Assume it knows your local laws perfectly"
+            "Follow its advice if it cites the specific law that applies",
+            "Ask it the same question twice and act if the answers match",
+            "Use it instead of a lawyer for anything under a set amount"
           ],
           answer: 0,
           explain: "AI can help you understand the basics and ask better questions, but a professional should handle the real decision."
@@ -567,9 +567,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does 'healthy skepticism' about AI mean?",
           choices: [
             "Stay curious but verify claims before trusting them",
-            "Refuse to ever use AI",
-            "Believe every headline about AI",
-            "Assume AI can do literally anything"
+            "Avoid AI for anything important, just to be safe",
+            "Trust AI on facts but not on opinions or advice",
+            "Assume most claims about AI progress are hype"
           ],
           answer: 0,
           explain: "Healthy skepticism is a middle path: use AI eagerly, but check bold claims and outputs instead of taking them on faith."

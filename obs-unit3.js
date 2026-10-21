@@ -40,9 +40,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Two audio sources OBS commonly captures are:",
           choices: [
             "Your microphone and your desktop sound",
-            "Your printer and your mouse",
-            "Your Wi-Fi and your keyboard",
-            "Your monitor and your webcam"
+            "Your microphone and your webcam's video feed",
+            "Your desktop sound and your capture card's video",
+            "Your microphone and your browser's notification pop-ups"
           ],
           answer: 0,
           explain: "Mic (your voice) and desktop audio (system sound) are the two staples."
@@ -67,9 +67,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A simple win for better audio is:",
           choices: [
             "Recording in a quiet room close to the mic",
-            "Turning your resolution to 4K",
-            "Adding more scenes",
-            "Increasing your frame rate"
+            "Turning the mic gain all the way up in the mixer",
+            "Adding Noise Suppression with the strongest setting",
+            "Recording at 60 fps"
           ],
           answer: 0,
           explain: "A quiet space and good mic distance beat almost any software fix."
@@ -86,9 +86,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The moving bars in the Audio Mixer are:",
           choices: [
             "Level meters showing how loud each source is",
-            "Download progress bars",
-            "Frame rate counters",
-            "Battery indicators"
+            "Volume sliders that set how loud each source is",
+            "Upload bandwidth meters for your stream",
+            "Indicators showing which audio track is active"
           ],
           answer: 0,
           explain: "The meters visualize your audio levels in real time."
@@ -98,9 +98,9 @@ window.ACADEMY.addUnit("obs", {
           q: "For a healthy speaking level, your meter should mostly peak around:",
           choices: [
             "The yellow zone, not slamming into red",
-            "Deep in the red constantly",
-            "Completely silent",
-            "Off the top of the meter"
+            "The red zone, as loud as you can push it",
+            "The bottom of the green, barely moving at all",
+            "Right at the very top, touching 0 dB constantly"
           ],
           answer: 0,
           explain: "Aim for the yellow region; red means you are clipping (too loud)."
@@ -139,9 +139,9 @@ window.ACADEMY.addUnit("obs", {
           q: "If your voice is too quiet, the quickest fix in the mixer is to:",
           choices: [
             "Raise that source's volume (or add a Gain filter)",
-            "Lower your resolution",
-            "Add another scene",
-            "Change the recording format"
+            "Raise the desktop audio so everything sounds louder",
+            "Add a Limiter filter set to a low threshold",
+            "Move the mic source higher in the Sources list"
           ],
           answer: 0,
           explain: "Raise the slider, and if it maxes out, add a Gain filter for more."
@@ -167,9 +167,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Recording mic and desktop to separate tracks helps you:",
           choices: [
             "Balance or remove one of them in editing",
-            "Increase your internet speed",
-            "Shrink the canvas",
-            "Add more transitions"
+            "Record both at a higher combined volume level",
+            "Reduce the size of the final recording file",
+            "Keep audio in sync"
           ],
           answer: 0,
           explain: "Separate tracks let you fix or mute one side later without touching the other."
@@ -192,9 +192,9 @@ window.ACADEMY.addUnit("obs", {
           q: "To keep background music quieter than your voice, you should:",
           choices: [
             "Lower the desktop audio relative to the mic",
-            "Delete the mic source",
-            "Raise your resolution",
-            "Disable the preview"
+            "Raise the mic to max and leave the music alone",
+            "Add Noise Suppression to the desktop audio",
+            "Mute the desktop audio whenever you speak"
           ],
           answer: 0,
           explain: "Balance the two so your voice sits clearly above the music."
@@ -210,8 +210,8 @@ window.ACADEMY.addUnit("obs", {
           q: "A common mistake is:",
           choices: [
             "Recording with the mic accidentally muted",
-            "Using a quiet room",
-            "Checking meters before recording",
+            "Recording in a quiet room with soft furniture",
+            "Checking the meters before you press record",
             "Doing a test take"
           ],
           answer: 0,
@@ -229,9 +229,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Noise Suppression is best at removing:",
           choices: [
             "Steady background noise like a fan or hum",
-            "Your actual words",
-            "The video image",
-            "Your scene transitions"
+            "Loud sudden sounds like a door slamming shut",
+            "Echo and room reverb from bare walls and floors",
+            "Your voice getting louder and quieter as you move"
           ],
           answer: 0,
           explain: "It targets constant, low-level noise, not your speech."
@@ -254,9 +254,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A downside of aggressive noise suppression is:",
           choices: [
             "Your voice can start to sound thin or robotic",
-            "It deletes your scenes",
-            "It raises your resolution",
-            "It disables recording"
+            "It mutes your mic completely whenever you pause",
+            "It makes the meter peak in the red more often",
+            "It removes the desktop audio along with the noise"
           ],
           answer: 0,
           explain: "Too much suppression can chew into your voice, so use a moderate amount."
@@ -281,9 +281,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The correct order of thinking about noise is:",
           choices: [
             "Reduce noise at the source first, then filter what remains",
-            "Only ever rely on filters",
-            "Ignore noise entirely",
-            "Raise the volume until noise disappears"
+            "Stack strong filters first, then fix the room only if they fail",
+            "Raise the mic gain until your voice drowns the noise out",
+            "Record as is and remove all the noise later in your editor"
           ],
           answer: 0,
           explain: "Quiet the room and improve mic technique first; filters clean up the rest."
@@ -310,9 +310,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A Noise Gate is useful for:",
           choices: [
             "Cutting out room noise when you are not speaking",
-            "Increasing video sharpness",
-            "Adding a fade transition",
-            "Changing your resolution"
+            "Making your voice sound fuller by boosting the low frequencies",
+            "Keeping loud peaks from clipping when you suddenly shout",
+            "Removing a steady fan hum while you are talking over it"
           ],
           answer: 0,
           explain: "The gate closes during silence, hiding low background noise between sentences."
@@ -352,9 +352,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Over-compressing your voice tends to:",
           choices: [
             "Make it sound flat and pull up background noise",
-            "Improve your webcam image",
-            "Speed up your internet",
-            "Add scenes automatically"
+            "Make it sound clearer and push the meter deeper into the red",
+            "Lower the noise floor so pauses become completely silent",
+            "Remove room echo and make the voice sound closer to the mic"
           ],
           answer: 0,
           explain: "Heavy compression flattens dynamics and can raise the noise floor."
@@ -371,9 +371,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Audio Monitoring lets you:",
           choices: [
             "Hear a source through your headphones",
-            "Record video only",
-            "Delete a scene",
-            "Change your resolution"
+            "Send a source to a separate track in the recording file",
+            "Mute a source in the recording while still showing its meter",
+            "Delay a source so it lines up with your webcam video"
           ],
           answer: 0,
           explain: "Monitoring routes a source to your headphones so you can hear it live."
@@ -406,9 +406,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Lip-sync being off (voice behind mouth) is fixed by:",
           choices: [
             "Adjusting the sync offset for that source",
-            "Lowering your bitrate",
-            "Adding a new scene",
-            "Muting desktop audio"
+            "Moving the mic source higher in the Sources list",
+            "Adding a Noise Gate filter to the mic source",
+            "Raising the frame rate in Video settings"
           ],
           answer: 0,
           explain: "A sync offset nudges the audio earlier or later to match the video."
@@ -424,9 +424,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The safest way to monitor while recording your voice is:",
           choices: [
             "Headphones, so the sound does not leak into the mic",
-            "Loud speakers",
-            "No headphones and max volume",
-            "Turning the mic off"
+            "Speakers turned down low with the mic set to Monitor Only",
+            "Speakers at normal volume with Noise Suppression turned on",
+            "No monitoring at all, so you never hear your own voice"
           ],
           answer: 0,
           explain: "Headphones prevent the monitored sound from re-entering the microphone."
@@ -443,9 +443,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Recording to multiple audio tracks is valuable because:",
           choices: [
             "You can adjust or mute each source in editing",
-            "It makes the video shorter",
-            "It removes the need for a mic",
-            "It doubles your frame rate"
+            "It makes each separate source sound louder in the file",
+            "It lets OBS mix your mic and music automatically for you",
+            "It keeps the recording smaller than a single mixed track"
           ],
           answer: 0,
           explain: "Separate tracks let an editor fix mic or music independently later."
@@ -484,9 +484,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A recording-first creator benefits from multi-track because:",
           choices: [
             "Editing flexibility is worth more than a tiny file-size saving",
-            "It removes the need to edit",
-            "It uploads the video for you",
-            "It disables the mixer"
+            "Separate tracks make the final uploaded video file smaller",
+            "Multi-track recording removes background noise automatically",
+            "YouTube needs separate audio tracks for every uploaded video"
           ],
           answer: 0,
           explain: "For edited YouTube videos, control in post is worth the extra tracks."
@@ -561,9 +561,9 @@ window.ACADEMY.addUnit("obs", {
           q: "If levels are too hot (red), you should:",
           choices: [
             "Lower the gain or move slightly back from the mic",
-            "Raise the resolution",
-            "Add more sources",
-            "Delete the scene"
+            "Raise the gain so the meter stays pinned at the top",
+            "Add a Noise Gate so the loud parts get cut off",
+            "Move much closer to the mic to get a stronger signal"
           ],
           answer: 0,
           explain: "Reduce gain or increase mic distance to bring peaks back into the yellow."

@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is Autodesk Takeoff mainly used for?",
-          choices: ["Quantity takeoff from drawings and models", "Sending RFIs to the design team", "Storing project contracts", "Running a Revit render"],
+          choices: ["Quantity takeoff from drawings and models", "Tracking RFIs and submittals", "Storing signed project contracts", "Clash detection between design models"],
           answer: 0,
           explain: "Autodesk Takeoff measures quantities (counts, lengths, areas, volumes) from 2D sheets and 3D models to feed an estimate."
         },
@@ -62,7 +62,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Where do the quantities from Autodesk Takeoff live?",
-          choices: ["In the cloud with the rest of the project data", "Only on one estimator's laptop", "In a printed binder only", "Nowhere, they are deleted after use"],
+          choices: ["In the cloud with the rest of the project data", "Only on the estimator's laptop until exported", "In a separate estimating database outside ACC", "Inside each Revit model as a hidden parameter"],
           answer: 0,
           explain: "Cloud takeoff keeps quantities alongside the project so the whole team can see and reuse them."
         }
@@ -76,7 +76,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is 2D takeoff?",
-          choices: ["Measuring quantities from flat drawings", "Rotating a 3D model", "Writing a contract", "Sending a transmittal"],
+          choices: ["Measuring quantities from flat drawings", "Measuring quantities from 3D model objects", "Converting 2D drawings into a 3D model", "Marking up drawings with review comments"],
           answer: 0,
           explain: "2D takeoff measures quantities directly from 2D sheets like plans and elevations."
         },
@@ -125,7 +125,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why does 2D takeoff still matter when a 3D model exists?",
-          choices: ["Not everything is modeled, so drawings fill the gaps", "3D models cannot be measured at all", "2D is always more accurate than 3D", "Drawings replace the model entirely"],
+          choices: ["Not everything is modeled, so drawings fill the gaps", "3D models cannot be measured by takeoff tools at all", "2D measurements are always more accurate than 3D ones", "Owners require all quantities to come from drawings"],
           answer: 0,
           explain: "Some scope is only shown in 2D, so estimators use 2D takeoff to capture what the model does not include."
         }
@@ -139,7 +139,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is model-based takeoff?",
-          choices: ["Pulling quantities straight from the 3D model", "Printing the drawings", "Reviewing an RFI", "Setting folder permissions"],
+          choices: ["Pulling quantities straight from the 3D model", "Measuring quantities by tracing over 2D sheets", "Building a 3D model from quantity estimates", "Checking a model for clashes before pricing"],
           answer: 0,
           explain: "Model-based takeoff reads quantities from the objects in the 3D model automatically."
         },
@@ -188,7 +188,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What happens to takeoff numbers if the model updates with a new version?",
-          choices: ["They can be re-pulled to match the new version", "They are locked forever", "They delete the whole project", "They convert to a contract"],
+          choices: ["They can be re-pulled to match the new version", "They are locked to the old version and must be redone from scratch", "They update the model to match the old quantities", "They are deleted along with the old model version"],
           answer: 0,
           explain: "When the model changes, you can update the takeoff so quantities reflect the latest design."
         }
@@ -202,7 +202,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a takeoff package?",
-          choices: ["A way to group and organize quantities", "A cloud storage plan", "A type of RFI", "A rendering setting"],
+          choices: ["A way to group and organize quantities", "A storage plan for project files", "A bundle of drawings issued as a transmittal", "A saved setting for measuring units"],
           answer: 0,
           explain: "A package organizes related takeoff work so quantities are grouped instead of scattered."
         },
@@ -238,7 +238,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why use packages instead of putting all quantities in one big list?",
-          choices: ["Grouping makes review and handoff easier", "It makes the model larger", "It hides quantities from the team", "It deletes old drawings"],
+          choices: ["Grouping makes review and handoff easier", "Packages calculate costs automatically", "Packages hide quantities from other teams", "A single list cannot hold more than a few items"],
           answer: 0,
           explain: "Grouping quantities by scope makes the estimate easier to review, compare, and hand off cleanly."
         },
@@ -258,7 +258,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does Cost Management in ACC track?",
-          choices: ["Budgets, contracts, and cost changes", "Only design geometry", "Only email threads", "Only camera renders"],
+          choices: ["Budgets, contracts, and cost changes", "Quantities measured from drawings", "Crew hours and payroll records", "Schedule activities and milestones"],
           answer: 0,
           explain: "Cost Management brings budgets, contracts, changes, and actual costs together in ACC."
         },
@@ -288,7 +288,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a contract in Cost Management?",
-          choices: ["An agreement to pay for a scope of work", "A 3D clash report", "A folder permission", "A drawing scale"],
+          choices: ["An agreement to pay for a scope of work", "A budget line for a category of costs", "A request to change the project scope", "A record of payments already made"],
           answer: 0,
           explain: "A contract records the commitment to pay a party for an agreed scope of work."
         },
@@ -307,7 +307,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why is it useful to see budget, contracts, and actuals together?",
-          choices: ["It shows whether the project is on budget", "It renders the model faster", "It replaces the schedule", "It hides costs from the owner"],
+          choices: ["It shows whether the project is on budget", "It sets the budget automatically from actual costs", "It replaces the need for change orders", "It hides committed costs from the owner"],
           answer: 0,
           explain: "Seeing planned, committed, and actual costs together tells you if the project is tracking to budget."
         }
@@ -321,7 +321,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a change order?",
-          choices: ["An approved change to cost or scope", "A type of drawing sheet", "A model clash", "A folder in Docs"],
+          choices: ["An approved change to cost or scope", "A request for information about the drawings", "A purchase order for materials", "A revised drawing sheet"],
           answer: 0,
           explain: "A change order formally revises the cost or scope after the original budget or contract is set."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does connecting model to cost let you do?",
-          choices: ["Turn model quantities into cost estimates", "Delete the model", "Send transmittals", "Set drawing scales"],
+          choices: ["Turn model quantities into cost estimates", "Turn cost estimates into model geometry", "Send model quantities to the field crews", "Link invoices to the elements they paid for"],
           answer: 0,
           explain: "Linking quantities to unit prices converts measured amounts into estimated dollars."
         },
@@ -433,7 +433,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why export takeoff quantities?",
-          choices: ["To share them with estimators and other tools", "To delete the model", "To render the project", "To set folder permissions"],
+          choices: ["To share them with estimators and other tools", "To back them up before the model is deleted", "To lock them so they cannot be updated later", "To convert them into a 3D model"],
           answer: 0,
           explain: "Exporting lets quantities move into estimating spreadsheets or software for pricing."
         },
@@ -469,7 +469,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a good reason to review totals before exporting?",
-          choices: ["To catch missing or double-counted items", "To make the file smaller", "To hide the quantities", "To render faster"],
+          choices: ["To catch missing or double-counted items", "To reduce the size of the exported file", "To lock the quantities against later updates", "To convert units to the owner's preference"],
           answer: 0,
           explain: "A quick review catches gaps or double counts before the numbers reach the estimate."
         },

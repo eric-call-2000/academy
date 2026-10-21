@@ -69,7 +69,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which value did ancient Greek thought emphasize, according to Nisbett?",
-          choices: ["Collective harmony", "Personal agency and debate", "Ancestral duty", "Effortless action"],
+          choices: ["Collective harmony and consensus", "Personal agency and debate", "Duty to ancestors and tradition", "Effortless action and balance"],
           answer: 1,
           explain: "Nisbett links the Greeks to a strong sense of personal agency, individual freedom, and a culture of open debate and argument."
         },
@@ -155,7 +155,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "When explaining an event, analytic thinkers tend to attribute causes to what?",
-          choices: ["The surrounding situation", "The object's or person's own properties", "Cosmic balance", "Group expectations"],
+          choices: ["The surrounding situation and context", "The object's or person's own properties", "A balance of opposing forces in nature", "The expectations of the person's group"],
           answer: 1,
           explain: "Analytic cognition favors dispositional attribution, explaining behavior by an actor's internal traits rather than the situation."
         },
@@ -181,7 +181,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Holistic cognition attends most strongly to what?",
-          choices: ["A single central object", "The entire field and its relationships", "Abstract logical rules", "Fixed categories"],
+          choices: ["A single central object and its features", "The entire field and its relationships", "Abstract logical rules and their application", "Fixed categories that objects belong to"],
           answer: 1,
           explain: "Holistic thinking spreads attention across the whole visual and situational field, emphasizing how elements relate to one another."
         },
@@ -237,7 +237,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In the rod-and-frame test, the participant must judge when the rod is what, ignoring the tilted frame?",
-          choices: ["Brightest", "Truly vertical", "Longest", "Closest"],
+          choices: ["Parallel to the frame", "Truly vertical", "Centered in the frame", "Truly horizontal"],
           answer: 1,
           explain: "Participants adjust a rod until it is truly vertical while a surrounding square frame is tilted to mislead them."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The framed-line task, showing culture-linked differences in judgment, was designed primarily by which researcher?",
-          choices: ["Herman Witkin", "Shinobu Kitayama", "Solomon Asch", "Hazel Markus"],
+          choices: ["Herman A. Witkin", "Shinobu Kitayama", "Takahiko Masuda", "Richard Nisbett"],
           answer: 1,
           explain: "Shinobu Kitayama and colleagues designed the framed-line task (published 2003) to test relative versus absolute perceptual judgments."
         },
@@ -349,7 +349,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Masuda and Nisbett's 2001 study, participants watched animated scenes of what?",
-          choices: ["A city street", "An underwater vignette", "A crowded market", "A mountain trail"],
+          choices: ["A busy city street scene", "An underwater vignette", "A crowded outdoor market", "A mountain trail with animals"],
           answer: 1,
           explain: "Masuda and Nisbett (2001) showed animated underwater scenes with a focal fish plus background rocks, plants, and other creatures."
         },
@@ -425,7 +425,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In studies like Ji, Zhang, and Nisbett (2004), Chinese participants more often grouped objects by what?",
-          choices: ["Shared category", "Relationship or theme", "Alphabetical order", "Physical size"],
+          choices: ["Shared taxonomic category", "Relationship or theme", "Alphabetical order of names", "Physical size and shape"],
           answer: 1,
           explain: "Chinese participants favored thematic, relationship-based groupings, while American participants leaned toward taxonomic category groupings."
         },

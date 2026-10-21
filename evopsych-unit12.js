@@ -85,10 +85,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "In the classic forced-choice question, participants had to pick which scenario would distress them more. What were the two options?",
           choices: [
-            "A partner lying about money versus lying about the past",
+            "A partner lying about money versus a partner lying about past relationships",
             "A partner having sex with someone else versus forming a deep emotional attachment to someone else",
-            "A partner leaving versus a partner staying but unhappy",
-            "A partner flirting in person versus flirting online"
+            "A partner leaving the relationship versus a partner staying but being unhappy",
+            "A partner flirting with someone in person versus a partner flirting with someone else online through messages"
           ],
           answer: 1,
           explain: "The forced-choice paradigm pits sexual infidelity (imagined sex with a rival) against emotional infidelity (imagined deep emotional bond with a rival)."
@@ -156,10 +156,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which set of physiological measures did Buss et al. (1992) record while participants imagined infidelity?",
           choices: [
-            "Blood glucose, body temperature, and pupil size",
+            "Blood glucose, body temperature, and pupil dilation recorded with an eye-tracking camera",
             "Heart rate, skin conductance (electrodermal activity), and brow-muscle activity",
-            "Brain lesions, reflexes, and lung capacity",
-            "Bone density, saliva pH, and grip strength"
+            "Cortisol in saliva, blood pressure, and breathing rate measured over an hour",
+            "Brain activity by fMRI, reaction time, and hand-grip strength"
           ],
           answer: 1,
           explain: "The study measured heart rate, electrodermal (skin-conductance) responses, and corrugator (brow) muscle activity via EMG as indices of distress."
@@ -191,10 +191,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What was the main value of adding physiological measures to the jealousy research?",
           choices: [
-            "They proved jealousy is entirely learned in childhood",
-            "They removed the need to study men and women separately",
+            "They proved jealousy is learned in childhood rather than shaped by evolution",
+            "They showed that the sex difference vanishes once bodily responses are measured",
             "They offered evidence of distress that did not rely only on conscious self-report",
-            "They showed the body reacts the same to all emotions"
+            "They removed the need to compare men's and women's responses separately"
           ],
           answer: 2,
           explain: "Bodily measures provide a converging, less deliberate index of distress, strengthening claims that the sex difference is not merely a reporting artifact."
@@ -227,10 +227,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What is a central methodological objection DeSteno and colleagues raised against the jealousy findings?",
           choices: [
-            "The studies used too many physiological sensors at once",
+            "The studies relied on physiological sensors that could not tell jealousy apart from ordinary anger",
             "The forced-choice format may manufacture a sex difference that shrinks with continuous rating measures",
-            "The samples were entirely non-human animals",
-            "Participants were never told to imagine a partner"
+            "The samples were drawn from too many cultures to allow a fair comparison",
+            "Participants were never asked to imagine a real or past romantic partner"
           ],
           answer: 1,
           explain: "DeSteno et al. argued the dramatic difference is partly an artifact of forcing a binary choice; when people rate each scenario continuously, the gap narrows."
@@ -252,10 +252,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why did the cognitive-load result matter for the debate?",
           choices: [
-            "It showed evolved modules require heavy conscious effort to operate",
-            "It proved men and women have identical brains",
+            "It showed that evolved modules need heavy conscious effort, so the sex difference should grow larger under cognitive load",
+            "It confirmed that the forced-choice and continuous measures give exactly the same results",
             "An automatic, encapsulated module should NOT vanish under cognitive load, so its disappearance argues against one",
-            "It confirmed the physiological data were faked"
+            "It showed that men and women process both kinds of infidelity with identical brain regions"
           ],
           answer: 2,
           explain: "Evolutionary modules are theorized to run automatically; if load erases the difference, critics argue the effect comes from deliberate inference instead."
@@ -334,10 +334,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "According to this research, which positive-inducement tactic did men tend to emphasize more than women?",
           choices: [
-            "Enhancing physical appearance",
+            "Enhancing physical appearance to look attractive",
             "Displaying resources and provisioning ability",
-            "Wearing a partner's clothing",
-            "Reducing contact with all friends"
+            "Inducing jealousy by showing interest in others",
+            "Keeping close tabs on a partner's whereabouts"
           ],
           answer: 1,
           explain: "Men more often used resource display, consistent with women's ancestral valuation of a partner's ability to invest, while women more often enhanced appearance."
@@ -370,10 +370,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What is the core premise of sexual conflict theory?",
           choices: [
-            "Males and females always share identical reproductive interests",
+            "Males and females share identical reproductive interests, so conflict is rare",
             "The sexes can have divergent reproductive interests, producing conflicting adaptations",
-            "Conflict occurs only between members of the same sex",
-            "Reproduction has no evolutionary costs for either sex"
+            "Conflict occurs mainly between members of the same sex competing for mates",
+            "Reproduction is costly for females only, so males face no evolutionary trade-offs in mating or parenting"
           ],
           answer: 1,
           explain: "Sexual conflict theory holds that because optimal outcomes differ for each sex, selection can favor traits in one sex that are costly to the other."
@@ -395,9 +395,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Over what do the sexes most commonly come into conflict under this theory?",
           choices: [
-            "Digestion and metabolism",
-            "Migration routes only",
-            "Sleep-cycle timing",
+            "Food sharing, foraging routes, and sleep timing",
+            "Territory size and access to shared feeding sites",
+            "Migration timing and choice of wintering grounds",
             "Mating rate, mate choice, and parental investment"
           ],
           answer: 3,
@@ -476,10 +476,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why is dishonest signaling of intent (for example, feigning long-term commitment) an expected tactic?",
           choices: [
-            "Because signals of intent are easy for a partner to verify instantly",
-            "Because it always benefits the deceived partner",
+            "Because signals of intent are easy for a partner to verify on the spot",
+            "Because deceiving a partner about intent usually benefits both partners in equal measure",
             "Because faking commitment can secure mating access without paying the promised investment",
-            "Because it removes all reproductive competition"
+            "Because honest signals of commitment cost too little to be believed by partners"
           ],
           answer: 2,
           explain: "Feigning commitment can gain a mating opportunity while avoiding the real costs of investment, so selection can favor such deception when it goes undetected."
@@ -512,10 +512,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What does 'cryptic female choice' refer to?",
           choices: [
-            "A female choosing a mate based only on secret rituals before mating",
+            "A female choosing a mate based on hidden cues she inspects privately before mating",
             "Post-copulatory female mechanisms that bias paternity among the sperm of different males",
-            "A male hiding his courtship displays from rivals",
-            "Random fertilization unaffected by the female"
+            "A male hiding his courtship displays from rivals to avoid competition",
+            "Fertilization by whichever sperm arrives first, unaffected by the female"
           ],
           answer: 1,
           explain: "Cryptic female choice describes female physiological and behavioral mechanisms, hidden inside the reproductive tract, that non-randomly favor certain males' sperm after mating."
@@ -547,9 +547,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which of the following is a plausible mechanism of cryptic female choice?",
           choices: [
-            "Choosing a partner by his song before mating",
-            "Refusing to mate with any male at all",
-            "Changing the color of courtship feathers",
+            "Choosing a partner by the quality of his song before any mating occurs",
+            "Rejecting a male's courtship attempts before copulation takes place",
+            "Comparing rival males' displays at a lek and then choosing one of them before any mating occurs",
             "Selectively ejecting or differentially storing a given male's sperm after mating"
           ],
           answer: 3,

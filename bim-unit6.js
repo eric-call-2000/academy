@@ -33,9 +33,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which of these best describes what a CDE is?",
           choices: [
             "A managed environment for collecting and sharing project information",
-            "A single 3D modeling program",
-            "A type of construction contract",
-            "A rendering engine for producing images"
+            "A single 3D modeling program that every discipline must use",
+            "A federated model that combines all of the discipline models",
+            "A shared network folder where every team saves its files freely"
           ],
           answer: 0,
           explain: "A CDE is a managed environment (people, process, and technology) for collecting, managing, and sharing information, not a single piece of modeling software."
@@ -68,9 +68,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Why is having a single agreed source of information valuable on a project?",
           choices: [
             "It reduces the risk of people working from different or outdated information",
-            "It removes the need for any project team members",
-            "It guarantees the project finishes early",
-            "It replaces the need for a contract"
+            "It means each team no longer needs to check information before sharing it",
+            "It removes the need for revision codes because only one copy ever exists",
+            "It lets each discipline edit the other disciplines' models when needed"
           ],
           answer: 0,
           explain: "A single agreed source reduces confusion and rework caused by people relying on conflicting or out-of-date information."
@@ -94,9 +94,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which problem is a CDE mainly designed to reduce?",
           choices: [
             "People working from outdated or conflicting versions of information",
-            "The need to hire a design team",
-            "The cost of physical building materials",
-            "The weather delays on a construction site"
+            "The time needed to model each discipline's elements in full detail",
+            "Slow rendering of large models during client design reviews",
+            "The cost of licensing separate modeling software for each firm"
           ],
           answer: 0,
           explain: "By controlling versions and access, a CDE helps ensure everyone uses current, coordinated information rather than conflicting copies."
@@ -122,9 +122,9 @@ window.ACADEMY.addUnit("bim", {
           q: "How does a CDE help with accountability?",
           choices: [
             "It makes clear who produced and shared each piece of information",
-            "It hides the author of every document",
-            "It prevents anyone from editing information",
-            "It deletes information after each week"
+            "It lets the BIM manager approve every file on behalf of each author",
+            "It assigns legal liability for design errors to the software vendor",
+            "It allows only one person on the project to edit any information"
           ],
           answer: 0,
           explain: "By tracking authorship, status, and revisions, a CDE makes it clear who is responsible for each piece of information."
@@ -175,8 +175,8 @@ window.ACADEMY.addUnit("bim", {
           q: "In which state is information still being developed by one team and not yet visible to others?",
           choices: [
             "Work in Progress",
-            "Shared",
-            "Published",
+            "Shared for coordination",
+            "Published for construction",
             "Archived"
           ],
           answer: 0,
@@ -211,9 +211,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What does the Shared state mean for a piece of information?",
           choices: [
             "It has been checked and made available for other teams to reference",
-            "It has been deleted from the project",
-            "It is still private to its author only",
-            "It can never be changed again"
+            "It has been authorized by the client and approved for use in construction",
+            "It is still private to the author's task team while it is developed",
+            "It has been retired and is kept only as a record of the project"
           ],
           answer: 0,
           explain: "Shared information has passed a check and is available for other teams to use, though it may still be developed further."
@@ -349,9 +349,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Why might a viewer be given read access rather than edit access?",
           choices: [
             "So they can reference information without accidentally changing it",
-            "So they can delete any file they open",
-            "So they can approve their own work",
-            "So they can take ownership of every model"
+            "So they can approve information as it moves to the Published state",
+            "So they can upload new revisions without needing a status check",
+            "So they can take over ownership of the files they need to use"
           ],
           answer: 0,
           explain: "Read access lets someone reference information safely without the ability to alter it, protecting the source data."
@@ -385,9 +385,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What does a revision on a document in a CDE indicate?",
           choices: [
             "That the information has changed and this is an identified new version",
-            "That the file has been deleted permanently",
-            "That the file has no author",
-            "That the file cannot be opened"
+            "That the information has been approved by the client for construction",
+            "That the file has been moved from the shared area into the archive",
+            "That the file has been checked for clashes against the other models"
           ],
           answer: 0,
           explain: "A revision identifies a new version of a file, so teams can tell which version they are looking at and track changes."
@@ -420,9 +420,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Why is it useful to keep superseded revisions rather than delete them?",
           choices: [
             "They provide a traceable history of how the information changed",
-            "They let the newest version be hidden",
-            "They stop anyone from making new revisions",
-            "They make the current version harder to find"
+            "They allow any team to keep working from an older version if they prefer it",
+            "They are needed because the current revision cannot be edited",
+            "They reduce storage because the CDE compresses the older files"
           ],
           answer: 0,
           explain: "Retaining superseded revisions supports traceability, showing how and when information changed across the project."
@@ -468,9 +468,9 @@ window.ACADEMY.addUnit("bim", {
           q: "Which capability is essential for a platform to function as a CDE?",
           choices: [
             "Managing information states, access, and revisions",
-            "Playing background music for the team",
-            "Generating marketing brochures",
-            "Predicting the weather on site"
+            "Authoring discipline models directly in the platform",
+            "Running automatic clash detection on every upload",
+            "Rendering photorealistic views of the shared models"
           ],
           answer: 0,
           explain: "A CDE platform must manage information states, access permissions, and revisions to control the flow of information."
@@ -503,9 +503,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What advantage does a cloud-based CDE offer distributed teams?",
           choices: [
             "Everyone can access the same current information from different locations",
-            "It prevents anyone from ever collaborating",
-            "It requires all files to be printed",
-            "It stops information from being updated"
+            "Each office keeps its own synced copy that it can edit independently",
+            "Files no longer need status codes because the cloud tracks every change",
+            "Access permissions are no longer needed because everything is online"
           ],
           answer: 0,
           explain: "Cloud hosting means teams in different places can access one shared, current source of information with the right permissions."
@@ -532,9 +532,9 @@ window.ACADEMY.addUnit("bim", {
           q: "What is ISO 19650?",
           choices: [
             "The international standard for managing information using BIM",
-            "A brand of modeling software",
-            "A type of concrete mix",
-            "A national building fire code"
+            "The international standard for the IFC data exchange schema",
+            "The international standard for classifying building elements",
+            "A national code setting the required LOD for public projects"
           ],
           answer: 0,
           explain: "ISO 19650 is the international standard for organizing and managing information over the whole life of a built asset using BIM."

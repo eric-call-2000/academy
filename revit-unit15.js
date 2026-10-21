@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "When you run a Dynamo graph that edits geometry, where does it read and write the model data?",
           choices: [
-            "In a separate copy of the model on disk",
+            "In a separate copy of the model saved on disk first",
             "In the currently open Revit session and its document",
-            "In a cloud database, then synced later",
-            "In an exported IFC file"
+            "In a cloud database that syncs to Revit later on",
+            "In the central model directly, bypassing your local"
           ],
           answer: 1,
           explain: "Dynamo for Revit runs inside a live Revit session and reads and writes the document that is currently open. There is no separate copy."
@@ -79,10 +79,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Why can't you rely on a model-editing graph to keep updating on its own after it finishes running?",
           choices: [
-            "Dynamo deletes the graph after running",
+            "Revit locks the edited elements until the file is saved",
             "The graph result is generally not associative with the model",
-            "Revit locks the file permanently",
-            "The transaction stays open forever"
+            "Dynamo switches to Manual mode once the graph has finished",
+            "The graph's nodes are frozen automatically after each run"
           ],
           answer: 1,
           explain: "A graph that edits the model produces a one-time, non-associative result. To reflect new changes you re-run the graph; only element binding ties re-runs back to the same elements."
@@ -172,10 +172,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "You want every wall in the model with no manual clicking. Which node fits best?",
           choices: [
-            "Select Model Element",
+            "Select Model Elements",
             "All Elements of Category",
-            "Select Face",
-            "Family Types"
+            "All Elements of Family Type",
+            "Element.GetCategory"
           ],
           answer: 1,
           explain: "All Elements of Category returns every element of a chosen category, so pointing it at Walls grabs them all. Select Model Element requires a manual pick."
@@ -230,10 +230,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What is the main purpose of any of these selection nodes in a graph?",
           choices: [
-            "To open a transaction",
+            "To open a transaction so the model can be edited",
             "To feed elements downstream for reading or editing",
-            "To export the model to Excel",
-            "To render the view"
+            "To highlight elements in Revit for the user to review",
+            "To export chosen elements to Excel for reporting"
           ],
           answer: 1,
           explain: "Selection nodes are the front of the pipeline: they gather elements and feed them downstream to nodes that read parameters, edit them, or extract geometry."
@@ -255,10 +255,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Which node returns a single parameter's value when you give it an element and the parameter name as a string?",
           choices: [
-            "Element.Parameters",
+            "Element.OverrideColorInView",
             "Element.GetParameterValueByName",
             "Element.SetParameterByName",
-            "Element.Geometry"
+            "Element.Parameters"
           ],
           answer: 1,
           explain: "Element.GetParameterValueByName takes the element plus the parameter name (a string) and returns that one value. Element.Parameters instead lists them all."
@@ -280,10 +280,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Which statement about instance versus type parameters is correct?",
           choices: [
-            "Type parameters vary per placed instance",
+            "Type parameters can vary per placed instance; instance parameters are shared across the type",
             "Instance parameters can vary per instance; type parameters are shared by every instance of that type",
-            "Instance and type parameters are always identical",
-            "Only type parameters can be read in Dynamo"
+            "Instance and type parameters behave the same way once a family is placed in the model",
+            "Only instance parameters can be read in Dynamo; type parameters must be edited in Revit"
           ],
           answer: 1,
           explain: "Instance parameters can differ from one placed element to the next, while type parameters are shared across every instance of that type. This matters when you decide what to read or edit."
@@ -320,10 +320,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "A read returns nothing for a parameter you know exists. What is the most likely cause?",
           choices: [
-            "The model is not saved",
+            "The model has unsaved changes, so Dynamo cannot see the current values",
             "The parameter name string does not match Revit exactly, including case",
-            "Dynamo cannot read type parameters",
-            "You must open a transaction to read"
+            "Dynamo cannot read type parameters, only the instance parameters",
+            "A transaction must be opened before any parameter can be read"
           ],
           answer: 1,
           explain: "Reads fail silently when the name string is misspelled or has wrong case, since the match is exact. Saving and transactions are not required just to read a value."
@@ -393,9 +393,9 @@ window.ACADEMY.addUnit("revit", {
           q: "A batch parameter write throws an error about the value. What is a common cause?",
           choices: [
             "The value's data type does not match the parameter",
-            "The model is too large",
-            "You used All Elements of Category",
-            "Reading is disabled"
+            "The elements were selected with All Elements of Category",
+            "The model is too large for a batch write in one run",
+            "The graph is set to Automatic instead of Manual run mode"
           ],
           answer: 0,
           explain: "SetParameterByName requires the value's data type to match the parameter (a number for a numeric parameter, text for a text parameter). A mismatch causes an error."
@@ -420,8 +420,8 @@ window.ACADEMY.addUnit("revit", {
           choices: [
             "FamilyInstance.ByPoint",
             "FamilyInstance.ByPointAndLevel",
-            "Element.SetParameterByName",
-            "Select Model Element"
+            "FamilyInstance.ByFace",
+            "FamilyInstance.ByCoordinates"
           ],
           answer: 1,
           explain: "FamilyInstance.ByPointAndLevel places the instance at a point and hosts it to a level. FamilyInstance.ByPoint places at a point without that level hosting."
@@ -477,10 +477,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Which node creates a floor from an outline, a type, and a level?",
           choices: [
-            "Wall.ByCurve",
+            "Wall.ByCurveAndLevels",
             "Floor.ByOutlineTypeAndLevel",
-            "Level.ByElevation",
-            "FamilyInstance.ByPoint"
+            "Level.ByElevationAndName",
+            "FamilyInstance.ByPointAndLevel"
           ],
           answer: 1,
           explain: "Floor.ByOutlineTypeAndLevel builds a floor from its boundary outline plus a floor type and a level. The other nodes create walls, levels, or family instances."
@@ -502,10 +502,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What does element binding do when you re-run a graph that created elements?",
           choices: [
-            "It creates a fresh duplicate set every run",
+            "It creates a fresh duplicate set on every run and keeps all the older ones",
             "It updates the same elements it created before instead of duplicating them",
-            "It deletes all elements of that category",
-            "It exports the elements to Excel"
+            "It deletes every element of that category before creating new ones",
+            "It locks the created elements so they cannot be edited in Revit"
           ],
           answer: 1,
           explain: "Element binding makes Dynamo remember which elements a graph created, so re-running updates those same elements rather than piling up duplicates."
@@ -581,10 +581,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What is the main benefit of Dynamo Player over the Dynamo editor?",
           choices: [
-            "It rewrites graphs automatically",
+            "It rewrites graphs into Python so they run faster in the background",
             "It runs .dyn graphs from within Revit without opening the Dynamo editor",
-            "It replaces Revit entirely",
-            "It only works in Sandbox"
+            "It lets you edit nodes and wires faster than the full Dynamo editor",
+            "It runs graphs on a server so Revit does not need to be open at all"
           ],
           answer: 1,
           explain: "Dynamo Player lets users run finished .dyn graphs from inside Revit without opening the editor, so teammates who do not know Dynamo can still use the automation."
@@ -646,10 +646,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Which task is a good fit for a Dynamo Player graph?",
           choices: [
-            "A one-time creative design exploration",
+            "A one-time creative design exploration with many manual tweaks",
             "A repetitive task like renumbering or renaming many elements",
-            "Editing the Dynamo node engine",
-            "Writing Revit's source code"
+            "Building and debugging a brand new graph one node at a time",
+            "Writing a new custom node package for the whole team"
           ],
           answer: 1,
           explain: "Player shines on repetitive, on-demand tasks such as renumbering, renaming, model checks, or placing elements, where non-Dynamo users just press play."

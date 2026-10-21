@@ -25,10 +25,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A user reports the site is slow. Server-side handler timing shows 4 ms. What does that measurement exclude?",
           choices: [
-            "Only the time spent serializing the JSON response body",
-            "Nothing important - handler time is the dominant cost",
+            "Only the time spent serializing the JSON response body and flushing it into the socket buffer",
+            "Nothing important, since handler time is the dominant cost of nearly every web request",
             "DNS resolution, connection setup, TLS, queueing, and network transit in both directions",
-            "Only the time the load balancer spends choosing a backend"
+            "Only the time the load balancer spends choosing a healthy backend for the request"
           ],
           answer: 2,
           explain: "Handler time measures a small slice in the middle. End-to-end latency is dominated by round trips and queueing, which server-side timers never see."
@@ -51,8 +51,8 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which layer of the request path is most often responsible for a request that succeeds but takes 30 seconds?",
           choices: [
             "A queue somewhere - connection backlog, thread pool, or downstream dependency wait",
-            "The DNS resolver, which normally caps lookups at 30 seconds",
-            "TLS certificate parsing, which scales with certificate chain length",
+            "The DNS resolver, which normally caps each lookup at 30 seconds before giving up",
+            "TLS certificate parsing, which grows slower with the length of the certificate chain",
             "HTTP header compression, which is quadratic in header count"
           ],
           answer: 0,
@@ -95,10 +95,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "You lower a record TTL from 3600 to 60 seconds one hour before a planned IP change. Why?",
           choices: [
-            "Lower TTLs make authoritative nameservers respond faster to each query",
+            "Lower TTLs make the authoritative nameservers answer each query faster, so the new IP address propagates across the internet sooner",
             "TTL controls how long resolvers cache the old answer, so a low TTL shortens the window where clients keep using the stale IP",
-            "TTL is a hop counter, and a lower value prevents the record from leaving your region",
-            "A low TTL forces resolvers to validate the record signature before returning it"
+            "TTL is a hop counter, so a lower value stops the record from being forwarded outside your region during the change",
+            "A low TTL forces resolvers to validate the record signature with DNSSEC before returning the answer to clients"
           ],
           answer: 1,
           explain: "TTL is a caching directive measured in seconds. Pre-lowering it is standard practice because the old TTL governs how long stale answers linger."
@@ -130,10 +130,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which statement about DNS transport is correct?",
           choices: [
-            "DNS runs exclusively over TCP so responses can never be truncated",
-            "DNS runs only over UDP, and large responses are simply dropped",
+            "DNS runs exclusively over TCP, so that every response arrives complete and can never be truncated in transit",
+            "DNS runs only over UDP, and any response too large for a single datagram is simply dropped by the resolver",
             "DNS classically uses UDP for queries, falling back to TCP when a response is too large or when reliability is required",
-            "DNS uses ICMP, which is why firewalls that block ping break name resolution"
+            "DNS uses ICMP for its queries, which is why firewalls that block ping also tend to break name resolution"
           ],
           answer: 2,
           explain: "UDP keeps the common case to a single small exchange. Truncated responses set the TC bit and the client retries over TCP; zone transfers use TCP too."
@@ -161,9 +161,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What guarantee does TCP provide that UDP does not?",
           choices: [
-            "Encryption of the payload against eavesdroppers",
+            "Encryption of the payload so that eavesdroppers on the network path cannot read it",
             "Reliable, in-order delivery of a byte stream with retransmission of lost data",
-            "Authentication of the remote endpoint's identity",
+            "Authentication of the remote endpoint's identity during the connection handshake",
             "A guaranteed upper bound on delivery latency"
           ],
           answer: 1,
@@ -186,10 +186,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why does QUIC, the transport under HTTP/3, run on top of UDP?",
           choices: [
-            "UDP packets are given higher priority by internet routers",
-            "UDP has no maximum packet size, letting QUIC send whole responses at once",
+            "UDP packets are given higher priority by internet routers, so QUIC traffic avoids the queueing delays that slow down TCP connections",
+            "UDP has no maximum packet size, which lets QUIC send an entire HTTP response in a single datagram instead of splitting it into many separate segments across round trips",
             "QUIC needs its own per-stream loss recovery and connection setup, and UDP gives it a minimal datagram substrate that already traverses existing networks and NATs",
-            "UDP is encrypted by default, so QUIC inherits confidentiality for free"
+            "UDP payloads are encrypted by default at the network layer, so QUIC inherits confidentiality without having to run its own TLS handshake"
           ],
           answer: 2,
           explain: "Reimplementing TCP itself would require changes in kernels and middleboxes everywhere. Building on UDP let QUIC ship per-stream loss recovery in user space while still passing through deployed networks."
@@ -256,10 +256,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A payments client times out with no response and considers retrying. What makes the retry safe?",
           choices: [
-            "Switching the retry to a GET so it becomes safe",
+            "Switching the retry from a POST to a GET, since GET requests are defined as safe and the server will not repeat the charge",
             "Sending an idempotency key the server records, so a repeat of the same key returns the original result instead of charging again",
-            "Retrying only after the original request's TCP connection closes",
-            "Adding a 5xx-only retry policy, since 5xx responses mean nothing was executed"
+            "Waiting until the original request's TCP connection has fully closed, so the server must have either finished or abandoned the original work",
+            "Adding a 5xx-only retry policy, since a 5xx response guarantees that nothing was executed on the server side before the error"
           ],
           answer: 1,
           explain: "POST is not idempotent, so the application must supply the guarantee. A server-recorded idempotency key turns an unsafe retry into a lookup. A timeout also tells you nothing about whether the server committed the work."
@@ -275,9 +275,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "What distinguishes a 301 from a 302 response?",
           choices: [
             "301 is permanent and may be cached and remembered by clients; 302 is a temporary redirect that should not replace the original URL",
-            "301 preserves the request method while 302 always rewrites it to GET",
-            "301 redirects within the same origin; 302 is required for cross-origin redirects",
-            "301 is issued by proxies; 302 is issued only by origin servers"
+            "301 preserves the original request method and body on the redirected request, while 302 always rewrites the method to GET",
+            "301 is used for redirects that stay within the same origin, while a 302 is required whenever the redirect target lives on a different origin",
+            "301 is issued only by intermediate proxies and CDNs, while 302 can be issued only by the origin server that owns the resource"
           ],
           answer: 0,
           explain: "Permanence is the difference, and it has real consequences: browsers and search engines can cache a 301 aggressively, so a mistaken permanent redirect is painful to undo."
@@ -318,10 +318,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What does a valid certificate from a public CA actually attest?",
           choices: [
-            "That the operator of this name is a legitimate, non-malicious business",
-            "That the site's application code has been audited for vulnerabilities",
+            "That the operator of this name is a legitimate, registered business with no record of malicious activity",
+            "That the site's application code and server configuration have been audited for known vulnerabilities",
             "That the CA verified control over the name, and the party you are talking to holds the matching private key",
-            "That traffic to this site is encrypted end to end, including inside the provider's network"
+            "That traffic to this site is encrypted end to end, including on internal hops inside the provider's network"
           ],
           answer: 2,
           explain: "A certificate binds a name to a public key after a control check. It says nothing about the honesty of the operator or the quality of the code behind it - which is why a phishing site can hold a perfectly valid certificate."
@@ -389,10 +389,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why are sticky sessions considered a scaling smell?",
           choices: [
-            "They require a layer 4 balancer, which cannot terminate TLS",
+            "They require a layer 4 balancer, which cannot terminate TLS, so every backend instance must manage its own certificates and handshakes too",
             "They tie state to a specific instance, so load skews, autoscaling cannot rebalance, and losing one instance loses those users' sessions",
-            "They add a full round trip to every request for affinity lookup",
-            "They prevent the use of health checks, since traffic must go to the pinned host regardless"
+            "They add a full extra round trip to every request, because the balancer must look up the affinity table before forwarding",
+            "They prevent the use of health checks, since traffic must keep flowing to the pinned host whether it is healthy or not"
           ],
           answer: 1,
           explain: "The problem is state locality, not the routing mechanism. Externalizing session state to a shared cache or database makes every instance interchangeable, which is what lets you scale and lose nodes freely."
@@ -417,9 +417,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which is a genuine advantage of layer 4 balancing over layer 7?",
           choices: [
-            "It can retry a failed request on another backend transparently",
-            "It can enforce per-endpoint rate limits",
-            "It can compress and cache responses",
+            "It can transparently retry a failed request on another backend without the client ever noticing the failure",
+            "It can enforce per-endpoint rate limits and quotas based on the URL path and the caller's API key",
+            "It can compress and cache responses at the edge, cutting both bandwidth and origin load for repeated requests",
             "It does less per-packet work and does not need to terminate TLS, so it adds less latency and handles non-HTTP protocols"
           ],
           answer: 3,
@@ -437,9 +437,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "What distinguishes a reverse proxy from a forward proxy?",
           choices: [
             "A reverse proxy sits in front of servers and accepts traffic on their behalf; a forward proxy sits in front of clients and makes requests on their behalf",
-            "A reverse proxy only handles responses, while a forward proxy only handles requests",
-            "A reverse proxy works at layer 4 and a forward proxy works at layer 7",
-            "A reverse proxy caches while a forward proxy never does"
+            "A reverse proxy only ever handles the responses coming back from servers, while a forward proxy only ever handles the outbound requests from clients",
+            "A reverse proxy works at layer 4 and forwards raw TCP connections, while a forward proxy works at layer 7 and inspects each HTTP request",
+            "A reverse proxy caches responses on behalf of the servers, while a forward proxy never caches anything"
           ],
           answer: 0,
           explain: "The direction names whose side the proxy represents. A reverse proxy is part of your infrastructure; a forward proxy is part of the client's."
@@ -471,10 +471,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the main risk of moving business logic into the API gateway?",
           choices: [
-            "Gateways cannot execute code, so the logic will silently be skipped",
-            "Gateway configuration cannot be version controlled or tested",
+            "Gateways cannot execute custom code, so the logic will be silently skipped for any request that passes through",
+            "Gateway configuration cannot be version controlled or tested, so every change has to be made by hand in production",
             "It becomes a shared chokepoint that every team must coordinate changes through, and a single-point failure domain",
-            "It forces every downstream service to switch from HTTP to gRPC"
+            "It forces every downstream service to switch from HTTP to gRPC so the gateway can understand the payloads"
           ],
           answer: 2,
           explain: "This is the smart-pipes problem: logic in shared infrastructure couples teams and turns one component into both a deployment bottleneck and a blast radius."
@@ -489,10 +489,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which behavior is a reverse proxy well positioned to provide that individual services usually should not?",
           choices: [
-            "Deciding which rows a given user is allowed to read from the database",
+            "Deciding which rows a given user is allowed to read from the database for each request",
             "Buffering slow client connections so a slow reader does not tie up an application worker",
-            "Computing domain-specific pricing rules for a checkout",
-            "Managing schema migrations for downstream data stores"
+            "Computing domain-specific pricing and discount rules for each item during checkout",
+            "Managing schema migrations for downstream data stores as new versions of services deploy"
           ],
           answer: 1,
           explain: "Absorbing slow clients is a connection-handling concern, exactly what a proxy is built for. Domain decisions require knowledge the proxy should not have."
@@ -508,8 +508,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the primary reason a CDN makes a site faster?",
           choices: [
-            "It compresses responses more aggressively than an origin server can",
-            "It rewrites HTML to load fewer resources per page",
+            "It compresses responses more aggressively than an origin server can, so far fewer bytes cross the network",
+            "It rewrites each HTML page so the browser has fewer resources to fetch on load",
             "It upgrades all connections to HTTP/3 regardless of client support",
             "It serves content from a point of presence physically near the user, cutting round-trip time"
           ],
@@ -544,9 +544,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Why are content-hashed filenames plus a long max-age preferred over short TTLs for static assets?",
           choices: [
             "Because a changed file gets a new URL, the old URL can be cached effectively forever and deploys never serve stale assets",
-            "Because hashed names compress better in transit than readable names",
-            "Because CDNs refuse to cache URLs containing query strings",
-            "Because hashing lets the browser verify the file has not been tampered with"
+            "Because hashed names compress better in transit than readable names, so each asset download is smaller and finishes sooner",
+            "Because CDNs refuse to cache URLs that carry query strings, so a version parameter would force every request back to the origin",
+            "Because the hash in the name lets the browser verify the file has not been tampered with on the way from the CDN"
           ],
           answer: 0,
           explain: "Immutable URLs turn invalidation into a naming problem rather than a purge problem. Integrity verification is a different mechanism entirely - subresource integrity."
@@ -561,10 +561,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A team purges a CDN cache key and users still see old content minutes later. What is the most likely cause?",
           choices: [
-            "Purges only apply to the point of presence that received the purge request",
-            "Purges take effect only when the origin also restarts",
+            "Purges apply only to the single point of presence that received the purge request, not to the rest of the network",
+            "Purges take effect only after the origin server is also restarted",
             "Intermediate caches - browser caches and any proxies - still hold copies whose max-age has not expired",
-            "The CDN ignores purges for responses larger than a few kilobytes"
+            "The CDN ignores purge requests for any response body larger than a few kilobytes"
           ],
           answer: 2,
           explain: "You control the CDN's copy, not the copies already handed to clients and intermediaries. This is precisely why long-lived assets should get immutable URLs instead of relying on purges."

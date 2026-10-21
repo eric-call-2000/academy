@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Who first formalized the war of attrition as a model of animal conflict?",
           choices: [
-            "Charles Darwin, in 1859",
+            "W. D. Hamilton, in his 1967 paper",
             "John Maynard Smith, in 1974",
-            "W. D. Hamilton, in 1964",
-            "Ronald Fisher, in 1930"
+            "Robert Trivers, in 1972",
+            "George Price, in 1970"
           ],
           answer: 1,
           explain: "John Maynard Smith introduced the war of attrition in his 1974 paper on the theory of games and the evolution of animal conflicts."
@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "How long does a war-of-attrition contest last?",
           choices: [
-            "Until a fixed time set in advance for all contests",
-            "For exactly the numerical value of the resource",
+            "Until a fixed time that is set in advance for every contest in the population",
+            "For a length of time exactly equal to the numerical value of the resource",
             "Until the first contestant gives up, that is, the shorter of the two chosen persistence times",
-            "Forever, because neither side ever quits"
+            "Until the longer of the two chosen persistence times has run out completely, so that both animals have fully committed"
           ],
           answer: 2,
           explain: "The contest ends the instant one animal quits, so its duration equals the shorter of the two intended persistence times."
@@ -85,10 +85,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In the war of attrition, what exactly is an individual's strategy?",
           choices: [
-            "A choice between only 'fight' or 'flee'",
+            "A choice between only two moves, 'fight' or 'flee', in each contest",
             "A persistence time: how long it is prepared to keep going",
-            "The amount of damage it inflicts per second",
-            "Whether to signal honestly or to bluff"
+            "The amount of damage it inflicts on the rival in each second",
+            "Whether it signals its true intentions honestly or bluffs them"
           ],
           answer: 1,
           explain: "A strategy is simply the length of time the animal is willing to persist before giving up."
@@ -120,9 +120,9 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "How many distinct pure strategies does a continuous war of attrition allow?",
           choices: [
-            "Exactly two",
-            "Exactly three",
-            "A finite handful",
+            "Exactly two, persist or give up",
+            "Exactly three, short, medium, or long",
+            "A small finite number, set by the value of the resource V",
             "Infinitely many, one for each possible persistence time"
           ],
           answer: 3,
@@ -153,9 +153,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Suppose every individual in a population always persists for exactly the same fixed time T. Which mutant can invade?",
           choices: [
             "One that persists for a slightly longer time, T plus a little",
-            "One that persists for exactly T as well",
-            "One that never enters any contest",
-            "No mutant can ever invade a fixed strategy"
+            "One that persists for exactly the same time T as the residents",
+            "One that persists for a slightly shorter time, T minus a little",
+            "None, since a fixed persistence time T can never be invaded"
           ],
           answer: 0,
           explain: "A mutant waiting just a moment longer than T wins every contest against the residents, gaining V for almost the same cost."
@@ -177,10 +177,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Against a population all playing time T, what payoff does a mutant playing T plus a tiny bit get?",
           choices: [
-            "It loses every contest",
+            "It loses every contest but pays a lower cost each time",
             "It wins every contest, gaining V for about the same cost",
-            "It always ties and gains nothing",
-            "It is immediately driven extinct"
+            "It always ties with the residents and gains nothing extra",
+            "It wins every contest but pays far more than the residents"
           ],
           answer: 1,
           explain: "By outlasting every resident by a hair, the mutant wins the resource each time while paying almost the same time cost."
@@ -223,10 +223,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What form does the ESS of the war of attrition take?",
           choices: [
-            "A single best fixed persistence time",
+            "A single best fixed persistence time that every individual shares",
             "A probability distribution over persistence times, that is, a mixed strategy",
-            "Always giving up immediately",
-            "Always persisting to the maximum possible time"
+            "Always giving up immediately so that no time cost is ever paid",
+            "Always persisting until the maximum possible time has passed, whatever the cost"
           ],
           answer: 1,
           explain: "The stable solution is a mixed strategy: each contestant draws its giving-up time at random from a set distribution."
@@ -248,10 +248,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "For the ESS distribution p(t) = (1/V)e^(-t/V), what is the mean (average) giving-up time?",
           choices: [
-            "Zero",
+            "V/2, half the resource value",
             "V, the value of the resource",
-            "Two times V",
-            "Infinite"
+            "2V, twice the resource value",
+            "1/V, the rate of giving up"
           ],
           answer: 1,
           explain: "An exponential distribution with rate 1/V has mean V, so the average giving-up time equals the resource value."
@@ -316,10 +316,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In an asymmetric war of attrition where individuals value the resource differently, how long should each persist?",
           choices: [
-            "The same length of time for everyone",
+            "The same length of time as every other contestant",
             "In proportion to its own valuation of the resource",
-            "Always the shortest possible time",
-            "At random, ignoring the resource's worth"
+            "As long as possible, whatever the resource is worth",
+            "At random, ignoring how much the resource is worth"
           ],
           answer: 1,
           explain: "An individual should be willing to wait in proportion to how much the resource is worth to it, so those valuing it more persist longer."
@@ -361,10 +361,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In the pure war of attrition, can a display honestly reveal how long an animal intends to persist?",
           choices: [
-            "Yes, such displays are always perfectly honest",
+            "Yes, such displays are always honest because the receiver can check them",
             "No, signals of intended persistence are not evolutionarily stable",
-            "Only the winner's display is honest",
-            "Only displays given in daylight are honest"
+            "Only the eventual winner's display is honest, the loser's is a bluff",
+            "Yes, but only when both rivals value the resource equally"
           ],
           answer: 1,
           explain: "Because exaggerating intent costs nothing, signals of intended persistence cannot be evolutionarily stable and so cannot be trusted."
@@ -387,9 +387,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why can't animals honestly signal their intended persistence at the ESS?",
           choices: [
             "Because all persistence times give equal expected payoff, so there is nothing to lose by exaggerating",
-            "Because animals physically cannot see one another",
-            "Because signalling is forbidden by law",
-            "Because the resource has no value at all"
+            "Because animals cannot see one another clearly enough during display contests to read signals",
+            "Because signalling intentions would always lead straight to an escalated and injurious fight",
+            "Because the resource has no value at the ESS, so neither animal cares how long the other waits"
           ],
           answer: 0,
           explain: "With every persistence time earning the same expected payoff, there is no cost to claiming you will persist longer than you truly will."
@@ -454,9 +454,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Two contestants display for the same length of time yet pay different costs. Why?",
           choices: [
             "They burn energy at different rates or differ in stamina",
-            "One of them is completely invisible",
-            "Time literally runs differently for each",
-            "Cost cannot possibly differ if the time is equal"
+            "One of them is displaying to a different rival at the same time",
+            "The cost of display depends only on the length of the contest",
+            "The value of the resource is different for each of the two animals"
           ],
           answer: 0,
           explain: "If cost is energy rather than time, an animal that expends energy faster or has less to spare pays more for the same duration."
@@ -529,10 +529,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In prolonged lizard display standoffs, how does the contest typically end?",
           choices: [
-            "Both animals die on the spot",
+            "Both animals keep displaying until each one is too tired to continue",
             "One individual gives up and retreats while the other holds the site",
-            "A referee steps in to separate them",
-            "The two territories permanently merge"
+            "The two lizards escalate to a fight that injures both of them badly",
+            "The two lizards share the site and display to each other every day"
           ],
           answer: 1,
           explain: "Such display contests are won by persistence: the less-motivated lizard eventually backs down and the persister keeps the territory."

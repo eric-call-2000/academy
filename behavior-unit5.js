@@ -102,10 +102,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "Thorndike described the learning shown by his cats as which kind of process?",
           "choices": [
-            "Insight learning",
+            "Insight learning based on a sudden grasp of the solution",
             "Trial-and-error (or trial-and-accidental-success) learning",
-            "Latent learning",
-            "Observational learning"
+            "Latent learning that stays hidden until a reward appears",
+            "Observational learning from watching another cat escape"
           ],
           "answer": 1,
           "explain": "He called it trial-and-error learning: successful responses are gradually selected from many random attempts, not reasoned out."
@@ -132,10 +132,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "Which pattern in the data convinced Thorndike the learning was trial-and-error rather than insight?",
           "choices": [
-            "Escape time dropped suddenly to near zero",
+            "Escape time dropped suddenly to near zero after a few trials",
             "Escape time improved gradually and irregularly over trials",
-            "Cats never improved at all",
-            "Cats solved it perfectly on the second try"
+            "Escape time stayed about the same across all of the trials",
+            "Cats escaped perfectly from the second trial onward"
           ],
           "answer": 1,
           "explain": "A gradual, bumpy decline in escape time (rather than a sudden drop) signaled incremental selection rather than a sudden insight."
@@ -192,9 +192,9 @@ window.ACADEMY.addUnit("behaviorism", {
           "q": "What does Thorndike's Law of Effect state?",
           "choices": [
             "Responses followed by satisfaction are strengthened; those followed by discomfort are weakened",
-            "Responses become automatic only after conscious rehearsal",
-            "Any two events experienced together become associated",
-            "Learning depends only on how often a response is repeated"
+            "Responses become automatic only after they have been consciously rehearsed many times over",
+            "Any two events experienced close together in time become associated in the mind of the learner",
+            "Learning depends only on how often a response is repeated, regardless of what follows it"
           ],
           "answer": 0,
           "explain": "The Law of Effect ties response strength to consequences: satisfying after-effects stamp a connection in, annoying after-effects stamp it out."
@@ -305,9 +305,9 @@ window.ACADEMY.addUnit("behaviorism", {
           "q": "How does the Law of Exercise differ from the Law of Effect?",
           "choices": [
             "Exercise focuses on repetition itself, while Effect focuses on the response's consequences",
-            "Exercise focuses on rewards, while Effect focuses on repetition",
-            "They are two names for exactly the same principle",
-            "Exercise applies only to humans, Effect only to animals"
+            "Exercise focuses on the rewards that follow, while Effect focuses on how often a response occurs",
+            "They are two names for exactly the same principle, used in different parts of his career",
+            "Exercise applies only to human learners, while Effect applies only to animals in puzzle boxes"
           ],
           "answer": 0,
           "explain": "The Law of Exercise credits sheer repetition, whereas the Law of Effect credits the satisfying or annoying consequence that follows the response."
@@ -388,10 +388,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "Why did the gradual shape of the curve matter to Thorndike's theory?",
           "choices": [
-            "It proved the cats were reasoning",
+            "It proved the cats were reasoning their way to the solution step by step",
             "It showed learning was incremental selection, not a flash of understanding",
-            "It showed the cats never learned",
-            "It proved repetition was irrelevant"
+            "It showed the cats never truly learned anything beyond chance escapes",
+            "It proved repetition was irrelevant and only the final escape mattered"
           ],
           "answer": 1,
           "explain": "Gradual improvement fit a model in which correct responses are slowly stamped in over trials, rather than appearing suddenly through insight."
@@ -473,9 +473,9 @@ window.ACADEMY.addUnit("behaviorism", {
           "q": "How does connectionism differ from the Gestalt view of learning?",
           "choices": [
             "Connectionism stresses gradual S-R bonds; Gestalt stresses sudden insight into whole problems",
-            "Connectionism stresses insight; Gestalt stresses bonds",
-            "They both deny that learning is possible",
-            "They are identical theories with different names"
+            "Connectionism stresses sudden insight; Gestalt stresses gradual S-R bonds built over trials",
+            "Connectionism stresses innate ideas; Gestalt stresses learning through imitation of others",
+            "They are the same theory under different names, since both rely on S-R bonds"
           ],
           "answer": 0,
           "explain": "Connectionism builds many small S-R bonds gradually, while Gestalt psychologists emphasized perceiving the whole situation and solving it by sudden insight."
@@ -527,10 +527,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "What major change did Thorndike make to the Law of Effect around 1932?",
           "choices": [
-            "He decided punishment was as powerful as reward",
+            "He decided punishment weakens responses just as powerfully as reward strengthens them",
             "He concluded reward strengthens responses but punishment does not directly weaken them equally",
-            "He abandoned the idea of consequences entirely",
-            "He renamed it the Law of Exercise"
+            "He abandoned the idea of consequences and explained learning by repetition alone",
+            "He renamed it the Law of Exercise and merged the two laws into one principle"
           ],
           "answer": 1,
           "explain": "Thorndike revised the law after finding that satisfying effects strongly strengthen responses, whereas annoying effects do not weaken them in a mirror-image way."
@@ -557,10 +557,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "According to the revised view, what does punishment tend to do?",
           "choices": [
-            "Directly and permanently erase the connection",
+            "Directly and permanently erase the connection between the situation and the response",
             "Have a weaker, less direct effect than reward, often just suppressing behavior temporarily",
-            "Strengthen the punished response",
-            "Have no effect of any kind on behavior"
+            "Strengthen the punished response by drawing extra attention to it each time",
+            "Work exactly as strongly as reward, but in the opposite direction on the bond"
           ],
           "answer": 1,
           "explain": "Thorndike found punishment's effect weaker and more indirect than reward's, often suppressing behavior temporarily rather than stamping the bond out."
@@ -612,10 +612,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "What is Thorndike's theory of identical elements about?",
           "choices": [
-            "How memories fade over time",
+            "How general mental faculties, once exercised, improve performance on every other task",
             "How training on one task transfers to another only when they share specific elements",
-            "How reflexes are inherited",
-            "How to design a puzzle box"
+            "How memories of identical events fade at the same rate regardless of practice",
+            "How reflexes with identical structure are inherited across generations of animals"
           ],
           "answer": 1,
           "explain": "The theory of identical elements says transfer of training occurs only to the extent that the original and new tasks contain the same specific components."
@@ -642,10 +642,10 @@ window.ACADEMY.addUnit("behaviorism", {
           "type": "mcq",
           "q": "What practical implication did Thorndike's transfer research have for education?",
           "choices": [
-            "Teach subjects purely to 'exercise the mind' in general",
+            "Teach subjects such as Latin purely to exercise and strengthen the mind in general",
             "Teach the specific knowledge and skills students will actually need to use",
-            "Abandon all formal schooling",
-            "Rely only on punishment to motivate students"
+            "Abandon formal schooling and let students learn only through daily experience",
+            "Rely mainly on punishment for errors to motivate students to learn faster"
           ],
           "answer": 1,
           "explain": "Because transfer is narrow, Thorndike urged teaching the concrete skills and content students will use, rather than trusting broad mental discipline."

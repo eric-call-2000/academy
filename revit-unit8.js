@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is a Room in Revit?",
-          choices: ["A data element that occupies and measures an enclosed space", "A separate drawing file", "A type of wall", "A camera view"],
+          choices: ["A data element that occupies and measures an enclosed space", "A group of walls saved together as one element", "A floor plan view that is cropped to show a single enclosed space", "A filled region drawn to show a space's area"],
           answer: 0,
           explain: "A Room is a model element that fills a bounded space and reports its area, perimeter, and other data."
         },
@@ -123,7 +123,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "How does an Area differ from a Room?",
-          choices: ["An Area is defined by Area Boundary lines you draw, independent of walls", "An Area is the same object as a Room", "An Area cannot be scheduled", "An Area has no measurable value"],
+          choices: ["An Area is defined by Area Boundary lines you draw, independent of walls", "An Area always follows the room-bounding walls just like a Room does", "An Area is a Room placed in a plan view instead of a 3D view", "An Area measures volume, while a Room only measures floor area"],
           answer: 0,
           explain: "Areas are measured to Area Boundary lines you place, so their limits do not have to match walls."
         },
@@ -136,7 +136,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Which built-in Area Scheme measures the full outer footprint of the building?",
-          choices: ["Gross Building", "Rentable", "Circulation", "Furniture"],
+          choices: ["Gross Building", "Rentable", "Net Floor Area", "Usable Area"],
           answer: 0,
           explain: "The Gross Building scheme measures to the outside of the exterior enclosure."
         },
@@ -175,7 +175,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does a Color Scheme do?",
-          choices: ["Colors rooms or areas by a chosen data value", "Changes the color of every wall type", "Renders the model photo-realistically", "Prints the sheet in grayscale"],
+          choices: ["Colors rooms or areas by a chosen data value", "Changes the cut pattern color of wall types", "Sets the colors used for each material render", "Assigns a color to each workset in the model"],
           answer: 0,
           explain: "A Color Scheme applies a color fill driven by a parameter such as Name or Department."
         },
@@ -188,7 +188,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Where does the key that explains the colors come from?",
-          choices: ["A Color Scheme Legend placed in the view", "A separate spreadsheet", "The title block only", "It cannot be shown"],
+          choices: ["A Color Scheme Legend placed in the view", "A room tag that lists each color value", "The Color Scheme dialog printed as a table", "A view filter legend added to the sheet"],
           answer: 0,
           explain: "A Color Scheme Legend lists each value and its color so readers can decode the fill."
         },
@@ -286,7 +286,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does a Filter on a schedule control?",
-          choices: ["Which rows are shown based on their values", "The font of the header", "The sheet number", "The wall thickness"],
+          choices: ["Which rows are shown based on their values", "How rows are grouped under header rows", "The order that rows are listed in", "Which columns appear in the schedule"],
           answer: 0,
           explain: "A Filter limits the schedule to rows that meet a condition, hiding the rest."
         },
@@ -331,7 +331,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is a Key Schedule?",
-          choices: ["A schedule of reusable keys you apply to fill several fields at once", "A schedule that unlocks the file", "A list of keyboard shortcuts", "A schedule of doors only"],
+          choices: ["A schedule of reusable keys you apply to fill several fields at once", "A schedule that lists each family type and its type parameters", "A schedule that sorts elements by a key field like Mark or Number", "A schedule of the shared parameters loaded into the project"],
           answer: 0,
           explain: "A Key Schedule defines named keys that carry a set of values you can assign in bulk."
         },
@@ -344,7 +344,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What is a Calculated Value in a schedule?",
-          choices: ["A field computed from a formula or other fields", "A field you must type for each row", "A photo of the element", "A link to another file"],
+          choices: ["A field computed from a formula or other fields", "A field whose value you type into each row", "A total row that sums a column at the bottom", "A shared parameter that counts the elements"],
           answer: 0,
           explain: "A Calculated Value derives its result from a formula, so it updates as its inputs change."
         },
@@ -383,7 +383,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What does a Material Takeoff schedule report?",
-          choices: ["Quantities of materials used by elements", "Only the room names", "The view template list", "The sheet index"],
+          choices: ["Quantities of materials used by elements", "The cost of each family type in the model", "The material settings saved in the template", "The number of elements in each category"],
           answer: 0,
           explain: "A Material Takeoff totals material quantities such as area or volume across elements."
         },
@@ -396,7 +396,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "How does a Material Takeoff differ from an ordinary schedule?",
-          choices: ["It breaks elements down by their materials", "It cannot be placed on a sheet", "It only counts rooms", "It ignores the model entirely"],
+          choices: ["It breaks elements down by their materials", "It lists only elements that have a cost value", "It shows element types instead of instances", "It reports each material's render settings"],
           answer: 0,
           explain: "A takeoff drills into each element's materials, so one wall can list several material rows."
         },

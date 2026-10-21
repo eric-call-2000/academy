@@ -63,7 +63,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why do statuses matter in coordination?",
-          choices: ["They tell the team what still needs action versus what is handled", "They change the color of the whole model", "They export the model to Revit", "They control camera angles"],
+          choices: ["They tell the team what still needs action versus what is handled", "They set the color each discipline shows in the model", "They control which clashes are exported back to Revit", "They decide the tolerance used the next time the test runs"],
           answer: 0,
           explain: "Statuses turn a raw clash list into a to-do list, separating open work from things already handled."
         }
@@ -113,7 +113,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is a good reason to group clashes rather than review each one alone?",
-          choices: ["It cuts a huge list down to a handful of real problems", "It hides the model geometry", "It publishes an NWD", "It links the schedule for 4D"],
+          choices: ["It cuts a huge list down to a handful of real problems", "It merges the clashing elements into a single object", "It raises the tolerance so small overlaps disappear", "It marks every clash in the group as Resolved"],
           answer: 0,
           explain: "Grouping shrinks noise into a short list of genuine issues, which is faster to coordinate."
         },
@@ -133,7 +133,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does assigning a clash accomplish?",
-          choices: ["It notes who is responsible for resolving the issue", "It deletes the clash", "It exports an NWC file", "It changes the tolerance value"],
+          choices: ["It notes who is responsible for resolving the issue", "It sets the clash status to Resolved right away", "It sends the clashing element to Revit so it can be moved", "It records which discipline caused the clash"],
           answer: 0,
           explain: "Assigning attaches an owner to the clash so everyone knows whose job it is to fix it."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why is assigning important in a coordination meeting?",
-          choices: ["It makes accountability clear so issues do not stall", "It speeds up the graphics card", "It renames the NWF file", "It merges two selection trees"],
+          choices: ["It makes accountability clear so issues do not stall", "It closes the clash so it no longer appears in reports", "It sets the order in which clashes are re-run", "It notifies the software vendor of model errors"],
           answer: 0,
           explain: "Clear ownership prevents the classic problem of a clash everyone assumes someone else will handle."
         },
@@ -189,7 +189,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does SwitchBack do?",
-          choices: ["Selects the clashing element back in the authoring app like Revit", "Publishes an NWD", "Deletes the clash test", "Rebuilds the search sets"],
+          choices: ["Selects the clashing element back in the authoring app like Revit", "Reverts the federated model to the state it was in before the last refresh", "Returns to the previous saved viewpoint in the list", "Swaps Selection A and Selection B in a clash test"],
           answer: 0,
           explain: "SwitchBack sends you from Navisworks to the exact element in Revit so you can fix it at the source."
         },
@@ -215,7 +215,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why is SwitchBack so useful during clash resolution?",
-          choices: ["It saves time finding the right element among thousands in Revit", "It compresses the NWC cache", "It sets the clash tolerance", "It assigns clashes automatically"],
+          choices: ["It saves time finding the right element among thousands in Revit", "It moves the element in Revit to clear the clash automatically", "It refreshes the Navisworks model without reopening the file", "It lets you edit Revit geometry inside Navisworks directly"],
           answer: 0,
           explain: "Instead of hunting for the element by hand in Revit, SwitchBack selects it for you instantly."
         },
@@ -245,7 +245,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does a viewpoint save?",
-          choices: ["The camera angle plus any redlines or markups", "The entire schedule", "Only the file name", "The clash tolerance"],
+          choices: ["The camera angle plus any redlines or markups", "A frozen copy of the geometry in view", "The clash test and its tolerance setting", "The selected objects and their properties"],
           answer: 0,
           explain: "A viewpoint stores the saved camera position along with redline markups, so others see exactly what you saw."
         },
@@ -271,7 +271,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why generate viewpoints straight from clash results?",
-          choices: ["Each issue gets a shareable, easy-to-find view", "It lowers the file size of the NWC", "It re-runs every test", "It assigns owners automatically"],
+          choices: ["Each issue gets a shareable, easy-to-find view", "Each viewpoint resolves its clash once it is saved", "Viewpoints are needed before a test can be re-run", "Each viewpoint sends the clash to the assigned trade"],
           answer: 0,
           explain: "Viewpoints turn abstract clash rows into pictures the whole team can open and discuss."
         },
@@ -301,7 +301,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What happens when you re-run a clash test after models are updated?",
-          choices: ["Navisworks updates statuses to show what is fixed and what remains", "It deletes all viewpoints", "It uninstalls Revit", "It publishes an NWD automatically"],
+          choices: ["Navisworks updates statuses to show what is fixed and what remains", "Navisworks clears every old result and starts a fresh list with new IDs", "Navisworks moves the clashing elements apart to fix them", "Navisworks marks every earlier clash as Approved"],
           answer: 0,
           explain: "Re-running compares the fresh model to the old results, flipping fixed clashes to Resolved and keeping open ones Active."
         },
@@ -327,7 +327,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why is using an NWF important when tests will be re-run over time?",
-          choices: ["It references the live source files so refreshes pick up changes", "It bakes geometry and never updates", "It cannot store clash tests", "It only works in Freedom"],
+          choices: ["It references the live source files so refreshes pick up changes", "It bakes all geometry into one file so it never changes", "It is the only format that can open in Navisworks Freedom", "It stores the clash results inside each source model"],
           answer: 0,
           explain: "An NWF references the source files instead of freezing geometry, so refreshing and re-running reflects new design work."
         },
@@ -357,7 +357,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why filter clash results before a coordination meeting?",
-          choices: ["To focus on real, actionable clashes and skip the noise", "To delete the model", "To change the app edition", "To disable SwitchBack"],
+          choices: ["To focus on real, actionable clashes and skip the noise", "To delete the trivial clashes from the source models", "To hide every clash that has not been assigned to a trade yet", "To make the file small enough to email"],
           answer: 0,
           explain: "Filtering surfaces the clashes worth discussing so the team is not buried under trivial or already-handled results."
         },
@@ -383,7 +383,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Which is a common way to cut down noise in results?",
-          choices: ["Set a sensible tolerance so tiny overlaps are ignored", "Turn off the monitor", "Delete the selection tree", "Publish more NWD files"],
+          choices: ["Set a sensible tolerance so tiny overlaps are ignored", "Set the tolerance to zero so every overlap is caught", "Run each test with all files in both selections", "Delete clashes from the list without reviewing them"],
           answer: 0,
           explain: "A reasonable tolerance keeps trivial overlaps from ever being reported, cutting the noise at the source."
         },
@@ -413,7 +413,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What best describes the coordination loop?",
-          choices: ["Resolve issues, re-run tests, then verify the results", "Run one test and never look again", "Only publish NWD files", "Edit geometry inside Navisworks"],
+          choices: ["Resolve issues, re-run tests, then verify the results", "Run every test once at the start, then archive the report", "Edit the geometry in Navisworks, then publish an NWD", "Assign clashes, then close them at the next meeting"],
           answer: 0,
           explain: "Coordination repeats: teams fix issues, you re-run tests, and you verify that fixes worked and nothing new broke."
         },
@@ -439,7 +439,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "How does this workflow increasingly connect to the cloud?",
-          choices: ["Through ACC Model Coordination for cloud-based clash review", "By emailing screenshots only", "By printing paper drawings", "By disabling all tests"],
+          choices: ["Through ACC Model Coordination for cloud-based clash review", "Through ACC Build for daily logs and field issue checklists", "Through ACC Docs for storing drawing sheets only", "Through Revit Cloud Worksharing for editing models"],
           answer: 0,
           explain: "ACC Model Coordination brings federated models and clash review into the cloud alongside desktop Navisworks."
         },

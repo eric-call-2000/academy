@@ -39,7 +39,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Why do trainers usually switch from continuous to intermittent reinforcement after a behavior is learned?",
-          choices: ["Continuous reinforcement teaches the behavior too slowly", "Intermittent schedules make the behavior more durable and resistant to extinction", "Continuous reinforcement is physically impossible to deliver", "Intermittent schedules stop the behavior faster"],
+          choices: ["Continuous reinforcement teaches new behavior too slowly to be practical", "Intermittent schedules make the behavior more durable and resistant to extinction", "Intermittent schedules speed up the initial learning of brand-new behaviors", "Intermittent schedules make the behavior extinguish faster once rewards stop"],
           answer: 1,
           explain: "Once acquired, thinning to an intermittent schedule builds persistence, so the behavior survives longer without constant reward."
         },
@@ -118,7 +118,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "On a variable-ratio 10 (VR-10) schedule, reinforcement occurs after:",
-          choices: ["Exactly 10 responses each time", "An average of 10 responses that varies from trial to trial", "The first response after 10 seconds", "10 minutes have passed"],
+          choices: ["Exactly 10 responses, with the count fixed on every occasion", "An average of 10 responses that varies from trial to trial", "The first response after an average of 10 seconds", "Ten responses made within a fixed window of time"],
           answer: 1,
           explain: "In VR-10 the number of responses per reinforcement varies around an average of 10, so it is unpredictable on any given occasion."
         },
@@ -157,7 +157,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which feature of variable-ratio schedules best explains why gambling is so hard to quit?",
-          choices: ["Rewards are guaranteed on every play", "Rewards come after a predictable count", "Reinforcement is unpredictable and resistant to extinction", "Reinforcement depends only on time passing"],
+          choices: ["Rewards are delivered on nearly every play, so losses feel rare", "Rewards arrive after a predictable count that players can track", "Reinforcement is unpredictable and resistant to extinction", "Reinforcement depends only on how much time has passed between plays"],
           answer: 2,
           explain: "Unpredictable reinforcement produces persistent, high-rate responding that resists extinction, which underlies compulsive gambling."
         }
@@ -224,7 +224,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "On a variable-interval 30-second (VI-30s) schedule, reinforcement becomes available after:",
-          choices: ["Exactly 30 seconds every time", "An unpredictable interval averaging 30 seconds", "The 30th response", "An average of 30 responses"],
+          choices: ["Exactly 30 seconds, the same interval every time", "An unpredictable interval averaging 30 seconds", "The 30th response, regardless of how long it takes", "An unpredictable number of responses averaging 30"],
           answer: 1,
           explain: "VI-30s makes reinforcement available for the first response after time intervals that vary around an average of 30 seconds."
         },
@@ -263,7 +263,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Why do variable-interval schedules produce such steady responding?",
-          choices: ["Reinforcement is guaranteed on every response", "Responding faster always speeds up the reward", "Reinforcement can become available at any unpredictable moment", "Reinforcement depends on a fixed count"],
+          choices: ["Reinforcement is guaranteed after every single response the animal makes", "Responding faster always makes the next reward arrive sooner", "Reinforcement can become available at any unpredictable moment", "Reinforcement depends on completing a fixed count of responses"],
           answer: 2,
           explain: "Because reward can become available at any unpredictable time, the organism responds at a constant steady pace to catch it whenever it appears."
         }
@@ -277,7 +277,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "The device Skinner used to plot responses over time, whose slope reveals response rate, is the:",
-          choices: ["Operant chamber", "Cumulative recorder", "Shuttle box", "Puzzle box"],
+          choices: ["Operant chamber", "Cumulative recorder", "Kymograph recorder", "Response tally counter"],
           answer: 1,
           explain: "The cumulative recorder draws an ever-rising line whose steepness represents the rate of responding over time."
         },
@@ -329,7 +329,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "The partial reinforcement extinction effect (PREE) states that behavior is more resistant to extinction when it was previously reinforced:",
-          choices: ["Continuously, every time", "Intermittently, only some of the time", "Never at all", "Only by punishment"],
+          choices: ["Continuously, after every response", "Intermittently, only some of the time", "With larger rewards on every trial", "With rewards delivered immediately"],
           answer: 1,
           explain: "PREE means intermittently reinforced behavior persists longer during extinction than continuously reinforced behavior."
         },
@@ -349,7 +349,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "One explanation of the PREE is the discrimination hypothesis, which says intermittent reinforcement makes it harder to:",
-          choices: ["Detect that reinforcement has stopped", "Perform the response at all", "Remember the response", "Receive any reward"],
+          choices: ["Detect that reinforcement has stopped", "Perform the response with full effort", "Remember which response was reinforced", "Tell the reinforcer apart from other stimuli"],
           answer: 0,
           explain: "When rewards were already sporadic, the shift to no reward during extinction is hard to discriminate, so responding continues longer."
         },
@@ -362,7 +362,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "A parent who 'gives in' only occasionally to a child's tantrums is unintentionally making the tantrums:",
-          choices: ["Extinguish quickly", "More resistant to extinction", "Impossible to perform", "Reinforced continuously"],
+          choices: ["Extinguish quickly once ignored", "More resistant to extinction", "Less frequent but more intense", "Reinforced on a continuous schedule"],
           answer: 1,
           explain: "Occasional reinforcement is an intermittent schedule, and by the PREE it makes the tantrums more persistent and hard to extinguish."
         },
@@ -382,7 +382,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "A concurrent schedule is one in which:",
-          choices: ["Two or more schedules are available at the same time and the organism chooses between them", "Two schedules must be completed in a fixed sequence", "One schedule alternates with another signaled by different stimuli", "Reinforcement is delivered continuously"],
+          choices: ["Two or more schedules are available at the same time and the organism chooses between them", "Two or more schedules must be completed in a fixed sequence before reinforcement arrives", "One schedule alternates with another over time, each signaled by its own distinct stimulus", "Reinforcement is delivered for every response across all of the schedules in effect"],
           answer: 0,
           explain: "Concurrent schedules present two or more schedules simultaneously, letting the organism distribute responses (choice) between them."
         },
@@ -395,7 +395,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "In a chained schedule, each component is signaled by a distinct stimulus and its completion leads to:",
-          choices: ["Immediate primary reinforcement at every step", "The next component, with primary reinforcement only after the final link", "Two options available at once", "Random alternation of unsignaled schedules"],
+          choices: ["Immediate primary reinforcement at the end of every single component", "The next component, with primary reinforcement only after the final link", "A choice between two schedules that become available at the same time", "Random alternation with unsignaled schedules until reinforcement occurs"],
           answer: 1,
           explain: "Chained schedules require components in a fixed order, each with its own stimulus, and the primary reinforcer arrives only after the last link."
         },

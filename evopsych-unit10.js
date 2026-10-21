@@ -40,7 +40,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which quality did men tend to rate more highly than women across the 37 cultures?",
-          choices: ["Larger income", "Physical attractiveness", "Older age", "Higher education"],
+          choices: ["Good financial prospects", "Physical attractiveness", "Ambition and industriousness", "An older age than their own"],
           answer: 1,
           explain: "Men consistently placed more weight than women on a partner's physical attractiveness, a pattern found across nearly all cultures sampled."
         },
@@ -86,7 +86,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What is the main lesson of the large overlap in men's and women's preferences?",
-          choices: ["Shared preferences outweigh the differences", "Sex differences are the whole story", "Men and women want nothing in common", "Culture erases all preferences"],
+          choices: ["Shared preferences outweigh the differences", "Sex differences explain most of the variation", "Men and women value almost entirely different traits", "Culture erases sex differences in preferences"],
           answer: 0,
           explain: "The sexes agree far more than they differ; the well-known sex differences sit on top of a much larger base of shared priorities."
         },
@@ -105,7 +105,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Traits valued by both sexes in every culture are best described as ____.",
-          choices: ["culturally arbitrary", "unique to Western cultures", "recent inventions", "near-universal human preferences"],
+          choices: ["culturally arbitrary preferences", "preferences unique to Western cultures", "recent products of modern media", "near-universal human preferences"],
           answer: 3,
           explain: "Because kindness, intelligence, and mutual love appeared across all 37 cultures, they are treated as near-universal human mate preferences."
         }
@@ -139,7 +139,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which is an alternative, non-evolutionary explanation for women's resource preference?",
-          choices: ["The structural powerlessness / social role hypothesis", "Waist-to-hip ratio", "Kin selection", "Inclusive fitness"],
+          choices: ["The structural powerlessness / social role hypothesis", "The good genes / sexual selection hypothesis", "The parental investment / Trivers hypothesis", "The paternity uncertainty / mate guarding hypothesis"],
           answer: 0,
           explain: "Eagly and Wood's social role (structural powerlessness) view argues women value resources partly because they historically had less direct access to them."
         },
@@ -171,7 +171,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Why do evolutionary psychologists say men weight youth and physical attractiveness in a partner?",
-          choices: ["They signal wealth", "They are cues to fertility and reproductive value", "They signal political power", "They reduce jealousy"],
+          choices: ["They signal a partner's ability to acquire resources", "They are cues to fertility and reproductive value", "They are cues to a partner's long-term commitment", "They signal kindness and good parenting skills"],
           answer: 1,
           explain: "Youth and attractiveness correlate with fertility and reproductive value, so ancestral men attentive to them would have left more descendants."
         },
@@ -191,7 +191,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "'Reproductive value' refers to ____.",
-          choices: ["a person's current bank balance", "number of past relationships", "expected future reproduction given age", "height in centimeters"],
+          choices: ["the number of offspring already produced", "current fertility at a given moment", "expected future reproduction given age", "a person's overall desirability as a mate"],
           answer: 2,
           explain: "Reproductive value is the expected future reproductive output at a given age, and it peaks in early adulthood for women."
         },
@@ -236,7 +236,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "What pattern did women show across the lifespan in Kenrick and Keefe's data?",
-          choices: ["Preferring increasingly younger men", "Preferring men slightly older than themselves", "Preferring no particular age", "Preferring men decades younger"],
+          choices: ["Preferring increasingly younger men with age", "Preferring men slightly older than themselves", "Preferring men much older, by ten years or more", "Showing no consistent preference for any age"],
           answer: 1,
           explain: "Women of most ages tended to prefer men around their own age or slightly older, a pattern relatively stable across the lifespan."
         },
@@ -275,7 +275,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Assortative mating, as usually observed in humans, means that partners tend to be ____.",
-          choices: ["opposite on most traits", "similar to each other on many traits", "randomly matched", "always related"],
+          choices: ["complementary, with opposite traits", "similar to each other on many traits", "matched at random on most traits", "similar in looks but different in values"],
           answer: 1,
           explain: "Positive assortative mating is the tendency for like to pair with like across traits such as age, education, and attitudes."
         },
@@ -314,7 +314,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Which is a commonly cited example of assortative mating?",
-          choices: ["Partners with similar education levels", "Partners of opposite religions", "Partners chosen at random", "Partners who share no interests"],
+          choices: ["Partners with similar education levels", "Partners with complementary personalities", "Partners who differ widely in age", "Partners from different social classes"],
           answer: 0,
           explain: "Similar educational attainment between partners is one of the strongest and most-cited examples of positive assortative mating."
         }
@@ -380,7 +380,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "In evolutionary psychology, 'mate value' refers to ____.",
-          choices: ["a person's overall desirability as a partner", "a person's annual salary", "the number of dates someone has had", "a legal marriage contract"],
+          choices: ["a person's overall desirability as a partner", "a person's income and earning potential alone", "the number of partners a person has had", "a person's physical attractiveness alone"],
           answer: 0,
           explain: "Mate value is a person's overall desirability as a partner, combining traits like health, kindness, status, and attractiveness."
         },
@@ -400,7 +400,7 @@ window.ACADEMY.addUnit("evopsych", {
         {
           type: "mcq",
           q: "Why is the 'market' metaphor useful for mate choice?",
-          choices: ["Because partners are literally bought", "Because supply, demand, and value matching shape who pairs with whom", "Because everyone has identical options", "Because money is the only factor"],
+          choices: ["Because everyone has the same options and picks the most attractive person", "Because supply, demand, and value matching shape who pairs with whom", "Because partners trade money directly for attractiveness in most cultures", "Because each person chooses freely, unaffected by who else is available"],
           answer: 1,
           explain: "Like a market, mating involves supply and demand and value-based matching, even though no money changes hands."
         },

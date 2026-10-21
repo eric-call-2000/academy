@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does the Selection Tree show you?",
-          choices: ["The model hierarchy of files, layers, and objects", "Only clash results", "Only the 4D schedule", "A list of saved viewpoints"],
+          choices: ["The model hierarchy of files, layers, and objects", "A list of saved viewpoints grouped into folders", "The clash results sorted by test and status", "The 4D tasks linked to each object in the model"],
           answer: 0,
           explain: "The Selection Tree is a structured, tree-shaped view of the whole federated model, from files down to individual objects."
         },
@@ -45,7 +45,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why is the Selection Tree useful for coordination?",
-          choices: ["It lets you find and select exactly the objects you care about", "It publishes an NWD", "It runs clash tests by itself", "It edits Revit geometry directly"],
+          choices: ["It lets you find and select exactly the objects you care about", "It runs clash tests on whichever branch you expand", "It lets you edit the source geometry of each object directly in place", "It publishes each file in the tree as a separate NWD"],
           answer: 0,
           explain: "The tree is your map for locating and selecting the right elements before you group, search, or analyze them."
         },
@@ -65,7 +65,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does clicking an object in the scene do by default?",
-          choices: ["Highlights it and reveals its place in the Selection Tree", "Deletes it from the model", "Publishes an NWD", "Starts a clash test"],
+          choices: ["Highlights it and reveals its place in the Selection Tree", "Hides it so you can see the objects behind it", "Opens its source file in the original authoring application for editing", "Adds it to the current clash test as Selection A"],
           answer: 0,
           explain: "A pick in the scene selects the object and the tree scrolls to show where that object lives."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does the Properties window show for a selected object?",
-          choices: ["The data attached to that element", "The camera position", "The full clash matrix", "The list of appended files"],
+          choices: ["The data attached to that element", "The camera position of the current view", "The clash results that involve that element", "The file path of every appended model"],
           answer: 0,
           explain: "Properties lists the attribute data an object carries, often organized into tabs by source."
         },
@@ -143,7 +143,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why do object properties matter for coordination?",
-          choices: ["They power search sets and grouping", "They set the render quality", "They control the file format", "They change the toolbar layout"],
+          choices: ["They power search sets and grouping", "They set the render quality of each object", "They control which file format is published", "They decide the navigation speed in Walk mode"],
           answer: 0,
           explain: "Consistent properties let you build reliable search sets and organize clash results by trade or system."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "How is a Selection Set built?",
-          choices: ["By manually picking objects and saving them", "By writing a property rule", "By running a clash test", "By publishing an NWD"],
+          choices: ["By manually picking objects and saving them", "By writing property rules that find matching objects", "By grouping objects that share a TimeLiner task", "By auto-grouping objects that share a material"],
           answer: 0,
           explain: "You hand-pick the objects you want and save that exact list as a Selection Set."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "How does a Search Set decide its membership?",
-          choices: ["By property-based rules that find matching objects", "By a hand-picked list", "By clash status", "By the current camera view"],
+          choices: ["By property-based rules that find matching objects", "By a hand-picked list of objects saved at one time", "By which objects are involved in active clashes", "By what is visible in the current camera view"],
           answer: 0,
           explain: "A Search Set stores rules that test properties, so it gathers every object that matches."
         },
@@ -247,7 +247,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why are Search Sets great for a living model?",
-          choices: ["They capture new matching objects on every reload", "They freeze membership forever", "They disable clash detection", "They publish the model"],
+          choices: ["They capture new matching objects on every reload", "They lock membership so results never change", "They store geometry so deleted objects are kept", "They run clash tests automatically on every refresh"],
           answer: 0,
           explain: "As the design changes, a Search Set automatically includes newly matching elements."
         },
@@ -273,7 +273,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "How are sets used in Clash Detective?",
-          choices: ["As Selection A or Selection B in a clash test", "As the render engine", "As the file format", "As the camera path"],
+          choices: ["As Selection A or Selection B in a clash test", "As the tolerance setting for a clash test", "As the list of viewpoints for each clash result", "As the export filter for publishing clash reports"],
           answer: 0,
           explain: "You point a clash test at a set for Selection A and another set for Selection B."
         },
@@ -299,7 +299,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why prefer a Search Set over a manual list when linking TimeLiner tasks?",
-          choices: ["It keeps the task current as objects are added", "It disables the schedule", "It hides the objects", "It converts the file to NWC"],
+          choices: ["It keeps the task current as objects are added", "It locks the task dates so they cannot slip", "It hides the objects until the task has started", "It links the task to the cost data in the model"],
           answer: 0,
           explain: "A dynamic Search Set keeps a task pointed at the right objects even as the model grows."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What does Find Items do?",
-          choices: ["Searches the model by property criteria", "Renders a walkthrough", "Publishes an NWD", "Opens the TimeLiner"],
+          choices: ["Searches the model by property criteria", "Searches saved viewpoints by their names", "Locates clash results by their status", "Finds files on disk to append to the model"],
           answer: 0,
           explain: "Find Items builds property-based rules and returns every object that matches."
         },
@@ -351,7 +351,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "How does Find Items relate to Search Sets?",
-          choices: ["It is the search behind a Search Set", "It replaces clash detection", "It only works on NWD files", "It edits object geometry"],
+          choices: ["It is the search behind a Search Set", "It converts a Selection Set into a clash test", "It replaces Search Sets with a one-time pick", "It only works on published NWD files"],
           answer: 0,
           explain: "Find Items is the searching engine, and a saved search becomes a reusable Search Set."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "Why do well-built sets make coordination scale?",
-          choices: ["They let clash and 4D reuse the same reliable groups", "They shrink the file to zero", "They remove the need for models", "They disable properties"],
+          choices: ["They let clash and 4D reuse the same reliable groups", "They shrink the federated file by removing unused objects", "They fix inconsistent property data in the source models", "They let clashes resolve automatically between trades"],
           answer: 0,
           explain: "Clean, reusable sets feed clash tests and schedules consistently, saving rework on big jobs."
         },
@@ -403,7 +403,7 @@ window.ACADEMY.addUnit("navisworks", {
         {
           type: "mcq",
           q: "What is a sign of poor set discipline on a project?",
-          choices: ["Clash tests aimed at stale, hand-picked lists", "Search Sets that auto-update", "Consistent property data", "Reused trade sets"],
+          choices: ["Clash tests aimed at stale, hand-picked lists", "Search Sets that update when the model reloads", "Sets named consistently by trade and system", "Reusing the same sets for clash and TimeLiner"],
           answer: 0,
           explain: "Stale manual lists mean clash tests miss new objects, a common source of missed conflicts."
         },

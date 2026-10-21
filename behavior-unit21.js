@@ -69,7 +69,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "In Skinner's taxonomy, a 'mand' is best described as a:",
-          choices: ["Label for an object in view", "Request or demand reinforced by a specific consequence", "Repetition of what was just heard", "Response cued by another person's words"],
+          choices: ["Label for an object or event that is currently in view", "Request or demand reinforced by a specific consequence", "Repetition of a word that the speaker has just heard", "Response cued by another person's words, not by a need"],
           answer: 1,
           explain: "A mand (from 'demand'/'command') is under the control of deprivation or aversive stimulation and is reinforced by the specific consequence it specifies."
         },
@@ -125,7 +125,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "A 'tact' in Skinner's system is a verbal operant that:",
-          choices: ["Requests a needed item", "Names or describes something present in the environment", "Copies a heard sound", "Is prompted by an earlier verbal statement"],
+          choices: ["Requests a needed item and is reinforced by receiving it", "Names or describes something present in the environment", "Copies a heard sound with point-to-point correspondence", "Is evoked by an earlier verbal statement from someone else"],
           answer: 1,
           explain: "A tact (from 'contact') is evoked by an object, event, or property and lets the speaker make 'contact' with the environment by labeling it."
         },
@@ -181,7 +181,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "An 'echoic' verbal operant occurs when a speaker:",
-          choices: ["Requests something needed", "Names an object in view", "Repeats a verbal stimulus with point-to-point correspondence", "Answers a question with related but different words"],
+          choices: ["Requests something needed and is reinforced by getting it", "Names an object or event that is present in the speaker's view", "Repeats a verbal stimulus with point-to-point correspondence", "Answers a spoken question with related but formally different words"],
           answer: 2,
           explain: "The echoic reproduces a heard verbal stimulus; the response has point-to-point correspondence and formal similarity with what was heard."
         },
@@ -201,7 +201,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which is the clearest example of an intraverbal?",
-          choices: ["Repeating 'apple' right after hearing 'apple'", "Saying 'Paris' when asked 'What's the capital of France?'", "Saying 'cookie' while pointing to want one", "Naming a cup when shown a cup"],
+          choices: ["Repeating 'apple' immediately after hearing someone say 'apple'", "Saying 'Paris' when asked 'What's the capital of France?'", "Saying 'cookie' while reaching toward the jar to get one", "Saying 'cup' when shown a cup and asked nothing at all"],
           answer: 1,
           explain: "Answering 'Paris' to a spoken question is an intraverbal: prior verbal behavior evokes a related verbal response with no formal similarity."
         },
@@ -257,7 +257,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which was a central charge in Chomsky's review?",
-          choices: ["Skinner used too much mathematics", "Behavioral terms were used only as loose metaphors outside the lab", "Skinner ignored animal research entirely", "Skinner denied that children learn any words"],
+          choices: ["Skinner relied on too much mathematics to describe verbal behavior", "Behavioral terms were used only as loose metaphors outside the lab", "Skinner ignored the results of animal research when writing the book", "Skinner denied that children learn any words from their parents"],
           answer: 1,
           explain: "Chomsky argued that when 'stimulus control' and 'reinforcement' are applied to speech, they are drained of the meaning they had in animal experiments."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "The 'poverty of the stimulus' argument claims that:",
-          choices: ["Poor children learn language more slowly", "The linguistic input to children is too impoverished to account for the grammar they acquire", "Stimuli must be strong to be effective reinforcers", "Language cannot be studied scientifically"],
+          choices: ["Children from poorer homes learn language more slowly because they hear far fewer words each day", "The linguistic input to children is too impoverished to account for the grammar they acquire", "Stimuli must be strong and frequent to be effective reinforcers of children's speech", "Language is too private and variable to be studied scientifically with any method"],
           answer: 1,
           explain: "The argument holds that the speech children hear is limited and imperfect, yet they acquire rich, rule-governed grammar, so learning alone cannot explain it."
         },
@@ -319,7 +319,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which observation is used to support the poverty of the stimulus?",
-          choices: ["Children rarely make any grammatical errors", "Children acquire complex grammar quickly despite incomplete and error-filled input", "Adults always correct every childhood error", "Language input is unlimited and perfect"],
+          choices: ["Children rarely make grammatical errors of any kind at any stage of learning to talk", "Children acquire complex grammar quickly despite incomplete and error-filled input", "Adults carefully correct nearly every grammatical error a young child makes", "Children hear a complete and perfectly formed sample of every grammatical rule"],
           answer: 1,
           explain: "Despite hearing fragmentary, error-laden speech and little explicit correction, children rapidly master complex grammar, suggesting innate support."
         },
@@ -349,7 +349,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Chomsky's 'Universal Grammar' refers to:",
-          choices: ["A single language everyone speaks", "An innate set of principles shared by all human languages", "A dictionary of universal words", "The grammar of Latin as a model language"],
+          choices: ["A single original language from which all others descend", "An innate set of principles shared by all human languages", "A dictionary of words that appear in every human language", "The grammar of Latin used as a model for all other languages"],
           answer: 1,
           explain: "Universal Grammar is the innate structure or set of principles Chomsky argued underlies every human language, guiding acquisition."
         },
@@ -369,7 +369,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What term did Chomsky use for a hypothesized innate mechanism enabling children to learn language?",
-          choices: ["Reinforcement schedule", "Language Acquisition Device (LAD)", "Verbal community", "Operant chamber"],
+          choices: ["Language Acquisition Support System", "Language Acquisition Device (LAD)", "Generalized imitation repertoire", "Relational frame repertoire"],
           answer: 1,
           explain: "Chomsky's Language Acquisition Device (LAD) is the proposed innate mechanism that lets children extract grammar from the speech they hear."
         },
@@ -405,7 +405,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "How does Skinner's 'Verbal Behavior' remain influential today?",
-          choices: ["As the basis of Universal Grammar theory", "As the foundation of Verbal Behavior therapy within Applied Behavior Analysis", "As a rejected idea with no practical use", "As a method for teaching animals to read"],
+          choices: ["As the theoretical basis of Universal Grammar in modern generative linguistics", "As the foundation of Verbal Behavior therapy within Applied Behavior Analysis", "As the model behind most current natural-language processing software", "As the standard account of language acquisition in developmental psychology"],
           answer: 1,
           explain: "Though criticized by linguists, Skinner's verbal operants became the basis of Verbal Behavior (VB) approaches within Applied Behavior Analysis for teaching communication."
         },

@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "In simple terms, what is cybersecurity?",
           choices: [
             "Protecting systems, data, and people from digital attacks",
-            "Making websites load faster",
-            "Designing prettier apps",
-            "Storing more files on a computer"
+            "Building and maintaining the networks that connect company computers",
+            "Writing software that is free of bugs before it is released",
+            "Monitoring employees' web use to keep them productive at work"
           ],
           answer: 0,
           explain: "Cybersecurity is the practice of defending computers, networks, data, and users from attacks, theft, and damage."
@@ -68,9 +68,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is it useful for regular users to learn security basics?",
           choices: [
             "So they can spot scams and protect their own accounts",
-            "So they can build faster computers",
-            "So they can write video games",
-            "So they never need passwords again"
+            "So they can take over the job of the IT security team",
+            "So they can fix infected computers for friends and family",
+            "So they can stop using antivirus and other security tools"
           ],
           answer: 0,
           explain: "Awareness helps people avoid scams, protect their data, and make safer choices online."
@@ -93,9 +93,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What do the three letters in the CIA triad stand for?",
           choices: [
             "Confidentiality, Integrity, Availability",
-            "Control, Internet, Access",
-            "Cyber, Information, Attack",
-            "Cloud, Identity, Authentication"
+            "Confidentiality, Identity, Authentication",
+            "Control, Integrity, Accountability",
+            "Compliance, Inspection, Auditing"
           ],
           answer: 0,
           explain: "The CIA triad is the classic model for the three main goals of information security."
@@ -142,7 +142,7 @@ window.ACADEMY.addUnit("cyber", {
             "Confidentiality",
             "Availability",
             "Integrity",
-            "Speed"
+            "Accountability"
           ],
           answer: 0,
           explain: "A leak exposes private data to the wrong people, which breaks confidentiality."
@@ -181,9 +181,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which of these is best described as a vulnerability?",
           choices: [
             "Software that has not been updated and has a known flaw",
-            "A hacker who wants to steal data",
-            "A rainstorm",
-            "A well-trained security team"
+            "A criminal group that wants to steal customer data",
+            "The chance that an attacker succeeds and causes harm",
+            "A firewall rule that blocks traffic from unknown sources"
           ],
           answer: 0,
           explain: "Unpatched software with a known flaw is a weakness an attacker could exploit."
@@ -206,9 +206,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which is an example of a threat?",
           choices: [
             "A phishing attacker trying to trick employees",
-            "A missing lock on a door",
-            "An outdated password policy",
-            "A typo in a document"
+            "A server that is missing its latest security patch",
+            "A weak password policy that allows short passwords",
+            "A backup system that copies data offsite each night"
           ],
           answer: 0,
           explain: "A threat is the source of possible harm, such as an attacker or malware trying to cause damage."
@@ -224,9 +224,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a common way to reduce risk?",
           choices: [
             "Fix vulnerabilities by patching and adding controls",
-            "Ignore the problem and hope",
-            "Turn off all logging",
-            "Give everyone admin access"
+            "Hide vulnerabilities so attackers are less likely to find them",
+            "Accept every risk since attacks cannot be prevented anyway",
+            "Give all staff admin rights so they can fix issues quickly"
           ],
           answer: 0,
           explain: "Patching flaws and adding controls shrinks the weaknesses that threats can exploit."
@@ -259,9 +259,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a white-hat hacker?",
           choices: [
             "An ethical hacker who finds flaws to help fix them, with permission",
-            "A criminal who steals money",
-            "Someone who never uses computers",
-            "A type of firewall"
+            "A hacker who breaks in without permission, then asks for a fee to fix it",
+            "A criminal attacker who steals data and sells it on dark web markets",
+            "A government-backed hacker who spies on other countries' networks"
           ],
           answer: 0,
           explain: "White-hat hackers do authorized testing to help organizations find and fix weaknesses."
@@ -278,9 +278,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a script kiddie?",
           choices: [
             "An unskilled attacker who runs tools others made without deep understanding",
-            "A senior security researcher",
-            "A children's coding class",
-            "A type of antivirus"
+            "A skilled attacker who writes custom malware for organized crime groups",
+            "A young insider who leaks company data out of frustration with the job",
+            "An activist who defaces websites to spread a political or social message"
           ],
           answer: 0,
           explain: "Script kiddies use ready-made tools without much skill, but they can still cause real damage."
@@ -312,9 +312,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why does knowing the type of attacker help defenders?",
           choices: [
             "It helps predict their goals, skill level, and likely tactics",
-            "It makes the network faster",
-            "It removes the need for passwords",
-            "It guarantees no attacks will happen"
+            "It lets defenders block every attacker by their known IP address",
+            "It tells defenders which laws require the attack to be reported",
+            "It means only nation-state attackers need any real defenses"
           ],
           answer: 0,
           explain: "Different attackers behave differently, so understanding them guides smarter defenses."
@@ -331,9 +331,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is an attack surface?",
           choices: [
             "The total set of points where an attacker could try to get in",
-            "The screen of a laptop",
-            "A type of malware",
-            "The speed of a network"
+            "The list of known attacks that have hit the company in the past",
+            "The part of a network that sits outside the main firewall",
+            "The total damage an attacker could cause after getting in"
           ],
           answer: 0,
           explain: "The attack surface is the sum of all the ways in, so a bigger surface means more chances for attack."
@@ -390,9 +390,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why do extra, unused accounts increase risk?",
           choices: [
             "Each one is another door an attacker might open",
-            "They make the screen brighter",
-            "They speed up the app",
-            "They improve battery life"
+            "They use up licenses that the security tools need",
+            "They slow down login checks for every other user",
+            "They fill the audit logs with too many entries"
           ],
           answer: 0,
           explain: "Forgotten accounts often go unmonitored, giving attackers a quiet way in."
@@ -409,9 +409,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is defense in depth?",
           choices: [
             "Using several layers of controls so one failure does not break everything",
-            "Relying on a single strong password",
-            "Turning off the firewall to save resources",
-            "Storing all data in one place"
+            "Using one very strong control so that no attacker can ever get through",
+            "Hiding systems deep inside the network where attackers cannot see them",
+            "Checking systems in depth once a year with a full security audit"
           ],
           answer: 0,
           explain: "Defense in depth stacks multiple defenses, so if one fails, others still protect the system."
@@ -444,9 +444,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is relying on only one security control risky?",
           choices: [
             "If it fails, there is nothing left to stop the attacker",
-            "It uses too much electricity",
-            "It always slows down the app",
-            "It is against the law"
+            "One control costs more to run than several smaller ones",
+            "Auditors require at least three controls on every system",
+            "A single control always slows the system down for users"
           ],
           answer: 0,
           explain: "A single control is a single point of failure, which is exactly what layering avoids."
@@ -468,9 +468,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which is a good example of layering controls?",
           choices: [
             "A firewall, plus MFA, plus encrypted storage",
-            "Only a firewall and nothing else",
-            "Disabling logs to keep things simple",
-            "Sharing admin passwords widely"
+            "Two firewalls from the same vendor with the same rules",
+            "One long password that is changed every month",
+            "A firewall with logging turned off to keep it fast"
           ],
           answer: 0,
           explain: "Combining network, identity, and data protections is classic defense in depth."
@@ -487,9 +487,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What does the principle of least privilege mean?",
           choices: [
             "Give each person or program only the access it truly needs",
-            "Give everyone full admin rights",
-            "Remove all access from everyone",
-            "Let users choose their own permissions"
+            "Give new staff no access until they have worked a full year",
+            "Give access based on seniority so managers can see everything",
+            "Give users access only during office hours on weekdays"
           ],
           answer: 0,
           explain: "Least privilege limits access to the minimum required, so a compromised account can do less damage."
@@ -522,9 +522,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is an over-privileged account dangerous?",
           choices: [
             "If it is compromised, the attacker can reach far more than needed",
-            "It makes the app load faster",
-            "It uses less memory",
-            "It cannot be logged in to"
+            "It is locked out more often because of failed login attempts",
+            "It cannot be protected with MFA like a normal account",
+            "It makes the system run slower for every other user"
           ],
           answer: 0,
           explain: "Extra access becomes extra reach for an attacker, which is why we trim permissions."
@@ -546,9 +546,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "A zero trust approach treats a login request from inside the office how?",
           choices: [
             "It still verifies identity and access, just like any other request",
-            "It trusts it completely with no checks",
-            "It blocks it forever",
-            "It ignores it"
+            "It trusts the request because it comes from the internal network",
+            "It blocks the request until an admin approves it by hand",
+            "It skips MFA but still checks the user's password"
           ],
           answer: 0,
           explain: "Zero trust does not give a free pass to internal requests; it verifies them all."
@@ -565,9 +565,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why are people often called the weakest link in security?",
           choices: [
             "Attackers can trick people into giving up access or information",
-            "People type too slowly",
-            "Computers dislike humans",
-            "People never make good passwords by accident"
+            "Most security tools are too complex for staff to turn on",
+            "Staff are usually the ones who write malware inside companies",
+            "Users are given full admin access by default on most systems"
           ],
           answer: 0,
           explain: "Even strong technology can be bypassed if a person is fooled, so human behavior matters a lot."
@@ -600,9 +600,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which is a sign of a likely phishing message?",
           choices: [
             "Urgent pressure to click a link and enter your password now",
-            "A calm note from a coworker you expected",
-            "A normal calendar reminder",
-            "A weather update"
+            "A message from a coworker that includes a shared file link",
+            "An email that uses your full name in the greeting line",
+            "A notice that comes from your company's usual email domain"
           ],
           answer: 0,
           explain: "Phishing often creates false urgency to rush you into acting before you think."
@@ -624,9 +624,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a strong personal defense against social engineering?",
           choices: [
             "Verify unusual requests through a separate, trusted channel",
-            "Always act instantly when pressured",
-            "Share passwords to save time",
-            "Ignore all warnings"
+            "Reply to the message and ask the sender to confirm it is real",
+            "Check that the email has a company logo and signature",
+            "Act quickly so the requester does not escalate the issue"
           ],
           answer: 0,
           explain: "Confirming odd requests another way, like a phone call you initiate, defeats many scams."

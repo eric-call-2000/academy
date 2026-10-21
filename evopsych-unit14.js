@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why does inbreeding raise the risk of genetic disorders in offspring?",
           choices: [
-            "It creates entirely new harmful mutations in the sperm and egg",
+            "Related parents create new harmful mutations in their sperm and eggs because their two genomes are too similar to pair properly",
             "Related parents are more likely to carry the same harmful recessive alleles, so offspring more often inherit two copies",
-            "It always makes offspring heterozygous at every gene",
-            "It instantly removes all genetic variation from the population"
+            "Offspring of relatives are heterozygous at more genes, which exposes harmful dominant alleles",
+            "Inbreeding instantly removes all genetic variation from the population within one generation"
           ],
           answer: 1,
           explain: "Close relatives share alleles inherited from common ancestors, so their offspring are more likely to be homozygous for the same deleterious recessive, which then expresses its harmful effect."
@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Studies of children born from first-degree incest (parent-child or full-sibling unions) have generally found:",
           choices: [
-            "No difference from other children",
-            "Higher-than-average health and longevity",
+            "No measurable difference from children born to unrelated parents",
+            "Higher-than-average health and longevity, owing to stable, well-matched gene combinations from both parents",
             "Markedly elevated rates of early mortality, birth defects, and intellectual disability",
-            "Effects seen only in female offspring"
+            "Elevated rates of problems among daughters only, with sons unaffected"
           ],
           answer: 2,
           explain: "Studies such as Adams and Neel (1967) and Seemanova (1971) reported large increases in early death, congenital abnormalities, and cognitive impairment among offspring of first-degree incest."
@@ -110,10 +110,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "According to the Westermarck effect, what actually triggers the aversion?",
           choices: [
-            "Knowing on paper that someone is your relative",
+            "Learning from parents or records that someone is a close relative",
             "The developmental experience of close association in early childhood",
-            "A conscious moral decision made in adolescence",
-            "Shared physical resemblance by itself"
+            "A conscious moral decision about family members made in adolescence",
+            "Physical resemblance to oneself, judged by facial similarity alone"
           ],
           answer: 1,
           explain: "The cue is experiential co-residence during a sensitive early period, not abstract genealogical knowledge, which is why unrelated co-reared children are also affected."
@@ -181,10 +181,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why is the kibbutz finding considered strong evidence for the Westermarck effect?",
           choices: [
-            "The children were biological siblings, so genes explain it",
-            "Parents arranged the marriages to prevent attraction",
+            "The children were mostly biological siblings, so shared genes alone could explain the aversion they showed",
+            "Parents arranged marriages outside the peer group to keep co-reared children apart",
             "The co-reared children were genetically unrelated, so only early association could explain the aversion",
-            "A strict religious law banned such marriages"
+            "A strict religious law in the kibbutz movement banned marriage within the same group"
           ],
           answer: 2,
           explain: "Because the peers were unrelated and free to marry, their mutual lack of attraction points to early co-residence itself, not kinship or rules, as the cause."
@@ -227,10 +227,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "In a Taiwanese 'minor marriage' (sim-pua), the future bride was:",
           choices: [
-            "A cousin chosen at puberty",
+            "A cousin chosen by both families once she reached puberty",
             "Adopted into her future husband's family as an infant and raised alongside him",
-            "A stranger first met on the wedding day",
-            "Always many years older than the groom"
+            "A stranger from another village first met on the wedding day",
+            "A widow from the husband's own lineage, married in order to keep land and property in the family"
           ],
           answer: 1,
           explain: "In sim-pua ('little daughter-in-law') marriages, a family adopted an infant girl and reared her with their son, so the couple grew up together from early childhood."
@@ -253,9 +253,9 @@ window.ACADEMY.addUnit("evopsych", {
           q: "How do Wolf's minor-marriage findings support the Westermarck effect?",
           choices: [
             "They show co-rearing from infancy dampened later sexual attraction even between unrelated spouses",
-            "They show the adopted spouses were secretly biologically related",
-            "They show that all arranged marriages fail",
-            "They show fertility is unrelated to attraction"
+            "They show the adopted brides were usually secretly related to their future husbands by blood",
+            "They show that arranged marriages of every kind had higher divorce rates",
+            "They show that couples who met as adults had more trouble conceiving children"
           ],
           answer: 0,
           explain: "The bride and groom were typically unrelated, so their weaker marital and sexual bond points to early co-residence as the cause, mirroring the kibbutz results."
@@ -298,10 +298,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "How did Freud explain the incest taboo?",
           choices: [
-            "Humans have no interest in incest, so taboos are trivial",
-            "Incest taboos are purely economic arrangements",
+            "Humans naturally avoid incest, so the taboo simply restates an inborn aversion to mating with close kin that most people feel",
+            "Incest taboos arose as economic rules to build alliances between families through marriage",
             "Humans harbor a powerful unconscious desire for incest (the Oedipus complex) that culture must forcibly repress",
-            "Incest is prevented only by physical separation"
+            "Incest is prevented only by keeping relatives physically separated during adolescence"
           ],
           answer: 2,
           explain: "Freud argued the taboo exists precisely because the incestuous wish is strong and universal, so society must prohibit what people unconsciously crave."
@@ -310,10 +310,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "How did Westermarck's explanation differ from Freud's?",
           choices: [
-            "He agreed with Freud completely",
+            "He agreed with Freud that people harbor a strong unconscious incestuous wish that culture and law must actively repress",
             "He argued there is an innate aversion to mating with early associates, so taboos merely express a pre-existing instinct",
-            "He claimed incest carries no fitness costs",
-            "He said the taboo is only a modern invention"
+            "He claimed incest carries no fitness costs, so the taboo exists only for economic alliances",
+            "He argued the taboo is a recent invention of written law, absent from earlier societies"
           ],
           answer: 1,
           explain: "Westermarck held that natural selection built an aversion, and cultural rules codify a feeling people already have rather than suppressing a hidden desire."
@@ -371,10 +371,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What did Lieberman, Tooby, and Cosmides (2003) find about moral opposition to third-party incest?",
           choices: [
-            "It is unrelated to a person's own family experience",
+            "Moral opposition was unrelated to people's own family experience and was predicted only by their religious training and upbringing",
             "The stronger a person's disgust toward incest with their own siblings, the more strongly they condemn incest between other people",
-            "Only religious training predicts it",
-            "People approve of others' incest if they have many siblings"
+            "People with many opposite-sex siblings were more accepting of incest between other people",
+            "The stronger a person's disgust toward their own siblings, the more they approved of others' incest"
           ],
           answer: 1,
           explain: "Their study showed personal sexual aversion toward one's own siblings predicts the intensity of moral disapproval of other people's incest, linking the two."
@@ -442,10 +442,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "In the 2007 Nature paper 'The architecture of human kin detection,' what were the two proposed cues for detecting a sibling?",
           choices: [
-            "Facial resemblance and a shared surname",
-            "Blood type and voice pitch",
+            "Facial resemblance to oneself and sharing the same family surname",
+            "Body odor similarity and the number of shared childhood friends",
             "Maternal perinatal association and duration of childhood co-residence",
-            "Body odor and eye color"
+            "Maternal perinatal association and similarity in voice pitch"
           ],
           answer: 2,
           explain: "Lieberman, Tooby, and Cosmides proposed that seeing one's own mother care for a newborn, and the length of childhood co-residence, are the key sibling cues."
@@ -454,10 +454,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "What is 'maternal perinatal association' (MPA)?",
           choices: [
-            "Recognizing a sibling through DNA testing",
+            "Recognizing a sibling through facial features that resemble one's own mother's, judged when first meeting them as an older child",
             "Observing one's own mother caring for a newborn around the time of its birth, a strong cue that the newborn is a sibling",
-            "The bond that forms only between spouses",
-            "A cue available only to younger siblings"
+            "The bond a mother forms with each newborn in the days right after giving birth",
+            "A cue that only younger siblings can use, based on the mother's care for them"
           ],
           answer: 1,
           explain: "MPA is witnessing your mother nurse and care for a new infant; it is a highly reliable cue of siblinghood, but it is available only to the older sibling."
@@ -513,10 +513,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why might mating with a partner who is too genetically distant carry costs?",
           choices: [
-            "It always causes new mutations",
+            "Distant partners always produce offspring with new mutations that cause birth defects",
             "It can break up locally coadapted gene complexes and dilute the shared genes that support inclusive fitness",
-            "It guarantees infertility",
-            "It has no possible downside"
+            "It always leads to infertility because the partners' chromosomes cannot pair",
+            "It increases heterozygosity in the offspring, which then exposes their harmful recessive alleles to selection"
           ],
           answer: 1,
           explain: "Extreme outbreeding can disrupt gene combinations adapted to local conditions (outbreeding depression) and reduces the shared genes that support inclusive-fitness benefits."
@@ -531,10 +531,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Patrick Bateson's experiments with Japanese quail found that the birds preferred to associate with:",
           choices: [
-            "Their own full siblings",
-            "Completely unfamiliar, unrelated birds",
+            "Their own full siblings, over cousins and unfamiliar birds",
+            "Completely unfamiliar, unrelated birds over any relatives",
             "First cousins, over both siblings and unfamiliar birds",
-            "Only birds of a different species"
+            "Half-siblings, over both full siblings and first cousins"
           ],
           answer: 2,
           explain: "Bateson's quail preferred slightly novel but still related partners (first cousins), a classic demonstration of optimal outbreeding."

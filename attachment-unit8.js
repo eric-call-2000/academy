@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Which statement best describes Mary Ainsworth's role in attachment theory?",
           choices: [
-            "She rejected Bowlby's ideas as untestable speculation",
-            "She limited her career to laboratory studies of rats",
+            "She trained Bowlby in psychoanalysis before he turned to ethology and animal studies",
+            "She ran the primate studies with infant monkeys that inspired Bowlby's early ideas",
             "She was Bowlby's collaborator who grounded his theory in real-world observation",
-            "She wrote only philosophical essays and gathered no data"
+            "She was Bowlby's main critic, who argued feeding is what drives the infant's bond"
           ],
           answer: 2,
           explain: "Ainsworth partnered with John Bowlby and supplied the systematic observational evidence that transformed his theoretical ideas into an empirical science."
@@ -84,10 +84,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What did Ainsworth mainly do during her 1954 Uganda study?",
           choices: [
-            "Ran timed maze experiments with infants in a clinic",
+            "Ran structured laboratory tests of infants in a hospital clinic in Kampala",
             "Observed Ganda infants and mothers in their everyday home settings",
-            "Surveyed adults by mailed questionnaire about childhood",
-            "Measured only the physical growth of babies over time"
+            "Interviewed Ganda mothers in depth about their own childhoods and parents",
+            "Compared growth and health of breastfed and bottle-fed infants in villages"
           ],
           answer: 1,
           explain: "The Uganda study was naturalistic: Ainsworth observed ordinary interactions between Ganda infants and their mothers in and around their homes."
@@ -110,9 +110,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "How did Ainsworth gather her data in Uganda?",
           choices: [
             "Through visits to family homes roughly every two weeks over several months",
-            "By a single one-hour visit to each family",
-            "By reading hospital records without meeting the families",
-            "By interviewing fathers only, never observing the babies"
+            "Through a single long laboratory session with each mother and infant pair",
+            "Through questionnaires filled out by the mothers at the local health clinic",
+            "Through daily visits to one village nursery where infants were cared for together"
           ],
           answer: 0,
           explain: "Ainsworth made repeated home visits, roughly every two weeks for about two hours each, across roughly nine months, aided by an interpreter."
@@ -189,10 +189,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What does it mean when a secure infant uses the mother as a 'secure base'?",
           choices: [
-            "The infant refuses to leave the mother's lap at all",
-            "The infant ignores the mother completely",
+            "The infant stays close on the mother's lap and watches the other children play",
+            "The infant explores freely and pays little attention to where the mother is",
             "The infant ventures out to explore but returns to her for reassurance",
-            "The infant only calms down for strangers"
+            "The infant turns to whichever adult is nearest when it feels unsure"
           ],
           answer: 2,
           explain: "A secure base means the child explores the world but comes back to the caregiver for comfort and reassurance when needed."
@@ -221,10 +221,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What kind of study was the Baltimore project that Ainsworth began in 1963?",
           choices: [
-            "A one-time cross-sectional survey of teenagers",
+            "A cross-sectional survey comparing infants of different ages at one point in time",
             "A longitudinal study following families from birth through the first year",
-            "A laboratory experiment lasting a single afternoon",
-            "An animal study of monkey mothers"
+            "A short laboratory experiment run with each family in a single afternoon",
+            "A retrospective study asking parents to recall their infant's first year of life"
           ],
           answer: 1,
           explain: "The Baltimore study was longitudinal: Ainsworth followed the same American families over the infant's first year of life."
@@ -267,9 +267,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Why was recruiting families before or around the baby's birth important for the study?",
           choices: [
             "It let Ainsworth observe caregiving from the very start of the infant's life",
-            "It guaranteed the babies would all be secure",
-            "It reduced the number of home visits needed to one",
-            "It allowed the study to skip observing the mothers"
+            "It let Ainsworth select only the families she expected to have secure babies",
+            "It meant the mothers could be trained in sensitive care before the baby arrived",
+            "It let her finish all of the home visits before the babies began to crawl"
           ],
           answer: 0,
           explain: "Starting so early let Ainsworth watch the caregiving relationship develop from the beginning, capturing how early interaction shaped later attachment."
@@ -291,10 +291,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "About how much observation did each Baltimore family receive across the first year?",
           choices: [
-            "A single short interview",
+            "About four visits of one hour each, near four hours total",
             "Roughly 18 visits of about four hours each, near 72 hours total",
-            "Two brief phone calls",
-            "One week of continuous filming"
+            "One full-day visit each month of the year, near 96 hours total",
+            "Roughly 12 visits of about an hour each, near 12 hours total"
           ],
           answer: 1,
           explain: "Each family was visited roughly 18 times for about four hours per visit, adding up to around 72 hours of observation across the year."
@@ -337,9 +337,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What was one major advantage of these long, repeated home visits?",
           choices: [
             "They captured genuine everyday behavior rather than staged moments",
-            "They let the study avoid observing mothers at all",
-            "They guaranteed the infants would perform on cue",
-            "They replaced the need to observe attachment entirely"
+            "They let the researchers control the home setting as tightly as a laboratory",
+            "They gave the mothers time to learn the behaviors the study hoped to see",
+            "They let the team test each infant on a fixed schedule of planned tasks"
           ],
           answer: 0,
           explain: "Extended repeated visits captured real, unforced interaction, giving a truer picture of the caregiving relationship than a brief lab visit could."
@@ -361,10 +361,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "How did Ainsworth define maternal sensitivity?",
           choices: [
-            "A mother's ability to keep the baby quiet at all costs",
+            "A mother's ability to keep the baby calm, content, and quiet throughout the whole day",
             "A caregiver's ability to notice, interpret, and respond appropriately and promptly to the infant's signals",
-            "A mother's tendency to anticipate needs before any signal appears",
-            "A caregiver's habit of following a strict feeding schedule"
+            "A caregiver's tendency to meet every need in advance, before the infant gives any signal of it",
+            "A mother's emotional warmth and the amount of affection she shows the infant during play and feeding"
           ],
           answer: 1,
           explain: "Sensitivity is the caregiver's skill in perceiving the baby's signals, interpreting them correctly, and responding both appropriately and promptly."
@@ -407,10 +407,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Which caregiver is behaving insensitively by Ainsworth's definition?",
           choices: [
-            "One who notices the cry and gently checks what the baby needs",
-            "One who reads a hungry cry correctly and feeds the baby",
+            "One who notices the cry and gently checks what the baby needs before acting",
+            "One who reads a hungry cry correctly and feeds the baby soon after",
             "One who ignores or misreads the baby's signals and responds on their own schedule",
-            "One who responds promptly and appropriately to distress"
+            "One who responds promptly and appropriately whenever the baby becomes distressed"
           ],
           answer: 2,
           explain: "Insensitivity is failing to notice, misinterpreting, or responding to signals based on the adult's schedule rather than the infant's need."
@@ -432,10 +432,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What did Ainsworth's Baltimore data suggest about maternal sensitivity?",
           choices: [
-            "Sensitivity had no measurable effect on attachment",
+            "Sensitivity mattered much less than how often and how well the baby was fed",
             "Sensitive, responsive care in early months predicted secure attachment later",
-            "Only feeding, not sensitivity, predicted attachment",
-            "Insensitive care produced the most secure infants"
+            "Sensitivity mattered only for infants who had an easy temperament from birth",
+            "Very attentive care led to clingy, anxiously attached infants by twelve months"
           ],
           answer: 1,
           explain: "Her central finding was that caregivers who responded sensitively early on tended to have securely attached infants by the end of the first year."
@@ -467,10 +467,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Why is the sensitivity-security link considered so influential?",
           choices: [
-            "It showed attachment is fixed by genetics alone",
+            "It showed attachment security is mostly set by the infant's inborn temperament",
             "It gave empirical support to the idea that caregiver behavior shapes attachment quality",
-            "It proved caregiving does not matter",
-            "It applied only to Ugandan infants and nowhere else"
+            "It showed that feeding routines, more than responsiveness, are the main driver of the infant's bond",
+            "It proved that attachment patterns appear in the same proportions in every culture studied"
           ],
           answer: 1,
           explain: "The finding provided hard observational evidence that how a caregiver responds actually shapes the security of the child's attachment."
@@ -500,9 +500,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Which set correctly names Ainsworth's four maternal care scales?",
           choices: [
             "Sensitivity, cooperation, availability, and acceptance",
-            "Feeding, sleeping, playing, and bathing",
-            "Warmth, wealth, height, and weight",
-            "Discipline, obedience, chores, and rewards"
+            "Warmth, consistency, discipline, and responsiveness",
+            "Sensitivity, warmth, protection, and stimulation",
+            "Acceptance, structure, autonomy, and parental involvement"
           ],
           answer: 0,
           explain: "Ainsworth rated caregiving on four scales: sensitivity, cooperation, availability (accessibility), and acceptance."

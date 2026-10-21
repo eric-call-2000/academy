@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "In operant extinction, what happens to the consequence that previously followed a behavior?",
           choices: [
             "It is withheld, so the behavior no longer produces reinforcement",
-            "An aversive stimulus is added right after the behavior",
-            "The same reinforcer is delivered on a thinner schedule",
-            "The person is physically prevented from responding"
+            "An aversive stimulus is added right after each occurrence of the behavior",
+            "The same reinforcer is still delivered, but on a much thinner schedule",
+            "The person is physically prevented from making the response at all"
           ],
           answer: 0,
           explain: "Extinction means a formerly reinforced response stops producing its reinforcer, which causes the behavior to weaken over time."
@@ -84,10 +84,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What is an extinction burst?",
           choices: [
-            "A permanent increase in the behavior once reinforcement stops",
+            "A permanent increase in the behavior's frequency that persists after reinforcement stops",
             "A temporary increase in the behavior's frequency or intensity at the onset of extinction",
-            "The complete disappearance of a behavior after one non-reinforced trial",
-            "A new reinforcer being introduced during extinction"
+            "The complete disappearance of a behavior after a single non-reinforced trial",
+            "The sudden return of an extinguished behavior after a rest period with no training"
           ],
           answer: 1,
           explain: "At the start of extinction, responding often briefly increases in frequency, magnitude, or duration before it declines."
@@ -189,10 +189,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Azrin, Hutchinson, and Hake (1966) showed that placing pigeons on extinction could reliably produce:",
           choices: [
-            "Perfect discrimination",
+            "Perfect discrimination between the old and new key colors",
             "Attack on a nearby target (extinction-induced aggression)",
-            "Immediate spontaneous recovery",
-            "A permanent drop in variability"
+            "Immediate spontaneous recovery of the previous response",
+            "A lasting drop in response variability and exploration"
           ],
           answer: 1,
           explain: "Their research demonstrated that extinction after reinforcement could induce aggressive attack, a key example of extinction-induced aggression."
@@ -224,10 +224,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What is resurgence?",
           choices: [
-            "The first time a new behavior is ever reinforced",
+            "The return of an extinguished behavior after a rest period, without any change to other responses being reinforced",
             "The reappearance of a previously reinforced, then extinguished, behavior when a more recent response is itself extinguished",
-            "A permanent increase in an ongoing behavior",
-            "The gradual fading of a discriminative stimulus"
+            "A brief rise in the frequency and intensity of a behavior right after its reinforcement has been discontinued",
+            "The return of an extinguished behavior when the person is placed back in the setting where it was first learned"
           ],
           answer: 1,
           explain: "Resurgence occurs when an alternative response that was reinforced later goes on extinction, and an earlier extinguished response returns."
@@ -259,10 +259,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "A worker learns a new, more efficient method that gets rewarded, but when that method suddenly stops working they revert to their old habit. This is best described as:",
           choices: [
-            "Errorless learning",
+            "Errorless learning of the original work method",
             "Resurgence of the previously reinforced behavior",
-            "An extinction burst only",
-            "Stimulus generalization"
+            "An extinction burst of the newer, efficient method",
+            "Stimulus generalization from the new method to the old"
           ],
           answer: 1,
           explain: "The old, previously reinforced-then-abandoned behavior returns once the newer response is on extinction, which is resurgence."
@@ -295,9 +295,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "A discriminative stimulus (S-D) is an antecedent that signals:",
           choices: [
             "That reinforcement is currently available for a response",
-            "That the response will be punished",
-            "That a reflex is about to be elicited",
-            "That reinforcement has just been delivered"
+            "That the response will now be followed by punishment",
+            "That an unconditioned reflex is about to be elicited",
+            "That reinforcement has just been delivered for a response"
           ],
           answer: 0,
           explain: "An S-D (S-dee) is an antecedent stimulus in whose presence a response has been reinforced, so it signals reinforcement availability."
@@ -329,10 +329,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "A green traffic light means 'go' produces safe passage, while red means stopping is required. For the response of driving forward, the green light functions as:",
           choices: [
-            "An unconditioned stimulus",
+            "An unconditioned stimulus (US)",
             "A discriminative stimulus (S-D)",
-            "A punisher",
-            "An establishing operation"
+            "An S-delta signaling extinction",
+            "An establishing operation (EO)"
           ],
           answer: 1,
           explain: "The green light signals that driving forward will be reinforced (safe passage), which is exactly what a discriminative stimulus does."
@@ -364,10 +364,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Stimulus control is said to occur when:",
           choices: [
-            "A behavior happens at the same rate regardless of the situation",
+            "A behavior happens at the same rate regardless of the situation it occurs in",
             "A behavior is more likely in the presence of a particular antecedent stimulus",
-            "A reinforcer is delivered on every occasion",
-            "A reflex is elicited by an unconditioned stimulus"
+            "A reinforcer is delivered on every occasion that the behavior is performed",
+            "A reflex is reliably elicited by an unconditioned stimulus without any learning"
           ],
           answer: 1,
           explain: "Stimulus control means the probability of a response differs across stimuli, being higher when the controlling antecedent is present."
@@ -389,10 +389,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "A dog sits promptly when its owner says 'sit' but rarely sits at random other times. This difference in responding shows:",
           choices: [
-            "Poor stimulus control",
+            "Poor stimulus control over the sitting response",
             "Stimulus control by the verbal cue 'sit'",
-            "Extinction of sitting",
-            "An extinction burst"
+            "Generalization of sitting to every situation",
+            "An extinction burst of sitting after the cue"
           ],
           answer: 1,
           explain: "The response occurs reliably in the presence of the cue and rarely otherwise, which is the hallmark of stimulus control."
@@ -432,9 +432,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Discrimination training is carried out by:",
           choices: [
             "Reinforcing a response only in the presence of the S-D and withholding reinforcement in the presence of the S-delta",
-            "Reinforcing the response equally in every condition",
-            "Punishing the response in all conditions",
-            "Delivering reinforcement independent of behavior"
+            "Reinforcing the response equally in the presence of both the S-D and the S-delta so it generalizes widely",
+            "Punishing the response in the presence of the S-D and reinforcing it only when the S-delta is present",
+            "Delivering reinforcement on a fixed-time schedule, independent of what the learner does in either condition"
           ],
           answer: 0,
           explain: "By reinforcing in the S-D condition and extinguishing in the S-delta condition, the behavior comes under the control of the S-D."
@@ -526,10 +526,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Compared with standard trial-and-error discrimination training, Terrace found that errorless training produced:",
           choices: [
-            "More errors and more emotional behavior",
+            "More errors but faster mastery of the final discrimination than usual",
             "Few errors and less emotional or aggressive behavior toward the S-delta",
-            "No learning at all",
-            "Faster extinction of the correct response"
+            "Few errors, but much more frustration and aggression toward the S-delta",
+            "No lasting learning once the fading prompts were removed from the task"
           ],
           answer: 1,
           explain: "Errorless training yielded very few errors and reduced the frustration-related side effects that accompany many wrong, non-reinforced responses."

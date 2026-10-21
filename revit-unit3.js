@@ -19,7 +19,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "In Revit, what is a Category?",
-          choices: ["A broad classification like Walls, Doors, or Windows", "A single placed element in the model", "A saved view of the project", "A worksharing container"],
+          choices: ["A broad classification like Walls, Doors, or Windows", "A single placed element in the model, like one door", "A named size within a family, such as a 900 mm door", "A container that groups elements for worksharing teams"],
           answer: 0,
           explain: "Categories are the top-level grouping of elements, such as Walls, Doors, Furniture, or Lighting Fixtures."
         },
@@ -45,7 +45,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Two doors of the same Type placed in a project are best described as:",
-          choices: ["Two Instances of the same Type", "Two different Families", "Two Categories", "Two separate templates"],
+          choices: ["Two Instances of the same Type", "Two Types of the same Family", "Two separate Families", "Two Instances of different Types"],
           answer: 0,
           explain: "Identical placed doors are separate Instances that share one Type definition."
         },
@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "How do you usually create a new wall Type?",
-          choices: ["Duplicate an existing wall Type and edit its structure", "Draw a new .rfa file from scratch", "Load one from a manufacturer website only", "Convert a door into a wall"],
+          choices: ["Duplicate an existing wall Type and edit its structure", "Create a new wall family file in the Family Editor", "Load a wall .rfa file from the manufacturer library", "Rename an existing wall Type and change its thickness"],
           answer: 0,
           explain: "You duplicate an existing System Family Type and adjust its properties, such as the wall structure layers."
         },
@@ -143,7 +143,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "A benefit of Loadable Families is that they:",
-          choices: ["Can be reused across many projects by loading the same .rfa", "Cannot be scheduled", "Are unique to a single view", "Replace all System Families"],
+          choices: ["Can be reused across many projects by loading the same .rfa", "Are built into every template so they never need loading", "Can be edited in place without opening the Family Editor", "Update automatically in every project when the .rfa changes"],
           answer: 0,
           explain: "One .rfa can be loaded into many projects, making Loadable Families a reusable content library."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "When is an In-Place Family the right choice?",
-          choices: ["For unique, one-off geometry specific to this project", "For a door reused in many projects", "For a standard catalog window", "For every wall in the model"],
+          choices: ["For unique, one-off geometry specific to this project", "For a door type you plan to reuse on many future projects", "For a standard catalog window from a manufacturer", "For walls, floors, and roofs that use layered structures"],
           answer: 0,
           explain: "In-Place Families suit unique geometry that is specific to one project and unlikely to be reused."
         },
@@ -248,7 +248,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Which value is most logical to make an Instance parameter?",
-          choices: ["The mounting height of a specific placed light", "The manufacturer name for a Type", "The material assembly of a wall Type", "The fixed leaf width of a door Type"],
+          choices: ["The mounting height of a specific placed light", "The manufacturer name shared by every light of a Type", "The material assembly that defines a wall Type's layers", "The fixed leaf width that defines each door Type size"],
           answer: 0,
           explain: "Mounting height often varies per placement, so it fits an Instance parameter."
         },
@@ -274,7 +274,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Why are Shared Parameters important?",
-          choices: ["They can appear in tags and schedules and stay consistent across files", "They only work in one single view", "They replace all built-in parameters", "They cannot be scheduled"],
+          choices: ["They can appear in tags and schedules and stay consistent across files", "They are stored in the project so each file can define its own version", "They let a parameter change hit every instance instead of just one", "They are built into Revit and cannot be renamed or deleted by users"],
           answer: 0,
           explain: "Shared Parameters are stored in an external definition file so they can be tagged, scheduled, and reused consistently across projects and families."
         },
@@ -300,7 +300,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Shared Parameters are defined in:",
-          choices: ["An external shared parameter text file", "Each view template", "A drawing sheet", "The rendering settings"],
+          choices: ["An external shared parameter text file", "The project template's Project Parameters list", "Each family's own Family Types dialog", "The central model on the office server"],
           answer: 0,
           explain: "Shared Parameters are stored in an external shared parameter file so their unique definitions stay consistent everywhere they are used."
         },
@@ -326,7 +326,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "What happens when you reload a family that already exists in the project?",
-          choices: ["Revit updates the existing family and its placed instances", "Revit deletes all instances", "Revit creates a duplicate project", "Nothing changes at all"],
+          choices: ["Revit updates the existing family and its placed instances", "Revit loads a second copy of the family under a new name", "Revit keeps the old version and ignores the new file", "Revit updates the definition but leaves placed instances unchanged"],
           answer: 0,
           explain: "Reloading updates the family definition in the project and refreshes its placed instances to match."
         },
@@ -346,7 +346,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "A Type Catalog is useful for a family that:",
-          choices: ["Has many sizes, so you load only the Types you need", "Has no parameters", "Cannot be scheduled", "Is only used once"],
+          choices: ["Has many sizes, so you load only the Types you need", "Has no Type parameters, so all values are set per instance", "Must be shared across linked models in the same project", "Is placed only once, so it does not need any Types"],
           answer: 0,
           explain: "A Type Catalog lets you pick specific sizes to load from a family with many predefined Types, avoiding loading them all."
         },
@@ -378,7 +378,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "In the Family Editor, reference planes are mainly used to:",
-          choices: ["Define the skeleton that geometry is locked to and driven by parameters", "Render the family in color", "Store project sheets", "Replace all categories"],
+          choices: ["Define the skeleton that geometry is locked to and driven by parameters", "Set the visibility of geometry at each detail level in project views", "Mark where the family's tags and labels will appear in a schedule", "Divide the family into separate solids for rendering materials"],
           answer: 0,
           explain: "Reference planes form the flexible framework; geometry is locked to them and parameters drive their positions."
         },
@@ -398,7 +398,7 @@ window.ACADEMY.addUnit("revit", {
         {
           type: "mcq",
           q: "Before you start modeling geometry in a family, you should choose a suitable:",
-          choices: ["Family template that sets the category and behavior", "Rendering engine", "Drawing sheet size", "Worksharing model"],
+          choices: ["Family template that sets the category and behavior", "Project template that holds your office standards", "Type catalog that lists every size you will need", "Rendering preset that sets materials and lighting"],
           answer: 0,
           explain: "You start a loadable family from a template (.rft) that sets its category and hosting behavior."
         },

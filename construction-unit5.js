@@ -13,21 +13,21 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which structural system is most typical of commercial buildings but rare in single-family homes?",
-          choices: ["Wood stud walls", "Structural steel or concrete frame", "Slab-on-grade only", "Log construction"],
+          choices: ["Wood stud bearing walls and trusses", "Structural steel or concrete frame", "Structural insulated panels (SIPs)", "Manufactured modular housing units"],
           answer: 1,
           explain: "Commercial buildings usually carry loads on a steel or concrete frame rather than wood stud bearing walls."
         },
         {
           type: "mcq",
           q: "In building codes, the planned use of a space (office, assembly, mercantile) is called the:",
-          choices: ["Occupancy classification", "Floor area ratio", "Egress count", "Setback"],
+          choices: ["Occupancy classification", "Construction type rating", "Zoning use designation", "Fire separation category"],
           answer: 0,
           explain: "Occupancy classification groups buildings by use and drives many of the code requirements that apply."
         },
         {
           type: "mcq",
           q: "Type I and Type II construction are generally described as:",
-          choices: ["Combustible", "Non-combustible", "Temporary", "Below grade"],
+          choices: ["Combustible wood frame", "Non-combustible", "Heavy timber", "Ordinary masonry and wood"],
           answer: 1,
           explain: "Types I and II use non-combustible materials like steel and concrete, while Types III through V allow combustibles such as wood."
         },
@@ -76,7 +76,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A common structural shape with a wide center web and broad flanges, written like W12x26, is a:",
-          choices: ["Channel", "Wide-flange (W-shape)", "Angle", "Tee"],
+          choices: ["Channel (C-shape)", "Wide-flange (W-shape)", "Hollow structural section (HSS)", "Standard I-beam (S-shape)"],
           answer: 1,
           explain: "The W-shape, or wide-flange beam, is the workhorse member for steel beams and columns."
         },
@@ -90,7 +90,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A vertical steel member that carries loads down to the foundation is a:",
-          choices: ["Beam", "Column", "Girt", "Brace"],
+          choices: ["Girder", "Column", "Purlin", "Spandrel beam"],
           answer: 1,
           explain: "Columns run vertically and transfer gravity loads down through the structure."
         },
@@ -217,7 +217,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Concrete poured into forms at its final location on site is called:",
-          choices: ["Precast", "Cast-in-place (CIP)", "Shotcrete", "Tilt-up"],
+          choices: ["Precast (plant-cast)", "Cast-in-place (CIP)", "Tilt-up panel", "Pre-stressed hollow core"],
           answer: 1,
           explain: "Cast-in-place concrete is formed and poured in its permanent position on the building."
         },
@@ -287,7 +287,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "In tilt-up construction, wall panels are typically cast:",
-          choices: ["In a precast plant", "Flat on the building slab, then lifted", "Inside vertical forms", "Underground"],
+          choices: ["In a precast plant, then trucked to site", "Flat on the building slab, then lifted", "Upright inside double-sided wall forms", "In place on top of the footing in lifts"],
           answer: 1,
           explain: "Tilt-up panels are cast flat on the slab and then tilted up into place by crane."
         },
@@ -385,7 +385,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Two glass panes sealed with an air or gas gap for insulation form an:",
-          choices: ["IGU (insulated glass unit)", "Float lite", "Laminated pane", "Tempered slab"],
+          choices: ["IGU (insulated glass unit)", "Laminated safety glass (LSG)", "Low-E coated glass lite", "Heat-strengthened pane"],
           answer: 0,
           explain: "An insulated glass unit, or IGU, uses a sealed gap between panes to cut heat flow."
         },
@@ -421,7 +421,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Most commercial buildings have roofs that are:",
-          choices: ["Steep-slope", "Low-slope (nearly flat)", "Thatched", "Gambrel"],
+          choices: ["Steep-slope (pitched)", "Low-slope (nearly flat)", "Mansard (double-sloped)", "Barrel-vaulted (curved)"],
           answer: 1,
           explain: "Commercial roofs are usually low-slope, draining slowly across a nearly flat surface."
         },
@@ -499,7 +499,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A thin coating that swells and chars when heated to protect steel is called:",
-          choices: ["Intumescent coating", "Epoxy primer", "Galvanizing", "Powder coat"],
+          choices: ["Intumescent coating", "Spray-applied fireproofing (SFRM)", "Zinc-rich primer", "Hot-dip galvanizing"],
           answer: 0,
           explain: "Intumescent coatings expand under heat to form an insulating char over the steel."
         },
@@ -519,7 +519,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "The time a wall or floor can resist fire, stated in hours, is its:",
-          choices: ["Fire-resistance rating", "R-value", "STC rating", "Slump"],
+          choices: ["Fire-resistance rating", "Flame spread index", "Fire separation distance", "Thermal resistance (R-value)"],
           answer: 0,
           explain: "The fire-resistance rating gives how long an assembly holds back fire, in hours."
         },
@@ -532,7 +532,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Firestopping is most needed at:",
-          choices: ["Penetrations through rated walls and floors", "The center of solid slabs", "Exterior glazing only", "Painted surfaces"],
+          choices: ["Penetrations through rated walls and floors", "The middle of solid concrete floor slabs", "Doors and hardware in egress corridors", "Roof drains and gutters at the building edge"],
           answer: 0,
           explain: "Penetrations are the weak points where fire could pass, so firestopping focuses there."
         },
@@ -556,14 +556,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "MEP coordination mainly works to:",
-          choices: ["Fit ducts, pipes and conduit together without clashes", "Pick paint colors", "Schedule deliveries", "Design the facade"],
+          choices: ["Fit ducts, pipes and conduit together without clashes", "Size the HVAC equipment to meet the cooling loads", "Set the order in which MEP inspections are scheduled", "Split MEP costs fairly between the trade contractors"],
           answer: 0,
           explain: "MEP coordination routes systems so ducts, pipes and conduit do not conflict in tight ceilings."
         },
         {
           type: "mcq",
           q: "A packaged HVAC unit that sits on the roof and serves the spaces below is a:",
-          choices: ["RTU (rooftop unit)", "VAV box", "Sump pump", "Cooling tower"],
+          choices: ["RTU (rooftop unit)", "VAV box (variable air volume)", "Cooling tower", "Split-system condenser"],
           answer: 0,
           explain: "A rooftop unit, or RTU, is a packaged HVAC unit mounted on the roof."
         },
@@ -627,7 +627,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "The vertical shaft an elevator car travels in is called the:",
-          choices: ["Hoistway", "Plenum", "Chase", "Atrium"],
+          choices: ["Hoistway", "Pipe chase", "Machine room", "Elevator pit"],
           answer: 0,
           explain: "The hoistway, or shaft, is the vertical opening the elevator car runs through."
         },
@@ -667,7 +667,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "The clearance distance the car can travel above the top floor for safety is the:",
-          choices: ["Overrun (overhead)", "Setback", "Reveal", "Plenum"],
+          choices: ["Overrun (overhead)", "Pit depth", "Total rise (travel)", "Landing zone"],
           answer: 0,
           explain: "Overrun, or overhead clearance, gives the car safe room to travel above the top landing."
         },

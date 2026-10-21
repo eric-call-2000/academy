@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The influential three-domain model of disgust (pathogen, sexual, and moral) was proposed in 2009 by which researchers?",
           choices: [
-            "Freud and Jung",
-            "Skinner and Watson",
+            "Rozin, Haidt, McCauley, and Imada",
+            "Schaller, Park, and Faulkner",
             "Tybur, Lieberman, and Griskevicius",
-            "Piaget and Vygotsky"
+            "Curtis, Aunger, and Rabie"
           ],
           answer: 2,
           explain: "Josh Tybur, Debra Lieberman, and Vladas Griskevicius (2009) proposed that disgust serves three distinct adaptive functions: pathogen, sexual, and moral."
@@ -109,10 +109,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "The behavioral immune system is biased toward false alarms. Following the 'smoke-detector principle,' why is this bias adaptive?",
           choices: [
-            "False alarms conserve the most calories",
-            "Pathogens no longer exist in the modern world",
+            "False alarms use fewer calories than careful, accurate checking",
+            "Most modern pathogens are harmless, so errors carry no real cost",
             "Missing a real pathogen is far costlier than a needless avoidance",
-            "It ensures perfectly accurate detection every time"
+            "A biased system detects every real pathogen with perfect accuracy"
           ],
           answer: 2,
           explain: "When a miss can mean deadly infection and a false alarm just wastes a little effort, selection favors an oversensitive, error-prone system."
@@ -154,9 +154,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "A well-documented side effect of the behavioral immune system is that it can trigger avoidance of people who...",
           choices: [
-            "Are visibly sneezing with a cold",
-            "Have oozing, infected wounds",
-            "Smell strongly of decay",
+            "Are visibly sneezing and coughing with a cold",
+            "Show open, oozing wounds that look infected on their skin",
+            "Smell strongly of rotting food or decay",
             "Have a visible disfigurement but pose no infection risk"
           ],
           answer: 3,
@@ -189,10 +189,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Research by Park, Faulkner, and Schaller found that people high in chronic disease concern hold more negative implicit attitudes toward whom?",
           choices: [
-            "People who exercise regularly",
+            "People who exercise regularly and appear fit",
             "Individuals with visible physical disabilities",
-            "Professional athletes",
-            "Fashion models"
+            "Professional athletes and other high-status people",
+            "People from their own local community"
           ],
           answer: 1,
           explain: "Their work showed that disease-avoidance psychology can fuel prejudice against people with physical disabilities, even though disability is not contagious."
@@ -320,9 +320,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Higher disgust sensitivity has been empirically associated with which of the following?",
           choices: [
-            "Being taller than average",
-            "Colorblindness",
-            "Musical talent",
+            "Greater openness to new foods and new experiences",
+            "More liberal attitudes on sexual and purity issues",
+            "Lower rates of hand-washing and hygiene concern",
             "More socially conservative and cautious attitudes"
           ],
           answer: 3,
@@ -387,10 +387,10 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Why might the behavioral immune system fuel avoidance of out-groups?",
           choices: [
-            "Foreigners are inherently more infectious as a rule",
+            "Out-group members are always carriers of the most deadly infectious diseases",
             "Out-groups may carry novel pathogens and follow unfamiliar hygiene and food norms",
-            "In-group members are genetically immune to all disease",
-            "Disease has no social dimension at all"
+            "In-group members are genetically immune to all diseases found in their region",
+            "Avoiding out-groups lowered competition for food, which in turn reduced disease"
           ],
           answer: 1,
           explain: "Ancestrally, unfamiliar people could carry pathogens locals had no immunity to, and their differing customs could breach local disease-avoidance norms."
@@ -458,9 +458,9 @@ window.ACADEMY.addUnit("evopsych", {
           type: "mcq",
           q: "Which of the following best exemplifies moral disgust rather than pathogen disgust?",
           choices: [
-            "Gagging at the smell of spoiled milk",
-            "Recoiling from a pile of feces",
-            "Avoiding a stranger who is sneezing",
+            "Gagging at the smell of spoiled milk in the fridge",
+            "Recoiling from a pile of feces on the sidewalk",
+            "Avoiding a stranger who is sneezing and coughing",
             "Feeling sickened by an act of cruel betrayal"
           ],
           answer: 3,

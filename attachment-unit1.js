@@ -69,7 +69,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Before qualifying as a doctor, Bowlby worked at a school for what kind of children?",
-          choices: ["gifted children", "maladjusted children", "royal children", "deaf children"],
+          choices: ["orphaned children", "maladjusted children", "evacuated children", "physically disabled children"],
           answer: 1,
           explain: "Working at a progressive school for maladjusted children first drew Bowlby to the roots of emotional disturbance."
         },
@@ -89,7 +89,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What pattern did Bowlby notice in many of the young thieves he studied?",
-          choices: ["they had unusually high IQs", "they came from wealthy families", "they had no siblings", "they had experienced early maternal separation or deprivation"],
+          choices: ["they had been harshly beaten and punished by strict, distant fathers", "they came from poor, crowded families with many brothers and sisters", "they had been spoiled and overindulged by doting, permissive mothers", "they had experienced early maternal separation or deprivation"],
           answer: 3,
           explain: "A striking number of the boys had suffered early separation or deprivation of maternal care, shaping Bowlby's later thinking."
         },
@@ -131,7 +131,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Bowlby rejected the idea that the infant bonds to the mother mainly because:",
-          choices: ["she satisfies the hunger drive by feeding", "she plays games", "she sings lullabies", "she is physically stronger"],
+          choices: ["she satisfies the hunger drive by feeding", "she is the first face the infant sees", "she responds to the infant's cries and signals", "she is the person who spends the most time with it"],
           answer: 0,
           explain: "Bowlby rejected the drive-reduction claim that the bond is just a learned reward for feeding."
         },
@@ -145,7 +145,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Melanie Klein's approach placed its emphasis on which of the following?",
-          choices: ["real family events", "dietary factors", "the child's internal unconscious fantasy", "brain chemistry"],
+          choices: ["actual events in the child's family life", "the child's learned responses to rewards", "the child's internal unconscious fantasy", "inherited temperament and constitution"],
           answer: 2,
           explain: "Klein centered the child's inner world of unconscious fantasy rather than actual external events."
         },
@@ -181,7 +181,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Bowlby argued that a child's development is shaped mainly by:",
-          choices: ["inborn fantasies alone", "real experiences within the family", "the child's astrological sign", "diet in the first month"],
+          choices: ["the child's inner fantasies about its parents", "real experiences within the family", "inborn temperament that shows from birth", "rewards and punishments for behavior"],
           answer: 1,
           explain: "Bowlby held that actual family experiences, such as real separations and parental behavior, drive development."
         },
@@ -217,7 +217,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "James Robertson, Bowlby's colleague, is best known for:",
-          choices: ["inventing the MRI", "writing novels", "training pigeons", "filming young children separated from parents in hospital"],
+          choices: ["running the Strange Situation studies in Baltimore", "observing mother-infant pairs in Uganda", "studying imprinting in young geese and ducks", "filming young children separated from parents in hospital"],
           answer: 3,
           explain: "Robertson's films of hospitalized, separated young children powerfully documented the real impact of separation."
         },
@@ -257,7 +257,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "A central claim of the report was that a young child needs:",
-          choices: ["a warm, continuous relationship with a mother or permanent mother-substitute", "a strict daily schedule above all", "frequent changes of caregiver", "complete isolation to build independence"],
+          choices: ["a warm, continuous relationship with a mother or permanent mother-substitute", "a consistent daily routine of feeding, sleep, and play set by trained staff", "regular time with many different caring adults so it learns to trust others", "early nursery care so it learns independence from a mother figure"],
           answer: 0,
           explain: "Bowlby argued a young child requires a warm, continuous relationship with a mother figure for healthy mental development."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Ethology is the scientific study of:",
-          choices: ["ancient languages", "animal behavior, often in natural settings", "rock formations", "planetary motion"],
+          choices: ["how behavior is learned through rewards", "animal behavior, often in natural settings", "the unconscious roots of human behavior", "how cultures shape child-rearing practices"],
           answer: 1,
           explain: "Ethology studies the behavior of animals, usually in their natural environments, and it reshaped Bowlby's thinking."
         },
@@ -436,7 +436,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In Bowlby's view, the survival advantage of attachment was mainly:",
-          choices: ["faster language learning", "protection from danger and predators", "higher intelligence", "resistance to disease"],
+          choices: ["more reliable access to feeding", "protection from danger and predators", "faster learning of language and skills", "warmth and comfort during the night"],
           answer: 1,
           explain: "Bowlby held that infants who stayed close to caregivers were better protected from predators and danger."
         },

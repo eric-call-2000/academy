@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A lower third typically shows:",
           choices: [
             "A name/topic on line one and a role/handle on line two",
-            "The full game",
-            "A follower alert",
-            "The countdown"
+            "A scrolling ticker of recent followers and donations",
+            "Your stream schedule with the next start time",
+            "The current goal progress with a filling bar"
           ],
           answer: 0,
           explain: "lowerthird.html shows a title line and a smaller role/handle line."
@@ -55,9 +55,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A good use of a lower third is:",
           choices: [
             "Introducing yourself or labeling the current segment",
-            "Encoding the video",
-            "Replacing the webcam",
-            "Muting the mic"
+            "Showing a running list of every new follower",
+            "Counting down to the start of the stream",
+            "Keeping your brand mark visible during every minute of gameplay"
           ],
           answer: 0,
           explain: "It identifies the person or segment briefly and clearly."
@@ -74,9 +74,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The left edge of the lower third is:",
           choices: [
             "A 6px chrome-gradient bar",
-            "A thick red border",
-            "A photo",
-            "Nothing"
+            "A thick electric-blue border",
+            "A faint dot-matrix strip",
+            "A 6px solid pink border"
           ],
           answer: 0,
           explain: "A slim chrome vertical bar marks the panel's leading edge."
@@ -174,9 +174,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A subtle, quick slide is preferred over a long flashy one because it:",
           choices: [
             "Delivers the info without distracting from the stream",
-            "Uses less internet",
-            "Improves the webcam",
-            "Raises the frame rate"
+            "Is the only animation OBS Browser Sources support",
+            "Makes the text easier for the encoder to compress",
+            "Gives viewers more time to read a long paragraph"
           ],
           answer: 0,
           explain: "Short, tasteful motion informs without stealing focus."
@@ -193,9 +193,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "To set the lower third's text via URL, you use:",
           choices: [
             "?name=... and ?role=...",
-            "?bitrate=...",
-            "?resolution=...",
-            "?mic=..."
+            "?title=... and ?handle=...",
+            "?text=... and ?sub=...",
+            "?line1=... and ?line2=..."
           ],
           answer: 0,
           explain: "?name and ?role fill the two lines at load."
@@ -234,9 +234,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Calling the API from a Streamer.bot or Chatbot action lets you:",
           choices: [
             "Trigger a lower third on demand during the stream",
-            "Encode the video",
-            "Change your camera",
-            "Increase bitrate"
+            "Edit the lower third's colors without touching code",
+            "Show the lower third without adding a Browser Source",
+            "Save each lower third as a clip for later"
           ],
           answer: 0,
           explain: "External tools can call the global to pop a lower third live."
@@ -295,9 +295,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "On YouTube Live, avoid placing the bar:",
           choices: [
             "In the bottom-right keep-clear zone",
-            "On the left",
-            "Near the facecam",
-            "At bottom-center"
+            "Beside the facecam on the left side",
+            "Near the top of the frame, above the cam",
+            "In the top-left corner of the frame"
           ],
           answer: 0,
           explain: "The bottom-right holds YouTube's controls, so keep the bar out of it there."
@@ -314,9 +314,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "lowerthird.html?auto=8 will:",
           choices: [
             "Slide the bar out after 8 seconds",
-            "Keep it forever",
-            "Show it for 8 minutes",
-            "Delete the file"
+            "Slide the bar in after an 8-second delay",
+            "Show the bar again every 8 seconds",
+            "Show it for 8 minutes before hiding"
           ],
           answer: 0,
           explain: "?auto=8 hides the bar 8 seconds after it shows."
@@ -355,9 +355,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Auto-hide is handy for:",
           choices: [
             "Briefly introducing a segment then getting out of the way",
-            "Permanent watermarks",
-            "Encoding video",
-            "Muting audio"
+            "A permanent watermark that stays up all stream",
+            "Keeping your socials pinned on screen for the whole show",
+            "Labeling a guest for as long as they stay on camera"
           ],
           answer: 0,
           explain: "A timed reveal-then-hide suits brief intros and labels."
@@ -385,9 +385,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Even though the bar is small, the Browser Source should be:",
           choices: [
             "Full canvas (the page positions the bar itself)",
-            "Exactly the bar's pixel size",
-            "1x1",
-            "The webcam's size"
+            "Exactly the bar's pixel size, placed by hand in OBS",
+            "The same size as the facecam frame it sits beside",
+            "Half the canvas width, anchored to the bottom edge"
           ],
           answer: 0,
           explain: "The page places the bar within a 1920x1080 canvas, so size the source to match."
@@ -433,9 +433,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Good lower-third copy is:",
           choices: [
             "Short and readable at a glance",
-            "A full paragraph",
-            "Tiny and low-contrast",
-            "Hidden"
+            "Detailed, so viewers learn everything at once",
+            "Small and subtle, so it never draws the eye",
+            "Long enough to fill the full width of the bar"
           ],
           answer: 0,
           explain: "Brief, high-contrast text reads instantly."
@@ -474,9 +474,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The overall aim of a lower third is to:",
           choices: [
             "Inform the viewer quickly without stealing focus",
-            "Fill the whole screen",
-            "Replace the game",
-            "Increase your bitrate"
+            "Keep the brand mark on screen all stream",
+            "Celebrate new followers and subs as they arrive",
+            "Hold the audience's attention during breaks"
           ],
           answer: 0,
           explain: "It's a quick, unobtrusive label, nothing more."

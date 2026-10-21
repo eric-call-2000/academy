@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Which behavior best reflects an individualist orientation?",
           choices: [
-            "Choosing a career your parents selected for you",
-            "Suppressing a personal opinion to keep group harmony",
+            "Taking up the career that your parents chose for you",
+            "Keeping a personal opinion to yourself to preserve group harmony",
             "Moving across the country for a job that fits your own ambitions",
-            "Prioritizing an elder relative's wishes over your plans"
+            "Putting an elder relative's wishes ahead of your own plans for the future"
           ],
           answer: 2,
           explain: "Pursuing one's own ambitions even at the cost of leaving the family behind reflects the individualist priority on personal goals and self-direction."
@@ -84,10 +84,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Collectivism is best defined as a pattern in which people are:",
           choices: [
-            "Loosely tied to groups they can leave at any time",
+            "Loosely tied to many groups that they can join or leave whenever it suits them",
             "Embedded in cohesive in-groups that demand loyalty and offer protection",
-            "Focused mainly on maximizing personal achievement",
-            "Indifferent to what their family or community thinks"
+            "Focused on personal achievement while cooperating only when it pays",
+            "Equal members of many groups, none of which claims special loyalty"
           ],
           answer: 1,
           explain: "Collectivism describes people integrated from birth into strong, cohesive in-groups that provide lifelong protection in return for unquestioning loyalty."
@@ -154,10 +154,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In Harry Triandis's framework, an in-group is best described as:",
           choices: [
-            "Any group a person happens to know about",
+            "Any group of people that a person happens to know or has heard about",
             "A group whose welfare a person cares about and shares a common fate with",
-            "A group of strangers encountered only once",
-            "A group defined solely by legal citizenship"
+            "A group of strangers with whom a person shares one brief encounter",
+            "A group defined solely by shared legal citizenship in the same country"
           ],
           answer: 1,
           explain: "Triandis defined an in-group as a group whose welfare one cares about, with which one shares a common fate and to which one feels bound."
@@ -189,10 +189,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "According to Triandis, why do collectivists behave more cooperatively toward in-group members?",
           choices: [
-            "They treat everyone identically regardless of group",
+            "They treat everyone identically, regardless of group membership",
             "They feel a shared fate and strong obligation to the in-group",
-            "They have no concept of out-groups at all",
-            "They value strangers more than family"
+            "They have no concept of out-groups, so all people seem like in-group members",
+            "They value strangers' approval more than the approval of their family"
           ],
           answer: 1,
           explain: "Collectivists' sense of shared fate and obligation to the in-group produces markedly more cooperation with in-group members."
@@ -225,9 +225,9 @@ window.ACADEMY.addUnit("culture", {
           q: "The horizontal-vertical distinction adds which dimension to individualism-collectivism?",
           choices: [
             "Whether people value equality or accept hierarchy and status",
-            "Whether people are wealthy or poor",
-            "Whether people live in cities or the countryside",
-            "Whether people are young or old"
+            "Whether people value wealth or prefer simple, modest living",
+            "Whether people live in dense cities or the open countryside",
+            "Whether people focus on short-term or long-term goals and rewards"
           ],
           answer: 0,
           explain: "The horizontal pole emphasizes equality and sameness, while the vertical pole accepts hierarchy, ranking, and status differences."
@@ -260,10 +260,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Sweden is often described as high in horizontal individualism because people:",
           choices: [
-            "Compete fiercely to outrank one another",
+            "Compete hard to outrank one another and gain personal status",
             "Value being self-directed while seeing themselves as equals",
-            "Subordinate themselves to a strict group hierarchy",
-            "Reject all forms of personal independence"
+            "Place group goals first while accepting a strict social hierarchy",
+            "Value equality but put the group's needs ahead of personal goals"
           ],
           answer: 1,
           explain: "Horizontal individualism blends personal autonomy with an ethic of equality, a pattern often used to describe Sweden."
@@ -392,9 +392,9 @@ window.ACADEMY.addUnit("culture", {
           q: "One surprising comparison in the meta-analysis was that European Americans were:",
           choices: [
             "Not reliably more individualist than Japanese samples",
-            "Far more collectivist than any Asian sample",
-            "Identical to every group on every measure",
-            "Impossible to compare with other groups"
+            "Far more collectivist than any of the East Asian samples",
+            "Consistently the most individualist group on every measure",
+            "Less individualist than every other group in the analysis"
           ],
           answer: 0,
           explain: "Contrary to expectations, European Americans were not consistently more individualist than Japanese respondents across the pooled studies."
@@ -506,10 +506,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Why do researchers warn that 'collectivism is not one thing'?",
           choices: [
-            "Every nation is perfectly uniform inside its borders",
+            "Each nation is culturally uniform, so national labels hide nothing",
             "I/C varies by region, group, and situation within a single country",
-            "Collectivism only exists at the level of whole continents",
-            "The concept has been shown to be entirely meaningless"
+            "Collectivism can only be measured at the level of whole continents",
+            "The concept has been shown to be meaningless and should be dropped"
           ],
           answer: 1,
           explain: "Individualism and collectivism vary within nations across regions, subgroups, and situations, so a single national label oversimplifies reality."
@@ -531,10 +531,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Research on rice-farming versus wheat-farming regions of China (Talhelm et al., 2014) suggested that:",
           choices: [
-            "All of China is uniformly individualist",
+            "Rice-farming and wheat-farming regions showed the same level of individualism",
             "Rice-farming regions were more interdependent than wheat-farming regions",
-            "Farming has no relationship to psychology",
-            "Wheat regions were the most collectivist in the world"
+            "Farming history had no measurable relationship with how people think",
+            "Wheat-farming regions were more interdependent because of shared irrigation"
           ],
           answer: 1,
           explain: "The rice theory found that historically rice-farming regions, which required cooperative labor, showed more interdependent thinking than wheat-farming regions within one country."

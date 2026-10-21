@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is Autodesk Docs in ACC?",
-          choices: ["The common data environment for project files", "A clash detection tool", "A cost estimating tool", "A scheduling tool"],
+          choices: ["The common data environment for project files", "The clash detection tool for coordinating models", "The cost management tool for budgets and contracts", "The scheduling tool for planning construction tasks"],
           answer: 0,
           explain: "Autodesk Docs is the CDE where project files are stored, shared, and controlled."
         },
@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why is a single CDE useful on a project?",
-          choices: ["Everyone works from one trusted source of files", "It replaces the need for a design team", "It deletes old projects automatically", "It writes the contract for you"],
+          choices: ["Everyone works from one trusted source of files", "It replaces the need for a design team to manage drawings", "It automatically deletes old projects to save storage space", "It writes the contract documents for the project team"],
           answer: 0,
           explain: "A CDE gives the team one shared, trusted source instead of scattered copies."
         },
@@ -52,7 +52,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which is NOT a job of Autodesk Docs?",
-          choices: ["Automatic clash detection on models", "Storing files", "Managing folders", "Controlling access"],
+          choices: ["Automatic clash detection on models", "Storing project files in the cloud", "Organizing files into managed folders", "Controlling who can access each file"],
           answer: 0,
           explain: "Clash detection is Model Coordination's job; Docs handles storage, folders, and access."
         }
@@ -66,7 +66,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why does a project need a clear folder structure?",
-          choices: ["So people can find files quickly and consistently", "So files upload faster", "To reduce the price of software", "To hide files from the team"],
+          choices: ["So people can find files quickly and consistently", "So large files upload and download faster", "So the project uses less of its storage allowance", "So each company can hide its files from the others"],
           answer: 0,
           explain: "A logical structure makes files predictable to find and reduces mistakes."
         },
@@ -104,7 +104,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Who typically sets up the project folder structure?",
-          choices: ["A project admin at the start of the project", "Every team member independently", "The clash detection engine", "The web viewer"],
+          choices: ["A project admin at the start of the project", "Each team member, based on their own preferences", "The software, which builds folders automatically from file names", "The owner's legal team, once the contract is signed"],
           answer: 0,
           explain: "A project admin usually defines a standard folder layout up front for consistency."
         }
@@ -156,7 +156,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Permissions can be assigned to which of these?",
-          choices: ["Individuals, roles, and companies", "Only the account owner", "Only external guests", "Only Revit files"],
+          choices: ["Individuals, roles, and companies", "Only the account owner and project admins", "Only external guests invited to the project", "Only individual users, one person at a time"],
           answer: 0,
           explain: "You can grant access to individual users, to roles, or to companies on the project."
         }
@@ -176,7 +176,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What happens to the old version when you upload a newer one?",
-          choices: ["It is kept in the version history", "It is deleted permanently", "It is emailed to everyone", "It is moved off the cloud"],
+          choices: ["It is kept in the version history", "It is permanently deleted to save space", "It is emailed to everyone on the project", "It is moved to a separate archive project"],
           answer: 0,
           explain: "Older versions stay in the history, so you can review or roll back."
         },
@@ -202,7 +202,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why is automatic version control valuable?",
-          choices: ["You can see history and roll back if needed", "It doubles your storage cost", "It prevents anyone from uploading", "It hides who made changes"],
+          choices: ["You can see history and roll back if needed", "It stops two people from ever editing the same file", "It removes old versions so storage stays small", "It hides who made changes to keep reviews fair"],
           answer: 0,
           explain: "Version control preserves history and lets you return to an earlier version safely."
         },
@@ -222,7 +222,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does ISO 19650 describe for managing project information?",
-          choices: ["A common data environment with controlled states", "A brand of laptop", "A clash detection formula", "A paint color standard"],
+          choices: ["A common data environment with controlled states", "A file-naming format required for all Revit models", "A formula for scoring clashes in coordination models", "A safety standard for managing site hazards"],
           answer: 0,
           explain: "ISO 19650 is a standard for information management using a controlled CDE."
         },
@@ -260,7 +260,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "How does Autodesk Docs support ISO 19650?",
-          choices: ["It provides a controlled CDE with folders, permissions, and versions", "It writes the standard for you", "It replaces the whole design team", "It bans file sharing"],
+          choices: ["It provides a controlled CDE with folders, permissions, and versions", "It writes the project's information requirements for you automatically", "It certifies your company as ISO 19650 compliant once files are uploaded", "It blocks file sharing with anyone outside your own company"],
           answer: 0,
           explain: "Docs gives the controlled environment the standard calls for through its core features."
         }
@@ -274,7 +274,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does the Autodesk Docs web viewer let you do?",
-          choices: ["Open files in a browser without special software", "Run payroll", "Compile source code", "Order materials"],
+          choices: ["Open files in a browser without special software", "Edit Revit models directly without a Revit license", "Run clash detection between all the project models", "Convert drawings into editable AutoCAD files"],
           answer: 0,
           explain: "The viewer opens models, sheets, and documents right in the browser."
         },
@@ -326,7 +326,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does the Sheets area in Autodesk Docs help you manage?",
-          choices: ["The project drawing set", "The project budget", "Staff payroll", "Email inboxes"],
+          choices: ["The project drawing set", "The project budget and cost codes", "The 3D models used for coordination", "Submittals and their review status"],
           answer: 0,
           explain: "Sheets organizes drawings so the team can find the right current sheet."
         },
@@ -352,7 +352,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why does organizing sheets matter on site?",
-          choices: ["The field team must build from the current drawing", "It changes the weather", "It lowers material weight", "It picks the paint color"],
+          choices: ["The field team must build from the current drawing", "It reduces the number of sheets that need to be printed", "It lets the field skip reviewing drawing revisions", "It keeps the design team from making later changes"],
           answer: 0,
           explain: "Building from an outdated sheet causes rework, so the current version must be clear."
         },
@@ -378,7 +378,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is a transmittal in Autodesk Docs?",
-          choices: ["A formal package of issued files with a record", "A clash report", "A cost estimate", "A staffing plan"],
+          choices: ["A formal package of issued files with a record", "A report listing clashes found between models", "A request for information sent to the designer", "An automatic backup copy of the project folder"],
           answer: 0,
           explain: "A transmittal bundles files and formally issues them, keeping a record of the exchange."
         },
@@ -416,7 +416,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why are transmittals useful on a project?",
-          choices: ["They prove what was formally issued and when", "They render 3D models faster", "They set the project budget", "They replace permissions"],
+          choices: ["They prove what was formally issued and when", "They make large 3D models open faster in the viewer", "They set approval steps for each file in a folder", "They replace the need for folder permissions"],
           answer: 0,
           explain: "Transmittals provide accountability by recording exactly what was issued and when."
         }

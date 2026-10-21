@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In evolutionary game theory, what does an 'asymmetry' between two contestants mean?",
           choices: [
             "A difference between the two contestants, such as size, role, or ownership",
-            "That both contestants are exactly identical",
-            "A tie in which neither animal wins",
-            "A signal that a fight must escalate to injury"
+            "That both contestants are exactly identical in every way, including their size",
+            "A tie in a contest where neither animal is able to win the resource outright",
+            "A signal that a fight must escalate until one of the animals is injured"
           ],
           answer: 0,
           explain: "An asymmetry is simply any difference between the rivals, and these differences often decide the contest."
@@ -85,9 +85,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What is an 'uncorrelated asymmetry'?",
           choices: [
             "A difference between contestants that is unrelated to fighting ability or the value of the resource",
-            "A difference in body size that reliably predicts the winner",
-            "A tie that must always be broken by fighting",
-            "A difference in how hungry each animal happens to be"
+            "A difference in body size or strength that reliably predicts which animal will win the fight",
+            "A difference in how hungry each animal happens to be, and so in how much it values the prize",
+            "A tie between two identical animals that can only ever be broken by an escalated fight"
           ],
           answer: 0,
           explain: "An uncorrelated asymmetry is arbitrary: it does not track who is stronger or who values the prize more."
@@ -109,10 +109,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is ownership often treated as an uncorrelated asymmetry?",
           choices: [
-            "Because being the owner usually makes an animal much stronger",
+            "Because owning a site usually makes an animal much stronger and better able to win any fight it enters",
             "Because who owns a site may be unrelated to fighting ability or resource value, yet still differs between the two",
-            "Because owners always lose their contests",
-            "Because ownership changes the physical size of both animals"
+            "Because owners nearly always lose their contests, so ownership is unrelated to who wins in the end",
+            "Because the owner always values the resource more than the intruder does, whatever its strength or size may be"
           ],
           answer: 1,
           explain: "Ownership can be assigned by chance of arrival and need not reflect strength or resource value, so it is uncorrelated."
@@ -154,10 +154,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What does the Bourgeois strategy prescribe?",
           choices: [
-            "Always escalate, no matter your role",
+            "Always escalate, no matter which role you happen to be in",
             "Escalate if you are the owner, retreat if you are the intruder",
-            "Always retreat, no matter your role",
-            "Escalate only against physically smaller opponents"
+            "Escalate if you are the intruder, retreat if you are the owner",
+            "Escalate only against opponents that are physically smaller"
           ],
           answer: 1,
           explain: "Bourgeois conditions behavior on the ownership role: Hawk as owner, Dove as intruder."
@@ -180,9 +180,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Who introduced and named the Bourgeois strategy?",
           choices: [
             "John Maynard Smith",
-            "Charles Darwin",
-            "Ronald Fisher",
-            "W. D. Hamilton"
+            "William D. Hamilton",
+            "Robert L. Trivers",
+            "Richard Dawkins"
           ],
           answer: 0,
           explain: "John Maynard Smith coined 'Bourgeois' in his work on the evolution of animal contests."
@@ -225,9 +225,9 @@ window.ACADEMY.addUnit("egt", {
           q: "How does 'respect for ownership' reduce the cost of contests?",
           choices: [
             "By letting an agreed convention decide the winner instead of an injurious fight",
-            "By forcing both animals to fight to the death",
-            "By making the contested resource worthless",
-            "By increasing the body size of the intruder"
+            "By forcing both animals to escalate until one of them is injured",
+            "By making the contested resource worthless to the intruder, so it no longer wants to fight",
+            "By making the intruder grow larger so that it wins more fights"
           ],
           answer: 0,
           explain: "A convention such as 'the owner wins' settles disputes without the costs of escalation."
@@ -259,10 +259,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why might natural selection favor respecting an ownership convention?",
           choices: [
-            "Because fighting is completely free of any cost",
+            "Because fighting carries no cost at all, so following any rule is free for both sides",
             "Because avoiding costly fights raises average fitness when both sides follow the rule",
-            "Because intruders always have higher fitness than owners",
-            "Because owners are always the larger animal"
+            "Because intruders always have higher fitness than owners once they win a contest",
+            "Because owners are always the larger animal and would win any fight they enter"
           ],
           answer: 1,
           explain: "When both sides skip injurious fights, the average payoff rises, so the convention can be favored."
@@ -389,10 +389,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is the anti-Bourgeois strategy almost never seen in nature, despite being a logical ESS?",
           choices: [
-            "Because it is mathematically impossible",
+            "Because it is mathematically impossible for it to be stable once it becomes common in a population of animals",
             "Because owners are usually already present and often have more to gain, so 'owner retreats' rarely gets established",
-            "Because intruders never actually exist in nature",
-            "Because it always forces a fight to the death"
+            "Because intruders never actually exist in nature, so the rule has no one to apply to",
+            "Because it always forces a fight to the death whenever the owner and intruder meet"
           ],
           answer: 1,
           explain: "Real biology (residents commonly value or defend the site) makes the owner-retreats rule hard to establish, so Bourgeois dominates."
@@ -435,9 +435,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What does 'resource-holding potential' (RHP) mean?",
           choices: [
             "An animal's ability to win an all-out fight, based on traits like size and strength",
-            "The arbitrary cue of who owns a site",
-            "The value of the resource to a passing bystander",
-            "The total number of offspring an animal has produced"
+            "The arbitrary cue of which animal happens to be the owner of a site",
+            "The value of the resource to an animal that is just passing by",
+            "The total number of offspring an animal has produced over the course of its whole life"
           ],
           answer: 0,
           explain: "RHP measures fighting ability; higher-RHP animals are more likely to win escalated contests."
@@ -459,10 +459,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "When a contest is settled by a correlated asymmetry, what usually decides the winner?",
           choices: [
-            "A coin-flip arbitrary cue with no meaning",
+            "An arbitrary cue, such as who arrived first at the site",
             "The contestant with greater resource-holding potential (RHP)",
-            "Whichever animal happens to be the intruder",
-            "The animal that values the resource least"
+            "Whichever animal happens to be the intruder at the time",
+            "The animal that values the resource least of the two"
           ],
           answer: 1,
           explain: "A correlated asymmetry tracks fighting ability, so the higher-RHP contestant tends to win."
@@ -505,9 +505,9 @@ window.ACADEMY.addUnit("egt", {
           q: "How can an arbitrary convention replace combat?",
           choices: [
             "By giving both rivals a shared rule to decide the winner without fighting",
-            "By making every contest end in injury",
-            "By removing all resources worth fighting over",
-            "By forcing the larger animal to always lose"
+            "By making every contest end in an escalated fight with injury",
+            "By removing all of the resources that are worth fighting over from the area",
+            "By forcing the larger animal to lose every contest it enters"
           ],
           answer: 0,
           explain: "A shared convention settles who wins so the rivals never have to pay the cost of an actual fight."
@@ -539,10 +539,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is the main evolutionary advantage of conventions that replace combat?",
           choices: [
-            "They increase the injury rate among rivals",
+            "They increase the injury rate among rivals that compete",
             "They lower the average cost of contests, raising fitness",
-            "They make contested resources disappear entirely",
-            "They eliminate every asymmetry between animals"
+            "They make the contested resources disappear completely",
+            "They remove every asymmetry between the two contestants"
           ],
           answer: 1,
           explain: "By avoiding injurious fights, conventions raise the average payoff and thus fitness."

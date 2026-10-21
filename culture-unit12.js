@@ -89,7 +89,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Ji, Nisbett, and Su's (2001) research, Chinese participants were more likely than Americans to predict that a current trend would ____.",
-          choices: ["continue unchanged", "accelerate steadily", "reverse or change direction", "stop entirely"],
+          choices: ["continue unchanged at the same rate", "accelerate steadily in the same direction", "reverse or change direction", "level off and then remain stable"],
           answer: 2,
           explain: "Consistent with the principle of change, Chinese participants more often predicted that trends would reverse rather than persist."
         },
@@ -155,7 +155,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Peng and Nisbett's proverb research, Chinese participants, compared with Americans, tended to prefer proverbs that ____.",
-          choices: ["avoided any contradiction", "contained apparent contradiction", "were the shortest", "mentioned money"],
+          choices: ["avoided contradiction and stated one clear rule", "contained apparent contradiction", "were short and easy to remember", "gave practical advice about money"],
           answer: 1,
           explain: "Chinese participants rated dialectical proverbs containing apparent contradiction more favorably than Americans did."
         },
@@ -168,7 +168,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "A dialectical thinker who hears 'she is both kind and cruel' is most likely to ____.",
-          choices: ["reject it as illogical", "demand proof of only one trait", "accept that both traits can be true", "conclude she must be neither"],
+          choices: ["reject the statement as illogical", "decide which of the two traits is really true", "accept that both traits can be true", "conclude she must be neither kind nor cruel"],
           answer: 2,
           explain: "The principle of contradiction allows opposing traits to coexist in the same person without needing to pick one."
         }
@@ -182,7 +182,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The principle of holism holds that an object should be understood ____.",
-          choices: ["in complete isolation", "only through its own properties", "in relation to the whole context around it", "by ignoring its background"],
+          choices: ["in isolation, apart from its surroundings", "through its own stable, internal properties", "in relation to the whole context around it", "by the category or class it belongs to"],
           answer: 2,
           explain: "Holism insists that objects be understood through their relationships and surrounding field, not on their own."
         },
@@ -202,7 +202,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Masuda and Nisbett's (2001) animated underwater-scene study found that, compared with Americans, Japanese participants reported more about ____.",
-          choices: ["the single focal fish", "the background and relationships in the scene", "only the color of the water", "nothing at all"],
+          choices: ["the single focal fish and its features", "the background and relationships in the scene", "the colors of the water and the fish", "the speed and direction of the fastest fish"],
           answer: 1,
           explain: "Japanese participants described more context and relationships, showing the holistic attention predicted by the principle of holism."
         },
@@ -238,7 +238,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "In Peng and Nisbett's research on contradictory arguments, American participants more often ____, while Chinese participants sought compromise.",
-          choices: ["accepted both arguments equally", "chose one argument and sometimes polarized", "refused to answer", "changed the topic"],
+          choices: ["accepted both arguments as equally valid", "chose one argument and sometimes polarized", "rejected both arguments as weak", "asked for more evidence before deciding either way"],
           answer: 1,
           explain: "Americans tended to pick a side and could even become more extreme (polarize), whereas Chinese looked for a middle way."
         },
@@ -294,7 +294,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The dialectical self is a self-concept that ____.",
-          choices: ["stays perfectly consistent across all situations", "tolerates contradictory self-descriptions across contexts", "contains no emotions", "rejects all social roles"],
+          choices: ["stays consistent across all situations and relationships", "tolerates contradictory self-descriptions across contexts", "is defined mainly by emotions rather than by traits", "rejects social roles as part of who a person really is"],
           answer: 1,
           explain: "A dialectical self accepts that self-descriptions can contradict one another from one context to the next."
         },
@@ -314,7 +314,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Spencer-Rodgers and colleagues found that, compared with European Americans, East Asians tend to hold self-views that are ____.",
-          choices: ["more consistent and less variable", "more contradictory and more context-variable", "completely identical everywhere", "entirely absent"],
+          choices: ["more consistent and less variable across contexts", "more contradictory and more context-variable", "more positive and more stable over time", "less contradictory but more tied to group roles"],
           answer: 1,
           explain: "Research on the dialectical self-concept found East Asians held more contradictory and context-variable self-views."
         },
@@ -337,7 +337,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which is the best example of a dialectical self-description?",
-          choices: ["'I am always the same everywhere.'", "'I never change at all.'", "'I am reserved at work yet outgoing with friends, and both are truly me.'", "'I have exactly one trait.'"],
+          choices: ["'I am the same calm, organized person at work, at home, and with friends.'", "'I am outgoing with friends, so my reserved side at work is just an act.'", "'I am reserved at work yet outgoing with friends, and both are truly me.'", "'I used to be shy, but I have changed and now I am simply outgoing.'"],
           answer: 2,
           explain: "Owning opposite traits across situations, each felt as genuine, exemplifies the dialectical self."
         }
@@ -351,7 +351,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Emotional dialecticism refers to the tendency to ____.",
-          choices: ["feel only one emotion at a time", "experience positive and negative feelings together", "suppress all emotion", "feel emotions more slowly"],
+          choices: ["feel only one clear emotion at any given time", "experience positive and negative feelings together", "suppress emotions in public but express them in private", "switch rapidly from positive feelings to negative ones"],
           answer: 1,
           explain: "Emotional dialecticism means positive and negative affect can co-occur rather than crowding each other out."
         },
@@ -371,7 +371,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Bagozzi, Wong, and Yi (1999) reported that, compared with Americans, Chinese participants showed ____ inverse relationship between positive and negative affect.",
-          choices: ["a much stronger", "an identical", "a weaker or even positive", "a perfectly zero"],
+          choices: ["a much stronger and more consistent", "about the same", "a weaker or even positive", "a stronger but less reliable"],
           answer: 2,
           explain: "Their study found a weaker, sometimes even positive, correlation between positive and negative affect among Chinese participants."
         },
@@ -408,7 +408,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Aristotle's law of noncontradiction states that a statement and its negation cannot ____.",
-          choices: ["both be true at the same time", "ever be written down", "be understood", "be translated"],
+          choices: ["both be true at the same time", "both be false at the same time", "be stated by the same person", "change truth value over time"],
           answer: 0,
           explain: "The law of noncontradiction holds that a claim and its opposite cannot both be true in the same sense at the same time."
         },

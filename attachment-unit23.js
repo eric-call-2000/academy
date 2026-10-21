@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What core idea do most attachment-based interventions try to put into practice?",
           choices: [
-            "Attachment is fixed at birth and cannot change",
-            "Children fare best when separated from their parents",
+            "Teaching children to soothe themselves so they rely less on caregivers",
+            "Children fare best when parents follow a fixed daily routine",
             "Enhancing caregiver sensitivity fosters more secure attachment",
-            "Strict punishment builds secure attachment"
+            "Rewarding calm behavior and ignoring tantrums builds secure attachment"
           ],
           answer: 2,
           explain: "Attachment theory holds that sensitive, responsive care promotes security, so interventions aim to strengthen that sensitivity."
@@ -50,10 +50,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Why do most programs work with the caregiver rather than only the child?",
           choices: [
-            "Because children under five cannot benefit from any help",
+            "Because young children cannot recall the sessions, so only adult learning really lasts",
             "Because sensitive caregiving is the proximal influence theory says shapes security",
-            "Because caregivers are always the sole cause of every problem",
-            "Because it is illegal to work directly with children"
+            "Because caregivers are the sole cause of every problem a child develops",
+            "Because the child's temperament is fixed and only adult behavior can change"
           ],
           answer: 1,
           explain: "Theory points to responsive caregiving as the key mechanism shaping attachment, so coaching caregivers targets that mechanism directly."
@@ -86,9 +86,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What do the two hands in the Circle of Security graphic represent?",
           choices: [
-            "A reward and a punishment system",
-            "Two developmental milestones",
-            "Feeding and sleeping routines",
+            "Praise for exploring and limits for unsafe behavior",
+            "Feeding the child and putting the child to sleep",
+            "The mother's care and the father's care of the child",
             "A secure base for exploring and a safe haven for comfort"
           ],
           answer: 3,
@@ -123,9 +123,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "How does Circle of Security help caregivers?",
           choices: [
             "By reviewing video and reflecting on the child's cues and their own reactions",
-            "By prescribing medication for the child",
-            "By removing the child from the home",
-            "By enforcing a strict feeding schedule"
+            "By teaching a step-by-step behavior plan with rewards for calm play",
+            "By giving caregivers a written schedule for feeds, naps, and play",
+            "By coaching caregivers live through an earpiece while they play with the child"
           ],
           answer: 0,
           explain: "Circle of Security is a reflective, video-based program that builds caregivers' capacity to read cues and observe their own responses."
@@ -158,10 +158,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What is the main method of VIPP-SD?",
           choices: [
-            "Long-term play therapy with the child alone",
+            "Weekly play therapy with the child alone, while the parent waits outside and gets brief feedback",
             "Reviewing video of the parent's own interactions to build sensitivity and sensitive discipline",
-            "Group lectures on child development",
-            "Medication management for the parent"
+            "Group sessions in which parents talk through their own childhood memories, losses, and fears",
+            "Home visits that teach parents to use a reward chart and a time-out routine for discipline"
           ],
           answer: 1,
           explain: "VIPP-SD films parent-child interactions and reviews selected clips to highlight the child's signals and reinforce positive, sensitive parenting."
@@ -205,10 +205,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "In VIPP-SD, what is 'speaking for the child'?",
           choices: [
-            "Telling the parent exactly what to do at all times",
-            "Letting the child make every decision",
+            "Telling the parent exactly what to say to the child at each moment of the play session",
+            "Letting the child lead the play while the parent stays quiet",
             "Putting the child's likely inner experience into words so the parent can read cues",
-            "Recording the child's first spoken words"
+            "Asking the parent to describe their own feelings while they watch the video clips"
           ],
           answer: 2,
           explain: "'Speaking for the child' voices the child's probable thoughts and feelings, helping the parent notice and interpret the child's signals."
@@ -230,9 +230,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What does the ABC intervention's name stand for?",
           choices: [
-            "Attachment Bonding Curriculum",
-            "Adoptive Baby Care",
-            "Attachment Behavior Correction",
+            "Attachment-Based Caregiver Coaching",
+            "Adoptive Bonding and Care",
+            "Attachment and Behavioral Correction",
             "Attachment and Biobehavioral Catch-Up"
           ],
           answer: 3,
@@ -265,10 +265,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Which outcome has ABC been shown to improve in children who experienced early adversity?",
           choices: [
-            "Their eventual adult height",
+            "Early reading and vocabulary scores",
             "Cortisol (stress hormone) regulation",
-            "An IQ above 130",
-            "Being left-handed"
+            "Physical growth and weight gain in infancy",
+            "Sleep duration at night"
           ],
           answer: 1,
           explain: "Randomized trials show ABC helps normalize children's daily cortisol patterns, a sign of healthier stress regulation."
@@ -301,10 +301,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What is the central mechanism Minding the Baby aims to strengthen?",
           choices: [
-            "The mother's physical strength",
-            "The infant's vocabulary size",
+            "The mother's daily routines and the baby's sleep schedule",
+            "The infant's early language and motor milestones",
             "The mother's reflective functioning (mentalization)",
-            "The family's household income"
+            "The family's links to community support services"
           ],
           answer: 2,
           explain: "Minding the Baby builds maternal reflective functioning - the capacity to understand the baby's behavior in terms of mental states."
@@ -372,9 +372,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Who takes part in Child-Parent Psychotherapy (CPP) sessions?",
           choices: [
-            "The child alone with a therapist",
-            "The parent alone with a therapist",
-            "A large group of unrelated families",
+            "The child alone, with play as the main tool",
+            "The parent alone, talking about their own past",
+            "A group of parents whose children have similar problems",
             "The child and caregiver together as a dyad"
           ],
           answer: 3,
@@ -408,10 +408,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What does Selma Fraiberg's phrase 'ghosts in the nursery' describe?",
           choices: [
-            "Literal hauntings reported by parents",
+            "A child's fears of imaginary figures at bedtime, which parents must calm",
             "The caregiver's unresolved past experiences intruding on the relationship with the child",
-            "A childhood sleep disorder",
-            "A specific type of secure attachment"
+            "The anxiety new parents feel about harming the baby, which fades within weeks",
+            "A baby's tendency to look away from the caregiver, seen as an early warning sign of avoidance"
           ],
           answer: 1,
           explain: "'Ghosts in the nursery' (Fraiberg, 1975) names a parent's painful early experiences that resurface and disrupt their care of the child."
@@ -444,10 +444,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Who conducted the influential 2003 'less is more' meta-analysis of attachment interventions?",
           choices: [
-            "John Bowlby and Mary Ainsworth",
             "Mary Dozier and Alicia Lieberman",
+            "Cooper, Hoffman, Marvin, and Powell",
             "Bakermans-Kranenburg, van IJzendoorn, and Juffer",
-            "Arietta Slade and Lois Sadler"
+            "Arietta Slade, Lois Sadler, and Peter Fonagy"
           ],
           answer: 2,
           explain: "The 2003 Psychological Bulletin meta-analysis was authored by Bakermans-Kranenburg, van IJzendoorn, and Juffer."
@@ -515,10 +515,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "What does the 'less is more' principle claim about attachment interventions?",
           choices: [
-            "Only multi-year programs ever work",
+            "Programs with fewer families per therapist produce larger and longer-lasting gains",
             "Brief, focused programs can be as effective as or more effective than long, intensive ones",
-            "Interventions never help",
-            "Longer programs are always more effective"
+            "Long, broad programs that start before birth reliably outperform any brief or focused intervention",
+            "Interventions work best when they target parents' mental health rather than sensitivity"
           ],
           answer: 1,
           explain: "The meta-analysis found that a moderate number of focused sessions often matched or beat lengthy, intensive, broad programs."

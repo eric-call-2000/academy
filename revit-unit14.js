@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Dynamo splits geometry into two families. Which set belongs to the ABSTRACT family (helpers that define location and orientation, not drawable shapes)?",
           choices: [
-            "Point, Curve, Surface",
+            "Point, Curve, Surface, Solid",
             "Vector, Plane, CoordinateSystem",
-            "Solid, Mesh, Surface",
-            "Line, Arc, Circle"
+            "Solid, Mesh, PolySurface, Cuboid",
+            "Line, Arc, Circle, NurbsCurve"
           ],
           answer: 1,
           explain: "Abstract geometry (Vector, Plane, CoordinateSystem) defines location and orientation but has no drawable form. Tangible geometry (Point, Curve, Surface, Solid, Mesh) is the visible shapes you can create and see."
@@ -201,10 +201,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What does a CoordinateSystem provide that a bare Plane does not?",
           choices: [
-            "A closed volume with faces and edges",
+            "A closed volume bounded by faces, edges, and vertices you can query",
             "An origin plus full X, Y, and Z axis orientation defining a local space",
-            "A parametric range from 0 to 1",
-            "A measurable area"
+            "A parametric range from 0 to 1 used to sample points along it",
+            "A normal vector that sets which way the plane's front face points"
           ],
           answer: 1,
           explain: "A CoordinateSystem combines an origin with X, Y, and Z axes to define a complete local space. Geometry can be moved between coordinate systems to reposition and reorient it."
@@ -237,9 +237,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Which node gives you the pre-built world direction vectors along the axes?",
           choices: [
             "Vector.XAxis, Vector.YAxis, Vector.ZAxis",
-            "Point.X, Point.Y, Point.Z",
-            "Plane.XY, Plane.YZ, Plane.XZ",
-            "Curve.StartPoint, Curve.EndPoint"
+            "Point.X, Point.Y, and Point.Z properties",
+            "Plane.XY, Plane.YZ, and Plane.XZ nodes",
+            "Vector.ByCoordinates with three inputs"
           ],
           answer: 0,
           explain: "Vector.XAxis, Vector.YAxis, and Vector.ZAxis return the standard unit direction vectors of the World Coordinate System, a quick way to point geometry along a world axis."
@@ -290,10 +290,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Which node returns the direction a curve is heading at a given parameter t?",
           choices: [
-            "Curve.Length",
+            "Curve.PointAtParameter",
             "Curve.TangentAtParameter",
-            "Curve.StartPoint",
-            "Curve.EndPoint"
+            "Curve.NormalAtParameter",
+            "Curve.ParameterAtPoint"
           ],
           answer: 1,
           explain: "Curve.TangentAtParameter returns the tangent direction of the curve at parameter t. Alongside PointAtParameter and CoordinateSystemAtParameter, it lets you sample a curve as you travel along it."
@@ -319,10 +319,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What kind of curve does NurbsCurve.ByControlPoints produce?",
           choices: [
-            "A straight line only",
+            "A polyline of straight segments through each point",
             "A smooth free-form curve shaped by control points",
-            "A closed rectangle",
-            "A flat plane"
+            "A curve that passes exactly through every point",
+            "A circular arc fitted through the first three points"
           ],
           answer: 1,
           explain: "NurbsCurve.ByControlPoints builds a smooth, free-form curve whose shape is guided by control points. NURBS curves are ideal for the flowing geometry common in computational design."
@@ -416,10 +416,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "A Solid is best described as which of the following?",
           choices: [
-            "An infinite flat helper plane",
+            "An open surface patch with edges but no enclosed volume",
             "A closed volume that exposes faces, edges, and vertices",
-            "A single point in space",
-            "A curve parametrized from 0 to 1"
+            "A mesh of triangles that cannot be used in booleans",
+            "A flat helper plane that extends infinitely in all directions"
           ],
           answer: 1,
           explain: "A Solid is a closed volume. Because it is watertight, it exposes topology (faces, edges, and vertices) and supports boolean operations for combining or cutting volumes."
@@ -533,9 +533,9 @@ window.ACADEMY.addUnit("revit", {
           q: "Which node would you use to move a piece of geometry a set distance along a given vector?",
           choices: [
             "Geometry.Translate",
-            "Geometry.Mirror",
-            "Geometry.Scale",
-            "Solid.Volume"
+            "Geometry.Transform",
+            "Geometry.Rotate",
+            "Geometry.Mirror"
           ],
           answer: 0,
           explain: "Geometry.Translate moves geometry by a vector (or a distance along a direction), producing a shifted copy while leaving the original in place."
@@ -560,10 +560,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Why is the non-destructive nature of Dynamo transforms useful in a graph?",
           choices: [
-            "It permanently deletes the original to save memory",
+            "It deletes the original after the transform to keep memory usage low",
             "It preserves the original so you can reuse or re-reference it downstream",
-            "It prevents you from ever mirroring geometry",
-            "It forces every transform to be measured in radians"
+            "It writes each transform back to Revit so the model stays in sync",
+            "It records each transform in an undo history you can step back through"
           ],
           answer: 1,
           explain: "Because the original geometry survives each transform, you can branch off it, reuse it, or compare against it. This functional style makes computational graphs flexible and predictable."
@@ -579,10 +579,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What best defines computational design as taught in this unit?",
           choices: [
-            "Drawing each element by hand with maximum manual control",
+            "Using a computer to draft each element by hand instead of on paper",
             "Geometry driven by parameters and rules rather than manual drawing",
-            "Rendering photorealistic images of a finished building",
-            "Exporting a model to a spreadsheet"
+            "Rendering photorealistic images of a finished building for clients",
+            "Running clash checks on a model to find conflicts between trades"
           ],
           answer: 1,
           explain: "Computational design means geometry is generated from parameters and rules rather than drawn manually. Change an input and the whole design updates automatically according to the logic."
@@ -637,10 +637,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "To build a full matrix (grid) of points from two lists of values, which lacing option is typically used?",
           choices: [
-            "Shortest lacing",
-            "Longest lacing",
+            "Shortest list lacing",
+            "Longest list lacing",
             "Cross Product lacing",
-            "No lacing at all"
+            "Auto lacing mode"
           ],
           answer: 2,
           explain: "Cross Product lacing pairs every value in one list with every value in the other, producing a complete point matrix. It is how a grid of points is built from X and Y ranges."

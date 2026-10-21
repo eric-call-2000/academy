@@ -180,8 +180,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A generated module passes every test you asked for. What is the most important remaining check?",
           choices: [
-            "Whether the code style matches the rest of the repository",
-            "Whether the implementation could be made shorter",
+            "Whether the code style and formatting match the rest of the repository and pass the linters",
+            "Whether the implementation could be made noticeably shorter without changing its behavior",
             "Whether the newest available library version was used",
             "Whether the tests actually encode the requirements, including failure cases"
           ],
@@ -226,10 +226,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which set names the three things you should never hand off entirely?",
           choices: [
-            "Test writing, code review, and deployment",
+            "Test writing, code review, and deployment to production environments",
             "The problem definition, the security and trust boundary, and the final trade-off call",
-            "Naming, documentation, and dependency selection",
-            "Estimation, on-call rotation, and incident write-ups"
+            "Naming, documentation, and the selection of third-party dependencies for the project",
+            "Estimation of the work, the on-call rotation, and the incident write-ups that follow outages"
           ],
           answer: 1,
           explain: "Each of these three sets the frame that everything else inherits. The others are delegable with verification because a reviewer can still check them against a stated intent."
@@ -251,10 +251,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is the problem definition the least delegable step?",
           choices: [
-            "Because tools cannot produce grammatical prose about requirements",
-            "Because writing requirements by hand is faster than prompting for them",
+            "Because current tools cannot produce grammatical, well organized prose about requirements",
+            "Because writing requirements by hand is always faster than prompting a tool to draft them and then editing the result",
             "Because every downstream decision inherits its errors, and a correct solution to the wrong problem is still wrong",
-            "Because requirements documents are legally binding artifacts"
+            "Because requirements documents are legally binding artifacts that must be signed by a person"
           ],
           answer: 2,
           explain: "Errors in the problem statement are not caught by tests, review, or monitoring, because all of those check the system against that same statement."
@@ -303,10 +303,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which practice best protects a skill you have largely automated?",
           choices: [
-            "Reading release notes for the tool that automates it",
+            "Reading the release notes for the tool that automates it whenever a new version ships",
             "Periodically doing the task unaided, then comparing your result to the tool's",
-            "Asking the tool to explain its output every time",
-            "Avoiding the tool entirely on anything production-facing"
+            "Asking the tool to explain its output in detail every time you use it on real work",
+            "Avoiding the tool entirely on anything production-facing, so the skill stays in daily use"
           ],
           answer: 1,
           explain: "Comparison gives you a specific, fast signal about where your judgment has drifted. Reading explanations is passive, and total avoidance gives up the leverage for no gain in judgment."
@@ -323,9 +323,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "You delegate all SQL query tuning to an assistant. What is the concrete risk?",
           choices: [
             "During an incident you cannot judge whether its suggested plan is sane under time pressure",
-            "Your queries will end up using more indexes than strictly necessary",
-            "The database will eventually reject machine-written SQL",
-            "Query performance will be worse on average than hand-written SQL"
+            "Your queries will end up using more indexes than strictly necessary, which slows down writes",
+            "The database will eventually start rejecting machine-written SQL",
+            "Query performance will be worse on average than hand-written SQL, especially on complex joins"
           ],
           answer: 0,
           explain: "The tool is usually fine. The cost lands at the moment it is not fine and you have lost the ability to read a query plan quickly."
@@ -439,9 +439,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Your team's pull request volume triples after adopting code generation. Where does the bottleneck move?",
           choices: [
-            "To the build system's compile times",
+            "To the build system's compile and test times on the shared CI runners",
             "To review, integration, and the humans who must understand the change",
-            "To the number of feature branches the repository can hold",
+            "To the number of feature branches and open pull requests the repository can hold at once",
             "To the licensing cost of the generation tooling"
           ],
           answer: 1,
@@ -464,10 +464,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A junior engineer submits a large generated change they cannot explain. The best leadership response is:",
           choices: [
-            "Merge it since the tests pass, and teach the concepts later",
-            "Ban the tooling for engineers below a seniority threshold",
+            "Merge it since the tests pass, and schedule time to teach the underlying concepts later",
+            "Ban the generation tooling for engineers below a certain seniority threshold until they are promoted",
             "Require that authors be able to explain what they submit, and make that the team norm",
-            "Have a senior quietly rewrite it by hand without discussion"
+            "Have a senior engineer quietly rewrite it by hand without discussing it with the author"
           ],
           answer: 2,
           explain: "The norm keeps the leverage while preserving accountability, and it makes the learning happen at submission time. Bans forfeit the leverage; silent rewrites teach nothing."
@@ -535,8 +535,8 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "When a genuinely new class of tool appears, what is most durable to learn about it?",
           choices: [
-            "Its command flags and configuration file format",
-            "Its current performance numbers versus the incumbent",
+            "Its command flags, configuration file format, and the defaults it ships with",
+            "Its current performance numbers against the incumbent tool on standard benchmarks",
             "The mechanism it relies on and the failure modes that mechanism implies",
             "The list of companies that have publicly adopted it"
           ],

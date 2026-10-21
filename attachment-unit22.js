@@ -26,7 +26,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The 'baby schema' (Kindchenschema) refers to infantile features that:",
-          choices: ["Reduce adult attention to infants", "Elicit caregiving and perceived cuteness", "Only affect biological parents", "Are unique to humans"],
+          choices: ["Reduce adult attention to the infant", "Elicit caregiving and perceived cuteness", "Affect only biological parents", "Signal infant health to other children"],
           answer: 1,
           explain: "Konrad Lorenz's baby schema describes features like large eyes and round cheeks that reliably elicit caregiving motivation and perceptions of cuteness."
         },
@@ -89,7 +89,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In social behavior research, intranasal oxytocin has been reported to increase:",
-          choices: ["Physical strength", "Trusting behavior in economic games", "Visual acuity", "Blood glucose"],
+          choices: ["Fear responses to angry faces in social tasks", "Trusting behavior in economic games", "Aggression toward out-groups", "Risk-taking in gambling tasks played alone"],
           answer: 1,
           explain: "Studies such as Kosfeld and colleagues (2005) reported that intranasal oxytocin increased trusting behavior in economic exchange tasks."
         },
@@ -125,7 +125,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Prairie voles became a famous model species because they are:",
-          choices: ["Socially monogamous and form pair bonds", "Completely solitary", "Unable to reproduce in labs", "Identical to lab mice in behavior"],
+          choices: ["Socially monogamous and form pair bonds", "Solitary and avoid other voles", "Promiscuous with no paternal care", "Identical to montane voles socially"],
           answer: 0,
           explain: "Prairie voles form lasting, socially monogamous pair bonds, making them a key model for the neurobiology of attachment."
         },
@@ -207,7 +207,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Chronic activation of the HPA axis with persistently high cortisol is associated with:",
-          choices: ["Improved memory and calm", "Wear-and-tear effects like allostatic load", "No physiological consequences", "Lower blood pressure only"],
+          choices: ["Sharper memory and a calmer, steadier mood", "Wear-and-tear effects like allostatic load", "Stronger immune function over the long term", "Lower blood pressure and a slower heart rate"],
           answer: 1,
           explain: "Sustained cortisol elevation contributes to allostatic load, the cumulative physiological cost of chronic stress."
         },
@@ -237,7 +237,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Social Baseline Theory, developed by James Coan, argues that the human brain assumes:",
-          choices: ["Solitude is the default condition", "Social proximity is the baseline expectation", "Threats are always imaginary", "Emotions are irrelevant to cognition"],
+          choices: ["Solitude is the default, and others add extra load", "Social proximity is the baseline expectation", "Threats are best handled alone", "Each person must regulate their own stress unaided"],
           answer: 1,
           explain: "Coan's theory holds that the brain expects social proximity as the norm, so relationships economize on effort and risk."
         },
@@ -257,7 +257,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "According to the theory, the quality of the relationship matters because threat buffering was strongest when:",
-          choices: ["The hand belonged to a stranger", "The partner relationship was high in quality", "The person was alone", "The room was dark"],
+          choices: ["The hand belonged to a stranger", "The partner relationship was high in quality", "The person was alone in the scanner", "The marriage was distant and low in quality"],
           answer: 1,
           explain: "Buffering was greater for higher-quality marital relationships than for strangers, showing attachment quality shapes the neural benefit."
         },
@@ -313,7 +313,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The nucleus accumbens is important in attachment because it:",
-          choices: ["Controls balance", "Integrates dopamine reward signals with motivation", "Produces cortisol", "Stores long-term memories only"],
+          choices: ["Releases oxytocin into the blood during close contact", "Integrates dopamine reward signals with motivation", "Produces cortisol when the caregiver leaves the room", "Stores long-term memories of early attachment figures"],
           answer: 1,
           explain: "The nucleus accumbens receives dopamine and helps translate reward signals into motivated approach behavior toward attachment figures."
         },
@@ -369,7 +369,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The glucocorticoid receptor is important in stress regulation because it:",
-          choices: ["Produces adrenaline", "Helps cortisol provide negative feedback to shut off the stress response", "Digests fats", "Controls vision"],
+          choices: ["Triggers the release of adrenaline to start the fight-or-flight response", "Helps cortisol provide negative feedback to shut off the stress response", "Blocks cortisol from reaching the brain so that stress is never registered", "Produces cortisol in the adrenal glands whenever a threat is perceived"],
           answer: 1,
           explain: "Glucocorticoid receptors let cortisol signal negative feedback; more receptors generally mean more efficient shut-off of the stress response."
         },
@@ -405,7 +405,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In Michael Meaney's studies, the key maternal behavior that shaped offspring stress physiology was:",
-          choices: ["Nest building only", "Licking and grooming (and arched-back nursing)", "Vocalizing to pups", "Ignoring the pups"],
+          choices: ["Nest building and time spent away from the litter", "Licking and grooming (and arched-back nursing)", "Ultrasonic calls made to pups during separation", "Retrieving pups that strayed from the nest"],
           answer: 1,
           explain: "Meaney and colleagues focused on natural variation in maternal licking, grooming, and arched-back nursing as the key influence on pups."
         },
@@ -425,7 +425,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Cross-fostering experiments in Meaney's research were crucial because they showed:",
-          choices: ["The effect was purely genetic", "The behavior of the rearing mother, not just genes, drove the outcome", "Pups could not be moved between mothers", "Licking had no measurable effect"],
+          choices: ["The effect was purely genetic, passed on from the birth mother", "The behavior of the rearing mother, not just genes, drove the outcome", "Pups raised by a different mother lost all stress reactivity and became fearless", "Licking had no measurable effect once differences in pup temperament were controlled"],
           answer: 1,
           explain: "Cross-fostering pups to high- or low-LG mothers showed that the rearing mother's behavior shaped stress physiology, demonstrating an experiential effect."
         },

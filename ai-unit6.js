@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is the main reason to wrap parts of a prompt in XML-style tags?",
           choices: [
             "To clearly separate different pieces so the model knows what each part is",
-            "To make the model run faster",
-            "To hide instructions from the model",
-            "Because Claude cannot read plain text"
+            "To shrink the prompt so it uses fewer tokens and costs less to send",
+            "To mark sections that the model should skip over when it reads the prompt",
+            "Because Claude only accepts prompts written in valid, well-formed XML"
           ],
           answer: 0,
           explain: "Tags label each chunk (the document, the instructions, the examples) so the model does not confuse one for another."
@@ -78,9 +78,9 @@ window.ACADEMY.addUnit("ai", {
           q: "You paste a long email and then ask a question. Why wrap the email in <email></email> tags?",
           choices: [
             "So the model does not mistake the email's own words for your instructions",
-            "So the email is encrypted",
-            "So the model ignores the email",
-            "So the model replies in the same language automatically"
+            "So the model replies in the same tone and language the email was written in",
+            "So the model treats the email as more important than your question",
+            "So the email is stored securely and never sent along with the prompt"
           ],
           answer: 0,
           explain: "Tags draw a boundary so instructions inside the pasted content are treated as data, not commands to follow."
@@ -131,9 +131,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which instruction fits best in a system prompt rather than a user prompt?",
           choices: [
             "Always answer in plain English and never give medical advice.",
-            "What time is the meeting tomorrow?",
-            "Translate this paragraph to French.",
-            "Fix the typo in this sentence."
+            "Can you explain in plain English what this medical report says?",
+            "Translate this paragraph into French and keep the same tone.",
+            "Fix the typos in this sentence and make it read more smoothly."
           ],
           answer: 0,
           explain: "Standing rules that should apply to every reply belong in the system prompt; one-off tasks belong in the user prompt."
@@ -166,9 +166,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is prompt chaining?",
           choices: [
             "Feeding the output of one prompt into the next as input",
-            "Asking the same question over and over until it works",
-            "Locking two accounts together",
-            "Sending one giant prompt with no structure"
+            "Asking the same question repeatedly until an answer works",
+            "Linking several models so they all answer the same prompt",
+            "Writing one long prompt that lists every step in order"
           ],
           answer: 0,
           explain: "Chaining breaks a task into steps where each step's result becomes the input for the following step."
@@ -202,9 +202,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which task is the best candidate for chaining?",
           choices: [
             "Research a topic, then draft an article, then fact-check it",
-            "Answer a single yes or no question",
-            "Say hello",
-            "Repeat a word back to you"
+            "Answer one simple yes-or-no question about a short paragraph",
+            "Translate a single sentence from English into Spanish",
+            "Pick the right word to complete one sentence in a short email"
           ],
           answer: 0,
           explain: "Multi-stage jobs with distinct steps benefit most, since each stage can be handled and verified separately."
@@ -237,9 +237,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does prefilling the response do?",
           choices: [
             "Starts the assistant's answer so it continues in the format you set",
-            "Fills your account with credits",
-            "Deletes the previous answer",
-            "Makes the model answer a different question"
+            "Loads your earlier chats into the prompt before the model starts answering",
+            "Fills in default values for any settings you have not chosen",
+            "Gives the model a complete sample answer to copy word for word"
           ],
           answer: 0,
           explain: "You supply the first characters of the assistant turn, and the model continues from there in that shape."
@@ -262,9 +262,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why prefill the start of an answer with '{'?",
           choices: [
             "To skip preamble and get straight into valid JSON",
-            "To make the answer longer",
-            "To change the model's personality",
-            "To translate the answer"
+            "To make the model double-check its JSON for errors",
+            "To switch the model into a dedicated coding mode",
+            "To let the model decide which format suits best"
           ],
           answer: 0,
           explain: "The brace commits the model to JSON immediately, cutting out lines like 'Sure, here is your data.'"
@@ -308,9 +308,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is the self-consistency technique?",
           choices: [
             "Asking the same question multiple times and taking the answer that comes up most",
-            "Asking many different questions at once",
-            "Trusting the very first answer no matter what",
-            "Turning the model off between questions"
+            "Asking the model to stick to the same tone and style in every reply it gives you",
+            "Setting the temperature to zero so the model returns identical answers each time",
+            "Asking the model to check its first answer and then correct any mistakes it finds"
           ],
           answer: 0,
           explain: "Running the prompt several times and voting on the results smooths out one-off mistakes."
@@ -333,9 +333,9 @@ window.ACADEMY.addUnit("ai", {
           q: "For which kind of question is self-consistency most worth the extra cost?",
           choices: [
             "A tricky math or reasoning problem where one slip changes the answer",
-            "Saying good morning",
-            "Repeating a fixed sentence",
-            "Reading back a single number"
+            "A creative writing task where you want lots of different ideas to choose from",
+            "A simple lookup, such as the capital city of a well-known country",
+            "A request to reformat a short list of names into alphabetical order"
           ],
           answer: 0,
           explain: "Hard reasoning tasks benefit most, since averaging over runs catches occasional errors."
@@ -377,9 +377,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is meta-prompting?",
           choices: [
             "Asking the AI to write or improve a prompt for you",
-            "Prompting two models at the same time",
-            "Hiding the prompt from the model",
-            "Using no prompt at all"
+            "Sending the same prompt to two different models at once",
+            "Adding hidden metadata tags to your prompt",
+            "Asking the model to describe its own training"
           ],
           answer: 0,
           explain: "You put the model to work on the prompt itself, letting it suggest a clearer or stronger version."
@@ -402,9 +402,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Your prompt keeps giving vague answers. A good meta-prompting move is to:",
           choices: [
             "Ask the model what details it needs and to rewrite the prompt to include them",
-            "Give up and accept the vague answers",
-            "Send the exact same prompt again unchanged",
-            "Ask an unrelated question"
+            "Raise the temperature so the model takes more risks and commits to more specifics",
+            "Resend the same prompt several times and keep whichever answer seems best",
+            "Add 'be specific' to the end of the prompt and leave everything else alone"
           ],
           answer: 0,
           explain: "The model can point out what is missing and produce a tighter prompt, closing the gap on the next try."
@@ -472,9 +472,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why reference a specific section when asking about a long document?",
           choices: [
             "It gives the model a clear anchor so it looks in the right place",
-            "It makes the document shorter",
-            "It changes the document's meaning",
-            "It hides the rest of the document"
+            "It lets the model skip reading the rest of the document entirely",
+            "It makes the model treat that section as more true than the rest",
+            "It stops the model from using any knowledge from its training"
           ],
           answer: 0,
           explain: "A pointer like 'in the Methods section' narrows the model's focus to the passage you care about."
@@ -517,9 +517,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a reusable prompt template?",
           choices: [
             "A saved prompt pattern with placeholders you fill in each time",
-            "A prompt you can only use once",
-            "A prompt with no instructions",
-            "A random prompt generated fresh every time"
+            "A prompt the model writes for you from a short description of the task",
+            "A built-in prompt the app adds to every chat automatically",
+            "A set of example answers you paste in before your question"
           ],
           answer: 0,
           explain: "Templates capture a proven pattern and leave blanks for the details that change per task."
@@ -542,9 +542,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which is a good use for a saved template?",
           choices: [
             "Summarizing customer emails, where only the email text changes each time",
-            "A one-time question you will never ask again",
-            "Saying a single random word",
-            "A task with no repeatable structure"
+            "Asking a one-off question about a news story you happened to read about this morning",
+            "Brainstorming a brand-new idea where the task is different every time",
+            "Debugging a single unusual error message you have never seen before"
           ],
           answer: 0,
           explain: "Repeatable jobs with a stable structure and one changing input are ideal for templates."

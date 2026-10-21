@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Why did behaviorists prefer behavior over consciousness as their data?",
-          choices: ["Behavior can be observed and measured by anyone", "Consciousness is easier to quantify", "Behavior is unrelated to the environment", "Consciousness can be photographed"],
+          choices: ["Behavior can be observed and measured by anyone", "Consciousness is easier to quantify than any outward action", "Behavior is unaffected by the environment, so it is more stable", "Consciousness had already been fully mapped by introspection"],
           answer: 0,
           explain: "Observable behavior is public and measurable, making it suitable for objective science, unlike private consciousness."
         },
@@ -91,7 +91,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which slogan best captures the empiricist view of the senses?",
-          choices: ["Reason alone reveals truth", "Nothing is in the intellect that was not first in the senses", "Ideas are recollected from a prior life", "The mind creates the world from innate forms"],
+          choices: ["Reason alone reveals truths that the senses can never reach", "Nothing is in the intellect that was not first in the senses", "Ideas are recollected from a life the soul lived before birth", "The mind imposes innate forms on everything the senses report"],
           answer: 1,
           explain: "The empiricist maxim holds that the intellect's contents originate in sensory experience."
         },
@@ -124,7 +124,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "In Locke's view, where do the mind's ideas come from?",
-          choices: ["Innate principles present at birth", "Experience through sensation and reflection", "Pure reason detached from the senses", "Inherited memories from ancestors"],
+          choices: ["Innate principles stamped on the mind at birth", "Experience through sensation and reflection", "Pure reason working apart from the senses", "Memories inherited from earlier generations"],
           answer: 1,
           explain: "Locke said ideas arise from sensation (the outer senses) and reflection (observing the mind's own operations)."
         },
@@ -137,7 +137,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Locke's blank-slate view implies which claim about human development?",
-          choices: ["The environment shapes what a person becomes", "Character is fixed by birth", "Learning plays little role in the mind", "Experience corrupts innate wisdom"],
+          choices: ["The environment shapes what a person becomes", "Character is largely fixed by heredity at birth", "Learning plays only a minor role in forming the mind", "Experience mostly corrupts the wisdom we are born with"],
           answer: 0,
           explain: "If the mind starts blank, then experience and environment do the shaping, an idea central to later behaviorism."
         },
@@ -170,7 +170,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What does associationism try to explain?",
-          choices: ["How the brain produces movement", "How simple ideas combine into complex thoughts", "How innate ideas guide reason", "How the soul survives the body"],
+          choices: ["How the brain sends signals that produce movement", "How simple ideas combine into complex thoughts", "How innate ideas guide reasoning from birth onward", "How the senses convert light and sound into nerve signals"],
           answer: 1,
           explain: "Associationism holds that the mind builds complex ideas by linking simpler ones through laws of association."
         },
@@ -196,7 +196,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which principle of association is most clearly at work when one event reliably follows another and we link them?",
-          choices: ["Resemblance", "Contiguity", "Cause and effect", "Innateness"],
+          choices: ["Resemblance of ideas", "Contiguity", "Cause and effect", "Contrast between opposites"],
           answer: 2,
           explain: "Regular succession of events underlies Hume's cause-and-effect principle of association."
         },
@@ -222,7 +222,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What did Descartes contribute to the study of behavior?",
-          choices: ["The concept of the unconscious", "A mechanistic model of reflex action", "The law of effect", "The theory of evolution"],
+          choices: ["The concept of the unconscious mind", "A mechanistic model of reflex action", "The law of effect in animal learning", "The theory of evolution by natural selection"],
           answer: 1,
           explain: "Descartes described involuntary responses as mechanical reflexes, an early physiological model of behavior."
         },
@@ -248,7 +248,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "In Descartes' model, how did he explain a foot pulling back from fire?",
-          choices: ["The soul deliberately chooses to move", "So-called animal spirits flow through nerves to trigger movement", "Innate ideas command the muscles", "The pineal gland secretes hormones"],
+          choices: ["The soul deliberately decides to withdraw the foot from danger", "So-called animal spirits flow through nerves to trigger movement", "Innate ideas of pain command the leg muscles to contract", "The pineal gland releases hormones into the blood that move the leg"],
           answer: 1,
           explain: "Descartes imagined animal spirits flowing through the nerves to move muscles automatically, without conscious will."
         },
@@ -274,7 +274,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "How did Darwin's work reshape psychology's view of animals?",
-          choices: ["It proved animals cannot learn", "It suggested mental continuity between animals and humans", "It showed humans have no instincts", "It separated humans sharply from animals"],
+          choices: ["It proved that animals are incapable of learning from experience", "It suggested mental continuity between animals and humans", "It showed that humans have no instincts of their own", "It drew a sharp dividing line between human and animal minds"],
           answer: 1,
           explain: "Darwin argued that differences between animal and human minds are of degree, not kind, supporting comparative study."
         },
@@ -326,7 +326,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What does Morgan's Canon advise?",
-          choices: ["Always assume animals reason like humans", "Prefer the lower psychological explanation when it suffices", "Ignore animal behavior entirely", "Explain all behavior by instinct alone"],
+          choices: ["Assume animals reason like humans whenever the behavior looks clever", "Prefer the lower psychological explanation when it suffices", "Avoid studying animals because they reveal nothing about minds", "Explain all animal behavior by instinct alone, never by learning"],
           answer: 1,
           explain: "Morgan's Canon says not to invoke a higher faculty when a lower, simpler one can explain the behavior."
         },
@@ -378,7 +378,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What is introspection as a psychological method?",
-          choices: ["Measuring reaction times", "Observing and reporting one's own conscious experience", "Recording animal behavior", "Dissecting the brain"],
+          choices: ["Measuring how quickly people react to simple stimuli", "Observing and reporting one's own conscious experience", "Recording what animals do in carefully controlled settings", "Inferring mental states from patterns of brain activity"],
           answer: 1,
           explain: "Introspection asks trained observers to look inward and report the contents of their own consciousness."
         },
@@ -404,7 +404,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which dispute exposed the limits of introspection?",
-          choices: ["The nature-nurture debate", "The imageless thought controversy", "The evolution debate", "The mind-body problem"],
+          choices: ["The nature versus nurture debate", "The imageless thought controversy", "The Clever Hans controversy", "The mind-body interaction problem"],
           answer: 1,
           explain: "The Wurzburg school's imageless thought controversy showed introspectionists disagreeing about basic facts of consciousness."
         },

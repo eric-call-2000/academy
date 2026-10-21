@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "According to affect-regulation theory, the attachment system's primary job is to:",
           choices: [
-            "Regulate the infant's physical growth",
-            "Help the infant win social competitions",
+            "Make sure the infant gets enough food and warmth to grow",
+            "Keep the infant away from all new or unfamiliar experiences",
             "Keep distress within tolerable limits by seeking a caregiver",
-            "Teach the infant language"
+            "Build the infant's independence so it can cope alone early"
           ],
           answer: 2,
           explain: "Modern theory frames attachment as an affect-regulation system: proximity to a caregiver restores emotional and physiological balance when the infant is distressed."
@@ -60,10 +60,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "A securely attached child can explore a new playroom freely mainly because:",
           choices: [
-            "The child has no fear system",
+            "The child has an inborn temperament that leaves it with little fear of new places",
             "The caregiver's reliable availability keeps arousal within manageable limits",
-            "Exploration permanently suppresses the attachment system",
-            "The child ignores the caregiver entirely"
+            "Exploring turns off the attachment system for good once the child is busy",
+            "The child has learned that crying for the caregiver will not bring any help"
           ],
           answer: 1,
           explain: "A dependable secure base regulates the child's arousal, so exploration and attachment work as a balanced, flexible system."
@@ -86,9 +86,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "Dyadic co-regulation refers to:",
           choices: [
             "The caregiver helping regulate the infant's arousal through interaction",
-            "The infant regulating the caregiver's career",
-            "Two strangers negotiating a contract",
-            "An infant self-soothing entirely without others"
+            "The infant learning to calm itself alone by sucking a thumb or a dummy",
+            "Two caregivers sharing the work of feeding and settling the infant",
+            "The caregiver setting a fixed routine so the infant's day is predictable"
           ],
           answer: 0,
           explain: "In co-regulation the caregiver acts as an external regulator, up- or down-shifting the infant's arousal through responsive interaction."
@@ -137,9 +137,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Repeated experiences of co-regulation gradually build the child's capacity for:",
           choices: [
-            "Permanent dependence on others",
-            "Delayed language",
-            "Simple motor reflexes only",
+            "Lasting dependence on others to calm down",
+            "Suppressing emotions so they are not shown",
+            "Reading other people's moods very quickly",
             "Independent self-regulation of emotion"
           ],
           answer: 3,
@@ -202,10 +202,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Why are hyperactivating strategies described as 'secondary'?",
           choices: [
-            "Because they appear second in a person's day",
-            "Because they are considered less important",
+            "Because they are used only after the person has calmed down and feels safe again",
+            "Because they are less common in adults than the deactivating strategies are",
             "Because they arise when reliable proximity-seeking has repeatedly failed",
-            "Because they only occur in second-born children"
+            "Because they appear later in development, after the toddler years have passed"
           ],
           answer: 2,
           explain: "Secondary strategies emerge when the primary strategy, seeking a responsive figure, has proven unreliable, prompting intensified effort."
@@ -279,10 +279,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "A hallmark of deactivating strategies in adults is:",
           choices: [
-            "Exaggerating emotional needs",
+            "Exaggerating emotional needs to draw a partner closer",
             "Downplaying distress and valuing independence over closeness",
-            "Constant reassurance-seeking",
-            "Rapid, deep emotional disclosure"
+            "Seeking constant reassurance that the partner still cares",
+            "Sharing very personal feelings early and very intensely"
           ],
           answer: 1,
           explain: "Avoidant adults minimize distress and prize self-sufficiency, distancing themselves from intimacy and dependence."
@@ -298,10 +298,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "In Mikulincer and Shaver's model, what is the primary attachment strategy when a person feels threatened?",
           choices: [
-            "Deactivation of the system",
+            "Deactivating the system to cope alone",
             "Seeking proximity to an attachment figure",
-            "Hyperactivation of distress",
-            "Suppression of all emotion"
+            "Hyperactivating distress to gain attention",
+            "Suppressing emotion until the threat passes"
           ],
           answer: 1,
           explain: "Their control-system model begins with the primary strategy: seeking proximity to a trusted attachment figure for support."
@@ -345,10 +345,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "The 'broaden-and-build cycle of security' proposes that felt security:",
           choices: [
-            "Narrows attention only to threats",
-            "Shuts down social engagement",
+            "Narrows attention to threats so people can protect themselves from harm",
+            "Reduces the need for close relationships as people become more self-reliant",
             "Broadens thought-action range and builds lasting personal resources",
-            "Applies only to infants"
+            "Matters mainly in infancy and has little effect on adult thought or action"
           ],
           answer: 2,
           explain: "Felt security frees people to explore, care for others, and grow, broadening thought and action and building enduring resources."
@@ -371,9 +371,9 @@ window.ACADEMY.addUnit("attachment", {
           q: "What is 'security priming' in attachment research?",
           choices: [
             "Experimentally activating mental representations of attachment security",
-            "Teaching people long-term meditation",
-            "Priming a canvas before painting",
-            "Measuring cortisol at rest"
+            "Training people over many weeks to feel more secure in their relationships",
+            "Asking people to rate how secure they feel on a short self-report scale",
+            "Measuring how secure a person's infant attachment was in the Strange Situation"
           ],
           answer: 0,
           explain: "Security priming temporarily activates security-related mental representations to test their causal effects on affect and behavior."
@@ -416,9 +416,9 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "Mikulincer and Shaver's priming studies most consistently show that boosting felt security:",
           choices: [
-            "Increases aggression",
-            "Has no measurable effect",
-            "Reduces empathy",
+            "Increases defensiveness and hostility toward out-groups",
+            "Has effects that fade within a few seconds of the prime",
+            "Reduces empathy and helping toward strangers in need",
             "Increases compassion and tolerance toward out-groups"
           ],
           answer: 3,
@@ -441,10 +441,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "The secure base script is best described as:",
           choices: [
-            "A parenting instruction manual",
-            "A single genetic marker",
+            "A set of written rules a parent follows whenever a child becomes upset",
+            "An inborn reflex that drives the infant toward its mother when afraid",
             "A stored if-then knowledge structure for how support-seeking unfolds",
-            "A specific brain region"
+            "A conscious, step-by-step plan a person writes down for coping with stress"
           ],
           answer: 2,
           explain: "The script is a cognitive representation, an if-then temporal-causal outline of what happens when one seeks and receives support."
@@ -488,10 +488,10 @@ window.ACADEMY.addUnit("attachment", {
           type: "mcq",
           q: "A person with a well-consolidated secure base script tends to:",
           choices: [
-            "Avoid telling any narratives",
+            "Tell stories in which they solve every problem alone without help",
             "Tell coherent stories where seeking help brings effective support and relief",
-            "Describe help as always failing",
-            "Use no emotion words at all"
+            "Tell stories in which asking for help leads to rejection or disappointment",
+            "Tell long, emotional stories that drift off topic and never resolve"
           ],
           answer: 1,
           explain: "Strong script access shows up as coherent narratives in which help-seeking reliably leads to support and reduced distress."

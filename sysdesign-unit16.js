@@ -85,10 +85,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is push fan-out brutal for an account with tens of millions of followers?",
           choices: [
-            "Follower lists cannot be sharded across more than one database node",
+            "Follower lists cannot be sharded across more than one database node, so a single machine has to hold and scan the entire list",
             "Each post triggers tens of millions of feed writes, creating a huge write burst and long tail of stale feeds",
-            "Ranking models refuse to score posts from accounts above a follower threshold",
-            "The post body must be re-encoded once per follower before it can be delivered"
+            "Ranking models refuse to score posts from accounts above a certain follower threshold, so those posts are dropped",
+            "The post body must be re-encoded once per follower before it can be delivered to each feed"
           ],
           answer: 1,
           explain: "One publish becomes tens of millions of writes; the fan-out job takes a long time, so some followers see the post much later than others."
@@ -121,10 +121,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A ranked feed makes pagination harder than a purely chronological feed because:",
           choices: [
-            "Ranked feeds cannot use cursors of any kind, only offsets",
-            "Post ids stop being unique once a ranking model is applied",
+            "Ranked feeds cannot use cursors of any kind, so clients are forced to page with numeric offsets",
+            "Post ids stop being unique once a ranking model has been applied to the candidate set",
             "Scores can change between page requests, so a plain offset can repeat or skip items",
-            "Ranked feeds must be recomputed synchronously on every scroll event"
+            "Ranked feeds must be recomputed synchronously from scratch on every single scroll event"
           ],
           answer: 2,
           explain: "Chronological order is stable, so a timestamp cursor works. Ranking is not stable, so systems pin a session-level candidate set or carry seen-item state in the cursor."
@@ -156,10 +156,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the most appropriate primary key layout for a one-to-one chat message store?",
           choices: [
-            "A global auto-increment integer across all conversations",
-            "The sender user id alone, with messages sorted by arrival time",
+            "A single global auto-increment integer shared across all conversations, used as the only key",
+            "The sender user id alone as the key, with that user's messages sorted by arrival time",
             "A partition key of conversation id with a sort key of message sequence or timestamp",
-            "A hash of the message body so identical messages deduplicate"
+            "A hash of the message body as the key, so that identical messages are stored only once"
           ],
           answer: 2,
           explain: "Reads are almost always the recent messages of one conversation, so partitioning by conversation id and sorting within it makes that a single contiguous range scan."
@@ -192,9 +192,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In a group chat with many members, the equivalent of the feed fan-out decision is:",
           choices: [
-            "Whether to encrypt messages at rest or only in transit",
-            "Whether to use TCP or UDP for the client connection",
-            "Whether to keep media in the same table as the message text",
+            "Whether to encrypt the messages at rest in the store or only in transit to the clients",
+            "Whether to use TCP or UDP as the transport for each member's client connection",
+            "Whether to keep attached media in the same table as the message text or in blob storage",
             "Whether to store one copy per conversation or one copy per recipient inbox"
           ],
           answer: 3,
@@ -227,10 +227,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Why is presence (online/offline) usually kept in an in-memory store with a TTL rather than a durable database?",
           choices: [
-            "Presence must be queryable with SQL joins against the user table",
-            "Durable stores cannot represent boolean fields efficiently",
+            "Presence must be queryable with SQL joins against the user table to build friend lists",
+            "Durable stores cannot represent boolean fields efficiently enough for millions of users",
             "Presence is high-churn, low-value soft state that should expire on its own if heartbeats stop",
-            "Presence has to survive a full cluster restart to be correct"
+            "Presence has to survive a full cluster restart to be correct, and memory stores lose it on restart"
           ],
           answer: 2,
           explain: "Presence changes constantly and is worthless once stale. A TTL keyed on heartbeats means a crashed client automatically ages out to offline with no cleanup job."
@@ -303,10 +303,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "Which statement correctly distinguishes Server-Sent Events from WebSockets?",
           choices: [
-            "SSE is full-duplex and binary; WebSockets are text-only and one directional",
-            "SSE requires a protocol upgrade handshake; WebSockets run over ordinary HTTP responses",
+            "SSE is full-duplex and carries binary frames, while WebSockets are text-only and flow in one direction from the server",
+            "SSE requires a protocol upgrade handshake, while WebSockets run over ordinary HTTP responses with no upgrade",
             "SSE is server-to-client only over plain HTTP; WebSockets are full-duplex over an upgraded connection",
-            "SSE cannot pass through proxies at all; WebSockets always can"
+            "SSE cannot pass through proxies at all, while WebSockets always pass through them without configuration"
           ],
           answer: 2,
           explain: "SSE is a long-lived HTTP response streaming text events downstream with automatic reconnect built in; WebSockets upgrade the connection and carry frames both ways."
@@ -374,10 +374,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What is the core data structure for prefix-based autocomplete?",
           choices: [
-            "A B-tree keyed on full query strings",
+            "A B-tree keyed on the full query strings, scanned in order from the first matching entry",
             "A trie where each node represents a prefix and stores its precomputed top-k completions",
-            "A hash table mapping every query to its click-through rate",
-            "A skip list ordered by query frequency"
+            "A hash table mapping every past query to its click-through rate and result count",
+            "A skip list of all queries ordered by how often each has been searched"
           ],
           answer: 1,
           explain: "A trie makes prefix lookup a walk of one node per typed character, and caching top-k at each node turns the suggestion into a read rather than a subtree traversal."
@@ -400,9 +400,9 @@ window.ACADEMY.addUnit("sysdesign", {
           q: "Which client-side technique cuts backend load for typeahead while keeping suggestions usable?",
           choices: [
             "Debouncing keystrokes by tens of milliseconds and caching results for prefixes already fetched",
-            "Requesting suggestions on every keydown to keep the cache warm",
-            "Fetching the entire suggestion trie to the browser on page load",
-            "Disabling suggestions until the user stops typing for two full seconds"
+            "Requesting suggestions on every keydown so that the server-side cache stays warm for each prefix",
+            "Fetching the entire suggestion trie into the browser on page load so that no further requests are needed",
+            "Disabling suggestions until the user has stopped typing for two full seconds"
           ],
           answer: 0,
           explain: "A short debounce collapses a burst of keystrokes into one request, and caching means backtracking a character needs no request at all. A two-second wait also cuts load, but it arrives after the user has stopped caring, so it fails the usability half of the requirement."
@@ -452,9 +452,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "In an inverted index, what is a posting list?",
           choices: [
-            "The queue of documents waiting to be indexed",
-            "The list of terms found in a single document",
-            "The set of query strings that returned zero results",
+            "The queue of documents waiting to be parsed and added to the index",
+            "The list of every term found in a single document, in the order it appears",
+            "The set of query strings that returned zero results and need tuning",
             "The ordered list of document ids (often with positions) for a single term"
           ],
           answer: 3,
@@ -516,10 +516,10 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "What does HyperLogLog estimate?",
           choices: [
-            "The frequency of a specific item in a stream",
+            "The frequency of one specific item within a large stream of events",
             "The cardinality, meaning the number of distinct elements, of a large set",
-            "The median latency of a request stream",
-            "Whether a given element has definitely been seen before"
+            "The median latency of a request stream, using a fixed number of buckets",
+            "Whether a given element has definitely been seen before in the stream"
           ],
           answer: 1,
           explain: "HyperLogLog estimates distinct counts in kilobytes regardless of set size, by tracking the maximum run of leading zeros in hashed values across registers."
@@ -551,9 +551,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "The strongest practical reason to use HyperLogLog for daily unique visitors instead of a set of user ids is:",
           choices: [
-            "It is exact while a set is only approximate at large sizes",
-            "It preserves the individual ids so they can be re-queried later",
-            "It removes the need to hash the input values entirely",
+            "It is exact at any scale, while a set of ids only approximates the count once it grows large",
+            "It preserves the individual ids so they can be re-queried later for per-user reports and audits",
+            "It removes the need to hash the input values entirely, which saves CPU on every page view",
             "Its memory is bounded and small no matter how many uniques there are, and sketches from shards merge"
           ],
           answer: 3,
@@ -569,9 +569,9 @@ window.ACADEMY.addUnit("sysdesign", {
           type: "mcq",
           q: "A view counter that must be both cheap and roughly live is usually built by:",
           choices: [
-            "Incrementing a single database row per view inside a transaction",
-            "Recomputing the total from the raw event log on every read",
-            "Storing one row per view and running COUNT(*) on each page load",
+            "Incrementing a single database row for each view inside its own transaction",
+            "Recomputing the total from the raw event log on every read of the counter",
+            "Storing one row per view and running COUNT(*) over them on each page load to show the number",
             "Buffering increments in memory or a fast store and flushing aggregated deltas periodically"
           ],
           answer: 3,

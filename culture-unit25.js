@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Which best defines a culture-bound syndrome?",
           choices: [
-            "A disorder with identical symptoms in every society",
+            "A disorder that shows the same symptoms and course in every society where it appears",
             "A recurrent pattern of troubling experience recognized as an illness largely within one culture",
-            "Any mental illness listed in the DSM-5",
-            "A physical disease with no psychological component"
+            "Any mental illness formally listed in the DSM-5 or in the World Health Organization's ICD",
+            "A physical disease without any psychological component that is limited to one region of the world"
           ],
           answer: 1,
           explain: "Culture-bound syndromes are locally recognized patterns of distress that make sense mainly within a particular cultural context."
@@ -51,9 +51,9 @@ window.ACADEMY.addUnit("culture", {
           q: "An 'idiom of distress' is best described as:",
           choices: [
             "A culturally shared way of expressing and communicating suffering",
-            "A medication used only in one country",
-            "A slang word with no emotional meaning",
-            "A diagnosis unique to Western psychiatry"
+            "A medication or herbal remedy used to treat distress in one country",
+            "A slang expression with no real emotional or physical meaning",
+            "A formal diagnosis found only in Western psychiatric manuals"
           ],
           answer: 0,
           explain: "Idioms of distress are common local expressions, like 'nervios,' through which people convey emotional and physical suffering."
@@ -88,9 +88,9 @@ window.ACADEMY.addUnit("culture", {
           q: "The Cultural Formulation Interview (CFI) in DSM-5 is:",
           choices: [
             "A set of questions helping clinicians assess how culture shapes a patient's problem",
-            "A blood test for cultural background",
-            "A list of banned diagnoses",
-            "A personality quiz for therapists"
+            "A laboratory test that determines a patient's ethnic and cultural background",
+            "A list of diagnoses that should not be applied to patients from minority groups",
+            "A personality questionnaire that therapists complete about their own cultural biases"
           ],
           answer: 0,
           explain: "The CFI is a structured interview that centers the patient's own cultural understanding of their difficulties."
@@ -123,10 +123,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "A key goal of the CFI is to:",
           choices: [
-            "Diagnose faster by ignoring the patient's views",
+            "Speed up diagnosis by focusing on symptoms rather than the patient's views",
             "Reduce misdiagnosis by centering the patient's own cultural understanding",
-            "Replace all clinical judgment with checklists",
-            "Assign patients to cultural stereotypes"
+            "Replace clinical judgment with standardized cultural checklists",
+            "Match each patient to a clinician from the same ethnic background"
           ],
           answer: 1,
           explain: "By eliciting the patient's own explanations, the CFI aims to improve accuracy, rapport, and treatment planning."
@@ -200,10 +200,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In the Minimization stage, a person tends to:",
           choices: [
-            "Deny that other cultures exist",
+            "Deny that meaningful cultural differences exist at all",
             "Emphasize human similarities and downplay real cultural differences",
-            "Fully integrate multiple cultural frames",
-            "Attack other cultures as inferior"
+            "Shift easily and comfortably between several cultural frames of reference",
+            "See other cultures as inferior and defend one's own as superior"
           ],
           answer: 1,
           explain: "Minimization is the last ethnocentric stage: differences are acknowledged but glossed over by stressing universal similarity."
@@ -232,10 +232,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "The U-curve model of cultural adjustment describes:",
           choices: [
-            "A steady rise in happiness abroad",
+            "A steady rise in satisfaction from arrival until the end of the stay",
             "An initial high, then a dip during culture shock, then recovery",
-            "A constant decline in mood over time",
-            "No emotional change at all"
+            "An initial low that steadily improves without any later setback",
+            "Adjustment abroad, followed by a second dip after returning home"
           ],
           answer: 1,
           explain: "The U-curve, associated with Lysgaard (1955), traces a honeymoon high, a slump during culture shock, then gradual adjustment."
@@ -280,9 +280,9 @@ window.ACADEMY.addUnit("culture", {
           q: "In diverse global teams, a 'faultline' refers to:",
           choices: [
             "A hypothetical dividing line that splits a team into subgroups along aligned attributes",
-            "A software bug in video conferencing",
-            "A legal contract clause",
-            "A type of currency risk"
+            "A conflict between team members caused by a single disagreement over goals or deadlines",
+            "A difference in time zones that prevents team members from working at the same hours",
+            "A formal boundary between departments drawn on the company's organizational chart"
           ],
           answer: 0,
           explain: "Faultlines (Lau and Murnighan, 1998) form when multiple attributes align, splitting a team into subgroups that can reduce cohesion."
@@ -340,10 +340,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Believing intelligence is malleable tends to lead students to:",
           choices: [
-            "Give up quickly after failure",
-            "Avoid all challenges",
+            "Give up quickly after failure to protect their self-image",
+            "Avoid challenges that might expose their limits",
             "Persist and treat effort as worthwhile",
-            "Ignore feedback"
+            "Discount critical feedback as irrelevant to ability"
           ],
           answer: 2,
           explain: "When ability seems improvable, setbacks read as signals to work harder rather than as proof of fixed limits."
@@ -373,9 +373,9 @@ window.ACADEMY.addUnit("culture", {
           q: "Arthur Kleinman's concept of 'explanatory models' refers to:",
           choices: [
             "A patient's personal beliefs about the cause, course, and treatment of their illness",
-            "The hospital's billing system",
-            "A government health policy",
-            "A laboratory diagnostic machine"
+            "The statistical models that hospitals use to predict treatment costs and patient outcomes",
+            "A government's official framework for deciding which illnesses to fund",
+            "A laboratory method for explaining test results to patients in plain language"
           ],
           answer: 0,
           explain: "Explanatory models are the ideas patients and clinicians hold about what causes an illness and how it should be treated."
@@ -408,10 +408,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "A mismatch between a clinician's and a patient's explanatory models can lead to:",
           choices: [
-            "Guaranteed recovery",
+            "Faster recovery because the patient is challenged",
             "Lower adherence and poorer outcomes",
-            "No effect on treatment",
-            "Automatic cultural competence"
+            "No effect, as long as the treatment is medically sound",
+            "Greater trust as the patient learns the clinician's view"
           ],
           answer: 1,
           explain: "When explanations clash, patients may distrust or abandon treatment, worsening adherence and health outcomes."
@@ -444,10 +444,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "A 2017 study by Santos, Varnum, and Grossmann analyzing 51 years of data found that individualism:",
           choices: [
-            "Declined in most countries",
+            "Declined in most countries as economies grew",
             "Rose in the majority of countries studied",
-            "Stayed exactly constant everywhere",
-            "Could not be measured"
+            "Rose only in Western countries and fell elsewhere",
+            "Stayed roughly constant across the five decades"
           ],
           answer: 1,
           explain: "Their study 'Global Increases in Individualism' found individualist values and practices rose in most societies over five decades."
@@ -480,10 +480,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Patricia Greenfield's theory argues that as societies shift from rural subsistence toward urban commercial life, values move toward:",
           choices: [
-            "Greater collectivism",
+            "Greater collectivism and family interdependence",
             "Greater individualism and independence",
-            "No change in values",
-            "Total social isolation"
+            "Stronger respect for elders and tradition",
+            "Stable values, since values do not follow economic change"
           ],
           answer: 1,
           explain: "Greenfield's theory of social change ties ecological shifts (wealth, schooling, urban living) to more individualistic psychology."
@@ -551,10 +551,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "A central aim of decolonizing psychology is to:",
           choices: [
-            "Make all cultures adopt Western theories",
+            "Ensure that all cultures adopt validated Western theories and research methods",
             "Value knowledge produced within diverse cultures rather than imposing one framework",
-            "Stop studying culture altogether",
-            "Eliminate all research ethics"
+            "Stop studying culture, since any comparison between cultures is a form of bias",
+            "Replace Western psychology entirely with theories from formerly colonized regions"
           ],
           answer: 1,
           explain: "Decolonizing psychology seeks to include and respect knowledge from many cultures instead of universalizing one tradition."

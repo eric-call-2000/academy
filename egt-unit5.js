@@ -15,11 +15,11 @@ window.ACADEMY.addUnit("egt", {
           "q": "What is the core idea captured by an evolutionarily stable strategy (ESS)?",
           "choices": [
             "A strategy that, once adopted by nearly everyone, resists invasion by rare mutant strategies",
-            "A strategy that maximizes total population size regardless of individual payoff",
-            "A strategy chosen by a central planner to benefit the group",
-            "A strategy that changes every generation to stay unpredictable"
+            "A strategy that maximizes the total size of the population, whatever each individual's payoff",
+            "A strategy chosen to benefit the group as a whole, even when individuals pay a cost",
+            "A strategy that keeps changing every generation so that rivals cannot predict it"
           ],
-          "answer": 0,
+          answer: 0,
           "explain": "An ESS is defined by its resistance to invasion: if it is common, no rare alternative can spread against it."
         },
         {
@@ -96,24 +96,24 @@ window.ACADEMY.addUnit("egt", {
           "type": "mcq",
           "q": "In the ESS framework, what is the 'resident' strategy?",
           "choices": [
-            "The rare newcomer being tested",
+            "The rare newcomer being tested against the population",
             "The strategy played by the vast majority of the population",
-            "A strategy that is always cooperative",
-            "The strategy with the lowest fitness"
+            "The strategy with the highest possible payoff in the game",
+            "The strategy that resists every possible mutant"
           ],
-          "answer": 1,
+          answer: 1,
           "explain": "The resident is the incumbent strategy held by almost the entire population; the mutant is the rare challenger."
         },
         {
           "type": "mcq",
           "q": "What role does the 'mutant' strategy play in the ESS test?",
           "choices": [
-            "It is the majority strategy defending its position",
+            "It is the majority strategy that has to defend its place",
             "It is a rare alternative introduced to see whether it can spread",
-            "It represents the average payoff of the population",
-            "It is a strategy that never interacts with residents"
+            "It represents the average payoff of the whole population",
+            "It is the strategy that the resident must copy in order to survive"
           ],
-          "answer": 1,
+          answer: 1,
           "explain": "The mutant is a rare alternative; the ESS test checks whether this challenger can increase in frequency."
         },
         {
@@ -179,11 +179,11 @@ window.ACADEMY.addUnit("egt", {
           "q": "The first (primary) ESS condition requires that, when a mutant is rare, the resident strategy S versus S earns:",
           "choices": [
             "Strictly more than the mutant M earns against S, OR ties and then wins the tie-break",
-            "Strictly less than the mutant against S",
-            "Exactly the same as any possible strategy",
-            "The maximum possible payoff in the whole game"
+            "Strictly less than the mutant M earns against S, so that the mutant is kept from spreading",
+            "Exactly the same as every other strategy earns against S, with no tie-break needed",
+            "The maximum payoff anyone can earn in the game, whatever the mutant does"
           ],
-          "answer": 0,
+          answer: 0,
           "explain": "The primary condition is E(S,S) > E(M,S); if equality holds, the secondary tie-break condition must decide."
         },
         {
@@ -208,12 +208,12 @@ window.ACADEMY.addUnit("egt", {
           "type": "mcq",
           "q": "Why does the payoff against the RESIDENT dominate the comparison when the mutant is rare?",
           "choices": [
-            "Because mutants refuse to interact with each other",
+            "Because mutants only meet other mutants, so the E(_,M) terms cancel out of the comparison entirely",
             "Because nearly all interactions are against residents, so E(_,S) terms carry almost all the weight",
-            "Because payoffs against mutants are always zero",
-            "Because the resident payoff is defined to be larger"
+            "Because payoffs earned against mutants are always zero when the mutant is rare in a population",
+            "Because the resident's payoff is defined to be larger than the mutant's by the ESS conditions"
           ],
-          "answer": 1,
+          answer: 1,
           "explain": "At low mutant frequency, both types meet residents almost exclusively, so the E(S,S) vs E(M,S) comparison determines fitness."
         },
         {
@@ -263,12 +263,12 @@ window.ACADEMY.addUnit("egt", {
           "type": "mcq",
           "q": "When does the SECOND (tie-break) ESS condition become decisive?",
           "choices": [
-            "Whenever the mutant is common",
+            "Whenever the mutant has become common in the population",
             "Only when E(S,S) = E(M,S), i.e. the primary condition is a tie",
-            "Only when the resident has the lowest payoff",
-            "Never; the first condition always suffices"
+            "Only when the resident earns the lowest payoff in the game",
+            "Only when E(S,S) > E(M,S), so the primary condition already holds strictly"
           ],
-          "answer": 1,
+          answer: 1,
           "explain": "The secondary condition applies exactly when E(S,S) = E(M,S), because the primary strict inequality failed."
         },
         {
@@ -276,11 +276,11 @@ window.ACADEMY.addUnit("egt", {
           "q": "Given E(S,S) = E(M,S), what does the second ESS condition require for stability?",
           "choices": [
             "E(S,M) > E(M,M): the resident does better against the mutant than the mutant does against itself",
-            "E(S,M) < E(M,M)",
-            "E(M,M) = 0",
-            "The mutant must never meet another mutant"
+            "E(S,M) < E(M,M): the mutant does better against itself than the resident does against the mutant",
+            "E(M,S) > E(S,S): the mutant does better against the resident than the resident does against itself",
+            "E(S,M) = E(M,M): the resident and mutant earn exactly the same against the mutant"
           ],
-          "answer": 0,
+          answer: 0,
           "explain": "The tie is broken by interactions with mutants: stability requires E(S,M) > E(M,M)."
         },
         {
@@ -348,12 +348,12 @@ window.ACADEMY.addUnit("egt", {
           "type": "mcq",
           "q": "What is the correct logical relationship between ESS and Nash equilibrium?",
           "choices": [
-            "Every Nash equilibrium is an ESS, but not conversely",
+            "Every Nash equilibrium is an ESS, but not every ESS is a Nash equilibrium",
             "Every ESS is a Nash equilibrium, but not every Nash equilibrium is an ESS",
-            "They are exactly equivalent concepts",
-            "They are completely unrelated"
+            "They are exactly equivalent concepts with different names in each field",
+            "An ESS need not be a Nash equilibrium, since it ignores best responses"
           ],
-          "answer": 1,
+          answer: 1,
           "explain": "ESS is a strict refinement of Nash: an ESS must be Nash, but Nash equilibria can fail the ESS stability conditions."
         },
         {
@@ -376,12 +376,12 @@ window.ACADEMY.addUnit("egt", {
           "type": "mcq",
           "q": "Why can a Nash equilibrium fail to be an ESS?",
           "choices": [
-            "Because Nash equilibria never exist in evolutionary games",
+            "Because Nash equilibria never exist in evolutionary games, so no strategy can be stable at all",
             "Because a strategy can be a best response yet still be invadable when payoffs tie against alternatives",
-            "Because ESS ignores payoffs entirely",
-            "Because Nash equilibria require infinite populations"
+            "Because an ESS ignores payoffs and only asks how common a strategy is in the population",
+            "Because a Nash equilibrium requires players to use strictly dominant strategies against all others"
           ],
-          "answer": 1,
+          answer: 1,
           "explain": "A weak (non-strict) Nash equilibrium can tie against a mutant and then fail the secondary ESS condition, so it is invadable."
         },
         {
@@ -442,12 +442,12 @@ window.ACADEMY.addUnit("egt", {
           "type": "mcq",
           "q": "For S to be an ESS, which inequality must hold for every mutant M and all sufficiently small epsilon > 0?",
           "choices": [
-            "W(S) < W(M)",
+            "W(S) < W(M), so that the resident earns less than the mutant for every small epsilon",
             "W(S) > W(M), i.e. (1 - e)E(S,S) + e E(S,M) > (1 - e)E(M,S) + e E(M,M)",
-            "W(S) = W(M) exactly",
-            "E(M,M) > E(S,S)"
+            "W(S) = W(M) exactly, i.e. (1 - e)E(S,S) + e E(S,M) = (1 - e)E(M,S) + e E(M,M)",
+            "E(M,M) > E(S,S), so that the mutant does better against itself than S does"
           ],
-          "answer": 1,
+          answer: 1,
           "explain": "Uninvadability means the resident's fitness strictly exceeds the mutant's for all small epsilon, which reduces to the two ESS conditions."
         },
         {
@@ -515,11 +515,11 @@ window.ACADEMY.addUnit("egt", {
           "q": "A 'strict' ESS arises when which condition holds for every mutant M?",
           "choices": [
             "E(S,S) > E(M,S) strictly, so no tie-break is ever needed",
-            "E(S,S) = E(M,S) for all M",
-            "E(M,M) > E(S,M)",
-            "The mutant frequency is exactly one half"
+            "E(S,S) = E(M,S) for every M, so the tie-break is always needed",
+            "E(S,M) > E(M,M) only, with no condition on payoffs against S",
+            "E(M,S) > E(S,S) strictly, so every mutant is a better reply to S"
           ],
-          "answer": 0,
+          answer: 0,
           "explain": "A strict ESS satisfies the primary condition strictly against every mutant, corresponding to a strict Nash equilibrium."
         },
         {
@@ -532,12 +532,12 @@ window.ACADEMY.addUnit("egt", {
           "type": "mcq",
           "q": "A completely mixed ESS (using every pure strategy with positive probability) can never be a STRICT equilibrium. Why?",
           "choices": [
-            "Because mixed strategies have no payoffs",
+            "Because mixed strategies earn no payoff of their own, and only the pure strategies in the support are ever paid",
             "Because at a mixed equilibrium the player is indifferent among the pure strategies in the support, so ties are unavoidable",
-            "Because strict equilibria require infinite populations",
-            "Because mixing always lowers fitness"
+            "Because a strict equilibrium requires an infinite population, which a mixed ESS cannot assume",
+            "Because mixing always lowers fitness compared with playing the best pure strategy every time"
           ],
-          "answer": 1,
+          answer: 1,
           "explain": "Indifference across the support means E(S,S) = E(M,S) for alternative mixtures, so a mixed ESS depends on the secondary condition, never strict."
         },
         {
@@ -596,12 +596,12 @@ window.ACADEMY.addUnit("egt", {
           "type": "mcq",
           "q": "Which assumption underlies the classical (Maynard Smith) ESS definition?",
           "choices": [
-            "A small, finite population with strong drift",
+            "A small, finite population in which random drift decides which strategies survive",
             "An effectively infinite, well-mixed population so frequencies change deterministically",
-            "Players that communicate and form binding contracts",
-            "Interactions occurring only among close relatives"
+            "Players who can communicate with each other and form binding contracts in advance",
+            "Interactions that happen only among close relatives who share most of their genes"
           ],
-          "answer": 1,
+          answer: 1,
           "explain": "The standard ESS assumes an infinite, well-mixed population, letting invasion be judged by deterministic payoff comparisons."
         },
         {

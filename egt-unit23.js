@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In the standard public goods game, what happens to money that players place in the common pool?",
           choices: [
-            "It is returned only to the person who contributed it",
+            "It is returned only to the person who contributed it, with a small bonus added on top",
             "It is multiplied by a factor greater than 1, then split equally among all members",
-            "It is taxed away and removed from the game",
-            "It is kept by the experimenter as a fee"
+            "It is divided among the players in proportion to how much each one contributed to it",
+            "It is multiplied by a factor and then given to the player who contributed the most"
           ],
           answer: 1,
           explain: "The pooled contributions are multiplied by a growth factor and then divided equally among every player, so the group as a whole gains from cooperation."
@@ -61,9 +61,9 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is the public goods game a social dilemma?",
           choices: [
-            "The pool never grows, so contributing is pointless",
-            "Only the highest contributor is allowed to earn a return",
-            "Players cannot communicate at any stage",
+            "The pool never grows, so contributing anything at all is always pointless for every player",
+            "Only the player who contributes the most is allowed to earn any return from the common pool",
+            "Players cannot communicate at any stage, so they cannot agree on how much to contribute",
             "The group is best off if everyone contributes fully, yet each individual earns more by contributing less"
           ],
           answer: 3,
@@ -111,10 +111,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In Hardin's logic, why does each herder keep adding animals to the shared pasture?",
           choices: [
-            "They are legally required to graze a fixed number of animals",
+            "They are legally required to graze a fixed number of animals on the pasture each season",
             "They gain the full benefit of an extra animal but share the cost of overgrazing with everyone",
-            "The pasture regrows faster the more it is grazed",
-            "Adding animals lowers their own profit but helps neighbors"
+            "The pasture regrows faster the more heavily it is grazed, so adding animals helps everyone",
+            "Adding animals lowers their own profit, but they do it anyway to help their neighbors"
           ],
           answer: 1,
           explain: "The private benefit of one more animal is captured entirely by the herder, while the cost of degradation is spread across all users, so each is driven to expand."
@@ -158,10 +158,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "As the number of players in a public goods setting grows, sustaining cooperation typically becomes...",
           choices: [
-            "Automatic, since more people means more contributions",
+            "Easier, because more people means more total contributions to the shared pool",
             "Harder, because free-riding grows more tempting and less visible",
-            "Impossible only if players can talk to each other",
-            "Irrelevant, because group size has no effect"
+            "Impossible, but only in the case where players are able to talk to each other",
+            "Unaffected, because group size has no effect on how much people contribute"
           ],
           answer: 1,
           explain: "Larger groups make each individual's contribution feel negligible and each defector harder to notice, so free-riding becomes more tempting."
@@ -184,9 +184,9 @@ window.ACADEMY.addUnit("egt", {
           q: "According to the collective action view, why is free-riding more tempting in a large group?",
           choices: [
             "Each person's share of the benefit is smaller and a single defector is less noticeable",
-            "Large groups always have stricter monitoring",
-            "Contributions are worth more in large groups",
-            "Punishment is easier to organize in large groups"
+            "Large groups always have stricter monitoring, which makes people want to rebel against it",
+            "Each contribution is worth more in a large group, so people feel they can afford to skip one",
+            "Punishment is easier to organize in large groups, so people expect others to cover for them"
           ],
           answer: 0,
           explain: "In a large group your individual share of the benefit is diluted and your defection blends into the crowd, both of which reduce the incentive to contribute."
@@ -230,10 +230,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What does altruistic punishment mean?",
           choices: [
-            "Rewarding cooperators with a bonus from the shared pool",
+            "Rewarding cooperators with a bonus taken from the shared pool at the end of the round",
             "Paying a personal cost to reduce a free-rider's payoff, which benefits the group",
-            "Punishing only after the game is fully over",
-            "Removing a free-rider from the game at no cost to anyone"
+            "Punishing free-riders only after the game is over, when it no longer costs anything",
+            "Removing a free-rider from the game at no cost to the punisher or to anyone else"
           ],
           answer: 1,
           explain: "Altruistic punishment is costly to the punisher and yields no private material gain, but it deters free-riding and helps the group."
@@ -302,10 +302,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is the second-order free-rider problem?",
           choices: [
-            "Free-riders who contribute nothing to the public good",
+            "Free-riders who contribute nothing to the public good and are punished for it",
             "Cooperators who contribute but refuse to pay the cost of punishing free-riders",
-            "Players who punish twice as much as needed",
-            "People who join the game only in the second round"
+            "Players who punish free-riders twice as hard as they need to in order to deter them",
+            "People who join the game only in the second round, after others have contributed"
           ],
           answer: 1,
           explain: "Second-order free-riders do contribute to the public good but avoid the extra cost of punishing defectors, free-riding on those who do punish."
@@ -327,10 +327,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is the second-order problem a puzzle for the evolution of punishment?",
           choices: [
-            "Punishers always earn more than everyone else",
+            "Punishers always earn more than everyone else, so punishment spreads far too quickly",
             "Non-punishing cooperators earn more than punishers, so punishment could be selected against",
-            "Punishment has no effect on free-riders",
-            "Second-order free-riders never contribute anything"
+            "Punishment has no effect at all on free-riders, so it brings no benefit to the group",
+            "Second-order free-riders never contribute, so they are punished more than anyone else"
           ],
           answer: 1,
           explain: "Since punishing is costly, non-punishing cooperators out-earn punishers, so natural selection might erode the very punishment that sustains cooperation."
@@ -446,10 +446,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "How does pool punishment differ from peer punishment?",
           choices: [
-            "Pool punishment is done secretly by one player",
+            "Pool punishment is carried out in secret by a single player, while peer punishment is done openly by the whole group",
             "Members pay into a shared fund or institution that sanctions defectors, rather than punishing individually",
-            "Pool punishment rewards defectors instead of sanctioning them",
-            "There is no real difference between the two"
+            "Pool punishment rewards the defectors in the group instead of sanctioning them for not contributing",
+            "Pool punishment happens only after the game has ended, while peer punishment happens during each round"
           ],
           answer: 1,
           explain: "Pool punishment pre-commits resources to a shared sanctioning institution, whereas peer punishment is carried out by individuals acting on their own."
@@ -471,10 +471,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is an advantage of pool or institutional punishment?",
           choices: [
-            "It never costs anyone anything",
-            "It eliminates the need for any cooperation",
+            "It never costs anyone anything, since the shared fund pays for itself each round",
+            "It removes the need for any cooperation, since the institution does all the work",
             "It provides stable, coordinated enforcement, even against second-order free-riders",
-            "It guarantees no one will ever defect again"
+            "It guarantees that no one will ever defect again once it has been set up"
           ],
           answer: 2,
           explain: "By committing resources in advance, institutions offer steady enforcement and can be designed to also sanction those who fail to contribute to punishment."
@@ -519,9 +519,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What is antisocial punishment?",
           choices: [
             "Punishing high contributors or cooperators rather than free-riders",
-            "Punishing only the lowest contributor in a group",
-            "Refusing to punish anyone at all",
-            "Rewarding cooperators with extra money"
+            "Punishing only the lowest contributor in a group, even when others free-ride too",
+            "Refusing to punish anyone at all, even the worst free-riders in the group",
+            "Punishing free-riders so harshly that cooperation collapses as a result"
           ],
           answer: 0,
           explain: "Antisocial punishment is the spiteful sanctioning of cooperators and high contributors, the opposite of punishing free-riders."
@@ -543,10 +543,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What did Herrmann and colleagues (2008) find across the societies they studied?",
           choices: [
-            "Antisocial punishment never occurred anywhere",
+            "Antisocial punishment never occurred in any of the societies they studied, so punishment always helped cooperation",
             "The amount of antisocial punishment varied by society and could wipe out the cooperative benefits of punishment",
-            "Punishment always increased cooperation everywhere equally",
-            "Only one society ever used punishment at all"
+            "Punishment raised cooperation by the same amount in every society, whatever the local norms",
+            "Only one of the societies they studied ever used punishment, so no comparison could be made"
           ],
           answer: 1,
           explain: "They found antisocial punishment differed across societies and, where it was common, it eroded the cooperation-boosting effect of punishment."

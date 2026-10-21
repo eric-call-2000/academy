@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What distinguishes indirect reciprocity from direct reciprocity?",
           choices: [
-            "Both require you to meet the same partner many times",
-            "Indirect reciprocity only works between close relatives",
+            "Both kinds require you to meet the same partner many times, but indirect reciprocity also needs gossip",
+            "Indirect reciprocity works only between close relatives, while direct reciprocity works between anyone",
             "Direct reciprocity depends on repeated meetings with the same partner, while indirect reciprocity does not",
-            "Indirect reciprocity forbids ever helping strangers"
+            "Direct reciprocity relies on reputation, while indirect reciprocity relies on meeting the same partner again"
           ],
           answer: 2,
           explain: "Direct reciprocity ('I help you, you help me') needs repeated encounters with the same individual. Indirect reciprocity lets cooperation work even among people who may never meet again."
@@ -66,10 +66,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why can direct reciprocity alone fail to sustain cooperation in a large, fluid group?",
           choices: [
-            "People in large groups are always relatives",
+            "People in large groups are mostly relatives, so kin selection takes over from reciprocity",
             "Encounters are often one-shot, so the same partner rarely returns to repay you",
-            "Large groups have no way to communicate at all",
-            "Direct reciprocity is banned in large groups"
+            "Large groups have no way to communicate, so no one can learn who helped whom before",
+            "Direct reciprocity only works when partners are anonymous and never see each other again"
           ],
           answer: 1,
           explain: "With many people and rare repeat meetings, tit-for-tat with the same partner breaks down, so reputation-based indirect reciprocity is needed."
@@ -162,10 +162,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why does a good image score make others more likely to help you?",
           choices: [
-            "A high score forces them to help by law",
+            "A high score forces others to help you, because refusing would lower their own score",
             "A high score marks you as a cooperator worth helping, so discriminators assist you",
-            "A high score makes you invisible to cheaters",
-            "A high score pays them cash directly"
+            "A high score hides you from cheaters, so only cooperators ever ask you for help",
+            "A high score is paid out directly as extra payoff at the end of each round"
           ],
           answer: 1,
           explain: "Discriminating players help those with good reputations, so a high image score attracts future help."
@@ -181,10 +181,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A player who helps generously in full view of the group can expect what?",
           choices: [
-            "A falling image score",
-            "To be excluded from all future rounds",
+            "A falling image score, since giving costs you",
+            "Exclusion from future rounds for showing off",
             "A rising image score and more help returned later",
-            "No change at all"
+            "No change, since only the recipient can repay you"
           ],
           answer: 2,
           explain: "Visible generosity raises the image score, and a higher score draws help from discriminators in later rounds."
@@ -264,9 +264,9 @@ window.ACADEMY.addUnit("egt", {
           q: "How does 'downstream' indirect reciprocity differ from 'upstream' (pay-it-forward) reciprocity?",
           choices: [
             "Downstream: you help after being observed and are repaid by observers; upstream: you help because you were just helped",
-            "They are exactly the same thing",
-            "Downstream only occurs between siblings",
-            "Upstream requires money to change hands"
+            "Downstream: you help because you were just helped; upstream: you help after being observed and are repaid by observers",
+            "Downstream only ever occurs between close relatives, while upstream occurs between complete strangers in the group",
+            "Downstream needs the same partner to meet again, while upstream needs a third party to watch the exchange happen"
           ],
           answer: 0,
           explain: "Downstream (image-based) reciprocity is repaid by observers who track reputation; upstream reciprocity is passing on help you just received to someone new."
@@ -298,10 +298,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Calling reputation 'social capital' means it is best understood as:",
           choices: [
-            "A tax you must pay each round",
+            "A tax every player must pay each round to stay in the game",
             "An asset built by past behavior that yields future benefits",
-            "A one-time reward with no lasting value",
-            "A punishment for cooperating"
+            "A one-time reward for helping that has no lasting value later",
+            "A fixed trait that never changes, whatever a player does"
           ],
           answer: 1,
           explain: "Like capital, a reputation is accumulated through investment (helping) and pays dividends later (receiving help)."
@@ -369,10 +369,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "An 'assessment rule' (social norm) in indirect reciprocity determines:",
           choices: [
-            "How fast players move",
+            "How quickly players move from one round to the next",
             "What reputation an observer assigns to a donor's action",
-            "The market price of helping",
-            "How many players are in the game"
+            "The market price a donor has to pay for helping",
+            "Which partner a donor is paired with in each round"
           ],
           answer: 1,
           explain: "Assessment rules map an action, and its context, onto a good or bad reputation for the donor."
@@ -404,10 +404,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why does simple image scoring (a first-order rule) struggle compared with 'standing'?",
           choices: [
-            "It cannot count above ten",
+            "It cannot tell the difference between a donor who helps and one who refuses",
             "It marks down anyone who refuses to help, even when refusing a bad person was justified",
-            "It requires players to be relatives",
-            "It ignores helping entirely"
+            "It needs players to be close relatives before it can assign anyone a score at all",
+            "It ignores helping entirely and only counts refusals made in public"
           ],
           answer: 1,
           explain: "First-order scoring penalizes all refusals equally; standing (second-order) forgives justified refusal of a bad-reputation recipient."
@@ -439,10 +439,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is language and gossip important for indirect reciprocity in large groups?",
           choices: [
-            "It replaces the need to ever help anyone",
+            "It replaces the need for anyone to help, since talk alone builds trust",
             "It spreads reputational information beyond those who directly witnessed an act",
-            "It keeps reputations secret",
-            "It slows cooperation down"
+            "It keeps reputations secret, so cheaters cannot learn who is watching them at all",
+            "It slows cooperation down, since people wait to hear gossip first"
           ],
           answer: 1,
           explain: "Direct observation is limited; gossip transmits reputations across the group so many people can act on them."
@@ -474,10 +474,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A limitation or danger of relying on gossip is that:",
           choices: [
-            "It always conveys the perfect truth",
+            "It always carries the exact truth, since people only repeat what they saw",
             "Information can be distorted, dishonest, or spread as a false reputation",
-            "It can only carry good news",
-            "It never reaches more than two people"
+            "It can only carry good news about cooperators, never about cheaters",
+            "It rarely reaches more than two or three people in a group"
           ],
           answer: 1,
           explain: "Because gossip is second-hand, it can carry errors or lies, so reputation systems need ways to keep information honest."
@@ -510,10 +510,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is a good image score hard to fake?",
           choices: [
-            "Because scores are assigned at random",
+            "Because scores are assigned at random, so no one can control their own",
             "Because you must actually pay the real cost of helping to earn it",
-            "Because everyone lies equally",
-            "Because the rules simply forbid cheating"
+            "Because everyone lies about others equally, so the lies cancel out",
+            "Because the rules forbid cheating and punish anyone caught faking it"
           ],
           answer: 1,
           explain: "You cannot obtain a high image score without genuinely helping and paying its cost, which makes the reputation an honest signal."
@@ -535,10 +535,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A free-rider who never helps but expects help from others will typically:",
           choices: [
-            "Keep a perfect reputation",
+            "Keep a good reputation, since refusing to help is never observed",
             "Accumulate a poor reputation and be denied help by discriminators",
-            "Be rewarded for saving effort",
-            "Never be noticed by anyone"
+            "Be rewarded by others for saving the cost of helping",
+            "Get help anyway, since discriminators help everyone equally"
           ],
           answer: 1,
           explain: "Refusing to help lowers the image score, so discriminators withhold help; exploitation carries a reputational cost."

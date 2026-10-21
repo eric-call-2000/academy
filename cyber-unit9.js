@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What does encryption do to data?",
           choices: [
             "Scrambles it so only someone with the key can read it",
-            "Deletes it permanently",
-            "Compresses it to save space",
-            "Copies it to a backup server"
+            "Turns it into a fixed-length fingerprint that can't be reversed",
+            "Hides it inside an image so no one knows it is there",
+            "Encodes it in Base64 so it can travel safely over email"
           ],
           answer: 0,
           explain: "Encryption turns readable data into scrambled ciphertext that only an authorized party with the right key can turn back into the original."
@@ -59,9 +59,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which is an example of protecting data in transit?",
           choices: [
             "Using HTTPS so a login travels over an encrypted connection",
-            "Storing files in a locked filing cabinet",
-            "Encrypting an old backup drive in a closet",
-            "Deleting a spreadsheet you no longer need"
+            "Encrypting the laptop's hard drive with full-disk encryption",
+            "Storing customer records in an encrypted database table",
+            "Hashing passwords with a salt before saving them to disk"
           ],
           answer: 0,
           explain: "HTTPS encrypts the connection, protecting data while it moves between your browser and the server."
@@ -77,9 +77,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why do we bother encrypting data at rest if it is already behind a login?",
           choices: [
             "So a stolen disk or leaked backup is still unreadable without the key",
-            "Because encryption makes data load faster",
-            "Because logins never actually work",
-            "So the data takes up less storage"
+            "So the login screen can check passwords against the encrypted data",
+            "So data stays protected while it travels between server and browser",
+            "So the database runs faster when many users are logged in at once"
           ],
           answer: 0,
           explain: "Defense in depth: if someone bypasses the login and grabs the raw storage, encryption keeps the contents unreadable."
@@ -108,9 +108,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "In asymmetric encryption, if someone encrypts a message with your public key, who can read it?",
           choices: [
             "Only you, using your matching private key",
-            "Anyone who has your public key",
-            "Only the sender",
-            "Nobody, ever"
+            "Anyone who also holds a copy of your public key",
+            "Only the sender, using the key they encrypted with",
+            "Anyone who can see the message while it travels"
           ],
           answer: 0,
           explain: "The public key encrypts and only the matching private key can decrypt, so only the private-key holder can read it."
@@ -157,9 +157,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why not just use asymmetric encryption for everything?",
           choices: [
             "It is much slower, so it is best used to set up a shared symmetric key",
-            "It is not secure at all",
-            "Public keys must be kept secret",
-            "It only works on text, never files"
+            "Its keys are too short to protect large files, so they need extra padding",
+            "Public keys must stay secret, which makes sharing them too difficult",
+            "It can only encrypt short text messages, never files or whole disks"
           ],
           answer: 0,
           explain: "Asymmetric math is slower, so systems commonly use it to exchange a symmetric key and then encrypt the actual data symmetrically."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is the key difference between hashing and encryption?",
           choices: [
             "Hashing is one-way; encryption is reversible with a key",
-            "Hashing is reversible; encryption is one-way",
-            "They are exactly the same thing",
-            "Hashing needs a key but encryption does not"
+            "Hashing is reversible with a key; encryption is one-way",
+            "Hashing uses a public key; encryption uses a private key",
+            "Hashing protects data in transit; encryption protects data at rest"
           ],
           answer: 0,
           explain: "You cannot un-hash back to the original, but you can decrypt encrypted data if you hold the key."
@@ -228,9 +228,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "A website checks your login by hashing what you typed and comparing it to the stored hash. Why is this smart?",
           choices: [
             "It never needs to store or see your actual password",
-            "It makes the password load faster",
-            "It lets support staff read your password",
-            "It encrypts the password with a shared key"
+            "It lets the site decrypt your password if you forget it",
+            "It encrypts the password with a key shared with your browser",
+            "It makes the stored password shorter and faster to compare"
           ],
           answer: 0,
           explain: "Comparing hashes means the real password is never stored, so a leaked database does not hand attackers the passwords."
@@ -291,9 +291,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a good practice when you must display a stored card or ID number?",
           choices: [
             "Mask most of it and show only the last few digits",
-            "Show the whole number to be helpful",
-            "Post it in a shared chat channel",
-            "Email it in plaintext to the user"
+            "Show the full number only to users who are logged in",
+            "Show the full number but in a smaller, lighter font",
+            "Encode the number in Base64 before showing it on screen"
           ],
           answer: 0,
           explain: "Masking (showing only the last few digits) limits exposure if the screen or log is seen by the wrong person."
@@ -309,9 +309,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why is PII the thing attackers usually go after?",
           choices: [
             "It can be sold, used for identity theft, or used to target people",
-            "It is fun to look at",
-            "It makes servers run faster",
-            "It is never actually valuable"
+            "It is usually stored without any encryption on most servers",
+            "It is the easiest kind of data to crack once it is hashed",
+            "It gives attackers admin access to the server it is stored on"
           ],
           answer: 0,
           explain: "PII fuels identity theft, fraud, and targeted phishing, which is why it must be protected carefully."
@@ -328,9 +328,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is a data breach?",
           choices: [
             "Sensitive data is exposed to or taken by unauthorized people",
-            "A scheduled backup finishing successfully",
-            "A user logging in normally",
-            "A website getting more visitors than usual"
+            "A server goes offline after being flooded with fake traffic",
+            "An attacker tries a password but is blocked by MFA",
+            "A system is found to have a flaw that has not been exploited"
           ],
           answer: 0,
           explain: "A breach means information ended up in the hands of people who were not authorized to have it."
@@ -340,9 +340,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "You learn your password was exposed in a breach. What should you do first?",
           choices: [
             "Change that password and any place you reused it",
-            "Ignore it since breaches are common",
-            "Post about it publicly with the password",
-            "Wait a year to see if anything happens"
+            "Wait for the company to reset the password for you",
+            "Close the account and open a new one with the same password",
+            "Add the password to your password manager as is"
           ],
           answer: 0,
           explain: "Change the exposed password immediately, especially anywhere you reused it, to cut off attacker access."
@@ -411,9 +411,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What is the core idea behind modern privacy laws?",
           choices: [
             "People should have consent and control over their personal data",
-            "Companies can use any data however they like",
-            "Data can never be collected at all",
-            "Only governments are allowed to hold data"
+            "Companies own any data users choose to share with their services",
+            "Personal data may be collected freely if it is stored securely",
+            "Only government agencies are allowed to hold personal data"
           ],
           answer: 0,
           explain: "Privacy laws center on informed consent and giving individuals rights over their own data."
@@ -460,9 +460,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Which practice best respects user privacy when signing people up?",
           choices: [
             "Ask only for the data you actually need and explain why",
-            "Pre-check every optional consent box for them",
-            "Collect everything just in case",
-            "Hide the privacy policy so nobody reads it"
+            "Pre-check the optional consent boxes to save users time",
+            "Collect extra details now in case they are useful later",
+            "Require a full profile before the account can be created"
           ],
           answer: 0,
           explain: "Asking only for what you need, with clear reasons, respects consent and reduces your risk."
@@ -479,9 +479,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "What does data minimization mean?",
           choices: [
             "Collect only the data you truly need, and keep it only as long as needed",
-            "Collect as much data as possible for later",
-            "Never collect any data at all",
-            "Store every log forever"
+            "Compress the data you collect so it takes up as little space as possible",
+            "Collect any data you like, as long as it is encrypted while it is stored",
+            "Delete all user data at the end of each day so nothing is ever stored"
           ],
           answer: 0,
           explain: "Minimization is about limiting both what you collect and how long you keep it."
@@ -504,9 +504,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "A sign-up form asks for a birthdate the app never uses. What does minimization suggest?",
           choices: [
             "Stop collecting it, since it adds risk with no benefit",
-            "Collect it and two more fields for safety",
-            "Store it in plaintext forever",
-            "Sell it to make up the difference"
+            "Keep collecting it but encrypt it so the risk goes away",
+            "Make the field optional but keep storing what users enter",
+            "Collect it now in case a future feature might need it"
           ],
           answer: 0,
           explain: "If a field is not needed, collecting it only increases your breach exposure and liability, so drop it."
@@ -532,9 +532,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "How does data minimization reduce the impact of a breach?",
           choices: [
             "There is simply less sensitive data available to steal",
-            "It makes servers run faster",
-            "It encrypts the attacker's computer",
-            "It hides the breach from the public"
+            "It makes the stolen data harder to decrypt for attackers",
+            "It stops attackers from getting into the system at all",
+            "It removes the need to tell users when a breach happens"
           ],
           answer: 0,
           explain: "A smaller data footprint means a breach exposes less, limiting harm to users and the business."
@@ -569,9 +569,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "How is E2EE different from ordinary HTTPS to a website?",
           choices: [
             "HTTPS protects data to the server, which can still read it; E2EE keeps even the server out",
-            "They are exactly the same thing",
-            "HTTPS is one-way and E2EE is reversible",
-            "E2EE only works for images"
+            "HTTPS encrypts only the login page of a site; E2EE encrypts every page that it sends",
+            "HTTPS protects stored data on the server; E2EE protects it while in transit",
+            "E2EE hashes messages so they can't be read; HTTPS encrypts them with a key"
           ],
           answer: 0,
           explain: "HTTPS encrypts data in transit to the server, but the server can decrypt it; E2EE keeps the content readable only to the endpoints."
@@ -614,9 +614,9 @@ window.ACADEMY.addUnit("cyber", {
           q: "Why do private messaging apps advertise end-to-end encryption?",
           choices: [
             "It assures users that not even the company can read their chats",
-            "It makes messages send faster",
-            "It lets the company scan messages for ads",
-            "It stores messages in plaintext for backup"
+            "It lets the company scan messages for spam before they are delivered",
+            "It makes messages delete themselves once they have been read",
+            "It hides who you are talking to, as well as what you say"
           ],
           answer: 0,
           explain: "E2EE is a strong privacy promise: the content is readable only by the people in the conversation."

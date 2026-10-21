@@ -26,7 +26,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "What is a key promise of BIM across the lifecycle?",
-          choices: ["Information is carried forward instead of lost at each handoff", "Only the design team ever sees the model", "Paper drawings replace all data", "Costs are hidden from the owner"],
+          choices: ["Information is carried forward instead of lost at each handoff", "Each phase builds a fresh model suited to its own needs", "The design model is frozen once construction begins on site", "Only geometry needs to pass between phases, not the data"],
           answer: 0,
           explain: "BIM's lifecycle value comes from reusing information downstream rather than recreating it each phase."
         },
@@ -62,7 +62,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why do handoffs between phases matter so much for BIM?",
-          choices: ["Information can be lost or re-entered by hand at each handoff", "They make the model smaller", "They remove the need for an owner", "They delete the schedule"],
+          choices: ["Information can be lost or re-entered by hand at each handoff", "Each handoff is when the model's LOD must be reset to 100", "Handoffs are the only time clash detection can be run", "The owner takes over authoring of the model at each handoff"],
           answer: 0,
           explain: "Traditionally each handoff loses data; BIM tries to pass structured information forward instead."
         }
@@ -76,7 +76,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "What does coordination in design BIM mainly help with?",
-          choices: ["Finding conflicts between disciplines before construction", "Printing invoices", "Hiring the site crew", "Ordering coffee"],
+          choices: ["Finding conflicts between disciplines before construction", "Producing the as-built record of what was actually installed on site", "Tracking maintenance tasks for installed equipment", "Linking live sensor data to the virtual building model"],
           answer: 0,
           explain: "Coordination brings discipline models together so clashes and conflicts are caught early."
         },
@@ -96,7 +96,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Which is an example of analysis done on a design model?",
-          choices: ["Estimating energy performance", "Signing the lease", "Painting the walls", "Mailing the keys"],
+          choices: ["Estimating energy performance", "Recording as-built conditions", "Tracking equipment service history", "Storing raw scans of the site"],
           answer: 0,
           explain: "Energy, structural, and daylight studies are analyses run against the model geometry and data."
         },
@@ -125,7 +125,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why is it valuable to compare options early in design?",
-          choices: ["Changes are cheaper and easier before construction", "The building is already finished", "It makes the model bigger", "It avoids ever needing a client"],
+          choices: ["Changes are cheaper and easier before construction", "The model can be locked so no later changes are possible", "Late changes cost about the same as early ones in BIM", "Early options let the team skip coordination later"],
           answer: 0,
           explain: "Early changes cost far less than changes made once construction has started."
         }
@@ -188,7 +188,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why is using the model in the field valuable?",
-          choices: ["Crews work from current, coordinated information", "It removes the need to build anything", "It hides the schedule", "It deletes the cost data"],
+          choices: ["Crews work from current, coordinated information", "Crews no longer need drawings or site supervision", "Crews can change the design model directly on site", "Crews can skip the inspections required by the code"],
           answer: 0,
           explain: "Field access keeps the crew aligned with the latest coordinated design and reduces rework."
         }
@@ -202,7 +202,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "What is an as-built model?",
-          choices: ["A model updated to reflect what was actually built", "A model of a different project", "A blank template", "A cost report only"],
+          choices: ["A model updated to reflect what was actually built", "The approved design model issued to the contractor for construction", "A model of the building exactly as it was first designed", "A laser scan point cloud of the finished building"],
           answer: 0,
           explain: "As-built (or as-constructed) models capture what was really built, including on-site changes."
         },
@@ -251,7 +251,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why does structured handover data matter to an owner?",
-          choices: ["It makes operating and maintaining the asset easier", "It makes the building taller", "It replaces the roof", "It ends the lifecycle"],
+          choices: ["It makes operating and maintaining the asset easier", "It lets the owner skip commissioning the building systems", "It transfers design liability from the designers to the owner", "It replaces the need for an operations and maintenance team"],
           answer: 0,
           explain: "Ready-to-use asset data helps the owner run and maintain the building efficiently."
         }
@@ -265,7 +265,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "How can operations teams use BIM data?",
-          choices: ["To locate equipment and plan maintenance", "To design a new city", "To replace the owner", "To delete the building"],
+          choices: ["To locate equipment and plan maintenance", "To produce the original construction schedule", "To prepare tender cost estimates for the design", "To author the structural design calculations"],
           answer: 0,
           explain: "Operators use asset data to find equipment, schedule maintenance, and manage spaces."
         },
@@ -285,7 +285,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Which is a realistic operations use of a good asset dataset?",
-          choices: ["Knowing a pump's model and service history", "Predicting tomorrow's weather", "Choosing the owner's lunch", "Rendering a marketing video"],
+          choices: ["Knowing a pump's model and service history", "Knowing the crane positions used during construction", "Knowing the tender price each contractor submitted", "Knowing the clash count from design coordination"],
           answer: 0,
           explain: "Structured asset data lets operators look up equipment details and maintenance records."
         },
@@ -314,7 +314,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why keep the asset data current during operations?",
-          choices: ["So future decisions rely on accurate information", "So the building gets shorter", "So the owner can ignore it", "So the model deletes itself"],
+          choices: ["So future decisions rely on accurate information", "So the original design model stays unchanged", "So the as-built model can be deleted at handover", "So the contractor can be paid the final retention"],
           answer: 0,
           explain: "Up-to-date data keeps maintenance, upgrades, and space decisions grounded in reality."
         }
@@ -328,7 +328,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "What best describes a digital twin?",
-          choices: ["A live, data-connected virtual replica of a physical asset", "A paper drawing", "A single photograph", "A blank spreadsheet"],
+          choices: ["A live, data-connected virtual replica of a physical asset", "A detailed as-built model handed over at the end of the project", "A copy of the design model kept as a backup for the owner", "A laser scan point cloud captured from the finished building"],
           answer: 0,
           explain: "A digital twin is a virtual replica kept connected to live data from the real asset."
         },
@@ -348,7 +348,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Which capability does a digital twin add beyond a plain 3D model?",
-          choices: ["A live connection to current operating data", "A larger file only", "More paper copies", "A different color scheme"],
+          choices: ["A live connection to current operating data", "A higher level of geometric detail throughout", "A record of the as-built conditions at handover", "A photorealistic rendering of the finished asset"],
           answer: 0,
           explain: "The defining addition is the live link to current data, not just extra geometry."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why is a live data connection central to a digital twin?",
-          choices: ["It lets the virtual replica reflect the real asset's current state", "It makes the asset invisible", "It removes the need for the asset", "It stops all sensors"],
+          choices: ["It lets the virtual replica reflect the real asset's current state", "It lets the twin replace the need for physical inspections entirely", "It lets designers keep editing the original design model remotely", "It lets the model store a higher level of geometric detail"],
           answer: 0,
           explain: "The connection keeps the twin synchronized with what is actually happening on the asset."
         }
@@ -411,7 +411,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "What is the goal of the Scan-to-BIM process?",
-          choices: ["Turn scan data into a usable model", "Erase the building", "Print more paper", "Hide the point cloud"],
+          choices: ["Turn scan data into a usable model", "Check a new design for clashes", "Capture photos for a site report", "Store raw point clouds in the CDE"],
           answer: 0,
           explain: "The point is to convert captured reality into a structured, usable model."
         },
@@ -440,7 +440,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why capture existing conditions before renovation work?",
-          choices: ["To design accurately against what really exists", "To make the walls thicker", "To avoid ever measuring", "To delete the building"],
+          choices: ["To design accurately against what really exists", "To avoid having to model the existing building at all", "To create the final as-built record of the renovation", "To replace the need for a design team on the project"],
           answer: 0,
           explain: "Accurate existing conditions let designers plan renovations that fit the real space."
         }
@@ -503,7 +503,7 @@ window.ACADEMY.addUnit("bim", {
         {
           type: "mcq",
           q: "Why treat BIM as a process rather than just software?",
-          choices: ["Because value comes from managing information, not one tool", "Because software never changes", "Because data is unimportant", "Because owners are irrelevant"],
+          choices: ["Because value comes from managing information, not one tool", "Because the software must be replaced on every new project", "Because standards forbid using one tool for the whole project", "Because process documents matter more than the model itself"],
           answer: 0,
           explain: "BIM is fundamentally about managing information across the lifecycle, beyond any single tool."
         }

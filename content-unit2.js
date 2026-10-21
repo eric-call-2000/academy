@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("content", {
           q: "Focusing on a niche helps a new channel because it:",
           choices: [
             "Makes it clear who the channel is for and builds a loyal audience",
-            "Guarantees a million subscribers",
-            "Removes the need for good videos",
-            "Lets you skip thumbnails"
+            "Lets the channel rank first for nearly every search in its topic",
+            "Means the channel no longer needs strong titles and thumbnails",
+            "Lets the channel reach the widest possible general audience fast"
           ],
           answer: 0,
           explain: "A clear niche attracts a defined audience and helps recommendations."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("content", {
           q: "A niche that is too broad tends to:",
           choices: [
             "Struggle to build a consistent, returning audience",
-            "Always grow fastest",
-            "Rank first in every search",
-            "Require no effort"
+            "Grow faster, since it appeals to more people",
+            "Rank well in search for many topics at once",
+            "Make it easier for YouTube to know who to recommend it to"
           ],
           answer: 0,
           explain: "Without focus, viewers have no reason to return for more of the same."
@@ -85,9 +85,9 @@ window.ACADEMY.addUnit("content", {
           q: "A niche with demand but no passion tends to lead to:",
           choices: [
             "Burnout, because you dread making the videos",
-            "Instant success forever",
-            "Perfect audio automatically",
-            "No need to edit"
+            "Faster growth, since demand is all that matters",
+            "Steady success as long as you upload on schedule",
+            "Better videos, since you stay detached from the topic"
           ],
           answer: 0,
           explain: "Without genuine interest, the long grind of YouTube causes burnout."
@@ -116,9 +116,9 @@ window.ACADEMY.addUnit("content", {
           q: "Ignoring demand entirely usually means:",
           choices: [
             "Making great videos few people are looking for",
-            "Guaranteed viral hits",
-            "Higher ad revenue",
-            "More subscribers automatically"
+            "Getting more views, since there is less rivalry",
+            "Earning higher ad rates because the topic is rare",
+            "Growing faster because the channel stands out"
           ],
           answer: 0,
           explain: "Without demand, even excellent videos struggle to find an audience."
@@ -195,9 +195,9 @@ window.ACADEMY.addUnit("content", {
           q: "Studying successful channels in your niche helps you:",
           choices: [
             "See what resonates and spot gaps to fill",
-            "Copy their videos exactly",
-            "Avoid ever making videos",
-            "Skip understanding your audience"
+            "Copy their best videos almost scene for scene",
+            "Learn the exact tags that make their videos rank",
+            "Match their upload schedule and video length"
           ],
           answer: 0,
           explain: "Analysis reveals proven formats and unmet needs, not exact copies to steal."
@@ -236,9 +236,9 @@ window.ACADEMY.addUnit("content", {
           q: "A healthy way to view competitors is as:",
           choices: [
             "A source of proven demand and inspiration",
-            "Enemies to attack",
-            "People to imitate exactly",
-            "Irrelevant to your channel"
+            "Rivals you must beat for every single viewer",
+            "A template to imitate as closely as you can",
+            "Irrelevant if your own videos are good"
           ],
           answer: 0,
           explain: "Competitors validate demand and inspire your own differentiated take."
@@ -255,9 +255,9 @@ window.ACADEMY.addUnit("content", {
           q: "Your unique angle (positioning) is:",
           choices: [
             "The clear reason a viewer chooses you over similar channels",
-            "The number of videos you post",
-            "Your camera brand",
-            "Your upload time"
+            "The broad topic area your channel covers, such as gaming",
+            "The number of videos you post each week on a fixed schedule",
+            "The visual style of your thumbnails and channel banner"
           ],
           answer: 0,
           explain: "Positioning is what makes you the obvious pick in your niche."
@@ -296,9 +296,9 @@ window.ACADEMY.addUnit("content", {
           q: "Without a clear angle, a channel risks:",
           choices: [
             "Blending in and being forgettable",
-            "Growing too fast",
-            "Earning too much money",
-            "Getting too many comments"
+            "Growing too fast to keep up with",
+            "Being too narrow for most viewers",
+            "Getting flagged by the algorithm"
           ],
           answer: 0,
           explain: "No angle means no reason to choose you, so you blend into the crowd."
@@ -315,9 +315,9 @@ window.ACADEMY.addUnit("content", {
           q: "Consistency across your videos helps because it:",
           choices: [
             "Sets clear expectations so viewers know what they will get",
-            "Increases your resolution",
-            "Removes the need for good ideas",
-            "Adds more tags"
+            "Tells the algorithm to push every upload to subscribers",
+            "Lets you reuse the same ideas without viewers noticing",
+            "Lets you skip planning, since every video is the same"
           ],
           answer: 0,
           explain: "Predictable value and style make viewers comfortable subscribing."
@@ -356,9 +356,9 @@ window.ACADEMY.addUnit("content", {
           q: "Consistency does NOT mean:",
           choices: [
             "Never improving or trying anything new",
-            "A recognizable style",
-            "Reliable value",
-            "A clear topic focus"
+            "A recognizable style across your videos",
+            "Delivering reliable value in every video",
+            "Keeping a clear focus on one main topic"
           ],
           answer: 0,
           explain: "Consistency is about a reliable core, not refusing to evolve."
@@ -375,9 +375,9 @@ window.ACADEMY.addUnit("content", {
           q: "A good channel name and banner should:",
           choices: [
             "Quickly tell visitors what the channel is about",
-            "Be as confusing as possible",
-            "Hide the topic entirely",
-            "Change every week"
+            "Be clever and mysterious to spark curiosity",
+            "Feature your face rather than the topic",
+            "Change often so the channel feels fresh"
           ],
           answer: 0,
           explain: "Clarity helps new visitors instantly understand and subscribe."
@@ -416,9 +416,9 @@ window.ACADEMY.addUnit("content", {
           q: "A common branding mistake is:",
           choices: [
             "A name or banner that gives no hint of the content",
-            "A clear, simple name",
-            "A readable banner",
-            "A consistent avatar"
+            "A short, simple name that is easy to remember",
+            "A banner that names the topic in readable text",
+            "Using the same avatar across all your social accounts"
           ],
           answer: 0,
           explain: "If branding does not signal the content, visitors bounce."
@@ -446,9 +446,9 @@ window.ACADEMY.addUnit("content", {
           q: "Constantly switching niches every few videos tends to:",
           choices: [
             "Reset your momentum and confuse your audience",
-            "Guarantee faster growth",
-            "Improve your retention",
-            "Increase ad revenue"
+            "Help you find your audience faster by testing",
+            "Keep the algorithm interested with new topics",
+            "Grow the channel by reaching more audiences"
           ],
           answer: 0,
           explain: "Frequent pivots prevent an audience and the algorithm from forming around you."
@@ -487,9 +487,9 @@ window.ACADEMY.addUnit("content", {
           q: "The payoff of committing to a clear direction is:",
           choices: [
             "An audience and algorithm that understand and recommend you",
-            "Guaranteed overnight fame",
-            "No need to ever improve",
-            "Automatic monetization"
+            "Freedom to stop analyzing your data once your style is set",
+            "Automatic eligibility for monetization after a set time",
+            "A guarantee that every new upload will outperform the last"
           ],
           answer: 0,
           explain: "Commitment lets both viewers and YouTube build an understanding of your channel."

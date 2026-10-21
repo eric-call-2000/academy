@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why does altruistic self-sacrifice pose a paradox for classical natural selection?",
           choices: [
             "It reduces the altruist's own survival and reproduction, so genes for it should be eliminated",
-            "It always benefits unrelated competitors more than the group",
-            "It requires conscious moral reasoning that animals lack",
-            "It increases the mutation rate of nearby genes"
+            "It always benefits unrelated competitors more than it benefits the altruist's own group of relatives",
+            "It requires conscious moral reasoning, which most animals do not have the capacity for",
+            "It raises the mutation rate of nearby genes, making the altruist's offspring less fit"
           ],
           answer: 0,
           explain: "Selection favors traits that raise an individual's own reproductive success; a behavior that lowers it should be weeded out, which is the puzzle."
@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A ground squirrel gives an alarm call that draws a predator's attention to itself while warning others. This is a classic example of what?",
           choices: [
-            "Mutualism with the predator",
+            "Mutualism, since both the caller and the rest of the group gain equally",
             "Apparent altruism, because the caller risks itself to benefit others",
-            "Pure selfishness with no cost",
-            "Genetic drift"
+            "Pure selfishness, since calling has no cost to the caller",
+            "Kin selection proven, since callers only warn offspring"
           ],
           answer: 1,
           explain: "The caller increases its own risk to benefit others, the hallmark of behavioral altruism that the paradox seeks to explain."
@@ -110,10 +110,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What key insight did Hamilton's 1964 work provide about altruism?",
           choices: [
-            "Altruism is a learned cultural behavior with no genetic basis",
+            "Altruism is a learned cultural behavior with no genetic basis that selection could act on at all",
             "Genes can spread by causing their bearers to help genetic relatives who also carry those genes",
-            "Altruism only evolves in humans",
-            "Altruism requires group selection acting against individual selection"
+            "Altruism evolves only in humans, who can understand the value of helping their family members",
+            "Altruism needs group selection to act against individual selection for it to spread in a population"
           ],
           answer: 1,
           explain: "Hamilton showed a gene for altruism can spread if it helps copies of itself in relatives reproduce, a gene's-eye view of selection."
@@ -299,10 +299,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Inclusive fitness is best defined as:",
           choices: [
-            "Only the offspring an individual produces directly",
+            "Only the number of offspring an individual produces directly during its own lifetime",
             "An individual's direct reproduction plus its effect on relatives' reproduction, weighted by relatedness",
-            "The total number of individuals in a population",
-            "The average lifespan of a species"
+            "The total reproduction of a group, divided equally among every member of that group",
+            "An individual's own offspring plus all the offspring of every one of its relatives, each counted at full value"
           ],
           answer: 1,
           explain: "Inclusive fitness combines direct (personal) reproduction with indirect contributions from helping relatives, each discounted by r."
@@ -334,10 +334,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why does the indirect fitness component weight a relative's extra offspring by the relatedness r?",
           choices: [
-            "Because r sets the number of offspring a relative can have",
+            "Because r sets the maximum number of offspring that any relative is able to have in its lifetime",
             "Because only a fraction r of the relative's genes are shared by descent with the helper",
-            "Because r measures the physical distance between relatives",
-            "Because relatives always reproduce at rate r"
+            "Because r measures how close the relatives live to each other in their shared habitat",
+            "Because relatives always reproduce at rate r, whatever the helper does for them"
           ],
           answer: 1,
           explain: "Each offspring the relative produces carries the helper's genes only with probability r, so the contribution is discounted by r."
@@ -441,10 +441,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In haplodiploid species like bees, ants, and wasps, how is sex determined?",
           choices: [
-            "Females develop from unfertilized eggs and are haploid",
+            "Females develop from unfertilized eggs and are haploid; males from fertilized eggs are diploid",
             "Males develop from unfertilized eggs and are haploid; females from fertilized eggs are diploid",
-            "Both sexes are always diploid",
-            "Sex is determined purely by temperature"
+            "Both sexes develop from fertilized eggs, and the queen's diet decides which sex each becomes",
+            "Sex is set by the temperature of the nest while the eggs are developing in the colony"
           ],
           answer: 1,
           explain: "In haplodiploidy, males arise from unfertilized (haploid) eggs and females from fertilized (diploid) eggs, which skews relatedness patterns."
@@ -494,10 +494,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is a sterile worker caste, characteristic of eusocial insects?",
           choices: [
-            "A group that reproduces more than the queen",
+            "Individuals that reproduce more than the queen and take over the colony's breeding",
             "Individuals that forgo their own reproduction to help raise the queen's offspring",
-            "Males that fertilize all eggs in the colony",
-            "Solitary insects that never cooperate"
+            "Males whose only role is to fertilize all of the eggs that the queen lays",
+            "Young females that leave the colony to found new nests of their own"
           ],
           answer: 1,
           explain: "Sterile workers give up direct reproduction and instead raise the queen's brood, gaining inclusive fitness through their relatives."
@@ -513,10 +513,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What defines a 'greenbeard' gene?",
           choices: [
-            "A gene that causes altruism only toward close family members",
+            "A gene that causes altruism only toward close family members, based on how closely related they are to the bearer",
             "A gene that produces a recognizable signal, recognizes that signal in others, and directs help toward bearers of it",
-            "A gene that lowers relatedness between siblings",
-            "A gene expressed only in males"
+            "A gene that lowers the relatedness between siblings so that helping them becomes less valuable",
+            "A gene that produces a visible signal but has no effect on how bearers treat each other"
           ],
           answer: 1,
           explain: "A greenbeard gene must do three things: create a perceptible tag, let bearers recognize the tag, and cause preferential help toward fellow tag-bearers."
@@ -539,9 +539,9 @@ window.ACADEMY.addUnit("egt", {
           q: "How does a greenbeard mechanism differ from ordinary kin selection?",
           choices: [
             "It relies on a shared recognizable trait rather than genealogical relatedness",
-            "It only works among identical twins",
-            "It requires the recipients to be unrelated",
-            "It ignores the gene's own propagation"
+            "It only works among identical twins, who share all of their genes",
+            "It requires that the recipients be unrelated to the helper",
+            "It ignores whether the gene itself is passed on to the next generation of the colony"
           ],
           answer: 0,
           explain: "Kin selection uses genealogical relatedness as a statistical proxy for shared genes; greenbeards detect the shared gene directly via its signal."

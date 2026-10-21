@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Which statement best describes a strictly dominant strategy?",
           choices: [
-            "A strategy that does better than every alternative only if opponents cooperate",
+            "A strategy that does better than every alternative, but only when the opponents choose to cooperate",
             "A strategy that yields a strictly higher payoff than any alternative, no matter what opponents do",
-            "A strategy that copies whatever the opponent plays",
-            "A strategy that is best only on average across random opponents"
+            "A strategy that gives the highest payoff when averaged over random opponent choices",
+            "A strategy that is never worse than any alternative and is sometimes exactly equal"
           ],
           answer: 1,
           explain: "A strictly dominant strategy beats all of the player's other options against every possible opponent choice, so its optimality never depends on predicting the opponent."
@@ -40,9 +40,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In the Prisoner's Dilemma, why is Defect a dominant strategy?",
           choices: [
             "Because it gives a higher payoff whether the other prisoner cooperates or defects",
-            "Because both prisoners agree to it in advance",
-            "Because it guarantees the socially best outcome",
-            "Because it is chosen at random"
+            "Because both prisoners agree in advance to defect if questioned",
+            "Because mutual defection gives the two prisoners their highest combined total payoff",
+            "Because it is the only strategy that keeps the other prisoner honest"
           ],
           answer: 0,
           explain: "Each player earns more by defecting against either opponent choice, making Defect strictly dominant even though mutual cooperation would pay both more."
@@ -86,9 +86,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Iterated elimination of dominated strategies simplifies a game by:",
           choices: [
             "Deleting dominated strategies, then re-checking the smaller game for newly dominated strategies, and repeating",
-            "Deleting the highest-payoff strategy each round",
-            "Merging both players into one decision maker",
-            "Adding random noise until one strategy survives"
+            "Deleting each player's lowest-payoff strategy every round until exactly one strategy is left for each of the players",
+            "Finding the strategy with the highest average payoff and removing all of the strategies that remain",
+            "Deleting dominated strategies for one player only, in a single pass, and then stopping"
           ],
           answer: 0,
           explain: "Pruning a dominated strategy can make other strategies dominated in the smaller game, so the deletion process iterates until none remain."
@@ -131,10 +131,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why might a strategy that was NOT dominated at the start become removable later?",
           choices: [
-            "Because payoffs change randomly between rounds",
+            "Because the payoffs in the game change from round to round as players learn",
             "Because deleting an opponent's strategy can leave it strictly dominated in the smaller game",
-            "Because players are allowed to add new strategies",
-            "Because a referee forces its removal"
+            "Because players may add new, better strategies after the first deletion",
+            "Because each deletion makes every one of the remaining strategies weakly better than it was before"
           ],
           answer: 1,
           explain: "Removing an opponent's dominated strategy narrows the situations a strategy must handle, and it may then be strictly dominated and eliminated in turn."
@@ -156,10 +156,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is a best response?",
           choices: [
-            "The strategy that hurts the opponent the most",
-            "The strategy opponents expect you to avoid",
+            "The strategy that lowers the opponent's payoff as much as possible",
+            "The strategy that maximizes your payoff averaged over all possible opponent moves",
             "The strategy that maximizes your payoff given what the opponents are doing",
-            "Any strategy chosen with equal probability"
+            "The strategy that does best in the worst case, whatever the opponents do"
           ],
           answer: 2,
           explain: "A best response is defined relative to fixed opponent strategies: it is whatever choice gives you the highest payoff against them."
@@ -192,9 +192,9 @@ window.ACADEMY.addUnit("egt", {
           q: "How does the best-response idea define a Nash equilibrium?",
           choices: [
             "It is a profile in which every player's strategy is a best response to the others'",
-            "It is a profile where one player best-responds and the rest do not",
-            "It is the strategy that the loser must play",
-            "It is any random combination of strategies"
+            "It is a profile in which at least one player best-responds while the rest may not",
+            "It is a profile in which each player uses a strategy that is dominant for them",
+            "It is a profile that maximizes the sum of all the players' payoffs taken together as a group"
           ],
           answer: 0,
           explain: "A Nash equilibrium is exactly a mutual-best-response profile: each player's choice is a best response to everyone else's, so no one wants to switch."
@@ -226,10 +226,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "A Nash equilibrium is a strategy profile in which:",
           choices: [
-            "One player earns the maximum possible payoff",
+            "Every player earns the highest payoff that the game can possibly offer them",
             "No player can raise their payoff by unilaterally changing strategy",
-            "All players earn identical payoffs",
-            "Every player uses a dominant strategy"
+            "All players earn identical payoffs, so no one has a reason to complain",
+            "Every player is using a strictly dominant strategy against the others"
           ],
           answer: 1,
           explain: "The defining property is unilateral stability: holding others fixed, no single player can do better by deviating."
@@ -298,9 +298,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What did John Nash prove in 1950?",
           choices: [
             "Every finite game has at least one Nash equilibrium, allowing mixed strategies",
-            "Every game has a dominant strategy",
-            "No game can have more than one equilibrium",
-            "Cooperation is always rational"
+            "Every finite game has a pure-strategy equilibrium that players will reach",
+            "Every two-player game has exactly one equilibrium, which can be found by elimination",
+            "Cooperation is always the rational choice when a game is played repeatedly"
           ],
           answer: 0,
           explain: "Nash's existence theorem guarantees at least one equilibrium in any game with finitely many players and strategies, though it may require mixed strategies."
@@ -322,10 +322,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Nash's theorem requires the game to have:",
           choices: [
-            "Infinitely many players",
+            "At least two players and a strategy that is strictly dominant",
             "Finitely many players and finitely many strategies each",
-            "Only two possible payoffs",
-            "A dominant strategy for someone"
+            "Payoffs measured in money and players who move at the same time",
+            "Infinitely many strategies so that mixing is always possible"
           ],
           answer: 1,
           explain: "The theorem applies to finite games: a finite number of players, each with a finite set of pure strategies."
@@ -351,10 +351,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Nash's contribution to game theory was later recognized with which honor?",
           choices: [
-            "The Fields Medal in 1950",
-            "The Turing Award in 1970",
+            "The John Bates Clark Medal awarded in 1950 for young economists",
+            "The Fields Medal in Mathematics awarded in 1958 for his early work",
             "The Nobel Memorial Prize in Economic Sciences in 1994",
-            "No major award"
+            "The Turing Award in Computer Science for his work on equilibria"
           ],
           answer: 2,
           explain: "John Nash shared the 1994 Nobel Memorial Prize in Economic Sciences with John Harsanyi and Reinhard Selten for his equilibrium work."
@@ -370,10 +370,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is the difference between a pure and a mixed strategy?",
           choices: [
-            "A pure strategy always randomizes; a mixed strategy never does",
+            "A pure strategy is used in one-shot games; a mixed strategy is used only in repeated games",
             "A pure strategy picks one action for sure; a mixed strategy assigns probabilities to actions",
-            "A pure strategy is only for two-player games",
-            "There is no real difference between them"
+            "A pure strategy uses one action throughout; a mixed strategy switches between actions in a fixed pattern",
+            "A pure strategy is chosen by rational players; a mixed strategy is used by irrational ones"
           ],
           answer: 1,
           explain: "A pure strategy is a deterministic single action, while a mixed strategy is a probability distribution over the player's pure strategies."
@@ -471,10 +471,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why must a Matching Pennies player randomize 50-50?",
           choices: [
-            "To guarantee a win every round",
+            "To guarantee that they win at least half of all rounds",
             "So the opponent cannot exploit any predictable pattern",
-            "Because the rules forbid pure strategies",
-            "To turn the game into a cooperative one"
+            "Because the rules of the game forbid pure strategies",
+            "To make the opponent's best response a pure strategy"
           ],
           answer: 1,
           explain: "Any predictable bias could be exploited by the opponent; mixing 50-50 keeps the opponent indifferent and unable to gain from prediction."
@@ -512,10 +512,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is the 'multiple equilibria problem'?",
           choices: [
-            "A game has no equilibrium at all",
+            "A game has no equilibrium at all, so the theory cannot predict anything",
             "A game has several equilibria and the theory does not say which will occur",
-            "Players always pick the worst equilibrium",
-            "Equilibria only exist in mixed strategies"
+            "Players always end up at the equilibrium that is worst for both of them",
+            "Every equilibrium of the game requires the players to use mixed strategies at random"
           ],
           answer: 1,
           explain: "When more than one Nash equilibrium exists, the equilibrium concept alone fails to predict a single outcome, creating a selection problem."

@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What is the central claim of cultural psychology?",
           choices: [
-            "Culture and mind are separate variables that rarely interact",
+            "Culture and mind are separate variables, and culture acts as an outside cause on the mind",
             "Culture and mind mutually constitute one another and cannot be fully separated",
-            "Mind determines culture but culture never shapes mind",
-            "Biology alone explains all psychological differences"
+            "Mind creates culture, but once formed, culture has little effect on how people think",
+            "Universal biological processes explain the mind, with culture adding only surface variation"
           ],
           answer: 1,
           explain: "Cultural psychology's defining premise is that culture and mind make each other up; they are entangled, not independent factors."
@@ -65,10 +65,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Why does cultural psychology avoid calling culture an independent variable?",
           choices: [
-            "Because culture cannot be studied scientifically",
+            "Because culture is too vague a concept to be measured with standard scientific methods",
             "Because the mind is entangled with culture, so they are not cleanly separable causes and effects",
-            "Because culture has no measurable effect on behavior",
-            "Because psychologists cannot define culture"
+            "Because culture's effects on behavior are too small to show up reliably in experiments",
+            "Because cultures change too fast for any measurement of them to stay valid for long, so they cannot be compared"
           ],
           answer: 1,
           explain: "Treating culture as an independent variable assumes it is separable from mind; cultural psychology holds they are mutually constitutive."
@@ -84,10 +84,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Who is most associated with the claim that psyche and culture \"make each other up\"?",
           choices: [
-            "Sigmund Freud",
+            "Immanuel Kant",
             "Richard Shweder",
-            "B.F. Skinner",
-            "Jean Piaget"
+            "Geert Hofstede",
+            "Harry C. Triandis"
           ],
           answer: 1,
           explain: "Richard Shweder, a founding figure of cultural psychology, formulated the mutual constitution principle."
@@ -109,10 +109,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What does the mutual constitution principle reject?",
           choices: [
-            "That culture and psyche influence each other at all",
-            "That psychology should study behavior",
+            "That culture and psyche continually influence each other through everyday practices",
+            "That psychological processes can be studied through observable behavior",
             "That either culture or mind is prior to and independent of the other",
-            "That cultures differ from one another"
+            "That cultures differ from one another in their meanings and practices"
           ],
           answer: 2,
           explain: "Mutual constitution denies that one side is a fixed, independent cause; each is constituted through the other."
@@ -154,10 +154,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "In cultural psychology, culture is best understood as:",
           choices: [
-            "A person's genetic inheritance",
+            "A group's shared genetic inheritance passed across generations",
             "A shared system of symbols, meanings, and practices",
-            "The climate and geography of a region",
-            "An individual's private opinions"
+            "The climate, geography, and resources of a region",
+            "The sum of individuals' private opinions and tastes"
           ],
           answer: 1,
           explain: "Culture is treated as shared meaning systems (symbols, practices, and scripts), not biology or geography."
@@ -189,9 +189,9 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Why do meaning systems guide behavior rather than fully determine it?",
           choices: [
-            "Because people ignore culture entirely",
-            "Because meanings are identical for every individual",
-            "Because behavior is controlled only by instinct",
+            "Because people mostly set cultural meanings aside when making important personal decisions",
+            "Because the same meanings are held identically by every member, leaving no room for choice",
+            "Because instincts drive most behavior, and meanings are only labels added after the fact",
             "Because they provide shared interpretations and expectations that people draw on and negotiate"
           ],
           answer: 3,
@@ -224,10 +224,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "How does cross-cultural psychology typically treat culture?",
           choices: [
-            "As inseparable from the mind",
+            "As inseparable from the mind, so traits cannot be compared across groups",
             "As an independent variable used to compare traits across groups",
-            "As irrelevant to psychology",
-            "As identical in every society"
+            "As shared meanings to be described through long-term fieldwork in one place",
+            "As a set of local concepts from which new, culture-specific theories are built"
           ],
           answer: 1,
           explain: "Cross-cultural psychology often treats culture as an independent variable and compares measured traits across cultures."
@@ -260,7 +260,7 @@ window.ACADEMY.addUnit("culture", {
           q: "A researcher administers the identical personality questionnaire in 30 countries and compares average scores. This is most characteristic of:",
           choices: [
             "Cultural psychology",
-            "Cultural anthropology",
+            "Psychological anthropology",
             "Cross-cultural psychology",
             "Indigenous psychology"
           ],
@@ -294,10 +294,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What is the primary focus of cultural anthropology compared with cultural psychology?",
           choices: [
-            "Statistical testing of universal laws",
+            "Statistical testing of universal laws of human behavior",
             "Ethnographic description of customs and ways of life",
-            "Brain imaging of individuals",
-            "Measuring reaction times in a lab"
+            "Brain imaging to locate cultural differences in individuals",
+            "Laboratory experiments measuring perception and reaction times"
           ],
           answer: 1,
           explain: "Cultural anthropology centers on ethnographic description of customs, whereas cultural psychology targets psychological processes."
@@ -329,10 +329,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Which question is more distinctly a cultural psychology question?",
           choices: [
-            "What are the kinship terms used in this village?",
-            "How is this festival performed each year?",
+            "What kinship terms does this village use for relatives on each side of the family?",
+            "How is this harvest festival performed each year, and who takes part in it?",
             "How does growing up in this community shape people's sense of self?",
-            "What foods are eaten during the harvest?"
+            "Which foods are eaten during the harvest, and how are they prepared?"
           ],
           answer: 2,
           explain: "Asking how a cultural setting shapes the self targets psychological process, the focus of cultural psychology."
@@ -364,10 +364,10 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "What defines indigenous psychology?",
           choices: [
-            "Applying Western theories unchanged to every culture",
+            "Applying established Western theories unchanged to every culture being studied",
             "Developing psychological frameworks grounded in a specific culture's own concepts",
-            "Studying only laboratory animals",
-            "Ignoring culture entirely"
+            "Comparing scores on standard tests across many cultures to find universal traits",
+            "Studying the traditional healing practices of native peoples as a branch of medicine"
           ],
           answer: 1,
           explain: "Indigenous psychology builds theories from within a culture, using its own locally meaningful concepts."
@@ -400,9 +400,9 @@ window.ACADEMY.addUnit("culture", {
           q: "An etic approach is best described as:",
           choices: [
             "Outsider, comparative, and aiming at universal categories",
-            "Insider, culture-specific, and local",
-            "Concerned only with one person's biography",
-            "Focused on brain chemistry"
+            "Insider, culture-specific, and built from local categories",
+            "Focused on one person's life history in close detail",
+            "Grounded in brain chemistry rather than social meaning"
           ],
           answer: 0,
           explain: "Etic takes an outsider, comparative stance seeking categories that apply across cultures."
@@ -540,9 +540,9 @@ window.ACADEMY.addUnit("culture", {
           type: "mcq",
           q: "Which finding best illustrates culture shaping emotion?",
           choices: [
-            "All people everywhere value the exact same emotions equally",
-            "Emotions have no connection to culture",
-            "Only facial muscles matter for emotion",
+            "People everywhere value the same emotions equally, regardless of upbringing",
+            "Basic facial expressions are recognized at above-chance rates across many cultures",
+            "Emotions arise from facial muscle movements that work the same way in every person",
             "Cultures differ in which emotional states they idealize and encourage"
           ],
           answer: 3,

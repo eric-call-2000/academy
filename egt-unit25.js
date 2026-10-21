@@ -122,10 +122,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why does the yellow sneaker morph beat the orange morph?",
           choices: [
-            "Yellow males are larger and win direct fights",
+            "Yellow males are larger and win direct fights with orange males over territory",
             "Orange males cannot defend their large territories against female-mimicking sneakers",
-            "Yellow males guard females more closely than orange do",
-            "Orange males refuse to mate at all"
+            "Yellow males guard their females more closely than orange males are able to",
+            "Orange males spend all their time fighting blue males and never mate at all"
           ],
           answer: 1,
           explain: "Orange males hold territories too big to police, so female-mimicking yellow males slip in and steal matings, letting yellow beat orange."
@@ -173,9 +173,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What is a singular strategy in adaptive dynamics?",
           choices: [
             "A trait value where the local selection gradient is zero",
-            "A trait that can never be invaded by anything",
-            "A strategy used by only one individual",
-            "The largest possible value of the trait"
+            "A trait value that can never be invaded by any nearby mutant strategy",
+            "A strategy that is used by only one individual in the whole population",
+            "The largest possible value that the trait can take in the population"
           ],
           answer: 0,
           explain: "At a singular strategy the local selection gradient vanishes, and its further behavior depends on the stability properties evaluated there."
@@ -326,10 +326,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "The transmission (expectation) term of the Price equation captures...",
           choices: [
-            "random sampling error only",
+            "random sampling error and nothing else",
             "systematic differences between parents and their offspring",
             "the number of species in an ecosystem",
-            "the covariance of two unrelated traits"
+            "the covariance between fitness and the trait in parents"
           ],
           answer: 1,
           explain: "The E(w times delta-z) term measures transmission bias, such as mutation or imperfect inheritance, by which offspring trait values differ from their parents'."
@@ -363,9 +363,9 @@ window.ACADEMY.addUnit("egt", {
           q: "The replicator-mutator equation extends the replicator dynamics by adding...",
           choices: [
             "a mutation or learning matrix that lets one type produce another",
-            "a term that removes all mutation",
-            "an assumption of infinite fitness",
-            "a fixed limit of exactly two strategies"
+            "a term that removes all mutation and keeps each type exactly as it was",
+            "an assumption of infinite fitness for the most common type in the population",
+            "a fixed limit of exactly two strategies that can compete at any time"
           ],
           answer: 0,
           explain: "A mutation matrix Q gives the probability that a parent of one type produces, or is learned as, another type, coupling reproduction with imperfect transmission."
@@ -374,10 +374,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Martin Nowak and colleagues applied the replicator-mutator equation to the evolution of...",
           choices: [
-            "predator-prey cycles",
-            "antibiotic resistance only",
+            "predator-prey population cycles",
+            "antibiotic resistance in bacteria",
             "language and universal grammar",
-            "planetary orbits"
+            "stock market trading strategies"
           ],
           answer: 2,
           explain: "Nowak, Komarova, and Niyogi used it around 2001 to model how grammars spread and how learning fidelity shapes the emergence of a shared language."
@@ -437,7 +437,7 @@ window.ACADEMY.addUnit("egt", {
             "genetic inheritance only",
             "social learning and imitation",
             "random mutation of DNA",
-            "physical migration alone"
+            "migration between distant regions"
           ],
           answer: 1,
           explain: "Cultural traits pass between individuals by imitation and teaching rather than genes, so they can spread within a single generation."
@@ -507,9 +507,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Evolutionary game theory is useful in economics mainly because it replaces the assumption of...",
           choices: [
             "perfectly rational, all-knowing agents with boundedly rational agents who learn and adapt",
-            "money with barter",
-            "competition with monopoly",
-            "supply with demand"
+            "money with barter, so that agents trade goods directly without a common currency",
+            "competition between firms with a single monopoly that sets prices for the market",
+            "supply and demand with a planner who decides how much of each good to produce"
           ],
           answer: 0,
           explain: "Instead of perfect rationality, EGT models agents who adjust strategies over time through learning and imitation, converging toward equilibria or cycling."
@@ -541,10 +541,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Empirical game-theoretic analysis (used to study AI agents such as game-playing systems) works by...",
           choices: [
-            "assuming every agent is perfectly rational",
+            "assuming every agent is perfectly rational and computing the equilibrium directly",
             "estimating a game's payoffs from simulated matches, then analyzing its dynamics",
-            "ignoring strategy interactions entirely",
-            "solving the game by hand with pencil and paper"
+            "ignoring how strategies interact and ranking each agent by its average score",
+            "solving the game by hand with pencil and paper before any matches are played"
           ],
           answer: 1,
           explain: "EGTA builds an empirical payoff matrix from simulated or played games and then applies evolutionary tools such as replicator dynamics to understand strategies."

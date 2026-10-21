@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "In operant research, what does a 'concurrent schedule' arrange?",
           choices: [
             "Two or more reinforcement schedules available at the same time, so the organism can choose between them",
-            "A single schedule whose rate changes every minute",
-            "A schedule that delivers reinforcement only after a fixed delay",
-            "A punishment schedule paired with extinction"
+            "A single schedule whose ratio or interval requirement changes every minute without any signal",
+            "A sequence of schedules that must be completed in a fixed order before reinforcement is delivered",
+            "Two schedules that alternate over time, each signaled by its own stimulus, with only one active at once"
           ],
           answer: 0,
           explain: "Concurrent schedules run two (or more) schedules simultaneously on separate responses, letting researchers watch how behavior is divided between them -- the operant definition of choice."
@@ -49,10 +49,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Why do experimenters often add a 'changeover delay' (COD) to concurrent schedules?",
           choices: [
-            "To make each reinforcer larger",
+            "To make each reinforcer larger after the organism switches between keys",
             "To keep rapid alternating between keys from being accidentally reinforced",
-            "To punish every response",
-            "To guarantee equal reinforcement on both keys"
+            "To punish every switch so the organism stays on its preferred key",
+            "To guarantee that both keys deliver exactly equal rates of reinforcement"
           ],
           answer: 1,
           explain: "Without a COD, a reinforcer that arrives just after a switch can reward the switching itself; the short delay ensures reinforcement follows genuine responding on an option."
@@ -110,9 +110,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "A pigeon earns 30 reinforcers per hour on the left key and 10 per hour on the right key. What does the matching law predict?",
           choices: [
             "It makes about 75% of its responses on the left key",
-            "It responds only on the right key",
-            "It splits responses exactly 50/50",
-            "It stops responding entirely"
+            "It responds only on the left key, since it pays more",
+            "It splits its responses exactly 50/50 between the keys",
+            "It makes about 25% of its responses on the left key"
           ],
           answer: 0,
           explain: "The left key provides 30 of 40 total reinforcers, or 75%, so matching predicts about 75% of responses go to the left key."
@@ -179,10 +179,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which factor is a common source of bias in a concurrent-choice study?",
           choices: [
-            "The two options provide identical reinforcers",
+            "The two options providing identical reinforcers delivered at exactly equal rates",
             "A side preference, or one response being easier or more preferred than the other",
-            "Using the matching-law equation to analyze data",
-            "Measuring the relative response rate"
+            "Using the matching-law equation, rather than raw counts, to analyze the data",
+            "Measuring relative response rates instead of total responses on each key"
           ],
           answer: 1,
           explain: "Bias arises from asymmetries unrelated to reinforcement rate -- a favored side, an easier response, or a preferred reinforcer type."
@@ -225,10 +225,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Melioration theory (Herrnstein and Vaughan, 1980) says organisms shift behavior toward the option with the higher...",
           choices: [
-            "Total lifetime payoff",
+            "Overall long-run payoff",
             "Local rate of reinforcement",
-            "Response effort",
-            "Delay to reinforcement"
+            "Lowest response effort required",
+            "Shortest delay to reinforcement"
           ],
           answer: 1,
           explain: "Melioration is driven by local (per-response) reinforcement rates, not by a global calculation of long-run totals."
@@ -366,10 +366,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "The response-deprivation hypothesis (Timberlake and Allison, 1974) says a behavior becomes reinforcing when access to it is restricted below its ____.",
           choices: [
-            "maximum possible rate",
+            "maximum physically possible rate",
             "baseline (free-operant) level",
-            "punishment threshold",
-            "extinction point"
+            "punishment threshold level",
+            "previous extinction point"
           ],
           answer: 1,
           explain: "When a contingency forces a behavior below the rate at which it occurs when freely available, the opportunity to perform it becomes reinforcing."
@@ -401,10 +401,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "How does the response-deprivation hypothesis differ from the Premack principle?",
           choices: [
-            "It relies only on the relative probability of two behaviors",
+            "It relies only on comparing the relative probabilities of the two behaviors involved",
             "It emphasizes restriction below baseline rather than which behavior is more probable",
-            "It claims reinforcement is impossible",
-            "It applies only to food reinforcers"
+            "It claims that low-probability behaviors can never serve as reinforcers",
+            "It applies only to food and water as reinforcers, not to activities"
           ],
           answer: 1,
           explain: "Premack compares two behaviors' probabilities; response deprivation asks whether the contingency drives a behavior below its own free baseline."
@@ -472,10 +472,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Which reinforcer is most likely to show inelastic demand?",
           choices: [
-            "An optional sugary snack",
-            "A highly preferred but nonessential toy",
+            "An optional sugary snack offered alongside regular meals",
+            "A highly preferred but nonessential toy with many substitutes",
             "A strongly needed commodity like food for a hungry animal",
-            "A neutral stimulus with no value"
+            "A novel stimulus that the animal has never encountered before"
           ],
           answer: 2,
           explain: "Necessities are defended against rising price, so their consumption stays high even as the response cost climbs -- the hallmark of inelastic demand."
@@ -532,10 +532,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In delay-discounting terms, impulsivity is best described as...",
           choices: [
-            "preferring a larger reward that is delayed",
+            "preferring a larger reward even when it is delayed for a very long time",
             "strongly devaluing delayed rewards, so a smaller-sooner reward is chosen",
-            "ignoring reward size completely",
-            "never responding at all"
+            "discounting delayed rewards only slightly, so the larger-later reward wins",
+            "responding faster on every schedule regardless of reward delay"
           ],
           answer: 1,
           explain: "Impulsivity is steep discounting: the delayed larger reward loses so much value that the smaller-sooner option wins out."

@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A 'Starting Soon' screen is shown:",
           choices: [
             "Before the stream begins, while viewers gather",
-            "Only after the stream ends",
-            "During the most intense gameplay",
-            "Never"
+            "After the stream ends, while the VOD finishes saving",
+            "During a short break, while you step away from the desk",
+            "Between matches in a tournament"
           ],
           answer: 0,
           explain: "Starting Soon fills the pre-show while an audience builds up."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "A good standby screen keeps viewers by:",
           choices: [
             "Showing branding, a countdown, and what's coming",
-            "Displaying a blank black screen",
-            "Muting everything with no visuals",
-            "Ending the stream"
+            "Showing a still frame of the last gameplay scene",
+            "Playing music over a plain screen with no text",
+            "Showing the chat full-screen so viewers can talk"
           ],
           answer: 0,
           explain: "Branding plus a countdown reassures viewers the show is coming."
@@ -116,9 +116,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "In OBS you would typically use standby.html:",
           choices: [
             "As three Browser Sources (or one, changing the URL) across three scenes",
-            "As an audio source",
-            "As a game capture",
-            "As a webcam"
+            "As one Media Source that plays a looping video of all three screens",
+            "As an Image Source exported once for each of the three screens",
+            "As a single Browser Source shared by every scene, including gameplay"
           ],
           answer: 0,
           explain: "Each standby scene loads the file with the matching ?state."
@@ -145,9 +145,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "standby.html?state=soon&to=19:30 will:",
           choices: [
             "Count down to 7:30 PM",
-            "Count up from zero",
-            "Show Be Right Back",
-            "Do nothing"
+            "Count down 19 minutes and 30 seconds",
+            "Count down to 7:30 AM",
+            "Show 19:30 as a fixed start time with no countdown"
           ],
           answer: 0,
           explain: "?to=19:30 targets 7:30 PM wall-clock time."
@@ -176,9 +176,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "When the countdown hits zero, the screen:",
           choices: [
             "Switches to a 'LIVE ANY SECOND' message",
-            "Deletes itself",
-            "Shows an error",
-            "Reboots OBS"
+            "Keeps counting into negative time until you go live",
+            "Automatically switches OBS to the gameplay scene",
+            "Restarts the countdown"
           ],
           answer: 0,
           explain: "At zero it displays 'LIVE ANY SECOND' instead of negative time."
@@ -195,9 +195,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "In 'STARTING SOON', the word SOON is styled as:",
           choices: [
             "A Signal-Yellow knockout block",
-            "Plain gray text",
-            "An image",
-            "Invisible"
+            "A pink offset copy behind chrome text",
+            "Chrome-gradient text with a blue glow",
+            "Plain yellow text"
           ],
           answer: 0,
           explain: "One headline word uses the yellow knockout treatment for emphasis."
@@ -266,9 +266,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The socials row (bottom-left) is styled in:",
           choices: [
             "Barlow Condensed, uppercase, wide letter-spacing",
-            "A cursive script",
-            "Tiny gray serif",
-            "An image only"
+            "Anton, lowercase, tight letter-spacing",
+            "Barlow Condensed, sentence case, normal spacing",
+            "The chrome gradient clipped to headline text"
           ],
           answer: 0,
           explain: "Socials use Barlow Condensed 700, uppercase, wide tracking."
@@ -314,9 +314,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The standby background texture is:",
           choices: [
             "A faint blue dot-matrix over the solid base color",
-            "A full-bleed rainbow gradient",
-            "A photo of a city",
-            "Pure white"
+            "A soft pink-to-blue gradient wash across the base",
+            "A blurred, darkened screenshot of your last game",
+            "A faint chrome noise texture that animates slowly"
           ],
           answer: 0,
           explain: "A subtle blue dot-matrix adds texture without a forbidden gradient wash."
@@ -355,9 +355,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "Keeping the texture faint (~6% opacity) matters because it:",
           choices: [
             "Adds interest without competing with the headline",
-            "Makes the text unreadable",
-            "Increases the file size a lot",
-            "Slows your internet"
+            "Hides compression artifacts from the encoder",
+            "Keeps the page transparent enough for gameplay to show",
+            "Lets the countdown text use a smaller font size"
           ],
           answer: 0,
           explain: "Subtle texture supports the design without distracting from the message."
@@ -474,9 +474,9 @@ window.ACADEMY.addUnit("overlays", {
           q: "The overall goal of a standby screen is to:",
           choices: [
             "Keep the audience engaged and informed during non-live moments",
-            "Fill disk space",
-            "Increase your bitrate",
-            "Hide your branding"
+            "Give the encoder a rest so the stream bitrate can recover",
+            "Replace the webcam whenever you prefer not to be on camera",
+            "Show viewers a full recap of the best highlights from your last stream"
           ],
           answer: 0,
           explain: "Standby screens hold and inform the audience between live segments."

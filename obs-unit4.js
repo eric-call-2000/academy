@@ -27,9 +27,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Advanced output mode adds control over:",
           choices: [
             "Encoder settings, audio tracks, and rate control",
-            "Your desktop wallpaper",
-            "Your browser history",
-            "The OBS window color"
+            "Scene layouts, transitions, and the size of the preview",
+            "Webcam brightness, color correction, and chroma keying",
+            "Hotkeys, dock layout, and the look of the OBS window"
           ],
           answer: 0,
           explain: "Advanced exposes encoder, rate control, and multi-track options."
@@ -68,8 +68,8 @@ window.ACADEMY.addUnit("obs", {
           choices: [
             "Make a basic recording at decent quality",
             "Route audio to separate tracks",
-            "Set a custom CQP value",
-            "Choose a specific encoder preset"
+            "Set a custom CQP value for quality",
+            "Choose a specific encoder preset and profile"
           ],
           answer: 0,
           explain: "Simple mode handles a decent basic recording; the rest need Advanced."
@@ -95,9 +95,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The risk of recording straight to MP4 is:",
           choices: [
             "A crash can corrupt the whole file",
-            "It cannot store video",
-            "It has no audio",
-            "It is illegal to use"
+            "It cannot hold more than one audio track",
+            "It records at a lower quality than MKV does",
+            "Most video editors cannot open MP4 files"
           ],
           answer: 0,
           explain: "An MP4 finalizes at the end, so a crash can lose the entire recording."
@@ -120,9 +120,9 @@ window.ACADEMY.addUnit("obs", {
           q: "You can set OBS to automatically remux to MP4:",
           choices: [
             "In the Advanced recording settings",
-            "By deleting the file",
-            "In the audio mixer",
-            "By lowering the resolution"
+            "In the Audio settings under Advanced",
+            "In the Video settings next to FPS",
+            "In the Sources dock right-click menu"
           ],
           answer: 0,
           explain: "Advanced recording has an 'Automatically remux to mp4' option."
@@ -138,9 +138,9 @@ window.ACADEMY.addUnit("obs", {
           q: "For a recording-first creator who edits later, the safest combo is:",
           choices: [
             "Record MKV, then remux to MP4",
-            "Record MP4 with no backup",
-            "Record audio only",
-            "Never record to disk"
+            "Record MP4, then convert it to MKV",
+            "Record FLV, then re-encode to MP4",
+            "Record MP4 directly"
           ],
           answer: 0,
           explain: "MKV protects the take; remuxing to MP4 keeps editors happy."
@@ -168,9 +168,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A hardware encoder like NVENC is attractive because it:",
           choices: [
             "Offloads encoding from the CPU, freeing it for other work",
-            "Requires no GPU",
-            "Always produces smaller files than x264",
-            "Removes the need for audio"
+            "Always produces smaller files than x264 at every quality setting",
+            "Runs on spare CPU cores so it never touches the graphics card",
+            "Records at a higher resolution than software encoders allow"
           ],
           answer: 0,
           explain: "Hardware encoders spare the CPU, useful when recording games or heavy apps."
@@ -193,9 +193,9 @@ window.ACADEMY.addUnit("obs", {
           q: "x264 on a weak CPU while gaming can cause:",
           choices: [
             "Lag and dropped/encoding-overloaded frames",
-            "A brighter webcam",
-            "More scenes automatically",
-            "Faster internet"
+            "Larger files with no visible change in quality",
+            "Audio drifting out of sync only in the mic track",
+            "A corrupted MP4 file whenever recording stops"
           ],
           answer: 0,
           explain: "Software encoding competes with the game for CPU, causing lag and overload."
@@ -230,9 +230,9 @@ window.ACADEMY.addUnit("obs", {
           q: "For local recording, a constant-quality mode like CQP or CRF is preferred because:",
           choices: [
             "It keeps a steady visual quality and spends bits only where needed",
-            "It always makes the smallest possible file",
-            "It removes audio",
-            "It is required for streaming"
+            "It always produces the smallest possible file at any resolution",
+            "It holds the bitrate at one fixed number for the whole recording",
+            "It is the mode streaming platforms require for every upload"
           ],
           answer: 0,
           explain: "Constant-quality holds visual quality steady, using more bits only on complex scenes."
@@ -283,9 +283,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Setting CQP to a very low number like 10 mainly results in:",
           choices: [
             "Excellent quality but very large files",
-            "A broken recording",
-            "No audio",
-            "Faster editing"
+            "Small files with very blocky, low quality",
+            "A recording that plays back at the wrong speed",
+            "Lower GPU use"
           ],
           answer: 0,
           explain: "Very low CQP looks superb but the files grow quickly."
@@ -302,9 +302,9 @@ window.ACADEMY.addUnit("obs", {
           q: "In x264, a slower preset generally gives:",
           choices: [
             "Better compression (smaller file at the same quality)",
-            "Worse quality always",
-            "No effect at all",
-            "Louder audio"
+            "Worse quality in exchange for a much faster encode",
+            "The same file size with lower CPU use",
+            "Higher frame rates during fast motion"
           ],
           answer: 0,
           explain: "Slower presets work the CPU harder to compress more efficiently."
@@ -337,9 +337,9 @@ window.ACADEMY.addUnit("obs", {
           q: "For NVENC, choosing the Quality or Max Quality preset instead of Performance:",
           choices: [
             "Improves output at a small extra GPU cost",
-            "Turns off the GPU",
-            "Deletes the recording",
-            "Removes all audio"
+            "Lowers quality slightly in exchange for less GPU load",
+            "Moves the encoding work from the GPU back to the CPU",
+            "Makes no difference"
           ],
           answer: 0,
           explain: "Higher NVENC presets improve quality with modest extra GPU load."
@@ -355,9 +355,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The right preset is the one that:",
           choices: [
             "Gives good quality while staying smooth on your hardware",
-            "Is always the slowest available",
-            "Is always ultrafast",
-            "Matches your webcam brand"
+            "Is always the slowest available preset for maximum quality",
+            "Is always ultrafast so the recording can never lag at all",
+            "Matches the preset recommended for the most powerful GPUs"
           ],
           answer: 0,
           explain: "Balance quality against smooth performance on your specific machine."
@@ -374,9 +374,9 @@ window.ACADEMY.addUnit("obs", {
           q: "For most YouTube uploads, recording at 1080p is a strong default because:",
           choices: [
             "It is sharp, widely supported, and manageable in size",
-            "It is the lowest quality possible",
-            "It cannot be edited",
-            "YouTube rejects anything else"
+            "It is the only resolution YouTube's player can actually show",
+            "It makes files smaller than 720p at the same visual quality",
+            "It needs no encoder settings and works without any tuning"
           ],
           answer: 0,
           explain: "1080p balances sharpness, compatibility, and file size for most creators."
@@ -415,9 +415,9 @@ window.ACADEMY.addUnit("obs", {
           q: "If your hardware struggles at 4K, a smart move is:",
           choices: [
             "Record 1080p at a quality your system sustains",
-            "Record at 1 fps",
-            "Turn off audio",
-            "Delete OBS"
+            "Record 4K anyway and lower the bitrate a lot",
+            "Record 4K at a lower frame rate like 15 fps",
+            "Raise the canvas to 4K but keep the output small"
           ],
           answer: 0,
           explain: "A smooth, high-quality 1080p beats a stuttering, overloaded 4K."
@@ -440,9 +440,9 @@ window.ACADEMY.addUnit("obs", {
           q: "You set where recordings are saved in:",
           choices: [
             "Settings then Output (Recording Path)",
-            "The audio mixer",
-            "The Scenes dock",
-            "The Windows lock screen"
+            "Settings then Video (Base Resolution)",
+            "Settings then General (Output Folder)",
+            "The Controls dock under Start Recording"
           ],
           answer: 0,
           explain: "The Recording Path field in Output settings controls the save folder."
@@ -511,9 +511,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A dependable recording recipe for a YouTube creator is:",
           choices: [
             "1080p, matching FPS, CQP ~18, hardware encoder, MKV then remux",
-            "1 fps, no audio, MP4 only",
-            "Lowest quality, no backup format",
-            "Audio only, no video"
+            "4K, 120 fps, CBR at the lowest bitrate, straight to MP4 only",
+            "720p, 15 fps, x264 ultrafast, recording straight to FLV",
+            "1080p, any FPS, CQP 35, software encoder, MP4 with no remux"
           ],
           answer: 0,
           explain: "This combination gives sharp, safe, editable footage on most machines."
@@ -552,9 +552,9 @@ window.ACADEMY.addUnit("obs", {
           q: "After setting up, the final step before trusting it is to:",
           choices: [
             "Do a test recording and review quality and smoothness",
-            "Immediately record a two-hour session blind",
-            "Uninstall and reinstall OBS",
-            "Delete all other scenes"
+            "Record a full session and only check the file next week",
+            "Copy the same settings to every other computer you own",
+            "Change the encoder preset to the slowest one available"
           ],
           answer: 0,
           explain: "A short test confirms the recipe works before you rely on it."

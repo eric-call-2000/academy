@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is market research?",
           choices: [
             "Gathering information about customers, competitors, and the market",
-            "Buying ads on as many platforms as possible",
-            "Setting the highest price you can",
-            "Hiring a full-time sales team"
+            "Testing ads on several platforms to see which one gets cheaper clicks",
+            "Reviewing your own sales numbers to set next quarter's revenue target",
+            "Asking friends and family whether they like your product idea"
           ],
           answer: 0,
           explain: "Market research is the work of collecting and analyzing information about your customers and market so you can make smarter decisions."
@@ -80,9 +80,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which pairing best describes qualitative research?",
           choices: [
             "Open-ended interviews that explore why people feel a certain way",
-            "Counting how many units sold each month",
-            "Measuring website clicks",
-            "Tracking exact revenue totals"
+            "Surveys with rating scales that measure how satisfied people are",
+            "Counting how many units sold each month across each region",
+            "Analytics that track website clicks and time spent on each page"
           ],
           answer: 0,
           explain: "Qualitative research explores reasons, feelings, and motivations, often through open-ended conversations rather than numbers."
@@ -99,9 +99,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is market segmentation?",
           choices: [
             "Splitting a broad market into smaller groups with shared traits",
-            "Merging all customers into one giant audience",
-            "Lowering prices for everyone at once",
-            "Sending the same message to every person"
+            "Treating the whole market as one audience to keep messaging simple",
+            "Ranking your products by profit so you know which to promote",
+            "Dividing your marketing budget evenly across every channel you use"
           ],
           answer: 0,
           explain: "Segmentation breaks a large market into smaller groups that share needs or traits, so you can target them more precisely."
@@ -153,9 +153,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Why is segmentation useful for a small business?",
           choices: [
             "It lets you focus limited budget on the groups most likely to buy",
-            "It guarantees every person will buy",
-            "It removes the need to know your customers",
-            "It makes your product free to produce"
+            "It lets you reach the whole market at once with a single message",
+            "It removes the need for customer research once segments are set",
+            "It guarantees that every person in a chosen segment will buy"
           ],
           answer: 0,
           explain: "By focusing on the best-fit segments, a small business spends its limited time and money where it matters most."
@@ -201,9 +201,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which detail is LEAST useful in a buyer persona?",
           choices: [
             "Their favorite random color for no clear reason",
-            "Their main goals and challenges",
-            "Where they look for information",
-            "What objections stop them from buying"
+            "Their main goals and the challenges they face",
+            "Where they usually look for information online",
+            "What objections stop them from buying today"
           ],
           answer: 0,
           explain: "Personas should focus on goals, challenges, and buying behavior, not trivia that does not affect decisions."
@@ -254,9 +254,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is a customer pain point?",
           choices: [
             "A specific problem or frustration the customer wants solved",
-            "The color of your logo",
-            "The name of your company",
-            "The number of employees you have"
+            "A feature of your product that sets it apart from rivals",
+            "A reason your own team finds the sales process difficult",
+            "A complaint about price that comes up after the purchase"
           ],
           answer: 0,
           explain: "A pain point is a real problem or frustration your customer feels, and solving it is the reason they buy."
@@ -266,9 +266,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "The Jobs to Be Done idea says customers 'hire' a product to do what?",
           choices: [
             "Make progress on a job or goal in their life",
-            "Match a trendy color scheme",
-            "Fill up warehouse space",
-            "Impress the marketing team"
+            "Get the most features for the lowest price",
+            "Buy the brand they have seen advertised most",
+            "Replace whatever product they used before"
           ],
           answer: 0,
           explain: "Jobs to Be Done frames a purchase as hiring a product to make progress on a real goal or task."
@@ -325,9 +325,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What does positioning mean in marketing?",
           choices: [
             "The distinct place your brand holds in the customer's mind versus alternatives",
-            "Where your store physically sits on a map",
-            "The order of items on a shelf",
-            "The time of day you post ads"
+            "Where your product is placed on store shelves and in online search results",
+            "The price level you choose compared with the average price in your category",
+            "The list of features you highlight on your homepage and in your sales deck"
           ],
           answer: 0,
           explain: "Positioning is how customers perceive your brand relative to competitors, the space you own in their mind."
@@ -350,9 +350,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which is the strongest positioning statement?",
           choices: [
             "Affordable meal kits for busy parents who want healthy dinners fast",
-            "We sell many good things to everyone",
-            "The usual products at usual prices",
-            "A company that exists and does business"
+            "High-quality food products for anyone who enjoys eating well at home",
+            "The best meal kit company, with great service and great prices",
+            "Meal kits with fresh ingredients, many recipes, and fast delivery"
           ],
           answer: 0,
           explain: "Strong positioning is specific about who it serves and the distinct benefit it delivers."
@@ -396,9 +396,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is competitive analysis?",
           choices: [
             "Studying your rivals to understand their strengths, weaknesses, and strategy",
-            "Copying every move a competitor makes",
-            "Ignoring other companies entirely",
-            "Lowering your price below cost no matter what"
+            "Matching each competitor's prices and features so customers see no difference",
+            "Surveying your own customers to find out how happy they are with your service",
+            "Tracking your sales against last year's numbers to see whether you are growing"
           ],
           answer: 0,
           explain: "Competitive analysis means studying rivals so you can find gaps, avoid their mistakes, and stand out."
@@ -432,9 +432,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "Which is an example of a THREAT in a SWOT analysis?",
           choices: [
             "A new competitor entering your market",
-            "Your loyal customer base",
-            "Your skilled team",
-            "Your strong brand name"
+            "A loyal base of repeat customers who buy often",
+            "A small team that lacks key skills",
+            "A strong and well-known brand name"
           ],
           answer: 0,
           explain: "A threat is an external risk, such as a new rival, that could hurt your business."
@@ -468,9 +468,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What is product-market fit?",
           choices: [
             "When a product strongly satisfies a real demand in its market",
-            "When a product has the most features possible",
-            "When a product is the cheapest available",
-            "When a product wins a design award"
+            "When a product has more features than any competitor offers",
+            "When a product launches with a large and well-funded ad campaign",
+            "When early users praise the design but rarely come back to use it"
           ],
           answer: 0,
           explain: "Product-market fit is the point where your product clearly meets a real need for a real group of customers."
@@ -539,9 +539,9 @@ window.ACADEMY.addUnit("marketing", {
           q: "What does Voice of the Customer mean?",
           choices: [
             "Systematically listening to customer feedback to guide decisions",
-            "The literal sound of a customer talking",
-            "A jingle in your radio ad",
-            "The tone of your brand's logo"
+            "Writing your brand voice guide so every message sounds consistent",
+            "Featuring real customer testimonials in your ads and landing pages",
+            "Letting your loudest customer decide what the team builds next"
           ],
           answer: 0,
           explain: "Voice of the Customer is the practice of gathering and acting on what customers say about their needs and experience."

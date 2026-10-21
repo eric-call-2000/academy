@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("obs", {
           q: "To stream to a platform, OBS needs:",
           choices: [
             "The service selected and a stream key (or connected account)",
-            "A capture card only",
-            "A green screen",
-            "A second monitor"
+            "A capture card and a second PC dedicated to encoding",
+            "A platform account plus a recording path in Output",
+            "The platform's app installed and running in the background"
           ],
           answer: 0,
           explain: "You pick the service and authenticate with a stream key or account link."
@@ -56,9 +56,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Compared with recording, streaming forces you to:",
           choices: [
             "Fit within your live upload bandwidth",
-            "Use a green screen",
-            "Record audio only",
-            "Disable hotkeys"
+            "Use constant quality instead of a fixed bitrate",
+            "Record at a higher resolution than the canvas",
+            "Save every stream to MKV before it goes out"
           ],
           answer: 0,
           explain: "Unlike local recording, a stream is limited by real-time upload."
@@ -75,9 +75,9 @@ window.ACADEMY.addUnit("obs", {
           q: "For live streaming, the recommended rate control is usually:",
           choices: [
             "CBR (constant bitrate)",
-            "CQP",
-            "CRF",
-            "No encoding at all"
+            "CQP (constant quantization)",
+            "CRF (constant rate factor)",
+            "VBR (variable bitrate)"
           ],
           answer: 0,
           explain: "Platforms prefer CBR for a steady, predictable stream."
@@ -115,9 +115,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A safe way to choose a stream bitrate is to:",
           choices: [
             "Test your upload speed and stay comfortably below it",
-            "Always use the maximum number",
-            "Match it to your CPU temperature",
-            "Pick a random value"
+            "Use the highest bitrate the platform allows, whatever your speed",
+            "Match it to your download speed, since that number is larger",
+            "Set it slightly above your upload so quality never drops"
           ],
           answer: 0,
           explain: "Measure your upload, then set bitrate below it for reliable streaming."
@@ -150,9 +150,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Frames dropped due to network usually mean:",
           choices: [
             "Your connection cannot keep up with the stream",
-            "Your microphone is muted",
-            "Your canvas is too small",
-            "You have too few scenes"
+            "Your encoder cannot keep up with the video settings",
+            "Your GPU is too busy rendering the game you play",
+            "Your disk is too slow"
           ],
           answer: 0,
           explain: "Network drops point to insufficient or unstable upload."
@@ -181,9 +181,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The OBS Stats window is useful because it:",
           choices: [
             "Shows CPU, dropped/skipped/lagged frames, and disk status",
-            "Edits your video",
-            "Uploads to YouTube",
-            "Adjusts your camera color"
+            "Fixes dropped frames automatically by lowering your bitrate",
+            "Tests your upload speed and picks the best stream bitrate",
+            "Shows a live chat feed from the platform you stream to"
           ],
           answer: 0,
           explain: "Stats reveals which bottleneck is causing frame loss."
@@ -206,9 +206,9 @@ window.ACADEMY.addUnit("obs", {
           q: "If OBS reports high encoding load on the CPU, a good fix is to:",
           choices: [
             "Switch to a GPU (hardware) encoder or a faster preset",
-            "Raise your resolution to 4K",
-            "Close OBS forever",
-            "Add more scenes"
+            "Raise the output resolution so the encoder has more detail",
+            "Switch to a slower preset so the encoder works smarter",
+            "Change the recording format from MKV over to MP4"
           ],
           answer: 0,
           explain: "Offloading to the GPU or using a faster preset reduces CPU encoding load."
@@ -247,9 +247,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Lowering the output resolution or FPS helps performance because it:",
           choices: [
             "Reduces how much the encoder and GPU must process",
-            "Increases the file size",
-            "Improves your internet",
-            "Adds transitions"
+            "Raises the bitrate so each frame looks better",
+            "Frees up upload bandwidth only, not hardware",
+            "Makes OBS skip filters on every source"
           ],
           answer: 0,
           explain: "Fewer pixels and frames mean less work for the hardware."
@@ -313,9 +313,9 @@ window.ACADEMY.addUnit("obs", {
           q: "A good general troubleshooting move for a black capture is to:",
           choices: [
             "Try a different capture type (Window vs. Display vs. Game)",
-            "Delete your profile",
-            "Raise your bitrate",
-            "Mute your desktop audio"
+            "Raise your bitrate and restart the recording session",
+            "Delete the profile and build a new one",
+            "Lower the canvas resolution to 720p"
           ],
           answer: 0,
           explain: "Switching capture methods often gets around a black screen."
@@ -332,9 +332,9 @@ window.ACADEMY.addUnit("obs", {
           q: "If your voice is missing from a recording, first check:",
           choices: [
             "The right mic is selected and not muted",
-            "Your video resolution",
-            "The number of scenes",
-            "Your transition type"
+            "Your video resolution and frame rate",
+            "The order of sources in the scene",
+            "Whether you are recording to MKV"
           ],
           answer: 0,
           explain: "Wrong device or an accidental mute is the most common cause."
@@ -373,9 +373,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The most reliable prevention for silent recordings is:",
           choices: [
             "A short test recording you listen back to",
-            "A higher frame rate",
-            "More scenes",
-            "A brighter webcam"
+            "A higher bitrate setting on the audio track",
+            "Noise Suppression on the mic",
+            "Recording to a faster disk drive"
           ],
           answer: 0,
           explain: "Listening to a quick test catches silent-audio problems before the real take."
@@ -392,9 +392,9 @@ window.ACADEMY.addUnit("obs", {
           q: "Recording to MKV protects you because:",
           choices: [
             "A crash mid-recording still leaves a playable file",
-            "It uploads automatically",
-            "It uses no disk space",
-            "It removes the need for audio"
+            "It produces smaller files than MP4 at the same quality",
+            "Every video editor can open it without any conversion",
+            "It automatically saves a backup copy to a second disk"
           ],
           answer: 0,
           explain: "MKV is crash-resistant, unlike MP4 which can be lost on a crash."
@@ -433,9 +433,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The cheapest insurance against losing an important recording is:",
           choices: [
             "Record to MKV and keep enough free disk space",
-            "Record MP4 with no backup",
-            "Fill your disk completely",
-            "Disable auto-save"
+            "Record MP4 with a high bitrate so the file holds up",
+            "Use Studio Mode so mistakes never reach the recording",
+            "Use the replay buffer"
           ],
           answer: 0,
           explain: "MKV plus free space keeps a recording safe even if something crashes."
@@ -463,9 +463,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The most editor-friendly file to hand off is usually:",
           choices: [
             "An MP4 (remuxed from MKV) at a constant high quality",
-            "A half-written MP4 from a crash",
-            "An audio-only file",
-            "A tiny, heavily compressed clip"
+            "The original MKV with every track mixed down to one",
+            "A tiny, heavily compressed clip that uploads fast",
+            "An FLV file saved straight from the stream output"
           ],
           answer: 0,
           explain: "A clean, high-quality MP4 imports smoothly into most editors."
@@ -504,9 +504,9 @@ window.ACADEMY.addUnit("obs", {
           q: "The end-to-end recording-first mindset is:",
           choices: [
             "Capture clean, high-quality, editable footage every time",
-            "Stream everything live with no recording",
-            "Ignore audio and fix it never",
-            "Always record at the lowest quality"
+            "Stream everything live and keep the stream archive",
+            "Record at the lowest quality to keep files small",
+            "Rely on editing to fix the audio and the lighting"
           ],
           answer: 0,
           explain: "Recording-first success is clean, editable footage that becomes a polished video."

@@ -84,10 +84,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "An operant is best defined as:",
           choices: [
-            "A single fixed muscle movement",
+            "A single fixed muscle movement that looks the same every time it occurs",
             "A class of responses defined by their common effect on the environment",
-            "A reflex triggered by a stimulus",
-            "An inherited instinct"
+            "A reflex elicited automatically by a specific preceding stimulus",
+            "An inherited instinct that appears without any learning history"
           ],
           answer: 1,
           explain: "Skinner defined the operant functionally: responses are grouped by the effect they produce, not by their exact form."
@@ -137,9 +137,9 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Why is defining behavior by its effect useful for a science of behavior?",
           choices: [
-            "It lets scientists ignore behavior entirely",
-            "It requires reading the organism's mind",
-            "It makes every single movement its own separate law",
+            "It requires inferring what the organism intends before each response",
+            "It ensures that behavior is measured by its exact physical form alone",
+            "It treats every single movement as its own separate unit with its own law",
             "It groups variable movements that serve one function into a single unit"
           ],
           answer: 3,
@@ -228,9 +228,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "The three-term contingency is usually written as:",
           choices: [
             "Antecedent - Behavior - Consequence",
-            "Stimulus - Reflex - Recovery",
-            "Cause - Effect - Feedback",
-            "Drive - Habit - Reward"
+            "Stimulus - Response - Recovery",
+            "Stimulus - Organism - Response",
+            "Drive - Habit strength - Reinforcement"
           ],
           answer: 0,
           explain: "The ABC sequence -- antecedent (discriminative stimulus), behavior, consequence -- defines the operant contingency."
@@ -272,10 +272,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "A green light signals that pecking will produce grain; the pigeon pecks and gets grain. The green light is the:",
           choices: [
-            "consequence",
-            "behavior",
+            "unconditioned stimulus",
+            "establishing operation",
             "discriminative stimulus",
-            "reinforcer"
+            "consequence of pecking"
           ],
           answer: 2,
           explain: "The green light is the antecedent discriminative stimulus signaling that the response will be reinforced."
@@ -332,10 +332,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "A key advantage of the free operant for measurement is that it:",
           choices: [
-            "prevents the animal from ever being reinforced",
-            "forces exactly one response per session",
+            "guarantees that every response is reinforced immediately",
+            "forces exactly one response per trial for clean counting",
             "yields a continuous stream of responses to measure rate",
-            "removes the need for any apparatus"
+            "removes the need for any apparatus or recording device"
           ],
           answer: 2,
           explain: "Continuous, freely repeated responding lets the experimenter measure the rate of responding over time."
@@ -368,9 +368,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "In Skinner's approach, the fundamental datum (basic measure) of behavior is:",
           choices: [
             "response rate -- responses per unit of time",
-            "the animal's reported feelings",
-            "the size of each muscle movement",
-            "reaction time on a single trial"
+            "the subject's reported feelings during the session",
+            "the size and force of each muscle movement",
+            "reaction time measured on a single discrete trial"
           ],
           answer: 0,
           explain: "Skinner took rate of responding -- how many responses occur per unit of time -- as behavior's basic dependent variable."
@@ -435,10 +435,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "The phrase 'empty organism' refers to Skinner's practice of:",
           choices: [
-            "denying that organisms have any biology at all",
+            "denying that organisms have any physiology or biology at all",
             "explaining behavior without appealing to inner mental causes",
-            "studying only dead specimens",
-            "ignoring the environment entirely"
+            "studying only reflexes that need no learning history",
+            "ignoring the environment and focusing on genetic endowment"
           ],
           answer: 1,
           explain: "The 'empty organism' stance explains behavior through environmental variables rather than inferred inner agents."
@@ -460,10 +460,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Saying 'she ate because she was hungry,' where hunger is inferred only from her eating, is an example of:",
           choices: [
-            "a testable physical measurement",
+            "a testable physical measurement of a drive",
             "circular reasoning, an explanatory fiction",
-            "the three-term contingency",
-            "respondent conditioning"
+            "an example of the three-term contingency",
+            "respondent conditioning of an eating reflex"
           ],
           answer: 1,
           explain: "If hunger is inferred only from the eating it supposedly explains, the account is circular -- an explanatory fiction."
@@ -488,10 +488,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "For Skinner, the best place to look for the causes of an operant is:",
           choices: [
-            "the person's unconscious mind",
-            "inherited character traits alone",
+            "the person's unconscious drives and wishes",
+            "inherited character traits and temperament",
             "the environmental history of consequences",
-            "the animal's free will"
+            "the animal's free will and conscious choices"
           ],
           answer: 2,
           explain: "Operants are explained by their history of reinforcement in the environment, not by inner determiners."
@@ -507,10 +507,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "'Selection by consequences' draws an analogy between operant conditioning and:",
           choices: [
-            "Newton's laws of motion",
+            "Newtonian laws of motion",
             "Darwinian natural selection",
             "Freudian psychoanalysis",
-            "Pavlovian reflexes"
+            "Lamarckian inheritance of traits"
           ],
           answer: 1,
           explain: "Skinner argued consequences select behavior within a lifetime much as natural selection selects traits across generations."
@@ -526,9 +526,9 @@ window.ACADEMY.addUnit("behaviorism", {
           q: "Skinner said selection by consequences operates at three levels. Which set is correct?",
           choices: [
             "natural selection, operant conditioning, and cultural evolution",
-            "id, ego, and superego",
-            "sensation, perception, and cognition",
-            "classical, operant, and vicarious conditioning"
+            "classical, operant, and vicarious conditioning in the individual",
+            "sensation, perception, and cognition within the nervous system",
+            "reflexes, instincts, and habits acquired during development"
           ],
           answer: 0,
           explain: "The three levels are natural selection (species), operant conditioning (individual), and cultural practices (culture)."

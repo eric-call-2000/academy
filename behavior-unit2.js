@@ -95,7 +95,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Which is the BEST example of 'control' in Watson's sense?",
-          choices: ["Measuring a person's private feelings", "Interpreting the meaning of a dream", "Arranging conditions to shape a child's habits", "Asking for introspective reports"],
+          choices: ["Measuring a person's private feelings with careful reports", "Interpreting the hidden meaning of a child's dreams", "Arranging conditions to shape a child's habits", "Asking trained observers for introspective reports"],
           answer: 2,
           explain: "Control means changing behavior by arranging the conditions and stimuli that produce it."
         },
@@ -142,7 +142,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Why did Watson reject consciousness as a subject of study?",
-          choices: ["It is too easy to measure", "Animals clearly possess it", "It was required by physics", "It cannot be observed objectively by others"],
+          choices: ["It is too easy to measure to be interesting", "Animals clearly possess it, so it explains nothing", "It had already been fully explained by physiology", "It cannot be observed objectively by others"],
           answer: 3,
           explain: "Private mental states cannot be observed by an outside investigator, so Watson deemed them unscientific."
         },
@@ -199,7 +199,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "In Watson's terms, a 'stimulus' is best defined as:",
-          choices: ["A private feeling", "A conscious decision", "Any change in the environment that affects the organism", "An inherited instinct only"],
+          choices: ["A private feeling that the organism reports to others", "A conscious decision the organism makes before acting", "Any change in the environment that affects the organism", "An inherited instinct that is present from birth onward"],
           answer: 2,
           explain: "A stimulus is any environmental change acting on the organism, whether internal or external."
         },
@@ -222,7 +222,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What did Watson say explains why an S-R connection becomes learned?",
-          choices: ["The law of effect (reward)", "Frequency and recency of the pairing", "Unconscious motivation", "The pleasure principle"],
+          choices: ["The law of effect, meaning a reward follows", "Frequency and recency of the pairing", "Unconscious motives behind the connection", "The pleasure the organism feels afterward"],
           answer: 1,
           explain: "Watson explained learning by frequency and recency of pairing rather than by reward or reinforcement."
         },
@@ -253,7 +253,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "In his 'dozen healthy infants' claim, Watson promised he could train any infant to become:",
-          choices: ["Only what their genes allowed", "A doctor but never a thief", "Identical to their parents", "Any type of specialist he selected"],
+          choices: ["Only what their genes would allow", "A doctor or lawyer but never a thief", "Someone identical to their own parents", "Any type of specialist he selected"],
           answer: 3,
           explain: "He boasted he could train any infant into any specialist he chose, from doctor to beggar-man or thief."
         },
@@ -286,7 +286,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "How did Watson qualify his bold claim?",
-          choices: ["He said heredity mattered more", "He admitted he was going beyond his facts", "He said it was proven fact", "He credited it to Pavlov"],
+          choices: ["He said heredity mattered more after all", "He admitted he was going beyond his facts", "He said it was already a proven fact", "He credited the whole idea to Pavlov"],
           answer: 1,
           explain: "Watson openly conceded he was 'going beyond' his facts, noting his critics had long done the same."
         },
@@ -341,7 +341,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "What happened to Albert's fear after conditioning?",
-          choices: ["It disappeared immediately", "It generalized to other furry objects", "It changed into love of the rat", "It had no effect"],
+          choices: ["It disappeared immediately after the session", "It generalized to other furry objects", "It turned into a liking for the white rat", "It stayed limited to the white rat alone"],
           answer: 1,
           explain: "Albert's fear generalized to a rabbit, a dog, a fur coat, and other furry or white objects."
         },
@@ -402,7 +402,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "According to Watson, what originally triggers 'rage' in an infant?",
-          choices: ["A loud noise", "Being physically restrained", "Gentle stroking", "A bright light"],
+          choices: ["A sudden loud noise nearby", "Being physically restrained", "Gentle stroking of the skin", "A sudden loss of support"],
           answer: 1,
           explain: "Watson said hampering or restraining an infant's bodily movement produces the rage reaction."
         },
@@ -453,7 +453,7 @@ window.ACADEMY.addUnit("behaviorism", {
         {
           type: "mcq",
           q: "Why did Watson leave his university position in 1920?",
-          choices: ["Retirement", "Poor health", "A personal scandal", "A Nobel Prize"],
+          choices: ["Mandatory retirement", "Failing health", "A personal scandal", "A dispute with Titchener"],
           answer: 2,
           explain: "A scandal over his relationship with Rosalie Rayner forced him to resign from Johns Hopkins."
         },

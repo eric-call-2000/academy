@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What best describes Autodesk Dynamo?",
           choices: [
-            "A rendering engine for photorealistic images",
+            "A rendering engine that turns Revit models into photorealistic still images and walkthrough animations",
             "An open-source visual programming platform that adds computational logic to design and construction",
-            "A cloud storage service for Revit models",
-            "A clash-detection tool"
+            "A cloud storage service that hosts Revit models and syncs them across team members",
+            "A clash-detection tool that checks linked models for overlapping elements and systems"
           ],
           answer: 1,
           explain: "Dynamo is an open-source visual programming platform by Autodesk. It brings computational, algorithmic logic to BIM, which is why it is often called 'computational BIM'."
@@ -92,10 +92,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "In Dynamo, what is a node?",
           choices: [
-            "A saved copy of the whole graph",
+            "A saved copy of the whole graph stored as a .dyn file",
             "A building block that performs an action or holds data",
-            "A connection line between two other nodes",
-            "A background 3D preview window"
+            "A connection line, or wire, that passes data between blocks",
+            "A background 3D preview window showing geometry results"
           ],
           answer: 1,
           explain: "Nodes are the fundamental building blocks. Each node either performs an action or holds a piece of data, and you combine many of them to build a graph."
@@ -260,10 +260,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "A node turns yellow. What does that indicate?",
           choices: [
-            "It failed to execute at all",
-            "It is frozen",
+            "It failed to execute at all and produced no output",
+            "It is frozen, so it and its downstream nodes are paused",
             "It ran but with an issue, such as a null or empty list",
-            "It is fully connected and healthy"
+            "It is selected and ready to be moved on the canvas"
           ],
           answer: 2,
           explain: "Yellow is a warning: the node ran but hit an issue like a null value, an empty list, or unexpected data. It is a signal to inspect your inputs."
@@ -278,10 +278,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What does freezing a node do?",
           choices: [
-            "Deletes the node from the graph",
+            "Deletes the node but keeps its last output in the graph",
             "Suspends execution for that node and everything downstream of it",
-            "Changes the run mode to Periodic",
-            "Locks the node's position on the canvas"
+            "Switches the whole graph's run mode from Automatic to Manual",
+            "Locks the node's position so it cannot be moved on the canvas"
           ],
           answer: 1,
           explain: "Freeze suspends execution for the frozen node and everything downstream. It is handy for pausing heavy calculations while you keep editing the rest of the graph."
@@ -303,10 +303,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Where does a node's geometry result appear?",
           choices: [
-            "Only inside the node's name",
+            "Only in a small text bubble attached to the node itself",
             "In the background 3D preview, which can be toggled per node",
-            "It never appears anywhere",
-            "In the Library panel"
+            "In the Library panel next to the node's category",
+            "In a pop-up table that lists each output's coordinates"
           ],
           answer: 1,
           explain: "Geometry shows in the background 3D preview, and you can toggle that preview on or off per node. Non-geometry results appear in a small preview bubble on the node."
@@ -328,10 +328,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "What is the Library panel used for?",
           choices: [
-            "Running the graph",
+            "Running the graph and choosing Manual or Automatic mode",
             "Browsing and searching all available nodes by category",
-            "Storing saved .dyn files",
-            "Displaying geometry in 3D"
+            "Storing and opening the .dyn files saved on your computer",
+            "Displaying the graph's geometry results in a 3D preview"
           ],
           answer: 1,
           explain: "The Library is the left-hand panel where you browse and search every available node, organized by category. It is your main way to find and place nodes."
@@ -388,10 +388,10 @@ window.ACADEMY.addUnit("revit", {
           type: "mcq",
           q: "Which of these is one of Dynamo's top menus?",
           choices: [
-            "Clash",
+            "Analyze",
             "Packages",
-            "Render",
-            "Sheets"
+            "Families",
+            "Annotate"
           ],
           answer: 1,
           explain: "Dynamo's menus include File, Edit, View, Packages, Settings, and Help. The Packages menu is where you manage add-on node libraries."
@@ -467,9 +467,9 @@ window.ACADEMY.addUnit("revit", {
           q: "A key clue that a node is a Create node is that it...",
           choices: [
             "Has no primary object as its first input",
-            "Always turns red",
-            "Cannot be searched for",
-            "Only works in Manual run mode"
+            "Returns a property of an object it is given",
+            "Changes an object that is passed in first",
+            "Appears in the Query section of the Library"
           ],
           answer: 0,
           explain: "Create nodes construct something new, so they do not take an existing primary object as their first input. Action and Query nodes, by contrast, both start with the object they work on."
@@ -575,9 +575,9 @@ window.ACADEMY.addUnit("revit", {
           q: "What is the difference between a Number Slider and an Integer Slider?",
           choices: [
             "The Integer Slider produces whole numbers only",
-            "The Number Slider cannot be dragged",
-            "The Integer Slider holds text",
-            "There is no difference"
+            "The Number Slider has no min, max, or step limits",
+            "The Integer Slider can go negative but Number cannot",
+            "The Number Slider rounds every value to one decimal"
           ],
           answer: 0,
           explain: "Both are draggable sliders bounded by min, max, and step, but the Integer Slider is constrained to whole numbers. Use it when a fractional value would not make sense."

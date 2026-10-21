@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "What does 'global' deprivation in institutional rearing refer to?",
-          choices: ["Deprivation across many domains at once: cognitive, emotional, physical, and social", "Deprivation limited only to physical nutrition", "Deprivation that occurs worldwide but is always mild", "Deprivation of a single specific sense such as hearing"],
+          choices: ["Deprivation across many domains at once: cognitive, emotional, physical, and social", "Deprivation of food and physical care, while emotional needs are still met", "Deprivation that affects children everywhere, but only mildly and briefly", "Deprivation of one caregiver, even when other care and stimulation are good"],
           answer: 0,
           explain: "Global deprivation means a child lacks care and stimulation across cognitive, emotional, physical, and social domains at the same time, as in poorly resourced institutions."
         },
@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which cluster of problems is commonly seen after prolonged institutional rearing?",
-          choices: ["Accelerated growth and advanced language", "Growth stunting, cognitive delay, and attachment difficulties", "Improved immune function and calm mood", "Heightened but well-regulated emotions"],
+          choices: ["Growth spurts after adoption and advanced early language", "Growth stunting, cognitive delay, and attachment difficulties", "Normal growth and cognition, with problems limited to fear of strangers", "Delayed puberty, high IQ scores, and an unusually calm temperament"],
           answer: 1,
           explain: "Prolonged institutional care is associated with physical growth stunting, cognitive delay, and disturbed attachment, reflecting deprivation across multiple domains."
         },
@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The ERA study is methodologically notable because it was...",
-          choices: ["A single one-time snapshot of the children", "A longitudinal study following the same children over many years", "A laboratory study of rats", "A study with no comparison group"],
+          choices: ["A one-time snapshot of the children after adoption", "A longitudinal study following the same children over many years", "A retrospective study asking adoptive parents to recall early care", "A cross-sectional study comparing different children at each age group"],
           answer: 1,
           explain: "ERA is a prospective longitudinal design, assessing the same children repeatedly from early childhood into adulthood."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The Bucharest Early Intervention Project (BEIP) is distinctive because it used which design?",
-          choices: ["A randomized controlled trial assigning children to foster care or institutions", "An anonymous online survey", "A retrospective chart review", "A single case study"],
+          choices: ["A randomized controlled trial assigning children to foster care or institutions", "A natural experiment comparing children adopted abroad and at home", "A retrospective review of orphanage records matched to later school files", "A cross-sectional survey of institution staff about the children"],
           answer: 0,
           explain: "BEIP randomly assigned institutionalized children to high-quality foster care or continued institutional 'care as usual,' an unusual randomized design in this field."
         },
@@ -189,7 +189,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which outcomes improved for children placed into BEIP foster care compared with those who stayed in institutions?",
-          choices: ["Only height, with no cognitive change", "IQ, language, and attachment security, among others", "Nothing measurable improved", "Only their weight decreased"],
+          choices: ["Height and weight only, with no change in IQ or attachment", "IQ, language, and attachment security, among others", "Attachment security only, while IQ and language stayed the same", "Peer popularity and school grades only"],
           answer: 1,
           explain: "Foster-care children showed gains in IQ, language, attachment security, and even brain (EEG) activity relative to those who remained institutionalized."
         },
@@ -241,7 +241,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "The ERA and BEIP evidence together suggests sensitive periods are best described as...",
-          choices: ["Rigid deadlines after which no recovery is possible", "Windows of heightened, but not unlimited, opportunity for recovery", "Completely irrelevant to attachment", "Relevant only to physical height"],
+          choices: ["Rigid deadlines after which no recovery of any kind is possible", "Windows of heightened, but not unlimited, opportunity for recovery", "Periods that matter for physical growth but not for attachment or cognition", "Stages that every child passes through at the same age, whatever their care"],
           answer: 1,
           explain: "Earlier placement helps most, but the windows are graded rather than absolute cut-offs, so some later recovery still occurs."
         },
@@ -273,7 +273,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Reactive Attachment Disorder (RAD) in DSM-5 is characterized primarily by...",
-          choices: ["Indiscriminate friendliness toward strangers", "Inhibited, emotionally withdrawn behavior toward caregivers", "Excessive fear of animals", "Advanced early language skills"],
+          choices: ["Indiscriminate, overly familiar friendliness toward unfamiliar adults", "Inhibited, emotionally withdrawn behavior toward caregivers", "Clinging to one caregiver and panic at brief separations", "Repetitive behaviors and restricted interests present from early infancy"],
           answer: 1,
           explain: "RAD is marked by an inhibited, withdrawn pattern in which the child rarely seeks or responds to comfort from caregivers."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Which additional feature is part of RAD's clinical picture?",
-          choices: ["Limited positive affect with unexplained irritability, sadness, or fearfulness", "Constant, exuberant positive affect", "Overly familiar approach to strangers", "No emotional symptoms at all"],
+          choices: ["Limited positive affect with unexplained irritability, sadness, or fearfulness", "Persistent exuberant affect and an unusually cheerful mood toward strangers", "Overly familiar approach to strangers and a willingness to wander off with them", "Frequent temper outbursts aimed at peers, with no sign of withdrawal or sadness"],
           answer: 0,
           explain: "Beyond withdrawn attachment behavior, RAD includes reduced positive emotion and episodes of unexplained irritability, sadness, or fear."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "Disinhibited Social Engagement Disorder (DSED) is characterized by...",
-          choices: ["Extreme fear of all adults", "Overly familiar, indiscriminate behavior toward unfamiliar adults", "Complete withdrawal from all people", "A strong, selective preference for one caregiver"],
+          choices: ["Extreme wariness of all adults, including caregivers", "Overly familiar, indiscriminate behavior toward unfamiliar adults", "Withdrawn behavior and rarely seeking comfort when distressed", "A strong, selective preference for one caregiver"],
           answer: 1,
           explain: "DSED involves reduced reticence and overly familiar behavior with strangers, without the normal wariness expected for the child's age."
         },
@@ -345,7 +345,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In DSM-5, RAD and DSED are treated as...",
-          choices: ["Two separate disorders rather than subtypes of one", "Identical diagnoses with a single name", "Subtypes of autism spectrum disorder", "Two forms of an anxiety disorder"],
+          choices: ["Two separate disorders rather than subtypes of one", "Two subtypes of a single reactive attachment disorder", "Subtypes of autism spectrum disorder in deprived children", "Two forms of separation anxiety disorder in early childhood"],
           answer: 0,
           explain: "DSM-5 split the former Reactive Attachment Disorder subtypes into two distinct disorders: RAD and DSED."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("attachment", {
         {
           type: "mcq",
           q: "In the ERA study, 'quasi-autism' referred to...",
-          choices: ["Classic autism identical to non-deprived cases", "Autism-like features arising from severe deprivation that often partly improved", "A complete absence of any social difficulty", "A form of intellectual giftedness"],
+          choices: ["Classic autism, identical to cases in children who were never deprived", "Autism-like features arising from severe deprivation that often partly improved", "Social withdrawal caused by hearing loss that was missed in the institutions", "Mild shyness that adoptive parents mistook for autism in the first months"],
           answer: 1,
           explain: "Rutter described quasi-autistic patterns: autism-like social and communication features linked to deprivation that showed more improvement and flexibility than typical autism."
         },

@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Which thinker told the parable of hunters that inspired the Stag Hunt game?",
-          choices: ["Jean-Jacques Rousseau", "John Nash", "Thomas Hobbes", "John Maynard Smith"],
+          choices: ["Jean-Jacques Rousseau", "Thomas Hobbes", "David Hume", "Charles de Montesquieu"],
           answer: 0,
           explain: "Rousseau described the hunt in his 1755 Discourse on the Origin of Inequality to illustrate fragile cooperation."
         },
@@ -33,7 +33,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "What happens to the stag if one hunter abandons the hunt to chase a hare?",
-          choices: ["Both hunters share it", "The stag is caught anyway", "The stag escapes and the loyal hunter gets nothing", "The stag attacks the hunters"],
+          choices: ["The two hunters still share the stag equally", "The loyal hunter catches the stag alone and keeps it", "The stag escapes and the loyal hunter gets nothing", "The stag is caught, but the deserter takes half"],
           answer: 2,
           explain: "The stag needs both hunters; if one defects, it escapes and the hunter who stayed loyal is left empty-handed."
         },
@@ -65,7 +65,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "A payoff-dominant equilibrium is one that...",
-          choices: ["gives every player a higher payoff than any other equilibrium", "minimizes each player's risk", "is always chosen in practice", "requires mixed strategies"],
+          choices: ["gives every player a higher payoff than any other equilibrium", "minimizes the risk each player faces if the other player deviates", "is the one that players always choose in real experiments", "is found by eliminating every strictly dominated strategy first"],
           answer: 0,
           explain: "It Pareto-dominates the other equilibria: everyone does at least as well, and at least one player does strictly better."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "The risk-dominant equilibrium is the one that...",
-          choices: ["gives the highest payoff", "is the best response when you are most uncertain about the other player", "uses only mixed strategies", "is never a Nash equilibrium"],
+          choices: ["gives every player the highest payoff of any equilibrium in the game", "is the best response when you are most uncertain about the other player", "requires each player to randomize between the available strategies", "is chosen by players who are sure the other will cooperate fully"],
           answer: 1,
           explain: "It is the strategy you would choose under 50/50 beliefs, treating the other's actions as equally likely."
         },
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "The Stag Hunt is often called an 'assurance game' because...",
-          choices: ["players are always tempted to cheat", "players just need assurance the other will cooperate", "the game has no equilibrium", "defection always pays best"],
+          choices: ["players are always tempted to cheat on the deal they have made", "players just need assurance the other will cooperate", "one player must assure the other of a fixed payment in advance", "defection pays best whenever the other player hunts the stag"],
           answer: 1,
           explain: "If you are assured your partner hunts stag, hunting stag is your best reply, so there is no temptation to defect."
         },
@@ -189,7 +189,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "The core obstacle to cooperation in the Stag Hunt is...",
-          choices: ["lack of trust that the other will cooperate", "the temptation to exploit the other", "the absence of any good outcome", "a dominant strategy to defect"],
+          choices: ["lack of trust that the other will cooperate", "the temptation to exploit a cooperating partner", "the absence of any outcome good for both players", "a dominant strategy to defect on the other player"],
           answer: 0,
           explain: "Both players want to cooperate; the only barrier is uncertainty, which makes it a coordination problem of trust."
         },
@@ -247,7 +247,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Why is the mixed-strategy equilibrium of the Stag Hunt NOT an ESS?",
-          choices: ["it earns the highest payoff of all", "small perturbations push the population toward one pure ESS or the other", "it exists only in three-player games", "it is not an equilibrium at all"],
+          choices: ["it earns the highest payoff of all the equilibria in the Stag Hunt game", "small perturbations push the population toward one pure ESS or the other", "it exists only in versions of the game with three or more players", "it is not an equilibrium at all, since players always gain by switching"],
           answer: 1,
           explain: "The interior equilibrium is unstable: any nudge sends the population off to all-stag or all-hare."
         },
@@ -273,7 +273,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "In the Battle of the Sexes, the two players...",
-          choices: ["both want to avoid each other", "want to be together but prefer different activities", "have identical preferences", "each have a dominant strategy"],
+          choices: ["both want to avoid each other and go to different places", "want to be together but prefer different activities", "have exactly the same preferences over every outcome", "each have a dominant strategy that they always choose"],
           answer: 1,
           explain: "Both prefer coordinating (being together), yet each prefers a different one of the two joint activities."
         },
@@ -293,7 +293,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "What do the two players most want to avoid in the Battle of the Sexes?",
-          choices: ["ending up apart at different places", "coordinating at all", "the payoff-dominant outcome", "earning any payoff"],
+          choices: ["ending up apart at different places", "meeting at the place the partner prefers", "the outcome with the highest total payoff", "going to the same place as each other"],
           answer: 0,
           explain: "The worst outcomes are the miscoordinated ones where the players end up separated."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "A 'focal point' (Schelling point) is...",
-          choices: ["the equilibrium with the highest payoff", "a solution people gravitate to because it stands out as natural or salient", "a device for randomizing choices", "the single unique Nash equilibrium"],
+          choices: ["the equilibrium that gives the players the highest payoffs, whatever else is true", "a solution people gravitate to because it stands out as natural or salient", "a device that both players use to randomize their choices in the same way", "the single unique Nash equilibrium that a game has when players communicate"],
           answer: 1,
           explain: "Schelling showed people coordinate on salient options even without any communication."
         },
@@ -345,7 +345,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Focal points matter most in games that have...",
-          choices: ["multiple equilibria needing selection", "a single equilibrium", "no equilibrium at all", "a dominant strategy"],
+          choices: ["multiple equilibria needing selection", "only one strict equilibrium to reach", "no pure-strategy equilibrium", "a strictly dominant strategy"],
           answer: 0,
           explain: "When several equilibria exist, salience helps players select the same one."
         },
@@ -377,7 +377,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "The 'basin of attraction' of an equilibrium is...",
-          choices: ["the set of starting states that evolve to it", "its total payoff", "the number of players in the game", "the population's mutation rate"],
+          choices: ["the set of starting states that evolve to it", "the total payoff it gives to every player in the population", "the number of players needed to keep the equilibrium stable", "the set of mutant strategies that cannot invade it at all"],
           answer: 0,
           explain: "It is the range of initial population mixes from which the dynamics converge to that equilibrium."
         },

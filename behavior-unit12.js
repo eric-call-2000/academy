@@ -80,10 +80,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What is an 'intervening variable' in Tolman's framework?",
           choices: [
-            "A stimulus that appears between two responses",
+            "A neutral stimulus presented in the interval between two separate responses",
             "An inferred internal process linking stimuli and inputs to behavior",
-            "A reflex that cannot be measured directly",
-            "A reward delivered on a variable schedule"
+            "A reflex that cannot be measured directly by any instrument",
+            "A reward delivered on a variable schedule between trials"
           ],
           answer: 1,
           explain: "Intervening variables are unobservable constructs (like hunger, expectancy, or demand) inferred from measurable inputs and outputs to explain how behavior is produced."
@@ -98,10 +98,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Intervening variables are defined by their relationship to what two things?",
           choices: [
-            "Conscious thoughts and dreams",
-            "Genes and environment",
+            "Conscious thoughts and dream content reported by the subject",
+            "Genetic endowment and the physical layout of the animal's environment",
             "Independent (input) variables and dependent (behavioral) variables",
-            "Punishment and extinction"
+            "Punishment schedules and the rate of extinction of responses"
           ],
           answer: 2,
           explain: "Tolman anchored each intervening variable to observable antecedent conditions (inputs) and observable behavior (outputs), keeping the constructs scientifically respectable."
@@ -148,10 +148,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What is a 'cognitive map' according to Tolman?",
           choices: [
-            "A physical diagram researchers draw of a maze",
+            "A physical diagram that researchers draw of the maze before testing",
             "An internal mental representation of spatial layout and relationships",
-            "A chain of memorized left-and-right turns",
-            "A reinforcement schedule for navigation"
+            "A chain of memorized left and right turns triggered by each choice point",
+            "A reinforcement schedule that guides the animal through the maze"
           ],
           answer: 1,
           explain: "Tolman argued animals form an internal map-like representation of the environment, encoding places and relationships rather than a fixed sequence of movements."
@@ -185,10 +185,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "How does the cognitive map idea differ from a strict stimulus-response view of maze learning?",
           choices: [
-            "It says animals learn nothing at all in mazes",
+            "It says animals learn nothing in mazes until a reward is placed at the goal",
             "It says animals learn a flexible spatial representation, not just fixed movements",
-            "It says only reinforcement matters",
-            "It says rats cannot learn shortcuts"
+            "It says only the reinforcement of each individual turn determines what is learned",
+            "It says rats cannot take shortcuts and must repeat the route they were trained on"
           ],
           answer: 1,
           explain: "S-R theory predicts rigid chains of learned turns, while Tolman's map predicts flexible navigation and novel shortcuts, which the data supported."
@@ -220,10 +220,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What is 'latent learning'?",
           choices: [
-            "Learning that only happens with strong punishment",
+            "Learning that occurs only when strong punishment follows each mistake the animal makes",
             "Learning that occurs without reinforcement and is not shown until there is a reason to perform",
-            "Learning that fades immediately without practice",
-            "Learning that requires conscious verbal instruction"
+            "Learning that fades immediately unless the animal practices the response every single day",
+            "Learning that requires conscious verbal instruction and therefore cannot occur in animals"
           ],
           answer: 1,
           explain: "Latent learning is acquired without obvious reinforcement and stays 'latent' or hidden in performance until a reward gives the animal motivation to display it."
@@ -238,10 +238,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In classic latent learning studies, unrewarded rats explored a maze and then, once food was introduced, quickly performed as well as always-rewarded rats. This shows they had:",
           choices: [
-            "Learned nothing until reward began",
+            "Learned nothing at all until the food reward was first introduced",
             "Already learned the maze layout during unrewarded exploration",
-            "Only random behavior throughout",
-            "A purely reflexive response to food"
+            "Simply run faster once food appeared, without knowing the layout",
+            "Formed a reflexive response to the smell of food in the goal box"
           ],
           answer: 1,
           explain: "The sudden drop in errors once food appeared shows the rats had already built up knowledge of the maze during the unrewarded phase; reward simply released performance."
@@ -286,10 +286,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What did Hugh Blodgett's 1929 experiment demonstrate?",
           choices: [
-            "That rats cannot learn mazes without punishment",
+            "That rats cannot learn the layout of a maze unless their errors are punished with a mild shock",
             "That introducing reward late caused a sudden drop in errors, revealing earlier latent learning",
-            "That reinforcement has no effect on rats at all",
-            "That rats prefer response learning over place learning"
+            "That reinforcement has no effect at all on how quickly or accurately rats learn to run a maze",
+            "That rats prefer response learning over place learning when both strategies are available"
           ],
           answer: 1,
           explain: "Blodgett found that rats first run without food reward improved sharply once reward was introduced, evidence that they had learned the maze earlier without reinforcement."
@@ -304,10 +304,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "The sharp improvement after reward was introduced is best explained by which idea?",
           choices: [
-            "The rats suddenly grew smarter overnight",
+            "Reward strengthened the correct turns for the first time on that trial",
             "Reward converted already-acquired latent learning into performance",
-            "The maze became physically easier",
-            "The rats had never actually explored the maze"
+            "The maze was made physically easier once the food was introduced",
+            "The rats had never actually explored the maze before the reward"
           ],
           answer: 1,
           explain: "The rapid drop shows the rats already knew the maze; the reward simply gave them a reason to translate that latent knowledge into efficient performance."
@@ -354,10 +354,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In the place-versus-response debate, what does 'place learning' claim?",
           choices: [
-            "Animals learn a fixed set of turns regardless of location",
+            "Animals learn a fixed sequence of body turns that they repeat regardless of where they start",
             "Animals learn the spatial location of the goal and can reach it from new starting points",
-            "Animals learn only through punishment",
-            "Animals never form any spatial knowledge"
+            "Animals learn the route only when errors along the way are followed by punishment",
+            "Animals learn the place where they started and always return to that location"
           ],
           answer: 1,
           explain: "Place learning says the animal encodes where the goal is in space, allowing flexible routes, which fits Tolman's cognitive-map view."
@@ -372,10 +372,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "A cross-maze (plus-maze) study is used to test place vs response learning by changing the rat's:",
           choices: [
-            "Food type",
+            "Food type, then seeing whether it runs toward the new reward or the familiar old one",
             "Starting arm, then seeing whether it goes to the same place or repeats the same turn",
-            "Body temperature",
-            "Age"
+            "Lighting, then seeing whether it can still find the goal in complete darkness",
+            "Reward size, then seeing whether it runs faster to the larger of the two goals"
           ],
           answer: 1,
           explain: "By starting the rat from the opposite arm, experimenters see whether it returns to the original goal location (place learning) or makes the same body turn (response learning)."
@@ -391,10 +391,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Later research found that place vs response learning depends partly on:",
           choices: [
-            "The exact temperature of the room only",
+            "The species of rodent alone, so each strain uses only one of the two strategies",
             "Conditions such as amount of training and available cues, so both can occur",
-            "Whether the rat is left- or right-handed",
-            "The color of the experimenter's coat"
+            "Whether reward or punishment was used, since only reward produces place learning",
+            "The age of the rats alone, so young rats use place and old rats use response"
           ],
           answer: 1,
           explain: "Follow-up work showed the outcome is not all-or-none: with extensive training or few landmarks, response learning can dominate, while rich cues favor place learning."
@@ -426,10 +426,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "What is an 'expectancy' in Tolman's theory?",
           choices: [
-            "A reflex triggered automatically by a stimulus",
+            "A reflex triggered automatically by a specific preceding stimulus",
             "A learned belief that a certain sign leads to a certain outcome",
-            "A random guess with no basis in experience",
-            "A physical reward given after every response"
+            "A drive state that builds up when a biological need goes unmet",
+            "A habit strengthened each time a response reduces a drive"
           ],
           answer: 1,
           explain: "An expectancy is Tolman's term for a learned relationship, a belief that if I follow this sign or path I will reach that outcome or goal."
@@ -444,10 +444,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "In a sign-gestalt, the three linked elements are the sign, the means-end path, and the:",
           choices: [
-            "Punisher",
+            "Reinforcer (the drive reduction that follows)",
             "Significate (the goal or outcome expected)",
-            "Reflex arc",
-            "Drive reduction"
+            "Stimulus trace (the fading memory of the cue)",
+            "Habit strength (the stamped-in S-R bond)"
           ],
           answer: 1,
           explain: "Tolman described learning as connecting a sign, the behavior route (means-end relation), and the significate, the expected goal the sign points toward."
@@ -463,10 +463,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Evidence for expectancies includes the 'reward-shift' finding, in which rats reacted to a change in reward. This suggested they had:",
           choices: [
-            "No memory of previous rewards",
+            "No memory at all of the size of their previous rewards",
             "An expectation about the reward they should receive",
-            "Only reflexive salivation",
-            "A purely genetic response"
+            "Only a reflexive salivation response to the food",
+            "A fixed habit unaffected by what reward followed"
           ],
           answer: 1,
           explain: "When a familiar reward was reduced, rats showed disruption, implying they expected a specific outcome, evidence of learned expectancies rather than blind habit."
@@ -498,10 +498,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "Why is Tolman often called a bridge to the cognitive revolution?",
           choices: [
-            "He rejected all experimental methods",
+            "He rejected experimental methods and relied on introspective reports of thought",
             "He introduced internal cognitive constructs while keeping behavior as objective data",
-            "He proved that learning is impossible",
-            "He abandoned the study of behavior completely"
+            "He showed that learning is fully explained by reinforcement of stimulus-response bonds",
+            "He abandoned the study of behavior in favor of computer models of the mind"
           ],
           answer: 1,
           explain: "Tolman stayed methodologically behaviorist yet insisted on internal representations like maps and expectancies, foreshadowing the mind-focused cognitive psychology of the 1950s and 1960s."
@@ -516,10 +516,10 @@ window.ACADEMY.addUnit("behaviorism", {
           type: "mcq",
           q: "How did Tolman differ from strict behaviorists like Watson and Hull?",
           choices: [
-            "He denied that behavior could be observed",
+            "He denied that behavior could be observed objectively and focused on private experience instead",
             "He argued internal cognitive processes were needed to explain flexible, goal-directed behavior",
-            "He relied only on introspection",
-            "He rejected the use of animals in research"
+            "He relied on introspection by trained observers rather than on experiments with animals",
+            "He argued drive reduction alone explained learning, so expectancies were unnecessary"
           ],
           answer: 1,
           explain: "Where Watson and Hull emphasized S-R connections and reinforcement, Tolman insisted that inferred cognitive processes were essential to explain purposive, adaptable behavior."

@@ -13,14 +13,14 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Why does experimentally priming a cultural mindset give stronger evidence of causation than simply comparing two nations?",
-          choices: ["It manipulates the mindset within people while holding other factors constant", "It always uses larger samples", "It avoids using any statistics", "It proves that genes cause the difference"],
+          choices: ["It manipulates the mindset within people while holding other factors constant", "It always uses larger and more representative samples than national comparisons", "It avoids self-report measures, which are biased across nations", "It shows that genetic differences between nations cause the effect"],
           answer: 0,
           explain: "Random assignment to a prime manipulates culture-relevant construal directly, ruling out the many confounds that differ between whole nations."
         },
         {
           type: "mcq",
           q: "In Trafimow, Triandis, and Goto's 1991 study, how were people primed toward a private versus a collective self?",
-          choices: ["By being shown national flags", "By taking a personality test", "By thinking about how they differ from versus resemble family and friends", "By learning a second language"],
+          choices: ["By viewing either their own national flag or a foreign national flag", "By completing either an individualism or a collectivism personality scale", "By thinking about how they differ from versus resemble family and friends", "By reading instructions written in either their first or second language"],
           answer: 2,
           explain: "Reading a story and focusing on differences from family and friends primed the private self, while focusing on similarities primed the collective self."
         },
@@ -103,7 +103,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "A key implication of the situated-cognition model is that cross-cultural differences...",
-          choices: ["Can be reproduced within a single person through priming", "Can never be studied experimentally", "Prove that biology determines all thought", "Disappear entirely under every condition"],
+          choices: ["Can be reproduced within a single person through priming", "Can be studied only by comparing whole nations, not through experiments", "Show that biology, rather than culture, determines styles of thought", "Disappear once participants are tested in their native language"],
           answer: 0,
           explain: "If mindsets can be cued in anyone, then priming can recreate cross-national contrasts inside one individual, tying the two approaches together."
         }
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The Experience Sampling Method (ESM), developed by Csikszentmihalyi and Larson, collects data by...",
-          choices: ["Interviewing people once about their whole childhood", "Signaling people at random times to report their current experience", "Measuring brain activity in a scanner", "Analyzing historical documents"],
+          choices: ["Interviewing people once about their experiences over the past year", "Signaling people at random times to report their current experience", "Recording brain activity while people view emotional pictures", "Asking people to keep a diary that they complete at the end of each day"],
           answer: 1,
           explain: "ESM uses a signaling device that beeps at random moments, prompting people to record what they are doing and feeling right then."
         },
@@ -155,7 +155,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Why is ESM especially useful for cross-cultural research on emotion?",
-          choices: ["It removes all cultural differences", "It only works in laboratories", "It samples real emotional life rather than global self-reports", "It requires no participant effort"],
+          choices: ["It removes cultural differences in how people use rating scales", "It can only be used in laboratory settings, which improves control", "It samples real emotional life rather than global self-reports", "It requires little effort from participants, so response rates are high"],
           answer: 2,
           explain: "ESM captures how emotions are actually lived across cultures, avoiding the biases of abstract, summary self-descriptions."
         }
@@ -169,7 +169,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The phrase 'thick description,' central to Clifford Geertz's interpretive anthropology, refers to...",
-          choices: ["Writing very long field notes", "Describing behavior together with the web of meaning that makes it intelligible", "Measuring behavior with statistics", "Printing a thick book"],
+          choices: ["Writing very long and detailed field notes about everything that happens", "Describing behavior together with the web of meaning that makes it intelligible", "Measuring behavior precisely with standardized statistical coding schemes", "Recording only observable behavior in great detail, without adding any interpretation"],
           answer: 1,
           explain: "Thick description records not only the physical act but the layers of social meaning that make it what it is to participants."
         },
@@ -182,7 +182,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Geertz's classic example contrasts a mere twitch of the eye with a wink. The difference lies in...",
-          choices: ["Nothing at all", "The color of the eye", "The speed of the movement", "The layered social meaning of the gesture"],
+          choices: ["The physical muscles used to close the eyelid", "How long the eye stays closed", "The speed and force of the movement", "The layered social meaning of the gesture"],
           answer: 3,
           explain: "A twitch and a wink can be physically identical; only the shared cultural meaning distinguishes a signal from an involuntary spasm."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Measurement (or construct) equivalence asks whether...",
-          choices: ["An instrument measures the same construct in the same way across cultures", "Two cultures have equal wealth", "Everyone gives identical answers", "Translators are paid equally"],
+          choices: ["An instrument measures the same construct in the same way across cultures", "Two cultures score equally high on average on a given measure", "Translated items use word-for-word the same vocabulary as the original", "A test gives the same results when repeated with the same people later"],
           answer: 0,
           explain: "Equivalence is about comparability of measurement: only if the same construct is captured the same way can scores be compared."
         },
@@ -253,7 +253,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Which level of equivalence must hold before you can meaningfully compare average scores between cultures?",
-          choices: ["Configural only", "Metric only", "Scalar (full-score) equivalence", "No equivalence is needed"],
+          choices: ["Configural equivalence only", "Metric (weak) equivalence only", "Scalar (full-score) equivalence", "Linguistic (translation) equivalence"],
           answer: 2,
           explain: "Scalar equivalence ensures equal intercepts, so an observed mean difference reflects a true difference in the construct."
         },
@@ -273,14 +273,14 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "The reference-group effect (Heine et al., 2002) is the tendency to...",
-          choices: ["Rate oneself against the implicit standards of one's own culture", "Always agree with a group", "Copy a control group's answers", "Ignore other people entirely"],
+          choices: ["Rate oneself against the implicit standards of one's own culture", "Agree with whatever answer the majority of a group has given", "Copy the answers of a control group when unsure how to respond", "Compare oneself with people from other cultures when answering"],
           answer: 0,
           explain: "People judge themselves relative to their own culture's norm, so the same rating means different things in different cultures."
         },
         {
           type: "mcq",
           q: "Heine, Lehman, Peng, and Greenholtz (2002) used the reference-group effect to explain why...",
-          choices: ["All Likert scales are invalid within a single culture", "Self-report Likert comparisons across cultures can fail to match behavioral differences", "Nobody can be surveyed", "Reaction times differ"],
+          choices: ["Likert scales are invalid even when used within a single culture", "Self-report Likert comparisons across cultures can fail to match behavioral differences", "Respondents in collectivist cultures refuse to answer personal survey questions", "Reaction-time measures differ between cultures more than self-report measures do"],
           answer: 1,
           explain: "Because each group anchors on its own standard, subjective Likert comparisons often contradict what behavior and other measures show."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "'Unpackaging' culture means...",
-          choices: ["Replacing the label 'culture' with the specific psychological variable that explains a difference", "Removing culture from a study entirely", "Shipping surveys internationally", "Translating a questionnaire"],
+          choices: ["Replacing the label 'culture' with the specific psychological variable that explains a difference", "Removing culture from a study design entirely and treating every participant only as an individual", "Sending survey packages to many countries so that culture can be compared more widely", "Translating and back-translating a questionnaire so it can be used in another culture"],
           answer: 0,
           explain: "Unpackaging opens the black box of 'culture' by identifying the concrete variable that actually carries the effect."
         },
@@ -345,7 +345,7 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Michael Harris Bond is a cross-cultural psychologist closely associated with which strategy?",
-          choices: ["Banning all cross-cultural research", "Studying only one country", "Rejecting the use of values", "Unpackaging cultural differences into measurable variables"],
+          choices: ["Tracing cultural differences mainly to genetic differences between groups", "Studying one culture in depth through participant observation", "Studying culture mainly through brain imaging of bicultural participants", "Unpackaging cultural differences into measurable variables"],
           answer: 3,
           explain: "Bond and colleagues advocated unpackaging, urging researchers to name and measure the variables that culture stands in for."
         },
@@ -377,14 +377,14 @@ window.ACADEMY.addUnit("culture", {
         {
           type: "mcq",
           q: "Cultural neuroscience investigates...",
-          choices: ["How cultural experience shapes brain function and structure", "Only the anatomy of single neurons", "Whether culture exists at all", "The genetics of language alone"],
+          choices: ["How cultural experience shapes brain function and structure", "The anatomy of single neurons, apart from any social influence", "Whether brain differences between groups are entirely genetic", "How brain injuries affect a person's knowledge of cultural customs"],
           answer: 0,
           explain: "The field links cultural experience and psychological processes to measurable patterns of brain activity."
         },
         {
           type: "mcq",
           q: "In Zhu, Zhang, Fan, and Han's 2007 fMRI study, Chinese participants showed overlapping activity for thinking about the self and about their mother in which region?",
-          choices: ["The cerebellum", "The medial prefrontal cortex (mPFC)", "The primary visual cortex", "The brainstem"],
+          choices: ["The amygdala and nearby limbic areas", "The medial prefrontal cortex (mPFC)", "The primary visual cortex (V1)", "The dorsolateral prefrontal cortex"],
           answer: 1,
           explain: "For Chinese participants, judgments about self and mother engaged the same mPFC region tied to self-representation."
         },

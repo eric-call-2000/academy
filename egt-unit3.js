@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What did classical (von Neumann and Morgenstern) game theory assume about the players in a game?",
           choices: [
-            "That they reproduce faster whenever they win",
+            "That they follow fixed behavioral rules inherited from their ancestors",
             "That they are rational agents choosing the option that maximizes expected utility",
-            "That they mutate randomly each round",
-            "That they always cooperate"
+            "That they copy whatever the most successful players did in the previous round of play",
+            "That they choose randomly and learn the best option over many plays"
           ],
           answer: 1,
           explain: "Classical game theory, founded by von Neumann and Morgenstern, models players as rational actors who calculate and pick the utility-maximizing choice."
@@ -40,9 +40,9 @@ window.ACADEMY.addUnit("egt", {
           q: "Why can't the rationality assumption be applied directly to most organisms?",
           choices: [
             "Because animals and genes do not calculate optimal strategies in their heads",
-            "Because organisms always behave randomly",
-            "Because payoffs do not exist in nature",
-            "Because evolution has no equilibria"
+            "Because organisms always behave randomly and cannot follow any strategy",
+            "Because payoffs have no meaning in nature, where there is no money or prize to be won",
+            "Because evolution never reaches equilibria that rational players would"
           ],
           answer: 0,
           explain: "Insects, plants, and genes have no capacity for the conscious cost-benefit reasoning that rationality requires, so a different mechanism is needed."
@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In evolutionary game theory, what does a strategy's 'payoff' represent?",
           choices: [
-            "The player's subjective satisfaction",
-            "The amount of money won",
+            "The player's own sense of satisfaction or happiness",
+            "The amount of food the animal gathers in its lifetime",
             "Darwinian fitness, measured as reproductive success",
-            "The player's social status"
+            "How long an individual survives before it dies"
           ],
           answer: 2,
           explain: "Payoffs are redefined as fitness, the expected number of offspring a strategy leaves, replacing the utility of classical theory."
@@ -111,10 +111,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is fitness a better payoff currency than utility for modeling evolution?",
           choices: [
-            "Because utility is easier to measure in the field",
+            "Because utility is easier to measure in field studies than offspring are",
             "Because fitness directly determines which strategies are passed to the next generation",
-            "Because fitness is always a whole number",
-            "Because utility can never be negative"
+            "Because fitness always comes in whole numbers that are easy to compare",
+            "Because utility only applies to humans who have money to spend on goods and services they like"
           ],
           answer: 1,
           explain: "Selection acts through reproduction, so measuring payoffs in offspring links the game directly to what actually spreads over generations."
@@ -158,10 +158,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In evolutionary game theory, what is a 'strategy'?",
           choices: [
-            "A plan the animal consciously devises",
+            "A plan the animal works out consciously in each contest",
             "A heritable behavioral phenotype specified by genes",
-            "A random action with no genetic basis",
-            "A rule imposed by the experimenter"
+            "A behavior learned only by watching other animals",
+            "A random action with no inherited or genetic basis"
           ],
           answer: 1,
           explain: "A strategy is a genetically encoded behavioral phenotype, inherited rather than chosen, so that natural selection can act on it."
@@ -230,10 +230,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "In evolutionary game theory, what takes the place of a rational calculator in finding equilibria?",
           choices: [
-            "Random mutation acting alone",
+            "Random mutation acting alone, without any selection",
             "Natural selection through differential reproduction",
-            "A central planner",
-            "The experimenter's choices"
+            "Leaders who choose a strategy for the whole group",
+            "Group agreements that benefit the species as a whole"
           ],
           answer: 1,
           explain: "Maynard Smith and Price showed that selection, not conscious reasoning, drives strategy frequencies toward equilibrium."
@@ -256,9 +256,9 @@ window.ACADEMY.addUnit("egt", {
           q: "How can a mindless process like selection reach an equilibrium that a rational player would compute?",
           choices: [
             "By copying successful strategies through reproduction until change no longer pays off",
-            "By having each animal explicitly solve the game",
-            "By eliminating all variation instantly",
-            "By ignoring fitness differences"
+            "By having each animal work out the game's solution before it acts",
+            "By removing all variation from the population in a single generation",
+            "By favoring strategies that help the species survive, even at a real cost to the individuals"
           ],
           answer: 0,
           explain: "Fitter strategies out-reproduce rivals generation after generation, so the population settles where no alternative does better, an equilibrium."
@@ -302,10 +302,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is the central focus of 'population thinking' in evolutionary game theory?",
           choices: [
-            "The single most typical individual",
+            "The behavior of the single most typical individual",
             "The frequencies of different strategies in the population",
-            "One organism's lifetime plan",
-            "The average size of the group"
+            "The total number of individuals living in the population at once",
+            "The lifetime plan of one long-lived organism"
           ],
           answer: 1,
           explain: "Population thinking tracks how common each strategy is; evolution is change in these frequencies over time."
@@ -327,10 +327,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why does evolutionary game theory track populations rather than lone individuals?",
           choices: [
-            "Because individuals never vary",
+            "Because one individual's choices always decide the evolutionary outcome for the whole species",
             "Because selection changes the proportions of strategies across many individuals over time",
-            "Because individuals cannot reproduce",
-            "Because frequencies are irrelevant to fitness"
+            "Because single organisms never vary in the behaviors they show over time",
+            "Because frequencies matter only when the population is very small in size"
           ],
           answer: 1,
           explain: "Selection is visible as shifting proportions; a single organism's fate matters only through its contribution to those frequencies."
@@ -374,10 +374,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What defines frequency-dependent selection?",
           choices: [
-            "Fitness stays fixed regardless of the population",
+            "A strategy's fitness is fixed and does not depend on what others in the population do",
             "A strategy's fitness depends on how common that strategy is in the population",
-            "Only the largest animal reproduces",
-            "The mutation rate depends on temperature"
+            "The mutation rate of a strategy rises or falls with the size of the population",
+            "Only the most common strategy is allowed to reproduce in each generation"
           ],
           answer: 1,
           explain: "Under frequency dependence, a strategy's payoff varies with its own prevalence and that of others, tying fitness to the population mix."
@@ -471,10 +471,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is Fisher's sex-ratio argument considered 'proto-game theory'?",
           choices: [
-            "Because it uses money as the payoff",
+            "Because it treats parents as rational agents who calculate the best sex ratio for their own offspring",
             "Because the best strategy (which sex to produce) depends on what the rest of the population is doing",
-            "Because it assumes rational, calculating parents",
-            "Because it ignores fitness entirely"
+            "Because it measures the payoff of each sex ratio in money rather than in numbers of grandchildren",
+            "Because it shows the sex ratio is fixed by chance alone and does not depend on the rest of the population"
           ],
           answer: 1,
           explain: "The optimal sex to produce is frequency-dependent, an implicit equilibrium argument that prefigured evolutionary game theory."
@@ -519,9 +519,9 @@ window.ACADEMY.addUnit("egt", {
           q: "In his 1961 paper, how did Richard Lewontin apply game theory to evolution?",
           choices: [
             "As a species playing a game against nature (the environment)",
-            "As individuals competing in a market",
-            "As genes negotiating contracts",
-            "As a purely random walk"
+            "As males and females bargaining over care of their young",
+            "As rival species competing in a shared ecological market",
+            "As genes trading resources with one another in a cell"
           ],
           answer: 0,
           explain: "Lewontin modeled the species as a player whose opponent is the environment, choosing strategies against nature's states."
@@ -543,10 +543,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What kind of strategy did Lewontin suggest a species would favor when playing against an unpredictable nature?",
           choices: [
-            "One that maximizes short-term growth only",
+            "One that maximizes short-term population growth in good years",
             "A maximin strategy that guards against the worst outcome, extinction",
-            "A strategy that ignores rare environments",
-            "A strategy chosen by the single strongest individual"
+            "A mixed strategy that copies whatever nature did in the last season",
+            "A strategy chosen by the strongest individual for the whole species"
           ],
           answer: 1,
           explain: "Facing an indifferent environment, Lewontin argued species tend toward maximin play, guarding against the catastrophic outcome of extinction."

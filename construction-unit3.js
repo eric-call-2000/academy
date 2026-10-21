@@ -13,14 +13,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does clearing and grubbing remove from a site?",
-          choices: ["Trees, brush, stumps and roots", "Old concrete footings", "Existing utility lines", "The water table"],
+          choices: ["Trees, brush, stumps and roots", "Old concrete footings and slabs", "Existing buried utility lines", "Rock and boulders below grade"],
           answer: 0,
           explain: "Clearing removes surface vegetation and grubbing pulls out the roots and stumps below grade."
         },
         {
           type: "mcq",
           q: "Why is topsoil stripped and stockpiled separately rather than mixed into fill?",
-          choices: ["It is too heavy to haul", "It is organic and compresses, making it a poor structural base", "It is radioactive", "It speeds up concrete curing"],
+          choices: ["It contains clay that swells when wet and shrinks when dry", "It is organic and compresses, making it a poor structural base", "It drains too quickly to hold compaction moisture in the fill", "It must be tested for contaminants before it can be reused"],
           answer: 1,
           explain: "Organic topsoil decomposes and settles, so it is removed from structural areas and saved for final landscaping."
         },
@@ -40,7 +40,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is a laydown or staging area used for?",
-          choices: ["Pouring concrete", "Storing materials, equipment and deliveries on site", "Testing soil compaction", "Connecting to the sewer"],
+          choices: ["Parking for workers' personal vehicles during the shift", "Storing materials, equipment and deliveries on site", "Mixing and batching concrete before each pour", "Holding excavated soil until it is hauled away"],
           answer: 1,
           explain: "The laydown or staging area is the organized space where materials and equipment are received and stored."
         },
@@ -76,7 +76,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "In earthwork, what do cut and fill describe?",
-          choices: ["Two types of rebar", "Removing soil (cut) and adding soil (fill)", "Concrete admixtures", "Trench shoring methods"],
+          choices: ["Sawcutting old pavement (cut) and patching it (fill)", "Removing soil (cut) and adding soil (fill)", "Removing trees (cut) and replanting at closeout (fill)", "Trimming forms (cut) and pouring concrete into them (fill)"],
           answer: 1,
           explain: "Cut is soil excavated and removed; fill is soil placed and compacted to raise an area to grade."
         },
@@ -90,7 +90,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is over-excavation?",
-          choices: ["Digging beyond design limits, often to remove bad soil and replace with engineered fill", "Excavating in the rain", "Digging without a permit", "Reusing topsoil as structural fill"],
+          choices: ["Digging beyond design limits, often to remove bad soil and replace with engineered fill", "Digging deeper than the plans call for, then leaving the extra depth open for drainage", "Excavating wider than the trench box so workers have room to stand", "Reusing stripped topsoil as structural fill under the slab to save cost"],
           answer: 0,
           explain: "Over-excavation removes unsuitable soil below the planned depth so it can be replaced with compacted engineered fill."
         },
@@ -103,7 +103,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Benching and sloping are two trench-safety methods that protect workers by doing what?",
-          choices: ["Adding rebar to the walls", "Cutting the walls back at an angle or in steps so they cannot collapse", "Filling the trench with water", "Speeding up the dig"],
+          choices: ["Lining the trench walls with steel plates braced by hydraulic struts", "Cutting the walls back at an angle or in steps so they cannot collapse", "Keeping spoil piles and equipment well back from the trench edge", "Pumping groundwater out so the soil walls stay dry and firm"],
           answer: 1,
           explain: "Sloping angles the walls back and benching cuts them in steps so the soil stays stable."
         },
@@ -127,7 +127,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Who is the excavation subcontractor on most projects?",
-          choices: ["The framing crew", "The earthwork or grading contractor who digs, moves and compacts soil", "The concrete finisher", "The electrician"],
+          choices: ["The geotechnical engineer who tests the soil and directs the digging", "The earthwork or grading contractor who digs, moves and compacts soil", "The general contractor's own superintendent and laborers", "The concrete foundation sub who also forms and pours the footings"],
           answer: 1,
           explain: "The excavation or earthwork sub handles digging, grading, hauling and soil compaction before structures go in."
         }
@@ -141,7 +141,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the difference between rough grading and fine grading?",
-          choices: ["Rough is done by hand, fine by machine", "Rough gets the site near final elevation; fine sets exact, smooth final grade", "They are the same thing", "Rough is for concrete, fine is for asphalt"],
+          choices: ["Rough grading is for paved areas; fine grading is for landscaped areas", "Rough gets the site near final elevation; fine sets exact, smooth final grade", "Rough grading sets drainage slopes; fine grading only removes rocks and debris", "Rough is done by hand with rakes; fine is done by machine with a laser"],
           answer: 1,
           explain: "Rough grading brings the site close to design elevations; fine grading dials in the precise finished surface."
         },
@@ -155,7 +155,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A swale is best described as what?",
-          choices: ["A buried pipe", "A shallow, graded channel that directs surface water", "A type of compactor", "A concrete curb"],
+          choices: ["A buried perforated pipe that collects groundwater", "A shallow, graded channel that directs surface water", "A raised earthen ridge that blocks water from a slope", "A basin that stores runoff and releases it slowly"],
           answer: 1,
           explain: "A swale is a low, gently sloped channel that collects and carries runoff away from structures."
         },
@@ -168,7 +168,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A Proctor test measures what property of soil?",
-          choices: ["Its color", "Its maximum density and optimum moisture for compaction", "Its acidity", "Its rebar content"],
+          choices: ["Its bearing capacity under a loaded footing plate", "Its maximum density and optimum moisture for compaction", "Its in-place density after the roller has passed", "Its grain size distribution through a stack of sieves"],
           answer: 1,
           explain: "The Proctor test establishes a soil's target density and moisture so field compaction can be verified against it."
         },
@@ -192,7 +192,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why is geotextile fabric placed between soil and gravel base?",
-          choices: ["To add color", "To separate layers, stop soil from mixing into the gravel, and improve stability", "To waterproof the concrete", "To slow concrete curing"],
+          choices: ["To form a waterproof barrier that keeps all groundwater from rising into the base", "To separate layers, stop soil from mixing into the gravel, and improve stability", "To hold moisture in the subgrade so it compacts more easily", "To act as a vapor retarder directly under the concrete"],
           answer: 1,
           explain: "Geotextile fabric keeps subgrade soil and aggregate from intermixing, which preserves drainage and load capacity."
         }
@@ -206,14 +206,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which underground line carries wastewater away from the building?",
-          choices: ["Storm drain", "Sanitary sewer", "Water main", "Gas line"],
+          choices: ["Storm drain", "Sanitary sewer", "Water service line", "Fire service line"],
           answer: 1,
           explain: "The sanitary sewer carries wastewater from fixtures, while the storm drain handles rainwater runoff."
         },
         {
           type: "mcq",
           q: "What is the difference between a sanitary sewer and a storm drain?",
-          choices: ["There is no difference", "Sanitary carries wastewater; storm drain carries rainwater runoff", "Sanitary carries gas; storm carries water", "Storm is indoors, sanitary is outdoors"],
+          choices: ["Sanitary carries treated drinking water; storm drain carries wastewater", "Sanitary carries wastewater; storm drain carries rainwater runoff", "Storm drains run inside the building; sanitary sewers run outside", "Sanitary pipes are pressurized; storm drains always flow by gravity"],
           answer: 1,
           explain: "Sanitary sewers take building wastewater; storm drains collect and route surface rainwater separately."
         },
@@ -233,7 +233,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Before digging, crews call a locate service to do what?",
-          choices: ["Order concrete", "Mark existing buried utilities so they are not struck", "Schedule inspections", "Test the soil"],
+          choices: ["Confirm the excavation permit has been issued by the city", "Mark existing buried utilities so they are not struck", "Locate the property corners and survey control points", "Shut off power and gas to the lines in the dig area"],
           answer: 1,
           explain: "Call-before-you-dig services locate and mark existing utilities to prevent dangerous, costly strikes."
         },
@@ -270,7 +270,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the relationship between cement and concrete?",
-          choices: ["They are the same material", "Cement is an ingredient; concrete is the finished mix of cement, water and aggregate", "Concrete is an ingredient of cement", "Cement is only used in roads"],
+          choices: ["They are the same material, just called different names by region", "Cement is an ingredient; concrete is the finished mix of cement, water and aggregate", "Concrete is an ingredient; cement is the finished mix of concrete, sand and lime", "Cement is used for structural work; concrete is used only for flatwork"],
           answer: 1,
           explain: "Cement is the binder; concrete is the cured product made from cement, water, sand and stone (aggregate)."
         },
@@ -284,14 +284,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why does a lower water-cement ratio generally produce stronger concrete?",
-          choices: ["More water always means more strength", "Less excess water leaves fewer voids, yielding a denser, stronger paste", "Water has no effect on strength", "It speeds delivery"],
+          choices: ["Less water makes the concrete set faster, so it reaches full strength sooner", "Less excess water leaves fewer voids, yielding a denser, stronger paste", "Less water lets more air bubbles form, which adds strength to the mix", "A lower ratio means more aggregate, and stone is stronger than paste"],
           answer: 1,
           explain: "Excess water creates voids as it evaporates; a lower water-cement ratio gives denser, stronger concrete."
         },
         {
           type: "mcq",
           q: "What does a slump test measure?",
-          choices: ["The color of concrete", "The workability or consistency of fresh concrete", "The rebar spacing", "The cure time"],
+          choices: ["The compressive strength of concrete after curing", "The workability or consistency of fresh concrete", "The air content of fresh concrete in the mix", "How quickly the concrete sets in the forms"],
           answer: 1,
           explain: "Slump measures how much fresh concrete settles, indicating its workability and water content."
         },
@@ -311,7 +311,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What are admixtures in concrete?",
-          choices: ["The steel bars", "Chemicals added to modify properties like set time, workability or air content", "The wooden forms", "The aggregate"],
+          choices: ["Coarse and fine aggregates blended into the cement paste for bulk and strength", "Chemicals added to modify properties like set time, workability or air content", "Sealers applied to the surface after curing to block moisture and stains", "The water and cement measured into the mix at the batch plant"],
           answer: 1,
           explain: "Admixtures are additives that tune concrete behavior, such as accelerators, retarders or air-entraining agents."
         },
@@ -335,7 +335,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why are steel and concrete combined in reinforced concrete?",
-          choices: ["Steel is cheaper than concrete", "Concrete is strong in compression but weak in tension, and steel handles the tension", "Steel makes concrete cure faster", "It only improves the color"],
+          choices: ["Steel is strong in compression, so it carries the weight while concrete resists bending", "Concrete is strong in compression but weak in tension, and steel handles the tension", "Steel speeds up curing and adds weight that makes the concrete more stable", "Concrete alone is too heavy, so steel is added to reduce the overall weight"],
           answer: 1,
           explain: "Concrete resists compression well but cracks under tension; embedded steel carries those tensile forces."
         },
@@ -349,14 +349,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "A rebar size number like number 4 generally refers to what?",
-          choices: ["Its length in feet", "Its diameter in eighths of an inch", "Its weight per foot", "Its grade of steel"],
+          choices: ["Its standard length in feet as delivered", "Its diameter in eighths of an inch", "Its weight in pounds per linear foot", "Its yield strength in thousands of psi"],
           answer: 1,
           explain: "A bar number gives the diameter in eighths of an inch, so a number 4 bar is 4/8, or 1/2 inch."
         },
         {
           type: "mcq",
           q: "What is a lap splice?",
-          choices: ["A bend at the end of a bar", "Overlapping two bars so loads transfer between them", "A weld between bars", "A coating on the steel"],
+          choices: ["Bending the end of a bar into a hook for anchorage", "Overlapping two bars so loads transfer between them", "Joining two bars end to end with a threaded coupler", "Tying a bar to a chair so it stays at the right cover"],
           answer: 1,
           explain: "A lap splice overlaps two bars a specified length so forces transfer continuously through the concrete."
         },
@@ -369,7 +369,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Welded wire mesh is most often used to reinforce what?",
-          choices: ["Tall columns", "Flat slabs and slabs on grade", "Deep foundation piers", "Rebar splices"],
+          choices: ["Tall columns and shear walls", "Flat slabs and slabs on grade", "Deep drilled piers and caissons", "Masonry walls between bond beams"],
           answer: 1,
           explain: "Welded wire mesh is a grid of light wires used to control cracking in slabs and flatwork."
         },
@@ -400,7 +400,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is formwork?",
-          choices: ["The steel reinforcement", "The temporary mold that holds concrete in shape until it cures", "The finished concrete surface", "The curing compound"],
+          choices: ["The permanent steel cage that reinforces the concrete", "The temporary mold that holds concrete in shape until it cures", "The gravel base and vapor barrier placed under a slab", "The finished concrete surface after the forms are stripped"],
           answer: 1,
           explain: "Formwork is the temporary structure that contains and shapes wet concrete until it hardens."
         },
@@ -414,7 +414,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is falsework?",
-          choices: ["Defective formwork", "Temporary support that holds up forms and fresh concrete until it is self-supporting", "Permanent steel framing", "A waterproofing layer"],
+          choices: ["Formwork that failed inspection because it was out of plumb and must be rebuilt", "Temporary support that holds up forms and fresh concrete until it is self-supporting", "Permanent steel decking left in place under an elevated slab", "The wood or metal panels that give concrete its finished surface"],
           answer: 1,
           explain: "Falsework is the temporary supporting structure beneath formwork that carries loads until concrete cures."
         },
@@ -427,14 +427,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Snap ties are used in formwork to do what?",
-          choices: ["Lift the concrete trucks", "Hold opposing form walls at the correct spacing against concrete pressure", "Cut the rebar", "Smooth the surface"],
+          choices: ["Tie rebar intersections together so the cage stays in place during the pour", "Hold opposing form walls at the correct spacing against concrete pressure", "Brace the forms diagonally back to stakes driven in the ground", "Anchor the forms to the footing so they cannot float upward"],
           answer: 1,
           explain: "Snap ties connect opposing form faces and resist the outward pressure of fresh concrete, keeping wall thickness uniform."
         },
         {
           type: "mcq",
           q: "Why is strong bracing of formwork so important?",
-          choices: ["To make it look neat", "Because fresh concrete is heavy and exerts large outward pressure that can blow out the forms", "To speed up curing", "To reduce rebar"],
+          choices: ["Because the forms must stay perfectly plumb so inspectors can approve the finish", "Because fresh concrete is heavy and exerts large outward pressure that can blow out the forms", "Because vibration from trucks can shift forms and throw off the building layout", "Because braced forms hold in moisture and heat so the concrete cures at the right rate"],
           answer: 1,
           explain: "Wet concrete behaves like a heavy fluid and pushes hard on forms, so adequate bracing prevents blowouts."
         },
@@ -464,14 +464,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the main job of a footing?",
-          choices: ["To waterproof the basement", "To spread the building load over enough soil to prevent settlement", "To hold rebar in place", "To drain rainwater"],
+          choices: ["To keep groundwater from seeping into the basement walls", "To spread the building load over enough soil to prevent settlement", "To raise the floor above grade so the framing stays dry", "To carry the load down past weak soil to rock or firm strata"],
           answer: 1,
           explain: "A footing widens the base of a wall or column to distribute loads across more bearing soil."
         },
         {
           type: "mcq",
           q: "How does a spread footing differ from a continuous (strip) footing?",
-          choices: ["Spread supports a single column; continuous runs under a wall", "They are identical", "Spread is only for basements", "Continuous is only for columns"],
+          choices: ["Spread supports a single column; continuous runs under a wall", "Spread runs under a wall; continuous supports a single column", "Spread is shallow; continuous is always drilled deep into rock", "Spread is used for basements; continuous only for slabs on grade"],
           answer: 0,
           explain: "A spread footing carries an isolated point load like a column; a continuous strip footing runs under a wall."
         },
@@ -491,14 +491,14 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is bearing capacity?",
-          choices: ["How much weight the soil can safely support", "The PSI of the concrete", "The depth of the basement", "The amount of rebar used"],
+          choices: ["How much weight the soil can safely support", "The compressive strength of the footing concrete", "The total weight the building places on its footings", "How much water the soil can hold before it is saturated"],
           answer: 0,
           explain: "Bearing capacity is the maximum load the soil can carry safely without excessive settlement or failure."
         },
         {
           type: "mcq",
           q: "What is a grade beam?",
-          choices: ["A tool for leveling soil", "A reinforced concrete beam spanning between piers or supports near grade", "A type of rebar", "A drainage pipe"],
+          choices: ["A laser tool used to check the level of graded soil", "A reinforced concrete beam spanning between piers or supports near grade", "A steel beam set on top of the foundation wall to carry the floor joists", "A long concrete footing poured continuously under a bearing wall"],
           answer: 1,
           explain: "A grade beam is a reinforced concrete beam at or near ground level that ties supports together and spans between piers."
         },
@@ -529,7 +529,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is a slab on grade?",
-          choices: ["A raised concrete floor on piers", "A concrete floor poured directly on prepared ground", "A basement floor", "A waterproof membrane"],
+          choices: ["A concrete floor supported on piers above the soil", "A concrete floor poured directly on prepared ground", "A precast concrete panel set by crane onto the footings", "A sloped concrete apron poured at the garage entrance"],
           answer: 1,
           explain: "A slab on grade is a concrete floor cast directly on the prepared subgrade, common in homes without basements."
         },
@@ -543,7 +543,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why are control joints cut into concrete slabs?",
-          choices: ["To add color", "To create planned weak lines so cracks form there instead of randomly", "To hold rebar", "To drain water"],
+          choices: ["To let the slab expand freely where it meets walls and columns", "To create planned weak lines so cracks form there instead of randomly", "To give the slab texture so it is less slippery when wet", "To allow water to drain through the slab to the gravel base"],
           answer: 1,
           explain: "Control joints encourage concrete to crack along straight, planned lines rather than randomly across the slab."
         },
@@ -556,7 +556,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the difference between a basement and a crawlspace?",
-          choices: ["A basement is a full-height usable level; a crawlspace is a short, unfinished void under the floor", "They are the same", "A crawlspace is taller", "A basement has no foundation"],
+          choices: ["A basement is a full-height usable level; a crawlspace is a short, unfinished void under the floor", "A crawlspace is a full-height usable level; a basement is a short void used only for ductwork", "A basement sits on a slab on grade; a crawlspace sits on piers with no foundation walls", "A basement must be heated and finished; a crawlspace is any space below an attic"],
           answer: 0,
           explain: "A basement is a full, occupiable below-grade story; a crawlspace is a low space only tall enough to access utilities."
         },
@@ -570,7 +570,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why are expansion joints used in large concrete areas?",
-          choices: ["To reinforce the steel", "To allow concrete to expand and contract with temperature without cracking", "To speed curing", "To hold the vapor barrier"],
+          choices: ["To create planned weak lines so shrinkage cracks form in straight rows", "To allow concrete to expand and contract with temperature without cracking", "To hold the vapor barrier in place beneath the slab edges", "To transfer loads between slab sections so one side cannot sink below the other"],
           answer: 1,
           explain: "Expansion joints give concrete room to move with temperature changes, preventing buckling and cracking."
         },

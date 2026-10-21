@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is the common interior wall panel made of a gypsum core wrapped in paper?",
-          choices: ["Drywall (gypsum board)", "Plywood", "Cement board", "Particle board"],
+          choices: ["Drywall (gypsum board)", "Cement backer board", "Fiberboard (MDF panel)", "Wood lath and plaster"],
           answer: 0,
           explain: "Drywall, also called gypsum board, sheetrock or wallboard, is the standard interior wall and ceiling surface."
         },
@@ -57,7 +57,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which framing material is non-combustible and commonly used in commercial interior partitions?",
-          choices: ["Metal (steel) studs", "Wood studs", "Bamboo poles", "PVC pipe"],
+          choices: ["Metal (steel) studs", "Fire-treated wood studs", "Engineered LVL studs", "Finger-jointed wood studs"],
           answer: 0,
           explain: "Light-gauge steel studs are straight, non-combustible and standard in commercial walls; wood studs are common in homes."
         },
@@ -104,7 +104,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which trade installs trim, casing, doors and baseboard with tight, finished joints?",
-          choices: ["Finish carpenter", "Ironworker", "Mason", "Glazier"],
+          choices: ["Finish carpenter", "Framing carpenter", "Drywall finisher", "Cabinetmaker"],
           answer: 0,
           explain: "The finish carpenter handles the detailed visible woodwork, as opposed to the framer who does rough structure."
         },
@@ -192,7 +192,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Why is templating done after cabinets are installed rather than from the drawings alone?",
-          choices: ["To capture real-world dimensions and out-of-square conditions", "To pick the paint color", "To order the appliances", "To schedule the inspection"],
+          choices: ["To capture real-world dimensions and out-of-square conditions", "To confirm the stone color and veining match the approved sample", "To check the cabinets are level before the plumber connects the sink", "To give the fabricator a record for the warranty file"],
           answer: 0,
           explain: "Templating measures the as-built cabinets so the stone fits precisely despite field variations."
         },
@@ -212,7 +212,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "Which code primarily governs commercial buildings, while the IRC governs one- and two-family homes?",
-          choices: ["IBC (International Building Code)", "NEC", "ASTM", "ADA"],
+          choices: ["IBC (International Building Code)", "NEC (National Electrical Code)", "IECC (International Energy Conservation Code)", "IFC (International Fire Code)"],
           answer: 0,
           explain: "The IBC covers commercial and larger structures; the IRC (International Residential Code) covers houses."
         },
@@ -256,7 +256,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does a red-tag from an inspector mean?",
-          choices: ["Work is stopped until a violation is corrected", "Work passed inspection", "The permit is paid in full", "The building is for sale"],
+          choices: ["Work is stopped until a violation is corrected", "The inspector approved the work with minor notes", "The permit has expired and must be renewed", "The area is unsafe and must be demolished"],
           answer: 0,
           explain: "A red-tag is a failed or stop-work notice requiring correction before proceeding."
         },
@@ -296,7 +296,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "An activity that must finish before another can start is that activity's what?",
-          choices: ["Predecessor", "Successor", "Milestone", "Lag"],
+          choices: ["Predecessor", "Successor", "Milestone", "Constraint"],
           answer: 0,
           explain: "A predecessor comes before; the activity that follows is the successor."
         },
@@ -360,7 +360,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What is a fabricator-produced drawing showing exactly how a component will be built and installed?",
-          choices: ["Shop drawing", "As-built", "Plat", "Punch list"],
+          choices: ["Shop drawing", "As-built drawing", "Product data sheet", "Design detail"],
           answer: 0,
           explain: "Shop drawings are detailed submittals from the supplier showing the actual product to be made."
         },
@@ -468,7 +468,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What milestone marks when the owner can occupy and use the project for its intended purpose?",
-          choices: ["Substantial completion", "Notice to proceed", "Groundbreaking", "Mobilization"],
+          choices: ["Substantial completion", "Notice to proceed", "Mechanical completion", "Topping out"],
           answer: 0,
           explain: "Substantial completion means the work is usable for its intended purpose, even with minor punch items left."
         },
@@ -512,7 +512,7 @@ window.ACADEMY.addUnit("construction", {
         {
           type: "mcq",
           q: "What does LEED certify in green building?",
-          choices: ["A building's environmental and energy performance", "The contractor's bonding capacity", "The soil bearing capacity", "The paint color palette"],
+          choices: ["A building's environmental and energy performance", "A contractor's safety record and training program", "A building's compliance with accessibility rules", "The structural and seismic performance of a design"],
           answer: 0,
           explain: "LEED (Leadership in Energy and Environmental Design) rates sustainability and energy efficiency."
         },

@@ -15,9 +15,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What is a prompt?",
           choices: [
             "The instruction or question you give the AI",
-            "The name of the AI company",
-            "A hidden setting only engineers can change",
-            "The price you pay per message"
+            "The data the model learned from during training",
+            "A setting that controls how creative replies are",
+            "The reply the AI writes back to you in the chat"
           ],
           answer: 0,
           explain: "A prompt is simply what you tell the model to do or ask it. It is the main thing you control."
@@ -139,9 +139,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt best uses all four ingredients?",
           choices: [
             "Write a 3-bullet summary of this report for busy executives, keeping it under 60 words.",
-            "Summarize this.",
-            "Report.",
-            "Make it good."
+            "Summarize this quarterly report for busy executives so they can quickly grasp the main points.",
+            "Write a short summary of this report in exactly 3 bullet points, each one a single sentence.",
+            "Summarize the attached report in under 60 words, highlighting whatever seems most important."
           ],
           answer: 0,
           explain: "It has a task (summarize), context (for executives), constraint (under 60 words), and format (3 bullets)."
@@ -174,9 +174,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt will most likely get you a useful answer?",
           choices: [
             "Give me 3 gift ideas under $30 for a coworker who loves hiking.",
-            "Any gift ideas?",
-            "Gifts.",
-            "I need something."
+            "Can you suggest some good gift ideas for a coworker at my office?",
+            "I need a nice gift for someone at work; what do people usually like?",
+            "What are some popular gifts this year that most people would enjoy?"
           ],
           answer: 0,
           explain: "Specific details like budget, count, and interests let the model target a real answer."
@@ -199,9 +199,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Your first answer was too long. What is the clearest fix?",
           choices: [
             "Ask again: 'Shorten that to 3 sentences.'",
-            "Type 'no' and hope it guesses",
-            "Ask 'why did you do that?'",
-            "Start a brand-new unrelated chat"
+            "Reply 'too long' and let it decide how to fix it",
+            "Regenerate the answer until a shorter one appears",
+            "Ask it why the answer was so long the first time"
           ],
           answer: 0,
           explain: "Tell the model exactly what to change. Specific follow-ups fix problems fast."
@@ -227,9 +227,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which detail would make 'Plan a trip' much more specific?",
           choices: [
             "A 3-day trip to Denver in July on a $500 budget",
-            "A trip somewhere",
-            "A fun trip",
-            "A trip soon"
+            "A relaxing trip somewhere with good food and views",
+            "A fun, affordable trip that is not too far from home",
+            "A trip sometime soon that the whole family would enjoy"
           ],
           answer: 0,
           explain: "Destination, length, timing, and budget turn a vague request into an actionable one."
@@ -255,9 +255,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why does telling the AI your audience help?",
           choices: [
             "It tailors tone and detail to the right readers",
-            "It makes the AI respond faster",
-            "It unlocks secret features",
-            "It lowers the price"
+            "It lets the model look up facts about those readers",
+            "It makes the model's reply shorter and more direct",
+            "It switches the model to a more capable version"
           ],
           answer: 0,
           explain: "Audience shapes word choice and depth. 'For kids' and 'for doctors' need very different answers."
@@ -290,9 +290,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt gives the BEST context?",
           choices: [
             "Rewrite this for first-time users who are nervous about setup, keeping it encouraging: [text]",
-            "Rewrite this.",
-            "Fix it.",
-            "Make it nice."
+            "Please rewrite the following setup instructions so that they are clearer and easier to follow overall.",
+            "Rewrite this to sound more encouraging and friendly, and make it noticeably shorter than the original.",
+            "Rewrite the setup guide for our users, making it better in whatever ways you think are most important."
           ],
           answer: 0,
           explain: "It names the audience, their feelings, the goal, and includes the source text to work from."
@@ -308,9 +308,9 @@ window.ACADEMY.addUnit("ai", {
           q: "You want help replying to an email. What context is most useful to include?",
           choices: [
             "The original email you are replying to",
-            "Your favorite color",
-            "The weather today",
-            "Nothing at all"
+            "A list of every email you sent this month",
+            "A note asking it to sound as human as possible",
+            "Your job title and how long you have worked there"
           ],
           answer: 0,
           explain: "Give the model the source material, the original email, so its reply actually fits."
@@ -374,9 +374,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which prompt controls BOTH format and length?",
           choices: [
             "Give me the answer as 5 bullet points, each under 10 words.",
-            "Tell me about dogs.",
-            "Write freely about anything.",
-            "Explain it however you like."
+            "Give me the answer as a numbered list of the key points, please.",
+            "Keep your answer short, ideally no longer than about 50 words.",
+            "Explain it clearly in a well-organized format that is easy to scan."
           ],
           answer: 0,
           explain: "It sets a format (bullets) and a length limit (under 10 words each) at the same time."
@@ -422,9 +422,9 @@ window.ACADEMY.addUnit("ai", {
           q: "What does 'Act as a friendly math tutor' do?",
           choices: [
             "Sets the model's expertise and tone for the task",
-            "Gives the model a real teaching degree",
-            "Makes the model smarter than usual",
-            "Turns off all its safety rules"
+            "Switches the model to a separate version trained only on math",
+            "Gives the model access to a tutoring database",
+            "Makes the model's answers more accurate overall"
           ],
           answer: 0,
           explain: "A role shapes how the model responds. It does not change what the model truly is or knows."
@@ -475,9 +475,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which is a well-formed role prompt?",
           choices: [
             "You are an experienced travel agent. Plan a 3-day Rome itinerary.",
-            "travel",
-            "Rome?",
-            "go somewhere fun"
+            "You are an experienced, friendly, and highly knowledgeable travel agent.",
+            "Plan a 3-day itinerary for Rome with sights, food, and walking routes.",
+            "Act as a travel expert and tell me anything you think is interesting."
           ],
           answer: 0,
           explain: "It assigns a clear role and pairs it with a specific task, a strong combination."
@@ -494,9 +494,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Why include an example of the output you want?",
           choices: [
             "It shows the model the exact style and format to copy",
-            "It makes the model respond instantly",
-            "It is required for every prompt",
-            "It hides your real question"
+            "It gives the model new facts it did not learn in training",
+            "It is required, since models cannot follow instructions alone",
+            "It makes the model double-check its answer before replying"
           ],
           answer: 0,
           explain: "A sample output is a clear target. The model can match its structure and style closely."
@@ -528,9 +528,9 @@ window.ACADEMY.addUnit("ai", {
           q: "You want the AI to format contacts a certain way. What is the best move?",
           choices: [
             "Paste one contact formatted exactly how you want the rest",
-            "Just say 'format it nicely'",
-            "Say nothing about format",
-            "Ask it to guess your preference"
+            "Describe the format in one sentence and let it fill in any gaps",
+            "Ask it to format them nicely and fix any it gets wrong",
+            "Give it all the contacts and ask which format it prefers"
           ],
           answer: 0,
           explain: "One formatted example acts as a template the model can apply to every contact."
@@ -599,9 +599,9 @@ window.ACADEMY.addUnit("ai", {
           q: "Which follow-up is most likely to get a better revision?",
           choices: [
             "Shorten this to 2 paragraphs and add a real-world example.",
-            "No.",
-            "Try again.",
-            "Bad."
+            "This isn't quite what I wanted, so please try again from scratch.",
+            "Can you make this better? It still doesn't feel right to me.",
+            "Please rewrite this one more time, but make it a lot more polished."
           ],
           answer: 0,
           explain: "Specific feedback tells the model what to change. Vague reactions leave it guessing."

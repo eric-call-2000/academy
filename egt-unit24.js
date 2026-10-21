@@ -39,7 +39,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "A purely self-interested, money-maximizing responder should accept which offers?",
-          choices: ["Only a 50/50 split", "Any offer greater than zero", "Only offers above 40%", "No offers at all"],
+          choices: ["Only a 50/50 split of the pot", "Any offer greater than zero", "Only offers above about 40%", "Only offers above about 20-30%"],
           answer: 1,
           explain: "Any positive amount beats the zero from rejecting, so a pure payoff-maximizer should accept even a tiny offer."
         },
@@ -65,7 +65,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Human responders in the Ultimatum Game typically reject offers below roughly what share of the pot?",
-          choices: ["50%", "20-30%", "5%", "45%"],
+          choices: ["40-50%", "20-30%", "5-10%", "45-55%"],
           answer: 1,
           explain: "Offers below about 20-30% are frequently rejected, even though rejecting costs the responder real money."
         },
@@ -85,7 +85,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "What does the tendency to reject unfair offers suggest about human motivation?",
-          choices: ["People also care about fairness and relative outcomes", "People value only their own monetary payoff", "People cannot understand the game", "People always cooperate no matter what"],
+          choices: ["People also care about fairness and relative outcomes", "People value only their own monetary payoff and nothing else", "People do not understand the rules of the game they are playing", "People always cooperate, whatever the payoffs happen to be"],
           answer: 0,
           explain: "Rejection reveals fairness concerns and a distaste for being treated unfairly, beyond pure payoff maximization."
         },
@@ -117,7 +117,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "In Nowak, Page, and Sigmund's 2000 model, what makes fair offers evolve instead of minimal ones?",
-          choices: ["Information about a partner's past behavior (reputation)", "Players having no memory", "Random mutation only", "Simply using larger sums of money"],
+          choices: ["Information about a partner's past behavior (reputation)", "Players having no memory of any past interactions with partners", "Random mutation acting alone, without any selection at all", "Simply playing the game with much larger sums of money"],
           answer: 0,
           explain: "When proposers can know a responder's reputation, such as its acceptance threshold, fairness is selected for."
         },
@@ -221,7 +221,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Fixation probability is the chance that:",
-          choices: ["A mutant lineage spreads to the entire population", "A population goes extinct", "Two species merge into one", "Fitness stays perfectly constant"],
+          choices: ["A mutant lineage spreads to the entire population", "A mutant lineage dies out before it spreads", "Two populations merge into a single one", "The population goes extinct after a mutation"],
           answer: 0,
           explain: "Fixation means a mutant's descendants replace all others, so the mutant type takes over the population."
         },
@@ -241,7 +241,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "An advantageous mutant with relative fitness r greater than 1 has a fixation probability that is:",
-          choices: ["Exactly zero", "Exactly 1", "Greater than 1/N but usually below 1", "Always negative"],
+          choices: ["Exactly 1/N, the same as a neutral mutant", "Exactly 1, so fixation is certain", "Greater than 1/N but usually below 1", "Less than 1/N but above zero"],
           answer: 2,
           explain: "A beneficial mutant fixes more often than a neutral one (above 1/N) but is still not guaranteed to fix."
         },
@@ -325,7 +325,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "In evolutionary graph theory, individuals occupy the ____ of a graph.",
-          choices: ["Edges", "Vertices (nodes)", "Colors", "Weights"],
+          choices: ["Edges (links)", "Vertices (nodes)", "Faces (regions)", "Edge weights (labels)"],
           answer: 1,
           explain: "Each individual sits on a vertex, while the edges define who can replace whom during reproduction."
         },
@@ -397,7 +397,7 @@ window.ACADEMY.addUnit("egt", {
         {
           type: "mcq",
           q: "Why does clustering help cooperators on a network?",
-          choices: ["Cooperators mainly interact with other cooperators", "Defectors gain more from being in clusters", "Clusters remove all payoffs", "It prevents any reproduction"],
+          choices: ["Cooperators mainly interact with other cooperators", "Defectors gain more from being inside clusters", "Clusters remove the payoffs that defectors earn", "Clustering stops defectors from reproducing at all"],
           answer: 0,
           explain: "Within a cluster, cooperators receive benefits from cooperating neighbors, offsetting exploitation at the edges."
         },

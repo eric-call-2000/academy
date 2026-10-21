@@ -13,7 +13,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is the main extra capability that BIM Collaborate Pro adds over BIM Collaborate?",
-          choices: ["Revit Cloud Worksharing on cloud-hosted models", "Free unlimited storage", "Access to Autodesk Takeoff", "The ability to send email"],
+          choices: ["Revit Cloud Worksharing on cloud-hosted models", "Unlimited cloud storage for all project files", "Full access to Autodesk Takeoff and cost tools", "Clash detection in the Model Coordination module"],
           answer: 0,
           explain: "Collaborate Pro adds Revit Cloud Worksharing (and Cloud Models for Revit) so teams can co-author a Revit model hosted in the cloud."
         },
@@ -26,7 +26,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which product family are BIM Collaborate and Collaborate Pro part of?",
-          choices: ["Autodesk Construction Cloud (ACC), also branded Autodesk Forma", "Microsoft Office", "AutoCAD LT", "Fusion 360"],
+          choices: ["Autodesk Construction Cloud (ACC), also branded Autodesk Forma", "Autodesk Fusion, the cloud platform for product design and manufacturing", "AutoCAD LT, the 2D drafting product line", "Microsoft 365, through its SharePoint integration"],
           answer: 0,
           explain: "They are ACC products. Autodesk rebranded the ACC site as Autodesk Forma, so ACC and Forma are the same platform."
         },
@@ -55,7 +55,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which task specifically requires Collaborate Pro?",
-          choices: ["Multiple people editing the same cloud-hosted Revit model", "Downloading a PDF", "Viewing an issue list", "Reading a folder in Autodesk Docs"],
+          choices: ["Multiple people editing the same cloud-hosted Revit model", "Downloading a PDF of a sheet from Autodesk Docs", "Viewing and commenting on issues in the web viewer", "Uploading Revit files to a folder in Autodesk Docs for others to view"],
           answer: 0,
           explain: "Simultaneous authoring of a cloud Revit central model is the signature Pro capability."
         }
@@ -76,7 +76,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "In Revit worksharing, what does each user save changes into and pull changes from?",
-          choices: ["Their local copy synced with the central model", "A printed drawing", "An email attachment", "The recycle bin"],
+          choices: ["Their local copy synced with the central model", "The central model directly, with no local copy involved", "A separate detached model that is merged by hand later", "A shared network folder that copies files each night"],
           answer: 0,
           explain: "Each user works in a local copy and uses Sync with Central to exchange changes with the shared central model."
         },
@@ -95,7 +95,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is the safe habit before ending a Revit worksharing session?",
-          choices: ["Sync with Central so your work is saved to the shared model", "Delete your local copy", "Turn off your monitor", "Rename the project"],
+          choices: ["Sync with Central so your work is saved to the shared model", "Delete your local copy so it cannot conflict with the central", "Save your local copy only, and sync at the start of tomorrow", "Detach your model from central so your edits stay safe"],
           answer: 0,
           explain: "Syncing with Central publishes your changes and pulls in others' work so nothing is lost."
         },
@@ -125,7 +125,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is the main purpose of Design Collaboration in BIM Collaborate?",
-          choices: ["Let teams share and consume each other's work in a controlled timeline", "Estimate project cost", "Print title blocks", "Manage payroll"],
+          choices: ["Let teams share and consume each other's work in a controlled timeline", "Estimate project costs from the quantities in each model", "Let all teams edit one shared model at the same time with no packages", "Run automatic clash tests and assign the results as issues"],
           answer: 0,
           explain: "Design Collaboration gives each team its own space and a timeline for sharing and receiving work packages."
         },
@@ -155,7 +155,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why is controlled sharing better than everyone editing one giant model at once?",
-          choices: ["Teams share stable versions on purpose instead of being disrupted by every unfinished edit", "It makes files bigger on purpose", "It disables version history", "It removes permissions"],
+          choices: ["Teams share stable versions on purpose instead of being disrupted by every unfinished edit", "It makes model files smaller, since each team only stores its own elements", "It removes the need for version history because only final models are shared", "It means teams never have to coordinate with each other until the very end of the design phase"],
           answer: 0,
           explain: "Sharing curated packages means teams consume steady, intentional updates rather than half-finished work."
         },
@@ -188,14 +188,14 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does it mean to publish a package?",
-          choices: ["Make a chosen version of your work available to other teams", "Delete the project", "Print all sheets", "Lock everyone out"],
+          choices: ["Make a chosen version of your work available to other teams", "Issue the package formally to the owner for construction", "Print all sheets in the package for distribution on site", "Send every unfinished edit to other teams as soon as it is saved"],
           answer: 0,
           explain: "Publishing shares a curated version of your models so other teams can pull it in when ready."
         },
         {
           type: "mcq",
           q: "What does it mean to consume a package?",
-          choices: ["Bring another team's shared work into your own space to reference", "Erase it permanently", "Email it to a client", "Convert it to a spreadsheet"],
+          choices: ["Bring another team's shared work into your own space to reference", "Merge another team's model into yours so you can edit it", "Approve another team's package for construction use", "Download another team's files to your computer and remove them from the cloud"],
           answer: 0,
           explain: "Consuming pulls a published package into your team space so you can coordinate against it."
         },
@@ -236,7 +236,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does Autodesk Desktop Connector do?",
-          choices: ["Syncs ACC cloud files to a folder on your desktop", "Renders 3D animations", "Manages your email inbox", "Estimates costs"],
+          choices: ["Syncs ACC cloud files to a folder on your desktop", "Installs Revit and other desktop apps from the cloud", "Uploads files from your computer only when you email them", "Backs up your whole computer to the ACC cloud each night"],
           answer: 0,
           explain: "Desktop Connector maps cloud project files to a local drive folder so desktop apps can open and save them."
         },
@@ -256,7 +256,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why is Desktop Connector useful for apps that are not cloud-native?",
-          choices: ["It lets them open cloud files through a normal file path", "It converts them to PDFs", "It hides the files", "It disables versioning"],
+          choices: ["It lets them open cloud files through a normal file path", "It converts their files into PDFs that the web viewer can open", "It upgrades them to cloud-native versions automatically", "It stores their files only on the local hard drive"],
           answer: 0,
           explain: "Desktop apps that expect a file path can reach cloud files through the connected folder."
         },
@@ -292,7 +292,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What is consumed work in Design Collaboration?",
-          choices: ["A published version you have pulled into your space to reference", "Work that was deleted", "A printed sheet", "An unsaved local edit"],
+          choices: ["A published version you have pulled into your space to reference", "Work your own team has published for others to use", "Work in progress that another team is still editing and has not yet published", "A package that was deleted after it was replaced by a newer one"],
           answer: 0,
           explain: "Consumed work is a specific published package you brought in, giving you a stable reference."
         },
@@ -312,7 +312,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Why might you keep using a consumed version instead of always jumping to the newest work?",
-          choices: ["To coordinate against a stable, known state and avoid churn", "Because new work is always broken", "To save disk space only", "To disable clash detection"],
+          choices: ["To coordinate against a stable, known state and avoid churn", "Because newer packages are usually incomplete or broken", "Because consuming a newer package deletes your own work", "Because each update uses up part of the project's storage allowance"],
           answer: 0,
           explain: "A stable consumed version keeps your coordination steady until you deliberately update."
         },
@@ -347,7 +347,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "What does change visualization in Design Collaboration help you do?",
-          choices: ["See what changed between shared versions of a model", "Delete old versions", "Estimate cost", "Send invoices"],
+          choices: ["See what changed between shared versions of a model", "Delete outdated versions after a new package is shared", "Render photorealistic views of the latest model", "Merge two teams' changes into a single combined model"],
           answer: 0,
           explain: "It highlights differences so you can quickly understand what a team modified between packages."
         },
@@ -367,7 +367,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Comparing a new package to an older one mainly helps you answer which question?",
-          choices: ["What did the other team change since last time?", "What is the weather?", "Who owns the license?", "How big is the office?"],
+          choices: ["What did the other team change since last time?", "Which clashes still need to be resolved in my model?", "Who has permission to edit each of the team folders?", "How much will the latest design changes cost?"],
           answer: 0,
           explain: "Change visualization answers what is different between two shared versions."
         },
@@ -402,7 +402,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "How does cloud collaboration help teams in different cities work together?",
-          choices: ["Everyone connects to the same cloud project instead of a shared office server", "They must fly to one office", "They mail hard drives", "They stop using Revit"],
+          choices: ["Everyone connects to the same cloud project instead of a shared office server", "Each office keeps its own copy of the models and emails changes at the end of each day", "Teams ship hard drives between offices so models stay in sync", "One office does all the modeling while the others only review PDFs"],
           answer: 0,
           explain: "A shared cloud project removes the need for a common local network, so distributed teams collaborate directly."
         },
@@ -422,7 +422,7 @@ window.ACADEMY.addUnit("acc", {
         {
           type: "mcq",
           q: "Which ACC piece stores the shared files that remote teams all work from?",
-          choices: ["Autodesk Docs, the common data environment", "A personal USB drive", "A paper binder", "The recycle bin"],
+          choices: ["Autodesk Docs, the common data environment", "Desktop Connector, the local sync folder", "Model Coordination, the clash detection module", "Each user's local copy of the central model"],
           answer: 0,
           explain: "Autodesk Docs is the cloud CDE that holds the shared project files for everyone."
         },

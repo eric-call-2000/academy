@@ -14,10 +14,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is the core puzzle of animal signaling?",
           choices: [
-            "Why signals are always physically impossible to produce",
+            "Why signals are so often physically impossible for senders to produce at all",
             "Why a receiver should trust a signal from a sender who gains by being believed",
-            "Why animals never communicate with one another",
-            "Why receivers always ignore every signal they perceive"
+            "Why animals so rarely communicate with one another about anything",
+            "Why receivers so often ignore every signal they perceive from senders"
           ],
           answer: 1,
           explain: "Signalers often benefit from being believed regardless of the truth, so the puzzle is explaining why receivers should trust signals at all rather than being systematically deceived."
@@ -39,10 +39,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "For a signaling system to be evolutionarily stable, it generally must benefit:",
           choices: [
-            "Only the sender, at the receiver's expense",
-            "Only the receiver, at the sender's expense",
+            "Only the sender, even when the receiver pays a cost every time it responds",
+            "Only the receiver, even when the sender pays a cost every time it signals",
             "On average both senders and receivers, so neither is selected to abandon it",
-            "Neither party, since signals are always wasteful"
+            "Neither party, since every signal is wasteful and lowers both their fitness"
           ],
           answer: 2,
           explain: "If receivers were consistently exploited they would evolve to ignore the signal; stable communication requires that responding to the signal pays off on average for receivers too."
@@ -86,10 +86,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What did Amotz Zahavi propose in 1975 with the handicap principle?",
           choices: [
-            "That signals evolve to be as cheap as possible",
+            "That signals evolve to be as cheap as possible, so that every individual can afford them",
             "That reliable signals must be costly, so only high-quality individuals can afford them",
-            "That females always prefer smaller, weaker males",
-            "That signals carry no information about the signaler"
+            "That females prefer smaller, weaker males because they are less costly to raise young with",
+            "That signals carry no real information about the signaler, only about its surroundings"
           ],
           answer: 1,
           explain: "Zahavi argued that a signal's very costliness guarantees its honesty, because a low-quality individual cannot bear the cost of faking a high-quality display."
@@ -111,10 +111,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why does cost keep a handicap signal honest?",
           choices: [
-            "Because cost is the same for every individual regardless of quality",
+            "Because the cost of the signal is exactly the same for every individual, whatever its quality",
             "Because the marginal cost of the signal is higher for lower-quality individuals",
-            "Because receivers cannot perceive costly signals",
-            "Because costly signals are illegal to fake"
+            "Because receivers cannot perceive signals that are costly to produce",
+            "Because faking a costly signal is punished by the rest of the group"
           ],
           answer: 1,
           explain: "Honesty is maintained when the same display costs a low-quality individual relatively more, so faking it is not worthwhile for cheaters."
@@ -157,10 +157,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What did Alan Grafen accomplish in his 1990 papers on signaling?",
           choices: [
-            "He disproved that costly signals could ever be honest",
+            "He disproved the idea that costly signals could ever be honest in a stable equilibrium",
             "He gave the handicap principle a formal, mathematically rigorous game-theoretic model",
-            "He showed all signals must be free to be stable",
-            "He measured peacock tails in the wild"
+            "He showed that all signals must be free to produce in order to be evolutionarily stable",
+            "He measured the length of peacock tails in the wild and linked them to mating success"
           ],
           answer: 1,
           explain: "Grafen (1990) built a formal signaling model demonstrating that Zahavi's verbal handicap principle could indeed support an honest signaling equilibrium, silencing earlier skepticism."
@@ -229,10 +229,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What is the central claim of costly signaling theory?",
           choices: [
-            "Any signal, cheap or costly, is equally reliable",
+            "Any signal, whether cheap or costly, is equally reliable as long as the receiver can perceive it",
             "Reliable quality information is conveyed by displays that are affordable only to high-quality signalers",
-            "Signals never carry information about the signaler",
-            "Cost is irrelevant to signal honesty"
+            "Signals never carry information about the signaler's quality, only about the environment",
+            "Cost is irrelevant to signal honesty, since receivers punish anyone who is caught lying"
           ],
           answer: 1,
           explain: "Costly signaling theory holds that honesty is enforced when a display is affordable only to genuinely high-quality individuals, so cost differentials guarantee reliability."
@@ -300,10 +300,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Why is the peacock's train considered a classic honest handicap?",
           choices: [
-            "Because it is cheap and easy for any peacock to grow",
+            "Because it is cheap and easy for any peacock to grow, so every male can show it off",
             "Because its cost in survival means only healthy, high-quality males can grow and carry a large one",
-            "Because it helps the peacock escape predators",
-            "Because peahens ignore it completely"
+            "Because it helps the peacock escape from predators by making it look much larger than it really is",
+            "Because peahens ignore it, so it shows that males can carry it without any cost at all"
           ],
           answer: 1,
           explain: "The train is costly to grow and hampers escape, so a large, symmetrical, bright train reliably advertises the good condition of the male carrying it."
@@ -326,9 +326,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What quality information can a peahen plausibly read from a large, bright, symmetrical train?",
           choices: [
             "The male's ability to acquire resources and resist parasites while bearing the cost",
-            "The exact age of the male in days",
-            "Nothing at all, since the train is free to produce",
-            "The male's willingness to help raise chicks"
+            "The exact age of the male in days, since the train grows a fixed amount each day",
+            "Nothing at all, since the train is free to produce and every male has one",
+            "The male's willingness to stay and help the peahen raise the chicks"
           ],
           answer: 0,
           explain: "A well-developed train signals that a male had the resources and health, including parasite resistance, to invest heavily in the costly ornament and still survive."
@@ -372,10 +372,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "When can costless signals ('cheap talk') be reliable?",
           choices: [
-            "Whenever the sender wants to be believed",
+            "Whenever the sender wants to be believed by the receiver",
             "Only when the interests of sender and receiver are sufficiently aligned",
-            "Only when the signal is extremely costly",
-            "Never, under any circumstances"
+            "Only when the signal is also very costly to produce",
+            "Never, since a free signal can always be faked by anyone who gains from lying"
           ],
           answer: 1,
           explain: "Cheap talk can carry honest information when senders have no incentive to deceive, which happens when their interests align with the receiver's; conflict makes free signals cheap to fake."
@@ -444,9 +444,9 @@ window.ACADEMY.addUnit("egt", {
           q: "What is 'stotting' in gazelles?",
           choices: [
             "A stiff-legged, high, bouncing leap performed when a predator is detected",
-            "A method of digging for water",
-            "A grooming behavior between herd members",
-            "A way of marking territory with scent"
+            "A way of marking territory with scent from glands on the legs",
+            "A grooming behavior performed between members of the herd",
+            "A method of digging for water and roots during the long dry season on the plains"
           ],
           answer: 0,
           explain: "Stotting (also called pronking) is a conspicuous stiff-legged leap gazelles perform on spotting a predator, and it is widely interpreted as a signal directed at the predator."
@@ -515,10 +515,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "What makes an 'index signal' honest?",
           choices: [
-            "It is extremely expensive to produce",
+            "It is so expensive to produce that only high-quality individuals are able to afford it, whatever their size",
             "It is physically constrained so that it cannot be faked, being tied directly to the trait it advertises",
-            "It only works when interests align",
-            "It is chosen at random by the sender"
+            "It only works when the interests of sender and receiver are closely aligned",
+            "It is chosen at random by the sender, so receivers cannot predict it"
           ],
           answer: 1,
           explain: "An index signal is causally linked to the quality it indicates, so it cannot be exaggerated independently of that quality; the physical constraint, not cost, enforces honesty."
@@ -540,10 +540,10 @@ window.ACADEMY.addUnit("egt", {
           type: "mcq",
           q: "Which of these is the clearest example of an index signal?",
           choices: [
-            "A bird singing any tune it chooses",
+            "A bird singing any tune it chooses from a large learned repertoire of songs",
             "The formant spacing of a call, which is set by the length of the vocal tract and thus by body size",
-            "A costless alarm call given to allies",
-            "A large peacock train grown at high energetic cost"
+            "A costless alarm call given to allies whose interests match the caller's",
+            "A large peacock train grown at a high energetic cost and at a real risk to the male's survival"
           ],
           answer: 1,
           explain: "Formant spacing is determined by vocal-tract length, itself tied to body size, so it cannot be faked and serves as an honest index of size rather than a costly handicap."
