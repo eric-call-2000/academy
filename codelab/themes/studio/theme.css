@@ -83,8 +83,8 @@ body {
   font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: -0.02em;
   line-height: 1; filter: none;
   color: color-mix(in srgb, var(--c, var(--accent)) 82%, black);
-  background: color-mix(in srgb, var(--c, var(--accent)) 9%, white);
-  border: 1px solid color-mix(in srgb, var(--c, var(--accent)) 20%, white);
+  background: color-mix(in srgb, var(--c, var(--accent)) 9%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--c, var(--accent)) 20%, var(--card));
 }
 .course-ic { width: 52px; height: 52px; font-size: 13px; }
 .trans-ic { width: 34px; height: 34px; font-size: 10px; border-radius: 8px; }
