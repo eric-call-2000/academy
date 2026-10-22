@@ -5,7 +5,7 @@
      #/            Today — the next briefing, daily goal, what's new
      #/map         the world map: every country, its briefing count, and
                    the relationships between countries
-     #/atlas       the 30 countries by region
+     #/atlas       every country by region
      #/c/<id>      a country: its briefings, map and dispatches — or a
                    relationship between two (ids like "us_cn", links.js)
      #/read/<id>   the reader
@@ -479,7 +479,7 @@
       var built = P.builtCountries().length;
       slot.appendChild(el("div", "card caught-up",
         '<div class="big-emoji">🌍</div><h2>You\'re caught up.</h2><p>You\'ve read every briefing written so far (' + built +
-        " of 30 countries). New countries arrive in waves; China, Russia, India and Ukraine are next.</p>" +
+        " of " + P.countries.length + " countries). New countries arrive in waves.</p>" +
         '<a class="btn" href="#/atlas">Open the Atlas</a>'));
     }
 
@@ -519,7 +519,7 @@
     path.appendChild(el("h2", "section-title", "Your path"));
     var row = el("div", "path-row");
     P.countries.slice(0, 8).forEach(function (c) { row.appendChild(countryChip(c)); });
-    var more = el("a", "path-more", "All 30 →");
+    var more = el("a", "path-more", "All " + P.countries.length + " →");
     more.href = "#/atlas";
     row.appendChild(more);
     path.appendChild(row);
@@ -570,8 +570,8 @@
     var prof = me();
     var built = P.builtCountries();
     main.appendChild(el("h1", "page-title", "Atlas"));
-    main.appendChild(el("p", "page-sub", "Thirty countries, one unit each, grouped by region. A briefing a day covers a country in about twelve days. " +
-      built.length + " of 30 " + (built.length === 1 ? "is" : "are") + " written so far; the rest arrive in waves."));
+    main.appendChild(el("p", "page-sub", P.countries.length + " countries, one unit each, grouped by region. A briefing a day covers a country in about twelve days. " +
+      built.length + " of " + P.countries.length + " " + (built.length === 1 ? "is" : "are") + " written so far; the rest arrive in waves."));
     var mapRow = el("a", "row atlas-map");
     mapRow.href = "#/map";
     mapRow.innerHTML = '<span class="row-ic">🗺️</span><span class="row-main"><span class="row-title">See them on the world map</span>' +
@@ -769,7 +769,7 @@
     var main = shell("map");
     main.classList.add("wrap-wide");
     main.appendChild(el("h1", "page-title", "World map"));
-    main.appendChild(el("p", "page-sub", "All 30 countries. Tap one to see its relationships: a line to each country it has " +
+    main.appendChild(el("p", "page-sub", "All " + P.countries.length + " countries. Tap one to see its relationships: a line to each country it has " +
       "relationship briefings with, labelled with their two flags."));
     var box = el("div", "wmap-box");
     box.appendChild(el("div", "card loading", "Drawing the map…"));
@@ -819,7 +819,7 @@
       Object.keys(attrs).forEach(function (k) { x.setAttribute(k, attrs[k]); });
       return x;
     }
-    var svg = ['<svg class="wmap" viewBox="0 0 ' + W.w + " " + W.h + '" role="group" aria-label="World map of the 30 countries and their relationships">',
+    var svg = ['<svg class="wmap" viewBox="0 0 ' + W.w + " " + W.h + '" role="group" aria-label="World map of the ' + P.countries.length + ' countries and their relationships">',
       '<defs><pattern id="wm-hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
       '<rect width="4" height="4" class="wm-hatch-bg"/><rect width="1.6" height="4" class="wm-hatch-fg"/></pattern></defs>',
       '<rect class="wm-ocean" width="' + W.w + '" height="' + W.h + '"/>',
@@ -1553,7 +1553,7 @@
     clear();
     var scr = el("main", "profiles");
     scr.appendChild(el("div", "profiles-logo", '<span aria-hidden="true">🗳️</span> Political Academy'));
-    scr.appendChild(el("p", "profiles-sub", "Five-minute briefings on the 30 countries that shape the world."));
+    scr.appendChild(el("p", "profiles-sub", "Five-minute briefings on the " + P.countries.length + " countries that shape the world."));
     var names = allProfileNames();
     scr.appendChild(el("h1", "profiles-title", names.length ? "Who's reading?" : "Create your profile"));
     var grid = el("div", "profiles-grid");

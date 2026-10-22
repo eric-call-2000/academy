@@ -6,7 +6,7 @@
    and fails on anything that would break a page or quietly lower
    the bar the plan sets (politics-curriculum.md):
 
-   - the 30-country manifest is complete and consistent
+   - the country manifest (30 plus the planned 31–50 as they are built) is complete and consistent
    - each written unit matches its manifest entry and the standard
      8- or 12-briefing arc, with stable ids <unit>-1 … <unit>-N in reading order
    - every briefing has a date, a dek, 3 takeaways, at least 2
@@ -43,7 +43,7 @@ const HEX = /^#[0-9a-f]{6}$/i;
 const exists = (rel) => fs.existsSync(path.join(ROOT, rel));
 
 /* ---------- manifest ---------- */
-if (P.countries.length !== 30) err("countries.js", "expected 30 countries, found " + P.countries.length);
+if (P.countries.length < 30 || P.countries.length > 50) err("countries.js", "expected 30–50 countries, found " + P.countries.length);
 const seenIso = {};
 let lastPart = 0;
 P.countries.forEach((c, i) => {

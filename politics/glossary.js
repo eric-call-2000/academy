@@ -152,6 +152,8 @@ window.POLITICS.addTerms([
     def: "The lower and more powerful house of Russia's parliament, with 450 members elected every five years. The upper house, the Federation Council, represents the regions." },
   { id: "strait-of-hormuz", term: "Strait of Hormuz",
     def: "The narrow sea passage between Iran and Oman linking the Persian Gulf to the open ocean. Roughly a fifth of the world's oil normally passes through it, so any threat to shipping there moves global prices." },
+  { id: "supermajority", term: "Supermajority",
+    def: "A majority larger than half, such as two-thirds or three-fifths, that some decisions require: changing a constitution, overriding a veto or removing a president. Where one party alone holds it, as in Hungary, the usual checks on a government are weaker." },
   { id: "swing-state", term: "Swing state",
     def: "A US state where either party can realistically win, so presidential campaigns concentrate their money and visits there. In 2024 there were seven: Arizona, Georgia, Michigan, Nevada, North Carolina, Pennsylvania and Wisconsin." },
   { id: "tariff", term: "Tariff",

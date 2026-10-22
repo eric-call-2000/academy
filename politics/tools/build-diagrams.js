@@ -144,6 +144,90 @@ const SPECS = {
     ],
     bottom: ["NEXT PARLIAMENTARY ELECTION", "autumn 2027"]
   },
+  sy: {
+    title: "How power works in Syria",
+    top: ["THE TRANSITION", "five years under the March 2025 constitutional declaration"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Ahmed al-Sharaa", color: "#4c6b5a", lines: ["Heads state and government", "Appoints ministers and a third of MPs", "Commands the armed forces"] },
+      { arrow: "alongside" },
+      { head: "PEOPLE'S ASSEMBLY", tag: "210 seats", color: "#1f4e79", lines: ["Two-thirds via electoral colleges", "Cannot dismiss the government"] },
+      { arrow: "secured by" },
+      { head: "NEW ARMY", tag: "rebuilt from 2025", color: "#5b6270", lines: ["Former rebel factions merged", "SDF being integrated"] },
+      { arrow: "outside its control" },
+      { head: "CONTESTED AREAS", tag: "south and coast", color: "#6b4f8a", lines: ["Druze-run Sweida", "Israeli troops in the south-west"] }
+    ],
+    bottom: ["PERMANENT CONSTITUTION", "expected by 2029, then elections"]
+  },
+  qa: {
+    title: "How power works in Qatar",
+    top: ["THE AL THANI FAMILY", "succession stays in the ruling line"],
+    boxes: [
+      { head: "THE EMIR", tag: "Tamim bin Hamad Al Thani", color: "#7a2d4b", lines: ["Ruler since 2013", "Holds executive and legislative power"] },
+      { arrow: "appoints" },
+      { head: "PRIME MINISTER", tag: "Mohammed bin Abdulrahman", color: "#5b6270", lines: ["Also foreign minister", "Leads the cabinet and mediation"] },
+      { arrow: "advised by" },
+      { head: "SHURA COUNCIL", tag: "45 appointed", color: "#6b4f8a", lines: ["Reviews laws; cannot overrule", "Elections scrapped in 2024"] },
+      { arrow: "funded by" },
+      { head: "GAS WEALTH", tag: "QatarEnergy and the QIA", color: "#a0782b", lines: ["LNG pays for the state", "Sovereign fund invests abroad"] }
+    ],
+    bottom: ["POLITICAL PARTIES", "none allowed"]
+  },
+  by: {
+    title: "How power works in Belarus",
+    top: ["THE VOTERS", "elections judged neither free nor fair"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Alexander Lukashenko", color: "#9b3b3b", lines: ["In power since 1994", "Appoints government, judges, governors", "Rules by decree"] },
+      { arrow: "also chairs" },
+      { head: "PEOPLE'S ASSEMBLY", tag: "about 1,200 loyalists", color: "#6b4f8a", lines: ["Created by the 2022 constitution", "Can override parliament"] },
+      { arrow: "above" },
+      { head: "NATIONAL ASSEMBLY", tag: "no opposition", color: "#5b6270", lines: ["Passes the president's laws"] },
+      { arrow: "enforced by" },
+      { head: "KGB AND POLICE", tag: "repression", color: "#3e3a44", lines: ["More than 800 political prisoners", "Over 65,000 detained since 2020"] }
+    ],
+    bottom: ["MAIN BACKER", "Russia, through the Union State"]
+  },
+  nl: {
+    title: "How power works in the Netherlands",
+    top: ["THE VOTERS", "one national list vote; about 0.67% wins a seat"],
+    boxes: [
+      { head: "HOUSE OF REPRESENTATIVES", tag: "150 seats", color: "#1f4e79", lines: ["15 parties; no majority since 1918", "Can bring down the cabinet"] },
+      { arrow: "backs" },
+      { head: "PRIME MINISTER", tag: "Rob Jetten", color: "#c4621d", lines: ["D66–VVD–CDA minority, 66 seats", "Needs opposition votes on every law"] },
+      { arrow: "checked by" },
+      { head: "SENATE", tag: "75 seats", color: "#6b4f8a", lines: ["Elected by provincial councils", "Coalition holds 22 seats"] },
+      { arrow: "alongside" },
+      { head: "THE KING", tag: "Willem-Alexander", color: "#5b6270", lines: ["Head of state; signs laws", "No role in forming governments"] }
+    ],
+    bottom: ["NEXT ELECTION", "due by 2030; provinces vote March 2027"]
+  },
+  es: {
+    title: "How power works in Spain",
+    top: ["THE VOTERS", "elect 350 deputies by province, and most senators"],
+    boxes: [
+      { head: "CONGRESS OF DEPUTIES", tag: "350 seats", color: "#1f4e79", lines: ["Invests the prime minister", "Validates decrees within 30 days"] },
+      { arrow: "invests" },
+      { head: "PRIME MINISTER", tag: "Pedro Sánchez", color: "#b0354a", lines: ["Minority PSOE–Sumar coalition", "Depends on regional parties"] },
+      { arrow: "alongside" },
+      { head: "THE KING", tag: "Felipe VI", color: "#b8862b", lines: ["Head of state", "Proposes candidates for PM"] },
+      { arrow: "power shared with" },
+      { head: "17 REGIONS", tag: "autonomous communities", color: "#6b4f8a", lines: ["Run health and schools", "Some have their own police"] }
+    ],
+    bottom: ["NEXT ELECTION", "29 November 2026"]
+  },
+  hu: {
+    title: "How power works in Hungary",
+    top: ["THE VOTERS", "elect 199 MPs: 106 constituencies, 93 from lists"],
+    boxes: [
+      { head: "NATIONAL ASSEMBLY", tag: "199 seats", color: "#1f4e79", lines: ["Two-thirds can change the constitution", "and the cardinal laws"] },
+      { arrow: "elects" },
+      { head: "PRIME MINISTER", tag: "Péter Magyar", color: "#3d7a4a", lines: ["Leads a single-party Tisza government", "Tisza holds 141 seats"] },
+      { arrow: "alongside" },
+      { head: "PRESIDENT", tag: "András Baka", color: "#5b6270", lines: ["Elected by parliament", "Signs laws; can refer them to the court"] },
+      { arrow: "checked by" },
+      { head: "CONSTITUTIONAL COURT", tag: "reshaped in 2026", color: "#6b4f8a", lines: ["Reviews laws", "Age limit of 70 restored"] }
+    ],
+    bottom: ["NEXT ELECTION", "due spring 2030"]
+  },
   tr: {
     title: "How power works in Turkey",
     top: ["THE VOTERS", "elect the president and 600 MPs"],
