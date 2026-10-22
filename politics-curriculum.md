@@ -1263,6 +1263,8 @@ Malaysia, Peru.
   - **Colombia** is out of date. The 2026 election is over: Abelardo de la Espriella beat Iván
     Cepeda in the 21 Jun runoff and took office on 7 Aug, so Petro is no longer president.
     The research note should reframe this unit around the new government.
+  - **Spain** (found while building Wave F, 2026-10-22): the election is no longer "due by 2027".
+    Sánchez called a snap vote for 29 Nov 2026 after Congress rejected his housing decrees.
 
 ---
 
