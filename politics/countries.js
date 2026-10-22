@@ -75,7 +75,7 @@
       blurb: "A nuclear dynasty whose soldiers and shells now fight for Russia." });
   C({ id: "tw", iso: "158", part: 4, name: "Taiwan", flag: "🇹🇼", color: "#3c4f9e", lessons: 12,
       blurb: "Self-governed and claimed by Beijing; maker of the chips the world runs on." });
-  C({ id: "ph", iso: "608", part: 4, name: "Philippines", flag: "🇵🇭", color: "#2f5fa0", lessons: 0,
+  C({ id: "ph", iso: "608", part: 4, name: "Philippines", flag: "🇵🇭", color: "#2f5fa0", lessons: 12,
       blurb: "A US treaty ally on the South China Sea front line, split by a Marcos–Duterte feud." });
   C({ id: "vn", iso: "704", part: 4, name: "Vietnam", flag: "🇻🇳", color: "#b8322a", lessons: 12,
       blurb: "A communist party running a market boom: the main 'China plus one' factory." });

@@ -172,6 +172,20 @@ const SPECS = {
     ],
     bottom: ["NEXT PARTY CONGRESS", "due in 2031"]
   },
+  ph: {
+    title: "How power works in the Philippines",
+    top: ["VOTERS", "elect the president and vice-president separately"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Ferdinand Marcos Jr.", color: "#2f5fa0", lines: ["One six-year term, to 2028", "Head of state and government"] },
+      { arrow: "elected separately from" },
+      { head: "VICE-PRESIDENT", tag: "Sara Duterte", color: "#4c6b5a", lines: ["Few formal powers", "On trial in the Senate"] },
+      { arrow: "checked by" },
+      { head: "CONGRESS", tag: "Senate 24 · House about 317", color: "#1f4e79", lines: ["House impeaches", "Senate convicts with 16 votes"] },
+      { arrow: "reviewed by" },
+      { head: "SUPREME COURT", tag: "15 justices", color: "#5b6270", lines: ["Rules on the constitution", "Voided the 2025 impeachment"] }
+    ],
+    bottom: ["NEXT ELECTION", "May 2028"]
+  },
   sy: {
     title: "How power works in Syria",
     top: ["THE TRANSITION", "five years under the March 2025 constitutional declaration"],
