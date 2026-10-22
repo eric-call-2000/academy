@@ -1239,8 +1239,12 @@ Malaysia, Peru.
 
 ### Build notes
 
-- **Placement (decision to confirm).** Either slot 31–50 into the existing six parts
-  (Kazakhstan into the Indo-Pacific, Denmark into Europe), or add a new **Part 7 — The Next 20**.
+- **Placement (decided 2026-10-22).** Units 31–50 fold into the existing six parts, each next
+  to its neighbours (Kazakhstan into the Indo-Pacific, Denmark into Europe). There is no Part 7.
+  The numbers 31–50 are planning labels only: the app shows no unit numbers, and progress is
+  keyed by country id.
+- **Waves of six.** Wave F is units 31–36 (Hungary, Spain, Netherlands, Belarus, Qatar, Syria),
+  then 37–42, 43–48, and a last wave of two (49–50).
 - **New relationships these unlock:** Sudan–UAE, Ethiopia–Egypt (the Nile), Cuba–US,
   Algeria–France, Netherlands–China, Belarus–Russia, Denmark–US, Iraq–Iran, Philippines–China,
   Bangladesh–India, Vietnam–China.
