@@ -43,7 +43,7 @@
       blurb: "NATO's eastern anchor, where a president's vetoes hold the government hostage." });
   C({ id: "hu", iso: "348", part: 2, name: "Hungary", flag: "🇭🇺", color: "#3d7a4a", lessons: 12,
       blurb: "Orbán's 16 years ended at the ballot box in April 2026. Now comes the dismantling." });
-  C({ id: "by", iso: "112", part: 2, name: "Belarus", flag: "🇧🇾", color: "#9b3b3b", lessons: 0,
+  C({ id: "by", iso: "112", part: 2, name: "Belarus", flag: "🇧🇾", color: "#9b3b3b", lessons: 12,
       blurb: "Russia's closest ally, hosting its nuclear weapons, ruled by Lukashenko since 1994." });
   C({ id: "tr", iso: "792", part: 2, name: "Turkey", flag: "🇹🇷", color: "#b5462f", lessons: 12,
       blurb: "Holder of the Bosphorus and broker on Ukraine, Gaza and Syria — the bridge to Part 3." });

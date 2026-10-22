@@ -144,6 +144,20 @@ const SPECS = {
     ],
     bottom: ["NEXT PARLIAMENTARY ELECTION", "autumn 2027"]
   },
+  by: {
+    title: "How power works in Belarus",
+    top: ["THE VOTERS", "elections judged neither free nor fair"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Alexander Lukashenko", color: "#9b3b3b", lines: ["In power since 1994", "Appoints government, judges, governors", "Rules by decree"] },
+      { arrow: "also chairs" },
+      { head: "PEOPLE'S ASSEMBLY", tag: "about 1,200 loyalists", color: "#6b4f8a", lines: ["Created by the 2022 constitution", "Can override parliament"] },
+      { arrow: "above" },
+      { head: "NATIONAL ASSEMBLY", tag: "no opposition", color: "#5b6270", lines: ["Passes the president's laws"] },
+      { arrow: "enforced by" },
+      { head: "KGB AND POLICE", tag: "repression", color: "#3e3a44", lines: ["More than 800 political prisoners", "Over 65,000 detained since 2020"] }
+    ],
+    bottom: ["MAIN BACKER", "Russia, through the Union State"]
+  },
   nl: {
     title: "How power works in the Netherlands",
     top: ["THE VOTERS", "one national list vote; about 0.67% wins a seat"],
