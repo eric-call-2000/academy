@@ -144,6 +144,20 @@ const SPECS = {
     ],
     bottom: ["NEXT PARLIAMENTARY ELECTION", "autumn 2027"]
   },
+  iq: {
+    title: "How power works in Iraq",
+    top: ["VOTERS", "elect 329 MPs by province, with seats for minorities"],
+    boxes: [
+      { head: "COUNCIL OF REPRESENTATIVES", tag: "329 seats", color: "#1f4e79", lines: ["Elects the president (two-thirds)", "Confirms the cabinet"] },
+      { arrow: "confirms" },
+      { head: "PRIME MINISTER", tag: "Ali al-Zaidi", color: "#8a5a2b", lines: ["Runs the government", "Commander-in-chief"] },
+      { arrow: "named by" },
+      { head: "PRESIDENT", tag: "Nizar Amidi", color: "#4c6b5a", lines: ["Head of state, by custom a Kurd", "Mostly ceremonial"] },
+      { arrow: "shares power with" },
+      { head: "KURDISTAN AND THE PMF", tag: "outside full control", color: "#6b4f8a", lines: ["Autonomous Kurdistan Region", "Armed factions in the PMF"] }
+    ],
+    bottom: ["NEXT ELECTION", "due by late 2029"]
+  },
   sy: {
     title: "How power works in Syria",
     top: ["THE TRANSITION", "five years under the March 2025 constitutional declaration"],

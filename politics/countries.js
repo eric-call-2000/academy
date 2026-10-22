@@ -55,7 +55,7 @@
       blurb: "After Assad: a new government, a fractured map, and every neighbour with a stake." });
   C({ id: "ir", iso: "364", part: 3, name: "Iran", flag: "🇮🇷", color: "#2e7d5b", lessons: 12,
       blurb: "At war with the US and Israel, beside the Strait of Hormuz, under a new Supreme Leader." });
-  C({ id: "iq", iso: "368", part: 3, name: "Iraq", flag: "🇮🇶", color: "#8a5a2b", lessons: 0,
+  C({ id: "iq", iso: "368", part: 3, name: "Iraq", flag: "🇮🇶", color: "#8a5a2b", lessons: 12,
       blurb: "OPEC's second-biggest producer, host to US troops and Iran-aligned militias, caught between both." });
   C({ id: "sa", iso: "682", part: 3, name: "Saudi Arabia", flag: "🇸🇦", color: "#1c5e38", lessons: 12,
       blurb: "The oil superpower of OPEC+, Vision 2030, and a front-row seat in the Iran war." });
