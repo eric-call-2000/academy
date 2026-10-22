@@ -144,6 +144,20 @@ const SPECS = {
     ],
     bottom: ["NEXT PARLIAMENTARY ELECTION", "autumn 2027"]
   },
+  sy: {
+    title: "How power works in Syria",
+    top: ["THE TRANSITION", "five years under the March 2025 constitutional declaration"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Ahmed al-Sharaa", color: "#4c6b5a", lines: ["Heads state and government", "Appoints ministers and a third of MPs", "Commands the armed forces"] },
+      { arrow: "alongside" },
+      { head: "PEOPLE'S ASSEMBLY", tag: "210 seats", color: "#1f4e79", lines: ["Two-thirds via electoral colleges", "Cannot dismiss the government"] },
+      { arrow: "secured by" },
+      { head: "NEW ARMY", tag: "rebuilt from 2025", color: "#5b6270", lines: ["Former rebel factions merged", "SDF being integrated"] },
+      { arrow: "outside its control" },
+      { head: "CONTESTED AREAS", tag: "south and coast", color: "#6b4f8a", lines: ["Druze-run Sweida", "Israeli troops in the south-west"] }
+    ],
+    bottom: ["PERMANENT CONSTITUTION", "expected by 2029, then elections"]
+  },
   qa: {
     title: "How power works in Qatar",
     top: ["THE AL THANI FAMILY", "succession stays in the ruling line"],

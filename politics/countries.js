@@ -51,7 +51,7 @@
   /* Part 3 — The Middle East */
   C({ id: "il", iso: "376", part: 3, name: "Israel", flag: "🇮🇱", color: "#2c6e9b", lessons: 12,
       blurb: "At the centre of Gaza, Iran, Lebanon and Syria, with an election on 27 October 2026." });
-  C({ id: "sy", iso: "760", part: 3, name: "Syria", flag: "🇸🇾", color: "#4c6b5a", lessons: 0,
+  C({ id: "sy", iso: "760", part: 3, name: "Syria", flag: "🇸🇾", color: "#4c6b5a", lessons: 12,
       blurb: "After Assad: a new government, a fractured map, and every neighbour with a stake." });
   C({ id: "ir", iso: "364", part: 3, name: "Iran", flag: "🇮🇷", color: "#2e7d5b", lessons: 12,
       blurb: "At war with the US and Israel, beside the Strait of Hormuz, under a new Supreme Leader." });
