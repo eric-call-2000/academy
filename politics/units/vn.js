@@ -249,7 +249,7 @@ window.POLITICS.addUnit("vn", {
         choices: ["Vietnam would join France", "Vietnam would be divided temporarily at the 17th parallel", "The US would govern Vietnam"], answer: 1,
         explain: "Vietnam was split at the 17th parallel pending elections that never took place." },
       sources: [
-        { title: "Battle of Dien Bien Phu", publisher: "Britannica", url: "https://www.britannica.com/event/Battle-of-Dien-Bien-Phu", date: "n.d." },
+        { title: "First Indochina War", publisher: "Britannica", url: "https://www.britannica.com/event/First-Indochina-War", date: "n.d." },
         { title: "Battle of Dien Bien Phu", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Dien_Bien_Phu", date: "n.d." },
         { title: "History of Vietnam", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Vietnam", date: "n.d." }
       ]

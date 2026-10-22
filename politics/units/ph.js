@@ -129,7 +129,7 @@ window.POLITICS.addUnit("ph", {
         { type: "section", head: "Rizal and the revolution", md:
           "In the 19th century a Filipino educated class, the ilustrados, demanded reform. José Rizal's novels exposed abuses by friars and officials; Spain executed him in Manila in December 1896, making him the nation's martyr. A secret society, the Katipunan, led by Andrés Bonifacio, had launched a revolution that August. Leadership passed to Emilio Aguinaldo, who declared independence on 12 June 1898, still the national day." },
         { type: "section", head: "The American takeover", md:
-          "The United States, at war with Spain, destroyed the Spanish fleet in Manila Bay in May 1898 and, under the Treaty of Paris that December, bought the islands for $20 million. Aguinaldo's republic fought back. The Philippine–American War of 1899–1902 killed about 4,200 American soldiers and at least 20,000 Filipino fighters, and estimates of civilian deaths from fighting, hunger and disease run to 200,000 or more." },
+          "The United States, at war with Spain, destroyed the Spanish fleet in Manila Bay in May 1898 and, under the Treaty of Paris that December, bought the islands for $20 million. Aguinaldo's republic fought back. The Philippine–American War of 1899–1902 killed about 4,300 American soldiers and at least 20,000 Filipino fighters, and estimates of civilian deaths from fighting, hunger and disease run to 200,000 or more." },
         { type: "section", head: "The Manila galleons and the Chinese", md:
           "The galleon trade made Manila one of the first truly global cities, linking Asia and the Americas. A large Chinese merchant community, the Sangleys, grew up outside the walls of Intramuros, the Spanish city; they were taxed, restricted and several times massacred. Their descendants, many intermarried with Filipinos, became a powerful part of the business elite, and many prominent families today have Chinese ancestry." },
         { type: "compare", head: "Two views of the American era",
@@ -149,7 +149,7 @@ window.POLITICS.addUnit("ph", {
         choices: ["José Rizal", "Emilio Aguinaldo", "Lapulapu"], answer: 1,
         explain: "Aguinaldo declared independence at Kawit; Rizal had been executed in 1896." },
       sources: [
-        { title: "History of the Philippines", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-the-Philippines", date: "n.d." },
+        { title: "History of the Philippines", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Philippines", date: "n.d." },
         { title: "Philippine-American War", publisher: "Britannica", url: "https://www.britannica.com/event/Philippine-American-War", date: "n.d." },
         { title: "José Rizal", publisher: "Britannica", url: "https://www.britannica.com/biography/Jose-Rizal", date: "n.d." }
       ]
@@ -203,8 +203,8 @@ window.POLITICS.addUnit("ph", {
         choices: ["José Rizal", "Benigno 'Ninoy' Aquino", "Fidel Ramos"], answer: 1,
         explain: "Ninoy Aquino was shot dead at Manila airport on his return from exile in August 1983." },
       sources: [
-        { title: "History of the Philippines", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-the-Philippines", date: "n.d." },
-        { title: "Ferdinand Marcos", publisher: "Britannica", url: "https://www.britannica.com/biography/Ferdinand-Marcos", date: "n.d." },
+        { title: "History of the Philippines", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Philippines", date: "n.d." },
+        { title: "Ferdinand Marcos", publisher: "Britannica", url: "https://www.britannica.com/biography/Ferdinand-E-Marcos", date: "n.d." },
         { title: "Battle of Manila (1945)", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Battle_of_Manila_(1945)", date: "n.d." }
       ]
     },
@@ -258,8 +258,8 @@ window.POLITICS.addUnit("ph", {
         explain: "Marcos cited bombings and insurgencies; critics say his real aim was to stay in power beyond his term limit." },
       sources: [
         { title: "Martial law under Ferdinand Marcos", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Martial_law_under_Ferdinand_Marcos", date: "n.d." },
-        { title: "Ferdinand Marcos", publisher: "Britannica", url: "https://www.britannica.com/biography/Ferdinand-Marcos", date: "n.d." },
-        { title: "History of the Philippines", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-the-Philippines", date: "n.d." }
+        { title: "Ferdinand Marcos", publisher: "Britannica", url: "https://www.britannica.com/biography/Ferdinand-E-Marcos", date: "n.d." },
+        { title: "History of the Philippines", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Philippines", date: "n.d." }
       ]
     },
 
@@ -312,7 +312,7 @@ window.POLITICS.addUnit("ph", {
       sources: [
         { title: "People Power Revolution", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/People_Power_Revolution", date: "n.d." },
         { title: "Corazon Aquino", publisher: "Britannica", url: "https://www.britannica.com/biography/Corazon-Aquino", date: "n.d." },
-        { title: "Ferdinand Marcos", publisher: "Britannica", url: "https://www.britannica.com/biography/Ferdinand-Marcos", date: "n.d." }
+        { title: "Ferdinand Marcos", publisher: "Britannica", url: "https://www.britannica.com/biography/Ferdinand-E-Marcos", date: "n.d." }
       ]
     },
 
@@ -580,7 +580,7 @@ window.POLITICS.addUnit("ph", {
       sources: [
         { title: "Philippine drug war", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Philippine_drug_war", date: "n.d." },
         { title: "Rodrigo Duterte to face ICC trial after judges confirm charges", publisher: "ICTJ", url: "https://www.ictj.org/latest-news/rodrigo-duterte-face-icc-trial-after-judges-confirm-charges", date: "2026-04" },
-        { title: "Rodrigo Duterte", publisher: "Britannica", url: "https://www.britannica.com/biography/Rodrigo-Duterte", date: "n.d." }
+        { title: "Rodrigo Duterte", publisher: "Britannica", url: "https://www.britannica.com/topic/Rodrigo-Duterte", date: "n.d." }
       ]
     },
 

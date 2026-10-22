@@ -256,7 +256,7 @@ window.POLITICS.addUnit("co", {
         choices: ["A guerrilla alliance", "A deal under which Liberals and Conservatives alternated power from 1958 to 1974", "A military junta"], answer: 1,
         explain: "The two parties alternated the presidency and shared public posts equally to end La Violencia." },
       sources: [
-        { title: "La Violencia", publisher: "Britannica", url: "https://www.britannica.com/event/La-Violencia", date: "n.d." },
+        { title: "La Violencia", publisher: "Britannica", url: "https://www.britannica.com/topic/La-Violencia", date: "n.d." },
         { title: "Bogotazo", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Bogotazo", date: "n.d." },
         { title: "History of Colombia", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Colombia", date: "n.d." }
       ]
@@ -312,7 +312,7 @@ window.POLITICS.addUnit("co", {
       sources: [
         { title: "Colombian peace process", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Colombian_peace_process", date: "n.d." },
         { title: "Revolutionary Armed Forces of Colombia (FARC)", publisher: "Britannica", url: "https://www.britannica.com/topic/FARC", date: "n.d." },
-        { title: "Juan Manuel Santos", publisher: "Britannica", url: "https://www.britannica.com/biography/Juan-Manuel-Santos", date: "n.d." }
+        { title: "Juan Manuel Santos", publisher: "Britannica Kids (Students)", url: "https://kids.britannica.com/students/article/Juan-Manuel-Santos/628292", date: "n.d." }
       ]
     },
 
@@ -578,7 +578,7 @@ window.POLITICS.addUnit("co", {
         choices: ["To seize power in a coup", "To stop their extradition to the United States", "To support the FARC"], answer: 1,
         explain: "They feared trial in the US and used terror to force Colombia to end extradition." },
       sources: [
-        { title: "Pablo Escobar", publisher: "Britannica", url: "https://www.britannica.com/biography/Pablo-Escobar", date: "n.d." },
+        { title: "Who was Pablo Escobar?", publisher: "Britannica", url: "https://www.britannica.com/question/Who-was-Pablo-Escobar", date: "n.d." },
         { title: "Medellín Cartel", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Medell%C3%ADn_Cartel", date: "n.d." },
         { title: "History of Colombia", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Colombia", date: "n.d." }
       ]

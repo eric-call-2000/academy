@@ -311,7 +311,7 @@ window.POLITICS.addUnit("kz", {
         explain: "Suleimenov appealed on television in February 1989, sparking a movement that collected over a million signatures." },
       sources: [
         { title: "Semipalatinsk Test Site", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Semipalatinsk_Test_Site", date: "n.d." },
-        { title: "Nevada Semipalatinsk", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Nevada_Semipalatinsk", date: "n.d." },
+        { title: "Anti-nuclear movement in Kazakhstan", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Anti-nuclear_movement_in_Kazakhstan", date: "n.d." },
         { title: "History of Kazakhstan", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Kazakhstan", date: "n.d." }
       ]
     },

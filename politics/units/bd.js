@@ -205,7 +205,7 @@ window.POLITICS.addUnit("bd", {
       sources: [
         { title: "History of Bangladesh", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Bangladesh", date: "n.d." },
         { title: "Khaleda Zia, former Bangladeshi prime minister and archrival of Hasina, dies at 80", publisher: "OPB / AP", url: "https://www.opb.org/article/2025/12/29/khaleda-zia-former-bangladeshi-prime-minister-and-archrival-of-hasina-dies-at-80", date: "2025-12-30" },
-        { title: "Sheikh Mujibur Rahman", publisher: "Britannica", url: "https://www.britannica.com/biography/Sheikh-Mujibur-Rahman", date: "n.d." }
+        { title: "Sheikh Mujibur Rahman", publisher: "Britannica", url: "https://www.britannica.com/biography/Mujibur-Rahman", date: "n.d." }
       ]
     },
 

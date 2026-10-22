@@ -485,7 +485,10 @@ This is the part that makes or breaks a politics course.
 | 4 Nov 2026 | South African local elections: the first big test of the unity government | South Africa |
 | Nov 2026 | APEC leaders' meeting in Shenzhen, China | China |
 | late Nov 2026 | Taiwan local elections | Taiwan |
+| 24 Nov 2026 | Bangladesh due to leave the UN list of least developed countries, unless the General Assembly grants a delay | Bangladesh |
 | 29 Nov 2026 | Spanish general election, called early | Spain |
+| from 16 Dec 2026 | Senate verdict expected in Sara Duterte's impeachment trial | Philippines |
+| Dec 2026 | The 1996 Ganges water treaty between India and Bangladesh expires | Bangladesh |
 | 16 Jan 2027 | Nigerian presidential and legislative elections | Nigeria |
 | Spring 2027 | French presidential election (Macron can't run again) | France |
 | June 2027 | Maduro's trial begins in New York | Venezuela |
@@ -1171,7 +1174,8 @@ without touching anything else.
 | **5. Wave D** ✅ | Japan, South Korea, North Korea, Taiwan, Pakistan, Indonesia, Australia, each with a map (southern Kurils hatched) and a power diagram | The Indo-Pacific |
 | **6. Wave E** ✅ | Canada, Mexico, Brazil, Argentina, Venezuela, South Africa, Nigeria, each with a map (the Falklands hatched as contested) and a power diagram | The Americas and Africa; Brazil's is timed against its 4 October election |
 | **7. Wave F** ✅ | Hungary, Spain, Netherlands, Belarus (Part 2), Syria and Qatar (Part 3), each with a map (Golan hatched on Syria's) and a power diagram; units 31–36 of the next 20 | The bench's first alternates and the rebalance toward the Middle East and western Europe |
-| **8. Upkeep** | Dispatches after each dated event, the 120-day refreshes, Handoff sync, the world map | Keeps it current |
+| **8. Wave G** ✅ | Iraq (Part 3), Vietnam, Philippines, Bangladesh, Kazakhstan (Part 4) and Colombia (Part 5), each with a map and a power diagram; units 37–42 of the next 20 | Adds Asia's missing heavyweights, and Colombia for South America, from the next-20 list |
+| **9. Upkeep** | Dispatches after each dated event, the 120-day refreshes, Handoff sync, the world map | Keeps it current |
 
 **Staying ahead of the reader.** At one briefing a day, a five-unit wave is about 40 days of
 reading. One wave a month means you never run out.
