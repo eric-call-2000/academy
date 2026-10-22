@@ -144,6 +144,20 @@ const SPECS = {
     ],
     bottom: ["NEXT PARLIAMENTARY ELECTION", "autumn 2027"]
   },
+  qa: {
+    title: "How power works in Qatar",
+    top: ["THE AL THANI FAMILY", "succession stays in the ruling line"],
+    boxes: [
+      { head: "THE EMIR", tag: "Tamim bin Hamad Al Thani", color: "#7a2d4b", lines: ["Ruler since 2013", "Holds executive and legislative power"] },
+      { arrow: "appoints" },
+      { head: "PRIME MINISTER", tag: "Mohammed bin Abdulrahman", color: "#5b6270", lines: ["Also foreign minister", "Leads the cabinet and mediation"] },
+      { arrow: "advised by" },
+      { head: "SHURA COUNCIL", tag: "45 appointed", color: "#6b4f8a", lines: ["Reviews laws; cannot overrule", "Elections scrapped in 2024"] },
+      { arrow: "funded by" },
+      { head: "GAS WEALTH", tag: "QatarEnergy and the QIA", color: "#a0782b", lines: ["LNG pays for the state", "Sovereign fund invests abroad"] }
+    ],
+    bottom: ["POLITICAL PARTIES", "none allowed"]
+  },
   by: {
     title: "How power works in Belarus",
     top: ["THE VOTERS", "elections judged neither free nor fair"],
