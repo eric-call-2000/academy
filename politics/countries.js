@@ -35,7 +35,7 @@
       blurb: "The EU's only nuclear power, where a hung parliament keeps toppling governments." });
   C({ id: "nl", iso: "528", part: 2, name: "Netherlands", flag: "🇳🇱", color: "#c4621d", lessons: 0,
       blurb: "Home of the only firm that makes the most advanced chipmaking machines, Europe's biggest port and the world's courts." });
-  C({ id: "es", iso: "724", part: 2, name: "Spain", flag: "🇪🇸", color: "#b8862b", lessons: 0,
+  C({ id: "es", iso: "724", part: 2, name: "Spain", flag: "🇪🇸", color: "#b8862b", lessons: 12,
       blurb: "The fastest-growing big economy in the EU, run by a minority government that leans on separatists." });
   C({ id: "it", iso: "380", part: 2, name: "Italy", flag: "🇮🇹", color: "#2f7d4f", lessons: 12,
       blurb: "A G7 heavyweight whose prime minister bridges Trump's Washington and Brussels." });

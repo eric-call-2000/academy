@@ -144,6 +144,20 @@ const SPECS = {
     ],
     bottom: ["NEXT PARLIAMENTARY ELECTION", "autumn 2027"]
   },
+  es: {
+    title: "How power works in Spain",
+    top: ["THE VOTERS", "elect 350 deputies by province, and most senators"],
+    boxes: [
+      { head: "CONGRESS OF DEPUTIES", tag: "350 seats", color: "#1f4e79", lines: ["Invests the prime minister", "Validates decrees within 30 days"] },
+      { arrow: "invests" },
+      { head: "PRIME MINISTER", tag: "Pedro Sánchez", color: "#b0354a", lines: ["Minority PSOE–Sumar coalition", "Depends on regional parties"] },
+      { arrow: "alongside" },
+      { head: "THE KING", tag: "Felipe VI", color: "#b8862b", lines: ["Head of state", "Proposes candidates for PM"] },
+      { arrow: "power shared with" },
+      { head: "17 REGIONS", tag: "autonomous communities", color: "#6b4f8a", lines: ["Run health and schools", "Some have their own police"] }
+    ],
+    bottom: ["NEXT ELECTION", "29 November 2026"]
+  },
   hu: {
     title: "How power works in Hungary",
     top: ["THE VOTERS", "elect 199 MPs: 106 constituencies, 93 from lists"],
