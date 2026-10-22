@@ -104,6 +104,10 @@ Each coding lesson is a 3-pane workspace — **Learn** (narrative + numbered che
 - Checkpoints can grade computed styles, the stylesheet **as written** (`T.decl`/`T.sheet`), `@media`/`@keyframes` rules, DOM structure, simulated clicks/typing/submits, console output, and function behavior.
 - Code **autosaves** per lesson per profile; XP and 🔥 streaks track daily work.
 
+### Look and feel
+
+The default theme is **Studio** (`themes/studio/theme.css`): Inter type, neutral surfaces, one blue accent, flat buttons and hairline borders. Emoji are treated as decoration: `el()` in `app.js` wraps a leading emoji in `<span class="em">`, and course/position icons render both the emoji and a text monogram (`abbr` in `courses.js`/`positions.js`), so a theme decides which one shows. Studio shows monograms and line icons; the original Duolingo-style look is still one tap away as **Playful** in the theme picker, alongside Professional, Dark and Alternative Light.
+
 ## 📲 Handoff — phone ↔ desktop
 
 `localStorage` is per-origin **and per-device**, so your phone and your desktop are two stores that never see each other. There's no server, so nothing crosses on its own. **Handoff** makes the crossing manual but safe: copy a code from one device, paste it on the other.
@@ -203,7 +207,7 @@ codelab/
 ├── editor.js             # mobile code editor + syntax highlighting
 ├── runner.js             # sandbox runner + checkpoint grader (worker/iframe)
 ├── app.js                # screens: profiles → catalog → course → lesson
-├── styles.css            # mobile-first UI
+├── styles.css            # mobile-first UI (imports themes/; Studio is the default)
 ├── html/u1.js … u7.js    # Learn HTML units          (44 items)
 ├── css/u1.js … u7.js     # Learn CSS units           (44 items)
 ├── resp/u1.js … u6.js    # Responsive Design         (30 items)

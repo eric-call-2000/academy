@@ -32,7 +32,8 @@
   
   /* Decorative values */
   --btn-radius: 14px;
-  --btn-shadow: 0 4px 0 var(--success-dark);
+  /* --btn-shadow deliberately unset: each button falls back to its own
+     darker shade. Setting it here gave every button a green underline. */
   --card-radius: 20px;
   --card-shadow: 0 3px 0 var(--line);
   --item-radius: 14px;
