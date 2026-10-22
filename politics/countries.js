@@ -55,6 +55,8 @@
       blurb: "After Assad: a new government, a fractured map, and every neighbour with a stake." });
   C({ id: "ir", iso: "364", part: 3, name: "Iran", flag: "🇮🇷", color: "#2e7d5b", lessons: 12,
       blurb: "At war with the US and Israel, beside the Strait of Hormuz, under a new Supreme Leader." });
+  C({ id: "iq", iso: "368", part: 3, name: "Iraq", flag: "🇮🇶", color: "#8a5a2b", lessons: 0,
+      blurb: "OPEC's second-biggest producer, host to US troops and Iran-aligned militias, caught between both." });
   C({ id: "sa", iso: "682", part: 3, name: "Saudi Arabia", flag: "🇸🇦", color: "#1c5e38", lessons: 12,
       blurb: "The oil superpower of OPEC+, Vision 2030, and a front-row seat in the Iran war." });
   C({ id: "qa", iso: "634", part: 3, name: "Qatar", flag: "🇶🇦", color: "#7a2d4b", lessons: 12,
@@ -73,8 +75,16 @@
       blurb: "A nuclear dynasty whose soldiers and shells now fight for Russia." });
   C({ id: "tw", iso: "158", part: 4, name: "Taiwan", flag: "🇹🇼", color: "#3c4f9e", lessons: 12,
       blurb: "Self-governed and claimed by Beijing; maker of the chips the world runs on." });
+  C({ id: "ph", iso: "608", part: 4, name: "Philippines", flag: "🇵🇭", color: "#2f5fa0", lessons: 0,
+      blurb: "A US treaty ally on the South China Sea front line, split by a Marcos–Duterte feud." });
+  C({ id: "vn", iso: "704", part: 4, name: "Vietnam", flag: "🇻🇳", color: "#b8322a", lessons: 0,
+      blurb: "A communist party running a market boom: the main 'China plus one' factory." });
+  C({ id: "kz", iso: "398", part: 4, name: "Kazakhstan", flag: "🇰🇿", color: "#2a8aa0", lessons: 0,
+      blurb: "Central Asia's giant: the world's top uranium producer, balancing Moscow and Beijing." });
   C({ id: "pk", iso: "586", part: 4, name: "Pakistan", flag: "🇵🇰", color: "#2f6f4f", lessons: 12,
       blurb: "A nuclear, army-run state of 250 million that became the Iran war's peacemaker." });
+  C({ id: "bd", iso: "050", part: 4, name: "Bangladesh", flag: "🇧🇩", color: "#2a6a4a", lessons: 0,
+      blurb: "175 million people and the No. 2 garment exporter, rebuilding after the 2024 uprising." });
   C({ id: "id", iso: "360", part: 4, name: "Indonesia", flag: "🇮🇩", color: "#b8363f", lessons: 12,
       blurb: "The largest Muslim-majority democracy, ASEAN's anchor and the nickel behind EV batteries." });
   C({ id: "au", iso: "036", part: 4, name: "Australia", flag: "🇦🇺", color: "#2a4d7a", lessons: 12,
@@ -91,6 +101,8 @@
       blurb: "Milei's libertarian 'chainsaw' experiment, watched by the whole world." });
   C({ id: "ve", iso: "862", part: 5, name: "Venezuela", flag: "🇻🇪", color: "#c79a1a", lessons: 12,
       blurb: "The largest oil reserves, and the leader the US seized in January 2026." });
+  C({ id: "co", iso: "170", part: 5, name: "Colombia", flag: "🇨🇴", color: "#c9a02a", lessons: 0,
+      blurb: "Washington's oldest South American ally, with a new president after a bitter 2026 vote." });
 
   /* Part 6 — Africa */
   C({ id: "za", iso: "710", part: 6, name: "South Africa", flag: "🇿🇦", color: "#1f7a6a", lessons: 12,
