@@ -101,7 +101,7 @@
       blurb: "Milei's libertarian 'chainsaw' experiment, watched by the whole world." });
   C({ id: "ve", iso: "862", part: 5, name: "Venezuela", flag: "🇻🇪", color: "#c79a1a", lessons: 12,
       blurb: "The largest oil reserves, and the leader the US seized in January 2026." });
-  C({ id: "co", iso: "170", part: 5, name: "Colombia", flag: "🇨🇴", color: "#c9a02a", lessons: 0,
+  C({ id: "co", iso: "170", part: 5, name: "Colombia", flag: "🇨🇴", color: "#c9a02a", lessons: 12,
       blurb: "Washington's oldest South American ally, with a new president after a bitter 2026 vote." });
 
   /* Part 6 — Africa */

@@ -214,6 +214,20 @@ const SPECS = {
     ],
     bottom: ["NEXT PRESIDENTIAL ELECTION", "due in 2029"]
   },
+  co: {
+    title: "How power works in Colombia",
+    top: ["VOTERS", "elect the president in up to two rounds, and Congress in March"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Abelardo de la Espriella", color: "#c9a02a", lines: ["One four-year term, to 2030", "Appoints ministers; commands forces"] },
+      { arrow: "needs votes from" },
+      { head: "CONGRESS", tag: "Senate 103 · House", color: "#1f4e79", lines: ["No majority party", "Left largest in the Senate"] },
+      { arrow: "checked by" },
+      { head: "CONSTITUTIONAL COURT", tag: "since 1991", color: "#5b6270", lines: ["Reviews laws and decrees", "Rules on spraying and rights"] },
+      { arrow: "challenged by" },
+      { head: "ARMED GROUPS", tag: "ELN, dissidents, Clan del Golfo", color: "#6b4f8a", lines: ["Control rural areas", "Fund themselves from cocaine"] }
+    ],
+    bottom: ["NEXT ELECTIONS", "regional 2027; national 2030"]
+  },
   sy: {
     title: "How power works in Syria",
     top: ["THE TRANSITION", "five years under the March 2025 constitutional declaration"],
