@@ -158,6 +158,20 @@ const SPECS = {
     ],
     bottom: ["NEXT ELECTION", "due by late 2029"]
   },
+  vn: {
+    title: "How power works in Vietnam",
+    top: ["COMMUNIST PARTY CONGRESS", "every five years; the 14th met in January 2026"],
+    boxes: [
+      { head: "POLITBURO", tag: "General Secretary To Lam", color: "#b8322a", lines: ["Elected by the Central Committee", "Picks leaders and sets policy"] },
+      { arrow: "nominates" },
+      { head: "NATIONAL ASSEMBLY", tag: "500 seats", color: "#1f4e79", lines: ["Party-vetted candidates", "Elected March 2026"] },
+      { arrow: "elects" },
+      { head: "STATE PRESIDENT", tag: "To Lam", color: "#4c6b5a", lines: ["Head of state", "Commands the armed forces"] },
+      { arrow: "alongside" },
+      { head: "GOVERNMENT", tag: "PM Le Minh Hung", color: "#5b6270", lines: ["Runs the economy", "Oversees state companies"] }
+    ],
+    bottom: ["NEXT PARTY CONGRESS", "due in 2031"]
+  },
   sy: {
     title: "How power works in Syria",
     top: ["THE TRANSITION", "five years under the March 2025 constitutional declaration"],

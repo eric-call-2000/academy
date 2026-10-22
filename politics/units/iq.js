@@ -582,6 +582,8 @@ window.POLITICS.addUnit("iq", {
           "- **Money:** oil revenue down sharply; salaries delayed; a pipeline deal with Turkey.\n" +
           "- **Kurdistan:** recovering from Iranian strikes; quarrels with Baghdad over oil and budgets.\n" +
           "- **Region:** neutral on paper in the US–Iran war; exposed in practice." },
+        { type: "section", head: "The economy", md:
+          "Iraq is one of the world's largest oil exporters, and oil pays for at least nine-tenths of the budget. About four million Iraqis draw a state salary and millions more get pensions, so a fall in oil revenue quickly becomes a crisis in every household. The Hormuz closure exposed that: southern exports collapsed, salaries ran late, and the government turned to the Kirkuk–Ceyhan pipeline through Turkey. Economists have long urged Iraq to grow private business and collect more taxes; little has changed, because the system of patronage rests on public jobs." },
         { type: "section", head: "Iraq in the world", md:
           "Iraq's foreign policy is a balancing act between the [[unit:us|United States]], which controls access to its dollars, and [[unit:ir|Iran]], which supplies gas and electricity and backs powerful allies inside Iraq. It has tried to build ties with [[unit:sa|Saudi Arabia]], [[unit:eg|Egypt]] and Jordan, depends on [[unit:tr|Turkey]] for its oil route and water from the Tigris and Euphrates, and watches the new government in [[unit:sy|Syria]], once its enemy's ally, with caution." },
         { type: "section", head: "Water and climate", md:
@@ -598,9 +600,7 @@ window.POLITICS.addUnit("iq", {
           "- **30 June 2027:** the militias' disarmament deadline\n" +
           "- **2029:** the next parliamentary election" },
         { type: "section", head: "Connections", md:
-          "Iraq's story runs through [[unit:ir]] (its neighbour, patron of its militias and the war), [[unit:us]] (the 2003 invasion, the dollar and the withdrawal), [[unit:tr]] (the pipeline and water), [[unit:sa]] (OPEC and the Gulf), [[unit:sy]] (the Islamic State and the border) and [[unit:il]] (strikes on Iran's allies)." },
-        { type: "section", head: "The economy", md:
-          "Iraq is one of the world's largest oil exporters, and oil pays for at least nine-tenths of the budget. About four million Iraqis draw a state salary and millions more get pensions, so a fall in oil revenue quickly becomes a crisis in every household. The Hormuz closure exposed that: southern exports collapsed, salaries ran late, and the government turned to the Kirkuk–Ceyhan pipeline through Turkey. Economists have long urged Iraq to grow private business and collect more taxes; little has changed, because the system of patronage rests on public jobs." }
+          "Iraq's story runs through [[unit:ir]] (its neighbour, patron of its militias and the war), [[unit:us]] (the 2003 invasion, the dollar and the withdrawal), [[unit:tr]] (the pipeline and water), [[unit:sa]] (OPEC and the Gulf), [[unit:sy]] (the Islamic State and the border) and [[unit:il]] (strikes on Iran's allies)." }
       ],
       takeaways: [
         "Iraq has a new government, no US troops and a budget crisis caused by the Hormuz closure.",

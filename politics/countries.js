@@ -77,7 +77,7 @@
       blurb: "Self-governed and claimed by Beijing; maker of the chips the world runs on." });
   C({ id: "ph", iso: "608", part: 4, name: "Philippines", flag: "🇵🇭", color: "#2f5fa0", lessons: 0,
       blurb: "A US treaty ally on the South China Sea front line, split by a Marcos–Duterte feud." });
-  C({ id: "vn", iso: "704", part: 4, name: "Vietnam", flag: "🇻🇳", color: "#b8322a", lessons: 0,
+  C({ id: "vn", iso: "704", part: 4, name: "Vietnam", flag: "🇻🇳", color: "#b8322a", lessons: 12,
       blurb: "A communist party running a market boom: the main 'China plus one' factory." });
   C({ id: "kz", iso: "398", part: 4, name: "Kazakhstan", flag: "🇰🇿", color: "#2a8aa0", lessons: 0,
       blurb: "Central Asia's giant: the world's top uranium producer, balancing Moscow and Beijing." });
