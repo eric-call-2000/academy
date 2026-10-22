@@ -40,12 +40,16 @@ const { load, ROOT } = require("./load");
 const { CONTESTED_FEATURES, splitDisputed } = require("./disputes");
 
 const { P } = load({ units: false });
-const DISPUTED = new Set(["ua", "ru", "cn", "tw", "in", "pk", "il", "kr", "kp", "ma", "ar", "ve"]);
+const DISPUTED = new Set(["ua", "ru", "cn", "tw", "in", "pk", "il", "kr", "kp", "ma", "ar", "ve", "sy"]);
 const W = 1200, H = 750;
 /* Archipelagos framed on all their major islands (any polygon at least
    this share of the largest), not just the biggest one. Canada's share is
    lower so the frame reaches Ellesmere Island. */
 const FIT_ALL = { jp: 0.05, id: 0.05, ca: 0.02 };
+/* Countries too small to read on their own: the frame is widened to this
+   box ([[west, south], [east, north]] in degrees) so neighbours show.
+   Qatar's, centred on it, takes in Bahrain, the Saudi and UAE coasts and Iran's shore. */
+const FRAME = { qa: [[48.7, 23.6], [53.7, 27.0]] };
 /* Areas the data folds into the holder's single polygon, so they can't be
    split out: an outline is drawn hatched on top, clipped to the holder's
    shape. The Golan Heights' eastern edge follows the data's 1974 ceasefire
@@ -96,6 +100,10 @@ function darker(hex, k) {
   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 
+function box([[w, s], [e, n]]) {
+  return { type: "Feature", geometry: { type: "Polygon", coordinates: [[[w, s], [w, n], [e, n], [e, s], [w, s]]] } };
+}
+
 function build(c) {
   const f = features.find((x) => x.id === c.iso);
   if (!f) throw new Error(c.id + ": no Natural Earth feature with ISO numeric id " + c.iso);
@@ -103,7 +111,7 @@ function build(c) {
   const [lon, lat] = d3.geoCentroid(main);
 
   const proj = d3.geoAzimuthalEqualArea().rotate([-lon, -lat])
-    .fitExtent([[170, 120], [W - 170, H - 120]], main)
+    .fitExtent([[170, 120], [W - 170, H - 120]], FRAME[c.id] ? box(FRAME[c.id]) : main)
     .clipExtent([[0, 0], [W, H]]);
   const geo = d3.geoPath(proj).digits(0);   // whole pixels: a third smaller, no visible change
 

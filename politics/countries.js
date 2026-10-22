@@ -1,5 +1,5 @@
 /* ============================================================
-   Political Academy — the 30 countries, in path order
+   Political Academy — the countries, in path order
    ------------------------------------------------------------
    `lessons` is how many briefings are written: 0 means "coming
    soon" (the card shows, but nothing loads). When a unit ships,
@@ -33,20 +33,32 @@
       blurb: "A nuclear power still redefining itself after Brexit — with a new prime minister since July." });
   C({ id: "fr", iso: "250", part: 2, name: "France", flag: "🇫🇷", color: "#3f5fa8", lessons: 12,
       blurb: "The EU's only nuclear power, where a hung parliament keeps toppling governments." });
+  C({ id: "nl", iso: "528", part: 2, name: "Netherlands", flag: "🇳🇱", color: "#c4621d", lessons: 0,
+      blurb: "Home of the only firm that makes the most advanced chipmaking machines, Europe's biggest port and the world's courts." });
+  C({ id: "es", iso: "724", part: 2, name: "Spain", flag: "🇪🇸", color: "#b8862b", lessons: 0,
+      blurb: "The fastest-growing big economy in the EU, run by a minority government that leans on separatists." });
   C({ id: "it", iso: "380", part: 2, name: "Italy", flag: "🇮🇹", color: "#2f7d4f", lessons: 12,
       blurb: "A G7 heavyweight whose prime minister bridges Trump's Washington and Brussels." });
   C({ id: "pl", iso: "616", part: 2, name: "Poland", flag: "🇵🇱", color: "#b0354a", lessons: 12,
       blurb: "NATO's eastern anchor, where a president's vetoes hold the government hostage." });
+  C({ id: "hu", iso: "348", part: 2, name: "Hungary", flag: "🇭🇺", color: "#3d7a4a", lessons: 0,
+      blurb: "Orbán's 16 years ended at the ballot box in April 2026. Now comes the dismantling." });
+  C({ id: "by", iso: "112", part: 2, name: "Belarus", flag: "🇧🇾", color: "#9b3b3b", lessons: 0,
+      blurb: "Russia's closest ally, hosting its nuclear weapons, ruled by Lukashenko since 1994." });
   C({ id: "tr", iso: "792", part: 2, name: "Turkey", flag: "🇹🇷", color: "#b5462f", lessons: 12,
       blurb: "Holder of the Bosphorus and broker on Ukraine, Gaza and Syria — the bridge to Part 3." });
 
   /* Part 3 — The Middle East */
   C({ id: "il", iso: "376", part: 3, name: "Israel", flag: "🇮🇱", color: "#2c6e9b", lessons: 12,
       blurb: "At the centre of Gaza, Iran, Lebanon and Syria, with an election on 27 October 2026." });
+  C({ id: "sy", iso: "760", part: 3, name: "Syria", flag: "🇸🇾", color: "#4c6b5a", lessons: 0,
+      blurb: "After Assad: a new government, a fractured map, and every neighbour with a stake." });
   C({ id: "ir", iso: "364", part: 3, name: "Iran", flag: "🇮🇷", color: "#2e7d5b", lessons: 12,
       blurb: "At war with the US and Israel, beside the Strait of Hormuz, under a new Supreme Leader." });
   C({ id: "sa", iso: "682", part: 3, name: "Saudi Arabia", flag: "🇸🇦", color: "#1c5e38", lessons: 12,
       blurb: "The oil superpower of OPEC+, Vision 2030, and a front-row seat in the Iran war." });
+  C({ id: "qa", iso: "634", part: 3, name: "Qatar", flag: "🇶🇦", color: "#7a2d4b", lessons: 0,
+      blurb: "A gas superpower and go-between in Gaza and Afghanistan, host to the biggest US base in the region." });
   C({ id: "ae", iso: "784", part: 3, name: "United Arab Emirates", flag: "🇦🇪", color: "#5a6b2e", lessons: 12,
       blurb: "A small federation with outsized reach: finance, AI, Sudan — and Iran's missiles." });
   C({ id: "eg", iso: "818", part: 3, name: "Egypt", flag: "🇪🇬", color: "#a0782b", lessons: 12,

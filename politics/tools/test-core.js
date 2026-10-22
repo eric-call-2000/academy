@@ -250,12 +250,12 @@ test("a relationship is a subject dressed like a country", () => {
   assert.strictEqual(P.subject("nope"), null);
   assert.strictEqual(P.country("us_cn"), null, "links are not countries");
 });
-test("links are found from either country, and stay off the 30-country path", () => {
+test("links are found from either country, and stay off the country path", () => {
   assert.ok(P.linksOf("cn").some((l) => l.id === "us_cn"), "China lists US–China");
   assert.ok(P.linksOf("us").some((l) => l.id === "us_cn"), "the US lists US–China");
   assert.ok(P.linksOf("us").every((l) => l.a === "us" || l.b === "us"), "only links that include the US");
   same(P.linksOf("xx"), []);  // an unknown country has no relationships
-  assert.strictEqual(P.countries.length, 30);
+  assert.ok(P.countries.length >= 30, "the first 30 countries are all on the path");
   assert.strictEqual(P.unitIdOf("us_cn-2"), "us_cn");
   assert.strictEqual(P.lessonNum("us_cn-2"), 2);
 });
