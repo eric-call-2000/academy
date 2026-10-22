@@ -186,6 +186,20 @@ const SPECS = {
     ],
     bottom: ["NEXT ELECTION", "May 2028"]
   },
+  bd: {
+    title: "How power works in Bangladesh",
+    top: ["VOTERS", "elect 300 MPs by first past the post; 50 seats reserved for women"],
+    boxes: [
+      { head: "PARLIAMENT", tag: "350 seats", color: "#1f4e79", lines: ["BNP and allies hold two-thirds", "Acting as a constituent assembly"] },
+      { arrow: "majority chooses" },
+      { head: "PRIME MINISTER", tag: "Tarique Rahman", color: "#2a6a4a", lines: ["Leads the government", "Holds most executive power"] },
+      { arrow: "sworn in by" },
+      { head: "PRESIDENT", tag: "Mohammed Shahabuddin", color: "#4c6b5a", lines: ["Elected by parliament", "Largely ceremonial"] },
+      { arrow: "planned under the July Charter" },
+      { head: "UPPER HOUSE", tag: "100 seats", color: "#6b4f8a", lines: ["Not yet created", "How to choose it is disputed"] }
+    ],
+    bottom: ["NEXT ELECTION", "due by early 2031"]
+  },
   sy: {
     title: "How power works in Syria",
     top: ["THE TRANSITION", "five years under the March 2025 constitutional declaration"],

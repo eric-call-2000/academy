@@ -83,7 +83,7 @@
       blurb: "Central Asia's giant: the world's top uranium producer, balancing Moscow and Beijing." });
   C({ id: "pk", iso: "586", part: 4, name: "Pakistan", flag: "🇵🇰", color: "#2f6f4f", lessons: 12,
       blurb: "A nuclear, army-run state of 250 million that became the Iran war's peacemaker." });
-  C({ id: "bd", iso: "050", part: 4, name: "Bangladesh", flag: "🇧🇩", color: "#2a6a4a", lessons: 0,
+  C({ id: "bd", iso: "050", part: 4, name: "Bangladesh", flag: "🇧🇩", color: "#2a6a4a", lessons: 12,
       blurb: "175 million people and the No. 2 garment exporter, rebuilding after the 2024 uprising." });
   C({ id: "id", iso: "360", part: 4, name: "Indonesia", flag: "🇮🇩", color: "#b8363f", lessons: 12,
       blurb: "The largest Muslim-majority democracy, ASEAN's anchor and the nickel behind EV batteries." });
