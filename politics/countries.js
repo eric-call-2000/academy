@@ -79,7 +79,7 @@
       blurb: "A US treaty ally on the South China Sea front line, split by a Marcos–Duterte feud." });
   C({ id: "vn", iso: "704", part: 4, name: "Vietnam", flag: "🇻🇳", color: "#b8322a", lessons: 12,
       blurb: "A communist party running a market boom: the main 'China plus one' factory." });
-  C({ id: "kz", iso: "398", part: 4, name: "Kazakhstan", flag: "🇰🇿", color: "#2a8aa0", lessons: 0,
+  C({ id: "kz", iso: "398", part: 4, name: "Kazakhstan", flag: "🇰🇿", color: "#2a8aa0", lessons: 12,
       blurb: "Central Asia's giant: the world's top uranium producer, balancing Moscow and Beijing." });
   C({ id: "pk", iso: "586", part: 4, name: "Pakistan", flag: "🇵🇰", color: "#2f6f4f", lessons: 12,
       blurb: "A nuclear, army-run state of 250 million that became the Iran war's peacemaker." });

@@ -200,6 +200,20 @@ const SPECS = {
     ],
     bottom: ["NEXT ELECTION", "due by early 2031"]
   },
+  kz: {
+    title: "How power works in Kazakhstan",
+    top: ["VOTERS", "elect the president and the Kurultai"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Kassym-Jomart Tokayev", color: "#2a8aa0", lines: ["One seven-year term, to 2029", "Sets policy; commands the forces"] },
+      { arrow: "appoints, with consent of" },
+      { head: "KURULTAI", tag: "145 seats", color: "#1f4e79", lines: ["Single chamber since 2026", "Adilet holds a large majority"] },
+      { arrow: "approves" },
+      { head: "VICE-PRESIDENT", tag: "Erlan Karin", color: "#4c6b5a", lines: ["First in line to succeed", "Restored in 2026"] },
+      { arrow: "alongside" },
+      { head: "GOVERNMENT", tag: "PM Olzhas Bektenov", color: "#5b6270", lines: ["Runs the economy", "Regional akims appointed"] }
+    ],
+    bottom: ["NEXT PRESIDENTIAL ELECTION", "due in 2029"]
+  },
   sy: {
     title: "How power works in Syria",
     top: ["THE TRANSITION", "five years under the March 2025 constitutional declaration"],
