@@ -143,7 +143,7 @@ window.POLITICS.addUnit("sy", {
         choices: ["Britain", "France", "Italy"], answer: 1,
         explain: "France held the League of Nations mandate for Syria and Lebanon; its last troops left Syria in 1946." },
       sources: [
-        { title: "Syria: History", publisher: "Britannica", url: "https://www.britannica.com/place/Syria/History", date: "n.d." },
+        { title: "Syria: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Syria", date: "n.d." },
         { title: "Umayyad dynasty", publisher: "Britannica", url: "https://www.britannica.com/topic/Umayyad-dynasty-Islamic-history", date: "n.d." },
         { title: "Sykes–Picot Agreement", publisher: "Britannica", url: "https://www.britannica.com/event/Sykes-Picot-Agreement", date: "n.d." }
       ]
@@ -193,7 +193,7 @@ window.POLITICS.addUnit("sy", {
         choices: ["An election result", "The arrest and torture of teenagers over graffiti", "A rise in bread prices"], answer: 1,
         explain: "Teenagers were detained and tortured for anti-government graffiti; protests over their treatment spread across Syria." },
       sources: [
-        { title: "Syria: History", publisher: "Britannica", url: "https://www.britannica.com/place/Syria/History", date: "n.d." },
+        { title: "Syria: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Syria", date: "n.d." },
         { title: "Syrian Civil War", publisher: "Britannica", url: "https://www.britannica.com/event/Syrian-Civil-War", date: "n.d." },
         { title: "Fall of the Assad regime", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Fall_of_the_Assad_regime", date: "2024" }
       ]
@@ -245,8 +245,8 @@ window.POLITICS.addUnit("sy", {
         explain: "Special forces under Rifaat al-Assad led much of the assault; he later went into exile in Europe." },
       sources: [
         { title: "1982 Hama massacre", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/1982_Hama_massacre", date: "n.d." },
-        { title: "Syria: History", publisher: "Britannica", url: "https://www.britannica.com/place/Syria/History", date: "n.d." },
-        { title: "Hama", publisher: "Britannica", url: "https://www.britannica.com/place/Hamah", date: "n.d." }
+        { title: "Syria: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Syria", date: "n.d." },
+        { title: "Hama", publisher: "Britannica", url: "https://www.britannica.com/place/Hama-Syria", date: "n.d." }
       ]
     },
 

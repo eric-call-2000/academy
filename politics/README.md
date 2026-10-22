@@ -1,11 +1,11 @@
 # 🗳️ Political Academy
 
-Short daily **briefings**, a few minutes each, on the 30 countries that shape world
-politics right now. It is a reading-first app that lives inside Academy the way CodeLab does. There are no
+Short daily **briefings**, a few minutes each, on the countries that shape world
+politics right now: the first 30, plus the next 20 as they are built (36 so far). It is a reading-first app that lives inside Academy the way CodeLab does. There are no
 quizzes to pass and no hearts to lose. You read a short, illustrated briefing, tap
 **Finish briefing**, and your progress, XP and streak save.
 
-The plan behind it (the 30 countries, the unit format, the image and accuracy rules, the
+The plan behind it (the countries, the unit format, the image and accuracy rules, the
 build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 
 ## Status
@@ -42,6 +42,15 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 28 | 🇻🇪 Venezuela | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
 | 29 | 🇿🇦 South Africa | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
 | 30 | 🇳🇬 Nigeria | 12 of 12 | 29 Sep 2026 | map, diagram and illustrations done; portraits pending |
+| 31 | 🇭🇺 Hungary | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 32 | 🇪🇸 Spain | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 33 | 🇳🇱 Netherlands | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 34 | 🇧🇾 Belarus | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 35 | 🇶🇦 Qatar | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 36 | 🇸🇾 Syria | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+
+Units 31–50 are planning numbers ([`../politics-curriculum.md`](../politics-curriculum.md)): the app shows no unit
+numbers, and each new country sits in its region's part, next to its neighbours.
 
 **Relationships** (briefings on how two countries deal with each other; `links.js`):
 
@@ -208,13 +217,13 @@ It is static files, so any of these work:
   out to 1, 3, 7, 16, 35 and then 90 days, and a miss brings it back tomorrow. A session is
   at most 10 cards, oldest due first. Nothing new needs writing: the cards come from the
   unit files (`P.cardsOf`, `P.dueCards`, `P.gradeCard` in `core.js`).
-- **Map** is a world map of all 30 countries, with no lines until you pick one. Tapping a
+- **Map** is a world map of every country on the path, with no lines until you pick one. Tapping a
   country draws its relationships: a line to each partner, with a label of the two flags
   near the partner's end (labels that would overlap slide along their line or step aside
   with a dotted tie). Tapping a label or line opens that relationship; a card under the map
   shows the country's briefings, relationships and connected countries. The choice is kept
   in the URL (`#/map/cn`, `#/map/us_cn`). On a phone the map scrolls sideways.
-- **Atlas** lists all 30 countries by region, with progress rings. Unwritten ones say
+- **Atlas** lists every country by region, with progress rings. Unwritten ones say
   "Coming soon".
 - **Country** shows the unit's 12 briefings in reading order, the current-as-of date, dispatches,
   its relationships and connected countries.
@@ -236,7 +245,7 @@ It is static files, so any of these work:
 politics/
 ├── index.html          boots the app
 ├── core.js             registry + every progress rule (DOM-free, tested in Node)
-├── countries.js        the 30 countries in path order; `lessons` > 0 means written
+├── countries.js        the countries in path order; `lessons` > 0 means written
 ├── links.js            relationships between two countries (ids like "us_cn")
 ├── glossary.js         terms that briefings link to with [[term]]
 ├── updates.js          dated dispatches added between rewrites
@@ -291,7 +300,7 @@ politics/
 
 ## Writing a relationship
 
-A relationship covers two of the 30 countries in **2 or 3 briefings**, all of kind
+A relationship covers two of the countries in **2 or 3 briefings**, all of kind
 `"relation"`:
 
 1. Add it to `links.js`: `id` is the two country ids joined by `_` (`us_cn`), with `a`, `b`,

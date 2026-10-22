@@ -145,9 +145,9 @@ window.POLITICS.addUnit("hu", {
         choices: ["Hungary's first king was crowned", "The Ottomans destroyed the Hungarian army", "Austria and Hungary agreed the Compromise"], answer: 1,
         explain: "The Ottoman victory at Mohács killed the king and split the kingdom for 150 years." },
       sources: [
-        { title: "Hungary: History", publisher: "Britannica", url: "https://www.britannica.com/place/Hungary/History", date: "n.d." },
+        { title: "Hungary: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Hungary", date: "n.d." },
         { title: "Stephen I", publisher: "Britannica", url: "https://www.britannica.com/biography/Stephen-I-king-of-Hungary", date: "n.d." },
-        { title: "Battle of Mohács", publisher: "Britannica", url: "https://www.britannica.com/event/Battle-of-Mohacs-1526", date: "n.d." }
+        { title: "Battle of Mohács", publisher: "Britannica", url: "https://www.britannica.com/event/Battle-of-Mohacs", date: "n.d." }
       ]
     },
 
@@ -193,9 +193,9 @@ window.POLITICS.addUnit("hu", {
         choices: ["It left the EU", "It opened its border with Austria", "It joined NATO"], answer: 1,
         explain: "By cutting the barbed wire on the Austrian border, Hungary let East Germans flee west, adding to the pressure on East Germany." },
       sources: [
-        { title: "Hungary: History", publisher: "Britannica", url: "https://www.britannica.com/place/Hungary/History", date: "n.d." },
+        { title: "Hungary: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Hungary", date: "n.d." },
         { title: "Viktor Orbán", publisher: "Britannica", url: "https://www.britannica.com/biography/Viktor-Orban", date: "n.d." },
-        { title: "Hungary", publisher: "United States Holocaust Memorial Museum", url: "https://encyclopedia.ushmm.org/content/en/article/hungary-before-the-german-occupation", date: "n.d." }
+        { title: "The Holocaust in Hungary", publisher: "United States Holocaust Memorial Museum", url: "https://encyclopedia.ushmm.org/content/en/article/the-holocaust-in-hungary", date: "n.d." }
       ]
     },
 
@@ -245,7 +245,7 @@ window.POLITICS.addUnit("hu", {
         explain: "Hungary lost about 72% of its territory (excluding Croatia), and its population fell from about 18 million to about 8 million." },
       sources: [
         { title: "Treaty of Trianon", publisher: "Britannica", url: "https://www.britannica.com/event/Treaty-of-Trianon", date: "n.d." },
-        { title: "Hungary: History", publisher: "Britannica", url: "https://www.britannica.com/place/Hungary/History", date: "n.d." },
+        { title: "Hungary: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Hungary", date: "n.d." },
         { title: "Treaty of Trianon", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Treaty_of_Trianon", date: "n.d." }
       ]
     },
@@ -271,7 +271,7 @@ window.POLITICS.addUnit("hu", {
         { type: "section", head: "What happened", md:
           "On 23 October 1956 students marched in Budapest with demands for free elections, a free press and the withdrawal of Soviet troops. Crowds pulled down a giant statue of Stalin, and when security police fired on protesters at the radio building, the march became an armed uprising. Workers formed councils, and the reform communist Imre Nagy became prime minister. Within days he announced a multi-party system and, on 1 November, that Hungary would leave the Warsaw Pact and become neutral." },
         { type: "section", head: "The crackdown", md:
-          "Moscow would not accept it. On 4 November Soviet forces returned in strength and, after days of street fighting, crushed the resistance. About 2,500 Hungarians were killed and around 200,000 fled abroad, many to Austria. The West, distracted by the Suez crisis and unwilling to risk war, did not intervene. Nagy was seized, given a secret trial and hanged in 1958; about 230 others were executed." },
+          "Moscow would not accept it. On 4 November Soviet forces returned in strength and, after days of street fighting, crushed the resistance. About 2,500 Hungarians were killed and around 200,000 fled abroad, many to Austria. The West, distracted by the Suez crisis and unwilling to risk war, did not intervene. Nagy was seized, given a secret trial and hanged in 1958; hundreds of others were executed." },
         { type: "section", head: "The refugees", md:
           "Most of the 200,000 who fled crossed into Austria, which took them in at its own border towns. From there, tens of thousands went on to the United States, Canada, Britain, Australia and beyond, in one of the first big refugee resettlements of the Cold War. Many were young and skilled; some became prominent scientists, business people and artists abroad. Their story is part of why Hungarians' later hard line on migration surprised some outsiders." },
         { type: "section", head: "Kádár's bargain", md:
@@ -295,7 +295,7 @@ window.POLITICS.addUnit("hu", {
         choices: ["That Hungary would leave the Warsaw Pact", "That Hungary would join NATO", "That the revolution was over"], answer: 0,
         explain: "Nagy declared Hungary's neutrality and withdrawal from the Warsaw Pact; Soviet forces invaded three days later." },
       sources: [
-        { title: "Hungarian Revolution", publisher: "Britannica", url: "https://www.britannica.com/event/Hungarian-Revolution", date: "n.d." },
+        { title: "Hungarian Revolution", publisher: "Britannica", url: "https://www.britannica.com/event/Hungarian-Revolution-1956", date: "n.d." },
         { title: "Imre Nagy", publisher: "Britannica", url: "https://www.britannica.com/biography/Imre-Nagy", date: "n.d." },
         { title: "Hungarian Revolution of 1956", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Hungarian_Revolution_of_1956", date: "n.d." }
       ]

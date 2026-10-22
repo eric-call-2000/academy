@@ -143,9 +143,9 @@ window.POLITICS.addUnit("nl", {
         choices: ["A Dutch navy", "The world's first publicly traded company, with its own armies", "A Spanish trading guild"], answer: 1,
         explain: "Founded in 1602, the VOC sold shares to the public and had the power to wage war and make treaties in Asia." },
       sources: [
-        { title: "Netherlands: History", publisher: "Britannica", url: "https://www.britannica.com/place/Netherlands/History", date: "n.d." },
-        { title: "Eighty Years' War", publisher: "Britannica", url: "https://www.britannica.com/event/Eighty-Years-War", date: "n.d." },
-        { title: "Dutch East India Company", publisher: "Britannica", url: "https://www.britannica.com/topic/Dutch-East-India-Company", date: "n.d." }
+        { title: "Netherlands: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-the-Netherlands/The-Kingdom-of-the-Netherlands-1814-1918", date: "n.d." },
+        { title: "Dutch Republic", publisher: "Britannica", url: "https://www.britannica.com/place/Dutch-Republic", date: "n.d." },
+        { title: "Indonesia: growth and impact of the Dutch East India Company", publisher: "Britannica", url: "https://www.britannica.com/place/Indonesia/Growth-and-impact-of-the-Dutch-East-India-Company", date: "n.d." }
       ]
     },
 
@@ -191,7 +191,7 @@ window.POLITICS.addUnit("nl", {
         choices: ["Over the childcare-benefits scandal", "Over the Groningen earthquakes", "Over leaving the EU"], answer: 0,
         explain: "The tax office had wrongly accused tens of thousands of parents of benefits fraud; the government took responsibility and resigned." },
       sources: [
-        { title: "Netherlands: History", publisher: "Britannica", url: "https://www.britannica.com/place/Netherlands/History", date: "n.d." },
+        { title: "Netherlands: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-the-Netherlands/The-Kingdom-of-the-Netherlands-1814-1918", date: "n.d." },
         { title: "Dutch childcare benefits scandal", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Dutch_childcare_benefits_scandal", date: "n.d." },
         { title: "2025 Dutch general election", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2025_Dutch_general_election", date: "2025" }
       ]
@@ -211,14 +211,14 @@ window.POLITICS.addUnit("nl", {
         { type: "facts", head: "The occupation", rows: [
           ["Invasion", "10 May 1940; Rotterdam bombed on 14 May"],
           ["Jews before the war", "About 140,000"],
-          ["Jews murdered", "About 102,000, roughly three in four"],
+          ["Jews murdered", "More than 100,000, roughly three in four"],
           ["February strike", "February 1941, against the persecution of Jews"],
           ["Hunger Winter", "1944–45; about 20,000 died"]
         ] },
         { type: "section", head: "Invasion", md:
           "Germany invaded on 10 May 1940. On 14 May the Luftwaffe bombed the centre of Rotterdam, killing hundreds and leaving tens of thousands homeless, and Germany threatened to do the same to Utrecht. The Dutch army surrendered the next day. Queen Wilhelmina and the government escaped to London. The Netherlands was placed under a civilian Nazi administration led by the Austrian Arthur Seyss-Inquart." },
         { type: "section", head: "Deportation", md:
-          "The occupiers registered, segregated and then deported the Jewish population with the help of an efficient Dutch bureaucracy, police and railway. From 1942, trains left the Westerbork transit camp for Auschwitz and Sobibor. About 102,000 of the 140,000 Jews in the country were murdered, about three-quarters, a far higher share than in Belgium or France. Anne Frank, whose diary from her family's hiding place in Amsterdam became one of the most read books in the world, died in Bergen-Belsen in 1945." },
+          "The occupiers registered, segregated and then deported the Jewish population with the help of an efficient Dutch bureaucracy, police and railway. From 1942, trains left the Westerbork transit camp for Auschwitz and Sobibor. More than 100,000 of the 140,000 Jews in the country were murdered, about three-quarters, a far higher share than in Belgium or France. Anne Frank, whose diary from her family's hiding place in Amsterdam became one of the most read books in the world, died in Bergen-Belsen in 1945." },
         { type: "section", head: "Resistance and collaboration", md:
           "In February 1941 Amsterdam workers held a general strike against the first round-ups of Jews, one of the only mass protests of its kind in occupied Europe. Around 25,000 Jews went into hiding with help from Dutch families; about two-thirds survived. But many Dutch people also collaborated: police officers made arrests, and tens of thousands joined Dutch Nazi organisations or volunteered for the German army." },
         { type: "section", head: "The Hunger Winter", md:
@@ -235,16 +235,16 @@ window.POLITICS.addUnit("nl", {
       ],
       takeaways: [
         "Germany occupied the Netherlands from May 1940 to May 1945.",
-        "About 102,000 of 140,000 Dutch Jews were murdered, the highest share in western Europe.",
+        "More than 100,000 of 140,000 Dutch Jews were murdered, the highest share in western Europe.",
         "In the Hunger Winter of 1944–45 about 20,000 people died; 5 May is now Liberation Day."
       ],
       check: { q: "What was unusual about the February strike of 1941?",
         choices: ["It was against food shortages", "It was a mass protest against the persecution of Jews", "It ended the occupation"], answer: 1,
         explain: "Amsterdam workers struck against the first round-ups of Jews, one of very few such mass protests in occupied Europe." },
       sources: [
-        { title: "Why did so many Jews in the Netherlands not survive the war?", publisher: "Anne Frank House", url: "https://www.annefrank.org/en/anne-frank/go-in-depth/netherlands-greatest-number-jews-deported-western-europe/", date: "n.d." },
+        { title: "The Netherlands: the greatest number of Jewish victims in Western Europe", publisher: "Anne Frank House", url: "https://www.annefrank.org/en/anne-frank/go-in-depth/netherlands-greatest-number-jewish-victims-western-europe/", date: "n.d." },
         { title: "The Netherlands", publisher: "United States Holocaust Memorial Museum", url: "https://encyclopedia.ushmm.org/content/en/article/the-netherlands", date: "n.d." },
-        { title: "Netherlands: History", publisher: "Britannica", url: "https://www.britannica.com/place/Netherlands/History", date: "n.d." }
+        { title: "Netherlands: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-the-Netherlands/The-Kingdom-of-the-Netherlands-1814-1918", date: "n.d." }
       ]
     },
 
@@ -295,7 +295,7 @@ window.POLITICS.addUnit("nl", {
       sources: [
         { title: "Indonesian National Revolution", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Indonesian_National_Revolution", date: "n.d." },
         { title: "Netherlands king acknowledges, apologizes for slavery", publisher: "UPI", url: "https://www.upi.com/Top_News/World-News/2023/07/01/netherlands-king-willem-alexander-acknowledges-apologizes-for-slavery/9831688234558/", date: "2023-07-01" },
-        { title: "Netherlands: History", publisher: "Britannica", url: "https://www.britannica.com/place/Netherlands/History", date: "n.d." }
+        { title: "Netherlands: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-the-Netherlands/The-Kingdom-of-the-Netherlands-1814-1918", date: "n.d." }
       ]
     },
 

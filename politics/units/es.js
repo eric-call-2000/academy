@@ -143,8 +143,8 @@ window.POLITICS.addUnit("es", {
         choices: ["Columbus's voyage", "The fall of Barcelona in 1714", "The 2017 referendum"], answer: 1,
         explain: "The Diada marks Barcelona's fall to Bourbon forces in 1714, after which Catalonia's institutions were abolished." },
       sources: [
-        { title: "Spain: History", publisher: "Britannica", url: "https://www.britannica.com/place/Spain/History", date: "n.d." },
-        { title: "Al-Andalus", publisher: "Britannica", url: "https://www.britannica.com/place/al-Andalus", date: "n.d." },
+        { title: "Spain: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Spain", date: "n.d." },
+        { title: "Al-Andalus", publisher: "Britannica", url: "https://www.britannica.com/place/Al-Andalus", date: "n.d." },
         { title: "Reconquista", publisher: "Britannica", url: "https://www.britannica.com/event/Reconquista", date: "n.d." }
       ]
     },
@@ -191,7 +191,7 @@ window.POLITICS.addUnit("es", {
         choices: ["He won a general election outright", "He won a no-confidence vote against Rajoy", "The king appointed him"], answer: 1,
         explain: "In June 2018 Congress passed Spain's first successful no-confidence motion, ousting Mariano Rajoy after a corruption ruling against the PP." },
       sources: [
-        { title: "Spain: History", publisher: "Britannica", url: "https://www.britannica.com/place/Spain/History", date: "n.d." },
+        { title: "Spain: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Spain", date: "n.d." },
         { title: "Spanish Civil War", publisher: "Britannica", url: "https://www.britannica.com/event/Spanish-Civil-War", date: "n.d." },
         { title: "Spanish Constitution of 1978", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Spanish_Constitution_of_1978", date: "n.d." }
       ]
@@ -292,7 +292,7 @@ window.POLITICS.addUnit("es", {
         explain: "Article 155 let the Senate authorise direct rule: Madrid dismissed the Catalan government and called new elections." },
       sources: [
         { title: "2017 Catalan independence referendum", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2017_Catalan_independence_referendum", date: "n.d." },
-        { title: "Catalonia", publisher: "Britannica", url: "https://www.britannica.com/place/Catalonia", date: "n.d." },
+        { title: "Catalonia", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Catalonia", date: "n.d." },
         { title: "Catalan separatist Puigdemont to return to Spain after warrant lifted", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/10/6/catalan-separatist-leader-puigdemont-to-return-home-after-warrant-lifted", date: "2026-10-06" }
       ]
     },

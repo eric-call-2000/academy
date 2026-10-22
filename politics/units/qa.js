@@ -92,7 +92,7 @@ window.POLITICS.addUnit("qa", {
       sources: [
         { title: "2024 Qatari constitutional referendum", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2024_Qatari_constitutional_referendum", date: "2024" },
         { title: "Qatar: Government and society", publisher: "Britannica", url: "https://www.britannica.com/place/Qatar", date: "n.d." },
-        { title: "Qatar World Cup: one year on", publisher: "Amnesty International", url: "https://www.amnesty.org/en/latest/news/2023/11/qatar-world-cup-one-year-on/", date: "2023-11" }
+        { title: "Inaction by Qatar and FIFA a year on from the World Cup puts legacy for workers in peril", publisher: "Amnesty International", url: "https://www.amnesty.org/en/latest/news/2023/11/qatar-inaction-by-qatar-and-fifa-a-year-on-from-the-world-cup-puts-legacy-for-workers-in-peril/", date: "2023-11" }
       ]
     },
 
@@ -143,7 +143,7 @@ window.POLITICS.addUnit("qa", {
         choices: ["1916", "1949", "1971"], answer: 2,
         explain: "Qatar declared independence on 3 September 1971 when Britain withdrew from the Gulf." },
       sources: [
-        { title: "Qatar: History", publisher: "Britannica", url: "https://www.britannica.com/place/Qatar/History", date: "n.d." },
+        { title: "Qatar: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Qatar", date: "n.d." },
         { title: "Qatar", publisher: "Britannica", url: "https://www.britannica.com/place/Qatar", date: "n.d." },
         { title: "History of Qatar", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/History_of_Qatar", date: "n.d." }
       ]
@@ -191,7 +191,7 @@ window.POLITICS.addUnit("qa", {
         choices: ["In an election", "In a bloodless coup against his father", "After his father's death"], answer: 1,
         explain: "Hamad took power while his father was abroad; he later handed over to his son Tamim in 2013." },
       sources: [
-        { title: "Qatar: History", publisher: "Britannica", url: "https://www.britannica.com/place/Qatar/History", date: "n.d." },
+        { title: "Qatar: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Qatar", date: "n.d." },
         { title: "Qatar diplomatic crisis", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Qatar_diplomatic_crisis", date: "n.d." },
         { title: "Doha Agreement (2020)", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Doha_Agreement_(2020)", date: "n.d." }
       ]
@@ -243,7 +243,7 @@ window.POLITICS.addUnit("qa", {
         explain: "The blockading states demanded the closure of Al Jazeera, among other things; Qatar refused." },
       sources: [
         { title: "Qatar diplomatic crisis", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Qatar_diplomatic_crisis", date: "n.d." },
-        { title: "Qatar: History", publisher: "Britannica", url: "https://www.britannica.com/place/Qatar/History", date: "n.d." },
+        { title: "Qatar: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Qatar", date: "n.d." },
         { title: "Al Jazeera", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Al_Jazeera", date: "n.d." }
       ]
     },
@@ -293,7 +293,7 @@ window.POLITICS.addUnit("qa", {
         choices: ["To avoid Ramadan", "To avoid Qatar's extreme summer heat", "Because the stadiums were late"], answer: 1,
         explain: "It was the first World Cup moved out of the northern summer, because temperatures in Qatar exceed 40°C." },
       sources: [
-        { title: "Qatar World Cup: one year on", publisher: "Amnesty International", url: "https://www.amnesty.org/en/latest/news/2023/11/qatar-world-cup-one-year-on/", date: "2023-11" },
+        { title: "Inaction by Qatar and FIFA a year on from the World Cup puts legacy for workers in peril", publisher: "Amnesty International", url: "https://www.amnesty.org/en/latest/news/2023/11/qatar-inaction-by-qatar-and-fifa-a-year-on-from-the-world-cup-puts-legacy-for-workers-in-peril/", date: "2023-11" },
         { title: "Revealed: 6,500 migrant workers have died in Qatar since World Cup awarded", publisher: "The Guardian", url: "https://www.theguardian.com/global-development/2021/feb/23/revealed-migrant-worker-deaths-qatar-fifa-world-cup-2022", date: "2021-02-23" },
         { title: "2022 FIFA World Cup", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup", date: "n.d." }
       ]

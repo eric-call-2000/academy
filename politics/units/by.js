@@ -147,8 +147,8 @@ window.POLITICS.addUnit("by", {
         choices: ["The Soviet red flag", "The white-red-white flag of the 1918 republic", "The Russian tricolour"], answer: 1,
         explain: "The white-red-white flag, used by the 1918 republic and briefly after 1991, became the symbol of the 2020 protests." },
       sources: [
-        { title: "Belarus: History", publisher: "Britannica", url: "https://www.britannica.com/place/Belarus/History", date: "n.d." },
-        { title: "Grand Duchy of Lithuania", publisher: "Britannica", url: "https://www.britannica.com/place/Lithuania/History", date: "n.d." },
+        { title: "Belarus: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Belarus", date: "n.d." },
+        { title: "Vytautas the Great", publisher: "Britannica", url: "https://www.britannica.com/biography/Vytautas-the-Great", date: "n.d." },
         { title: "Belarusian Democratic Republic", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Belarusian_Democratic_Republic", date: "n.d." }
       ]
     },
@@ -195,7 +195,7 @@ window.POLITICS.addUnit("by", {
         choices: ["Moscow", "The Belavezha forest in Belarus", "Kyiv"], answer: 1,
         explain: "The leaders of Russia, Ukraine and Belarus signed the Belavezha Accords in a hunting lodge in the Belavezha forest." },
       sources: [
-        { title: "Belarus: History", publisher: "Britannica", url: "https://www.britannica.com/place/Belarus/History", date: "n.d." },
+        { title: "Belarus: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Belarus", date: "n.d." },
         { title: "Alexander Lukashenko", publisher: "Britannica", url: "https://www.britannica.com/biography/Alexander-Lukashenko", date: "n.d." },
         { title: "2020–2021 Belarusian protests", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2020%E2%80%932021_Belarusian_protests", date: "n.d." }
       ]
@@ -222,7 +222,7 @@ window.POLITICS.addUnit("by", {
         { type: "section", head: "Occupation", md:
           "Germany invaded the Soviet Union on 22 June 1941, and within weeks all of Belarus was occupied. The Nazis planned to starve and expel much of the Slavic population to make room for German settlement. Minsk, Vitebsk, Gomel and other cities were reduced to ruins. About two million people from Belarus died, roughly a quarter of the population, though estimates vary and some historians give higher figures." },
         { type: "section", head: "The Holocaust", md:
-          "Belarus had one of Europe's largest Jewish populations. German units and local collaborators murdered most of them, usually by mass shootings at pits outside towns rather than in camps. The Minsk ghetto held about 100,000 people. Maly Trostenets, near Minsk, was one of the biggest killing sites in the occupied Soviet Union. A thousand-year-old Jewish world was almost entirely destroyed." },
+          "Belarus had one of Europe's largest Jewish populations. German units and local collaborators murdered most of them, usually by mass shootings at pits outside towns rather than in camps. About 80,000 people were packed into the Minsk ghetto. Maly Trostenets, near Minsk, was one of the biggest killing sites in the occupied Soviet Union. A thousand-year-old Jewish world was almost entirely destroyed." },
         { type: "section", head: "Partisans and reprisals", md:
           "Belarus's forests and marshes became the heartland of the Soviet partisan movement, with several hundred thousand fighters by 1944, as well as Polish and Jewish partisan units. The Germans responded with 'anti-partisan' operations that wiped out whole villages. At Khatyn, on 22 March 1943, a police battalion, which included Ukrainian collaborators and the notorious SS Dirlewanger unit, herded 149 villagers into a barn and set it on fire. More than 600 villages met the same fate." },
         { type: "section", head: "Liberation", md:
@@ -247,7 +247,7 @@ window.POLITICS.addUnit("by", {
         explain: "A 1996 referendum moved Independence Day to 3 July, the day the Red Army liberated Minsk." },
       sources: [
         { title: "Khatyn massacre", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/Khatyn_massacre", date: "n.d." },
-        { title: "Belarus: History", publisher: "Britannica", url: "https://www.britannica.com/place/Belarus/History", date: "n.d." },
+        { title: "Belarus: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Belarus", date: "n.d." },
         { title: "Minsk", publisher: "United States Holocaust Memorial Museum", url: "https://encyclopedia.ushmm.org/content/en/article/minsk", date: "n.d." }
       ]
     },
@@ -300,8 +300,8 @@ window.POLITICS.addUnit("by", {
         explain: "The plant was in northern Ukraine, but winds carried most of the fallout north into Belarus." },
       sources: [
         { title: "Chornobyl", publisher: "International Atomic Energy Agency", url: "https://www.iaea.org/topics/chornobyl", date: "n.d." },
-        { title: "Chernobyl disaster", publisher: "Britannica", url: "https://www.britannica.com/event/Chernobyl-disaster", date: "n.d." },
-        { title: "Belarus: History", publisher: "Britannica", url: "https://www.britannica.com/place/Belarus/History", date: "n.d." }
+        { title: "How many people died as a result of the Chernobyl disaster?", publisher: "Britannica", url: "https://www.britannica.com/question/How-many-people-died-as-a-result-of-the-Chernobyl-disaster", date: "n.d." },
+        { title: "Belarus: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Belarus", date: "n.d." }
       ]
     },
 
@@ -412,7 +412,7 @@ window.POLITICS.addUnit("by", {
       sources: [
         { title: "2020–2021 Belarusian protests", publisher: "Wikipedia", url: "https://en.wikipedia.org/wiki/2020%E2%80%932021_Belarusian_protests", date: "n.d." },
         { title: "Belarus' Lukashenko secures seventh term in widely condemned election", publisher: "To Vima", url: "https://tovima.com/world/belarus-lukashenko-secures-seventh-term-in-widely-condemned-election", date: "2025-01" },
-        { title: "Belarus: History", publisher: "Britannica", url: "https://www.britannica.com/place/Belarus/History", date: "n.d." }
+        { title: "Belarus: History", publisher: "Britannica", url: "https://www.britannica.com/topic/history-of-Belarus", date: "n.d." }
       ]
     },
 
