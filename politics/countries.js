@@ -41,7 +41,7 @@
       blurb: "A G7 heavyweight whose prime minister bridges Trump's Washington and Brussels." });
   C({ id: "pl", iso: "616", part: 2, name: "Poland", flag: "🇵🇱", color: "#b0354a", lessons: 12,
       blurb: "NATO's eastern anchor, where a president's vetoes hold the government hostage." });
-  C({ id: "hu", iso: "348", part: 2, name: "Hungary", flag: "🇭🇺", color: "#3d7a4a", lessons: 0,
+  C({ id: "hu", iso: "348", part: 2, name: "Hungary", flag: "🇭🇺", color: "#3d7a4a", lessons: 12,
       blurb: "Orbán's 16 years ended at the ballot box in April 2026. Now comes the dismantling." });
   C({ id: "by", iso: "112", part: 2, name: "Belarus", flag: "🇧🇾", color: "#9b3b3b", lessons: 0,
       blurb: "Russia's closest ally, hosting its nuclear weapons, ruled by Lukashenko since 1994." });

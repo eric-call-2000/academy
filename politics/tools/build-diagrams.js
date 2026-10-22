@@ -144,6 +144,20 @@ const SPECS = {
     ],
     bottom: ["NEXT PARLIAMENTARY ELECTION", "autumn 2027"]
   },
+  hu: {
+    title: "How power works in Hungary",
+    top: ["THE VOTERS", "elect 199 MPs: 106 constituencies, 93 from lists"],
+    boxes: [
+      { head: "NATIONAL ASSEMBLY", tag: "199 seats", color: "#1f4e79", lines: ["Two-thirds can change the constitution", "and the cardinal laws"] },
+      { arrow: "elects" },
+      { head: "PRIME MINISTER", tag: "Péter Magyar", color: "#3d7a4a", lines: ["Leads a single-party Tisza government", "Tisza holds 141 seats"] },
+      { arrow: "alongside" },
+      { head: "PRESIDENT", tag: "András Baka", color: "#5b6270", lines: ["Elected by parliament", "Signs laws; can refer them to the court"] },
+      { arrow: "checked by" },
+      { head: "CONSTITUTIONAL COURT", tag: "reshaped in 2026", color: "#6b4f8a", lines: ["Reviews laws", "Age limit of 70 restored"] }
+    ],
+    bottom: ["NEXT ELECTION", "due spring 2030"]
+  },
   tr: {
     title: "How power works in Turkey",
     top: ["THE VOTERS", "elect the president and 600 MPs"],
