@@ -106,7 +106,7 @@ Each coding lesson is a 3-pane workspace — **Learn** (narrative + numbered che
 
 ### Look and feel
 
-The default theme is **Studio** (`themes/studio/theme.css`): Inter type, neutral surfaces, one blue accent, flat buttons and hairline borders. Emoji are treated as decoration: `el()` in `app.js` wraps a leading emoji in `<span class="em">`, and course/position icons render both the emoji and a text monogram (`abbr` in `courses.js`/`positions.js`), so a theme decides which one shows. Studio shows monograms and line icons; the original Duolingo-style look is still one tap away as **Playful** in the theme picker, alongside Professional, Dark and Alternative Light.
+The default theme is **Ledger Teal** (`themes/ledger-teal/theme.css`), modelled on IBM Carbon: IBM Plex type, square corners, dense ruled lesson lists, a black top bar and a deep teal header band. It imports **Studio** (`themes/studio/theme.css`: Inter, neutral surfaces, one blue accent, hairline borders), which supplies the shared structure and stays selectable on its own. Emoji are treated as decoration: `el()` in `app.js` wraps a leading emoji in `<span class="em">`, and course/position icons render both the emoji and a text monogram (`abbr` in `courses.js`/`positions.js`), so a theme decides which one shows. Ledger Teal and Studio show monograms and line icons; the original Duolingo-style look is still one tap away as **Playful** in the theme picker, alongside Professional, Dark and Alternative Light.
 
 ## 📲 Handoff — phone ↔ desktop
 
@@ -207,7 +207,7 @@ codelab/
 ├── editor.js             # mobile code editor + syntax highlighting
 ├── runner.js             # sandbox runner + checkpoint grader (worker/iframe)
 ├── app.js                # screens: profiles → catalog → course → lesson
-├── styles.css            # mobile-first UI (imports themes/; Studio is the default)
+├── styles.css            # mobile-first UI (imports themes/; Ledger Teal is the default)
 ├── html/u1.js … u7.js    # Learn HTML units          (44 items)
 ├── css/u1.js … u7.js     # Learn CSS units           (44 items)
 ├── resp/u1.js … u6.js    # Responsive Design         (30 items)

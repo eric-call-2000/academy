@@ -67,12 +67,14 @@
   var REVIEW_BUMPS_STREAK = true;
 
   /* ---------- Theme Management ---------- */
-  /* Studio is the default: neutral, typographic, no emoji chrome. The
-     original Duolingo-style look stays available as Playful. Object order is
-     the order shown in the picker. "original" keeps its id so a saved
-     choice of it still resolves. */
-  var DEFAULT_THEME = "studio";
+  /* Ledger Teal is the default; it builds on Studio (neutral, typographic,
+     no emoji chrome), which stays selectable on its own. The original
+     Duolingo-style look stays available as Playful. Object order is the
+     order shown in the picker. "original" keeps its id so a saved choice of
+     it still resolves. */
+  var DEFAULT_THEME = "ledger-teal";
   var THEMES = {
+    "ledger-teal": { name: "Ledger Teal", path: "themes/ledger-teal/theme.css" },
     "studio": { name: "Studio", path: "themes/studio/theme.css" },
     "original": { name: "Playful", path: "themes/original/theme.css" },
     "professional": { name: "Professional", path: "themes/professional/theme.css" },
@@ -89,18 +91,21 @@
     }
   }
 
-  function setTheme(themeId) {
+  function applyTheme(themeId) {
     var themeCss = document.getElementById("theme-css");
-    if (themeCss && THEMES[themeId]) {
-      themeCss.href = THEMES[themeId].path;
-      try {
-        localStorage.setItem(THEME_KEY, themeId);
-      } catch (e) {}
-    }
+    if (themeCss && THEMES[themeId]) themeCss.href = THEMES[themeId].path;
+  }
+
+  /* Only an explicit pick is saved. Saving on boot would pin whatever the
+     default was that day, and a later default would never reach anyone. */
+  function setTheme(themeId) {
+    if (!THEMES[themeId]) return;
+    applyTheme(themeId);
+    try { localStorage.setItem(THEME_KEY, themeId); } catch (e) {}
   }
 
   function initTheme() {
-    setTheme(getCurrentTheme());
+    applyTheme(getCurrentTheme());
   }
 
   function renderThemeSwitcher() {
@@ -639,7 +644,7 @@
   /* ---------- tiny DOM helpers ---------- */
   var app = document.getElementById("app");
   /* A leading emoji ("💼 Careers") is decoration, not content, so it goes
-     in its own span: the Playful theme shows it, Studio hides it. Only the
+     in its own span: the Playful theme shows it, Studio and Ledger Teal hide it. Only the
      first glyph is touched — emoji mid-sentence are part of the copy. */
   var LEAD_EMOJI = /^(\p{Extended_Pictographic}️?)\s*/u;
   function el(tag, cls, html) {
@@ -653,7 +658,7 @@
     return e;
   }
   /* A course or position icon in both forms: the emoji (Playful) and a short
-     text monogram (Studio). Which one shows is purely the theme's call. */
+     text monogram (Studio, Ledger Teal). Which one shows is purely the theme's call. */
   function iconTile(icon, abbr) {
     return '<span class="em">' + icon + '</span><span class="mono">' + esc(abbr || "") + "</span>";
   }
