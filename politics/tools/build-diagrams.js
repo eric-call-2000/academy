@@ -144,6 +144,20 @@ const SPECS = {
     ],
     bottom: ["NEXT PARLIAMENTARY ELECTION", "autumn 2027"]
   },
+  nl: {
+    title: "How power works in the Netherlands",
+    top: ["THE VOTERS", "one national list vote; about 0.67% wins a seat"],
+    boxes: [
+      { head: "HOUSE OF REPRESENTATIVES", tag: "150 seats", color: "#1f4e79", lines: ["15 parties; no majority since 1918", "Can bring down the cabinet"] },
+      { arrow: "backs" },
+      { head: "PRIME MINISTER", tag: "Rob Jetten", color: "#c4621d", lines: ["D66–VVD–CDA minority, 66 seats", "Needs opposition votes on every law"] },
+      { arrow: "checked by" },
+      { head: "SENATE", tag: "75 seats", color: "#6b4f8a", lines: ["Elected by provincial councils", "Coalition holds 22 seats"] },
+      { arrow: "alongside" },
+      { head: "THE KING", tag: "Willem-Alexander", color: "#5b6270", lines: ["Head of state; signs laws", "No role in forming governments"] }
+    ],
+    bottom: ["NEXT ELECTION", "due by 2030; provinces vote March 2027"]
+  },
   es: {
     title: "How power works in Spain",
     top: ["THE VOTERS", "elect 350 deputies by province, and most senators"],

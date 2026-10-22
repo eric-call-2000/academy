@@ -33,7 +33,7 @@
       blurb: "A nuclear power still redefining itself after Brexit — with a new prime minister since July." });
   C({ id: "fr", iso: "250", part: 2, name: "France", flag: "🇫🇷", color: "#3f5fa8", lessons: 12,
       blurb: "The EU's only nuclear power, where a hung parliament keeps toppling governments." });
-  C({ id: "nl", iso: "528", part: 2, name: "Netherlands", flag: "🇳🇱", color: "#c4621d", lessons: 0,
+  C({ id: "nl", iso: "528", part: 2, name: "Netherlands", flag: "🇳🇱", color: "#c4621d", lessons: 12,
       blurb: "Home of the only firm that makes the most advanced chipmaking machines, Europe's biggest port and the world's courts." });
   C({ id: "es", iso: "724", part: 2, name: "Spain", flag: "🇪🇸", color: "#b8862b", lessons: 12,
       blurb: "The fastest-growing big economy in the EU, run by a minority government that leans on separatists." });
