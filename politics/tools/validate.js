@@ -19,6 +19,7 @@
    - every [[glossary]], [[unit:…]] and [[lesson:…]] reference resolves,
      and briefing numbers are never typed by hand
    - dispatches and glossary entries are well formed
+   - every bloc (blocs.js) lists real countries and real glossary terms
 
    Missing illustrations and portraits are NOT failures — they are
    listed as pending (see tools/image-manifest.js) and the reader
@@ -78,6 +79,23 @@ P.links.forEach((l) => {
   if (!Number.isInteger(l.lessons) || (l.lessons !== 0 && (l.lessons < P.LINK_MIN || l.lessons > P.LINK_MAX)))
     err(w, "lessons must be 0 (not written yet) or " + P.LINK_MIN + "–" + P.LINK_MAX);
   if (l.blurb && P.words(l.blurb) > 24) warn(w, "blurb runs " + P.words(l.blurb) + " words; cards fit about 22");
+});
+
+/* ---------- blocs (map lenses) ---------- */
+const seenBloc = {};
+P.blocs.forEach((b) => {
+  const w = "blocs.js[" + b.id + "]";
+  ["id", "name", "color", "note"].forEach((k) => { if (!b[k]) err(w, "missing " + k); });
+  if (seenBloc[b.id]) err(w, "duplicate id");
+  seenBloc[b.id] = 1;
+  if (!HEX.test(b.color || "")) err(w, "color must be #rrggbb");
+  if (!Array.isArray(b.members) || b.members.length < 2) err(w, "members must list at least two countries");
+  (b.members || []).forEach((m, i) => {
+    if (!P.country(m)) err(w, "'" + m + "' isn't a country id");
+    if (b.members.indexOf(m) !== i) err(w, "'" + m + "' is listed twice");
+  });
+  if (b.term && !P.glossary[b.term]) err(w, "glossary term '" + b.term + "' doesn't exist");
+  if (b.note && P.words(b.note) > 24) warn(w, "note runs " + P.words(b.note) + " words; the legend fits about 22");
 });
 
 /* ---------- units ---------- */
