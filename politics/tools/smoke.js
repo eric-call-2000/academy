@@ -172,13 +172,33 @@ function check(name, ok, detail) {
   await shot(page, "phone-menu");
   await page.keyboard.press("Escape");
 
-  /* 5b. The world map: no lines until a country is picked, then that
+  /* 5b. The world map: lenses (progress, the web of relationships, a
+     bloc), the searchable relationship list, no selection lines until a country is picked, then that
      country's relationships with flag labels; selection, and the
      relationship's own page and briefings. */
   await page.goto(base + "/politics/#/map");
   await page.waitForSelector(".wmap .wm-hit");
   check("the map has a tap target for all 30 countries", (await page.$$(".wmap .wm-hit")).length === 30);
   check("…and no relationship lines or labels until a country is picked", (await page.$$(".wmap .wm-link")).length === 0 && (await page.$$(".wmap .wm-lb")).length === 0);
+  check("the map opens on a lens (progress, once something is read)", await page.$eval(".wmap", (s) => s.classList.contains("lens-progress")));
+  await page.click('.wmap-lenses [data-lens="bloc:nato"]');
+  const nNato = await page.evaluate(() => window.POLITICS.bloc("nato").members.length);
+  check("the NATO lens shades exactly its members", (await page.$$(".wmap .wm-c.in-bloc")).length === nNato, String(nNato));
+  check("…and its legend links to the glossary", !!(await page.$('.wmap-legend a[href="#/glossary/nato"]')));
+  await page.click('.wmap-lenses [data-lens="bloc:nato"]');
+  check("…and a second tap turns it off", (await page.$$(".wmap .wm-c.in-bloc")).length === 0);
+  await page.click('.wmap-lenses [data-lens="web"]');
+  check("the relationship-web lens draws every relationship",
+    await page.$eval(".wmap", (s) => s.classList.contains("lens-web")) &&
+    (await page.$$(".wmap .wm-web-line")).length === (await page.evaluate(() => window.POLITICS.links.length)));
+  check("the list under the map folds relationships by country", (await page.$$(".rel-group")).length === 30);
+  await page.fill(".rel-search", "falklands");
+  check("…and searching finds both relationships that mention the Falklands", (await page.$$(".rel-results .link-row")).length === 2 && !!(await page.$('.rel-results a[href="#/c/gb_ar"]')));
+  await page.fill(".rel-search", "");
+  await page.click('.rel-filter [data-f="done"]');
+  check("…and the Finished filter says so when nothing is finished yet", (await page.$$(".rel-group")).length === 0 && /haven't finished/.test(await page.textContent(".rel-results")));
+  await page.click('.rel-filter [data-f="all"]');
+  await shot(page, "phone-map-web");
   await page.click('.wm-hit[data-id="cn"]');
   await page.waitForSelector(".wmap-card");
   const nCn = await page.evaluate(() => window.POLITICS.linksOf("cn").length);

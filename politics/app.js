@@ -769,8 +769,8 @@
     var main = shell("map");
     main.classList.add("wrap-wide");
     main.appendChild(el("h1", "page-title", "World map"));
-    main.appendChild(el("p", "page-sub", "All 30 countries. Tap one to see its relationships: a line to each country it has " +
-      "relationship briefings with, labelled with their two flags."));
+    main.appendChild(el("p", "page-sub", "All 30 countries. Colour the map by your progress, the whole web of relationships, " +
+      "or a bloc like NATO or BRICS. Tap a country to see its relationships, each labelled with the two flags."));
     var box = el("div", "wmap-box");
     box.appendChild(el("div", "card loading", "Drawing the map…"));
     main.appendChild(box);
@@ -814,6 +814,7 @@
       return out;
     }
     function each(sel, fn) { Array.prototype.forEach.call(root.querySelectorAll(sel), fn); }
+    function each2(scope, sel, fn) { Array.prototype.forEach.call(scope.querySelectorAll(sel), fn); }
     function svgEl(tag, attrs) {
       var x = document.createElementNS(ns, tag);
       Object.keys(attrs).forEach(function (k) { x.setAttribute(k, attrs[k]); });
@@ -824,15 +825,35 @@
       '<rect width="4" height="4" class="wm-hatch-bg"/><rect width="1.6" height="4" class="wm-hatch-fg"/></pattern></defs>',
       '<rect class="wm-ocean" width="' + W.w + '" height="' + W.h + '"/>',
       '<path class="wm-land" d="' + W.land + '"/>'];
+    var readTotal = 0, lessonTotal = 0;
     P.countries.forEach(function (c) {
       var k = W.countries[c.id];
       if (!k) return;
-      svg.push('<path class="wm-c" data-id="' + c.id + '" style="--c:' + c.color + '" d="' + k.d + '"><title>' + esc(c.name) + "</title></path>");
+      var n = c.lessons || 0, read = n ? Math.min(P.readCount(prof, c.id), n) : 0;
+      readTotal += read; lessonTotal += n;
+      svg.push('<path class="wm-c" data-id="' + c.id + '" style="--c:' + c.color + ";--p:" + (n ? (read / n).toFixed(3) : 0) + '" d="' + k.d + '"><title>' +
+        esc(c.name + (n ? " · " + read + " of " + n + " read" : "")) + "</title></path>");
     });
     W.hatched.concat(W.contested.map(function (d) { return { d: d }; })).forEach(function (x) {
       svg.push('<path class="wm-disputed" d="' + x.d + '"><title>' + esc(x.name ? x.name + " (disputed)" : "Disputed territory") + "</title></path>");
     });
     svg.push('<path class="wm-borders" d="' + W.borders + '"/>');
+    /* The whole web of relationships, shown by the "All relationships"
+       lens: a faint arc per relationship (bolder once you've read all of
+       it) and a dot on each country sized by how many it has. */
+    var web = ['<g class="wm-web">'];
+    P.links.filter(drawable).forEach(function (l) {
+      var s = P.subject(l.id), done = s.lessons > 0 && P.readCount(prof, l.id) >= s.lessons;
+      web.push('<path class="wm-web-line' + (done ? " done" : "") + '" style="--c:' + s.color + '" d="' + arcPath(pos(l.a), pos(l.b), 0.2).d + '"/>');
+    });
+    P.countries.forEach(function (c) {
+      var k = W.countries[c.id];
+      if (!k) return;
+      var n = P.linksOf(c.id).filter(drawable).length;
+      if (n) web.push('<circle class="wm-web-dot" cx="' + k.cx + '" cy="' + k.cy + '" r="' + (1.6 + Math.sqrt(n) * 1.1).toFixed(1) + '"/>');
+    });
+    web.push("</g>");
+    svg.push(web.join(""));
     /* A tap target on every country, so the small ones (Israel, Taiwan,
        the UAE) are as easy to pick as Russia; also what the keyboard
        focuses. */
@@ -845,14 +866,89 @@
     });
     svg.push('<g class="wm-sel-layer"></g></svg>');
     box.innerHTML = "";
+    var lensBar = el("div", "wmap-lenses");
+    box.appendChild(lensBar);
     var scroller = el("div", "wmap-scroll");
     scroller.innerHTML = svg.join("");
     box.appendChild(scroller);
-    box.appendChild(el("div", "wmap-legend",
-      '<span><i class="lg-tap"></i> tap a country to show its relationships</span>' +
-      '<span><i class="lg-hatch"></i> disputed territory</span>'));
+    var legend = el("div", "wmap-legend");
+    legend.setAttribute("aria-live", "polite");
+    box.appendChild(legend);
     var root = scroller.querySelector("svg");
     var layer = root.querySelector(".wm-sel-layer");
+
+    /* Lenses: what the map is coloured by. The choice is remembered on
+       this device; a first visit opens on your progress if you have
+       any, otherwise on the web of relationships. */
+    var LENSES = [["colors", "Countries"], ["progress", "My progress"], ["web", "All relationships"]];
+    function lensOk(v) {
+      return typeof v === "string" && (v.indexOf("bloc:") === 0 ? !!P.bloc(v.slice(5)) : LENSES.some(function (x) { return x[0] === v; }));
+    }
+    var lens = lensOk(prefs.mapLens) ? prefs.mapLens : P.readCount(prof) > 0 ? "progress" : "web";
+    var baseLens = lens.indexOf("bloc:") === 0 ? "colors" : lens;
+    var seg = el("div", "seg");
+    seg.setAttribute("role", "group");
+    seg.setAttribute("aria-label", "Colour the map by");
+    LENSES.forEach(function (x) {
+      var b = el("button", "seg-btn", x[1]);
+      b.type = "button";
+      b.setAttribute("data-lens", x[0]);
+      seg.appendChild(b);
+    });
+    lensBar.appendChild(seg);
+    if (P.blocs.length) {
+      var chips = el("div", "wmap-blocs");
+      chips.setAttribute("role", "group");
+      chips.setAttribute("aria-label", "Show a bloc");
+      chips.appendChild(el("span", "wmap-blocs-label", "Blocs"));
+      P.blocs.forEach(function (bl) {
+        var b = el("button", "bloc-chip", esc(bl.name));
+        b.type = "button";
+        b.style.setProperty("--b", bl.color);
+        b.setAttribute("data-lens", "bloc:" + bl.id);
+        chips.appendChild(b);
+      });
+      lensBar.appendChild(chips);
+    }
+    lensBar.addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest("[data-lens]") : null;
+      if (!b) return;
+      var v = b.getAttribute("data-lens");
+      if (v.indexOf("bloc:") === 0) { if (v === lens) v = baseLens; }   // a second tap on a bloc turns it off
+      else baseLens = v;
+      lens = v;
+      prefs.mapLens = v;
+      savePrefs();
+      applyLens();
+    });
+    function applyLens() {
+      var bl = lens.indexOf("bloc:") === 0 ? P.bloc(lens.slice(5)) : null;
+      ["colors", "progress", "web", "bloc"].forEach(function (k) { root.classList.toggle("lens-" + k, (bl ? "bloc" : lens) === k); });
+      each2(lensBar, "[data-lens]", function (b) {
+        var on = b.getAttribute("data-lens") === lens;
+        b.classList.toggle("on", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      if (bl) root.style.setProperty("--b", bl.color);
+      each(".wm-c", function (x) { x.classList.toggle("in-bloc", !!bl && bl.members.indexOf(x.getAttribute("data-id")) > -1); });
+      var tap = '<span><i class="lg-tap"></i> tap a country to show its relationships</span>';
+      var hatch = '<span><i class="lg-hatch"></i> disputed territory</span>';
+      if (bl) {
+        var t = bl.term && P.glossary[bl.term];
+        legend.innerHTML = '<div class="wmap-bloc-info" style="--b:' + bl.color + '"><div class="wmap-bloc-head"><i class="lg-bloc"></i><b>' + esc(bl.name) + "</b> · " +
+          bl.members.length + " of the 30 · " + bl.members.map(function (m) { return '<span title="' + esc(P.country(m).name) + '">' + P.country(m).flag + "</span>"; }).join(" ") +
+          '</div><p>' + esc(bl.note) + (t ? ' <a href="#/glossary/' + bl.term + '">What is ' + esc(t.term) + "?</a>" : "") + "</p></div>";
+      } else if (lens === "progress") {
+        legend.innerHTML = '<span><i class="lg-prog"></i> none → all of a country\'s briefings read</span>' +
+          "<span>You've read " + readTotal + " of " + lessonTotal + " country briefings</span>" + hatch;
+      } else if (lens === "web") {
+        legend.innerHTML = '<span><i class="lg-web"></i> ' + plural(P.links.filter(drawable).length, "relationship") + ' (bolder once read)</span>' +
+          '<span><i class="lg-dot"></i> bigger dot, more relationships</span>' + tap;
+      } else {
+        legend.innerHTML = tap + hatch;
+      }
+    }
+    applyLens();
 
     /* Draw the selected country's relationships (or one relationship on
        its own): lines, a dot where they meet, and a flag label on each. */
@@ -903,11 +999,8 @@
     function drawPanel(sel) {
       panel.innerHTML = "";
       if (!sel) {
-        panel.appendChild(el("p", "wmap-hint", "Tap a country on the map to see its relationships, or pick one from the list below."));
-        if (P.links.length) {
-          panel.appendChild(el("h2", "section-title", "Relationships"));
-          P.links.forEach(function (l) { panel.appendChild(linkRow(l)); });
-        }
+        panel.appendChild(el("p", "wmap-hint", "Tap a country on the map to see its relationships, or find one in the list below."));
+        if (P.links.length) panel.appendChild(relList());
         return;
       }
       var card = el("div", "card wmap-card");
@@ -960,6 +1053,93 @@
       all.onclick = function () { select(null, true); };
       card.appendChild(all);
       panel.appendChild(card);
+    }
+    /* Every relationship, findable: a search box, a filter by how much
+       you've read, and (with no search) one folded group per country. A
+       relationship sits under both of its countries. */
+    var listQ = "", listF = "all";
+    function fold(x) {
+      x = String(x || "").toLowerCase();
+      return x.normalize ? x.normalize("NFD").replace(/[\u0300-\u036f]/g, "") : x;
+    }
+    function linkStatus(l) {
+      var s = P.subject(l.id), done = P.readCount(prof, l.id);
+      if (!s.lessons) return "soon";
+      return done === 0 ? "unread" : done >= s.lessons ? "done" : "started";
+    }
+    function relList() {
+      var wrap = el("section", "rel-list");
+      wrap.appendChild(el("h2", "section-title", "Relationships"));
+      var input = el("input", "search rel-search");
+      input.type = "search";
+      input.placeholder = "Search a country or a topic, like oil or islands";
+      input.setAttribute("aria-label", "Search relationships");
+      input.value = listQ;
+      var counts = { all: P.links.length, unread: 0, started: 0, done: 0 };
+      P.links.forEach(function (l) { var st = linkStatus(l); if (st in counts) counts[st]++; });
+      var filt = el("div", "seg rel-filter");
+      filt.setAttribute("role", "group");
+      filt.setAttribute("aria-label", "Show");
+      [["all", "All"], ["unread", "Unread"], ["started", "Started"], ["done", "Finished"]].forEach(function (x) {
+        var b = el("button", "seg-btn" + (x[0] === listF ? " on" : ""), x[1] + ' <span class="rel-n">' + counts[x[0]] + "</span>");
+        b.type = "button";
+        b.setAttribute("data-f", x[0]);
+        b.setAttribute("aria-pressed", x[0] === listF ? "true" : "false");
+        filt.appendChild(b);
+      });
+      var out = el("div", "rel-results");
+      var EMPTY = { all: "No relationships yet.", unread: "You've started every relationship.",
+        started: "Nothing half-read: no relationship is started but unfinished.", done: "You haven't finished a relationship yet." };
+      function draw() {
+        out.innerHTML = "";
+        var q = fold(listQ.trim());
+        var match = P.links.filter(function (l) {
+          if (listF !== "all" && linkStatus(l) !== listF) return false;
+          var s = P.subject(l.id);
+          return !q || fold(s.name + " " + s.title + " " + s.blurb).indexOf(q) > -1;
+        });
+        if (!match.length) {
+          out.appendChild(el("p", "muted", q ? "No relationships match “" + esc(listQ.trim()) + "”." : EMPTY[listF]));
+          return;
+        }
+        if (q) {
+          out.appendChild(el("p", "rel-count", plural(match.length, "relationship")));
+          match.forEach(function (l) { out.appendChild(linkRow(l)); });
+          return;
+        }
+        P.countries.forEach(function (c) {
+          var mine = match.filter(function (l) { return l.a === c.id || l.b === c.id; });
+          if (!mine.length) return;
+          var fin = mine.filter(function (l) { return linkStatus(l) === "done"; }).length;
+          var d = el("details", "rel-group");
+          d.style.setProperty("--c", c.color);
+          d.setAttribute("data-id", c.id);
+          d.appendChild(el("summary", null, '<span class="rel-flag">' + c.flag + '</span><span class="row-main"><span class="row-title">' + esc(c.name) +
+            '</span><span class="row-kicker">' + plural(mine.length, "relationship") + (listF === "all" ? " · " + fin + " finished" : "") + "</span></span>"));
+          d.addEventListener("toggle", function () {
+            if (!d.open || d.querySelector(".link-row")) return;
+            mine.forEach(function (l) { d.appendChild(linkRow(l)); });
+          });
+          out.appendChild(d);
+        });
+      }
+      input.addEventListener("input", function () { listQ = input.value; draw(); });
+      filt.addEventListener("click", function (e) {
+        var b = e.target.closest ? e.target.closest("[data-f]") : null;
+        if (!b) return;
+        listF = b.getAttribute("data-f");
+        each2(filt, "[data-f]", function (x) {
+          var on = x === b;
+          x.classList.toggle("on", on);
+          x.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        draw();
+      });
+      wrap.appendChild(input);
+      wrap.appendChild(filt);
+      wrap.appendChild(out);
+      draw();
+      return wrap;
     }
     function pick(target) {
       var b = target.closest ? target.closest("[data-link], [data-id]") : null;
