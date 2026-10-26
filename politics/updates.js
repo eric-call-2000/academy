@@ -75,3 +75,23 @@ window.POLITICS.addUpdate({
     { title: "'Yes I do': Alberta Premier Smith promises not to hold later separation referendum if remain side wins October vote", publisher: "CTV News", url: "https://www.ctvnews.ca/politics/article/yes-i-do-alberta-premier-smith-promises-not-to-hold-later-separation-referendum-if-remain-side-wins-october-vote/", date: "2026" }
   ]
 });
+
+window.POLITICS.addUpdate({
+  id: "br-2026-10-26-runoff",
+  unit: "br",
+  date: "2026-10-26",
+  title: "Lula wins a fourth term; Flávio Bolsonaro rejects the result",
+  md:
+    "President Luiz Inácio Lula da Silva won Brazil's presidential runoff on 25 October, overturning his first-round defeat to Senator Flávio Bolsonaro. The Superior Electoral Court's count gave Lula 51.79% of valid votes to Flávio's 48.21%, a margin of about 4.4 million votes, The Rio Times reported; CNBC and NPR reported the same result. Turnout was about 80.8%, up from the first round. The final polls had put Flávio narrowly ahead, CNBC noted. Lula, who will be 81 when his new term begins on 5 January 2027, becomes the first Brazilian elected president four times.\n\n" +
+    "Flávio Bolsonaro did not concede. He told reporters he would not accept the result and would seek to have it annulled, CNN and France 24 reported. The Associated Press, via PBS, reported that a Supreme Court justice's last-minute decision to extend voting by two hours could become the basis for legal action.\n\n" +
+    "The result ends Flávio's promise to pardon his father, former president Jair Bolsonaro, who is serving a 27-year sentence for plotting a coup after the 2022 election, France 24 (AFP) reported before the vote. An amnesty passed by Congress remains the other route his allies have discussed. For relations with Washington, AP said Lula's win preserves a major counterweight to President Donald Trump in Latin America, with disputes over trade likely to continue. Trump praised Flávio after the first round without formally endorsing him, Newsweek reported, and US tariffs of 50% imposed in 2025, partly over Jair Bolsonaro's prosecution, were unpopular in Brazil.",
+  sources: [
+    { title: "Brazil runoff turnout 80.8%, Lula ahead by 4.4 million", publisher: "The Rio Times", url: "https://www.riotimesonline.com/brazil-runoff-turnout-margin-2026/", date: "2026-10-26" },
+    { title: "Brazil's Lula wins historic presidential election; Bolsonaro reportedly refuses to concede", publisher: "CNBC", url: "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html", date: "2026-10-26" },
+    { title: "In stunning victory, Brazil's Lula wins fourth presidential term", publisher: "NPR", url: "https://www.npr.org/2026/10/25/nx-s1-6016299/brazil-lula-bolsonaro-election", date: "2026-10-25" },
+    { title: "Brazil's Lula completes stunning turnaround to secure election victory, as Trump ally Bolsonaro rejects result", publisher: "CNN", url: "https://www.cnn.com/2026/10/25/americas/brazil-election-lula-bolsonaro-intl-latam", date: "2026-10-25" },
+    { title: "Lula beats Bolsonaro in Brazil runoff, securing fourth presidential term", publisher: "PBS NewsHour (AP)", url: "https://www.pbs.org/newshour/world/brazil-votes-in-a-tense-lula-vs-bolsonaro-runoff-with-u-s-influence-over-latin-america-at-stake", date: "2026-10-25" },
+    { title: "Brazil election offers Jair Bolsonaro a shot at revenge", publisher: "France 24 (AFP)", url: "https://www.france24.com/en/live-news/20261009-brazil-election-offers-jair-bolsonaro-a-shot-at-revenge", date: "2026-10-09" },
+    { title: "Donald Trump's 'Donroe Doctrine' faces setback as Lula wins in Brazil", publisher: "Newsweek", url: "https://www.newsweek.com/brazil-election-trump-ally-bolsonaro-vs-lula-final-polls-and-odds-12613505", date: "2026-10-26" }
+  ]
+});
