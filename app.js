@@ -921,9 +921,70 @@
       gi: gi, entry: entry,
       queue: qs.map(function (q, qi) { return prepQuestion(q, lessonKey(entry) + "#" + qi); }),
       total: qs.length,
-      idx: 0, correct: 0, hearts: 5, answered: false, lastCorrect: false
+      idx: 0, correct: 0, hearts: 5, answered: false, lastCorrect: false,
+      reading: (entry.lesson.reading && entry.lesson.reading.blocks && entry.lesson.reading.blocks.length) ? entry.lesson.reading : null,
+      readDone: false
     };
     renderLesson();
+  }
+
+  // Short reading shown before a lesson's questions (lesson.reading.blocks, same
+  // block shape as Political Academy: { type: "section", head, md }).
+  function readMd(src) {
+    return String(src || "").replace(/\r/g, "").split(/\n\s*\n/).map(function (b) {
+      var lines = b.split("\n").filter(function (l) { return l.trim(); });
+      if (!lines.length) return "";
+      var inl = function (t) {
+        return esc(t)
+          .replace(/`([^`]+)`/g, "<code>$1</code>")
+          .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+          .replace(/(^|[^*])\*([^*\s][^*]*)\*/g, "$1<em>$2</em>");
+      };
+      if (lines.every(function (l) { return /^\s*-\s+/.test(l); })) {
+        return "<ul>" + lines.map(function (l) { return "<li>" + inl(l.replace(/^\s*-\s+/, "")) + "</li>"; }).join("") + "</ul>";
+      }
+      return "<p>" + inl(lines.join(" ")) + "</p>";
+    }).join("");
+  }
+
+  function renderReading() {
+    document.querySelectorAll(".lesson-screen, .center-screen").forEach(function (n) { n.remove(); });
+    var scr = el("div", "lesson-screen");
+    var top = el("div", "lesson-top");
+    var quit = el("button", "quit-x", glyph("cross"));
+    quit.setAttribute("aria-label", "Leave lesson");
+    quit.onclick = function () { renderHome(); };
+    top.appendChild(quit);
+    var track = el("div", "progress-track");
+    track.appendChild(el("div", "progress-fill"));
+    top.appendChild(track);
+    top.appendChild(el("div", "heart-mini tnum", glyph("heart") + "<span>" + session.hearts + "</span>"));
+    scr.appendChild(top);
+
+    var body = el("div", "lesson-body");
+    var inner = el("div", "lesson-inner");
+    var trk = trackById(currentTrackId) || {};
+    inner.appendChild(el("div", "q-kicker", esc(trk.title || "") + " · Unit " + (session.entry.unitIndex + 1) + " · Read first"));
+    inner.appendChild(el("div", "q-prompt", esc(session.entry.lesson.title)));
+    session.reading.blocks.forEach(function (b) {
+      if (b.type !== "section") return;
+      var sec = el("section", "read-sec");
+      if (b.head) sec.appendChild(el("h3", "read-head", esc(b.head)));
+      sec.appendChild(el("div", "prose", readMd(b.md)));
+      inner.appendChild(sec);
+    });
+    body.appendChild(inner);
+    scr.appendChild(body);
+
+    var foot = el("div", "lesson-foot");
+    var fi = el("div", "inner");
+    var go = el("button", "btn primary", "Continue");
+    go.onclick = function () { session.readDone = true; renderLesson(); };
+    fi.appendChild(go);
+    foot.appendChild(fi);
+    scr.appendChild(foot);
+    app.appendChild(scr);
+    body.scrollTop = 0;
   }
 
   // Practice: a Duolingo-style mixed review drawn from every COMPLETED lesson.
@@ -988,6 +1049,7 @@
   }
 
   function renderLesson() {
+    if (session.mode === "lesson" && session.reading && !session.readDone) { renderReading(); return; }
     document.querySelectorAll(".lesson-screen, .center-screen").forEach(function (n) { n.remove(); });
     var scr = el("div", "lesson-screen");
 

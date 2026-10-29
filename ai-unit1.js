@@ -9,6 +9,15 @@ window.ACADEMY.addUnit("ai", {
       id: "l1",
       title: "What Is Artificial Intelligence?",
       intro: "AI means machines doing tasks that normally need human-like intelligence, and it nests several ideas inside one another.",
+      reading: {
+        blocks: [
+          { type: "section", head: "Why it matters", md: "AI is in the news every day, but the word gets stretched to cover almost anything with a screen. Before you can use AI well, or spot hype, you need a clean definition. Get this one right and every later lesson in the course clicks into place faster." },
+          { type: "section", head: "The idea", md: "**Artificial intelligence** means machines doing tasks that normally need human-like intelligence: recognizing what is in a photo, understanding a sentence, translating a language, spotting a pattern in a mountain of data.\n\nSpeed alone does not count. A calculator is very fast, but it just follows fixed steps. A phone that picks out the faces in your photos is doing something we would normally credit to human perception, and that is the kind of task we call AI.\n\nThe field is easiest to picture as nested circles, like Russian dolls:\n\n- **Artificial intelligence** is the broad field of machines acting smart.\n- **Machine learning** sits inside it: systems that learn patterns from data instead of following hand-written rules.\n- **Deep learning** sits inside that: it uses artificial neural networks with many layers, loosely inspired by the brain. The word *deep* just refers to those layers.\n- **Generative AI** is the newest branch, built on deep learning. It creates new text, images, or audio, and it is the technology behind modern chatbots and image generators." },
+          { type: "section", head: "A common mix-up", md: "Not all software is AI. Most programs follow fixed rules a person wrote down. Adding two numbers, sorting a list alphabetically, or copying a file from one folder to another are all rule-following jobs. Only systems that learn or reason in human-like ways count as AI.\n\nA handy test: if a task needs learned, human-like perception or judgment, it is probably AI. If a few fixed steps could do it every time, it is probably ordinary software." },
+          { type: "section", head: "Try it on your own phone", md: "Next time you unlock your phone with your face, ask yourself which part is AI. Matching a face is a perception task that no short list of fixed rules could handle, so a learned model does it. Compare that with your phone's clock app, which just counts seconds by a simple rule. Both are software, but only one is doing something we would call intelligent." },
+          { type: "section", head: "What you'll do next", md: "- Put the terms in order from the broadest field to the most specific.\n- Match each term to its short description.\n- Decide which everyday tasks are real examples of AI, and which are just rule-following." }
+        ]
+      },
       questions: [
         {
           type: "mcq",
@@ -87,6 +96,16 @@ window.ACADEMY.addUnit("ai", {
       id: "l2",
       title: "Machine Learning in Plain English",
       intro: "Machine learning finds patterns in data instead of following hand-coded rules, and it comes in three broad styles.",
+      reading: {
+        blocks: [
+          { type: "section", head: "Why it matters", md: "Spam filters, movie recommendations, and chatbots all exist because of machine learning. Understanding it explains where AI gets its abilities, and where its flaws come from too." },
+          { type: "section", head: "The idea", md: "In traditional programming, a person writes every rule by hand. **Machine learning** flips that around: you feed a system lots of data and it finds the patterns itself.\n\nThere are three broad styles, and the difference is how they use data and feedback:\n\n- **Supervised learning** uses labeled examples. Photos tagged *cat* or *dog*, or emails marked *spam* or *not spam*, teach the model the correct mapping from input to answer.\n- **Unsupervised learning** has no labels. The model hunts for hidden structure on its own, like grouping similar customers together.\n- **Reinforcement learning** improves by trial and error. The system gets rewards for good moves and penalties for bad ones, which is why it fits game-playing agents so well." },
+          { type: "section", head: "How a model gets built", md: "The usual path is simple. You gather labeled data, you train the model on it, and then you check its accuracy on fresh inputs it has never seen. Only after that check do you trust it on real work.\n\nSkipping that last step is a classic mistake. A model that looks perfect on the examples it studied can still stumble on new ones." },
+          { type: "section", head: "Data is everything", md: "A model learns whatever is in its data, including the bad parts. If the data reflects human or historical bias, the model can learn that bias and repeat it at scale. That is why data quality matters as much as the clever math on top of it.\n\nWhen you hear about an AI system behaving unfairly, the first question to ask is usually: what was it trained on?" },
+          { type: "section", head: "A quick example", md: "Imagine building a spam filter. You collect thousands of emails and label each one as spam or not spam. The model studies them and picks up patterns on its own, without anyone writing a rule for every trick spammers use. Then you test it on brand-new emails to see how accurate it really is.\n\nThat is supervised learning from start to finish: labeled data in, a pattern-spotting model out, and a check before you trust it." },
+          { type: "section", head: "What you'll do next", md: "- Match real situations to supervised, unsupervised, or reinforcement learning.\n- Put the steps of building a model in the right order.\n- Spot how biased data leads to biased results." }
+        ]
+      },
       questions: [
         {
           type: "mcq",
@@ -165,6 +184,16 @@ window.ACADEMY.addUnit("ai", {
       id: "l3",
       title: "The Rise of Generative AI",
       intro: "Generative AI creates brand-new content, and a late-2022 chatbot moment put it into everyone's hands at once.",
+      reading: {
+        blocks: [
+          { type: "section", head: "Why it matters", md: "For years, most AI worked quietly behind the scenes, sorting and scoring things. Generative AI changed that. Now AI makes things, and you talk to it directly. Knowing the difference helps you pick the right kind of tool." },
+          { type: "section", head: "Two kinds of AI", md: "**Predictive** (or analytical) AI works on existing data. It classifies, scores, or forecasts: *Is this transaction fraud? Will this customer cancel? What is the likely price next month?* It labels or predicts, but it does not create anything new.\n\n**Generative AI** produces brand-new content. It can write text, and it can also create images, music, speech, and even video. It is the branch behind today's chatbots and image generators." },
+          { type: "section", head: "The moment everything changed", md: "In late 2022, OpenAI launched **ChatGPT**, and generative AI reached a mass audience almost overnight. The underlying technology was powerful, but the real spark was the interface. A friendly chat window let ordinary people use advanced AI with no technical skills at all. Adoption exploded because anyone could simply type a question.\n\nSince then, many companies have built their own versions." },
+          { type: "section", head: "Who makes what", md: "It helps to know the main names:\n\n- **OpenAI** makes ChatGPT, which runs on its GPT models.\n- **Anthropic** makes Claude.\n- **Google** makes Gemini.\n\nEach product runs on its company's own models, so they can behave differently even when they look alike." },
+          { type: "section", head: "Seeing the difference", md: "Picture a clothing store with years of sales data. A **predictive** model studies the past and forecasts how many jackets will sell next month. A **generative** model could write the product description for each jacket, or draw an image for the ad.\n\nOne answers *what is likely to happen?* The other answers *make me something new.* Both learn from data, and many modern tools combine the two. The labels help you ask the right question: am I trying to forecast or classify something, or create something?\n\nA useful rule of thumb: if the output is a number, a label, or a yes-or-no, it is probably predictive. If the output is a fresh paragraph, picture, or sound, it is probably generative." },
+          { type: "section", head: "What you'll do next", md: "- Tell generative AI apart from predictive and analytical AI.\n- Match each company to its product.\n- Explain why a simple chat interface drove such fast adoption." }
+        ]
+      },
       questions: [
         {
           type: "mcq",
@@ -232,6 +261,16 @@ window.ACADEMY.addUnit("ai", {
       id: "l4",
       title: "What Is a Large Language Model?",
       intro: "A large language model is trained on huge amounts of text to predict language, and it powers chatbots like Claude and ChatGPT.",
+      reading: {
+        blocks: [
+          { type: "section", head: "Why it matters", md: "Claude, ChatGPT, and Gemini are all built on large language models. Knowing how an LLM works explains both why it is so impressive and why it sometimes gets things confidently wrong." },
+          { type: "section", head: "The idea", md: "A **large language model**, or LLM, is trained on a huge, broad collection of text. From that text it learns the patterns of language: which words and ideas tend to follow which.\n\nIts core skill is surprisingly simple: **predicting the most plausible next piece of language.** Do that over and over and you get a conversation, an essay, or a block of code. The breadth of the training text is what gives the model such wide-ranging patterns to draw on." },
+          { type: "section", head: "Plausible is not the same as true", md: "Here is the key consequence. An LLM aims for language that *sounds* right, not for guaranteed truth. That leads to **hallucinations**: confident output that is simply incorrect. It happens because the model is predicting plausible text, not looking facts up and verifying them.\n\nLLMs can also be out of date, since they learn from text collected up to a point in time. And despite how fluent they sound, they are powerful text predictors, not conscious minds." },
+          { type: "section", head: "A habit worth building", md: "Treat an LLM like a fast, well-read helper who occasionally makes things up. Use it freely for drafting, brainstorming, and explaining. But always double-check anything important, especially names, numbers, dates, and quotes, before you rely on it.\n\nThe chatbots you meet each run on a company's own LLMs: Claude runs on Anthropic's models, and ChatGPT runs on OpenAI's GPT models." },
+          { type: "section", head: "A simple example", md: "Give an LLM the start of a sentence like *The capital of France is* and the most plausible next word is *Paris*. It gets this right because that pattern shows up constantly in its training text.\n\nNow ask about something obscure, with few examples to learn from. The model still produces fluent, confident language, because producing plausible text is its whole job. Whether the words happen to be correct is a separate matter, and that gap is where hallucinations come from." },
+          { type: "section", head: "What you'll do next", md: "- Define what an LLM learns from and what it predicts.\n- Explain what a hallucination is and why it happens.\n- Match each chatbot to the company and models behind it." }
+        ]
+      },
       questions: [
         {
           type: "mcq",
@@ -304,6 +343,16 @@ window.ACADEMY.addUnit("ai", {
       id: "l5",
       title: "AI vs Traditional Software",
       intro: "Traditional software follows exact deterministic rules, while AI makes probabilistic predictions that can vary.",
+      reading: {
+        blocks: [
+          { type: "section", head: "Why it matters", md: "Knowing when to reach for AI, and when not to, saves time and prevents mistakes. The two kinds of tools behave very differently, and the difference is predictability." },
+          { type: "section", head: "Two ways to behave", md: "**Traditional software is deterministic.** Give it the same input and it produces the same output, every time. That is what *deterministic* means: predictable and repeatable. A calculator is the classic example.\n\n**AI is probabilistic.** It weighs probabilities and makes predictions, so the same prompt can produce different responses on different tries. That variation is a feature when you want creativity and a problem when you want an exact answer." },
+          { type: "section", head: "Picking the right tool", md: "Each approach has its place:\n\n- **Deterministic code** is best for exact, rule-driven work: precise math, exact lookups, and comparisons where there is one right answer.\n- **AI** shines on messy, flexible tasks, like understanding natural language, summarizing a long email, or drafting text, where rigid rules would break.\n\nThey are partners, not rivals. Many good products use AI to understand what you want, then hand the exact work to ordinary code." },
+          { type: "section", head: "A trust rule of thumb", md: "AI can sound sure while being wrong. For exact arithmetic, a calculator is more trustworthy than a chatbot. Fixed-rule tools are the most predictable, while a creative AI response is the most variable.\n\nWhen the cost of a wrong answer is high, lean toward the deterministic tool, or verify the AI's answer with one. A good habit is to let AI draft or explain, and let deterministic tools do the final counting." },
+          { type: "section", head: "Two tools, side by side", md: "Ask a calculator for 17 times 24 and you get 408 every single time. Ask a chatbot to write a short birthday message three times and you get three different versions, all perfectly good.\n\nThe calculator's sameness is exactly what you want for math. The chatbot's variety is exactly what you want for writing. The trouble starts when you swap the jobs: asking an AI for an exact calculation or lookup, where a fluent but wrong answer is easy to miss." },
+          { type: "section", head: "What you'll do next", md: "- Sort tasks into ones that suit deterministic software and ones that suit AI.\n- Explain why the same prompt can give different answers.\n- Choose the more trustworthy tool for exact work." }
+        ]
+      },
       questions: [
         {
           type: "match",
@@ -381,6 +430,16 @@ window.ACADEMY.addUnit("ai", {
       id: "l6",
       title: "Narrow AI, AGI & Superintelligence",
       intro: "Today's AI is narrow and good at specific tasks, while AGI and superintelligence remain hypothetical and are not here yet.",
+      reading: {
+        blocks: [
+          { type: "section", head: "Why it matters", md: "Headlines throw around words like AGI and superintelligence. It helps to know what is real today and what is still speculation, so you can read the news with a clear head." },
+          { type: "section", head: "Three levels", md: "**Narrow AI** is strong at particular tasks but not broadly capable. Being an expert at one thing and nothing else is exactly what *narrow* means. Everything we use today, including chatbots, image generators, and recommendation systems, is narrow AI.\n\n**AGI**, or artificial general intelligence, is a hypothetical AI that could handle any intellectual task a human can. It does not exist yet.\n\n**Superintelligence** goes a step further: an AI far beyond human ability. It is the most speculative idea of the three." },
+          { type: "section", head: "Narrow does not mean weak", md: "The word *narrow* can mislead. Today's systems can be remarkably capable inside their areas. It just means they are not broadly human-level across everything. The gap between impressive in one area and generally intelligent is the whole point." },
+          { type: "section", head: "Keep a healthy skepticism", md: "Hype tends to outpace reality. When a headline or ad claims AI is about to be human-level at everything, pause and ask what evidence supports it. Look for demonstrations, tests, and independent checks instead of marketing language.\n\nSkepticism is not the same as dismissing AI. It simply means separating what is real today from what is possible someday.\n\nA few questions help: Who is making the claim? What exactly can the system do today? Has anyone independent tested it? Real progress usually survives those questions easily." },
+          { type: "section", head: "Where today's AI sits", md: "Think of a system that plays a board game at an incredible level. It is impressive, but it cannot plan your week, write an email, or cook dinner. A chatbot can write poems and explain code, yet it still makes mistakes and has no general, human-level understanding of everything it discusses.\n\nThat is narrow AI: real, useful, and sometimes dazzling, but built for particular jobs. Broad, flexible, human-level ability across everything is the thing AGI would add, and nobody has built it yet." },
+          { type: "section", head: "What you'll do next", md: "- Decide which of these levels are real today and which are hypothetical.\n- Define AGI in your own words.\n- Put the three levels in order from real to most speculative." }
+        ]
+      },
       questions: [
         {
           type: "mcq",
@@ -447,6 +506,16 @@ window.ACADEMY.addUnit("ai", {
       id: "l7",
       title: "Key AI Vocabulary",
       intro: "A handful of core words show up everywhere in AI, and knowing them makes the rest much easier.",
+      reading: {
+        blocks: [
+          { type: "section", head: "Why it matters", md: "A handful of core words show up in nearly every AI conversation. Learn them once and articles, tools, and tutorials become much easier to follow." },
+          { type: "section", head: "The key terms", md: "- **Token:** a small piece of text a model processes, like a word or part of a word. Longer inputs use more tokens.\n- **Parameter:** a tunable internal value the model learns during training. More parameters can mean more capacity.\n- **Dataset:** the body of examples used to train and evaluate a model. Its quality strongly affects the results.\n- **Prompt:** your input to the model, the whole instruction you give. Clearer prompts usually lead to better answers." },
+          { type: "section", head: "Training versus inference", md: "These two words describe two different moments in a model's life.\n\n**Training** teaches the model from data, ahead of time. It is the heavy lifting that happens before you ever see the product.\n\n**Inference** is running the finished model to get an answer. Every time you send a prompt and read the reply, you are doing inference." },
+          { type: "section", head: "How it fits together", md: "Put the words into one picture: people collect a **dataset**, use it to **train** a model whose **parameters** get tuned, and then you send **prompts** and the model does **inference**, reading and writing in **tokens**.\n\nA prompt is the whole instruction you give, while a token is one small piece of text the model works with. Mixing those two up is a common beginner slip.\n\nIf you remember only one thing, remember the sequence: data first, then training, then prompts and inference." },
+          { type: "section", head: "Why the words matter", md: "These terms are not just trivia. They shape how you use AI.\n\nA long document uses far more **tokens** than a short question, so there is more for the model to process. The quality of the **dataset** strongly affects the results, so messy or biased data tends to produce messy or biased answers.\n\nAnd the **prompt** is the part you control. Compare *summarize this* with *summarize this email in three bullet points for my manager*. The clearer version usually gets the better answer." },
+          { type: "section", head: "What you'll do next", md: "- Match each term to its meaning.\n- Put the steps from data to answer in order.\n- Tell a prompt apart from a token." }
+        ]
+      },
       questions: [
         {
           type: "match",
@@ -521,6 +590,15 @@ window.ACADEMY.addUnit("ai", {
       id: "l8",
       title: "AI Around You",
       intro: "You already use AI many times a day, often without noticing it.",
+      reading: {
+        blocks: [
+          { type: "section", head: "Why it matters", md: "AI is not just something from labs and headlines. You probably use it many times a day without noticing. Spotting it in daily life makes the ideas from earlier lessons feel concrete." },
+          { type: "section", head: "AI in your day", md: "Here are some places it hides:\n\n- **Recommendations:** streaming and shopping apps learn your preferences from data to suggest what you might like.\n- **Predictive text:** your keyboard uses a language model to guess your next word.\n- **Voice assistants:** speech recognition, an AI technique, turns spoken words into actions.\n- **Spam filters:** they learn from labeled examples of junk and not junk, which is supervised learning.\n- **Face unlock:** your phone captures an image, an AI model compares it to the saved one, and a match unlocks the device.\n- **Live rerouting:** map apps predict traffic and pick a faster path.\n\nNone of these needed you to type a prompt. AI often works quietly in the background, which is exactly why it is easy to miss." },
+          { type: "section", head: "The pattern underneath", md: "Look closely and each example does one of three things: it **classifies** something, **predicts** something, or **recognizes** something. That is the same machine learning you met earlier, doing small useful jobs inside everyday tools.\n\nIt is also a reminder that AI is far from a lab curiosity. It lives in your maps, your inbox, your keyboard, and your camera.\n\nThe same idea scales up. The chatbot you use for writing and the filter that guards your inbox are cousins: both learned patterns from data, and both can be wrong in ways worth watching for." },
+          { type: "section", head: "Try spotting it", md: "Here is a small challenge: for one day, notice every time something predicts, recognizes, or recommends. Your keyboard finishing a word, your inbox hiding a junk message, and a map app suggesting a quicker route all count.\n\nOnce you start looking, you will find AI everywhere. It also helps to remember these tools are not perfect. A spam filter can misfile a real email, and a recommendation system only knows what your past behavior shows. Seeing the technique behind a feature helps you judge when to trust it and when to double-check." },
+          { type: "section", head: "What you'll do next", md: "- Name the AI technique behind familiar features.\n- Identify what kind of learning a spam filter uses.\n- Put the steps of face unlock in order." }
+        ]
+      },
       questions: [
         {
           type: "mcq",
