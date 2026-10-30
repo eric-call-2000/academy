@@ -229,6 +229,14 @@ It is static files, so any of these work:
   with a dotted tie). Tapping a label or line opens that relationship; a card under the map
   shows the country's briefings, relationships and connected countries. The choice is kept
   in the URL (`#/map/cn`, `#/map/us_cn`). On a phone the map scrolls sideways.
+  Above the map, **lenses** choose what it is coloured by: the countries' own colours,
+  **My progress** (each country shaded by how many of its briefings you've read), **All
+  relationships** (every relationship as a faint arc, bolder once read, and a dot per
+  country sized by how many it has), or a **bloc** from `blocs.js` (NATO, EU, G7, BRICS,
+  SCO, Quad, AUKUS, OPEC+, nuclear-armed), which shades its members and links to the
+  glossary. The lens is remembered on the device. Under the map, the relationship list has
+  a search box, an All / Unread / Started / Finished filter, and folds into one group per
+  country (a relationship sits under both of its countries).
 - **Atlas** lists every country by region, with progress rings. Unwritten ones say
   "Coming soon".
 - **Country** shows the unit's 12 briefings in reading order, the current-as-of date, dispatches,
@@ -253,6 +261,7 @@ politics/
 ├── core.js             registry + every progress rule (DOM-free, tested in Node)
 ├── countries.js        the countries in path order; `lessons` > 0 means written
 ├── links.js            relationships between two countries (ids like "us_cn")
+├── blocs.js            which of the 30 belong to NATO, BRICS… (the map's bloc lenses)
 ├── glossary.js         terms that briefings link to with [[term]]
 ├── updates.js          dated dispatches added between rewrites
 ├── app.js              the screens

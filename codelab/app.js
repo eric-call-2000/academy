@@ -37,7 +37,10 @@
   var ACADEMY_KEY = "academy_users_v1";
   var REV = window.CODELAB.review;
   var SYNC = window.CODELAB.sync;
-  var THEME_KEY = "codelab_theme_v1";
+  /* v2: v1 was written on every boot, so nearly everyone holds "original"
+     without ever having chosen it. A fresh key lets the new default land. */
+  var THEME_KEY = "codelab_theme_v2";
+  var LOGO_HTML = '<span class="logo-ic"><span class="em">⚡</span><span class="mono">&lt;/&gt;</span></span> CodeLab';
   /* One id per browser, so lifetime counters can be kept per device and
      summed instead of being double-counted or clobbered on a handoff. */
   var DEVICE_KEY = "codelab_device_v1";
@@ -64,11 +67,16 @@
   var REVIEW_BUMPS_STREAK = true;
 
   /* ---------- Theme Management ---------- */
-  /* Four slots: the friendly Base, plus one each of Professional, Dark,
-     and an alternative Light. Object order is the order shown in the picker.
-     "original" keeps its id so existing saved preferences still resolve. */
+  /* Ledger Teal is the default; it builds on Studio (neutral, typographic,
+     no emoji chrome), which stays selectable on its own. The original
+     Duolingo-style look stays available as Playful. Object order is the
+     order shown in the picker. "original" keeps its id so a saved choice of
+     it still resolves. */
+  var DEFAULT_THEME = "ledger-teal";
   var THEMES = {
-    "original": { name: "Base", path: "themes/original/theme.css" },
+    "ledger-teal": { name: "Ledger Teal", path: "themes/ledger-teal/theme.css" },
+    "studio": { name: "Studio", path: "themes/studio/theme.css" },
+    "original": { name: "Playful", path: "themes/original/theme.css" },
     "professional": { name: "Professional", path: "themes/professional/theme.css" },
     "dark": { name: "Dark", path: "themes/dark/theme.css" },
     "light-alt": { name: "Alternative Light", path: "themes/light-alt/theme.css" }
@@ -77,24 +85,27 @@
   function getCurrentTheme() {
     try {
       var t = localStorage.getItem(THEME_KEY);
-      return (t && THEMES[t]) ? t : "original";
+      return (t && THEMES[t]) ? t : DEFAULT_THEME;
     } catch (e) {
-      return "original";
+      return DEFAULT_THEME;
     }
   }
 
-  function setTheme(themeId) {
+  function applyTheme(themeId) {
     var themeCss = document.getElementById("theme-css");
-    if (themeCss && THEMES[themeId]) {
-      themeCss.href = THEMES[themeId].path;
-      try {
-        localStorage.setItem(THEME_KEY, themeId);
-      } catch (e) {}
-    }
+    if (themeCss && THEMES[themeId]) themeCss.href = THEMES[themeId].path;
+  }
+
+  /* Only an explicit pick is saved. Saving on boot would pin whatever the
+     default was that day, and a later default would never reach anyone. */
+  function setTheme(themeId) {
+    if (!THEMES[themeId]) return;
+    applyTheme(themeId);
+    try { localStorage.setItem(THEME_KEY, themeId); } catch (e) {}
   }
 
   function initTheme() {
-    setTheme(getCurrentTheme());
+    applyTheme(getCurrentTheme());
   }
 
   function renderThemeSwitcher() {
@@ -632,11 +643,24 @@
 
   /* ---------- tiny DOM helpers ---------- */
   var app = document.getElementById("app");
+  /* A leading emoji ("💼 Careers") is decoration, not content, so it goes
+     in its own span: the Playful theme shows it, Studio and Ledger Teal hide it. Only the
+     first glyph is touched — emoji mid-sentence are part of the copy. */
+  var LEAD_EMOJI = /^(\p{Extended_Pictographic}️?)\s*/u;
   function el(tag, cls, html) {
     var e = document.createElement(tag);
     if (cls) e.className = cls;
-    if (html != null) e.innerHTML = html;
+    if (html != null) {
+      e.innerHTML = typeof html === "string"
+        ? html.replace(LEAD_EMOJI, '<span class="em">$1 </span>')
+        : html;
+    }
     return e;
+  }
+  /* A course or position icon in both forms: the emoji (Playful) and a short
+     text monogram (Studio, Ledger Teal). Which one shows is purely the theme's call. */
+  function iconTile(icon, abbr) {
+    return '<span class="em">' + icon + '</span><span class="mono">' + esc(abbr || "") + "</span>";
   }
   function esc(s) {
     return String(s).replace(/[&<>"]/g, function (c) {
@@ -708,7 +732,7 @@
   function topbar() {
     var u = me();
     var bar = el("div", "topbar");
-    var brand = el("button", "brand", '<span class="logo-ic">⚡</span> CodeLab');
+    var brand = el("button", "brand", LOGO_HTML);
     brand.onclick = renderCatalog;
     bar.appendChild(brand);
     var stats = el("div", "stats");
@@ -725,7 +749,7 @@
     stats.appendChild(el("div", "stat xp", '<span class="ico">⭐</span>' + u.xp));
     
     /* Theme switcher button */
-    var themeBtn = el("button", "stat", '<span class="ico">🎨</span>');
+    var themeBtn = el("button", "stat theme-btn", '<span class="ico">🎨</span>');
     themeBtn.title = "Switch theme";
     themeBtn.onclick = renderThemeSwitcher;
     stats.appendChild(themeBtn);
@@ -761,7 +785,7 @@
   function renderProfiles() {
     clear();
     var scr = el("div", "profiles");
-    scr.appendChild(el("div", "logo", '<span class="logo-ic">⚡</span> CodeLab'));
+    scr.appendChild(el("div", "logo", LOGO_HTML));
     scr.appendChild(el("div", "logo-sub", PATH_TITLE));
     
     /* Theme switcher button */
@@ -941,7 +965,8 @@
       var card = el("button", "course-card");
       var head = el("div", "cc-head");
       head.style.background = c.color || "#1cb0f6";
-      head.appendChild(el("div", "cc-ic", c.icon || "📦"));
+      card.style.setProperty("--c", c.color || "#1cb0f6");
+      head.appendChild(el("div", "cc-ic", iconTile(c.icon || "📦", c.abbr)));
       var meta = el("div", "cc-chips");
       if (c.stub) meta.appendChild(el("span", "cc-chip", "Roadmap"));
       else meta.appendChild(el("span", "cc-chip", "~" + c.hours + "h"));
@@ -1116,7 +1141,8 @@
       var pos = r.pos, st = r.st, a = st.a;
       var card = el("button", "job-card " + st.key);
       var head = el("div", "job-head");
-      head.appendChild(el("div", "job-ic", pos.icon || "💼"));
+      card.style.setProperty("--c", pos.color || "var(--accent)");
+      head.appendChild(el("div", "job-ic", iconTile(pos.icon || "💼", pos.abbr)));
       var ht = el("div", "job-ht");
       ht.appendChild(el("div", "job-title", esc(pos.title)));
       ht.appendChild(el("div", "job-pill " + st.key, esc(st.label)));
@@ -1159,7 +1185,8 @@
     var a = audit(u, pos);
     var bl = blockers(pos);
 
-    o.sheet.appendChild(el("div", "pos-ic", pos.icon || "💼"));
+    o.sheet.style.setProperty("--c", pos.color || "var(--accent)");
+    o.sheet.appendChild(el("div", "pos-ic", iconTile(pos.icon || "💼", pos.abbr)));
     o.sheet.appendChild(el("h2", "pos-title", esc(pos.title)));
     o.sheet.appendChild(el("div", "pos-blurb", esc(pos.blurb || "")));
     if (pos.screen) o.sheet.appendChild(el("div", "pos-screen", "<b>Screened on:</b> " + esc(pos.screen)));
@@ -1253,7 +1280,8 @@
     function rowFor(entry, expired) {
       var c = entry.course, st = entry.st;
       var row = el("div", "trans-row" + (expired ? " gone" : st.state === "warn" ? " warn" : ""));
-      row.appendChild(el("span", "trans-ic", c.icon || "📦"));
+      row.style.setProperty("--c", c.color || "var(--accent)");
+      row.appendChild(el("span", "trans-ic", iconTile(c.icon || "📦", c.abbr)));
       var mid = el("span", "trans-mid");
       mid.appendChild(el("span", "trans-name", esc(c.title)));
       mid.appendChild(el("span", "trans-cats", Object.keys(c.categories || {}).map(function (k) {
@@ -1308,7 +1336,7 @@
     if (!course._loaded) {
       clear();
       var load = el("div", "loading-screen",
-        '<div class="loading-ic">' + (course.icon || "📦") + '</div><div class="loading-tx">Loading ' + esc(course.title) + "…</div>");
+        '<div class="loading-ic" style="--c:' + (course.color || "var(--accent)") + '">' + iconTile(course.icon || "📦", course.abbr) + '</div><div class="loading-tx">Loading ' + esc(course.title) + "…</div>");
       app.appendChild(load);
     }
     loadCourse(course).then(function () { renderCourse(course); })
@@ -1332,11 +1360,12 @@
 
     var head = el("div", "course-head");
     head.style.background = course.color || "#1cb0f6";
+    wrap.style.setProperty("--c", course.color || "#1cb0f6");
     var back = el("button", "course-back", "← All courses");
     back.onclick = renderCatalog;
     head.appendChild(back);
     var hrow = el("div", "course-hrow");
-    hrow.appendChild(el("div", "course-ic", course.icon || "📦"));
+    hrow.appendChild(el("div", "course-ic", iconTile(course.icon || "📦", course.abbr)));
     var hc = el("div", "course-hc");
     hc.appendChild(el("div", "course-kicker", "COURSE · ~" + course.hours + " HOURS · " + esc(course.level || "")));
     hc.appendChild(el("h1", "course-title", esc(course.title)));
@@ -1379,7 +1408,7 @@
       uh.appendChild(left);
       var uDone = 0;
       (unit.lessons || []).forEach(function (l) { if (isDone(l.id)) uDone++; });
-      uh.appendChild(ringBadge(unit.icon || course.icon || "📦", uDone, (unit.lessons || []).length));
+      uh.appendChild(ringBadge(unit.icon || course.icon || "📦", course.abbr, uDone, (unit.lessons || []).length));
       card.appendChild(uh);
 
       var rows = el("div", "lessons");
@@ -1411,16 +1440,19 @@
     app.appendChild(wrap);
   }
 
-  function ringBadge(emoji, done, total) {
+  function ringBadge(emoji, abbr, done, total) {
     var pct = total ? done / total : 0;
     var complete = total > 0 && done >= total;
     var R = 24, C = 2 * Math.PI * R;
+    /* Stroke colours are presentation attributes, so a theme's CSS on
+       .ring-track / .ring-fill / .ring-done wins over them. */
     var svg =
       '<svg width="58" height="58" viewBox="0 0 58 58" aria-hidden="true">' +
-      '<circle cx="29" cy="29" r="' + R + '" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="5"></circle>' +
-      '<circle cx="29" cy="29" r="' + R + '" fill="none" stroke="' + (complete ? "#ffe27a" : "#fff") + '" stroke-width="5" stroke-linecap="round"' +
+      '<circle class="ring-track" cx="29" cy="29" r="' + R + '" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="5"></circle>' +
+      '<circle class="ring-fill' + (complete ? " ring-done" : "") + '" cx="29" cy="29" r="' + R + '" fill="none" stroke="' + (complete ? "#ffe27a" : "#fff") + '" stroke-width="5" stroke-linecap="round"' +
       ' stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - pct)).toFixed(1) + '" transform="rotate(-90 29 29)"></circle>' +
-      '<text x="29" y="30" text-anchor="middle" dominant-baseline="central" font-size="22">' + emoji + "</text></svg>";
+      '<text class="em" x="29" y="30" text-anchor="middle" dominant-baseline="central" font-size="22">' + emoji + "</text>" +
+      '<text class="mono" x="29" y="30" text-anchor="middle" dominant-baseline="central">' + esc(abbr || "") + "</text></svg>";
     var col = el("div", "unit-ring");
     col.innerHTML = svg;
     col.appendChild(el("div", "unit-ring-count", complete ? "🏅 Done" : done + "/" + total));
@@ -1482,7 +1514,7 @@
     var cert = el("div", "cert");
     cert.innerHTML =
       '<div class="cert-inner">' +
-      '<div class="cert-logo">⚡ CodeLab</div>' +
+      '<div class="cert-logo">' + LOGO_HTML + '</div>' +
       '<div class="cert-cap">Certificate of Completion</div>' +
       '<div class="cert-path">' + esc(title) + "</div>" +
       '<div class="cert-award">awarded to</div>' +

@@ -1,0 +1,49 @@
+/* ============================================================
+   CodeLab — Ledger Teal (default theme)
+   Built on Studio's structure (monogram tiles, line icons, capped
+   weights) and restyled after IBM Carbon: IBM Plex type, square
+   corners, dense ruled lists, a black top bar and a deep teal
+   header band. Studio stays selectable on its own.
+   ============================================================ */
+
+@import url("../studio/theme.css");
+
+:root {
+  --ink: #161616; --ink-soft: #393939; --muted: #6f6f6f;
+  --line: #e0e0e0; --line-strong: #c6c6c6; --bg: #f4f4f4; --card: #ffffff;
+  --accent: #007d79; --accent-dark: #005d5d; --accent-soft: #e3f6f5; --item-hover: #f4f4f4;
+  --font: "IBM Plex Sans", "Inter", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
+  --btn-radius: 0; --card-radius: 0; --item-radius: 0; --card-shadow: none;
+}
+.topbar { background: #161616; border-color: #161616; }
+.topbar .brand, .topbar .stat { color: #f4f4f4; }
+.topbar .user-chip { background: #262626; border-color: #393939; color: #f4f4f4; }
+.logo-ic .mono { background: #08bdba; color: #022b30; border-radius: 0; }
+.hero, .course-head { background: #022b30 !important; color: #fff; border: 0; }
+.hero-kicker, .course-kicker, .hero-sub, .course-blurb, .hero-pct, .course-back, .ct-lab, .conn-pill { color: #b5d8d6; }
+.hero-title, .course-title, .ct-num { color: #fff; font-weight: 600; }
+.hero-bar { background: rgba(255,255,255,.16); } .hero-bar i { background: #3ddbd9; }
+.hero-btns .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.35); }
+.btn-blue, .btn-gold { background: #393939; }
+.cat-chip { background: transparent; color: #b5d8d6; border-color: rgba(255,255,255,.3) !important; }
+.course-head .course-ic { background: rgba(255,255,255,.08) !important; border-color: rgba(255,255,255,.2) !important; color: #fff !important; }
+.cc-ic, .course-ic, .job-ic, .pos-ic, .trans-ic, .loading-ic, .lrow-status, .avatar, .user-av { border-radius: 0 !important; }
+.course-card:hover, .job-card:hover { box-shadow: inset 0 -3px 0 var(--accent); }
+.cc-title, .unit-title, .job-title { font-weight: 600; }
+.lessons { padding: 0; gap: 0; }
+.lrow { border-bottom: 1px solid var(--line); }
+
+/* Square everywhere, as in Carbon — Studio rounds the logo, checkpoint
+   cards, chips, sheets and small buttons, and none of that belongs here. */
+*, *::before, *::after { border-radius: 0 !important; }
+.l-tab.on { border-bottom-color: var(--accent); }
+
+/* Things that sit on the dark teal band: Studio styles them for a white card */
+.hero-btns .btn-ghost:hover { background: rgba(255,255,255,.08); color: #fff; }
+.course-back:hover { color: #fff; }
+.hero .goal-strip { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.2); color: #fff; }
+.hero .goal-strip:hover { background: rgba(255,255,255,.1); }
+.hero .gs-kick, .hero .gs-meta { color: #b5d8d6; }
+.hero .gs-bar { background: rgba(255,255,255,.16); }
+.hero .gs-bar i { background: #3ddbd9; }

@@ -36,7 +36,7 @@
 
 window.CODELAB.definePosition({
   id: "fe", title: "Junior Frontend Developer",
-  icon: "🖥️", color: "#58cc02",
+  icon: "🖥️", abbr: "FE", color: "#58cc02",
   blurb: "Builds what people actually touch: semantic markup, responsive layout, and interactive pages that work on every screen.",
   screen: "HTML/CSS/JS depth, DOM work, responsive layout, and a page you can show.",
   /* web (How the Web Works) is required across fe/fs/be: what a request is,
@@ -50,7 +50,7 @@ window.CODELAB.definePosition({
 
 window.CODELAB.definePosition({
   id: "fs", title: "Junior Full-Stack Developer",
-  icon: "🚀", color: "#f59e0b",
+  icon: "🚀", abbr: "FS", color: "#f59e0b",
   blurb: "The largest single developer role. Owns a feature end to end — interface, endpoint, and the wiring between them.",
   screen: "One app you built on both sides, plus the judgement to know where a bug lives and what your code costs as data grows.",
   /* algo (How Code Scales) is required because junior screens still ask
@@ -62,7 +62,7 @@ window.CODELAB.definePosition({
 
 window.CODELAB.definePosition({
   id: "be", title: "Junior Backend Developer",
-  icon: "⚙️", color: "#6c5ce7",
+  icon: "⚙️", abbr: "BE", color: "#6c5ce7",
   blurb: "Extends REST endpoints, writes and optimises queries, handles auth and validation, and covers it with tests.",
   screen: "REST design, SQL you wrote yourself, auth and validation, tests that catch regressions, and the cost of your code as data grows.",
   /* algo: see the Full-Stack sheet. */
@@ -73,7 +73,7 @@ window.CODELAB.definePosition({
 
 window.CODELAB.definePosition({
   id: "qa", title: "Junior QA Automation Engineer",
-  icon: "🔬", color: "#e11d48",
+  icon: "🔬", abbr: "QA", color: "#e11d48",
   blurb: "The most accessible way into engineering. Decides whether a change is safe enough to release, and automates the answer.",
   screen: "Test design, automation code, API checks, and clear reporting on what broke and why.",
   total: 37,
@@ -83,7 +83,7 @@ window.CODELAB.definePosition({
 
 window.CODELAB.definePosition({
   id: "devops", title: "Junior DevOps Engineer",
-  icon: "🛠️", color: "#0891b2",
+  icon: "🛠️", abbr: "OPS", color: "#0891b2",
   blurb: "Owns the path from a merged commit to running software — pipelines, containers, environments, and the rollback when it goes wrong.",
   screen: "Git fluency, a pipeline you configured, containers, and a deploy you have rolled back.",
   total: 42,
@@ -93,7 +93,7 @@ window.CODELAB.definePosition({
 
 window.CODELAB.definePosition({
   id: "sec", title: "Junior Security Engineer",
-  icon: "🛡️", color: "#dc2626",
+  icon: "🛡️", abbr: "SEC", color: "#dc2626",
   blurb: "Fastest-growing posting category. Finds the hole before someone else does, then closes it.",
   screen: "Exploiting and fixing XSS and injection, secrets handling, auth design, security headers.",
   total: 36,
@@ -103,7 +103,7 @@ window.CODELAB.definePosition({
 
 window.CODELAB.definePosition({
   id: "data", title: "Junior Data Engineer",
-  icon: "🗄️", color: "#eab308",
+  icon: "🗄️", abbr: "DATA", color: "#eab308",
   blurb: "Models the data, moves it, and keeps the queries fast enough that everything built on top stays usable.",
   screen: "SQL depth, schema design and normalization, indexes, and pipelines that survive bad input.",
   total: 35,
