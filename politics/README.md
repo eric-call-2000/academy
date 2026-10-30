@@ -48,6 +48,12 @@ build order) is in [`../politics-curriculum.md`](../politics-curriculum.md).
 | 34 | 🇧🇾 Belarus | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
 | 35 | 🇶🇦 Qatar | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
 | 36 | 🇸🇾 Syria | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 37 | 🇮🇶 Iraq | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 38 | 🇻🇳 Vietnam | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 39 | 🇵🇭 Philippines | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 40 | 🇧🇩 Bangladesh | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 41 | 🇰🇿 Kazakhstan | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
+| 42 | 🇨🇴 Colombia | 12 of 12 | 22 Oct 2026 | map, diagram and illustrations done; portraits pending |
 
 Units 31–50 are planning numbers ([`../politics-curriculum.md`](../politics-curriculum.md)): the app shows no unit
 numbers, and each new country sits in its region's part, next to its neighbours.

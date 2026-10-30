@@ -45,7 +45,7 @@ const W = 1200, H = 750;
 /* Archipelagos framed on all their major islands (any polygon at least
    this share of the largest), not just the biggest one. Canada's share is
    lower so the frame reaches Ellesmere Island. */
-const FIT_ALL = { jp: 0.05, id: 0.05, ca: 0.02 };
+const FIT_ALL = { jp: 0.05, id: 0.05, ph: 0.05, ca: 0.02 };
 /* Countries too small to read on their own: the frame is widened to this
    box ([[west, south], [east, north]] in degrees) so neighbours show.
    Qatar's, centred on it, takes in Bahrain, the Saudi and UAE coasts and Iran's shore. */

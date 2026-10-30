@@ -144,6 +144,90 @@ const SPECS = {
     ],
     bottom: ["NEXT PARLIAMENTARY ELECTION", "autumn 2027"]
   },
+  iq: {
+    title: "How power works in Iraq",
+    top: ["VOTERS", "elect 329 MPs by province, with seats for minorities"],
+    boxes: [
+      { head: "COUNCIL OF REPRESENTATIVES", tag: "329 seats", color: "#1f4e79", lines: ["Elects the president (two-thirds)", "Confirms the cabinet"] },
+      { arrow: "confirms" },
+      { head: "PRIME MINISTER", tag: "Ali al-Zaidi", color: "#8a5a2b", lines: ["Runs the government", "Commander-in-chief"] },
+      { arrow: "named by" },
+      { head: "PRESIDENT", tag: "Nizar Amidi", color: "#4c6b5a", lines: ["Head of state, by custom a Kurd", "Mostly ceremonial"] },
+      { arrow: "shares power with" },
+      { head: "KURDISTAN AND THE PMF", tag: "outside full control", color: "#6b4f8a", lines: ["Autonomous Kurdistan Region", "Armed factions in the PMF"] }
+    ],
+    bottom: ["NEXT ELECTION", "due by late 2029"]
+  },
+  vn: {
+    title: "How power works in Vietnam",
+    top: ["COMMUNIST PARTY CONGRESS", "every five years; the 14th met in January 2026"],
+    boxes: [
+      { head: "POLITBURO", tag: "General Secretary To Lam", color: "#b8322a", lines: ["Elected by the Central Committee", "Picks leaders and sets policy"] },
+      { arrow: "nominates" },
+      { head: "NATIONAL ASSEMBLY", tag: "500 seats", color: "#1f4e79", lines: ["Party-vetted candidates", "Elected March 2026"] },
+      { arrow: "elects" },
+      { head: "STATE PRESIDENT", tag: "To Lam", color: "#4c6b5a", lines: ["Head of state", "Commands the armed forces"] },
+      { arrow: "alongside" },
+      { head: "GOVERNMENT", tag: "PM Le Minh Hung", color: "#5b6270", lines: ["Runs the economy", "Oversees state companies"] }
+    ],
+    bottom: ["NEXT PARTY CONGRESS", "due in 2031"]
+  },
+  ph: {
+    title: "How power works in the Philippines",
+    top: ["VOTERS", "elect the president and vice-president separately"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Ferdinand Marcos Jr.", color: "#2f5fa0", lines: ["One six-year term, to 2028", "Head of state and government"] },
+      { arrow: "elected separately from" },
+      { head: "VICE-PRESIDENT", tag: "Sara Duterte", color: "#4c6b5a", lines: ["Few formal powers", "On trial in the Senate"] },
+      { arrow: "checked by" },
+      { head: "CONGRESS", tag: "Senate 24 · House about 317", color: "#1f4e79", lines: ["House impeaches", "Senate convicts with 16 votes"] },
+      { arrow: "reviewed by" },
+      { head: "SUPREME COURT", tag: "15 justices", color: "#5b6270", lines: ["Rules on the constitution", "Voided the 2025 impeachment"] }
+    ],
+    bottom: ["NEXT ELECTION", "May 2028"]
+  },
+  bd: {
+    title: "How power works in Bangladesh",
+    top: ["VOTERS", "elect 300 MPs by first past the post; 50 seats reserved for women"],
+    boxes: [
+      { head: "PARLIAMENT", tag: "350 seats", color: "#1f4e79", lines: ["BNP and allies hold two-thirds", "Acting as a constituent assembly"] },
+      { arrow: "majority chooses" },
+      { head: "PRIME MINISTER", tag: "Tarique Rahman", color: "#2a6a4a", lines: ["Leads the government", "Holds most executive power"] },
+      { arrow: "sworn in by" },
+      { head: "PRESIDENT", tag: "Mohammed Shahabuddin", color: "#4c6b5a", lines: ["Elected by parliament", "Largely ceremonial"] },
+      { arrow: "planned under the July Charter" },
+      { head: "UPPER HOUSE", tag: "100 seats", color: "#6b4f8a", lines: ["Not yet created", "How to choose it is disputed"] }
+    ],
+    bottom: ["NEXT ELECTION", "due by early 2031"]
+  },
+  kz: {
+    title: "How power works in Kazakhstan",
+    top: ["VOTERS", "elect the president and the Kurultai"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Kassym-Jomart Tokayev", color: "#2a8aa0", lines: ["One seven-year term, to 2029", "Sets policy; commands the forces"] },
+      { arrow: "appoints, with consent of" },
+      { head: "KURULTAI", tag: "145 seats", color: "#1f4e79", lines: ["Single chamber since 2026", "Adilet holds a large majority"] },
+      { arrow: "approves" },
+      { head: "VICE-PRESIDENT", tag: "Erlan Karin", color: "#4c6b5a", lines: ["First in line to succeed", "Restored in 2026"] },
+      { arrow: "alongside" },
+      { head: "GOVERNMENT", tag: "PM Olzhas Bektenov", color: "#5b6270", lines: ["Runs the economy", "Regional akims appointed"] }
+    ],
+    bottom: ["NEXT PRESIDENTIAL ELECTION", "due in 2029"]
+  },
+  co: {
+    title: "How power works in Colombia",
+    top: ["VOTERS", "elect the president in up to two rounds, and Congress in March"],
+    boxes: [
+      { head: "PRESIDENT", tag: "Abelardo de la Espriella", color: "#c9a02a", lines: ["One four-year term, to 2030", "Appoints ministers; commands forces"] },
+      { arrow: "needs votes from" },
+      { head: "CONGRESS", tag: "Senate 103 · House", color: "#1f4e79", lines: ["No majority party", "Left largest in the Senate"] },
+      { arrow: "checked by" },
+      { head: "CONSTITUTIONAL COURT", tag: "since 1991", color: "#5b6270", lines: ["Reviews laws and decrees", "Rules on spraying and rights"] },
+      { arrow: "challenged by" },
+      { head: "ARMED GROUPS", tag: "ELN, dissidents, Clan del Golfo", color: "#6b4f8a", lines: ["Control rural areas", "Fund themselves from cocaine"] }
+    ],
+    bottom: ["NEXT ELECTIONS", "regional 2027; national 2030"]
+  },
   sy: {
     title: "How power works in Syria",
     top: ["THE TRANSITION", "five years under the March 2025 constitutional declaration"],
