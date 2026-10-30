@@ -159,9 +159,10 @@ function check(name, ok, detail) {
   await shot(page, "phone-unit");
   await page.goto(base + "/politics/#/atlas");
   await page.waitForSelector(".ccard");
-  check("the Atlas shows all 30 countries", (await page.$$(".ccard")).length === 30);
+  const nCountries = await page.evaluate(() => window.POLITICS.countries.length);
+  check("the Atlas shows every country", (await page.$$(".ccard")).length === nCountries);
   const soon = (await page.$$(".ccard.soon")).length;
-  check("…unwritten ones marked coming soon", soon === 30 - (await page.evaluate(() => window.POLITICS.builtCountries().length)), String(soon));
+  check("…unwritten ones marked coming soon", soon === nCountries - (await page.evaluate(() => window.POLITICS.builtCountries().length)), String(soon));
   await shot(page, "phone-atlas");
   await page.goto(base + "/politics/#/glossary");
   await page.fill(".search", "filibuster");
@@ -178,7 +179,7 @@ function check(name, ok, detail) {
      relationship's own page and briefings. */
   await page.goto(base + "/politics/#/map");
   await page.waitForSelector(".wmap .wm-hit");
-  check("the map has a tap target for all 30 countries", (await page.$$(".wmap .wm-hit")).length === 30);
+  check("the map has a tap target for every country", (await page.$$(".wmap .wm-hit")).length === nCountries);
   check("…and no relationship lines or labels until a country is picked", (await page.$$(".wmap .wm-link")).length === 0 && (await page.$$(".wmap .wm-lb")).length === 0);
   check("the map opens on a lens (progress, once something is read)", await page.$eval(".wmap", (s) => s.classList.contains("lens-progress")));
   await page.click('.wmap-lenses [data-lens="bloc:nato"]');

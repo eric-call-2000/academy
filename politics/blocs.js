@@ -1,7 +1,7 @@
 /* ============================================================
    Political Academy — blocs and clubs, for the world map's lenses
    ------------------------------------------------------------
-   Each bloc lists which of the 30 countries belong to it (only
+   Each bloc lists which of the path's countries belong to it (only
    those; the club may have other members). The map shades the
    members and dims everyone else. `term` links the bloc to its
    glossary entry when there is one; `note` is a one-line caveat
@@ -12,10 +12,10 @@
   var B = window.POLITICS.defineBloc;
 
   B({ id: "nato", name: "NATO", color: "#1f4e79", term: "nato",
-      members: ["us", "ca", "gb", "fr", "de", "it", "pl", "tr"],
+      members: ["us", "ca", "gb", "fr", "de", "nl", "es", "it", "pl", "hu", "tr"],
       note: "The Western military alliance: an attack on one is treated as an attack on all." });
   B({ id: "eu", name: "EU", color: "#2b4fa0",
-      members: ["de", "fr", "it", "pl"],
+      members: ["de", "fr", "nl", "es", "it", "pl", "hu"],
       note: "The European Union, 27 countries with a single market. The UK left in 2020." });
   B({ id: "g7", name: "G7", color: "#5b4a8a",
       members: ["us", "ca", "gb", "fr", "de", "it", "jp"],
@@ -24,7 +24,7 @@
       members: ["br", "ru", "in", "cn", "za", "eg", "ir", "ae", "id"],
       note: "Full members only. Saudi Arabia was invited in 2023 but has not confirmed; Nigeria is a partner country." });
   B({ id: "sco", name: "SCO", color: "#9a3b3b",
-      members: ["cn", "ru", "in", "pk", "ir"],
+      members: ["cn", "ru", "in", "pk", "ir", "by"],
       note: "The Shanghai Cooperation Organisation, a China- and Russia-led security club with Central Asia." });
   B({ id: "quad", name: "Quad", color: "#2e6b4f", term: "quad",
       members: ["us", "jp", "in", "au"],
