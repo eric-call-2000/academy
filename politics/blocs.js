@@ -24,7 +24,7 @@
       members: ["br", "ru", "in", "cn", "za", "eg", "ir", "ae", "id"],
       note: "Full members only. Saudi Arabia was invited in 2023 but has not confirmed; Nigeria is a partner country." });
   B({ id: "sco", name: "SCO", color: "#9a3b3b",
-      members: ["cn", "ru", "in", "pk", "ir", "by"],
+      members: ["cn", "ru", "in", "pk", "ir", "by", "kz"],
       note: "The Shanghai Cooperation Organisation, a China- and Russia-led security club with Central Asia." });
   B({ id: "quad", name: "Quad", color: "#2e6b4f", term: "quad",
       members: ["us", "jp", "in", "au"],
@@ -33,8 +33,8 @@
       members: ["au", "gb", "us"],
       note: "A security pact built around nuclear-powered submarines for Australia." });
   B({ id: "opec-plus", name: "OPEC+", color: "#8a6b12", term: "opec-plus",
-      members: ["sa", "ir", "ve", "ng", "ru", "mx"],
-      note: "OPEC members plus Russia and Mexico. The UAE left OPEC on 1 May 2026." });
+      members: ["sa", "iq", "ir", "ve", "ng", "ru", "mx", "kz"],
+      note: "OPEC members plus Russia, Mexico and Kazakhstan. The UAE left OPEC on 1 May 2026." });
   B({ id: "nuclear", name: "Nuclear-armed", color: "#b5382f",
       members: ["us", "ru", "cn", "gb", "fr", "in", "pk", "kp", "il"],
       note: "Countries with nuclear weapons. Israel has never confirmed its arsenal." });
