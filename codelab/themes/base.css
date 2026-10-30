@@ -36,7 +36,8 @@
   
   /* Theme-specific decorative values */
   --btn-radius: 14px;
-  --btn-shadow: 0 4px 0 var(--success-dark);
+  /* --btn-shadow deliberately unset: each button falls back to its own
+     darker shade. Setting it here gave every button a green underline. */
   --card-radius: 20px;
   --card-shadow: 0 3px 0 var(--line);
   --item-radius: 14px;
@@ -79,6 +80,12 @@ input { font-family: var(--font); }
 .btn-gold  { background: var(--gold); color: #fff; box-shadow: var(--btn-shadow, 0 4px 0 var(--gold-dark)); }
 .btn-ghost { background: #fff; color: var(--ink-soft); border: 2px solid var(--line); box-shadow: var(--btn-shadow, 0 2px 0 var(--line)); }
 .btn-small { padding: 8px 12px; font-size: 13px; border-radius: calc(var(--btn-radius, 14px) - 4px); }
+
+/* ---------- icon forms ----------
+   Course/position icons and the logo carry two forms (iconTile in app.js):
+   the emoji (.em) and a text monogram (.mono). Base shows the emoji; a
+   theme that wants monograms flips both. */
+.mono { display: none; }
 
 /* ---------- toast ---------- */
 .toast {

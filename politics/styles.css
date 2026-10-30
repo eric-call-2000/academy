@@ -436,6 +436,33 @@ figcaption { padding: 8px 16px 0; font-size: 14.5px; color: var(--ink-2); line-h
 .wmap-legend i { font-style: normal; flex-shrink: 0; }
 .lg-tap { width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--ink); }
 .lg-hatch { width: 20px; height: 13px; border: 1px dashed var(--map-hatch); background: repeating-linear-gradient(45deg, var(--map-hatch) 0 1.5px, transparent 1.5px 4px); }
+/* Lenses: what the map is coloured by (app.js applyLens). fill-opacity
+   carries the lens, so hover and selection dimming (opacity) still work. */
+.wmap-lenses { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.wmap-lenses .seg-btn { font-size: 13px; }
+@media (max-width: 420px) { .wmap-lenses .seg-btn { font-size: 12.5px; padding: 7px 9px; } }
+.wmap-blocs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.wmap-blocs-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 900; margin-right: 2px; }
+.bloc-chip { padding: 5px 10px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink-2); font: 800 13px var(--ui); }
+.bloc-chip:hover { border-color: var(--b); }
+.bloc-chip.on { background: var(--b); border-color: var(--b); color: #fff; }
+.lens-progress .wm-c { fill: var(--ok); fill-opacity: calc(0.24 + var(--p, 0) * 0.76); }
+.lens-web .wm-c { fill-opacity: 0.4; }
+.lens-bloc .wm-c { fill: var(--muted); fill-opacity: 0.22; }
+.lens-bloc .wm-c.in-bloc { fill: var(--b); fill-opacity: 1; }
+.wm-web { display: none; pointer-events: none; transition: opacity 0.15s; }
+.lens-web .wm-web { display: inline; }
+.has-sel .wm-web { opacity: 0.18; }
+.wm-web-line { fill: none; stroke: var(--c); stroke-width: 1.2; stroke-opacity: 0.55; stroke-linecap: round; }
+.wm-web-line.done { stroke-width: 2.4; stroke-opacity: 0.95; }
+.wm-web-dot { fill: var(--surface); stroke: var(--ink); stroke-width: 1.1; }
+.lg-prog { width: 54px; height: 12px; border-radius: 3px; background: linear-gradient(90deg, color-mix(in srgb, var(--ok) 24%, var(--map-land)), var(--ok)); }
+.lg-web { width: 22px; height: 0; border-top: 2px solid var(--ink-2); border-radius: 2px; }
+.lg-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 1.5px solid var(--ink); }
+.lg-bloc { display: inline-block; width: 14px; height: 14px; border-radius: 4px; background: var(--b); vertical-align: -2px; margin-right: 7px; }
+.wmap-bloc-info { width: 100%; }
+.wmap-bloc-info p { font-weight: 600; margin-top: 4px; }
+.wmap-bloc-info a { color: var(--accent); font-weight: 800; }
 .wmap-panel { max-width: 760px; margin: 18px auto 0; }
 .wmap-hint { color: var(--muted); font-weight: 700; margin: 4px 0 6px; }
 .wmap-card { border-top: 5px solid var(--c); }
@@ -447,6 +474,19 @@ figcaption { padding: 8px 16px 0; font-size: 14.5px; color: var(--ink-2); line-h
 .wmap-sub { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 900; margin: 18px 0 8px; }
 .wmap-clear { display: block; background: none; border: 0; color: var(--muted); font: 800 14px var(--ui); margin-top: 10px; padding: 6px 0; cursor: pointer; }
 .wmap-clear:hover { color: var(--ink); }
+/* The relationship list under the map: search, filter, a group per country. */
+.rel-search { margin: 0 0 10px; }
+.rel-filter { margin-bottom: 12px; flex-wrap: wrap; }
+.rel-n { opacity: 0.7; font-weight: 700; margin-left: 2px; }
+.rel-count { font-size: 13px; color: var(--muted); font-weight: 800; margin-bottom: 8px; }
+.rel-group { margin-bottom: 8px; border: 1px solid var(--line); border-left: 4px solid var(--c); border-radius: 14px; background: var(--surface); }
+.rel-group > summary { display: flex; align-items: center; gap: 12px; padding: 10px 14px; cursor: pointer; list-style: none; }
+.rel-group > summary::-webkit-details-marker { display: none; }
+.rel-group > summary::after { content: "›"; font-size: 22px; color: var(--muted); transition: transform 0.15s; }
+.rel-group[open] > summary::after { transform: rotate(90deg); }
+.rel-group[open] { padding-bottom: 4px; }
+.rel-group .link-row { width: auto; margin: 0 8px 6px; }
+.rel-flag { font-size: 24px; flex-shrink: 0; }
 .link-row { border-left: 5px solid var(--c); }
 .link-row.soon { opacity: 0.65; }
 .link-flags { font-size: 20px; letter-spacing: 1px; white-space: nowrap; }

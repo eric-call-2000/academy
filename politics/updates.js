@@ -75,3 +75,43 @@ window.POLITICS.addUpdate({
     { title: "'Yes I do': Alberta Premier Smith promises not to hold later separation referendum if remain side wins October vote", publisher: "CTV News", url: "https://www.ctvnews.ca/politics/article/yes-i-do-alberta-premier-smith-promises-not-to-hold-later-separation-referendum-if-remain-side-wins-october-vote/", date: "2026" }
   ]
 });
+
+window.POLITICS.addUpdate({
+  id: "br-2026-10-26-runoff",
+  unit: "br",
+  date: "2026-10-26",
+  title: "Lula wins a fourth term; Flávio Bolsonaro rejects the result",
+  md:
+    "President Luiz Inácio Lula da Silva won Brazil's presidential runoff on 25 October, overturning his first-round defeat to Senator Flávio Bolsonaro. The Superior Electoral Court's count gave Lula 51.79% of valid votes to Flávio's 48.21%, a margin of about 4.4 million votes, The Rio Times reported; CNBC and NPR reported the same result. Turnout was about 80.8%, up from the first round. The final polls had put Flávio narrowly ahead, CNBC noted. Lula, who will be 81 when his new term begins on 5 January 2027, becomes the first Brazilian elected president four times.\n\n" +
+    "Flávio Bolsonaro did not concede. He told reporters he would not accept the result and would seek to have it annulled, CNN and France 24 reported. The Associated Press, via PBS, reported that a Supreme Court justice's last-minute decision to extend voting by two hours could become the basis for legal action.\n\n" +
+    "The result ends Flávio's promise to pardon his father, former president Jair Bolsonaro, who is serving a 27-year sentence for plotting a coup after the 2022 election, France 24 (AFP) reported before the vote. An amnesty passed by Congress remains the other route his allies have discussed. For relations with Washington, AP said Lula's win preserves a major counterweight to President Donald Trump in Latin America, with disputes over trade likely to continue. Trump praised Flávio after the first round without formally endorsing him, Newsweek reported, and US tariffs of 50% imposed in 2025, partly over Jair Bolsonaro's prosecution, were unpopular in Brazil.",
+  sources: [
+    { title: "Brazil runoff turnout 80.8%, Lula ahead by 4.4 million", publisher: "The Rio Times", url: "https://www.riotimesonline.com/brazil-runoff-turnout-margin-2026/", date: "2026-10-26" },
+    { title: "Brazil's Lula wins historic presidential election; Bolsonaro reportedly refuses to concede", publisher: "CNBC", url: "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html", date: "2026-10-26" },
+    { title: "In stunning victory, Brazil's Lula wins fourth presidential term", publisher: "NPR", url: "https://www.npr.org/2026/10/25/nx-s1-6016299/brazil-lula-bolsonaro-election", date: "2026-10-25" },
+    { title: "Brazil's Lula completes stunning turnaround to secure election victory, as Trump ally Bolsonaro rejects result", publisher: "CNN", url: "https://www.cnn.com/2026/10/25/americas/brazil-election-lula-bolsonaro-intl-latam", date: "2026-10-25" },
+    { title: "Lula beats Bolsonaro in Brazil runoff, securing fourth presidential term", publisher: "PBS NewsHour (AP)", url: "https://www.pbs.org/newshour/world/brazil-votes-in-a-tense-lula-vs-bolsonaro-runoff-with-u-s-influence-over-latin-america-at-stake", date: "2026-10-25" },
+    { title: "Brazil election offers Jair Bolsonaro a shot at revenge", publisher: "France 24 (AFP)", url: "https://www.france24.com/en/live-news/20261009-brazil-election-offers-jair-bolsonaro-a-shot-at-revenge", date: "2026-10-09" },
+    { title: "Donald Trump's 'Donroe Doctrine' faces setback as Lula wins in Brazil", publisher: "Newsweek", url: "https://www.newsweek.com/brazil-election-trump-ally-bolsonaro-vs-lula-final-polls-and-odds-12613505", date: "2026-10-26" }
+  ]
+});
+
+window.POLITICS.addUpdate({
+  id: "il-2026-10-28-election",
+  unit: "il",
+  date: "2026-10-29",
+  title: "Israel votes: no bloc reaches 61",
+  md:
+    "Neither camp won a majority in Israel's Knesset election on 27 October. With about 90% of ballots counted, the Central Elections Committee's figures gave Benjamin Netanyahu's bloc (Likud, Shas, United Torah Judaism, Otzma Yehudit and Religious Zionism) 53 seats, eight short of the 61 needed, The Times of Israel and The Jerusalem Post reported. The bloc led by former army chief Gadi Eisenkot had 48, and Arab-led parties a record 19. Likud remained the largest party with 26 seats, ahead of Eisenkot's Yashar with 21; the Joint List and Naftali Bennett and Yair Lapid's joint list B'Yachad had 12 each. Double-envelope ballots, including soldiers', were still being counted, and official results are due on 4 November.\n\n" +
+    "President Isaac Herzog will consult every party and then choose the member he thinks most likely to assemble a 61-seat majority, who need not lead the largest party; that person gets 28 days, which can be extended by 14. ABC News (Australia) reported that Herzog urged the parties to come \"with an open mind\". Netanyahu was expected to claim the mandate as head of the largest party, The Times of Israel reported, while Eisenkot could gather more recommendations if Arab parties back him.\n\n" +
+    "For Netanyahu, the result means weeks of bargaining with no clear route to a majority, Axios reported, while he stays on as caretaker prime minister. Eisenkot has ruled out serving under him, including in a rotation, Israeli media reported, which makes a unity government between the two largest parties unlikely. A fresh election is possible if no one can form a government.",
+  sources: [
+    { title: "With 90% of votes counted, Netanyahu bloc has 53 seats, Eisenkot's 48; Arab parties surge to 19", publisher: "The Times of Israel", url: "https://www.timesofisrael.com/with-85-of-votes-counted-netanyahu-bloc-has-53-seats-eisenkots-48-arab-parties-surge-to-19/", date: "2026-10-28" },
+    { title: "Israel election results: Benjamin Netanyahu bloc wins 53 seats, opposition holds 48", publisher: "The Jerusalem Post", url: "https://www.jpost.com/israel-election-2026/article-913122", date: "2026-10-28" },
+    { title: "Israel election results: Netanyahu bloc at 53 seats, Eisenkot bloc at 48 as nearly all votes counted", publisher: "Ynet", url: "https://www.ynetnews.com/article/hjnatbkaml", date: "2026-10-28" },
+    { title: "Israel's President Isaac Herzog urges 'open mind' as Netanyahu and opponents struggle for majority", publisher: "ABC News (Australia)", url: "https://www.abc.net.au/news/2026-10-29/herzog-netanyahu-israel-election/107321418", date: "2026-10-29" },
+    { title: "Netanyahu expected to demand mandate to form government if Likud is largest party", publisher: "The Times of Israel", url: "https://www.timesofisrael.com/liveblog_entry/netanyahu-expected-to-demand-mandate-to-form-government-if-likud-is-largest-party-even-if-eisenkots-bloc-is-larger-report/", date: "2026-10-28" },
+    { title: "Israel faces weeks of political wrangling after deadlocked election", publisher: "Axios", url: "https://www.axios.com/2026/10/28/israel-elections-netanyahu-eisenkot-results-deadlock", date: "2026-10-28" },
+    { title: "Israel election results: Netanyahu and rival face tough battle for power with most votes counted", publisher: "CNN", url: "https://www.cnn.com/2026/10/28/world/live-news/israel-election-result-live-latest-netanyahu-eisenkot-intl", date: "2026-10-28" }
+  ]
+});

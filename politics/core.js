@@ -23,6 +23,7 @@
   P.updates = P.updates || [];
   P.links = P.links || [];
   P._linkById = P._linkById || {};
+  P.blocs = P.blocs || [];
 
   P.PARTS = [
     { id: 1, title: "The Big Four" },
@@ -99,6 +100,16 @@
   P.link = function (id) { return P._linkById[id] || null; };
   P.linksOf = function (countryId) {
     return P.links.filter(function (l) { return l.a === countryId || l.b === countryId; });
+  };
+  /* Blocs and clubs (blocs.js): which of the 30 belong to NATO, BRICS
+     and so on. The world map uses them as lenses. */
+  P.defineBloc = function (b) {
+    for (var i = 0; i < P.blocs.length; i++) if (P.blocs[i].id === b.id) return;
+    P.blocs.push(b);
+  };
+  P.bloc = function (id) {
+    for (var i = 0; i < P.blocs.length; i++) if (P.blocs[i].id === id) return P.blocs[i];
+    return null;
   };
   /* Anything with briefings: a country, or a link dressed like one
      (name, flag and colour) so pages, rows and the reader can draw it. */

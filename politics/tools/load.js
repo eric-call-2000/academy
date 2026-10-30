@@ -1,6 +1,6 @@
 /* ============================================================
    Load the app's data exactly the way index.html does — core.js,
-   countries.js, glossary.js, updates.js, then every units/<id>.js —
+   countries.js, links.js, blocs.js, glossary.js, updates.js, then every units/<id>.js —
    into a sandbox, so the tools check what the browser will run.
    ============================================================ */
 const fs = require("fs");
@@ -21,7 +21,7 @@ function load(opts) {
   ctx.window = ctx;
   vm.createContext(ctx);
   if (opts.seed) opts.seed(ctx);
-  ["core.js", "countries.js", "links.js", "glossary.js", "updates.js"].forEach((f) => run(ctx, f));
+  ["core.js", "countries.js", "links.js", "blocs.js", "glossary.js", "updates.js"].forEach((f) => run(ctx, f));
   const P = ctx.POLITICS;
   const unitFiles = [];
   if (opts.units !== false) {
