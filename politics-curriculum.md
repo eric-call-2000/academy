@@ -3,7 +3,8 @@
 Design doc for a new reading-first app that lives under Academy the way CodeLab does.
 Written 2026-09-28. **Status: Phase 1 and all five waves are built:** the app in [`politics/`](politics/) and
 all 30 units (US, China, Russia, India, Ukraine, Germany, UK, France, Italy, Poland, Turkey, Israel, Iran, Saudi Arabia, UAE, Egypt, Japan, South Korea, North Korea, Taiwan, Pakistan, Indonesia, Australia, Canada, Mexico, Brazil, Argentina, Venezuela, South Africa, Nigeria) (see [`politics/README.md`](politics/README.md)). The rest of this doc
-is the plan for all 30 countries. Facts below were checked against
+is the plan for all 30 countries. The plan for the next 20 is in
+[Units 31–50](#units-3150-the-next-20) (planned, not built). Facts below were checked against
 news coverage on the date above (sources at the end); every lesson still gets a fresh
 fact-check when it is written.
 
@@ -1160,6 +1161,114 @@ security crisis, and voting on 16 Jan 2027.*
 
 Adding one later is cheap: it's one more file in `units/`, so the bench can become units 31+
 without touching anything else.
+
+**All eight are now planned as units** in [Units 31–50](#units-3150-the-next-20) below. The new
+alternates are listed at the end of that section.
+
+---
+
+## Units 31–50 (the next 20)
+
+**How they were chosen:** the same rule as the first 30, **hard weight** (economy, military,
+nuclear status, population) and **how much the country is moving world events now**, plus a
+third test: **fill the regions the current map leaves empty.** Africa has 2 of 30 units but about
+18% of the world's people. Southeast Asia has only Indonesia. Central Asia, the Caribbean and the
+Arctic have nothing. All eight bench countries are included.
+
+**Regional balance after 50 units:**
+
+| Region | Units now | After 50 |
+|--------|-----------|----------|
+| Europe | 7 | 11 |
+| The Middle East | 5 | 8 |
+| The Indo-Pacific and Central Asia | 7 | 11 |
+| The Americas | 5 | 8 |
+| Africa | 2 | 7 |
+| The Arctic | 0 | 1 |
+
+The Big Four stay at four. "Bench" marks a country moved up from the alternates list.
+
+### Europe
+
+| # | Country | Why it's here | Links to existing units |
+|---|---------|---------------|-------------------------|
+| 31 | 🇭🇺 Hungary (bench) | The 12 Apr 2026 election ended Orbán's 16 years: Péter Magyar's Tisza won a two-thirds supermajority. How an "illiberal democracy" is taken apart, or isn't | Poland, Germany, Russia |
+| 32 | 🇪🇸 Spain | The fourth-largest eurozone economy and the fastest-growing big EU economy. Sánchez's minority government depends on Catalan and Basque parties; Spain refused NATO's 5% target; a general election is due by 2027 | France, Algeria (gas), Latin America |
+| 33 | 🇳🇱 Netherlands | ASML is the only maker of EUV chipmaking machines, which puts the country in the US–China tech fight (and the Nexperia seizure). Rotterdam is Europe's largest port; The Hague hosts the international courts | China, United States, Taiwan |
+| 34 | 🇧🇾 Belarus | Russian nuclear weapons are stationed there; it was a launchpad for the 2022 invasion; Lukashenko trades political prisoners for US sanctions relief | Russia, Ukraine, Poland |
+
+### The Middle East
+
+| # | Country | Why it's here | Links to existing units |
+|---|---------|---------------|-------------------------|
+| 35 | 🇶🇦 Qatar (bench) | A gas superpower and mediator in Gaza and Afghanistan. It hosts Al Udeid, the largest US base in the region, and was hit in the Iran war | Israel, Iran, United States, Saudi Arabia, UAE |
+| 36 | 🇸🇾 Syria (bench) | The post-Assad state under al-Sharaa, and whether a country split among Alawites, Druze and Kurds holds together. Israel, Turkey, Russia and the Gulf states all have stakes | Turkey, Israel, Russia, Iran |
+| 37 | 🇮🇶 Iraq | Roughly the fifth-largest proven oil reserves and OPEC's second-largest producer. It hosts both Iran-aligned militias and US troops, and sits in the middle of the Iran war | Iran, United States, Saudi Arabia, Turkey |
+
+### The Indo-Pacific and Central Asia
+
+| # | Country | Why it's here | Links to existing units |
+|---|---------|---------------|-------------------------|
+| 38 | 🇻🇳 Vietnam (bench) | A one-party communist state running a market economy, the main "China + 1" manufacturing destination, and a Party leadership shake-up | China, United States, Japan |
+| 39 | 🇵🇭 Philippines (bench) | The South China Sea front line (Scarborough Shoal, Second Thomas Shoal), a US treaty ally, and the Marcos–Duterte feud | China, United States, Japan, Taiwan |
+| 40 | 🇧🇩 Bangladesh | About 175 million people and the world's second-largest garment exporter. The 2024 uprising ousted Hasina, who fled to India; the Feb 2026 election chose a new government. It sits between India and China | India, China, Pakistan |
+| 41 | 🇰🇿 Kazakhstan | The only Central Asian unit. The world's largest uranium producer; its oil goes out through Russia (the CPC pipeline); a key stop on the Middle Corridor; it balances Moscow and Beijing | Russia, China, Turkey |
+
+### The Americas
+
+| # | Country | Why it's here | Links to existing units |
+|---|---------|---------------|-------------------------|
+| 42 | 🇨🇴 Colombia (bench) | The 2026 election, Petro's clash with Washington over drugs, US strikes on drug boats, and the US's oldest ally in South America | United States, Venezuela |
+| 43 | 🇨🇺 Cuba | The next chapter after Maduro's fall: Venezuela's oil lifeline is gone, blackouts and emigration have surged, and US pressure is rising. One of the last one-party communist states | United States, Venezuela, Russia, China |
+| 44 | 🇨🇱 Chile | The world's largest copper producer and second in lithium, both central to the energy transition. Kast's win is part of Latin America's swing to the hard right | China, Argentina, Brazil |
+
+### Africa
+
+| # | Country | Why it's here | Links to existing units |
+|---|---------|---------------|-------------------------|
+| 45 | 🇪🇹 Ethiopia (bench) | Africa's second most populous country and home of the African Union. The Grand Renaissance Dam on the Nile, Tigray's aftermath, and a push for Red Sea access (tension with Eritrea) | Egypt, UAE, Saudi Arabia |
+| 46 | 🇸🇩 Sudan (bench) | The world's largest humanitarian crisis, and a proxy war in which the UAE, Egypt and Saudi Arabia are involved, so it ties straight into Part 3 | UAE, Egypt, Saudi Arabia, Russia |
+| 47 | 🇨🇩 DR Congo | About 70% of the world's cobalt and more than 100 million people. The war with the Rwanda-backed M23, and US-brokered peace and minerals deals | United States, China, Qatar, South Africa |
+| 48 | 🇰🇪 Kenya | East Africa's economic and diplomatic hub and a US major non-NATO ally. It led the Haiti security mission, faced the Gen Z protests, and votes in Aug 2027 | United States, China, Ethiopia, Sudan |
+| 49 | 🇩🇿 Algeria | Africa's largest country and a major pipeline-gas supplier to Europe. An open diplomatic crisis with France, the Western Sahara rivalry with Morocco, and borders with the Sahel juntas | France, Italy, Spain, Russia |
+
+### The Arctic
+
+| # | Country | Why it's here | Links to existing units |
+|---|---------|---------------|-------------------------|
+| 50 | 🇩🇰 Denmark (and Greenland) | Trump's push to take Greenland made a NATO founder a flashpoint: the Arctic, rare earths, the Pituffik base, and Greenlandic self-rule. Also one of Ukraine's biggest backers per head | United States, Canada, Russia |
+
+**Next alternates:** Finland, Afghanistan, Yemen, Mali (standing in for the Sahel), Morocco,
+Malaysia, Peru.
+
+### Build notes
+
+- **Placement (decided 2026-10-22).** Units 31–50 fold into the existing six parts, each next
+  to its neighbours (Kazakhstan into the Indo-Pacific, Denmark into Europe). There is no Part 7.
+  The numbers 31–50 are planning labels only: the app shows no unit numbers, and progress is
+  keyed by country id.
+- **Waves of six.** Wave F is units 31–36 (Hungary, Spain, Netherlands, Belarus, Qatar, Syria),
+  then 37–42, 43–48, and a last wave of two (49–50).
+- **New relationships these unlock:** Sudan–UAE, Ethiopia–Egypt (the Nile), Cuba–US,
+  Algeria–France, Netherlands–China, Belarus–Russia, Denmark–US, Iraq–Iran, Philippines–China,
+  Bangladesh–India, Vietnam–China.
+- **Maps.** `countries.js` stores `iso` as a three-digit ISO 3166-1 numeric string, and
+  `tools/build-maps.js` looks up one Natural Earth feature by it. Natural Earth gives Greenland
+  its own code (304), so a `dk` map needs both Denmark (208) and Greenland, which the map builder
+  can't do yet. Codes (checked against `world-atlas` 2.0.2, the 50m and 110m files):
+  Hungary 348, Spain 724, Netherlands 528, Belarus 112, Qatar 634, Syria 760, Iraq 368,
+  Vietnam 704, Philippines 608, Bangladesh 050, Kazakhstan 398, Colombia 170, Cuba 192,
+  Chile 152, Ethiopia 231, Sudan 729, DR Congo 180, Kenya 404, Algeria 012, Denmark 208 +
+  Greenland 304.
+- **These blurbs are planning claims, not verified facts.** Per
+  [Accuracy, neutrality, freshness](#accuracy-neutrality-freshness), each unit still needs a
+  fresh `tools/research/<id>.md` with sourced facts before it is written.
+- **Flagged in a quick check (2026-10-21):**
+  - **Colombia** is out of date. The 2026 election is over: Abelardo de la Espriella beat Iván
+    Cepeda in the 21 Jun runoff and took office on 7 Aug, so Petro is no longer president.
+    The research note should reframe this unit around the new government.
+  - **Spain** (found while building Wave F, 2026-10-22): the election is no longer "due by 2027".
+    Sánchez called a snap vote for 29 Nov 2026 after Congress rejected his housing decrees.
 
 ---
 
