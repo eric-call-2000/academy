@@ -115,3 +115,29 @@ window.POLITICS.addUpdate({
     { title: "Israel election results: Netanyahu and rival face tough battle for power with most votes counted", publisher: "CNN", url: "https://www.cnn.com/2026/10/28/world/live-news/israel-election-result-live-latest-netanyahu-eisenkot-intl", date: "2026-10-28" }
   ]
 });
+
+window.POLITICS.addUpdate({
+  id: "us-2026-11-04-midterms",
+  unit: "us",
+  date: "2026-11-04",
+  title: "Midterms: Democrats win the House and the Senate",
+  md:
+    "Democrats won control of both chambers of Congress in the midterm elections on 3 November. The Associated Press called the Senate for Democrats shortly before midnight, CNBC and Forbes reported. NBC News counted 54 Democratic seats to 44 Republican, a net gain of seven, with two races still too close to call: in Mississippi, Democrat Scott Colom narrowly led Senator Cindy Hyde-Smith, and in Alaska, Senator Dan Sullivan and Democrat Mary Peltola were separated by a few thousand votes with many ballots left to count. Seats the AP called as Democratic gains include Ohio (Sherrod Brown), North Carolina (Roy Cooper), Iowa (Josh Turek) and Texas (James Talarico). NBC News and ABC News projected a Democratic majority in the House, where Hakeem Jeffries is expected to become Speaker in January; counting continues in many districts. Even with 54 seats, Democrats remain short of the 60 votes needed to overcome a filibuster, MS NOW noted.\n\n" +
+    "In the governors' races, Democrat Gina Hinojosa defeated Governor Greg Abbott in Texas, the AP and CBS News projected, and becomes the state's first Democratic governor since Ann Richards left office in 1995; the Texas Tribune reported that Abbott conceded. In Ohio, ABC News projected that Democrat Amy Acton beat Vivek Ramaswamy. NBC News projected that Josh Shapiro held Pennsylvania for the Democrats.\n\n" +
+    "President Trump told Fox News he was \"a little bit surprised\" by the results and said Republicans would have done better had he been on the ballot, ABC News reported; Axios reported that he said he was \"absolutely willing to accept\" them and wanted to make deals with Democratic leaders. Vice President JD Vance blamed the war with Iran: \"The reason we lost is the war,\" he wrote on X, according to NBC News and Forbes, while Trump defended the war and said he would do it again. For Trump's last two years, a Democratic House and Senate can block his bills and nominees and open investigations, while his veto, which Congress can override only with two-thirds of both chambers, can block theirs.",
+  sources: [
+    { title: "Midterms 2026 highlights: Democrats win control of Congress", publisher: "NBC News", url: "https://www.nbcnews.com/politics/2026-election/live-blog/midterm-election-results-2026-news-trump-live-updates-rcna605763", date: "2026-11-04" },
+    { title: "U.S. Senate Election 2026 Live Results: Democrats Win Majority", publisher: "NBC News", url: "https://www.nbcnews.com/politics/2026-elections/senate-results", date: "2026-11-04" },
+    { title: "2026 midterm elections: Democrats projected to gain control of House and Senate", publisher: "ABC News", url: "https://abcnews.com/Politics/balance-power-congress-stake-2026-midterm-elections/story?id=137777679", date: "2026-11-04" },
+    { title: "2026 midterm election results: House, Senate live updates", publisher: "CNBC", url: "https://www.cnbc.com/2026/11/04/2026-midterm-election-results-live-updates.html", date: "2026-11-04" },
+    { title: "Midterm Election Results (Live Updates): Democrats Sweep House And Senate, Some Races Still Too Close To Call", publisher: "Forbes", url: "https://www.forbes.com/sites/saradorn/2026/11/04/midterm-election-results-live-updates-democrats-sweep-house-and-senate-some-races-still-too-close-to-call/", date: "2026-11-04" },
+    { title: "Democrats win House and Senate in 2026 midterms, a blow to Trump", publisher: "MS NOW", url: "https://www.ms.now/news/democrats-sweep-house-senate-2026-midterm-election", date: "2026-11-04" },
+    { title: "Hinojosa defeats Abbott, makes history as Texas' first Democratic governor in decades", publisher: "CBS News Texas", url: "https://www.cbsnews.com/texas/news/texas-governor-election-2026-greg-abbott-gina-hinojosa-results/", date: "2026-11-04" },
+    { title: "Democrat Gina Hinojosa defeats Greg Abbott for Texas governor", publisher: "The Texas Tribune", url: "https://www.texastribune.org/2026/11/03/texas-governor-greg-abbott-gina-hinojosa-election/", date: "2026-11-03" },
+    { title: "Ohio 2026 live midterm results: Democrat Acton beats Ramaswamy in acrimonious governor's race", publisher: "ABC News", url: "https://abcnews.com/Politics/ohio-2026-live-midterm-election-results/story?id=136761684", date: "2026-11-04" },
+    { title: "Trump says he was 'a little bit surprised' after Democrats' big win in midterms", publisher: "ABC News", url: "https://abcnews.com/Politics/trump-bit-surprised-after-democrats-big-win-midterms/story?id=137835787", date: "2026-11-04" },
+    { title: "Trump says GOP lost because he wasn't on ballot, is \"willing to accept\" results", publisher: "Axios", url: "https://www.axios.com/2026/11/04/trump-republicans-midterms-2026-landslide-blue-wave", date: "2026-11-04" },
+    { title: "Vance says the 'real reason' for GOP rout was anger over Iran war", publisher: "NBC News", url: "https://www.nbcnews.com/politics/2026-election/vance-says-ranger-iran-war-caused-gop-midterm-losses-rcna607446", date: "2026-11-04" },
+    { title: "Vance Blames Republican Midterm Losses On Iran War: 'Everyone Knows Why We Lost'", publisher: "Forbes", url: "https://www.forbes.com/sites/conormurray/2026/11/04/vance-blames-republican-midterm-losses-on-iran-war-everyone-knows-why-we-lost/", date: "2026-11-04" }
+  ]
+});
