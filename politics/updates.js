@@ -141,3 +141,24 @@ window.POLITICS.addUpdate({
     { title: "Vance Blames Republican Midterm Losses On Iran War: 'Everyone Knows Why We Lost'", publisher: "Forbes", url: "https://www.forbes.com/sites/conormurray/2026/11/04/vance-blames-republican-midterm-losses-on-iran-war-everyone-knows-why-we-lost/", date: "2026-11-04" }
   ]
 });
+
+window.POLITICS.addUpdate({
+  id: "us-2026-11-07-still-counting",
+  unit: "us",
+  date: "2026-11-07",
+  title: "Midterms, four days on: a big House majority, two Senate seats still open",
+  md:
+    "Counting has widened the Democrats' House majority. NBC News's tally on 6 November gave Democrats 252 seats and Republicans 162, with 21 still uncalled; 218 is a majority. CNN's decision desk projected that Democrats had won more than 250 seats, and CNBC reported that Republicans did not flip a single Democratic-held seat.\n\n" +
+    "Mississippi's Senate race is still uncalled. On the third day of counting, WDAM reported, Democrat Scott Colom had 464,926 votes to Senator Cindy Hyde-Smith's 463,788, a lead of about 1,100, with roughly 3,600 mail ballots outstanding and until 10 November for voters to fix problems with affidavit ballots. The state has no formal recount procedure, its secretary of state's office told ABC News, so a disputed result could go to the courts; Mississippi Today reported that both campaigns have sent lawyers to watch the count.\n\n" +
+    "Alaska is still uncalled too. Democrat Mary Peltola led Senator Dan Sullivan by a few hundred votes as of Wednesday, Alaska Public Media reported. Alaska accepts overseas ballots for 15 days after the election and uses ranked-choice voting, so if nobody reaches a majority of first choices, the ranked count is expected around 18 November, PBS NewsHour (AP) reported. Democrats hold 54 Senate seats; winning both open races would give them 56.",
+  sources: [
+    { title: "U.S. House Elections 2026 Live Results: Democrats Win Control", publisher: "NBC News", url: "https://www.nbcnews.com/politics/2026-elections/house-results", date: "2026-11-06" },
+    { title: "2026 Midterm Election Results: Democrats projected to win over 250 House seats", publisher: "CNN", url: "https://www.cnn.com/2026/11/05/politics/live-news/midterm-election-congress", date: "2026-11-05" },
+    { title: "Democrats sweep 2026 midterms; Republicans fail to flip a single seat", publisher: "CNBC", url: "https://www.cnbc.com/2026/11/04/democrats-2026-midterm-election-results.html", date: "2026-11-04" },
+    { title: "Colom leads Senate race against Hyde-Smith on day 3 of ballot counting", publisher: "WDAM", url: "https://www.wdam.com/2026/11/05/colom-leads-senate-race-against-hyde-smith-day-3-ballot-counting/", date: "2026-11-05" },
+    { title: "What to know about recounts in Mississippi with razor-thin margin in Senate race", publisher: "ABC News", url: "https://abcnews.com/Politics/recounts-mississippi-razor-thin-margin-senate-race/story?id=137844445", date: "2026-11-05" },
+    { title: "Colom v Hyde-Smith: What's next in the Mississippi Senate race?", publisher: "Mississippi Today", url: "https://mississippitoday.org/2026/11/05/thousands-of-affidavit-ballots-outstanding-in-mississippi-senate-election-campaigns-prepare-for-legal-fight/", date: "2026-11-05" },
+    { title: "Sullivan and Peltola locked in tight U.S. Senate race as more results come in", publisher: "Alaska Public Media", url: "https://alaskapublic.org/news/politics/elections/2026-11-03/peltola-takes-early-lead-in-alaskas-u-s-senate-race", date: "2026-11-04" },
+    { title: "Alaskans are waiting for more votes in Senate and governor's races. Both could go to ranked tabulations", publisher: "PBS NewsHour (AP)", url: "https://www.pbs.org/newshour/politics/alaskans-are-waiting-for-more-votes-in-senate-and-governors-races-both-could-go-to-ranked-tabulations", date: "2026-11-05" }
+  ]
+});
