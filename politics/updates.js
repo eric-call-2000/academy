@@ -162,3 +162,25 @@ window.POLITICS.addUpdate({
     { title: "Alaskans are waiting for more votes in Senate and governor's races. Both could go to ranked tabulations", publisher: "PBS NewsHour (AP)", url: "https://www.pbs.org/newshour/politics/alaskans-are-waiting-for-more-votes-in-senate-and-governors-races-both-could-go-to-ranked-tabulations", date: "2026-11-05" }
   ]
 });
+
+window.POLITICS.addUpdate({
+  id: "za-2026-11-07-local-elections",
+  unit: "za",
+  date: "2026-11-09",
+  title: "Local elections: the ANC first but down to 31%, big cities hung",
+  md:
+    "The ANC came first in South Africa's local elections on 4 November but lost ground again. In the final results the Electoral Commission (IEC) declared on 8 November, the ANC won 30.76% of the vote and 3,246 council seats, the DA 24.64% and 1,695 seats, the MK Party 9.76%, the EFF 6.22% and ActionSA 5.67%, The Citizen reported; in the 2021 local elections the ANC had won about 46%. The ANC won outright control of 53 municipalities and the DA of 12. About 14.9 million people voted, The Witness reported from the IEC's figures.\n\n" +
+    "Of the four biggest cities, only Cape Town has a majority: the DA won 133 of its 235 seats. Johannesburg is hung, with the DA on 91 of 270 seats (up from 71 in 2021), the ANC on 63 (down from 91) and ActionSA on 43, IOL reported. Tshwane is hung too, with the DA on 74 of 214 seats, ActionSA 48 and the ANC 44. In eThekwini (Durban), the MK Party became the largest party with 86 of 223 seats but fell short of a majority, the Sunday Tribune reported, ahead of the DA and the ANC. Parties have two weeks from the declaration to form governments in the hung councils.\n\n" +
+    "The results put strain on the [[coalition-government|government of national unity]], in which the ANC and DA have governed together since 2024. President Cyril Ramaphosa said the ANC accepted the results \"with humility\", eNCA reported. ANC secretary-general Fikile Mbalula called the result \"catastrophic\" and questioned whether the DA still shared the national government's principles, The Citizen reported, while DA leader Geordin Hill-Lewis proposed \"governments of local unity\" for hung councils. EFF leader Julius Malema blamed the ANC's partnership with the DA for its losses, local media reported.",
+  sources: [
+    { title: "ANC tops 2026 local government election results as Ramaphosa warns parties ahead of coalition talks", publisher: "The Citizen", url: "https://www.citizen.co.za/news/anc-2026-local-government-election-ramaphosa-coalition/", date: "2026-11-08" },
+    { title: "2026 election final results announced", publisher: "BusinessTech", url: "https://businesstech.co.za/news/government/883205/final-2026-election-results-announced/", date: "2026-11-08" },
+    { title: "2026 local election results: IEC confirms 14,9 million voters cast ballots", publisher: "The Witness", url: "https://witness.co.za/news/kzn/2026/11/08/2026-local-election-results-iec-confirms-149-million-voters-cast-ballots/", date: "2026-11-08" },
+    { title: "The elections aftermath: Coalition battles loom as ANC loses ground and DA dominates metros", publisher: "IOL", url: "https://iol.co.za/lge2026/2026-11-08-the-elections-aftermath-coalition-battles-loom-as-anc-loses-ground-and-da-dominates-metros/", date: "2026-11-08" },
+    { title: "Coalition battles loom in Gauteng's three metros", publisher: "The Star (IOL)", url: "https://iol.co.za/the-star/news/2026-11-09-coalition-battles-loom-in-gautengs-three-metros/", date: "2026-11-09" },
+    { title: "MK Party wins 86 seats in eThekwini but falls short of majority", publisher: "Sunday Tribune", url: "https://sundaytribune.co.za/lge2026/2026-11-08-mk-party-wins-86-seats-in-ethekwini-but-falls-short-of-majority/", date: "2026-11-08" },
+    { title: "Ramaphosa says ANC accepts election results with humility", publisher: "eNCA", url: "https://www.enca.com/news-top-stories-videos/ramaphosa-says-anc-accepts-election-results-humility", date: "2026-11-08" },
+    { title: "South Africa's ANC suffers setback in local elections", publisher: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/11/8/south-africas-anc-suffers-setback-in-local-elections", date: "2026-11-08" },
+    { title: "ANC faces coalition scramble after electoral rout as control of key metros slips away", publisher: "Daily Maverick", url: "https://www.dailymaverick.co.za/article/2026-11-07-anc-faces-coalition-scramble-after-electoral-rout-as-control-of-key-metros-slips-away/", date: "2026-11-07" }
+  ]
+});
